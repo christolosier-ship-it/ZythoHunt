@@ -30,9 +30,9 @@ test('présentation des rayons, familles, labels et microbulles', () => {
   assert.equal(getNodeVisualKind(byId.get('family-pale-ale-ipa')), 'family-capsule');
   assert.equal(getNodeVisualKind(byId.get('west-coast-ipa')), 'style-bubble');
   assert.deepEqual(getStructureLabelText(byId.get('family-pale-ale-ipa')), ['Pale Ale', '& IPA']);
-  assert.equal(getApparentNodeRadius(byId.get('west-coast-ipa'), 'unknown', 0, 0.2), 6);
-  assert.equal(getApparentNodeRadius(byId.get('west-coast-ipa'), 'unknown', 2, 1.2), 40);
-  assert.equal(getApparentNodeRadius(byId.get('west-coast-ipa'), 'discovered', 2, 1.2), 52);
+  assert.equal(getApparentNodeRadius(byId.get('west-coast-ipa'), 'unknown', 0, 0.2), 7);
+  assert.equal(getApparentNodeRadius(byId.get('west-coast-ipa'), 'unknown', 2, 1.2), 27);
+  assert.equal(getApparentNodeRadius(byId.get('west-coast-ipa'), 'discovered', 2, 1.2), 39);
   assert.equal(getFamilyClass(byId.get('witbier')), 'family-wheat');
   assert.ok(wrapNodeLabel('Australian Sparkling Ale').length <= 3);
   assert.ok(wrapNodeLabel('Fermentation mixte / sauvage').length <= 3);

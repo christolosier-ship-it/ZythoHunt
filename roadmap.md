@@ -1239,6 +1239,30 @@ Rendre la Zythosphère lisible en refondant la géométrie fixe, les formes stru
 
 V0.2.4 prête pour validation humaine de la lisibilité et du layout. Ne pas commencer la V0.3.0 avant validation explicite.
 
+
+## V0.2.5 — Hotfix des dimensions Canvas et stabilisation
+
+### Objectif
+
+Corriger en urgence le contrat de dimensions Canvas après rejet visuel de la V0.2.4, sans modifier la taxonomie `0.1.2-prototype.3` ni relancer une refonte de géométrie.
+
+### Tâches
+
+- [x] Identifier la cause racine dans le mélange rayon apparent / diamètre cible / taille canonique du cache / taille native du sprite.
+- [x] Séparer la résolution source des sprites de leur taille finale `drawImage()`.
+- [x] Réduire les tailles finales des styles inconnus et découverts selon les LOD imposés.
+- [x] Dessiner les structures directement sur le Canvas statique sans passer par le sprite circulaire.
+- [x] Borner le cache à 64 entrées et aux sources 48 / 96 / 144 px.
+- [x] Désactiver par défaut territoires, liens fantômes et décorations dynamiques coûteuses.
+- [x] Conserver les coordonnées V0.2.4 et la version taxonomique `0.1.2-prototype.3`.
+- [x] Ajouter les tests automatisés du contrat de dimensions V0.2.5.
+- [x] Créer `tests/manual/V0.2.5-CHECKLIST.md`.
+- [!] iPad Safari réel indisponible dans l’environnement agent ; validation humaine obligatoire.
+
+### Critère de sortie
+
+V0.2.5 revient à une Zythosphère lisible et stable : le cache ne contrôle plus la taille finale, les structures restent sous 160 × 80 px, les styles restent sous 88 px de diamètre, et les décorations coûteuses sont désactivées par défaut. Ne pas commencer V0.3.0 avant validation iPad Safari réelle.
+
 ## 2026-06-13 — V0.2.4 refonte du layout et de la hiérarchie visuelle
 
 - Objectif : remplacer l’amas de bulles V0.2.3 par une cartographie lisible en branches et grappes espacées.
@@ -1252,3 +1276,14 @@ V0.2.4 prête pour validation humaine de la lisibilité et du layout. Ne pas com
 - Tests manuels réalisés : serveur HTTP local et requêtes HTML ; navigateur graphique réel, iPhone Safari, iPad et pinch matériel restent à valider humainement.
 - Limites : pas de persistance, pas de Brassopédie, pas de dégustations, pas de Progression, direction artistique finale des bulles encore perfectible.
 - Prochaine étape : V0.2.4 prête pour validation humaine de la lisibilité et du layout ; ne pas commencer la V0.3.0 avant validation explicite.
+
+## 2026-06-13 — V0.2.5 hotfix des dimensions Canvas et stabilisation
+
+- Objectif : corriger le rejet visuel V0.2.4 causé par des sprites affichés à leur taille source au lieu de la taille apparente demandée.
+- Réalisé : nouveau contrat source/cible des sprites, rayons LOD compacts, structures dessinées directement, cache réduit, décorations coûteuses désactivées par défaut, checklist V0.2.5.
+- Fichiers créés ou modifiés : `src/canvas/sprite-cache.js`, `src/canvas/sprite-factory.js`, `src/canvas/canvas-map-renderer.js`, `src/canvas/text-renderer.js`, `src/map/bubble-presentation.js`, `tests/canvas/v025-dimensions.test.js`, `tests/manual/V0.2.5-CHECKLIST.md`, versions et documentation.
+- Tests automatisés : `npm test` réussi avec 52 tests après modification ; 48 tests réussissaient avant modification.
+- Tests manuels réalisés : navigateur graphique réel et iPad Safari non disponibles dans l’environnement agent.
+- Coordonnées : conservées, aucune modification de `data/taxonomy-nodes.json`.
+- Limites : validation visuelle et tactile réelle iPad Safari obligatoire avant toute phase suivante.
+- Prochaine étape recommandée : valider V0.2.5 sur iPad Safari réel ; ne pas commencer V0.3.0.

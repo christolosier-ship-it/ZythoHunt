@@ -15,17 +15,17 @@ export function getNodeRadius(node, lineCount = 1) {
 }
 
 export const STRUCTURE_SHAPES = {
-  root: { kind: 'root-medallion', width: 184, height: 132, collisionRadius: 96 },
-  fermentation: { kind: 'fermentation-cartouche', width: 230, height: 112, collisionRadius: 128 },
-  family: { kind: 'family-capsule', width: 250, height: 104, collisionRadius: 135 }
+  root: { kind: 'root-medallion', sizes: [{ width: 72, height: 54 }, { width: 88, height: 64 }, { width: 102, height: 74 }], collisionRadius: 58 },
+  fermentation: { kind: 'fermentation-cartouche', sizes: [{ width: 94, height: 42 }, { width: 118, height: 52 }, { width: 136, height: 60 }], collisionRadius: 76 },
+  family: { kind: 'family-capsule', sizes: [{ width: 104, height: 42 }, { width: 128, height: 50 }, { width: 146, height: 58 }], collisionRadius: 82 }
 };
 
 export const STYLE_APPARENT_RADII = {
-  unknown: [6, 18, 40],
-  discovered: [12, 34, 52],
-  revealPending: [12, 36, 54],
-  selected: [14, 38, 56],
-  explored: [12, 34, 52]
+  unknown: [7, 15, 27],
+  discovered: [11, 25, 39],
+  revealPending: [11.8, 27, 42],
+  selected: [11.8, 27, 42],
+  explored: [11, 25, 39]
 };
 
 export function getStructureShape(node) {
@@ -35,13 +35,22 @@ export function getStructureShape(node) {
   return STRUCTURE_SHAPES.family;
 }
 
+export function getApparentStructureSize(node, lod = 1) {
+  const shape = getStructureShape(node);
+  const size = shape.sizes[Math.max(0, Math.min(2, lod))] ?? shape.sizes[1];
+  return {
+    width: Math.min(160, size.width),
+    height: Math.min(80, size.height)
+  };
+}
+
 export function getNodeVisualKind(node) {
   if (node.functionalType !== 'structure') return 'style-bubble';
   return getStructureShape(node).kind;
 }
 
 export function getApparentNodeRadius(node, state = 'unknown', lod = 1, scale = 1) {
-  if (node.functionalType === 'structure') return getNodeRadius(node) * scale;
+  if (node.functionalType === 'structure') return Math.max(getApparentStructureSize(node, lod).width, getApparentStructureSize(node, lod).height) / 2;
   const key = state === 'unknown' ? 'unknown' : state === 'reveal-pending' ? 'revealPending' : state === 'selected' ? 'selected' : state === 'explored' ? 'explored' : 'discovered';
   return STYLE_APPARENT_RADII[key][lod] ?? STYLE_APPARENT_RADII.unknown[1];
 }
