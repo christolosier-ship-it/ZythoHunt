@@ -1287,3 +1287,40 @@ V0.2.5 revient à une Zythosphère lisible et stable : le cache ne contrôle plu
 - Coordonnées : conservées, aucune modification de `data/taxonomy-nodes.json`.
 - Limites : validation visuelle et tactile réelle iPad Safari obligatoire avant toute phase suivante.
 - Prochaine étape recommandée : valider V0.2.5 sur iPad Safari réel ; ne pas commencer V0.3.0.
+
+## V0.2.6 : Stabilisation des échelles et fluidité Safari
+
+### Objectif
+
+Corriger le rejet visuel et tactile restant de la V0.2.5 : la carte était dimensionnellement plus stable, mais encore trop difficile à lire et trop coûteuse pendant pan/zoom sur iPad Safari.
+
+### Tâches
+
+- [x] Passer l’application à `0.2.6` en conservant la taxonomie `0.1.2-prototype.3`.
+- [x] Supprimer les animations permanentes du renderer Canvas normal.
+- [x] Réserver la boucle dynamique à la révélation.
+- [x] Remplacer les tailles LOD par des échelles progressives bornées.
+- [x] Limiter l’Accueil aux huit structures.
+- [x] Conserver Tout voir pour l’ensemble de la taxonomie.
+- [x] Ajouter un voisinage local de révélation.
+- [x] Ajouter le DPR adaptatif.
+- [x] Ajouter un mode interaction rapide.
+- [x] Supprimer les flous CSS de l’interface normale.
+- [x] Désactiver les diagnostics de collision hors debug demandé.
+- [x] Ajouter les tests automatisés V0.2.6.
+- [x] Créer `tests/manual/V0.2.6-CHECKLIST.md`.
+- [!] Validation iPad Safari réelle indisponible dans l’environnement agent ; validation humaine obligatoire.
+
+### Critère de sortie
+
+V0.2.6 est prête pour validation humaine sur Safari iPad. Ne pas commencer V0.3.0 avant validation explicite de la lisibilité et de la fluidité.
+
+## 2026-06-13 — V0.2.6 stabilisation des échelles et fluidité Safari
+
+- Objectif : revenir à une base simple, lisible, stable et fluide après rejet visuel de la V0.2.5 sur iPad.
+- Réalisé : échelles progressives bornées, Accueil structurel, voisinage local de révélation, DPR adaptatif, mode interaction rapide, suppression des flous CSS, diagnostics hors debug évités et Canvas dynamique inactif hors révélation.
+- Tests automatisés : `npm test` réussi avec 57 tests après modification ; 52 tests réussissaient avant modification.
+- Tests manuels réalisés : aucun test Safari iPad réel dans l’environnement agent.
+- Coordonnées : conservées, aucune modification de `data/taxonomy-nodes.json`.
+- Limites : validation humaine Safari iPad paysage obligatoire pour confirmer pan, pinch, latence au doigt et mémoire stable.
+- Prochaine étape : valider V0.2.6 sur iPad Safari réel ; ne pas commencer V0.3.0.

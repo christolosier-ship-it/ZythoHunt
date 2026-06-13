@@ -13,8 +13,8 @@ import { getApparentNodeRadius, getApparentStructureSize, getStructureLabelText,
 
 const HOME_STRUCTURE_IDS = ['beer', 'fermentation-high', 'fermentation-low', 'fermentation-spontaneous', 'fermentation-mixed-wild', 'family-pale-ale-ipa', 'family-wheat-beer', 'family-pale-lager'];
 const FAMILY_IDS = ['family-pale-ale-ipa', 'family-wheat-beer', 'family-pale-lager'];
-const STRUCTURE_FOCUS_MAX_SCALE = 1.25;
-const REVEAL_FOCUS_MAX_SCALE = 1.7;
+const STRUCTURE_FOCUS_MAX_SCALE = 0.95;
+const REVEAL_FOCUS_MAX_SCALE = 1.10;
 const FIT_MIN_SCALE = 0.08;
 
 function descendantsOf(id, nodes) {
@@ -46,7 +46,7 @@ export function getDescendantBounds(structureId, nodes, options = {}) {
   for (const item of items) {
     let halfW; let halfH;
     if (item.functionalType === 'structure') {
-      const shape = getApparentStructureSize(item, 2);
+      const shape = getApparentStructureSize(item, 2, scale);
       halfW = shape.width / 2 + 34;
       halfH = shape.height / 2 + 32;
     } else {
@@ -60,6 +60,28 @@ export function getDescendantBounds(structureId, nodes, options = {}) {
     maxY = Math.max(maxY, item.position.y + halfH);
   }
   return { minX: minX - padding, minY: minY - padding, maxX: maxX + padding, maxY: maxY + padding, width: maxX - minX + padding * 2, height: maxY - minY + padding * 2 };
+}
+
+
+export function getStyleNeighborhood(styleId, nodes) {
+  const byId = new Map(nodes.map(n => [n.id, n]));
+  const byParent = new Map();
+  for (const n of nodes) if (n.parentId) { if (!byParent.has(n.parentId)) byParent.set(n.parentId, []); byParent.get(n.parentId).push(n); }
+  const target = byId.get(styleId); if (!target) return [];
+  const out = new Map([[target.id, target]]);
+  let parent = byId.get(target.parentId);
+  if (parent) out.set(parent.id, parent);
+  let cur = parent;
+  while (cur && cur.nodeType !== 'family') { cur = byId.get(cur.parentId); if (cur) out.set(cur.id, cur); }
+  for (const sib of byParent.get(target.parentId) || []) if (out.size < 10) out.set(sib.id, sib);
+  for (const child of byParent.get(styleId) || []) if (out.size < 10) out.set(child.id, child);
+  return [...out.values()];
+}
+
+export function getStyleNeighborhoodBounds(styleId, nodes) {
+  const items = getStyleNeighborhood(styleId, nodes); if (!items.length) return null;
+  const padding = 170; const xs = items.map(n => n.position.x); const ys = items.map(n => n.position.y);
+  return { minX: Math.min(...xs) - padding, minY: Math.min(...ys) - padding, maxX: Math.max(...xs) + padding, maxY: Math.max(...ys) + padding, width: Math.max(...xs) - Math.min(...xs) + padding * 2, height: Math.max(...ys) - Math.min(...ys) + padding * 2 };
 }
 
 function familyBounds(familyId, nodes) {
@@ -97,7 +119,7 @@ export function detectLayoutCollisions(nodes, { scale = 1 } = {}) {
     checkPairs(styles.filter(n => ids.has(n.id)), styleCollisions, n => getApparentNodeRadius(n, 'discovered', 2, scale) / scale + 22);
   }
   checkPairs(structures, labelCollisions, n => {
-    const shape = getApparentStructureSize(n, 2);
+    const shape = getApparentStructureSize(n, 2, scale);
     return Math.max(shape.width / 2, shape.height / 2) + 16;
   });
   return { structureCollisions, styleCollisions, labelCollisions, warnings: [] };
@@ -148,7 +170,7 @@ export function createCanvasMapRenderer(root, data, options = {}) {
 
   function drawStructureLabel(node, p) {
     const lines = getStructureLabelText(node);
-    const box = getApparentStructureSize(node, lod);
+    const box = getApparentStructureSize(node, lod, viewport.scale);
     ctx.save();
     ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
     ctx.fillStyle = ['lager', 'wheat'].includes(node.visualFamily) ? '#2d2114' : '#fff8df';
@@ -162,7 +184,7 @@ export function createCanvasMapRenderer(root, data, options = {}) {
   }
 
   function drawStructureNode(node, p) {
-    const box = getApparentStructureSize(node, lod);
+    const box = getApparentStructureSize(node, lod, viewport.scale);
     const shape = getStructureShape(node);
     const base = { wheat: '#c9ae56', lager: '#d49a24', spontaneous: '#bf6a58', 'mixed-wild': '#8c5873', 'pale-ale-ipa': '#d88718', high: '#bd762d', low: '#c58d2a', core: '#8d7045' }[node.visualFamily || 'core'] || '#8d7045';
     ctx.save();
@@ -185,7 +207,7 @@ export function createCanvasMapRenderer(root, data, options = {}) {
     ctx.restore();
   }
 
-  function drawNode(node, presentation, discovered) {
+  function drawNode(node, presentation, discovered, fast = false) {
     const state = resolveNodeVisualState(node, presentation, discovered);
     const p = worldToScreen(node.position, viewport);
     if (node.functionalType === 'structure') {
@@ -195,13 +217,12 @@ export function createCanvasMapRenderer(root, data, options = {}) {
     }
     const radius = getApparentNodeRadius(node, state, lod, viewport.scale);
     const family = node.visualFamily || 'core';
-    const targetDiameterPx = Math.min(88, radius * 2);
-    const sprite = spriteCache.get({ type: node.functionalType, nodeType: node.nodeType, family, state, targetDiameterPx, lod, dpr, themeVersion: theme.version });
+    const targetDiameterPx = Math.min(80, radius * 2);
+    const sprite = spriteCache.get({ type: node.functionalType, nodeType: node.nodeType, family, state, targetDiameterPx, lod: fast ? 0 : lod, dpr, themeVersion: theme.version });
     ctx.drawImage(sprite, p.x - targetDiameterPx / 2, p.y - targetDiameterPx / 2, targetDiameterPx, targetDiameterPx);
     const unknown = state === 'unknown';
-    const showQuestion = !unknown || radius >= 14;
-    const label = unknown ? (showQuestion ? '?' : '') : (node.name || node.shortName);
-    if (label) drawCenteredLabel(ctx, label, p.x, p.y, Math.max(8, radius), { lod, shortText: node.shortName || node.name, fillStyle: label === '?' ? theme.text.question : theme.text.primary });
+    const label = unknown ? '?' : (fast ? '' : (viewport.scale < 0.55 ? (node.shortName || node.name) : (node.name || node.shortName)));
+    if (label) drawCenteredLabel(ctx, label, p.x, p.y, Math.max(8, radius), { lod: fast ? 0 : lod, shortText: node.shortName || node.name, fillStyle: label === '?' ? theme.text.question : theme.text.primary });
   }
 
   function drawTerritories() {
@@ -246,9 +267,9 @@ export function createCanvasMapRenderer(root, data, options = {}) {
   }
 
   function drawDiagnostics(mapState) {
-    const collisions = detectLayoutCollisions(data.nodes, { scale: viewport.scale });
     const show = diagnostics.ids || diagnostics.coords || diagnostics.collisionRadii || diagnostics.labelBounds || diagnostics.descendantRects || diagnostics.homeBounds || diagnostics.fitBounds;
-    if (!show) return collisions;
+    if (!options.debugMode || !show) return lastStats.collisions || { structureCollisions: [], styleCollisions: [], labelCollisions: [], warnings: [] };
+    const collisions = detectLayoutCollisions(data.nodes, { scale: viewport.scale });
     ctx.save();
     ctx.font = '11px ui-monospace, monospace';
     for (const node of data.nodes) {
@@ -258,7 +279,7 @@ export function createCanvasMapRenderer(root, data, options = {}) {
         ctx.strokeStyle = '#c62828aa'; ctx.setLineDash([4, 4]); ctx.beginPath(); ctx.arc(p.x, p.y, r, 0, Math.PI * 2); ctx.stroke(); ctx.setLineDash([]);
       }
       if (diagnostics.labelBounds && node.functionalType === 'structure') {
-        const shape = getApparentStructureSize(node, lod);
+        const shape = getApparentStructureSize(node, lod, viewport.scale);
         const w = (shape.width + 28) * viewport.scale;
         const h = (shape.height + 22) * viewport.scale;
         ctx.strokeStyle = '#7b3fbd99';
@@ -283,7 +304,7 @@ export function createCanvasMapRenderer(root, data, options = {}) {
   }
 
   function render(discoveredIds, presentation = {}, handlers = {}) {
-    const resized = resize(); const start = performance.now();
+    const resized = resize(); const start = performance.now(); const fast = Boolean(presentation.isInteracting);
     lod = getLod(viewport.scale, lod);
     const pending = presentation.revealPendingId ? new Set([...discoveredIds, presentation.revealPendingId]) : discoveredIds;
     const state = computeVisibleMapState(data.nodes, data.links, pending);
@@ -297,18 +318,26 @@ export function createCanvasMapRenderer(root, data, options = {}) {
     const culledNodes = getNodesInViewport(state.visibleNodes, viewport, size, 240);
     const culledLinks = getLinksInViewport(linkSet, nodeIndex, viewport, size, 260);
     ctx.clearRect(0, 0, size.width, size.height);
-    drawTerritories();
+    if (!fast) drawTerritories();
     culledLinks.forEach(l => drawLink(l, linkMode(l, state, pending)));
-    culledNodes.forEach(n => drawNode(n, presentation, pending));
-    syncHitLayer(culledNodes, presentation, discoveredIds, handlers.onSelect);
-    const collisions = drawDiagnostics(state);
-    dctx.clearRect(0, 0, size.width, size.height);
-    lastStats = { totalNodes: state.visibleNodes.length, viewportNodes: culledNodes.length, drawnNodes: culledNodes.length, drawnLinks: culledLinks.length, htmlButtons: hitLayer.children.length, dpr, lod, staticRenderMs: performance.now() - start, dynamicRenderCount: (lastStats.dynamicRenderCount || 0) + (presentation.revealPendingId || presentation.selectedId ? 1 : 0), canvasResizeCount: resizeManager.state.canvasResizeCount, resized, dynamicLoopActive: Boolean(presentation.revealPendingId || presentation.selectedId), sprites: spriteCache.stats(), collisions };
+    culledNodes.forEach(n => drawNode(n, presentation, pending, fast));
+    if (!fast) syncHitLayer(culledNodes, presentation, discoveredIds, handlers.onSelect);
+    const collisions = fast ? (lastStats.collisions || { structureCollisions: [], styleCollisions: [], labelCollisions: [], warnings: [] }) : drawDiagnostics(state);
+    if (presentation.revealPendingId) dctx.clearRect(0, 0, size.width, size.height);
+    lastStats = { totalNodes: state.visibleNodes.length, viewportNodes: culledNodes.length, drawnNodes: culledNodes.length, drawnLinks: culledLinks.length, htmlButtons: hitLayer.children.length, dpr, lod, staticRenderMs: performance.now() - start, dynamicRenderCount: (lastStats.dynamicRenderCount || 0) + (presentation.revealPendingId ? 1 : 0), canvasResizeCount: resizeManager.state.canvasResizeCount, resized, dynamicLoopActive: Boolean(presentation.revealPendingId), sprites: spriteCache.stats(), collisions };
     return { ...state, visibleLinks: linkSet, performance: lastStats };
   }
 
   function computeHomeBounds() {
-    return getDescendantBounds('beer', data.nodes.filter(n => HOME_STRUCTURE_IDS.includes(n.id) || n.parentId === 'family-pale-ale-ipa' || n.parentId === 'family-wheat-beer' || n.parentId === 'family-pale-lager'), { padding: 220, includeSelf: true, scale: 1 });
+    const nodes = data.nodes.filter(n => HOME_STRUCTURE_IDS.includes(n.id));
+    const xs = nodes.map(n => n.position.x); const ys = nodes.map(n => n.position.y);
+    const padding = 260;
+    return { minX: Math.min(...xs) - padding, minY: Math.min(...ys) - padding, maxX: Math.max(...xs) + padding, maxY: Math.max(...ys) + padding, width: Math.max(...xs) - Math.min(...xs) + padding * 2, height: Math.max(...ys) - Math.min(...ys) + padding * 2 };
+  }
+
+  function computeMapState(discoveredIds, presentation = {}) {
+    const pending = presentation.revealPendingId ? new Set([...discoveredIds, presentation.revealPendingId]) : discoveredIds;
+    return computeVisibleMapState(data.nodes, data.links, pending);
   }
 
   function fitState(state) {
@@ -319,20 +348,20 @@ export function createCanvasMapRenderer(root, data, options = {}) {
   function focusNode(id) {
     const n = nodeIndex.get(id); if (!n) return;
     const isStructure = n.functionalType === 'structure';
-    const bounds = isStructure ? (n.id === 'beer' ? computeHomeBounds() : getDescendantBounds(id, data.nodes, { padding: n.nodeType === 'family' ? 210 : 260, scale: 1 })) : getDescendantBounds(n.parentId, data.nodes, { padding: 180, scale: 1 });
+    const bounds = isStructure ? (n.id === 'beer' ? computeHomeBounds() : getDescendantBounds(id, data.nodes, { padding: n.nodeType === 'family' ? 210 : 260, scale: 1 })) : getStyleNeighborhoodBounds(id, data.nodes) || getDescendantBounds(n.parentId, data.nodes, { padding: 180, scale: 1 });
     Object.assign(viewport, fitBounds(bounds, size, 48, { min: FIT_MIN_SCALE, max: isStructure ? STRUCTURE_FOCUS_MAX_SCALE : REVEAL_FOCUS_MAX_SCALE }, options.getInsets?.() || {}));
   }
 
-  let dragging = null; const pointers = new Map(); let pinch = null; const distance = (a, b) => Math.hypot(a.x - b.x, a.y - b.y);
-  root.querySelector('.zythosphere-viewport')?.addEventListener('pointerdown', e => { pointers.set(e.pointerId, { x: e.clientX, y: e.clientY }); dragging = { x: e.clientX, y: e.clientY }; if (pointers.size === 2) { const [a, b] = [...pointers.values()]; const r = root.getBoundingClientRect(); pinch = { distance: distance(a, b), scale: viewport.scale, center: { x: (a.x + b.x) / 2 - r.left, y: (a.y + b.y) / 2 - r.top } }; } root.setPointerCapture?.(e.pointerId); });
-  root.querySelector('.zythosphere-viewport')?.addEventListener('pointermove', e => { if (!pointers.has(e.pointerId)) return; pointers.set(e.pointerId, { x: e.clientX, y: e.clientY }); if (pointers.size === 2 && pinch) { const [a, b] = [...pointers.values()]; const r = root.getBoundingClientRect(); const center = { x: (a.x + b.x) / 2 - r.left, y: (a.y + b.y) / 2 - r.top }; Object.assign(viewport, zoomAt({ ...viewport, scale: pinch.scale }, Math.max(.08, Math.min(3, distance(a, b) / pinch.distance)), center)); root.dispatchEvent(new CustomEvent('zytho-map-change')); return; } if (!dragging) return; Object.assign(viewport, pan(viewport, e.clientX - dragging.x, e.clientY - dragging.y)); dragging = { x: e.clientX, y: e.clientY }; root.dispatchEvent(new CustomEvent('zytho-map-change')); });
-  const endPointer = e => { pointers.delete(e.pointerId); dragging = null; pinch = null; };
+  let dragging = null; const pointers = new Map(); let pinch = null; let cachedRect = null; const distance = (a, b) => Math.hypot(a.x - b.x, a.y - b.y);
+  root.querySelector('.zythosphere-viewport')?.addEventListener('pointerdown', e => { cachedRect = root.getBoundingClientRect(); root.dispatchEvent(new CustomEvent('zytho-interaction-start')); pointers.set(e.pointerId, { x: e.clientX, y: e.clientY }); dragging = { x: e.clientX, y: e.clientY }; if (pointers.size === 2) { const [a, b] = [...pointers.values()]; const r = cachedRect || (cachedRect = root.getBoundingClientRect()); pinch = { distance: distance(a, b), scale: viewport.scale, center: { x: (a.x + b.x) / 2 - r.left, y: (a.y + b.y) / 2 - r.top } }; } root.setPointerCapture?.(e.pointerId); });
+  root.querySelector('.zythosphere-viewport')?.addEventListener('pointermove', e => { if (!pointers.has(e.pointerId)) return; pointers.set(e.pointerId, { x: e.clientX, y: e.clientY }); if (pointers.size === 2 && pinch) { const [a, b] = [...pointers.values()]; const r = cachedRect || (cachedRect = root.getBoundingClientRect()); const center = { x: (a.x + b.x) / 2 - r.left, y: (a.y + b.y) / 2 - r.top }; Object.assign(viewport, zoomAt({ ...viewport, scale: pinch.scale }, Math.max(.08, Math.min(3, distance(a, b) / pinch.distance)), center)); root.dispatchEvent(new CustomEvent('zytho-map-change')); return; } if (!dragging) return; Object.assign(viewport, pan(viewport, e.clientX - dragging.x, e.clientY - dragging.y)); dragging = { x: e.clientX, y: e.clientY }; root.dispatchEvent(new CustomEvent('zytho-map-change')); });
+  const endPointer = e => { pointers.delete(e.pointerId); dragging = null; pinch = null; cachedRect = null; root.dispatchEvent(new CustomEvent('zytho-interaction-end')); };
   root.querySelector('.zythosphere-viewport')?.addEventListener('pointerup', endPointer);
   root.querySelector('.zythosphere-viewport')?.addEventListener('pointercancel', endPointer);
-  root.querySelector('.zythosphere-viewport')?.addEventListener('wheel', e => { e.preventDefault(); const r = root.getBoundingClientRect(); Object.assign(viewport, zoomAt(viewport, e.deltaY < 0 ? 1.12 : .88, { x: e.clientX - r.left, y: e.clientY - r.top })); root.dispatchEvent(new CustomEvent('zytho-map-change')); }, { passive: false });
+  root.querySelector('.zythosphere-viewport')?.addEventListener('wheel', e => { e.preventDefault(); root.dispatchEvent(new CustomEvent('zytho-interaction-start')); const r = cachedRect || (cachedRect = root.getBoundingClientRect()); Object.assign(viewport, zoomAt(viewport, e.deltaY < 0 ? 1.12 : .88, { x: e.clientX - r.left, y: e.clientY - r.top })); root.dispatchEvent(new CustomEvent('zytho-map-change')); clearTimeout(root._wheelEndTimer); root._wheelEndTimer = setTimeout(() => { cachedRect = null; root.dispatchEvent(new CustomEvent('zytho-interaction-end')); }, 100); }, { passive: false });
 
   return {
-    render, fitState, focusNode,
+    render, computeMapState, fitState, focusNode,
     controls: {
       zoomIn: () => Object.assign(viewport, zoomAt(viewport, 1.2, { x: size.width / 2, y: size.height / 2 })),
       zoomOut: () => Object.assign(viewport, zoomAt(viewport, .8, { x: size.width / 2, y: size.height / 2 })),

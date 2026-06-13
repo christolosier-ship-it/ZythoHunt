@@ -10,7 +10,7 @@ const version = JSON.parse(await readFile(new URL('../../data/taxonomy-version.j
 const byId = new Map(nodes.map(node => [node.id, node]));
 
 test('V0.2.5 versions et monde agrandi sans changement de corpus', () => {
-  assert.equal(APP_VERSION, '0.2.5');
+  assert.equal(APP_VERSION, '0.2.6');
   assert.equal(TAXONOMY_VERSION, '0.1.2-prototype.3');
   assert.equal(version.taxonomyVersion, '0.1.2-prototype.3');
   assert.equal(nodes.length, 28);
@@ -41,10 +41,10 @@ test('bounds descendants incluent branches et excluent les étrangers évidents'
 
 test('tailles LOD des inconnues et labels structurels complets', () => {
   const west = byId.get('west-coast-ipa');
-  assert.equal(getApparentNodeRadius(west, 'unknown', 0, 0.2), 7);
-  assert.equal(getApparentNodeRadius(west, 'unknown', 1, 0.8), 15);
-  assert.equal(getApparentNodeRadius(west, 'unknown', 2, 1.4), 27);
-  assert.equal(getApparentNodeRadius(west, 'discovered', 2, 1.4), 39);
+  assert.equal(getApparentNodeRadius(west, 'unknown', 0, 0.2), 10);
+  assert.equal(getApparentNodeRadius(west, 'unknown', 1, 0.8), 24);
+  assert.equal(getApparentNodeRadius(west, 'unknown', 2, 1.4), 24);
+  assert.equal(getApparentNodeRadius(west, 'discovered', 2, 1.4), 36);
   assert.deepEqual(getStructureLabelText(byId.get('family-wheat-beer')), ['Bières', 'de blé']);
   assert.deepEqual(getStructureLabelText(byId.get('family-pale-lager')), ['Lagers', 'blondes']);
   assert.deepEqual(getStructureLabelText(byId.get('fermentation-mixed-wild')), ['Mixte /', 'sauvage']);
