@@ -382,6 +382,42 @@ La branche prototype est stable, navigable et cohérente, même sans habillage g
 
 ---
 
+
+## V0.1.1 : Correctifs structurels et outils de test
+
+### Objectif
+
+Corriger les défauts structurels, cartographiques, de validation et de test manuel observés sur la V0.1.0, sans commencer la V0.2.0.
+
+### Tâches
+
+- [x] Ajouter Fermentation spontanée.
+- [x] Ajouter Fermentation mixte / sauvage.
+- [x] Ajouter les liens principaux depuis `beer`.
+- [x] Mettre à jour les compteurs : 28 nœuds, 8 structures, 20 capturables, 27 liens principaux, 2 liens secondaires.
+- [x] Mettre à jour les versions applicative et taxonomique.
+- [x] Corriger le viewBox SVG pour le monde `2400 × 1800`.
+- [x] Centraliser la conversion écran vers SVG.
+- [x] Fiabiliser pan, molette, pinch, pointercancel et perte de capture.
+- [x] Cadrer automatiquement le scénario actif au chargement.
+- [x] Corriger la vue générale avec les extrémités de liens visibles.
+- [x] Ajouter l'outil debug « Révéler un style de test » sans persistance.
+- [x] Synchroniser scénario, cases, compteurs et carte dans le panneau développeur.
+- [x] Retirer les faux rôles bouton des styles non interactifs.
+- [x] Restaurer la conception responsable dans le README.
+- [x] Reformater les fichiers JavaScript principaux.
+- [x] Renforcer le validateur taxonomique.
+- [x] Ajouter des tests automatisés V0.1.1.
+- [x] Créer `tests/manual/V0.1.1-CHECKLIST.md`.
+- [~] Tests navigateur graphiques : serveur local vérifié par HTTP, validation visuelle réelle à faire.
+- [!] iPhone Safari réel indisponible dans l'environnement agent.
+
+### Critère de sortie
+
+Prototype V0.1.1 prêt pour validation humaine, avec V0.2.0 explicitement non démarrée.
+
+---
+
 ## V0.2.0 — Direction artistique et moteur de bulles
 
 ### Objectif
@@ -983,6 +1019,21 @@ Codex doit ajouter une entrée à chaque intervention significative.
 - Limites : absence volontaire de capture, Brassopédie, fiches, dégustations, persistance, PWA et styles visuels définitifs.
 - Points restant à valider : checklist manuelle complète, notamment iPhone Safari réel, Android réel ou émulation, pavé tactile et absence d'erreur console dans un navigateur graphique.
 - Prochaine étape recommandée : validation humaine de la V0.1.0 avant toute intervention V0.2.0.
+
+
+## 2026-06-13 — V0.1.1 correctifs structurels et outils de test
+
+- Objectif : corriger la V0.1.0 avant la direction artistique V0.2.0.
+- Réalisé : ajout des deux troncs de fermentation manquants, correction du monde SVG, cadrage initial, vue générale, recherche debug, synchronisation du panneau, accessibilité provisoire, validation renforcée et tests automatisés.
+- Fichiers créés ou modifiés : `README.md`, `index.html`, `package.json`, `data/*.json`, `src/**`, `styles/map.css`, `tests/taxonomy/**`, `tests/manual/V0.1.1-CHECKLIST.md`, `roadmap.md`.
+- Taxonomie utilisée : 28 nœuds, dont 8 nœuds structurels et 20 styles capturables, avec 27 liens principaux et 2 liens secondaires.
+- Correction viewport : monde logique unique `2400 × 1800`, conversion écran vers SVG centralisée, état `{ x, y, scale }` appliqué au groupe SVG.
+- Outil développeur : saisie de révélation par nom ou alias, masquage et réinitialisation sans persistance.
+- Tests automatisés : `npm test` réussi avec 21 tests.
+- Tests manuels réalisés : serveur HTTP local lancé et page vérifiée par requête HTTP ; environnement graphique réel non disponible.
+- Tests restant à effectuer : checklist V0.1.1 complète, Chrome/Firefox/Safari graphiques, iPhone Safari réel, Android réel ou émulation.
+- Limites connues : pas de vraie capture publique, pas de Brassopédie, pas de persistance, pas de PWA, pas de design de bulles définitif.
+- Prochaine étape recommandée : validation humaine de la V0.1.1 ; ne pas commencer V0.2.0 avant accord explicite.
 
 # 11. Règle de clôture d’une tâche
 

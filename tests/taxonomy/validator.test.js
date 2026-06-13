@@ -2,7 +2,7 @@ import test from 'node:test'; import assert from 'node:assert/strict'; import fs
 import { validateTaxonomy } from '../../src/domain/taxonomy-validator.js';
 const nodes=JSON.parse(fs.readFileSync('data/taxonomy-nodes.json')); const links=JSON.parse(fs.readFileSync('data/taxonomy-links.json')); const aliases=JSON.parse(fs.readFileSync('data/aliases.json')); const version=JSON.parse(fs.readFileSync('data/taxonomy-version.json'));
 const invalid=(n=nodes,l=links,a=aliases,v=version)=>validateTaxonomy(structuredClone(n),structuredClone(l),structuredClone(a),structuredClone(v)).valid;
-test('corpus réel valide',()=>{const r=validateTaxonomy(nodes,links,aliases,version); assert.equal(r.valid,true); assert.deepEqual(r.stats,{nodeCount:26,structureNodeCount:6,capturableNodeCount:20,primaryLinkCount:25,secondaryLinkCount:2});});
+test('corpus réel valide',()=>{const r=validateTaxonomy(nodes,links,aliases,version); assert.equal(r.valid,true); assert.deepEqual(r.stats,{nodeCount:28,structureNodeCount:8,capturableNodeCount:20,primaryLinkCount:27,secondaryLinkCount:2});});
 test('identifiant dupliqué',()=>assert.equal(invalid([...nodes,nodes[0]]),false));
 test('parent inexistant',()=>{const n=structuredClone(nodes); n[1].parentId='missing'; assert.equal(invalid(n),false);});
 test('cycle',()=>{const n=structuredClone(nodes); n.find(x=>x.id==='beer').parentId='west-coast-ipa'; assert.equal(invalid(n),false);});

@@ -1,6 +1,14 @@
-export const APP_VERSION = '0.1.0';
-export const TAXONOMY_VERSION = '0.1.0-prototype.1';
-export const WORLD = { width: 2400, height: 1600 };
+export const APP_VERSION = '0.1.1';
+export const TAXONOMY_VERSION = '0.1.1-prototype.2';
+export const TAXONOMY_SCHEMA_VERSION = 1;
+export const WORLD = { width: 2400, height: 1800 };
+export const EXPECTED_COUNTS = {
+  nodeCount: 28,
+  structureNodeCount: 8,
+  capturableNodeCount: 20,
+  primaryLinkCount: 27,
+  secondaryLinkCount: 2
+};
 export const SCENARIOS = {
   empty: [],
   cardinal: ['west-coast-ipa'],

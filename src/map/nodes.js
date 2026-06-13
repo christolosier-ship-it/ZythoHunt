@@ -1,2 +1,55 @@
-function lines(text, max=14){ const words=text.split(' '), out=[]; let cur=''; for(const w of words){ if((cur+' '+w).trim().length>max){ if(cur) out.push(cur); cur=w; } else cur=(cur+' '+w).trim(); } if(cur) out.push(cur); return out; }
-export function renderNodes(group, nodes, interactiveIds) { group.replaceChildren(); for(const n of nodes){ const g=document.createElementNS('http://www.w3.org/2000/svg','g'); g.setAttribute('class',`map-node ${n.functionalType==='structure'?'is-structure':'is-style'} family-${n.visualFamily}`); g.setAttribute('transform',`translate(${n.position.x} ${n.position.y})`); if(interactiveIds.has(n.id)){ g.tabIndex=0; g.setAttribute('role','button'); } g.dataset.nodeId=n.id; const c=document.createElementNS('http://www.w3.org/2000/svg','circle'); c.setAttribute('r', n.functionalType==='structure'?54:38); g.append(c); const title=document.createElementNS('http://www.w3.org/2000/svg','text'); title.setAttribute('text-anchor','middle'); title.setAttribute('class','node-label'); const parts=lines(n.shortName||n.name); parts.forEach((p,i)=>{ const t=document.createElementNS('http://www.w3.org/2000/svg','tspan'); t.setAttribute('x','0'); t.setAttribute('dy', i===0?'-0.15em':'1.1em'); t.textContent=p; title.append(t); }); g.append(title); if(n.subtitle){ const sub=document.createElementNS('http://www.w3.org/2000/svg','text'); sub.setAttribute('text-anchor','middle'); sub.setAttribute('y','76'); sub.setAttribute('class','node-subtitle'); sub.textContent=n.subtitle; g.append(sub); } group.append(g); } }
+function lines(text, max = 14) {
+  const words = text.split(' ');
+  const out = [];
+  let current = '';
+  for (const word of words) {
+    if (`${current} ${word}`.trim().length > max) {
+      if (current) out.push(current);
+      current = word;
+    } else {
+      current = `${current} ${word}`.trim();
+    }
+  }
+  if (current) out.push(current);
+  return out;
+}
+
+export function renderNodes(group, nodes) {
+  group.replaceChildren();
+  for (const node of nodes) {
+    const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    g.setAttribute('class', `map-node ${node.functionalType === 'structure' ? 'is-structure' : 'is-style'} family-${node.visualFamily}`);
+    g.setAttribute('transform', `translate(${node.position.x} ${node.position.y})`);
+    g.dataset.nodeId = node.id;
+
+    const desc = document.createElementNS('http://www.w3.org/2000/svg', 'desc');
+    desc.textContent = node.functionalType === 'capturable' ? `Style découvert : ${node.name}` : `Nœud structurel : ${node.name}`;
+    g.append(desc);
+
+    const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    circle.setAttribute('r', node.functionalType === 'structure' ? 54 : 38);
+    g.append(circle);
+
+    const title = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    title.setAttribute('text-anchor', 'middle');
+    title.setAttribute('class', 'node-label');
+    for (const [index, part] of lines(node.shortName || node.name).entries()) {
+      const tspan = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
+      tspan.setAttribute('x', '0');
+      tspan.setAttribute('dy', index === 0 ? '-0.15em' : '1.1em');
+      tspan.textContent = part;
+      title.append(tspan);
+    }
+    g.append(title);
+
+    if (node.subtitle) {
+      const subtitle = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      subtitle.setAttribute('text-anchor', 'middle');
+      subtitle.setAttribute('y', '76');
+      subtitle.setAttribute('class', 'node-subtitle');
+      subtitle.textContent = node.subtitle;
+      g.append(subtitle);
+    }
+    group.append(g);
+  }
+}
