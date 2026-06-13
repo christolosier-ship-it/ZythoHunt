@@ -3,7 +3,7 @@ import { readFile } from 'node:fs/promises';
 import test from 'node:test';
 import { canSelectNode, resolveNodeVisualState } from '../../src/domain/node-visual-state.js';
 import { createDiscoveryController } from '../../src/map/discovery-animation.js';
-import { createMicroBubbles, getFamilyClass, getNodeRadius, wrapNodeLabel } from '../../src/map/bubble-presentation.js';
+import { createMicroBubbles, getApparentNodeRadius, getFamilyClass, getNodeRadius, getNodeVisualKind, getStructureLabelText, wrapNodeLabel } from '../../src/map/bubble-presentation.js';
 import { getActiveSecondaryLinkIds, getPrimaryPathToRoot } from '../../src/map/selection-path.js';
 
 const nodes = JSON.parse(await readFile(new URL('../../data/taxonomy-nodes.json', import.meta.url)));
@@ -21,10 +21,18 @@ test('états visuels et priorité', () => {
 });
 
 test('présentation des rayons, familles, labels et microbulles', () => {
-  assert.equal(getNodeRadius(byId.get('beer')), 86);
-  assert.equal(getNodeRadius(byId.get('fermentation-high')), 74);
-  assert.equal(getNodeRadius(byId.get('family-pale-ale-ipa')), 68);
-  assert.equal(getNodeRadius(byId.get('west-coast-ipa')), 60);
+  assert.equal(getNodeRadius(byId.get('beer')), 62);
+  assert.equal(getNodeRadius(byId.get('fermentation-high')), 60);
+  assert.equal(getNodeRadius(byId.get('family-pale-ale-ipa')), 56);
+  assert.equal(getNodeRadius(byId.get('west-coast-ipa')), 48);
+  assert.equal(getNodeVisualKind(byId.get('beer')), 'root-medallion');
+  assert.equal(getNodeVisualKind(byId.get('fermentation-high')), 'fermentation-cartouche');
+  assert.equal(getNodeVisualKind(byId.get('family-pale-ale-ipa')), 'family-capsule');
+  assert.equal(getNodeVisualKind(byId.get('west-coast-ipa')), 'style-bubble');
+  assert.deepEqual(getStructureLabelText(byId.get('family-pale-ale-ipa')), ['Pale Ale', '& IPA']);
+  assert.equal(getApparentNodeRadius(byId.get('west-coast-ipa'), 'unknown', 0, 0.2), 6);
+  assert.equal(getApparentNodeRadius(byId.get('west-coast-ipa'), 'unknown', 2, 1.2), 40);
+  assert.equal(getApparentNodeRadius(byId.get('west-coast-ipa'), 'discovered', 2, 1.2), 52);
   assert.equal(getFamilyClass(byId.get('witbier')), 'family-wheat');
   assert.ok(wrapNodeLabel('Australian Sparkling Ale').length <= 3);
   assert.ok(wrapNodeLabel('Fermentation mixte / sauvage').length <= 3);

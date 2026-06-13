@@ -7,11 +7,59 @@ const FAMILY_CLASS = new Map([
 export function getFamilyClass(node) { return FAMILY_CLASS.get(node.visualFamily) ?? 'family-core'; }
 
 export function getNodeRadius(node, lineCount = 1) {
-  if (node.id === 'beer') return 86;
-  if (node.functionalType === 'structure' && node.nodeType === 'fermentation') return 74;
-  if (node.functionalType === 'structure') return 68;
-  if ((node.shortName || node.name).length > 22 || lineCount > 2) return 66;
-  return 60;
+  if (node.id === 'beer') return 62;
+  if (node.functionalType === 'structure' && node.nodeType === 'fermentation') return 60;
+  if (node.functionalType === 'structure') return 56;
+  if ((node.shortName || node.name).length > 22 || lineCount > 2) return 52;
+  return 48;
+}
+
+export const STRUCTURE_SHAPES = {
+  root: { kind: 'root-medallion', width: 184, height: 132, collisionRadius: 96 },
+  fermentation: { kind: 'fermentation-cartouche', width: 230, height: 112, collisionRadius: 128 },
+  family: { kind: 'family-capsule', width: 250, height: 104, collisionRadius: 135 }
+};
+
+export const STYLE_APPARENT_RADII = {
+  unknown: [6, 18, 40],
+  discovered: [12, 34, 52],
+  revealPending: [12, 36, 54],
+  selected: [14, 38, 56],
+  explored: [12, 34, 52]
+};
+
+export function getStructureShape(node) {
+  if (node.id === 'beer') return STRUCTURE_SHAPES.root;
+  if (node.nodeType === 'fermentation') return STRUCTURE_SHAPES.fermentation;
+  if (node.nodeType === 'family') return STRUCTURE_SHAPES.family;
+  return STRUCTURE_SHAPES.family;
+}
+
+export function getNodeVisualKind(node) {
+  if (node.functionalType !== 'structure') return 'style-bubble';
+  return getStructureShape(node).kind;
+}
+
+export function getApparentNodeRadius(node, state = 'unknown', lod = 1, scale = 1) {
+  if (node.functionalType === 'structure') return getNodeRadius(node) * scale;
+  const key = state === 'unknown' ? 'unknown' : state === 'reveal-pending' ? 'revealPending' : state === 'selected' ? 'selected' : state === 'explored' ? 'explored' : 'discovered';
+  return STYLE_APPARENT_RADII[key][lod] ?? STYLE_APPARENT_RADII.unknown[1];
+}
+
+export function getWorldCollisionRadius(node, { lod = 2, state = 'unknown', scale = 1 } = {}) {
+  if (node.functionalType === 'structure') return getStructureShape(node).collisionRadius;
+  return getApparentNodeRadius(node, state, lod, scale) / Math.max(scale, 0.001);
+}
+
+export function getStructureLabelText(node) {
+  if (node.id === 'fermentation-high') return ['ALE', 'Fermentation haute'];
+  if (node.id === 'fermentation-low') return ['LAGER', 'Fermentation basse'];
+  if (node.id === 'fermentation-spontaneous') return ['Fermentation', 'spontanée'];
+  if (node.id === 'fermentation-mixed-wild') return ['Mixte /', 'sauvage'];
+  if (node.id === 'family-pale-ale-ipa') return ['Pale Ale', '& IPA'];
+  if (node.id === 'family-wheat-beer') return ['Bières', 'de blé'];
+  if (node.id === 'family-pale-lager') return ['Lagers', 'blondes'];
+  return wrapNodeLabel(node.name, 3);
 }
 
 export function wrapNodeLabel(text, maxLines = 3) {
