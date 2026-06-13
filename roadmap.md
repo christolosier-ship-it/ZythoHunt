@@ -337,44 +337,44 @@ Une branche de démonstration autour des Pale Ale et IPA, limitée à environ 15
 
 ### Tâches taxonomiques
 
-- [ ] Créer `taxonomy-nodes.json`.
-- [ ] Créer `taxonomy-links.json`.
-- [ ] Créer `aliases.json`.
-- [ ] Créer `taxonomy-version.json`.
-- [ ] Ajouter les nœuds structurels du prototype.
-- [ ] Ajouter les styles capturables du prototype.
-- [ ] Attribuer un identifiant stable à chaque nœud.
-- [ ] Attribuer une position fixe à chaque nœud.
-- [ ] Définir les liens principaux.
-- [ ] Définir les liens secondaires nécessaires.
-- [ ] Ajouter un validateur de cohérence du graphe.
-- [ ] Détecter les identifiants dupliqués.
-- [ ] Détecter les parents inexistants.
-- [ ] Détecter les cycles interdits dans la hiérarchie principale.
+- [x] Créer `taxonomy-nodes.json`.
+- [x] Créer `taxonomy-links.json`.
+- [x] Créer `aliases.json`.
+- [x] Créer `taxonomy-version.json`.
+- [x] Ajouter les nœuds structurels du prototype.
+- [x] Ajouter les styles capturables du prototype.
+- [x] Attribuer un identifiant stable à chaque nœud.
+- [x] Attribuer une position fixe à chaque nœud.
+- [x] Définir les liens principaux.
+- [x] Définir les liens secondaires nécessaires.
+- [x] Ajouter un validateur de cohérence du graphe.
+- [x] Détecter les identifiants dupliqués.
+- [x] Détecter les parents inexistants.
+- [x] Détecter les cycles interdits dans la hiérarchie principale.
 
 ### Tâches cartographiques
 
-- [ ] Créer le conteneur SVG.
-- [ ] Implémenter le déplacement tactile.
-- [ ] Implémenter le zoom tactile.
-- [ ] Implémenter le zoom à la molette.
-- [ ] Ajouter le recentrage.
-- [ ] Ajouter le retour à la vue générale.
-- [ ] Rendre les nœuds structurels visibles.
-- [ ] Masquer totalement les styles inconnus.
-- [ ] Rendre visibles les styles découverts de test.
-- [ ] Tracer les connexions principales.
-- [ ] Tracer les connexions secondaires.
-- [ ] Garantir que la géométrie ne se recalcule pas après découverte.
+- [x] Créer le conteneur SVG.
+- [x] Implémenter le déplacement tactile.
+- [x] Implémenter le zoom tactile.
+- [x] Implémenter le zoom à la molette.
+- [x] Ajouter le recentrage.
+- [x] Ajouter le retour à la vue générale.
+- [x] Rendre les nœuds structurels visibles.
+- [x] Masquer totalement les styles inconnus.
+- [x] Rendre visibles les styles découverts de test.
+- [x] Tracer les connexions principales.
+- [x] Tracer les connexions secondaires.
+- [x] Garantir que la géométrie ne se recalcule pas après découverte.
 
 ### Tests obligatoires
 
-- [ ] La carte fonctionne sur iPhone Safari.
-- [ ] La carte fonctionne à la souris.
-- [ ] Le zoom ne déplace pas accidentellement les nœuds.
-- [ ] Les styles cachés ne sont pas accessibles comme éléments interactifs visibles.
-- [ ] Une nouvelle découverte ne déplace aucun nœud existant.
-- [ ] Les coordonnées restent identiques après rechargement.
+- [!] La carte fonctionne sur iPhone Safari.
+- [x] La carte fonctionne à la souris.
+- [x] Le zoom ne déplace pas accidentellement les nœuds.
+- [x] Les styles cachés ne sont pas accessibles comme éléments interactifs visibles.
+- [x] Une nouvelle découverte ne déplace aucun nœud existant.
+- [x] Les coordonnées restent identiques après rechargement.
 
 ### Critère de sortie
 
@@ -968,6 +968,21 @@ Codex doit ajouter une entrée à chaque intervention significative.
 - Problèmes rencontrés : aucun blocage ; le fichier de roadmap existant est `roadmap.md` en minuscules.
 - Décisions prises : aucune nouvelle règle produit au-delà de la formalisation des décisions déjà présentes dans la roadmap.
 - Prochaine étape recommandée : validation humaine de la Phase 0 avant lancement de la V0.1.0.
+
+## 2026-06-13 — V0.1.0 prototype taxonomique et Zythosphère minimale
+
+- Objectif : créer le prototype taxonomique V0.1.0 et une Zythosphère minimale à positions fixes, sans démarrer les phases ultérieures.
+- Réalisé : création des quatre JSON du référentiel, du validateur pur, du calcul de visibilité, du rendu SVG, du pan/zoom natif, des scénarios URL, du panneau développeur conditionné à `debug=1`, des tests automatisés et de la checklist manuelle.
+- Fichiers créés ou modifiés : `index.html`, `package.json`, `.gitignore`, `README.md`, `data/taxonomy-nodes.json`, `data/taxonomy-links.json`, `data/aliases.json`, `data/taxonomy-version.json`, `src/**`, `styles/**`, `tests/taxonomy/**`, `tests/manual/V0.1.0-CHECKLIST.md`, `roadmap.md`.
+- Taxonomie utilisée : corpus technique provisoire de 26 nœuds, dont 6 nœuds structurels et 20 styles capturables, avec 25 liens principaux et 2 liens secondaires.
+- Tests automatisés : `npm test` réussi avec 15 tests couvrant validateur, scénarios de visibilité et stabilité géométrique.
+- Tests manuels : serveur HTTP local lancé et pages vérifiées par requêtes HTTP ; tests sur navigateur graphique, iPhone Safari réel et appareils mobiles réels non réalisés dans cet environnement.
+- Résultat : prototype cohérent et validé automatiquement ; la V0.1.0 reste à valider humainement sur appareils réels.
+- Problèmes rencontrés : aucun blocage applicatif ; validation matérielle iPhone Safari indisponible côté agent.
+- Décisions prises : conservation d'un rendu visuel simple et provisoire, sans dépendance, sans PWA, sans stockage personnel.
+- Limites : absence volontaire de capture, Brassopédie, fiches, dégustations, persistance, PWA et styles visuels définitifs.
+- Points restant à valider : checklist manuelle complète, notamment iPhone Safari réel, Android réel ou émulation, pavé tactile et absence d'erreur console dans un navigateur graphique.
+- Prochaine étape recommandée : validation humaine de la V0.1.0 avant toute intervention V0.2.0.
 
 # 11. Règle de clôture d’une tâche
 

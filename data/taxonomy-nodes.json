@@ -1,0 +1,578 @@
+[
+
+  {
+    "id": "beer",
+    "nodeType": "root",
+    "functionalType": "structure",
+    "name": "Bière",
+    "shortName": "Bière",
+    "originalName": "Bière",
+    "rank": 0,
+    "parentId": null,
+    "secondaryParentIds": [],
+    "familyId": null,
+    "position": {
+      "x": 120,
+      "y": 800
+    },
+    "visualFamily": "core",
+    "capturable": false,
+    "status": "prototype",
+    "sourceRefs": [
+      "prototype-v0.1"
+    ]
+  },
+  {
+    "id": "fermentation-high",
+    "nodeType": "fermentation",
+    "functionalType": "structure",
+    "name": "Ale",
+    "shortName": "Ale",
+    "originalName": "Ale",
+    "subtitle": "fermentation haute",
+    "rank": 1,
+    "parentId": "beer",
+    "secondaryParentIds": [],
+    "familyId": null,
+    "position": {
+      "x": 430,
+      "y": 560
+    },
+    "visualFamily": "high",
+    "capturable": false,
+    "status": "prototype",
+    "sourceRefs": [
+      "prototype-v0.1"
+    ]
+  },
+  {
+    "id": "fermentation-low",
+    "nodeType": "fermentation",
+    "functionalType": "structure",
+    "name": "Lager",
+    "shortName": "Lager",
+    "originalName": "Lager",
+    "subtitle": "fermentation basse",
+    "rank": 1,
+    "parentId": "beer",
+    "secondaryParentIds": [],
+    "familyId": null,
+    "position": {
+      "x": 430,
+      "y": 1120
+    },
+    "visualFamily": "low",
+    "capturable": false,
+    "status": "prototype",
+    "sourceRefs": [
+      "prototype-v0.1"
+    ]
+  },
+  {
+    "id": "family-pale-ale-ipa",
+    "nodeType": "family",
+    "functionalType": "structure",
+    "name": "Pale Ale & IPA",
+    "shortName": "Pale Ale & IPA",
+    "originalName": "Pale Ale & IPA",
+    "rank": 2,
+    "parentId": "fermentation-high",
+    "secondaryParentIds": [],
+    "familyId": "family-pale-ale-ipa",
+    "position": {
+      "x": 760,
+      "y": 500
+    },
+    "visualFamily": "pale-ale-ipa",
+    "capturable": false,
+    "status": "prototype",
+    "sourceRefs": [
+      "prototype-v0.1"
+    ]
+  },
+  {
+    "id": "family-wheat-beer",
+    "nodeType": "family",
+    "functionalType": "structure",
+    "name": "Bières de blé",
+    "shortName": "Bières de blé",
+    "originalName": "Bières de blé",
+    "rank": 2,
+    "parentId": "fermentation-high",
+    "secondaryParentIds": [],
+    "familyId": "family-wheat-beer",
+    "position": {
+      "x": 760,
+      "y": 880
+    },
+    "visualFamily": "wheat",
+    "capturable": false,
+    "status": "prototype",
+    "sourceRefs": [
+      "prototype-v0.1"
+    ]
+  },
+  {
+    "id": "family-pale-lager",
+    "nodeType": "family",
+    "functionalType": "structure",
+    "name": "Lagers blondes",
+    "shortName": "Lagers blondes",
+    "originalName": "Lagers blondes",
+    "rank": 2,
+    "parentId": "fermentation-low",
+    "secondaryParentIds": [],
+    "familyId": "family-pale-lager",
+    "position": {
+      "x": 760,
+      "y": 1220
+    },
+    "visualFamily": "lager",
+    "capturable": false,
+    "status": "prototype",
+    "sourceRefs": [
+      "prototype-v0.1"
+    ]
+  },
+  {
+    "id": "classic-english-pale-ale",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "name": "Classic English Pale Ale",
+    "shortName": "English Pale Ale",
+    "originalName": "Classic English Pale Ale",
+    "rank": 3,
+    "parentId": "family-pale-ale-ipa",
+    "secondaryParentIds": [],
+    "familyId": "family-pale-ale-ipa",
+    "position": {
+      "x": 1120,
+      "y": 180
+    },
+    "visualFamily": "pale-ale-ipa",
+    "capturable": true,
+    "status": "prototype",
+    "sourceRefs": [
+      "prototype-v0.1"
+    ]
+  },
+  {
+    "id": "american-pale-ale",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "name": "American Pale Ale",
+    "shortName": "American Pale Ale",
+    "originalName": "American Pale Ale",
+    "rank": 3,
+    "parentId": "family-pale-ale-ipa",
+    "secondaryParentIds": [],
+    "familyId": "family-pale-ale-ipa",
+    "position": {
+      "x": 1120,
+      "y": 320
+    },
+    "visualFamily": "pale-ale-ipa",
+    "capturable": true,
+    "status": "prototype",
+    "sourceRefs": [
+      "prototype-v0.1"
+    ]
+  },
+  {
+    "id": "british-golden-ale",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "name": "British Golden Ale",
+    "shortName": "Golden Ale",
+    "originalName": "British Golden Ale",
+    "rank": 3,
+    "parentId": "family-pale-ale-ipa",
+    "secondaryParentIds": [],
+    "familyId": "family-pale-ale-ipa",
+    "position": {
+      "x": 1120,
+      "y": 460
+    },
+    "visualFamily": "pale-ale-ipa",
+    "capturable": true,
+    "status": "prototype",
+    "sourceRefs": [
+      "prototype-v0.1"
+    ]
+  },
+  {
+    "id": "australian-sparkling-ale",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "name": "Australian Sparkling Ale",
+    "shortName": "Sparkling Ale",
+    "originalName": "Australian Sparkling Ale",
+    "rank": 3,
+    "parentId": "family-pale-ale-ipa",
+    "secondaryParentIds": [],
+    "familyId": "family-pale-ale-ipa",
+    "position": {
+      "x": 1120,
+      "y": 600
+    },
+    "visualFamily": "pale-ale-ipa",
+    "capturable": true,
+    "status": "prototype",
+    "sourceRefs": [
+      "prototype-v0.1"
+    ]
+  },
+  {
+    "id": "new-zealand-pale-ale",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "name": "New Zealand Pale Ale",
+    "shortName": "NZ Pale Ale",
+    "originalName": "New Zealand Pale Ale",
+    "rank": 3,
+    "parentId": "family-pale-ale-ipa",
+    "secondaryParentIds": [],
+    "familyId": "family-pale-ale-ipa",
+    "position": {
+      "x": 1120,
+      "y": 740
+    },
+    "visualFamily": "pale-ale-ipa",
+    "capturable": true,
+    "status": "prototype",
+    "sourceRefs": [
+      "prototype-v0.1"
+    ]
+  },
+  {
+    "id": "ipa",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "name": "IPA",
+    "shortName": "IPA",
+    "originalName": "IPA",
+    "rank": 3,
+    "parentId": "family-pale-ale-ipa",
+    "secondaryParentIds": [],
+    "familyId": "family-pale-ale-ipa",
+    "position": {
+      "x": 1260,
+      "y": 900
+    },
+    "visualFamily": "pale-ale-ipa",
+    "capturable": true,
+    "status": "prototype",
+    "sourceRefs": [
+      "prototype-v0.1"
+    ]
+  },
+  {
+    "id": "english-ipa",
+    "nodeType": "substyle",
+    "functionalType": "capturable",
+    "name": "English IPA",
+    "shortName": "English IPA",
+    "originalName": "English IPA",
+    "rank": 4,
+    "parentId": "ipa",
+    "secondaryParentIds": [],
+    "familyId": "family-pale-ale-ipa",
+    "position": {
+      "x": 1600,
+      "y": 260
+    },
+    "visualFamily": "pale-ale-ipa",
+    "capturable": true,
+    "status": "prototype",
+    "sourceRefs": [
+      "prototype-v0.1"
+    ]
+  },
+  {
+    "id": "american-ipa",
+    "nodeType": "substyle",
+    "functionalType": "capturable",
+    "name": "American IPA",
+    "shortName": "American IPA",
+    "originalName": "American IPA",
+    "rank": 4,
+    "parentId": "ipa",
+    "secondaryParentIds": [],
+    "familyId": "family-pale-ale-ipa",
+    "position": {
+      "x": 1600,
+      "y": 600
+    },
+    "visualFamily": "pale-ale-ipa",
+    "capturable": true,
+    "status": "prototype",
+    "sourceRefs": [
+      "prototype-v0.1"
+    ]
+  },
+  {
+    "id": "west-coast-ipa",
+    "nodeType": "substyle",
+    "functionalType": "capturable",
+    "name": "West Coast IPA",
+    "shortName": "West Coast IPA",
+    "originalName": "West Coast IPA",
+    "rank": 5,
+    "parentId": "american-ipa",
+    "secondaryParentIds": [],
+    "familyId": "family-pale-ale-ipa",
+    "position": {
+      "x": 1980,
+      "y": 500
+    },
+    "visualFamily": "pale-ale-ipa",
+    "capturable": true,
+    "status": "prototype",
+    "sourceRefs": [
+      "prototype-v0.1"
+    ]
+  },
+  {
+    "id": "new-england-ipa",
+    "nodeType": "substyle",
+    "functionalType": "capturable",
+    "name": "New England IPA",
+    "shortName": "NEIPA",
+    "originalName": "New England IPA",
+    "rank": 5,
+    "parentId": "american-ipa",
+    "secondaryParentIds": [],
+    "familyId": "family-pale-ale-ipa",
+    "position": {
+      "x": 1980,
+      "y": 700
+    },
+    "visualFamily": "pale-ale-ipa",
+    "capturable": true,
+    "status": "prototype",
+    "sourceRefs": [
+      "prototype-v0.1"
+    ]
+  },
+  {
+    "id": "session-ipa",
+    "nodeType": "substyle",
+    "functionalType": "capturable",
+    "name": "Session IPA",
+    "shortName": "Session IPA",
+    "originalName": "Session IPA",
+    "rank": 4,
+    "parentId": "ipa",
+    "secondaryParentIds": [],
+    "familyId": "family-pale-ale-ipa",
+    "position": {
+      "x": 1600,
+      "y": 760
+    },
+    "visualFamily": "pale-ale-ipa",
+    "capturable": true,
+    "status": "prototype",
+    "sourceRefs": [
+      "prototype-v0.1"
+    ]
+  },
+  {
+    "id": "double-ipa",
+    "nodeType": "substyle",
+    "functionalType": "capturable",
+    "name": "Double IPA",
+    "shortName": "Double IPA",
+    "originalName": "Double IPA",
+    "rank": 4,
+    "parentId": "ipa",
+    "secondaryParentIds": [],
+    "familyId": "family-pale-ale-ipa",
+    "position": {
+      "x": 1600,
+      "y": 900
+    },
+    "visualFamily": "pale-ale-ipa",
+    "capturable": true,
+    "status": "prototype",
+    "sourceRefs": [
+      "prototype-v0.1"
+    ]
+  },
+  {
+    "id": "black-ipa",
+    "nodeType": "substyle",
+    "functionalType": "capturable",
+    "name": "Black IPA",
+    "shortName": "Black IPA",
+    "originalName": "Black IPA",
+    "rank": 4,
+    "parentId": "ipa",
+    "secondaryParentIds": [],
+    "familyId": "family-pale-ale-ipa",
+    "position": {
+      "x": 1600,
+      "y": 1040
+    },
+    "visualFamily": "pale-ale-ipa",
+    "capturable": true,
+    "status": "prototype",
+    "sourceRefs": [
+      "prototype-v0.1"
+    ]
+  },
+  {
+    "id": "red-ipa",
+    "nodeType": "substyle",
+    "functionalType": "capturable",
+    "name": "Red IPA",
+    "shortName": "Red IPA",
+    "originalName": "Red IPA",
+    "rank": 4,
+    "parentId": "ipa",
+    "secondaryParentIds": [],
+    "familyId": "family-pale-ale-ipa",
+    "position": {
+      "x": 1600,
+      "y": 1180
+    },
+    "visualFamily": "pale-ale-ipa",
+    "capturable": true,
+    "status": "prototype",
+    "sourceRefs": [
+      "prototype-v0.1"
+    ]
+  },
+  {
+    "id": "white-ipa",
+    "nodeType": "substyle",
+    "functionalType": "capturable",
+    "name": "White IPA",
+    "shortName": "White IPA",
+    "originalName": "White IPA",
+    "rank": 4,
+    "parentId": "ipa",
+    "secondaryParentIds": [],
+    "familyId": "family-pale-ale-ipa",
+    "position": {
+      "x": 1600,
+      "y": 1320
+    },
+    "visualFamily": "pale-ale-ipa",
+    "capturable": true,
+    "status": "prototype",
+    "sourceRefs": [
+      "prototype-v0.1"
+    ]
+  },
+  {
+    "id": "belgian-ipa",
+    "nodeType": "substyle",
+    "functionalType": "capturable",
+    "name": "Belgian IPA",
+    "shortName": "Belgian IPA",
+    "originalName": "Belgian IPA",
+    "rank": 4,
+    "parentId": "ipa",
+    "secondaryParentIds": [],
+    "familyId": "family-pale-ale-ipa",
+    "position": {
+      "x": 1960,
+      "y": 960
+    },
+    "visualFamily": "pale-ale-ipa",
+    "capturable": true,
+    "status": "prototype",
+    "sourceRefs": [
+      "prototype-v0.1"
+    ]
+  },
+  {
+    "id": "rye-ipa",
+    "nodeType": "substyle",
+    "functionalType": "capturable",
+    "name": "Rye IPA",
+    "shortName": "Rye IPA",
+    "originalName": "Rye IPA",
+    "rank": 4,
+    "parentId": "ipa",
+    "secondaryParentIds": [],
+    "familyId": "family-pale-ale-ipa",
+    "position": {
+      "x": 1960,
+      "y": 1120
+    },
+    "visualFamily": "pale-ale-ipa",
+    "capturable": true,
+    "status": "prototype",
+    "sourceRefs": [
+      "prototype-v0.1"
+    ]
+  },
+  {
+    "id": "brown-ipa",
+    "nodeType": "substyle",
+    "functionalType": "capturable",
+    "name": "Brown IPA",
+    "shortName": "Brown IPA",
+    "originalName": "Brown IPA",
+    "rank": 4,
+    "parentId": "ipa",
+    "secondaryParentIds": [],
+    "familyId": "family-pale-ale-ipa",
+    "position": {
+      "x": 1960,
+      "y": 1280
+    },
+    "visualFamily": "pale-ale-ipa",
+    "capturable": true,
+    "status": "prototype",
+    "sourceRefs": [
+      "prototype-v0.1"
+    ]
+  },
+  {
+    "id": "witbier",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "name": "Witbier",
+    "shortName": "Witbier",
+    "originalName": "Witbier",
+    "rank": 3,
+    "parentId": "family-wheat-beer",
+    "secondaryParentIds": [],
+    "familyId": "family-wheat-beer",
+    "position": {
+      "x": 1120,
+      "y": 1000
+    },
+    "visualFamily": "wheat",
+    "capturable": true,
+    "status": "prototype",
+    "sourceRefs": [
+      "prototype-v0.1"
+    ]
+  },
+  {
+    "id": "india-pale-lager",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "name": "India Pale Lager",
+    "shortName": "India Pale Lager",
+    "originalName": "India Pale Lager",
+    "rank": 3,
+    "parentId": "family-pale-lager",
+    "secondaryParentIds": [],
+    "familyId": "family-pale-lager",
+    "position": {
+      "x": 1120,
+      "y": 1220
+    },
+    "visualFamily": "lager",
+    "capturable": true,
+    "status": "prototype",
+    "sourceRefs": [
+      "prototype-v0.1"
+    ]
+  }
+
+]

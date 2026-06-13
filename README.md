@@ -2,36 +2,56 @@
 
 **Slogan :** « Buvez-les toutes. »  
 **Cartographie interactive :** la **Zythosphère**  
-**Encyclopédie personnelle :** la **Brassopédie**
+**Encyclopédie :** la **Brassopédie**
 
-## Concept
+## Statut
 
-ZythoHunt est une application destinée à découvrir progressivement les styles de bière au fil des dégustations.
+La Phase 0 documentaire a été validée humainement. Le dépôt contient maintenant un prototype technique **V0.1.0** limité à une Zythosphère minimale.
 
-Les familles brassicoles forment une cartographie interactive : la Zythosphère. Les nœuds structurels de cette carte restent visibles pour aider à comprendre l’organisation générale, tandis que les styles de bière restent inconnus jusqu’à leur capture individuelle.
+Ce prototype n'est pas une version publique prête à l'emploi. Il démontre uniquement la représentation d'un petit référentiel taxonomique à positions fixes, autour des Pale Ale, IPA et deux styles voisins. La taxonomie est provisoire et ciblée sur les tests techniques.
 
-Lorsqu’un style est capturé, il enrichit la Brassopédie personnelle de l’utilisateur. Un même style peut ensuite recevoir plusieurs dégustations distinctes, par exemple pour comparer différentes bières commerciales appartenant à ce style.
+## Périmètre V0.1.0
 
-## Statut du projet
+- 6 nœuds structurels visibles par défaut.
+- 20 styles capturables masqués tant qu'ils ne sont pas dans un scénario de démonstration.
+- 25 liens principaux et 2 liens secondaires.
+- Pan et zoom natifs sur SVG.
+- Validateur et tests automatisés sans dépendance npm.
 
-Le projet est en phase de cadrage documentaire.
+Sont volontairement absents : capture utilisateur, Brassopédie, dégustations, persistance, IndexedDB, PWA, manifeste, service worker, notifications et backend.
 
-Aucune version fonctionnelle de ZythoHunt n’est disponible à ce stade. La Phase 0 vise à établir les règles produit, UX, taxonomiques et de données avant tout développement applicatif.
+## Lancement local
 
-**Phase 0 :** terminée côté documentation initiale, à valider humainement.  
-**Prochain objectif recommandé :** prototype V0.1.0 limité à une branche Pale Ale–IPA, uniquement après validation de la Phase 0.
+```bash
+python3 -m http.server 8080
+```
 
-## Principes techniques envisagés
+Puis ouvrir : <http://localhost:8080/>
 
-Ces principes décrivent l’orientation technique future sans constituer une implémentation :
+L'ouverture directe en `file://` affiche un message indiquant qu'un serveur HTTP local est nécessaire.
 
-- PWA mobile-first ;
-- HTML, CSS et JavaScript vanilla ;
-- SVG pour la Zythosphère ;
-- IndexedDB pour les données personnelles locales ;
-- fonctionnement hors ligne ;
-- hébergement possible sur GitHub Pages ;
-- aucune obligation de compte utilisateur, de backend ou de cloud.
+## Tests
+
+```bash
+npm test
+```
+
+## Scénarios
+
+- Structure seule : `?scenario=empty`
+- Test cardinal : `?scenario=cardinal`
+- Liens secondaires : `?scenario=secondary`
+- Mixte : `?scenario=mixed`
+
+## Mode développeur
+
+Ajouter `?debug=1` pour afficher **Outils développeur V0.1.0**. Exemple :
+
+```text
+?scenario=cardinal&debug=1
+```
+
+Le panneau développeur ne persiste rien dans IndexedDB ou localStorage et n'apparaît jamais sans `debug=1`.
 
 ## Documentation
 
@@ -42,16 +62,6 @@ Ces principes décrivent l’orientation technique future sans constituer une im
 - [Règles taxonomiques](docs/TAXONOMY_RULES.md)
 - [Modèle de données](docs/DATA_MODEL.md)
 
-## Conception responsable
+## Prochaine phase
 
-ZythoHunt est une application destinée à la découverte culturelle et sensorielle des styles de bière.
-
-La gamification ne doit jamais encourager :
-
-- la vitesse de consommation ;
-- la quantité consommée ;
-- les séries quotidiennes de consommation ;
-- la compétition sur le volume d’alcool ;
-- une consommation irresponsable.
-
-Le slogan « Buvez-les toutes. » est une identité humoristique liée à l’exploration et à la collection. Il ne constitue pas une incitation à tout boire rapidement.
+La prochaine phase prévue est **V0.2.0**, uniquement après validation humaine explicite de la V0.1.0.

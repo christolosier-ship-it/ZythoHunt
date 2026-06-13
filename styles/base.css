@@ -1,0 +1,1 @@
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,sans-serif}button,select{font:inherit}button{min-height:44px;min-width:44px;border:1px solid #594d34;border-radius:12px;background:#2a2418;color:var(--text)}
