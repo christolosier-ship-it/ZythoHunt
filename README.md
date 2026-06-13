@@ -134,3 +134,22 @@ La V0.2.3 consolide le moteur Canvas existant sans remplacer la technologie ni d
 - **Tests de charge** : le banc synthétique reste disponible pour 20, 50, 100, 200 et 300 nœuds via le mode debug.
 
 Les bulles inconnues restent visibles avec `?`, non interactives et sans nom accessible. Une révélation ne dévoile aucun autre style.
+
+## V0.2.6 — stabilisation des échelles et fluidité Safari
+
+La V0.2.6 revient à une Zythosphère plus simple : la priorité est la lisibilité immédiate et un pan/zoom fluide, notamment sur Safari iPad.
+
+- Les animations permanentes du rendu Canvas normal sont supprimées ; seule la révélation d’un style peut animer temporairement la couche dynamique.
+- La sélection est statique : contour, état visuel et lien renforcé, sans pulsation.
+- Les tailles de styles sont progressives et bornées : inconnues 10–24 px de rayon, découvertes 15–36 px, sélectionnées 17–40 px.
+- Les structures utilisent des dimensions progressives et ne dépassent pas 170 × 94 px.
+- La vue Accueil cadre uniquement les huit structures principales ; le bouton Tout voir reste dédié à la carte complète.
+- La révélation cadre un voisinage local du style, avec parent, famille, fratrie et enfants directs dans une limite courte.
+- Le DPR Canvas est adaptatif pour éviter les très grands buffers sur iPad et desktop.
+- Un mode interaction rapide simplifie le rendu pendant pan, wheel et pinch, puis restaure la qualité après le geste.
+- Les `backdrop-filter` et grandes ombres de l’interface normale sont retirés au profit de fonds quasi opaques.
+- Les diagnostics de layout ne calculent plus les collisions hors debug actif et panneau demandé.
+
+### Limitations actuelles
+
+La validation tactile réelle sur Safari iPad reste obligatoire : l’environnement automatisé ne permet pas de confirmer le ressenti de latence, le pinch matériel ni la stabilité mémoire sur appareil réel.

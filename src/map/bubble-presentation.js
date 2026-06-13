@@ -14,18 +14,28 @@ export function getNodeRadius(node, lineCount = 1) {
   return 48;
 }
 
+export function clamp(value, min, max) { return Math.max(min, Math.min(max, value)); }
+
 export const STRUCTURE_SHAPES = {
-  root: { kind: 'root-medallion', sizes: [{ width: 72, height: 54 }, { width: 88, height: 64 }, { width: 102, height: 74 }], collisionRadius: 58 },
-  fermentation: { kind: 'fermentation-cartouche', sizes: [{ width: 94, height: 42 }, { width: 118, height: 52 }, { width: 136, height: 60 }], collisionRadius: 76 },
-  family: { kind: 'family-capsule', sizes: [{ width: 104, height: 42 }, { width: 128, height: 50 }, { width: 146, height: 58 }], collisionRadius: 82 }
+  root: { kind: 'root-medallion', collisionRadius: 82 },
+  fermentation: { kind: 'fermentation-cartouche', collisionRadius: 92 },
+  family: { kind: 'family-capsule', collisionRadius: 88 }
 };
 
+export function getStyleRadius(state = 'unknown', scale = 1) {
+  if (state === 'unknown') return clamp(30 * scale, 10, 24);
+  if (state === 'selected' || state === 'reveal-pending') return clamp(46 * scale, 17, 40);
+  return clamp(42 * scale, 15, 36);
+}
+
+export function getQuestionSize(radius) { return clamp(radius * 0.9, 8, 20); }
+
 export const STYLE_APPARENT_RADII = {
-  unknown: [7, 15, 27],
-  discovered: [11, 25, 39],
-  revealPending: [11.8, 27, 42],
-  selected: [11.8, 27, 42],
-  explored: [11, 25, 39]
+  unknown: [10, 15, 24],
+  discovered: [15, 25.2, 36],
+  revealPending: [17, 27.6, 40],
+  selected: [17, 27.6, 40],
+  explored: [15, 25.2, 36]
 };
 
 export function getStructureShape(node) {
@@ -35,13 +45,10 @@ export function getStructureShape(node) {
   return STRUCTURE_SHAPES.family;
 }
 
-export function getApparentStructureSize(node, lod = 1) {
-  const shape = getStructureShape(node);
-  const size = shape.sizes[Math.max(0, Math.min(2, lod))] ?? shape.sizes[1];
-  return {
-    width: Math.min(160, size.width),
-    height: Math.min(80, size.height)
-  };
+export function getApparentStructureSize(node, lod = 1, scale = 1) {
+  if (node.id === 'beer') return { width: clamp(220 * scale, 92, 150), height: clamp(135 * scale, 62, 94) };
+  if (node.nodeType === 'fermentation') return { width: clamp(245 * scale, 112, 170), height: clamp(96 * scale, 50, 70) };
+  return { width: clamp(225 * scale, 108, 160), height: clamp(88 * scale, 48, 66) };
 }
 
 export function getNodeVisualKind(node) {
@@ -50,9 +57,8 @@ export function getNodeVisualKind(node) {
 }
 
 export function getApparentNodeRadius(node, state = 'unknown', lod = 1, scale = 1) {
-  if (node.functionalType === 'structure') return Math.max(getApparentStructureSize(node, lod).width, getApparentStructureSize(node, lod).height) / 2;
-  const key = state === 'unknown' ? 'unknown' : state === 'reveal-pending' ? 'revealPending' : state === 'selected' ? 'selected' : state === 'explored' ? 'explored' : 'discovered';
-  return STYLE_APPARENT_RADII[key][lod] ?? STYLE_APPARENT_RADII.unknown[1];
+  if (node.functionalType === 'structure') return Math.max(getApparentStructureSize(node, lod, scale).width, getApparentStructureSize(node, lod, scale).height) / 2;
+  return getStyleRadius(state, scale);
 }
 
 export function getWorldCollisionRadius(node, { lod = 2, state = 'unknown', scale = 1 } = {}) {

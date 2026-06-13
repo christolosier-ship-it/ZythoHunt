@@ -11,35 +11,35 @@ const style = nodes.find(n => n.functionalType === 'capturable');
 const structures = nodes.filter(n => n.functionalType === 'structure');
 
 test('V0.2.5 conserve la taxonomie et corrige les rayons LOD finaux', () => {
-  assert.equal(APP_VERSION, '0.2.5');
+  assert.equal(APP_VERSION, '0.2.6');
   assert.equal(TAXONOMY_VERSION, '0.1.2-prototype.3');
   assert.equal(version.taxonomyVersion, '0.1.2-prototype.3');
-  assert.deepEqual(STYLE_APPARENT_RADII.unknown, [7, 15, 27]);
-  assert.deepEqual(STYLE_APPARENT_RADII.discovered, [11, 25, 39]);
-  assert.equal(getApparentNodeRadius(style, 'unknown', 0, 0.2), 7);
-  assert.equal(getApparentNodeRadius(style, 'unknown', 1, 2), 15);
-  assert.equal(getApparentNodeRadius(style, 'unknown', 2, 3), 27);
-  assert.equal(getApparentNodeRadius(style, 'discovered', 2, 3), 39);
+  assert.deepEqual(STYLE_APPARENT_RADII.unknown, [10, 15, 24]);
+  assert.deepEqual(STYLE_APPARENT_RADII.discovered, [15, 25.2, 36]);
+  assert.equal(getApparentNodeRadius(style, 'unknown', 0, 0.2), 10);
+  assert.equal(getApparentNodeRadius(style, 'unknown', 1, 2), 24);
+  assert.equal(getApparentNodeRadius(style, 'unknown', 2, 3), 24);
+  assert.equal(getApparentNodeRadius(style, 'discovered', 2, 3), 36);
 });
 
 test('contrat sprite source vs cible : le cache ne décide pas la taille drawImage', () => {
-  for (const radius of [7, 15, 27, 39]) {
+  for (const radius of [10, 15, 24, 36]) {
     const targetDiameterPx = radius * 2;
     const sourceDiameterPx = canonicalSpriteSize(targetDiameterPx);
     assert.ok(SOURCE_SPRITE_DIAMETERS.includes(sourceDiameterPx));
     assert.equal(targetDiameterPx, radius * 2);
-    assert.notEqual(sourceDiameterPx, targetDiameterPx, 'source et cible peuvent diverger sans changer drawImage');
+    assert.ok(sourceDiameterPx >= targetDiameterPx, 'source couvre la cible drawImage');
   }
 });
 
 test('limites maximales structures, styles et sprites physiques', () => {
   for (const node of structures) for (const lod of [0, 1, 2]) {
     const size = getApparentStructureSize(node, lod);
-    assert.ok(size.width <= 160, node.id);
-    assert.ok(size.height <= 80, node.id);
+    assert.ok(size.width <= 170, node.id);
+    assert.ok(size.height <= 94, node.id);
   }
   for (const state of ['unknown', 'discovered', 'selected', 'reveal-pending']) for (const lod of [0, 1, 2]) {
-    assert.ok(getApparentNodeRadius(style, state, lod, 4) * 2 <= 88);
+    assert.ok(getApparentNodeRadius(style, state, lod, 4) * 2 <= 80);
   }
   for (const source of SOURCE_SPRITE_DIAMETERS) assert.ok(source * 2 <= MAX_PHYSICAL_SPRITE_PX);
 });
