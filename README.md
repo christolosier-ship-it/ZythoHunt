@@ -5,26 +5,21 @@ Carte interactive : **la Zythosphère**. Encyclopédie future : **la Brassopédi
 
 ## Versions
 
-- Application : **0.2.4**
+- Application : **0.2.5**
 - Taxonomie : **0.1.2-prototype.3**
 
 
-## V0.2.4 — Refonte du layout et de la hiérarchie visuelle
+## V0.2.5 — Hotfix des dimensions Canvas et stabilisation
 
-La V0.2.4 rend la Zythosphère lisible sans changer le corpus taxonomique : seuls les coordonnées, la géométrie, les versions et le rendu évoluent.
+La V0.2.4 a été rejetée en validation visuelle : les tailles natives des sprites canoniques étaient réutilisées comme dimensions finales, produisant des bulles géantes, des superpositions et une charge GPU excessive.
 
-- **Nouvelle géométrie fixe** : monde logique porté à `4000 × 3000`, familles séparées en territoires Ale, Lager et fermentations isolées.
-- **Formes structurelles distinctes** : Bière devient un médaillon, les fermentations des cartouches ovales et les familles des capsules structurantes.
-- **Tailles sémantiques par LOD** : les inconnues sont des perles en vue générale, de petites bulles en branche et des bulles complètes au zoom rapproché.
-- **Styles révélés** : les styles capturés utilisent un rayon plus fort, un halo et leur nom, sans révéler les voisins inconnus.
-- **Liens fantômes** : les ramifications inconnues sont dessinées avec une opacité faible pour montrer la structure sans divulguer les noms.
-- **Territoires de famille** : des halos discrets aident à distinguer Pale Ale & IPA, Bières de blé et Lagers blondes.
-- **Accueil et Tout voir** : les cadrages sont calculés depuis les bounds utiles et les insets réels plutôt que depuis une fenêtre arbitraire.
-- **Focus par descendants** : les clics/focus de structures cadrent leurs descendants et limitent le zoom structurel.
-- **Diagnostic layout debug** : `debug=1` expose collisions, rayons, coordonnées, bounds Accueil/Tout voir, rectangles de descendants, territoires et export JSON en console.
-- **Moteur préservé** : Canvas statique/dynamique, scheduler, culling, cache de sprites, gestes, couche HTML accessible et barre de révélation restent en place.
+La V0.2.5 corrige uniquement ce contrat :
 
-La V0.2.4 n’ajoute ni persistance, ni IndexedDB, ni Brassopédie fonctionnelle, ni journal de dégustation, ni Progression. La direction artistique détaillée des bulles reste volontairement perfectible après validation de la lisibilité.
+- le cache choisit une résolution source bornée, jamais la taille finale ;
+- le renderer dessine les styles à leur diamètre CSS demandé ;
+- les structures sont dessinées directement en Canvas ;
+- les territoires, liens fantômes et décorations coûteuses sont désactivés par défaut ;
+- la taxonomie reste `0.1.2-prototype.3` et les coordonnées V0.2.4 sont conservées.
 
 ## V0.2.2 — Interface plein écran et shell applicatif
 

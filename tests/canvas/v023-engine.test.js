@@ -30,7 +30,7 @@ test('cache sprites borné avec clé canonique indépendante des tailles interm�
   assert.equal(cache.size, 3);
   assert.equal(cache.stats().maxEntries, 3);
   assert.ok(cache.stats().evictions > 0);
-  assert.equal(MAX_SPRITE_CACHE_ENTRIES, 128);
+  assert.equal(MAX_SPRITE_CACHE_ENTRIES, 64);
 });
 
 test('LOD différenciés et hystérésis', () => {
@@ -44,7 +44,7 @@ test('LOD différenciés et hystérésis', () => {
 });
 
 test('typographie adapte ? et noms au rayon apparent', () => {
-  assert.equal(getQuestionFontSize(4), 10);
-  assert.equal(getQuestionFontSize(100), 42);
+  assert.equal(getQuestionFontSize(4), 7);
+  assert.equal(getQuestionFontSize(100), 24);
   assert.ok(getNameFontSize(80, 2, 'West Coast IPA') > getNameFontSize(20, 0, 'West Coast IPA'));
 });

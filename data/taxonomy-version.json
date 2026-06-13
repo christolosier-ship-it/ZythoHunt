@@ -1,5 +1,5 @@
 {
-  "appVersion": "0.2.4",
+  "appVersion": "0.2.5",
   "taxonomyVersion": "0.1.2-prototype.3",
   "schemaVersion": 1,
   "status": "prototype",
@@ -17,7 +17,7 @@
     },
     {
       "id": "prototype-v0.1.2",
-      "label": "Révision des coordonnées et du layout V0.2.4 sans modification du corpus taxonomique"
+      "label": "Révision des coordonnées et du layout V0.2.5 sans modification du corpus taxonomique"
     }
   ]
 }
