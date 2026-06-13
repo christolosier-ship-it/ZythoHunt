@@ -1,5 +1,4 @@
 [
-
   {
     "id": "beer",
     "nodeType": "root",
@@ -13,7 +12,7 @@
     "familyId": null,
     "position": {
       "x": 120,
-      "y": 800
+      "y": 900
     },
     "visualFamily": "core",
     "capturable": false,
@@ -66,6 +65,50 @@
     "status": "prototype",
     "sourceRefs": [
       "prototype-v0.1"
+    ]
+  },
+  {
+    "id": "fermentation-spontaneous",
+    "nodeType": "fermentation",
+    "functionalType": "structure",
+    "name": "Fermentation spontanée",
+    "shortName": "Spontanée",
+    "originalName": "Spontaneous fermentation",
+    "rank": 1,
+    "parentId": "beer",
+    "secondaryParentIds": [],
+    "familyId": null,
+    "position": {
+      "x": 430,
+      "y": 1380
+    },
+    "visualFamily": "spontaneous",
+    "capturable": false,
+    "status": "prototype",
+    "sourceRefs": [
+      "prototype-v0.1.1"
+    ]
+  },
+  {
+    "id": "fermentation-mixed-wild",
+    "nodeType": "fermentation",
+    "functionalType": "structure",
+    "name": "Fermentation mixte / sauvage",
+    "shortName": "Mixte / sauvage",
+    "originalName": "Mixed and wild fermentation",
+    "rank": 1,
+    "parentId": "beer",
+    "secondaryParentIds": [],
+    "familyId": null,
+    "position": {
+      "x": 430,
+      "y": 1640
+    },
+    "visualFamily": "mixed-wild",
+    "capturable": false,
+    "status": "prototype",
+    "sourceRefs": [
+      "prototype-v0.1.1"
     ]
   },
   {
@@ -574,5 +617,4 @@
       "prototype-v0.1"
     ]
   }
-
 ]

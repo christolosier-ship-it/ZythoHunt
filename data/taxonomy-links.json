@@ -14,6 +14,20 @@
     "visibleWhenHidden": true
   },
   {
+    "id": "primary-beer-fermentation-spontaneous",
+    "sourceId": "beer",
+    "targetId": "fermentation-spontaneous",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-beer-fermentation-mixed-wild",
+    "sourceId": "beer",
+    "targetId": "fermentation-mixed-wild",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
     "id": "primary-fermentation-high-family-pale-ale-ipa",
     "sourceId": "fermentation-high",
     "targetId": "family-pale-ale-ipa",
