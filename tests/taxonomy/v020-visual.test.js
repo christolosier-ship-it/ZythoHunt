@@ -13,10 +13,11 @@ const byId = new Map(nodes.map(node => [node.id, node]));
 test('états visuels et priorité', () => {
   const west = byId.get('west-coast-ipa');
   assert.equal(resolveNodeVisualState(byId.get('beer'), {}), 'structure');
-  assert.equal(resolveNodeVisualState(west, {}), 'discovered');
-  assert.equal(resolveNodeVisualState(west, { revealPendingId: west.id, selectedId: west.id, exploredIds: new Set([west.id]) }), 'reveal-pending');
-  assert.equal(resolveNodeVisualState(west, { selectedId: west.id, exploredIds: new Set([west.id]) }), 'selected');
-  assert.equal(resolveNodeVisualState(west, { exploredIds: new Set([west.id]) }), 'explored');
+  assert.equal(resolveNodeVisualState(west, {}, new Set()), 'unknown');
+  assert.equal(resolveNodeVisualState(west, {}, new Set([west.id])), 'discovered');
+  assert.equal(resolveNodeVisualState(west, { revealPendingId: west.id, selectedId: west.id, exploredIds: new Set([west.id]) }, new Set([west.id])), 'reveal-pending');
+  assert.equal(resolveNodeVisualState(west, { selectedId: west.id, exploredIds: new Set([west.id]) }, new Set([west.id])), 'selected');
+  assert.equal(resolveNodeVisualState(west, { exploredIds: new Set([west.id]) }, new Set([west.id])), 'explored');
 });
 
 test('présentation des rayons, familles, labels et microbulles', () => {

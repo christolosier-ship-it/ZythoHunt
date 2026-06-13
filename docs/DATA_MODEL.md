@@ -133,3 +133,16 @@ Les validations futures devront vérifier :
 - coordonnées valides ;
 - références encyclopédiques correspondantes ;
 - dégustations pointant vers un style existant ou migrable.
+
+
+## Règle V0.2.1 — Bulles inconnues visibles
+
+- Les nœuds structurels sont toujours visibles.
+- Toutes les bulles de styles sont toujours visibles.
+- Un style inconnu affiche uniquement `?`.
+- Un style inconnu ne révèle aucun nom, alias ou description.
+- Un style inconnu n’est pas consultable.
+- Un style découvert affiche son nom.
+- Les liens stylistiques sont révélés progressivement.
+- Chaque style reste découvert individuellement.
+- Une révélation ne révèle aucun autre nom.

@@ -36,7 +36,7 @@
 
 ## Règles cardinales du produit
 
-- Seuls les nœuds structurels sont visibles par défaut.
+- Les nœuds structurels et les bulles inconnues marquées ? sont visibles par défaut. Seul le nom d’un style découvert est visible.
 - Chaque style est capturé individuellement.
 - Une capture ne révèle aucun autre style.
 - Les ramifications peuvent apparaître sans afficher les bulles cachées.
