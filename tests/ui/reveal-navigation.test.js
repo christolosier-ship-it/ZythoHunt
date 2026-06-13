@@ -1,0 +1,5 @@
+import test from 'node:test'; import assert from 'node:assert/strict'; import fs from 'node:fs'; import { buildSearchIndex, findDebugStyleMatches } from '../../src/domain/search.js';
+const nodes=JSON.parse(fs.readFileSync('data/taxonomy-nodes.json')); const aliases=JSON.parse(fs.readFileSync('data/aliases.json')); const index=buildSearchIndex(nodes,aliases);
+test('recherche publique exacte et alias',()=>{for (const q of ['West Coast IPA','west coast ipa','WCIPA','NEIPA','APA','IPL','Blanche belge']) assert.equal(findDebugStyleMatches(q,index).status,'single',q);});
+test('recherche publique sans liste révélatrice',()=>{assert.equal(findDebugStyleMatches('inconnu',index).status,'none'); assert.equal(findDebugStyleMatches('IPA',index).status,'single');});
+test('navigation basse documentée dans le HTML',()=>{const html=fs.readFileSync('index.html','utf8'); assert(html.includes('bottom-ui')); assert(html.includes('map-static-canvas')); assert(html.includes('map-dynamic-canvas')); assert(html.includes('map-accessibility-layer'));});

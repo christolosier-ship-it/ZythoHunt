@@ -1,0 +1,10 @@
+import test from 'node:test'; import assert from 'node:assert/strict';
+import { worldToScreen, screenToWorld, zoomAt, pan, visibleWorldRect } from '../../src/canvas/coordinate-transform.js';
+import { getNodesInViewport, getLinksInViewport } from '../../src/canvas/culling.js';
+import { getLod, shouldReduceDetail } from '../../src/canvas/lod.js';
+import { createSpriteCache, makeSpriteKey } from '../../src/canvas/sprite-cache.js';
+
+test('coordonnées monde écran et inversion',()=>{const vp={x:10,y:20,scale:2}; const p=worldToScreen({x:5,y:7},vp); assert.deepEqual(p,{x:20,y:34}); assert.deepEqual(screenToWorld(p,vp),{x:5,y:7}); assert.deepEqual(pan(vp,3,-2),{x:13,y:18,scale:2}); const z=zoomAt(vp,2,{x:20,y:34}); assert.equal(screenToWorld({x:20,y:34},z).x,5); assert(visibleWorldRect(vp,{width:100,height:80}).maxX>0);});
+test('culling nœuds et liens',()=>{const nodes=[{id:'a',position:{x:0,y:0}},{id:'b',position:{x:500,y:0}},{id:'c',position:{x:1200,y:0}}]; const vp={x:0,y:0,scale:1}; assert.deepEqual(getNodesInViewport(nodes,vp,{width:600,height:200},50).map(n=>n.id),['a','b']); const links=[{id:'ab',sourceId:'a',targetId:'b'},{id:'bc',sourceId:'b',targetId:'c'}]; const idx=new Map(nodes.map(n=>[n.id,n])); assert(getLinksInViewport(links,idx,vp,{width:600,height:200},0).some(l=>l.id==='ab'));});
+test('LOD et réduction',()=>{assert.equal(getLod(.4),0); assert.equal(getLod(.8),1); assert.equal(getLod(1.4),2); assert.equal(getLod(.58,0),0); assert(shouldReduceDetail({reducedMotion:true})); assert(shouldReduceDetail({isInteracting:true}));});
+test('cache de sprites déterministe et invalidable',()=>{let made=0; const cache=createSpriteCache(o=>({made:++made,o})); const opts={type:'style',family:'pale-ale-ipa',state:'unknown',size:60,lod:1,dpr:2}; assert.equal(makeSpriteKey(opts),'style|pale-ale-ipa|unknown|60|1|2'); assert.equal(cache.get(opts),cache.get(opts)); assert.equal(cache.stats().hits,1); assert.equal(cache.stats().misses,1); cache.invalidateForDpr(); assert.equal(cache.size,0);});

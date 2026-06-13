@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ZythoHunt — Prototype V0.2.0</title>
+    <title>ZythoHunt — Prototype V0.2.1</title>
     <link rel="stylesheet" href="./styles/tokens.css">
     <link rel="stylesheet" href="./styles/base.css">
     <link rel="stylesheet" href="./styles/layout.css">
@@ -15,19 +15,24 @@
     <header>
       <div>
         <h1>ZythoHunt</h1>
-        <p>Prototype V0.2.0 — « Buvez-les toutes. »</p>
+        <p>Prototype V0.2.1 — « Buvez-les toutes. »</p>
       </div>
       <div class="versions">
-        <span id="app-version">App 0.2.0</span>
+        <span id="app-version">App 0.2.1</span>
         <span id="taxonomy-version">Taxonomie 0.1.1-prototype.2</span>
       </div>
     </header>
     <main>
       <section class="map-shell" aria-label="Zythosphère">
         <p id="status" role="status"></p>
-        <svg viewBox="0 0 2400 1800" aria-label="Zythosphère prototype">
-          <g class="map-viewport"><g class="map-links"></g><g class="map-nodes"></g></g>
-        </svg>
+        <div class="zythosphere-viewport">
+          <canvas class="map-static-canvas" aria-hidden="true"></canvas>
+          <canvas class="map-dynamic-canvas" aria-hidden="true"></canvas>
+          <div class="map-accessibility-layer"></div>
+          <svg class="legacy-svg-map" viewBox="0 0 2400 1800" aria-label="Zythosphère prototype SVG historique">
+            <g class="map-viewport"><g class="map-links"></g><g class="map-nodes"></g></g>
+          </svg>
+        </div>
         <nav class="map-controls" aria-label="Contrôles de carte">
           <button id="zoom-in" aria-label="Zoom avant">+</button>
           <button id="zoom-out" aria-label="Zoom arrière">−</button>
@@ -37,6 +42,7 @@
         </nav>
       </section>
       <section class="legend" aria-label="Légende"><span class="dot structure"></span>Nœud structurel <span class="dot style"></span>Style découvert <span class="line primary"></span>Lien principal <span class="line secondary"></span>Lien secondaire</section>
+      <div id="bottom-ui"></div>
       <div id="debug-root"></div>
     </main>
     <script type="module" src="./src/app.js"></script>

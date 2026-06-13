@@ -90,8 +90,8 @@ Ces règles ne doivent pas être modifiées sans décision explicite du proprié
 ## 3.1 Visibilité de la cartographie
 
 - Les **nœuds structurels** sont toujours visibles.
-- Les **styles inconnus** ne sont pas visibles sur la carte.
-- Un style inconnu n’affiche ni bulle, ni nom, ni fiche.
+- Les **styles inconnus** sont visibles sous forme de bulles `?`.
+- Un style inconnu n’affiche aucun nom, alias, description ni fiche consultable.
 - Les coordonnées de tous les styles existent néanmoins dans les données.
 - Les ramifications peuvent être visibles sans révéler les bulles ou les noms associés.
 - La géométrie générale de la carte reste stable.
@@ -108,8 +108,8 @@ Ces règles ne doivent pas être modifiées sans décision explicite du proprié
   - capturer **West Coast IPA** ne révèle pas **IPA** ;
   - ne révèle pas **American IPA** ;
   - ne révèle pas **New England IPA**.
-- Lors d’une capture, seule la bulle du style validé apparaît.
-- Le chemin graphique peut être éclairé sans faire apparaître les autres styles.
+- Lors d’une capture, seule la bulle du style validé remplace son `?` par le nom.
+- Le chemin graphique peut être éclairé sans révéler les noms des autres styles.
 
 ## 3.3 Nœuds structurels
 
@@ -469,6 +469,41 @@ Créer l’identité visuelle définitive des nœuds et des styles.
 ### Critère de sortie
 
 Un utilisateur distingue immédiatement la structure, une découverte en cours et un style déjà découvert. La validation visuelle réelle reste à confirmer sur navigateurs et appareils humains, notamment iPhone Safari.
+
+---
+
+## V0.2.1 : Refonte Canvas et première UX définitive
+
+### Objectif
+
+Remplacer l’architecture SVG coûteuse avant toute consolidation artistique et valider la première UX publique de révélation en mémoire.
+
+### Tâches
+
+- [x] Migrer le moteur par défaut vers Canvas 2D natif.
+- [x] Conserver le moteur SVG historique en comparaison debug `?debug=1&renderer=svg`.
+- [x] Ajouter un Canvas statique et un Canvas dynamique superposés.
+- [x] Ajouter une couche HTML légère d’accessibilité pour les styles découverts visibles.
+- [x] Créer un cache de sprites générés en mémoire.
+- [x] Ajouter le culling des nœuds, liens et boutons HTML.
+- [x] Ajouter les niveaux de détail LOD 0, LOD 1 et LOD 2.
+- [x] Ajouter des tests de charge logiques jusqu’à 300 nœuds synthétiques.
+- [x] Afficher les bulles inconnues visibles avec `?`.
+- [x] Révéler progressivement les liens liés aux styles découverts.
+- [x] Ajouter une barre publique de révélation en mémoire.
+- [x] Ajouter un menu inférieur fixe.
+- [x] Éclaircir le fond général.
+- [x] Documenter l’accessibilité hybride Canvas et HTML.
+- [~] Mesures navigateur réelles : serveur HTTP vérifié, validation graphique humaine encore nécessaire.
+- [!] iPhone Safari réel indisponible dans l’environnement agent.
+
+### Notes de périmètre
+
+La barre V0.2.1 valide l’UX et fonctionne uniquement en mémoire. La V0.3.0 apportera la logique produit complète prévue ultérieurement ; ses cases ne sont pas cochées ici. La Brassopédie reste absente jusqu’à sa phase dédiée.
+
+### Critère de sortie
+
+V0.2.1 prête pour validation humaine et comparaison Canvas/SVG, sans commencer la consolidation artistique V0.2.2.
 
 ---
 
@@ -1073,3 +1108,15 @@ Une fois le dépôt créé avec ce fichier :
 - Tests manuels réellement effectués : serveur HTTP local lancé ; scénarios `empty`, `cardinal`, `secondary`, `mixed` et `debug=1` vérifiés par requêtes HTTP ; inspection DOM/console/performance limitée par absence de navigateur graphique.
 - Limites : validation visuelle humaine, Chrome/Firefox/Safari graphiques, iPhone Safari réel, Android réel, portrait/paysage réels et capture d’écran non réalisés dans cet environnement.
 - Prochaine étape recommandée : validation humaine de la V0.2.0 ; ne pas commencer V0.3.0 avant accord explicite.
+
+## 2026-06-13 — V0.2.1 refonte Canvas et première UX définitive
+
+- Objectif : remplacer le moteur SVG massif par Canvas 2D avant toute extension artistique ou taxonomique.
+- Nouvelle règle : les nœuds structurels et toutes les bulles inconnues `?` sont visibles ; seul un style découvert affiche son nom.
+- Architecture : Canvas statique, Canvas dynamique, couche HTML légère, moteur SVG historique en debug.
+- Performance logique : culling, LOD, cache de sprites, statistiques debug et génération synthétique jusqu’à 300 nœuds.
+- UX : barre publique de révélation en mémoire, menu inférieur, toasts provisoires, fond plus clair.
+- Tests automatisés : `npm test` réussi avec 35 tests après modification ; 26 tests réussissaient avant modification.
+- Tests manuels réalisés : serveur HTTP local et requêtes HTML ; navigateur graphique réel et appareils mobiles non disponibles dans l’environnement agent.
+- Limites : pas de persistance, pas de Brassopédie, pas de dégustations, moteur SVG conservé temporairement, direction artistique encore à valider humainement.
+- Prochaine étape : validation humaine V0.2.1 et comparaison Canvas/SVG ; ne pas commencer V0.2.2 sans accord explicite.

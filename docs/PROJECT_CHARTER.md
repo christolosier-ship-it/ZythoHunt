@@ -38,7 +38,7 @@ La V1 doit proposer une première version publique complète et stable comprenan
 - slogan intégré ;
 - Zythosphère complète ;
 - nœuds structurels toujours visibles ;
-- styles inconnus masqués ;
+- styles inconnus visibles sous forme de bulles ? ;
 - capture par saisie ;
 - animation de révélation du `?` vers le nom ;
 - bulles découvertes cliquables ;
@@ -94,3 +94,16 @@ Une fonctionnalité n’est terminée que si :
 ## À arbitrer
 
 - Aucun arbitrage produit supplémentaire n’a été identifié pendant la Phase 0 documentaire initiale.
+
+
+## Règle V0.2.1 — Bulles inconnues visibles
+
+- Les nœuds structurels sont toujours visibles.
+- Toutes les bulles de styles sont toujours visibles.
+- Un style inconnu affiche uniquement `?`.
+- Un style inconnu ne révèle aucun nom, alias ou description.
+- Un style inconnu n’est pas consultable.
+- Un style découvert affiche son nom.
+- Les liens stylistiques sont révélés progressivement.
+- Chaque style reste découvert individuellement.
+- Une révélation ne révèle aucun autre nom.

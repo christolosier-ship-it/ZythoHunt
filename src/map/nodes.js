@@ -21,8 +21,8 @@ export function renderNodes(group, nodes, options = {}) {
   group.replaceChildren();
   const { presentationState = {}, discoveredIds = new Set(), onSelect } = options;
   for (const node of nodes) {
-    const visualState = resolveNodeVisualState(node, presentationState);
-    const labelText = visualState === 'reveal-pending' ? '?' : (node.shortName || node.name);
+    const visualState = resolveNodeVisualState(node, presentationState, discoveredIds);
+    const labelText = (visualState === 'reveal-pending' || visualState === 'unknown') ? '?' : (node.shortName || node.name);
     const lineCount = wrapNodeLabel(labelText).length;
     const radius = getNodeRadius(node, lineCount);
     const g = el('g');
@@ -50,7 +50,7 @@ export function renderNodes(group, nodes, options = {}) {
     const lower = el('path'); lower.setAttribute('class', 'node-liquid-shadow'); lower.setAttribute('d', `M ${-radius * .78} ${radius * .18} Q 0 ${radius * .55} ${radius * .78} ${radius * .18} L ${radius * .7} ${radius * .78} L ${-radius * .7} ${radius * .78} Z`); motion.append(lower);
     const rim = el('circle'); rim.setAttribute('class', 'node-glass'); rim.setAttribute('r', String(radius)); motion.append(rim);
     const shine = el('ellipse'); shine.setAttribute('class', 'node-shine'); shine.setAttribute('cx', String(-radius * .25)); shine.setAttribute('cy', String(-radius * .34)); shine.setAttribute('rx', String(radius * .23)); shine.setAttribute('ry', String(radius * .12)); shine.setAttribute('transform', '-18'); motion.append(shine);
-    if (node.functionalType === 'capturable' && visualState !== 'reveal-pending') {
+    if (node.functionalType === 'capturable' && discoveredIds.has(node.id) && visualState !== 'reveal-pending') {
       const bubbles = el('g'); bubbles.setAttribute('class', 'microbubbles');
       for (const b of createMicroBubbles(node)) { const c=el('circle'); c.setAttribute('cx', b.x); c.setAttribute('cy', b.y); c.setAttribute('r', b.r); c.style.animationDelay = `${b.delay}s`; bubbles.append(c); }
       motion.append(bubbles);

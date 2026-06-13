@@ -21,7 +21,7 @@
 
 ## Styles inconnus
 
-- Aucune bulle de style inconnu n’est visible au repos.
+- Toutes les bulles de styles inconnus sont visibles au repos sous forme de `?`.
 - Aucun nom de style inconnu n’est visible.
 - Aucune fiche de style inconnu n’est consultable.
 - Aucune suggestion ne doit révéler leur identité.
@@ -96,3 +96,16 @@ Chaque style doit être capturé individuellement. Une capture peut éclairer un
 - Prévoir une taille tactile minimale adaptée au mobile.
 - Prévoir la navigation clavier future.
 - Ne porter aucune information uniquement par la couleur.
+
+
+## Règle V0.2.1 — Bulles inconnues visibles
+
+- Les nœuds structurels sont toujours visibles.
+- Toutes les bulles de styles sont toujours visibles.
+- Un style inconnu affiche uniquement `?`.
+- Un style inconnu ne révèle aucun nom, alias ou description.
+- Un style inconnu n’est pas consultable.
+- Un style découvert affiche son nom.
+- Les liens stylistiques sont révélés progressivement.
+- Chaque style reste découvert individuellement.
+- Une révélation ne révèle aucun autre nom.
