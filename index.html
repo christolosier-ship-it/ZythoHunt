@@ -3,20 +3,22 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ZythoHunt — Prototype V0.1.1</title>
+    <title>ZythoHunt — Prototype V0.2.0</title>
     <link rel="stylesheet" href="./styles/tokens.css">
     <link rel="stylesheet" href="./styles/base.css">
     <link rel="stylesheet" href="./styles/layout.css">
     <link rel="stylesheet" href="./styles/map.css">
+    <link rel="stylesheet" href="./styles/bubbles.css">
+    <link rel="stylesheet" href="./styles/animations.css">
   </head>
   <body>
     <header>
       <div>
         <h1>ZythoHunt</h1>
-        <p>Prototype V0.1.1 — « Buvez-les toutes. »</p>
+        <p>Prototype V0.2.0 — « Buvez-les toutes. »</p>
       </div>
       <div class="versions">
-        <span id="app-version">App 0.1.1</span>
+        <span id="app-version">App 0.2.0</span>
         <span id="taxonomy-version">Taxonomie 0.1.1-prototype.2</span>
       </div>
     </header>
@@ -31,6 +33,7 @@
           <button id="zoom-out" aria-label="Zoom arrière">−</button>
           <button id="recenter">Recentrer</button>
           <button id="fit">Vue générale</button>
+          <button id="motion-toggle" aria-pressed="false">Réduire les animations</button>
         </nav>
       </section>
       <section class="legend" aria-label="Légende"><span class="dot structure"></span>Nœud structurel <span class="dot style"></span>Style découvert <span class="line primary"></span>Lien principal <span class="line secondary"></span>Lien secondaire</section>

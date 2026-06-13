@@ -51,10 +51,12 @@ export function computeVisibleBounds(visibleNodes, visibleLinks, nodeIndex, opti
   return { minX, minY, maxX, maxY, width: maxX - minX, height: maxY - minY };
 }
 
-export function createViewport(svg, viewport) {
+export function createViewport(svg, viewport, options = {}) {
   const state = { x: 0, y: 0, scale: 1 };
   const pointers = new Map();
   let lastPinchDistance = 0;
+  let interactionTimer = null;
+  const markInteraction = () => { options.onInteractionChange?.(true); clearTimeout(interactionTimer); interactionTimer = setTimeout(() => options.onInteractionChange?.(false), 180); };
 
   const clampScale = value => Math.min(MAX_SCALE, Math.max(MIN_SCALE, value));
   const apply = () => viewport.setAttribute('transform', `translate(${state.x} ${state.y}) scale(${state.scale})`);
@@ -66,6 +68,7 @@ export function createViewport(svg, viewport) {
     state.x = svgPoint.x - (svgPoint.x - state.x) * ratio;
     state.y = svgPoint.y - (svgPoint.y - state.y) * ratio;
     apply();
+    markInteraction();
   }
 
   function fitBounds(bounds) {
@@ -105,6 +108,7 @@ export function createViewport(svg, viewport) {
       state.x += ((event.clientX - previous.x) / rect.width) * viewBox.width;
       state.y += ((event.clientY - previous.y) / rect.height) * viewBox.height;
       apply();
+      markInteraction();
       return;
     }
 
@@ -113,6 +117,7 @@ export function createViewport(svg, viewport) {
       const distance = Math.hypot(a.x - b.x, a.y - b.y);
       const center = clientPointToSvg(svg, (a.x + b.x) / 2, (a.y + b.y) / 2);
       if (lastPinchDistance) zoomAt(distance / lastPinchDistance, center);
+      markInteraction();
       lastPinchDistance = distance;
     }
   });
