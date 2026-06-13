@@ -1,5 +1,7 @@
 import { computeVisibleMapState } from '../domain/map-visibility.js';
 import { renderLinks } from './links.js';
+import { ensureBubbleDefs } from './bubble-defs.js';
+import { getActiveSecondaryLinkIds, getPrimaryPathToRoot } from './selection-path.js';
 import { renderNodes } from './nodes.js';
 import { computeVisibleBounds, createViewport } from './viewport.js';
 
@@ -9,12 +11,18 @@ export function createMap(root, data) {
   const linkGroup = root.querySelector('.map-links');
   const nodeGroup = root.querySelector('.map-nodes');
   const nodeIndex = new Map(data.nodes.map(node => [node.id, node]));
-  const controls = createViewport(svg, viewport);
+  ensureBubbleDefs(svg);
+  const controls = createViewport(svg, viewport, { onInteractionChange: active => root.classList.toggle('is-interacting', active) });
 
-  function render(discoveredIds) {
-    const state = computeVisibleMapState(data.nodes, data.links, discoveredIds);
-    renderLinks(linkGroup, state.visibleLinks, nodeIndex);
-    renderNodes(nodeGroup, state.visibleNodes);
+  function render(discoveredIds, presentationState = {}, handlers = {}) {
+    const pending = presentationState.revealPendingId ? new Set([...discoveredIds, presentationState.revealPendingId]) : discoveredIds;
+    const state = computeVisibleMapState(data.nodes, data.links, pending);
+    const activeIds = new Set([
+      ...getPrimaryPathToRoot(presentationState.selectedId, data.nodes, data.links),
+      ...getActiveSecondaryLinkIds(presentationState.selectedId, data.links)
+    ]);
+    renderLinks(linkGroup, state.visibleLinks, nodeIndex, { activeLinkIds: activeIds });
+    renderNodes(nodeGroup, state.visibleNodes, { presentationState, discoveredIds, onSelect: handlers.onSelect });
     return state;
   }
 

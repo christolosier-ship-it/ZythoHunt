@@ -426,49 +426,49 @@ Créer l’identité visuelle définitive des nœuds et des styles.
 
 ### États visuels
 
-- [ ] Nœud structurel.
-- [ ] Style masqué.
-- [ ] Révélation en attente.
-- [ ] Style découvert.
-- [ ] Style sélectionné.
-- [ ] Style approfondi, préparé mais non nécessairement activé en V1.
+- [x] Nœud structurel.
+- [x] Style masqué.
+- [x] Révélation en attente.
+- [x] Style découvert.
+- [x] Style sélectionné.
+- [x] Style approfondi, préparé mais non nécessairement activé en V1.
 
 ### Apparence des styles
 
-- [ ] Créer le contour effet verre.
-- [ ] Créer le liquide intérieur.
-- [ ] Définir les nuances par famille.
-- [ ] Ajouter un reflet supérieur.
-- [ ] Ajouter un léger halo.
-- [ ] Ajouter des microbulles discrètes.
-- [ ] Ajouter une respiration lente de 1 à 2 % maximum.
-- [ ] Définir le `?` stylisé.
-- [ ] Définir la police d’identité des styles.
-- [ ] Définir la police d’interface lisible.
-- [ ] Tester les noms courts.
-- [ ] Tester les noms longs.
-- [ ] Garantir la lisibilité sur petit écran.
+- [x] Créer le contour effet verre.
+- [x] Créer le liquide intérieur.
+- [x] Définir les nuances par famille.
+- [x] Ajouter un reflet supérieur.
+- [x] Ajouter un léger halo.
+- [x] Ajouter des microbulles discrètes.
+- [x] Ajouter une respiration lente de 1 à 2 % maximum.
+- [x] Définir le `?` stylisé.
+- [x] Définir la police d’identité des styles.
+- [x] Définir la police d’interface lisible.
+- [x] Tester les noms courts.
+- [x] Tester les noms longs.
+- [~] Garantir la lisibilité sur petit écran.
 
 ### Apparence des nœuds structurels
 
-- [ ] Les rendre plus grands.
-- [ ] Les rendre plus mats.
-- [ ] Limiter l’effet liquide.
-- [ ] Les distinguer clairement des styles.
-- [ ] Conserver une microanimation très légère.
-- [ ] Ne pas les rendre capturables.
+- [x] Les rendre plus grands.
+- [x] Les rendre plus mats.
+- [x] Limiter l’effet liquide.
+- [x] Les distinguer clairement des styles.
+- [x] Conserver une microanimation très légère.
+- [x] Ne pas les rendre capturables.
 
 ### Animation
 
-- [ ] Stopper ou réduire les animations pendant le pan.
-- [ ] Stopper ou réduire les animations pendant le zoom.
-- [ ] Respecter `prefers-reduced-motion`.
-- [ ] Prévoir un réglage utilisateur « Réduire les animations ».
-- [ ] Éviter les filtres SVG trop coûteux.
+- [x] Stopper ou réduire les animations pendant le pan.
+- [x] Stopper ou réduire les animations pendant le zoom.
+- [x] Respecter `prefers-reduced-motion`.
+- [x] Prévoir un réglage utilisateur « Réduire les animations ».
+- [x] Éviter les filtres SVG trop coûteux.
 
 ### Critère de sortie
 
-Un utilisateur distingue immédiatement la structure, une découverte en cours et un style déjà découvert.
+Un utilisateur distingue immédiatement la structure, une découverte en cours et un style déjà découvert. La validation visuelle réelle reste à confirmer sur navigateurs et appareils humains, notamment iPhone Safari.
 
 ---
 
@@ -1058,3 +1058,18 @@ Une fois le dépôt créé avec ce fichier :
 3. créer le squelette documentaire de la Phase 0 ;
 4. ne pas commencer directement la Zythosphère ;
 5. soumettre les documents de cadrage à validation avant le prototype V0.1.0.
+## 2026-06-13 — V0.2.0 direction artistique et moteur de bulles
+
+- Objectif : créer l’identité visuelle définitive de la Zythosphère sans modifier la taxonomie ni démarrer la V0.3.0.
+- Fichiers créés : `src/domain/node-visual-state.js`, `src/map/bubble-defs.js`, `src/map/bubble-presentation.js`, `src/map/discovery-animation.js`, `src/map/selection-path.js`, `styles/bubbles.css`, `styles/animations.css`, `tests/taxonomy/v020-visual.test.js`, `tests/manual/V0.2.0-CHECKLIST.md`.
+- Fichiers modifiés : `index.html`, `package.json`, `README.md`, `data/taxonomy-version.json`, `src/app.js`, `src/config.js`, `src/map/links.js`, `src/map/map-renderer.js`, `src/map/nodes.js`, `src/map/viewport.js`, `src/ui/debug-panel.js`, `styles/base.css`, `styles/layout.css`, `styles/map.css`, `styles/tokens.css`, `roadmap.md`.
+- Système visuel : orbes brassicoles, nœuds structurels bronzés mats, fond CSS sombre, courbes SVG, halos légers et typographies système.
+- Palettes : couleurs centralisées par famille visuelle, sans couleur aléatoire par style.
+- États : `structure`, `reveal-pending`, `discovered`, `selected`, `explored` avec priorité documentée.
+- Animations : respiration CSS légère, microbulles déterministes, aperçu de révélation annulable, pause pendant interaction et réduction des animations.
+- Accessibilité : styles découverts sélectionnables au clic, toucher, Entrée et Espace ; focus visible ; `role=button`, `tabindex`, `aria-label`, `aria-pressed` ; contrôle public de mouvement réduit.
+- Performances : aucun moteur de graphe, aucune dépendance, aucun PNG, aucun `requestAnimationFrame` décoratif permanent, filtres SVG partagés et styles cachés absents du DOM.
+- Tests automatisés : `npm test` réussi avec 26 tests.
+- Tests manuels réellement effectués : serveur HTTP local lancé ; scénarios `empty`, `cardinal`, `secondary`, `mixed` et `debug=1` vérifiés par requêtes HTTP ; inspection DOM/console/performance limitée par absence de navigateur graphique.
+- Limites : validation visuelle humaine, Chrome/Firefox/Safari graphiques, iPhone Safari réel, Android réel, portrait/paysage réels et capture d’écran non réalisés dans cet environnement.
+- Prochaine étape recommandée : validation humaine de la V0.2.0 ; ne pas commencer V0.3.0 avant accord explicite.

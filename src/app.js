@@ -1,74 +1,25 @@
 import { loadTaxonomy } from './domain/taxonomy-loader.js';
 import { APP_VERSION, SCENARIOS, TAXONOMY_VERSION } from './config.js';
+import { createDiscoveryController } from './map/discovery-animation.js';
 import { createMap } from './map/map-renderer.js';
 import { createDebugPanel, getScenarioFromUrl } from './ui/debug-panel.js';
 
 const $ = selector => document.querySelector(selector);
 const params = new URLSearchParams(location.search);
-const appState = {
-  scenario: getScenarioFromUrl(location.search),
-  discovered: new Set()
-};
-let map;
-let debug;
+const prefersReduced = typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches;
+const appState = { scenario: getScenarioFromUrl(location.search), discovered: new Set(), presentation: { revealPendingId: null, selectedId: null, exploredIds: new Set(), reducedMotion: prefersReduced, isInteracting: false } };
+let map; let debug; let data; const discovery = createDiscoveryController();
 
-function setScenario(scenario) {
-  appState.scenario = Object.hasOwn(SCENARIOS, scenario) ? scenario : 'empty';
-  appState.discovered.clear();
-  for (const id of SCENARIOS[appState.scenario]) appState.discovered.add(id);
-}
+function setScenario(scenario) { discovery.cancel(); appState.presentation.revealPendingId = null; appState.presentation.selectedId = null; appState.presentation.exploredIds.clear(); appState.scenario = Object.hasOwn(SCENARIOS, scenario) ? scenario : 'empty'; appState.discovered.clear(); for (const id of SCENARIOS[appState.scenario]) appState.discovered.add(id); }
+function setReducedMotion(value) { appState.presentation.reducedMotion = Boolean(value); document.body.classList.toggle('reduced-motion', appState.presentation.reducedMotion); $('#motion-toggle').setAttribute('aria-pressed', String(appState.presentation.reducedMotion)); $('#motion-toggle').textContent = appState.presentation.reducedMotion ? 'Animations réduites' : 'Réduire les animations'; renderAndSync(); }
+function selectStyle(id) { const node = data.nodes.find(n => n.id === id); if (!node || node.functionalType !== 'capturable' || !appState.discovered.has(id)) return; appState.presentation.selectedId = appState.presentation.selectedId === id ? null : id; renderAndSync(); $('#status').textContent = appState.presentation.selectedId ? `Style sélectionné : ${node.name}.` : 'Sélection retirée.'; }
+function renderAndSync({ fit = false, focusId = null } = {}) { const mapState = map.render(appState.discovered, appState.presentation, { onSelect: selectStyle }); if (!appState.presentation.selectedId) $('#status').textContent = `${mapState.visibleNodes.length} nœuds visibles`; debug?.sync(mapState, appState.presentation); if (focusId) map.focusNode(focusId); else if (fit) map.fitState(mapState); return mapState; }
+function previewReveal(id) { const node = data.nodes.find(n => n.id === id); if (!node || node.functionalType !== 'capturable') return; map.focusNode(id); discovery.preview(id, { onStart: revealId => { appState.presentation.revealPendingId = revealId; appState.presentation.selectedId = null; renderAndSync(); $('#status').textContent = `Aperçu révélation : ${node.name}.`; }, onName: () => { renderAndSync(); }, onFinish: revealId => { appState.presentation.revealPendingId = null; appState.discovered.add(revealId); appState.presentation.selectedId = revealId; renderAndSync({ focusId: revealId }); $('#status').textContent = `Style sélectionné : ${node.name}.`; } }, { reducedMotion: appState.presentation.reducedMotion }); }
 
-function renderAndSync({ fit = false, focusId = null } = {}) {
-  const mapState = map.render(appState.discovered);
-  $('#status').textContent = `${mapState.visibleNodes.length} nœuds visibles`;
-  debug?.sync(mapState);
-  if (focusId) map.focusNode(focusId);
-  else if (fit) map.fitState(mapState);
-  return mapState;
-}
-
-$('#app-version').textContent = `App ${APP_VERSION}`;
-$('#taxonomy-version').textContent = `Taxonomie ${TAXONOMY_VERSION}`;
-setScenario(appState.scenario);
-
+document.addEventListener('visibilitychange', () => document.body.classList.toggle('is-tab-hidden', document.hidden));
+$('#app-version').textContent = `App ${APP_VERSION}`; $('#taxonomy-version').textContent = `Taxonomie ${TAXONOMY_VERSION}`; setScenario(appState.scenario);
 try {
-  $('#status').textContent = 'Chargement de la taxonomie…';
-  const data = await loadTaxonomy();
-  map = createMap($('.map-shell'), data);
-
-  if (params.get('debug') === '1') {
-    debug = createDebugPanel($('#debug-root'), data, {
-      nodes: data.nodes,
-      aliases: data.aliases,
-      get scenario() { return appState.scenario; },
-      discovered: appState.discovered,
-      onScenario: scenario => {
-        setScenario(scenario);
-        renderAndSync({ fit: true });
-      },
-      onReveal: id => {
-        appState.discovered.add(id);
-        renderAndSync({ focusId: id });
-      },
-      onHide: id => {
-        appState.discovered.delete(id);
-        renderAndSync({ fit: true });
-      },
-      onReset: () => {
-        appState.discovered.clear();
-        appState.scenario = 'empty';
-        renderAndSync({ fit: true });
-      }
-    });
-  }
-
-  $('#zoom-in').onclick = map.controls.zoomIn;
-  $('#zoom-out').onclick = map.controls.zoomOut;
-  $('#recenter').onclick = map.controls.recenter;
-  $('#fit').onclick = () => map.fitState(renderAndSync());
-  renderAndSync({ fit: true });
-} catch (error) {
-  console.error(error);
-  $('#status').textContent = error.message;
-  $('#status').classList.add('is-error');
-}
+  $('#status').textContent = 'Chargement de la taxonomie…'; data = await loadTaxonomy(); map = createMap($('.map-shell'), data);
+  if (params.get('debug') === '1') debug = createDebugPanel($('#debug-root'), data, { nodes: data.nodes, aliases: data.aliases, get scenario() { return appState.scenario; }, discovered: appState.discovered, presentation: appState.presentation, onScenario: scenario => { setScenario(scenario); renderAndSync({ fit: true }); }, onReveal: id => { appState.discovered.add(id); appState.presentation.revealPendingId = null; renderAndSync({ focusId: id }); }, onPreviewReveal: previewReveal, onHide: id => { discovery.cancel(); appState.discovered.delete(id); if (appState.presentation.selectedId === id) appState.presentation.selectedId = null; if (appState.presentation.revealPendingId === id) appState.presentation.revealPendingId = null; renderAndSync({ fit: true }); }, onReset: () => { setScenario('empty'); renderAndSync({ fit: true }); }, onSelect: selectStyle, onClearSelection: () => { appState.presentation.selectedId = null; renderAndSync(); }, onToggleExplored: id => { appState.presentation.exploredIds.has(id) ? appState.presentation.exploredIds.delete(id) : appState.presentation.exploredIds.add(id); renderAndSync(); }, onReducedMotion: setReducedMotion });
+  $('#zoom-in').onclick = map.controls.zoomIn; $('#zoom-out').onclick = map.controls.zoomOut; $('#recenter').onclick = map.controls.recenter; $('#fit').onclick = () => map.fitState(renderAndSync()); $('#motion-toggle').onclick = () => setReducedMotion(!appState.presentation.reducedMotion); setReducedMotion(prefersReduced); renderAndSync({ fit: true });
+} catch (error) { console.error(error); $('#status').textContent = error.message; $('#status').classList.add('is-error'); }

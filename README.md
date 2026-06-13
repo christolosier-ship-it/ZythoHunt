@@ -6,19 +6,79 @@
 
 ## Statut
 
-Le dépôt contient le prototype technique **V0.1.1**. Il corrige la taxonomie structurelle, le monde SVG, le cadrage, les tests et les outils développeur de la V0.1.0 avant toute direction artistique V0.2.0.
+Le dépôt contient le prototype applicatif **V0.2.0**. Cette version pose la direction artistique définitive de la Zythosphère et prépare le moteur visuel des bulles, sans modifier la taxonomie **0.1.1-prototype.2**.
 
-## Périmètre V0.1.1
+## Périmètre V0.2.0
 
 - 8 nœuds structurels visibles par défaut.
-- 4 modes de fermentation structurels : Ale, Lager, Fermentation spontanée, Fermentation mixte / sauvage.
-- 20 styles capturables masqués tant qu'ils ne sont pas dans un scénario ou révélés par l'outil debug.
-- 27 liens principaux et 2 liens secondaires.
-- Monde SVG cohérent `2400 × 1800`.
-- Pan, zoom, pinch et vue générale sans dépendance externe.
-- Validateur et tests automatisés sans dépendance npm.
+- 20 styles capturables masqués tant qu'ils ne sont pas dans un scénario, révélés en debug ou en aperçu de révélation.
+- Orbes brassicoles SVG : verre, liquide, reflet, halo et microbulles discrètes.
+- Palette centralisée par famille visuelle.
+- Liens principaux courbes et liens secondaires pointillés.
+- Sélection visuelle d'un style découvert et mise en évidence de son chemin vers la racine.
+- État « approfondi » préparé et testable uniquement dans le laboratoire développeur.
+- Aperçu de révélation développeur avec `?`, apparition du nom, découverte en mémoire et sélection temporaire.
+- Contrôle public « Réduire les animations » respectant aussi `prefers-reduced-motion`.
+- Suspension CSS des animations décoratives pendant les interactions de carte et lorsque l'onglet est masqué.
 
-Sont volontairement absents : vraie capture publique, Brassopédie, fiches, dégustations, persistance, IndexedDB, PWA, manifeste, service worker, notifications et backend.
+Sont volontairement absents : vraie capture publique, persistance, Brassopédie, fiches encyclopédiques, dégustations, statistiques, badges, IndexedDB, PWA, manifeste, service worker, photos, compte utilisateur, cloud et backend.
+
+## Direction artistique
+
+La Zythosphère évoque une constellation brassicole : un fond sombre en dégradés CSS, des structures bronzées et mates, et des styles découverts sous forme d'orbes contenant un liquide de couleur familiale. Le monde reste stable ; seules des animations internes légères donnent une impression vivante.
+
+## États visuels
+
+Priorité documentée : `reveal-pending` puis `selected` puis `explored` puis `discovered`. Les nœuds structurels gardent toujours l'état `structure`.
+
+- **Style masqué** : absent du DOM, sans cercle, nom, focus ni zone cliquable.
+- **Révélation en attente** : bulle temporaire avec `?`, réservée au debug.
+- **Style découvert** : orbe complète avec nom, halo et microbulles.
+- **Style sélectionné** : halo renforcé, anneau clair et chemin principal actif.
+- **Style approfondi** : état préparé par anneau/repères discrets, sans règle métier.
+
+## Palette par famille
+
+Les couleurs sont centralisées dans `styles/tokens.css` : cœur structurel bronze, Pale Ale/IPA ambré, blé doré pâle, lager doré, spontané rouge-orangé et mixte/sauvage violet.
+
+## Géométrie fixe
+
+Les coordonnées, relations et fichiers JSON ne sont pas recalculés par la V0.2.0. Les animations sont appliquées au groupe interne `.node-motion`, jamais au groupe qui porte `translate(x y)`.
+
+## Animations décoratives
+
+- Respiration lente de 1 à 2 % maximum pour les styles.
+- Respiration structurelle plus mate et plus faible.
+- Trois microbulles maximum par style visible, avec positions déterministes.
+- Aucun `requestAnimationFrame` décoratif permanent.
+
+## Réduction des animations
+
+Le contrôle public « Réduire les animations » agit en mémoire uniquement. La préférence système `prefers-reduced-motion: reduce` démarre automatiquement en mode réduit. Aucune valeur n'est stockée dans `localStorage` ou IndexedDB.
+
+## Mode développeur
+
+Ajouter `?debug=1` pour afficher les outils développeur V0.2.0, dont le **Laboratoire visuel** :
+
+- sélection d'un style découvert ;
+- aperçu de révélation ;
+- état approfondi ;
+- retrait de sélection ;
+- réduction des animations ;
+- état visuel courant.
+
+Exemple :
+
+```text
+http://localhost:8080/?scenario=empty&debug=1
+```
+
+## Scénarios
+
+- Structure seule : `?scenario=empty`
+- Test cardinal : `?scenario=cardinal`
+- Liens secondaires : `?scenario=secondary`
+- Mixte : `?scenario=mixed`
 
 ## Lancement local
 
@@ -34,33 +94,6 @@ Puis ouvrir : <http://localhost:8080/>
 npm test
 ```
 
-## Scénarios
-
-- Structure seule : `?scenario=empty`
-- Test cardinal : `?scenario=cardinal`
-- Liens secondaires : `?scenario=secondary`
-- Mixte : `?scenario=mixed`
-
-## Mode développeur
-
-Ajouter `?debug=1` pour afficher **Outils développeur V0.1.1**. Exemple :
-
-```text
-http://localhost:8080/?scenario=empty&debug=1
-```
-
-La section **Révéler un style de test** accepte un nom officiel, un nom court, un nom original ou un alias : `West Coast IPA`, `WCIPA`, `NEIPA`, `Hazy IPA`, `APA`, `IPL`, `Blanche belge`.
-
-Exemple de contrôle cardinal :
-
-1. ouvrir les outils développeur ;
-2. saisir `West Coast IPA` ou `WCIPA` ;
-3. cliquer sur « Révéler » ;
-4. vérifier que seuls le style demandé et ses lignes apparaissent ;
-5. vérifier qu'IPA et American IPA restent cachées.
-
-Le panneau développeur ne persiste rien dans IndexedDB, localStorage, cookie ou JSON et n'apparaît jamais sans `debug=1`.
-
 ## Conception responsable
 
 ZythoHunt est destiné à la découverte culturelle et sensorielle des styles de bière. L'application ne doit pas encourager la vitesse de consommation, la quantité, les séries quotidiennes liées à l'alcool, la compétition sur les volumes ou une consommation irresponsable.
@@ -75,7 +108,3 @@ Le slogan « Buvez-les toutes. » est une identité humoristique liée à l'expl
 - [Règles UX](docs/UX_RULES.md)
 - [Règles taxonomiques](docs/TAXONOMY_RULES.md)
 - [Modèle de données](docs/DATA_MODEL.md)
-
-## Prochaine phase
-
-La prochaine phase prévue est **V0.2.0**, uniquement après validation humaine explicite de la V0.1.1.
