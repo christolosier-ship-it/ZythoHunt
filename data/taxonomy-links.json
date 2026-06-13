@@ -1,0 +1,191 @@
+[
+  {
+    "id": "primary-beer-fermentation-high",
+    "sourceId": "beer",
+    "targetId": "fermentation-high",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-beer-fermentation-low",
+    "sourceId": "beer",
+    "targetId": "fermentation-low",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-fermentation-high-family-pale-ale-ipa",
+    "sourceId": "fermentation-high",
+    "targetId": "family-pale-ale-ipa",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-fermentation-high-family-wheat-beer",
+    "sourceId": "fermentation-high",
+    "targetId": "family-wheat-beer",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-fermentation-low-family-pale-lager",
+    "sourceId": "fermentation-low",
+    "targetId": "family-pale-lager",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-family-pale-ale-ipa-classic-english-pale-ale",
+    "sourceId": "family-pale-ale-ipa",
+    "targetId": "classic-english-pale-ale",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-family-pale-ale-ipa-american-pale-ale",
+    "sourceId": "family-pale-ale-ipa",
+    "targetId": "american-pale-ale",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-family-pale-ale-ipa-british-golden-ale",
+    "sourceId": "family-pale-ale-ipa",
+    "targetId": "british-golden-ale",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-family-pale-ale-ipa-australian-sparkling-ale",
+    "sourceId": "family-pale-ale-ipa",
+    "targetId": "australian-sparkling-ale",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-family-pale-ale-ipa-new-zealand-pale-ale",
+    "sourceId": "family-pale-ale-ipa",
+    "targetId": "new-zealand-pale-ale",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-family-pale-ale-ipa-ipa",
+    "sourceId": "family-pale-ale-ipa",
+    "targetId": "ipa",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-ipa-english-ipa",
+    "sourceId": "ipa",
+    "targetId": "english-ipa",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-ipa-american-ipa",
+    "sourceId": "ipa",
+    "targetId": "american-ipa",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-american-ipa-west-coast-ipa",
+    "sourceId": "american-ipa",
+    "targetId": "west-coast-ipa",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-american-ipa-new-england-ipa",
+    "sourceId": "american-ipa",
+    "targetId": "new-england-ipa",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-ipa-session-ipa",
+    "sourceId": "ipa",
+    "targetId": "session-ipa",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-ipa-double-ipa",
+    "sourceId": "ipa",
+    "targetId": "double-ipa",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-ipa-black-ipa",
+    "sourceId": "ipa",
+    "targetId": "black-ipa",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-ipa-red-ipa",
+    "sourceId": "ipa",
+    "targetId": "red-ipa",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-ipa-white-ipa",
+    "sourceId": "ipa",
+    "targetId": "white-ipa",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-ipa-belgian-ipa",
+    "sourceId": "ipa",
+    "targetId": "belgian-ipa",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-ipa-rye-ipa",
+    "sourceId": "ipa",
+    "targetId": "rye-ipa",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-ipa-brown-ipa",
+    "sourceId": "ipa",
+    "targetId": "brown-ipa",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-family-wheat-beer-witbier",
+    "sourceId": "family-wheat-beer",
+    "targetId": "witbier",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-family-pale-lager-india-pale-lager",
+    "sourceId": "family-pale-lager",
+    "targetId": "india-pale-lager",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "secondary-white-ipa-witbier",
+    "sourceId": "white-ipa",
+    "targetId": "witbier",
+    "linkType": "related-style",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "secondary-india-pale-lager-ipa",
+    "sourceId": "india-pale-lager",
+    "targetId": "ipa",
+    "linkType": "related-style",
+    "visibleWhenHidden": true
+  }
+]

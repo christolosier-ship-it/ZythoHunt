@@ -1,0 +1,13 @@
+{
+  "classic-english-pale-ale": ["English Pale Ale", "British Pale Ale"],
+  "american-pale-ale": ["APA"],
+  "new-zealand-pale-ale": ["NZPA"],
+  "ipa": ["India Pale Ale"],
+  "english-ipa": ["British IPA"],
+  "west-coast-ipa": ["WCIPA", "IPA West Coast"],
+  "new-england-ipa": ["NEIPA", "New-England IPA", "Hazy IPA"],
+  "double-ipa": ["DIPA", "Imperial IPA"],
+  "black-ipa": ["Cascadian Dark Ale"],
+  "witbier": ["Belgian White", "Blanche belge", "Bière blanche belge"],
+  "india-pale-lager": ["IPL"]
+}
