@@ -21,6 +21,12 @@
 - Ne pas ajouter de dépendance sans justification documentée.
 - Respecter le fonctionnement hors ligne futur.
 - Préserver la compatibilité mobile et iPhone Safari.
+- Ne pas réintroduire de moteur SVG pour la Zythosphère.
+- Ne pas conserver deux Canvas plein écran permanents.
+- Ne pas ajouter de debug permanent, de charge synthétique ou de diagnostics continus.
+- Ne pas restaurer les tests historiques supprimés.
+- Ne pas ajouter d’animation permanente hors révélation.
+- Ne jamais déclencher de redraw Canvas complet pendant `pointermove`.
 
 ## Après l’intervention
 

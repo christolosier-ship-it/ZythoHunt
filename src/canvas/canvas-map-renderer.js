@@ -1,379 +1,64 @@
 import { computeVisibleMapState } from '../domain/map-visibility.js';
 import { resolveNodeVisualState } from '../domain/node-visual-state.js';
-import { getNodesInViewport, getLinksInViewport, segmentIntersectsRect } from './culling.js';
-import { fitBounds, pan, visibleWorldRect, worldToScreen, zoomAt } from './coordinate-transform.js';
-import { getLod } from './lod.js';
-import { createBubbleSprite } from './sprite-factory.js';
-import { createSpriteCache } from './sprite-cache.js';
-import { drawCenteredLabel } from './text-renderer.js';
+import { fitBounds, screenToWorld, worldToScreen, zoomAt } from './coordinate-transform.js';
 import { createCanvasResizeManager } from './canvas-resize-manager.js';
 import { readCanvasTheme } from './canvas-theme.js';
+import { drawCenteredLabel } from './text-renderer.js';
 import { computeVisibleBounds } from '../map/viewport.js';
 import { getApparentNodeRadius, getApparentStructureSize, getStructureLabelText, getStructureShape } from '../map/bubble-presentation.js';
 
+const OVERSCAN_PX = 160;
 const HOME_STRUCTURE_IDS = ['beer', 'fermentation-high', 'fermentation-low', 'fermentation-spontaneous', 'fermentation-mixed-wild', 'family-pale-ale-ipa', 'family-wheat-beer', 'family-pale-lager'];
-const FAMILY_IDS = ['family-pale-ale-ipa', 'family-wheat-beer', 'family-pale-lager'];
-const STRUCTURE_FOCUS_MAX_SCALE = 0.95;
-const REVEAL_FOCUS_MAX_SCALE = 1.10;
 const FIT_MIN_SCALE = 0.08;
 
-function descendantsOf(id, nodes) {
-  const byParent = new Map();
-  for (const node of nodes) {
-    if (!node.parentId) continue;
-    if (!byParent.has(node.parentId)) byParent.set(node.parentId, []);
-    byParent.get(node.parentId).push(node);
-  }
-  const out = [];
-  const stack = [...(byParent.get(id) || [])];
-  while (stack.length) {
-    const node = stack.shift();
-    out.push(node);
-    stack.push(...(byParent.get(node.id) || []));
-  }
-  return out;
-}
-
-export function getDescendantBounds(structureId, nodes, options = {}) {
-  const node = nodes.find(n => n.id === structureId);
-  if (!node) return null;
-  const includeSelf = options.includeSelf ?? true;
-  const scale = options.scale ?? 1;
-  const padding = options.padding ?? 180;
-  const items = includeSelf ? [node, ...descendantsOf(structureId, nodes)] : descendantsOf(structureId, nodes);
-  if (!items.length) return null;
-  let minX = Infinity; let minY = Infinity; let maxX = -Infinity; let maxY = -Infinity;
-  for (const item of items) {
-    let halfW; let halfH;
-    if (item.functionalType === 'structure') {
-      const shape = getApparentStructureSize(item, 2, scale);
-      halfW = shape.width / 2 + 34;
-      halfH = shape.height / 2 + 32;
-    } else {
-      const r = getApparentNodeRadius(item, 'discovered', 2, scale) / Math.max(scale, 0.001);
-      halfW = r + 54;
-      halfH = r + 40;
-    }
-    minX = Math.min(minX, item.position.x - halfW);
-    maxX = Math.max(maxX, item.position.x + halfW);
-    minY = Math.min(minY, item.position.y - halfH);
-    maxY = Math.max(maxY, item.position.y + halfH);
-  }
-  return { minX: minX - padding, minY: minY - padding, maxX: maxX + padding, maxY: maxY + padding, width: maxX - minX + padding * 2, height: maxY - minY + padding * 2 };
-}
-
-
-export function getStyleNeighborhood(styleId, nodes) {
-  const byId = new Map(nodes.map(n => [n.id, n]));
-  const byParent = new Map();
-  for (const n of nodes) if (n.parentId) { if (!byParent.has(n.parentId)) byParent.set(n.parentId, []); byParent.get(n.parentId).push(n); }
-  const target = byId.get(styleId); if (!target) return [];
-  const out = new Map([[target.id, target]]);
-  let parent = byId.get(target.parentId);
-  if (parent) out.set(parent.id, parent);
-  let cur = parent;
-  while (cur && cur.nodeType !== 'family') { cur = byId.get(cur.parentId); if (cur) out.set(cur.id, cur); }
-  for (const sib of byParent.get(target.parentId) || []) if (out.size < 10) out.set(sib.id, sib);
-  for (const child of byParent.get(styleId) || []) if (out.size < 10) out.set(child.id, child);
-  return [...out.values()];
-}
-
-export function getStyleNeighborhoodBounds(styleId, nodes) {
-  const items = getStyleNeighborhood(styleId, nodes); if (!items.length) return null;
-  const padding = 170; const xs = items.map(n => n.position.x); const ys = items.map(n => n.position.y);
-  return { minX: Math.min(...xs) - padding, minY: Math.min(...ys) - padding, maxX: Math.max(...xs) + padding, maxY: Math.max(...ys) + padding, width: Math.max(...xs) - Math.min(...xs) + padding * 2, height: Math.max(...ys) - Math.min(...ys) + padding * 2 };
-}
-
-function familyBounds(familyId, nodes) {
-  return getDescendantBounds(familyId, nodes, { padding: 160, includeSelf: true, scale: 1 });
-}
-
-function drawRoundedRectPath(ctx, x, y, w, h, r) {
-  const rr = Math.min(r, w / 2, h / 2);
-  ctx.beginPath();
-  ctx.moveTo(x + rr, y);
-  ctx.arcTo(x + w, y, x + w, y + h, rr);
-  ctx.arcTo(x + w, y + h, x, y + h, rr);
-  ctx.arcTo(x, y + h, x, y, rr);
-  ctx.arcTo(x, y, x + w, y, rr);
-  ctx.closePath();
-}
-
-export function detectLayoutCollisions(nodes, { scale = 1 } = {}) {
-  const structures = nodes.filter(n => n.functionalType === 'structure');
-  const styles = nodes.filter(n => n.functionalType === 'capturable');
-  const structureCollisions = [];
-  const styleCollisions = [];
-  const labelCollisions = [];
-  const checkPairs = (items, sink, radiusOf) => {
-    for (let i = 0; i < items.length; i++) for (let j = i + 1; j < items.length; j++) {
-      const a = items[i]; const b = items[j];
-      const ra = radiusOf(a); const rb = radiusOf(b);
-      const d = Math.hypot(a.position.x - b.position.x, a.position.y - b.position.y);
-      if (d < ra + rb) sink.push({ a: a.id, b: b.id, overlap: Math.round((ra + rb - d) * 10) / 10 });
-    }
-  };
-  checkPairs(structures, structureCollisions, n => getStructureShape(n).collisionRadius);
-  for (const familyId of FAMILY_IDS) {
-    const ids = new Set(descendantsOf(familyId, nodes).map(n => n.id));
-    checkPairs(styles.filter(n => ids.has(n.id)), styleCollisions, n => getApparentNodeRadius(n, 'discovered', 2, scale) / scale + 22);
-  }
-  checkPairs(structures, labelCollisions, n => {
-    const shape = getApparentStructureSize(n, 2, scale);
-    return Math.max(shape.width / 2, shape.height / 2) + 16;
-  });
-  return { structureCollisions, styleCollisions, labelCollisions, warnings: [] };
-}
+function clamp(v, min, max) { return Math.max(min, Math.min(max, v)); }
+function distance(a, b) { return Math.hypot(a.x - b.x, a.y - b.y); }
+function descendantsOf(id, nodes) { const byParent = new Map(); for (const n of nodes) if (n.parentId) { if (!byParent.has(n.parentId)) byParent.set(n.parentId, []); byParent.get(n.parentId).push(n); } const out=[]; const stack=[...(byParent.get(id)||[])]; while(stack.length){ const n=stack.shift(); out.push(n); stack.push(...(byParent.get(n.id)||[])); } return out; }
+function boundsOf(items, padding = 180) { if (!items.length) return null; const xs = items.map(n => n.position.x); const ys = items.map(n => n.position.y); return { minX: Math.min(...xs)-padding, minY: Math.min(...ys)-padding, maxX: Math.max(...xs)+padding, maxY: Math.max(...ys)+padding, width: Math.max(...xs)-Math.min(...xs)+padding*2, height: Math.max(...ys)-Math.min(...ys)+padding*2 }; }
+function rounded(ctx,x,y,w,h,r){ const rr=Math.min(r,w/2,h/2); ctx.beginPath(); ctx.moveTo(x+rr,y); ctx.arcTo(x+w,y,x+w,y+h,rr); ctx.arcTo(x+w,y+h,x,y+h,rr); ctx.arcTo(x,y+h,x,y,rr); ctx.arcTo(x,y,x+w,y,rr); ctx.closePath(); }
 
 export function createCanvasMapRenderer(root, data, options = {}) {
-  const staticCanvas = root.querySelector('.map-static-canvas');
-  const dynamicCanvas = root.querySelector('.map-dynamic-canvas');
+  const viewportElement = root.querySelector('.zythosphere-viewport');
+  const surface = root.querySelector('.camera-surface');
+  const canvas = root.querySelector('.map-canvas');
   const hitLayer = root.querySelector('.map-accessibility-layer');
-  const ctx = staticCanvas.getContext('2d');
-  const dctx = dynamicCanvas.getContext('2d');
+  const ctx = canvas.getContext('2d');
   const nodeIndex = new Map(data.nodes.map(n => [n.id, n]));
   const theme = readCanvasTheme();
-  const spriteCache = createSpriteCache(createBubbleSprite);
   const viewport = { x: 0, y: 0, scale: 1 };
-  let size = { width: 1, height: 1 }; let dpr = 1; let lod = 1; let lastStats = {};
-  const diagnostics = { ids: false, coords: false, collisionRadii: false, labelBounds: false, ghostLinks: false, territories: false, decorativeAnimations: false, descendantRects: false, homeBounds: false, fitBounds: false, selectedFamilyId: 'family-pale-ale-ipa' };
-  const resizeManager = createCanvasResizeManager(root, [staticCanvas, dynamicCanvas], { onResizeNeeded: () => root.dispatchEvent(new CustomEvent('zytho-map-change')) });
+  let size = { width: 1, height: 1 };
+  let scene = null;
+  let lastStats = { fullRenderCount: 0, gesturePreviewFrames: 0, panRedraws: 0, pinchRedraws: 0 };
+  const resizeManager = createCanvasResizeManager(viewportElement, [canvas], { overscan: OVERSCAN_PX, onResizeNeeded: () => renderLast() });
+  let lastArgs = null;
 
-  function resize() {
-    const changed = resizeManager.applyIfNeeded();
-    size = { width: resizeManager.state.cssWidth, height: resizeManager.state.cssHeight };
-    dpr = resizeManager.state.dpr;
-    return changed;
-  }
+  function resize() { const changed = resizeManager.applyIfNeeded(); size = { width: resizeManager.state.cssWidth, height: resizeManager.state.cssHeight }; return changed; }
+  function screen(point) { const p = worldToScreen(point, viewport); return { x: p.x + OVERSCAN_PX, y: p.y + OVERSCAN_PX }; }
+  function rebuildScene(discoveredIds, presentation = {}) { const pending = presentation.revealPendingId ? new Set([...discoveredIds, presentation.revealPendingId]) : discoveredIds; const state = computeVisibleMapState(data.nodes, data.links, pending); const nodeStates = new Map(state.visibleNodes.map(n => [n.id, resolveNodeVisualState(n, presentation, pending)])); scene = { ...state, nodeStates, discoveredIds: new Set(discoveredIds), selectedId: presentation.selectedId ?? null }; return scene; }
+  function linkMode(link) { const a=nodeIndex.get(link.sourceId); const b=nodeIndex.get(link.targetId); if (a?.functionalType === 'structure' && b?.functionalType === 'structure') return 'structure'; return scene.visibleLinkIds.has(link.id) ? 'revealed' : 'ghost'; }
+  function drawLink(link) { const a=nodeIndex.get(link.sourceId); const b=nodeIndex.get(link.targetId); if(!a||!b) return; const mode=linkMode(link); if(mode==='ghost') return; const as=screen(a.position), bs=screen(b.position), mx=(as.x+bs.x)/2; ctx.save(); ctx.strokeStyle = mode==='revealed' ? theme.links.active : theme.links.primary; ctx.globalAlpha = mode==='revealed' ? .9 : .62; ctx.lineWidth = mode==='revealed' ? 4 : 2.5; ctx.beginPath(); ctx.moveTo(as.x,as.y); ctx.bezierCurveTo(mx,as.y,mx,bs.y,bs.x,bs.y); ctx.stroke(); ctx.restore(); }
+  function drawStructure(n) { const p=screen(n.position); const box=getApparentStructureSize(n, 1, viewport.scale); const shape=getStructureShape(n); const base={wheat:'#c9ae56',lager:'#d49a24',spontaneous:'#bf6a58','mixed-wild':'#8c5873','pale-ale-ipa':'#d88718',high:'#bd762d',low:'#c58d2a',core:'#8d7045'}[n.visualFamily||'core']||'#8d7045'; ctx.save(); ctx.fillStyle=`${base}ee`; ctx.strokeStyle='#4b321f99'; ctx.lineWidth=2; if(shape.kind==='root-medallion'){ ctx.beginPath(); ctx.ellipse(p.x,p.y,box.width/2,box.height/2,0,0,Math.PI*2); ctx.fill(); ctx.stroke(); } else { rounded(ctx,p.x-box.width/2,p.y-box.height/2,box.width,box.height,box.height/2); ctx.fill(); ctx.stroke(); } ctx.fillStyle=['lager','wheat'].includes(n.visualFamily)?'#2d2114':'#fff8df'; ctx.textAlign='center'; ctx.textBaseline='middle'; getStructureLabelText(n).forEach((line,i,arr)=>{ ctx.font=`${i===0?800:650} ${i===0?14:11}px system-ui,sans-serif`; ctx.fillText(line,p.x,p.y+(i-(arr.length-1)/2)*15); }); ctx.restore(); }
+  function drawStyle(n, presentation) { const state=scene.nodeStates.get(n.id); const p=screen(n.position); const global=viewport.scale<0.55; const r=getApparentNodeRadius(n,state,global?0:1,viewport.scale); const discovered=state!=='unknown'; const fill={ipa:'#e2a93d',wheat:'#f1cf78',lager:'#e8bd55'}[n.visualFamily]||'#d89a32'; ctx.save(); ctx.beginPath(); ctx.arc(p.x,p.y,r,0,Math.PI*2); ctx.fillStyle= discovered ? fill : `${fill}99`; ctx.strokeStyle = presentation.selectedId===n.id ? theme.states.selection : '#4b321faa'; ctx.lineWidth = presentation.selectedId===n.id ? 4 : 2; ctx.fill(); ctx.stroke(); if(discovered && !global){ ctx.globalAlpha=.24; ctx.fillStyle='#fff8d8'; ctx.beginPath(); ctx.ellipse(p.x-r*.25,p.y-r*.35,r*.38,r*.18,-.35,0,Math.PI*2); ctx.fill(); ctx.globalAlpha=1; } const label = discovered ? (global ? '' : n.name) : '?'; if(label) drawCenteredLabel(ctx,label,p.x,p.y,Math.max(8,r),{lod:global?0:1,shortText:n.shortName||n.name,fillStyle: label==='?'?theme.text.question:theme.text.primary}); ctx.restore(); }
+  function syncHitLayer(presentation, onSelect) { const seen=new Set(); for(const n of scene.visibleNodes){ if(n.functionalType!=='structure' && !scene.discoveredIds.has(n.id)) continue; if(n.functionalType!=='structure' && !scene.discoveredIds.has(n.id)) continue; if(n.functionalType==='capturable' && !scene.discoveredIds.has(n.id)) continue; const p=screen(n.position); const isStyle=n.functionalType==='capturable'; const box=isStyle?{w:Math.max(44,getApparentNodeRadius(n,scene.nodeStates.get(n.id),1,viewport.scale)*2),h:Math.max(44,getApparentNodeRadius(n,scene.nodeStates.get(n.id),1,viewport.scale)*2)}:getApparentStructureSize(n,1,viewport.scale); seen.add(n.id); let b=hitLayer._buttons?.get(n.id); if(!hitLayer._buttons) hitLayer._buttons=new Map(); if(!b){ b=document.createElement('button'); b.className='map-hit-button'; b.onclick=()=> isStyle ? onSelect?.(n.id) : focusNode(n.id); hitLayer._buttons.set(n.id,b); hitLayer.append(b); } b.style.left=`${p.x-box.w/2}px`; b.style.top=`${p.y-box.h/2}px`; b.style.width=`${box.w}px`; b.style.height=`${box.h}px`; b.hidden=false; b.setAttribute('aria-label', isStyle ? `Sélectionner le style ${n.name}` : `Cadrer ${n.name}`); } for(const [id,b] of hitLayer._buttons||[]) if(!seen.has(id)) b.hidden=true; }
+  function render(discoveredIds, presentation = {}, handlers = {}) { lastArgs=[discoveredIds,presentation,handlers]; const resized=resize(); const start=performance.now(); rebuildScene(discoveredIds,presentation); ctx.setTransform(resizeManager.state.dpr,0,0,resizeManager.state.dpr,0,0); ctx.clearRect(0,0,resizeManager.state.cssWidth+OVERSCAN_PX*2,resizeManager.state.cssHeight+OVERSCAN_PX*2); data.links.forEach(drawLink); scene.visibleNodes.forEach(n=> n.functionalType==='structure'?drawStructure(n):drawStyle(n,presentation)); syncHitLayer(presentation, handlers.onSelect); lastStats={...lastStats, fullRenderCount:lastStats.fullRenderCount+1, dpr:resizeManager.state.dpr, cssCanvas:{width:resizeManager.state.cssWidth+OVERSCAN_PX*2,height:resizeManager.state.cssHeight+OVERSCAN_PX*2}, physicalCanvas:{width:canvas.width,height:canvas.height}, resized, staticRenderMs:performance.now()-start, drawnNodes:scene.visibleNodes.length, drawnLinks:scene.visibleLinks.length, sceneRebuilds:(lastStats.sceneRebuilds||0)+1}; return {...scene, performance:lastStats}; }
+  function renderLast(){ if(lastArgs) render(...lastArgs); }
+  function computeMapState(discoveredIds,presentation={}) { return computeVisibleMapState(data.nodes,data.links,presentation.revealPendingId?new Set([...discoveredIds,presentation.revealPendingId]):discoveredIds); }
+  function fitState(state){ Object.assign(viewport, fitBounds(computeVisibleBounds(state.visibleNodes,data.links,nodeIndex,{nodeRadius:80,labelPadding:120,margin:140}), size, 54, {min:FIT_MIN_SCALE,max:.62}, options.getInsets?.()||{})); }
+  function homeBounds(){ return boundsOf(data.nodes.filter(n=>HOME_STRUCTURE_IDS.includes(n.id)),260); }
+  function focusNode(id){ const n=nodeIndex.get(id); if(!n) return; let items; let max=n.functionalType==='structure'?.78:.92; if(n.id==='beer') items=data.nodes.filter(x=>HOME_STRUCTURE_IDS.includes(x.id)); else if(n.functionalType==='structure') items=[n,...descendantsOf(id,data.nodes)]; else { const parent=nodeIndex.get(n.parentId); items=[n,parent,nodeIndex.get(parent?.parentId),...(data.nodes.filter(x=>x.parentId===n.parentId))].filter(Boolean); } Object.assign(viewport, fitBounds(boundsOf(items, n.functionalType==='structure'?210:170), size, 48, {min:FIT_MIN_SCALE,max}, options.getInsets?.()||{})); }
 
-  function linkMode(link, state, discovered) {
-    const a = nodeIndex.get(link.sourceId); const b = nodeIndex.get(link.targetId);
-    const structural = a?.functionalType === 'structure' && b?.functionalType === 'structure';
-    if (structural) return 'structure';
-    if (discovered.has(link.sourceId) || discovered.has(link.targetId) || state.revealedPrimaryLinkIds?.has(link.id) || state.revealedSecondaryLinkIds?.has(link.id)) return 'revealed';
-    return 'ghost';
-  }
-
-  function drawLink(link, mode = 'ghost') {
-    const a = nodeIndex.get(link.sourceId); const b = nodeIndex.get(link.targetId);
-    if (!a || !b) return;
-    if (mode === 'ghost' && lod === 0 && a.functionalType !== 'structure' && b.functionalType !== 'structure' && a.parentId !== b.id && b.parentId !== a.id) return;
-    const as = worldToScreen(a.position, viewport); const bs = worldToScreen(b.position, viewport); const mx = (as.x + bs.x) / 2;
-    ctx.save();
-    ctx.strokeStyle = mode === 'revealed' ? theme.links.active : mode === 'structure' ? theme.links.primary : '#8f7040';
-    ctx.globalAlpha = mode === 'ghost' ? (lod === 0 ? 0.08 : lod === 1 ? 0.12 : 0.16) : mode === 'structure' ? 0.62 : 0.9;
-    ctx.lineWidth = mode === 'revealed' ? 4 : mode === 'structure' ? 2.6 : 1.2;
-    ctx.setLineDash(mode === 'ghost' ? [5, 9] : []);
-    ctx.beginPath(); ctx.moveTo(as.x, as.y); ctx.bezierCurveTo(mx, as.y, mx, bs.y, bs.x, bs.y); ctx.stroke();
-    ctx.restore();
-  }
-
-  function drawStructureLabel(node, p) {
-    const lines = getStructureLabelText(node);
-    const box = getApparentStructureSize(node, lod, viewport.scale);
-    ctx.save();
-    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-    ctx.fillStyle = ['lager', 'wheat'].includes(node.visualFamily) ? '#2d2114' : '#fff8df';
-    lines.forEach((line, i) => {
-      const primary = i === 0;
-      const fontSize = Math.max(8, Math.min(primary ? 14 : 11, box.height / (lines.length + 1)));
-      ctx.font = `${primary ? 800 : 650} ${fontSize}px ui-rounded, system-ui, sans-serif`;
-      ctx.fillText(line, p.x, p.y + (i - (lines.length - 1) / 2) * fontSize * 1.15);
-    });
-    ctx.restore();
-  }
-
-  function drawStructureNode(node, p) {
-    const box = getApparentStructureSize(node, lod, viewport.scale);
-    const shape = getStructureShape(node);
-    const base = { wheat: '#c9ae56', lager: '#d49a24', spontaneous: '#bf6a58', 'mixed-wild': '#8c5873', 'pale-ale-ipa': '#d88718', high: '#bd762d', low: '#c58d2a', core: '#8d7045' }[node.visualFamily || 'core'] || '#8d7045';
-    ctx.save();
-    ctx.fillStyle = `${base}ee`;
-    ctx.strokeStyle = '#4b321f99';
-    ctx.lineWidth = 2;
-    if (shape.kind === 'root-medallion') {
-      ctx.beginPath(); ctx.ellipse(p.x, p.y, box.width / 2, box.height / 2, 0, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
-    } else {
-      drawRoundedRectPath(ctx, p.x - box.width / 2, p.y - box.height / 2, box.width, box.height, box.height / 2);
-      ctx.fill(); ctx.stroke();
-    }
-    ctx.strokeStyle = '#fff2c477'; ctx.lineWidth = 1;
-    if (shape.kind === 'root-medallion') {
-      ctx.beginPath(); ctx.ellipse(p.x, p.y, Math.max(1, box.width / 2 - 6), Math.max(1, box.height / 2 - 6), 0, 0, Math.PI * 2); ctx.stroke();
-    } else {
-      drawRoundedRectPath(ctx, p.x - box.width / 2 + 5, p.y - box.height / 2 + 5, box.width - 10, box.height - 10, box.height / 2);
-      ctx.stroke();
-    }
-    ctx.restore();
-  }
-
-  function drawNode(node, presentation, discovered, fast = false) {
-    const state = resolveNodeVisualState(node, presentation, discovered);
-    const p = worldToScreen(node.position, viewport);
-    if (node.functionalType === 'structure') {
-      drawStructureNode(node, p);
-      drawStructureLabel(node, p);
-      return;
-    }
-    const radius = getApparentNodeRadius(node, state, lod, viewport.scale);
-    const family = node.visualFamily || 'core';
-    const targetDiameterPx = Math.min(80, radius * 2);
-    const sprite = spriteCache.get({ type: node.functionalType, nodeType: node.nodeType, family, state, targetDiameterPx, lod: fast ? 0 : lod, dpr, themeVersion: theme.version });
-    ctx.drawImage(sprite, p.x - targetDiameterPx / 2, p.y - targetDiameterPx / 2, targetDiameterPx, targetDiameterPx);
-    const unknown = state === 'unknown';
-    const label = unknown ? '?' : (fast ? '' : (viewport.scale < 0.55 ? (node.shortName || node.name) : (node.name || node.shortName)));
-    if (label) drawCenteredLabel(ctx, label, p.x, p.y, Math.max(8, radius), { lod: fast ? 0 : lod, shortText: node.shortName || node.name, fillStyle: label === '?' ? theme.text.question : theme.text.primary });
-  }
-
-  function drawTerritories() {
-    if (!diagnostics.territories) return;
-    const visible = visibleWorldRect(viewport, size);
-    const fills = { 'family-pale-ale-ipa': '#d88718', 'family-wheat-beer': '#c9ae56', 'family-pale-lager': '#d49a24' };
-    for (const familyId of FAMILY_IDS) {
-      const b = familyBounds(familyId, data.nodes);
-      if (!b || !segmentIntersectsRect({ x: b.minX, y: b.minY }, { x: b.maxX, y: b.maxY }, visible)) continue;
-      const a = worldToScreen({ x: b.minX, y: b.minY }, viewport);
-      const c = worldToScreen({ x: b.maxX, y: b.maxY }, viewport);
-      ctx.save();
-      ctx.globalAlpha = lod === 0 ? 0.07 : 0.1;
-      ctx.fillStyle = fills[familyId] || '#d88718';
-      drawRoundedRectPath(ctx, a.x, a.y, c.x - a.x, c.y - a.y, 44);
-      ctx.fill();
-      ctx.globalAlpha = 0.14;
-      ctx.strokeStyle = fills[familyId] || '#d88718';
-      ctx.lineWidth = 1.5;
-      ctx.stroke();
-      ctx.restore();
-    }
-  }
-
-  function syncHitLayer(nodes, presentation, discovered, onSelect) {
-    if (!hitLayer._targetsByStyleId) hitLayer._targetsByStyleId = new Map();
-    const seen = new Set();
-    for (const n of nodes) {
-      if (n.functionalType !== 'capturable' || !discovered.has(n.id)) continue;
-      const p = worldToScreen(n.position, viewport);
-      const radius = getApparentNodeRadius(n, resolveNodeVisualState(n, presentation, discovered), lod, viewport.scale);
-      seen.add(n.id);
-      let b = hitLayer._targetsByStyleId.get(n.id);
-      if (!b) { b = document.createElement('button'); b.className = 'map-hit-button'; b.onclick = () => onSelect?.(n.id); hitLayer._targetsByStyleId.set(n.id, b); hitLayer.append(b); }
-      const hitSize = Math.max(radius * 2, 44);
-      b.style.left = `${p.x - hitSize / 2}px`; b.style.top = `${p.y - hitSize / 2}px`; b.style.width = `${hitSize}px`; b.style.height = `${hitSize}px`;
-      b.hidden = viewport.scale < 0.22;
-      b.setAttribute('aria-label', `Sélectionner le style ${n.name}`);
-      b.setAttribute('aria-pressed', String(presentation.selectedId === n.id));
-    }
-    for (const [id, button] of hitLayer._targetsByStyleId) if (!seen.has(id)) button.hidden = true;
-  }
-
-  function drawDiagnostics(mapState) {
-    const show = diagnostics.ids || diagnostics.coords || diagnostics.collisionRadii || diagnostics.labelBounds || diagnostics.descendantRects || diagnostics.homeBounds || diagnostics.fitBounds;
-    if (!options.debugMode || !show) return lastStats.collisions || { structureCollisions: [], styleCollisions: [], labelCollisions: [], warnings: [] };
-    const collisions = detectLayoutCollisions(data.nodes, { scale: viewport.scale });
-    ctx.save();
-    ctx.font = '11px ui-monospace, monospace';
-    for (const node of data.nodes) {
-      const p = worldToScreen(node.position, viewport);
-      if (diagnostics.collisionRadii) {
-        const r = (node.functionalType === 'structure' ? getStructureShape(node).collisionRadius : getApparentNodeRadius(node, 'discovered', 2, viewport.scale) / viewport.scale + 22) * viewport.scale;
-        ctx.strokeStyle = '#c62828aa'; ctx.setLineDash([4, 4]); ctx.beginPath(); ctx.arc(p.x, p.y, r, 0, Math.PI * 2); ctx.stroke(); ctx.setLineDash([]);
-      }
-      if (diagnostics.labelBounds && node.functionalType === 'structure') {
-        const shape = getApparentStructureSize(node, lod, viewport.scale);
-        const w = (shape.width + 28) * viewport.scale;
-        const h = (shape.height + 22) * viewport.scale;
-        ctx.strokeStyle = '#7b3fbd99';
-        ctx.strokeRect(p.x - w / 2, p.y - h / 2, w, h);
-      }
-      if (diagnostics.ids || diagnostics.coords) {
-        ctx.fillStyle = '#2b2118';
-        ctx.fillText(`${diagnostics.ids ? node.id : ''}${diagnostics.coords ? ` (${node.position.x},${node.position.y})` : ''}`, p.x + 8, p.y - 8);
-      }
-    }
-    const rects = [];
-    if (diagnostics.descendantRects) rects.push(getDescendantBounds(diagnostics.selectedFamilyId, data.nodes));
-    if (diagnostics.homeBounds) rects.push(computeHomeBounds());
-    if (diagnostics.fitBounds) rects.push(computeVisibleBounds(mapState.visibleNodes, data.links, nodeIndex));
-    ctx.strokeStyle = '#185abdcc'; ctx.lineWidth = 2; ctx.setLineDash([8, 6]);
-    for (const b of rects.filter(Boolean)) {
-      const a = worldToScreen({ x: b.minX, y: b.minY }, viewport); const c = worldToScreen({ x: b.maxX, y: b.maxY }, viewport);
-      ctx.strokeRect(a.x, a.y, c.x - a.x, c.y - a.y);
-    }
-    ctx.restore();
-    return collisions;
-  }
-
-  function render(discoveredIds, presentation = {}, handlers = {}) {
-    const resized = resize(); const start = performance.now(); const fast = Boolean(presentation.isInteracting);
-    lod = getLod(viewport.scale, lod);
-    const pending = presentation.revealPendingId ? new Set([...discoveredIds, presentation.revealPendingId]) : discoveredIds;
-    const state = computeVisibleMapState(data.nodes, data.links, pending);
-    const linkSet = data.links.filter(l => {
-      const a = nodeIndex.get(l.sourceId); const b = nodeIndex.get(l.targetId);
-      const structural = a?.functionalType === 'structure' && b?.functionalType === 'structure';
-      if (structural) return true;
-      if (!diagnostics.ghostLinks && !state.revealedPrimaryLinkIds?.has(l.id) && !state.revealedSecondaryLinkIds?.has(l.id)) return false;
-      return lod !== 0 || a?.functionalType === 'structure' || b?.functionalType === 'structure' || l.linkType !== 'related-style';
-    });
-    const culledNodes = getNodesInViewport(state.visibleNodes, viewport, size, 240);
-    const culledLinks = getLinksInViewport(linkSet, nodeIndex, viewport, size, 260);
-    ctx.clearRect(0, 0, size.width, size.height);
-    if (!fast) drawTerritories();
-    culledLinks.forEach(l => drawLink(l, linkMode(l, state, pending)));
-    culledNodes.forEach(n => drawNode(n, presentation, pending, fast));
-    if (!fast) syncHitLayer(culledNodes, presentation, discoveredIds, handlers.onSelect);
-    const collisions = fast ? (lastStats.collisions || { structureCollisions: [], styleCollisions: [], labelCollisions: [], warnings: [] }) : drawDiagnostics(state);
-    if (presentation.revealPendingId) dctx.clearRect(0, 0, size.width, size.height);
-    lastStats = { totalNodes: state.visibleNodes.length, viewportNodes: culledNodes.length, drawnNodes: culledNodes.length, drawnLinks: culledLinks.length, htmlButtons: hitLayer.children.length, dpr, lod, staticRenderMs: performance.now() - start, dynamicRenderCount: (lastStats.dynamicRenderCount || 0) + (presentation.revealPendingId ? 1 : 0), canvasResizeCount: resizeManager.state.canvasResizeCount, resized, dynamicLoopActive: Boolean(presentation.revealPendingId), sprites: spriteCache.stats(), collisions };
-    return { ...state, visibleLinks: linkSet, performance: lastStats };
-  }
-
-  function computeHomeBounds() {
-    const nodes = data.nodes.filter(n => HOME_STRUCTURE_IDS.includes(n.id));
-    const xs = nodes.map(n => n.position.x); const ys = nodes.map(n => n.position.y);
-    const padding = 260;
-    return { minX: Math.min(...xs) - padding, minY: Math.min(...ys) - padding, maxX: Math.max(...xs) + padding, maxY: Math.max(...ys) + padding, width: Math.max(...xs) - Math.min(...xs) + padding * 2, height: Math.max(...ys) - Math.min(...ys) + padding * 2 };
-  }
-
-  function computeMapState(discoveredIds, presentation = {}) {
-    const pending = presentation.revealPendingId ? new Set([...discoveredIds, presentation.revealPendingId]) : discoveredIds;
-    return computeVisibleMapState(data.nodes, data.links, pending);
-  }
-
-  function fitState(state) {
-    const bounds = computeVisibleBounds(state.visibleNodes, data.links, nodeIndex, { nodeRadius: 80, labelPadding: 120, margin: 140 });
-    Object.assign(viewport, fitBounds(bounds, size, 54, { min: FIT_MIN_SCALE, max: 0.62 }, options.getInsets?.() || {}));
-  }
-
-  function focusNode(id) {
-    const n = nodeIndex.get(id); if (!n) return;
-    const isStructure = n.functionalType === 'structure';
-    const bounds = isStructure ? (n.id === 'beer' ? computeHomeBounds() : getDescendantBounds(id, data.nodes, { padding: n.nodeType === 'family' ? 210 : 260, scale: 1 })) : getStyleNeighborhoodBounds(id, data.nodes) || getDescendantBounds(n.parentId, data.nodes, { padding: 180, scale: 1 });
-    Object.assign(viewport, fitBounds(bounds, size, 48, { min: FIT_MIN_SCALE, max: isStructure ? STRUCTURE_FOCUS_MAX_SCALE : REVEAL_FOCUS_MAX_SCALE }, options.getInsets?.() || {}));
-  }
-
-  let dragging = null; const pointers = new Map(); let pinch = null; let cachedRect = null; const distance = (a, b) => Math.hypot(a.x - b.x, a.y - b.y);
-  root.querySelector('.zythosphere-viewport')?.addEventListener('pointerdown', e => { cachedRect = root.getBoundingClientRect(); root.dispatchEvent(new CustomEvent('zytho-interaction-start')); pointers.set(e.pointerId, { x: e.clientX, y: e.clientY }); dragging = { x: e.clientX, y: e.clientY }; if (pointers.size === 2) { const [a, b] = [...pointers.values()]; const r = cachedRect || (cachedRect = root.getBoundingClientRect()); pinch = { distance: distance(a, b), scale: viewport.scale, center: { x: (a.x + b.x) / 2 - r.left, y: (a.y + b.y) / 2 - r.top } }; } root.setPointerCapture?.(e.pointerId); });
-  root.querySelector('.zythosphere-viewport')?.addEventListener('pointermove', e => { if (!pointers.has(e.pointerId)) return; pointers.set(e.pointerId, { x: e.clientX, y: e.clientY }); if (pointers.size === 2 && pinch) { const [a, b] = [...pointers.values()]; const r = cachedRect || (cachedRect = root.getBoundingClientRect()); const center = { x: (a.x + b.x) / 2 - r.left, y: (a.y + b.y) / 2 - r.top }; Object.assign(viewport, zoomAt({ ...viewport, scale: pinch.scale }, Math.max(.08, Math.min(3, distance(a, b) / pinch.distance)), center)); root.dispatchEvent(new CustomEvent('zytho-map-change')); return; } if (!dragging) return; Object.assign(viewport, pan(viewport, e.clientX - dragging.x, e.clientY - dragging.y)); dragging = { x: e.clientX, y: e.clientY }; root.dispatchEvent(new CustomEvent('zytho-map-change')); });
-  const endPointer = e => { pointers.delete(e.pointerId); dragging = null; pinch = null; cachedRect = null; root.dispatchEvent(new CustomEvent('zytho-interaction-end')); };
-  root.querySelector('.zythosphere-viewport')?.addEventListener('pointerup', endPointer);
-  root.querySelector('.zythosphere-viewport')?.addEventListener('pointercancel', endPointer);
-  root.querySelector('.zythosphere-viewport')?.addEventListener('wheel', e => { e.preventDefault(); root.dispatchEvent(new CustomEvent('zytho-interaction-start')); const r = cachedRect || (cachedRect = root.getBoundingClientRect()); Object.assign(viewport, zoomAt(viewport, e.deltaY < 0 ? 1.12 : .88, { x: e.clientX - r.left, y: e.clientY - r.top })); root.dispatchEvent(new CustomEvent('zytho-map-change')); clearTimeout(root._wheelEndTimer); root._wheelEndTimer = setTimeout(() => { cachedRect = null; root.dispatchEvent(new CustomEvent('zytho-interaction-end')); }, 100); }, { passive: false });
-
-  return {
-    render, computeMapState, fitState, focusNode,
-    controls: {
-      zoomIn: () => Object.assign(viewport, zoomAt(viewport, 1.2, { x: size.width / 2, y: size.height / 2 })),
-      zoomOut: () => Object.assign(viewport, zoomAt(viewport, .8, { x: size.width / 2, y: size.height / 2 })),
-      home: () => Object.assign(viewport, fitBounds(computeHomeBounds(), size, 42, { min: FIT_MIN_SCALE, max: 0.76 }, options.getInsets?.() || {})),
-      recenter: () => Object.assign(viewport, fitBounds(computeHomeBounds(), size, 42, { min: FIT_MIN_SCALE, max: 0.76 }, options.getInsets?.() || {}))
-    },
-    getStats: () => lastStats,
-    getDiagnostics: () => ({ ...diagnostics, collisions: lastStats.collisions }),
-    setDiagnostics: values => Object.assign(diagnostics, values),
-    getBounds: () => ({ home: computeHomeBounds(), all: computeVisibleBounds(data.nodes, data.links, nodeIndex), selectedDescendants: getDescendantBounds(diagnostics.selectedFamilyId, data.nodes) }),
-    viewport
-  };
+  let activePointers=new Map(), panStart=null, pinchStart=null, raf=0, preview={x:0,y:0,scale:1,type:null};
+  function localPoint(e){ const r=viewportElement.getBoundingClientRect(); return {x:e.clientX-r.left,y:e.clientY-r.top}; }
+  function applyPreview(){ raf=0; lastStats.gesturePreviewFrames++; if(preview.type==='pinch') surface.style.transform=`matrix(${preview.scale},0,0,${preview.scale},${preview.x},${preview.y})`; else surface.style.transform=`translate3d(${preview.x}px,${preview.y}px,0)`; }
+  function schedule(){ if(!raf) raf=requestAnimationFrame(applyPreview); }
+  function commitPan(){ if(!panStart) return; viewport.x=panStart.initialCamera.x+preview.x; viewport.y=panStart.initialCamera.y+preview.y; panStart={...panStart, initialCamera:{...viewport}, initialPoint:activePointers.get(panStart.pointerId)||panStart.currentPoint}; surface.style.transform=''; preview={x:0,y:0,scale:1,type:null}; renderLast(); }
+  function commitPinch(){ if(!pinchStart) return; Object.assign(viewport, pinchStart.currentCamera||pinchStart.initialCamera); surface.style.transform=''; preview={x:0,y:0,scale:1,type:null}; renderLast(); }
+  function beginPan(id, point){ panStart={pointerId:id, initialPoint:{...point}, currentPoint:{...point}, initialCamera:{...viewport}}; pinchStart=null; }
+  viewportElement.addEventListener('pointerdown', e=>{ if(e.target.closest('button,input,textarea,select,a')) return; viewportElement.setPointerCapture(e.pointerId); activePointers.set(e.pointerId, localPoint(e)); if(activePointers.size===1) beginPan(e.pointerId, activePointers.get(e.pointerId)); else if(activePointers.size===2){ const pts=[...activePointers.values()]; const center={x:(pts[0].x+pts[1].x)/2,y:(pts[0].y+pts[1].y)/2}; pinchStart={initialCamera:{...viewport}, initialDistance:distance(pts[0],pts[1]), initialCenterScreen:center, initialCenterWorld:screenToWorld(center,viewport), pointerIds:[...activePointers.keys()]}; panStart=null; }});
+  viewportElement.addEventListener('pointermove', e=>{ if(!activePointers.has(e.pointerId)) return; activePointers.set(e.pointerId, localPoint(e)); if(activePointers.size>=2 && pinchStart){ const pts=pinchStart.pointerIds.map(id=>activePointers.get(id)).filter(Boolean); if(pts.length<2) return; const center={x:(pts[0].x+pts[1].x)/2,y:(pts[0].y+pts[1].y)/2}; const ratio=distance(pts[0],pts[1])/Math.max(1,pinchStart.initialDistance); const newScale=clamp(pinchStart.initialCamera.scale*ratio,.08,1.6); const newX=center.x-pinchStart.initialCenterWorld.x*newScale; const newY=center.y-pinchStart.initialCenterWorld.y*newScale; pinchStart.currentCamera={x:newX,y:newY,scale:newScale}; const previewRatio=newScale/pinchStart.initialCamera.scale; preview={type:'pinch',scale:previewRatio,x:center.x-previewRatio*pinchStart.initialCenterScreen.x,y:center.y-previewRatio*pinchStart.initialCenterScreen.y}; schedule(); return; } if(panStart && e.pointerId===panStart.pointerId){ const p=activePointers.get(e.pointerId); panStart.currentPoint=p; preview={type:'pan',scale:1,x:p.x-panStart.initialPoint.x,y:p.y-panStart.initialPoint.y}; if(Math.abs(preview.x)>130 || Math.abs(preview.y)>130) commitPan(); else schedule(); }});
+  function endPointer(e){ if(viewportElement.hasPointerCapture(e.pointerId)) viewportElement.releasePointerCapture(e.pointerId); activePointers.delete(e.pointerId); if(pinchStart){ commitPinch(); if(activePointers.size===1){ const [id,p]=[...activePointers.entries()][0]; beginPan(id,p); return; } pinchStart=null; } else if(panStart && e.pointerId===panStart.pointerId){ commitPan(); panStart=null; } if(activePointers.size===0){ panStart=null; pinchStart=null; surface.style.transform=''; }}
+  viewportElement.addEventListener('pointerup', endPointer); viewportElement.addEventListener('pointercancel', endPointer); viewportElement.addEventListener('lostpointercapture', e=>{ if(activePointers.has(e.pointerId)) endPointer(e); });
+  viewportElement.addEventListener('wheel', e=>{ e.preventDefault(); Object.assign(viewport, zoomAt(viewport, e.deltaY<0?1.12:.88, localPoint(e), {min:.08,max:1.6})); renderLast(); }, {passive:false});
+  return { render, computeMapState, fitState, focusNode, controls:{ zoomIn:()=>Object.assign(viewport,zoomAt(viewport,1.2,{x:size.width/2,y:size.height/2},{min:.08,max:1.6})), zoomOut:()=>Object.assign(viewport,zoomAt(viewport,.8,{x:size.width/2,y:size.height/2},{min:.08,max:1.6})), home:()=>Object.assign(viewport,fitBounds(homeBounds(),size,42,{min:FIT_MIN_SCALE,max:.76},options.getInsets?.()||{})), recenter:()=>Object.assign(viewport,fitBounds(homeBounds(),size,42,{min:FIT_MIN_SCALE,max:.76},options.getInsets?.()||{})) }, getStats:()=>lastStats, viewport };
 }
-
 export const createCanvasMap = createCanvasMapRenderer;

@@ -3,14 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <title>ZythoHunt — V0.2.6</title>
+    <title>ZythoHunt — V0.2.7</title>
     <link rel="stylesheet" href="./styles/tokens.css">
     <link rel="stylesheet" href="./styles/base.css">
     <link rel="stylesheet" href="./styles/layout.css">
     <link rel="stylesheet" href="./styles/map.css">
-    <link rel="stylesheet" href="./styles/bubbles.css">
-    <link rel="stylesheet" href="./styles/animations.css">
-  </head>
+      </head>
   <body>
     <div id="app-shell" class="app-shell" aria-label="ZythoHunt — Buvez-les toutes.">
       <main id="view-root" class="view-root">
@@ -18,12 +16,10 @@
           <div id="zythosphere-search-slot" class="zythosphere-search-slot"></div>
           <section class="map-shell" aria-label="Zythosphère interactive">
             <div class="zythosphere-viewport">
-              <canvas class="map-static-canvas" aria-hidden="true"></canvas>
-              <canvas class="map-dynamic-canvas" aria-hidden="true"></canvas>
-              <div class="map-accessibility-layer"></div>
-              <svg class="legacy-svg-map" viewBox="0 0 4000 3000" aria-label="Zythosphère prototype SVG historique">
-                <g class="map-viewport"><g class="map-links"></g><g class="map-nodes"></g></g>
-              </svg>
+              <div class="camera-surface">
+                <canvas class="map-canvas" aria-hidden="true"></canvas>
+                <div class="map-accessibility-layer"></div>
+              </div>
             </div>
             <div id="map-toolbar-slot" class="map-toolbar-slot"></div>
           </section>
@@ -31,7 +27,6 @@
       </main>
       <div id="global-navigation-root"></div>
       <div id="toast-root"></div>
-      <div id="debug-root"></div>
     </div>
     <p id="app-live-status" class="sr-only" aria-live="polite" role="status"></p>
     <script type="module" src="./src/app.js"></script>

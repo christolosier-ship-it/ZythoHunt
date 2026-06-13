@@ -1,3 +1,0 @@
-const ACCEPTED_LOADS = new Set([20, 50, 100, 200, 300]);
-export function getDebugLoadCount(search) { const value = Number(new URLSearchParams(search).get('load') || 20); return ACCEPTED_LOADS.has(value) ? value : 20; }
-export function createSyntheticNodes(count = 300) { return Array.from({ length: count }, (_, i) => ({ id:`synthetic-${i+1}`, name:`Synthétique ${i+1}`, shortName:`S${i+1}`, functionalType:'capturable', nodeType:'style', visualFamily:['pale-ale-ipa','wheat','lager','spontaneous','mixed-wild'][i%5], position:{ x: 120 + (i%25)*95, y: 120 + Math.floor(i/25)*120 }, synthetic:true })); }

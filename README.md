@@ -46,7 +46,7 @@ Le moteur **Canvas 2D natif** reste le moteur par défaut :
 - niveaux de détail selon le zoom ;
 - cache de sprites générés en mémoire.
 
-Le moteur SVG historique est conservé temporairement en comparaison debug avec `?debug=1&renderer=svg`.
+Le moteur Canvas 2D est désormais l’unique moteur graphique de la Zythosphère.
 
 ## Règle de visibilité
 
@@ -107,7 +107,6 @@ npm test
 ## Paramètres debug
 
 - `?debug=1&renderer=canvas` : force le moteur Canvas.
-- `?debug=1&renderer=svg` : moteur SVG historique de comparaison.
 - `?debug=1&load=200` : scénario de charge logique accepté (20, 50, 100, 200, 300).
 
 Le panneau debug conserve les compteurs et versions retirés de l’interface publique.
@@ -135,9 +134,9 @@ La V0.2.3 consolide le moteur Canvas existant sans remplacer la technologie ni d
 
 Les bulles inconnues restent visibles avec `?`, non interactives et sans nom accessible. Une révélation ne dévoile aucun autre style.
 
-## V0.2.6 — stabilisation des échelles et fluidité Safari
+## V0.2.7 — stabilisation des échelles et fluidité Safari
 
-La V0.2.6 revient à une Zythosphère plus simple : la priorité est la lisibilité immédiate et un pan/zoom fluide, notamment sur Safari iPad.
+La V0.2.7 revient à une Zythosphère plus simple : la priorité est la lisibilité immédiate et un pan/zoom fluide, notamment sur Safari iPad.
 
 - Les animations permanentes du rendu Canvas normal sont supprimées ; seule la révélation d’un style peut animer temporairement la couche dynamique.
 - La sélection est statique : contour, état visuel et lien renforcé, sans pulsation.

@@ -1,41 +1,33 @@
 import { loadTaxonomy } from './domain/taxonomy-loader.js';
-import { createSyntheticNodes, getDebugLoadCount } from './canvas/load-test.js';
 import { APP_VERSION, SCENARIOS, TAXONOMY_VERSION } from './config.js';
 import { createDiscoveryController } from './map/discovery-animation.js';
-import { createMap } from './map/map-renderer.js';
+import { createCanvasMap as createMap } from './canvas/canvas-map-renderer.js';
 import { createAppShell } from './ui/app-shell.js';
 import { createBottomNavigation } from './ui/bottom-navigation.js';
-import { createDebugPanel, getScenarioFromUrl } from './ui/debug-panel.js';
 import { createMapToolbar } from './ui/map-toolbar.js';
 import { createRevealBar } from './ui/reveal-bar.js';
 import { createToast } from './ui/toast.js';
-import { createRenderScheduler } from './map/render-scheduler.js';
 
 const $ = selector => document.querySelector(selector);
-const params = new URLSearchParams(location.search);
-const debugMode = params.get('debug') === '1';
-const renderer = debugMode && params.get('renderer') === 'svg' ? 'svg' : 'canvas';
 const prefersReduced = typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches;
-const appState = { scenario: getScenarioFromUrl(location.search), discovered: new Set(), presentation: { revealPendingId: null, selectedId: null, exploredIds: new Set(), reducedMotion: prefersReduced, isInteracting: false } };
-let map; let debug; let data; let revealBar; let toolbar; let lastRenderOptions = {}; let scheduler; const discovery = createDiscoveryController();
+const appState = { scenario: 'empty', discovered: new Set(), presentation: { revealPendingId: null, selectedId: null, exploredIds: new Set(), reducedMotion: prefersReduced } };
+let map; let data; let toolbar; const discovery = createDiscoveryController();
 const shell = createAppShell({ navigationRoot: $('#global-navigation-root'), searchSlot: $('#zythosphere-search-slot'), toolbarSlot: $('#map-toolbar-slot'), toastRoot: $('#toast-root') });
 const live = $('#app-live-status');
 function setLive(message) { live.textContent = message; }
-function setScenario(scenario) { discovery.cancel(); appState.presentation.revealPendingId = null; appState.presentation.selectedId = null; appState.presentation.exploredIds.clear(); appState.scenario = Object.hasOwn(SCENARIOS, scenario) ? scenario : 'empty'; appState.discovered.clear(); for (const id of SCENARIOS[appState.scenario]) appState.discovered.add(id); }
-function setReducedMotion(value) { appState.presentation.reducedMotion = Boolean(value); document.body.classList.toggle('reduced-motion', appState.presentation.reducedMotion); toolbar?.setReducedMotion(appState.presentation.reducedMotion); renderAndSync(); }
-function selectStyle(id) { const node = data.nodes.find(n => n.id === id); if (!node || node.functionalType !== 'capturable' || !appState.discovered.has(id)) return; appState.presentation.selectedId = appState.presentation.selectedId === id ? null : id; renderAndSync(); setLive(appState.presentation.selectedId ? `Style sélectionné : ${node.name}.` : 'Sélection retirée.'); }
-function renderNow({ fit = false, focusId = null } = {}) { if (focusId) map.focusNode(focusId); if (fit) { const state = map.computeMapState?.(appState.discovered, appState.presentation); map.fitState(state); } const mapState = map.render(appState.discovered, appState.presentation, { onSelect: selectStyle }); debug?.sync(mapState, appState.presentation, { appVersion: APP_VERSION, taxonomyVersion: TAXONOMY_VERSION }); return mapState; }
-function renderAndSync(options = {}) { lastRenderOptions = { ...lastRenderOptions, ...options }; if (scheduler) scheduler.scheduleRender(options.focusId ? 'focus' : options.fit ? 'fit' : 'state', { static: true, dynamic: Boolean(appState.presentation.revealPendingId), hitLayer: true }); else return renderNow(options); }
-function previewReveal(id) { const node = data.nodes.find(n => n.id === id); if (!node || node.functionalType !== 'capturable') return Promise.resolve(); map.focusNode(id); return new Promise(resolve => { discovery.preview(id, { onStart: revealId => { appState.presentation.revealPendingId = revealId; appState.presentation.selectedId = null; renderAndSync(); setLive(`Révélation en cours : ${node.name}.`); }, onName: () => renderAndSync(), onFinish: revealId => { appState.presentation.revealPendingId = null; appState.discovered.add(revealId); appState.presentation.selectedId = revealId; renderAndSync({ focusId: revealId }); setLive(`Style révélé : ${node.name}.`); resolve(); } }, { reducedMotion: appState.presentation.reducedMotion }); }); }
+function renderNow({ fit = false, focusId = null } = {}) { if (focusId) map.focusNode(focusId); if (fit) map.fitState(map.computeMapState(appState.discovered, appState.presentation)); return map.render(appState.discovered, appState.presentation, { onSelect: selectStyle }); }
+function setReducedMotion(value) { appState.presentation.reducedMotion = Boolean(value); document.body.classList.toggle('reduced-motion', appState.presentation.reducedMotion); toolbar?.setReducedMotion(appState.presentation.reducedMotion); renderNow(); }
+function selectStyle(id) { const node = data.nodes.find(n => n.id === id); if (!node || node.functionalType !== 'capturable' || !appState.discovered.has(id)) return; appState.presentation.selectedId = appState.presentation.selectedId === id ? null : id; renderNow(); setLive(appState.presentation.selectedId ? `Style sélectionné : ${node.name}.` : 'Sélection retirée.'); }
+function previewReveal(id) { const node = data.nodes.find(n => n.id === id); if (!node || node.functionalType !== 'capturable') return Promise.resolve(); map.focusNode(id); return new Promise(resolve => { discovery.preview(id, { onStart: revealId => { appState.presentation.revealPendingId = revealId; appState.presentation.selectedId = null; renderNow(); setLive(`Révélation en cours : ${node.name}.`); }, onName: () => renderNow(), onFinish: revealId => { appState.presentation.revealPendingId = null; appState.discovered.add(revealId); appState.presentation.selectedId = revealId; renderNow({ focusId: revealId }); setLive(`Style révélé : ${node.name}.`); resolve(); } }, { reducedMotion: appState.presentation.reducedMotion }); }); }
 
 document.addEventListener('visibilitychange', () => document.body.classList.toggle('is-tab-hidden', document.hidden));
-setScenario(appState.scenario);
+for (const id of SCENARIOS.empty) appState.discovered.add(id);
 try {
-  setLive('Chargement de la taxonomie…'); data = await loadTaxonomy(); const mapData = debugMode ? { ...data, nodes: [...data.nodes, ...createSyntheticNodes(Math.max(0, getDebugLoadCount(location.search) - data.nodes.length))] } : data; document.body.dataset.renderer = renderer; const toast = createToast($('#toast-root')); createBottomNavigation($('#global-navigation-root'), { activeView: 'zythosphere', onNavigate: (view, item) => { if (view !== 'zythosphere') toast.show(`${item.label} sera disponible dans une prochaine version.`); } }); revealBar = createRevealBar($('#zythosphere-search-slot'), data.nodes, data.aliases, { isDiscovered: id => appState.discovered.has(id), onReveal: previewReveal, onAlready: id => { appState.presentation.selectedId = id; renderAndSync({ focusId: id }); } }); shell.updateMeasurements(); map = createMap($('.map-shell'), mapData, { renderer, debugMode, getInsets: shell.getMapViewportInsets }); scheduler = createRenderScheduler(() => { const options = lastRenderOptions; lastRenderOptions = {}; renderNow(options); }); toolbar = createMapToolbar($('#map-toolbar-slot'), { onZoomIn: () => { map.controls.zoomIn(); renderAndSync(); }, onZoomOut: () => { map.controls.zoomOut(); renderAndSync(); }, onRecenter: () => { map.controls.home?.(); renderAndSync(); setLive('Accueil de la Zythosphère.'); }, onFit: () => { renderAndSync({ fit: true }); setLive('Toute la Zythosphère est affichée.'); }, onToggleMotion: () => setReducedMotion(!appState.presentation.reducedMotion) });
-  let interactionEndTimer = null;
-  $('.map-shell').addEventListener('zytho-interaction-start', () => { clearTimeout(interactionEndTimer); appState.presentation.isInteracting = true; });
-  $('.map-shell').addEventListener('zytho-interaction-end', () => { clearTimeout(interactionEndTimer); interactionEndTimer = setTimeout(() => { appState.presentation.isInteracting = false; renderAndSync(); }, 100); });
-  $('.map-shell').addEventListener('zytho-map-change', () => renderAndSync());
-  if (debugMode) debug = createDebugPanel($('#debug-root'), mapData, { nodes: data.nodes, aliases: data.aliases, get scenario() { return appState.scenario; }, discovered: appState.discovered, presentation: appState.presentation, onScenario: scenario => { setScenario(scenario); renderAndSync({ fit: true }); }, onReveal: id => { appState.discovered.add(id); appState.presentation.revealPendingId = null; renderAndSync({ focusId: id }); }, onPreviewReveal: previewReveal, onHide: id => { discovery.cancel(); appState.discovered.delete(id); if (appState.presentation.selectedId === id) appState.presentation.selectedId = null; if (appState.presentation.revealPendingId === id) appState.presentation.revealPendingId = null; renderAndSync({ fit: true }); }, onReset: () => { setScenario('empty'); renderAndSync({ fit: true }); }, onSelect: selectStyle, onClearSelection: () => { appState.presentation.selectedId = null; renderAndSync(); }, onToggleExplored: id => { appState.presentation.exploredIds.has(id) ? appState.presentation.exploredIds.delete(id) : appState.presentation.exploredIds.add(id); renderAndSync(); }, onReducedMotion: setReducedMotion, onLayoutDiagnostics: values => { map.setDiagnostics?.(values); renderAndSync(); }, getLayoutDiagnostics: () => map.getDiagnostics?.() });
-  setReducedMotion(prefersReduced); map.controls.home?.(); renderAndSync();
+  setLive('Chargement de la taxonomie…'); data = await loadTaxonomy(); document.body.dataset.appVersion = APP_VERSION; document.body.dataset.taxonomyVersion = TAXONOMY_VERSION;
+  const toast = createToast($('#toast-root'));
+  createBottomNavigation($('#global-navigation-root'), { activeView: 'zythosphere', onNavigate: (view, item) => { if (view !== 'zythosphere') toast.show(`${item.label} sera disponible dans une prochaine version.`); } });
+  createRevealBar($('#zythosphere-search-slot'), data.nodes, data.aliases, { isDiscovered: id => appState.discovered.has(id), onReveal: previewReveal, onAlready: id => { appState.presentation.selectedId = id; renderNow({ focusId: id }); } });
+  shell.updateMeasurements(); map = createMap($('.map-shell'), data, { getInsets: shell.getMapViewportInsets });
+  toolbar = createMapToolbar($('#map-toolbar-slot'), { onZoomIn: () => { map.controls.zoomIn(); renderNow(); }, onZoomOut: () => { map.controls.zoomOut(); renderNow(); }, onRecenter: () => { map.controls.home(); renderNow(); setLive('Accueil de la Zythosphère.'); }, onFit: () => { renderNow({ fit: true }); setLive('Toute la Zythosphère est affichée.'); }, onToggleMotion: () => setReducedMotion(!appState.presentation.reducedMotion) });
+  setReducedMotion(prefersReduced); map.controls.home(); renderNow();
 } catch (error) { console.error(error); setLive(error.message); document.body.classList.add('is-error'); }

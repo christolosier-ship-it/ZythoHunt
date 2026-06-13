@@ -1,9 +1,9 @@
 {
   "name": "zythohunt",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test"
+    "validate": "node scripts/validate-taxonomy.mjs"
   }
 }

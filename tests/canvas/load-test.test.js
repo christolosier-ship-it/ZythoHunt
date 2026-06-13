@@ -1,4 +1,0 @@
-import test from 'node:test'; import assert from 'node:assert/strict'; import { createSyntheticNodes, getDebugLoadCount } from '../../src/canvas/load-test.js'; import { getNodesInViewport } from '../../src/canvas/culling.js';
-test('génération de 300 nœuds synthétiques déterministe',()=>{const a=createSyntheticNodes(300); const b=createSyntheticNodes(300); assert.equal(a.length,300); assert.deepEqual(a,b); assert.equal(a.filter(n=>n.synthetic).length,300);});
-test('charges debug acceptées',()=>{assert.equal(getDebugLoadCount('?debug=1&load=200'),200); assert.equal(getDebugLoadCount('?debug=1&load=999'),20);});
-test('performance logique : culling limite le viewport',()=>{const nodes=createSyntheticNodes(300); const visible=getNodesInViewport(nodes,{x:0,y:0,scale:1},{width:600,height:400},0); assert(visible.length<300);});
