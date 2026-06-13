@@ -507,6 +507,36 @@ V0.2.1 prête pour validation humaine et comparaison Canvas/SVG, sans commencer 
 
 ---
 
+## V0.2.2 — Consolidation UX de la Zythosphère
+
+### Objectif
+
+Optimiser l’UX générale de la Zythosphère et créer un shell applicatif permanent réutilisable, sans démarrer les vues futures.
+
+### Tâches
+
+- [x] Créer le shell applicatif permanent.
+- [x] Supprimer le header public.
+- [x] Passer l’application en plein écran.
+- [x] Déplacer la recherche en haut de la vue Zythosphère.
+- [x] Déplacer les contrôles de carte en bas au-dessus du menu global.
+- [x] Créer une navigation globale permanente indépendante des vues.
+- [x] Remplacer les icônes du menu par quatre SVG inline distincts.
+- [x] Remplacer le fond vert dominant par un fond CSS mousse.
+- [x] Rendre le Canvas statique transparent après clearRect.
+- [x] Ajouter les insets mesurés pour le fit et le focus.
+- [x] Prendre en compte les safe areas iPhone.
+- [~] Responsive mobile/tablette/desktop vérifié automatiquement et par inspection de code ; validation graphique humaine encore nécessaire.
+- [x] Ajouter les tests automatisés V0.2.2.
+- [x] Créer `tests/manual/V0.2.2-CHECKLIST.md`.
+- [!] iPhone Safari réel indisponible dans l’environnement agent.
+
+### Critère de sortie
+
+V0.2.2 prête pour validation humaine, avec shell plein écran, recherche supérieure, barre de carte inférieure, navigation globale permanente, fond mousse CSS et moteur Canvas conservé.
+
+---
+
 ## V0.3.0 — Barre de vérification et capture
 
 ### Objectif
@@ -1120,3 +1150,17 @@ Une fois le dépôt créé avec ce fichier :
 - Tests manuels réalisés : serveur HTTP local et requêtes HTML ; navigateur graphique réel et appareils mobiles non disponibles dans l’environnement agent.
 - Limites : pas de persistance, pas de Brassopédie, pas de dégustations, moteur SVG conservé temporairement, direction artistique encore à valider humainement.
 - Prochaine étape : validation humaine V0.2.1 et comparaison Canvas/SVG ; ne pas commencer V0.2.2 sans accord explicite.
+
+## 2026-06-13 — V0.2.2 consolidation UX de la Zythosphère
+
+- Objectif : supprimer le header, maximiser la surface de la Zythosphère et mettre en place un shell applicatif permanent réutilisable.
+- Fichiers créés : `src/ui/app-shell.js`, `src/ui/map-toolbar.js`, `tests/manual/V0.2.2-CHECKLIST.md`.
+- Fichiers modifiés : `index.html`, `package.json`, `README.md`, `data/taxonomy-version.json`, `src/app.js`, `src/config.js`, `src/canvas/canvas-map-renderer.js`, `src/canvas/coordinate-transform.js`, `src/map/map-renderer.js`, `src/ui/bottom-navigation.js`, `src/ui/debug-panel.js`, `src/ui/reveal-bar.js`, `src/ui/toast.js`, `styles/base.css`, `styles/layout.css`, `styles/map.css`, `styles/tokens.css`, `tests/canvas/canvas-core.test.js`, `tests/ui/reveal-navigation.test.js`, `roadmap.md`.
+- Shell : navigation globale créée une seule fois, extérieure à la vue, avec variables de hauteur mesurées pour les overlays.
+- UX : recherche compacte en haut, barre de carte capsule en bas, menu global tout en bas, statut public déplacé dans `aria-live`.
+- Direction visuelle : palette mousse/ivoire/ambre, fond CSS non animé, Canvas sans remplissage vert, liens ajustés au fond clair.
+- Insets : fit et focus Canvas reçoivent les hauteurs mesurées de la recherche, de la barre de carte et de la navigation.
+- Tests automatisés : `npm test` réussi avec 40 tests après modification ; 35 tests réussissaient avant modification.
+- Tests manuels réalisés : serveur HTTP local à effectuer en validation graphique ; l’environnement agent ne fournit pas de navigateur mobile réel.
+- Limites : pas de persistance, pas de Brassopédie, pas de dégustations, pas de Progression, validation iPhone Safari réelle restante.
+- Prochaine étape : validation humaine V0.2.2 ; ne pas commencer une nouvelle phase avant validation explicite.

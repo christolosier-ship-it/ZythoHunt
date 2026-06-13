@@ -2,8 +2,8 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ZythoHunt — Prototype V0.2.1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>ZythoHunt — V0.2.2</title>
     <link rel="stylesheet" href="./styles/tokens.css">
     <link rel="stylesheet" href="./styles/base.css">
     <link rel="stylesheet" href="./styles/layout.css">
@@ -12,39 +12,28 @@
     <link rel="stylesheet" href="./styles/animations.css">
   </head>
   <body>
-    <header>
-      <div>
-        <h1>ZythoHunt</h1>
-        <p>Prototype V0.2.1 — « Buvez-les toutes. »</p>
-      </div>
-      <div class="versions">
-        <span id="app-version">App 0.2.1</span>
-        <span id="taxonomy-version">Taxonomie 0.1.1-prototype.2</span>
-      </div>
-    </header>
-    <main>
-      <section class="map-shell" aria-label="Zythosphère">
-        <p id="status" role="status"></p>
-        <div class="zythosphere-viewport">
-          <canvas class="map-static-canvas" aria-hidden="true"></canvas>
-          <canvas class="map-dynamic-canvas" aria-hidden="true"></canvas>
-          <div class="map-accessibility-layer"></div>
-          <svg class="legacy-svg-map" viewBox="0 0 2400 1800" aria-label="Zythosphère prototype SVG historique">
-            <g class="map-viewport"><g class="map-links"></g><g class="map-nodes"></g></g>
-          </svg>
-        </div>
-        <nav class="map-controls" aria-label="Contrôles de carte">
-          <button id="zoom-in" aria-label="Zoom avant">+</button>
-          <button id="zoom-out" aria-label="Zoom arrière">−</button>
-          <button id="recenter">Recentrer</button>
-          <button id="fit">Vue générale</button>
-          <button id="motion-toggle" aria-pressed="false">Réduire les animations</button>
-        </nav>
-      </section>
-      <section class="legend" aria-label="Légende"><span class="dot structure"></span>Nœud structurel <span class="dot style"></span>Style découvert <span class="line primary"></span>Lien principal <span class="line secondary"></span>Lien secondaire</section>
-      <div id="bottom-ui"></div>
+    <div id="app-shell" class="app-shell" aria-label="ZythoHunt — Buvez-les toutes.">
+      <main id="view-root" class="view-root">
+        <section id="zythosphere-view" class="app-view zythosphere-view" aria-label="Zythosphère">
+          <div id="zythosphere-search-slot" class="zythosphere-search-slot"></div>
+          <section class="map-shell" aria-label="Zythosphère interactive">
+            <div class="zythosphere-viewport">
+              <canvas class="map-static-canvas" aria-hidden="true"></canvas>
+              <canvas class="map-dynamic-canvas" aria-hidden="true"></canvas>
+              <div class="map-accessibility-layer"></div>
+              <svg class="legacy-svg-map" viewBox="0 0 2400 1800" aria-label="Zythosphère prototype SVG historique">
+                <g class="map-viewport"><g class="map-links"></g><g class="map-nodes"></g></g>
+              </svg>
+            </div>
+            <div id="map-toolbar-slot" class="map-toolbar-slot"></div>
+          </section>
+        </section>
+      </main>
+      <div id="global-navigation-root"></div>
+      <div id="toast-root"></div>
       <div id="debug-root"></div>
-    </main>
+    </div>
+    <p id="app-live-status" class="sr-only" aria-live="polite" role="status"></p>
     <script type="module" src="./src/app.js"></script>
   </body>
 </html>
