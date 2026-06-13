@@ -299,25 +299,25 @@ Cette arborescence est une cible. Elle peut évoluer si une meilleure organisati
 
 ### Tâches
 
-- [ ] Créer `README.md`.
-- [ ] Créer `AGENTS.md`.
-- [ ] Reprendre dans `AGENTS.md` l’obligation de consulter et mettre à jour `ROADMAP.md`.
-- [ ] Créer `docs/PROJECT_CHARTER.md`.
-- [ ] Créer `docs/UX_RULES.md`.
-- [ ] Créer `docs/TAXONOMY_RULES.md`.
-- [ ] Créer `docs/DATA_MODEL.md`.
-- [ ] Définir les conventions de nommage des identifiants.
-- [ ] Définir les conventions de versionnement.
-- [ ] Définir les règles de migration IndexedDB.
-- [ ] Définir les critères de validation d’une phase.
-- [ ] Documenter les éléments explicitement hors périmètre de la V1.
+- [x] Créer `README.md`.
+- [x] Créer `AGENTS.md`.
+- [x] Reprendre dans `AGENTS.md` l’obligation de consulter et mettre à jour `roadmap.md`.
+- [x] Créer `docs/PROJECT_CHARTER.md`.
+- [x] Créer `docs/UX_RULES.md`.
+- [x] Créer `docs/TAXONOMY_RULES.md`.
+- [x] Créer `docs/DATA_MODEL.md`.
+- [x] Définir les conventions de nommage des identifiants.
+- [x] Définir les conventions de versionnement.
+- [x] Définir les règles de migration IndexedDB.
+- [x] Définir les critères de validation d’une phase.
+- [x] Documenter les éléments explicitement hors périmètre de la V1.
 
 ### Critères de validation
 
-- [ ] Les règles de révélation sont décrites sans ambiguïté.
-- [ ] La différence entre structure, style, capture et dégustation est documentée.
-- [ ] Les futures modifications peuvent être évaluées contre des règles écrites.
-- [ ] Codex dispose d’instructions claires sur le suivi du projet.
+- [x] Les règles de révélation sont décrites sans ambiguïté.
+- [x] La différence entre structure, style, capture et dégustation est documentée.
+- [x] Les futures modifications peuvent être évaluées contre des règles écrites.
+- [x] Codex dispose d’instructions claires sur le suivi du projet.
 
 ### Version cible
 
@@ -957,6 +957,17 @@ Codex doit ajouter une entrée à chaque intervention significative.
 - Prochaine étape recommandée : créer le dépôt et exécuter la Phase 0.
 
 ---
+
+## 2026-06-13 — Phase 0 documentaire
+
+- Objectif : réaliser le cadrage et les fondations documentaires de ZythoHunt sans commencer le développement applicatif.
+- Réalisé : création du README, des instructions agents et des documents de charte projet, règles UX, règles taxonomiques et modèle de données.
+- Fichiers créés ou modifiés : `README.md`, `AGENTS.md`, `docs/PROJECT_CHARTER.md`, `docs/UX_RULES.md`, `docs/TAXONOMY_RULES.md`, `docs/DATA_MODEL.md`, `roadmap.md`.
+- Tests effectués : vérification des liens relatifs du README, unicité du fichier de roadmap, cohérence des termes officiels, présence de la règle de non-propagation, distinction capture/dégustation, visibilité des nœuds structurels, absence de révélation automatique des styles inconnus, absence de fichiers applicatifs prématurés, inspection du diff et contrôle Markdown.
+- Résultat : Phase 0 documentaire terminée côté dépôt et prête pour validation humaine.
+- Problèmes rencontrés : aucun blocage ; le fichier de roadmap existant est `roadmap.md` en minuscules.
+- Décisions prises : aucune nouvelle règle produit au-delà de la formalisation des décisions déjà présentes dans la roadmap.
+- Prochaine étape recommandée : validation humaine de la Phase 0 avant lancement de la V0.1.0.
 
 # 11. Règle de clôture d’une tâche
 
