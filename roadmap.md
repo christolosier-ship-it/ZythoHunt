@@ -1206,3 +1206,49 @@ V0.2.3 prête pour validation humaine : moteur plus stable, gestes mieux isolés
 - Tests automatisés : `npm test` à exécuter en validation finale agent.
 - Limites : validation graphique réelle, iPhone Safari réel, pinch tactile matériel et clamp souple complet restent à vérifier humainement.
 - Prochaine étape : validation humaine V0.2.3 ; ne pas commencer V0.2.4 avant accord explicite.
+
+## V0.2.4 : Refonte du layout et de la hiérarchie visuelle
+
+### Objectif
+
+Rendre la Zythosphère lisible en refondant la géométrie fixe, les formes structurelles, les tailles LOD, les liens fantômes, les territoires de familles et les cadrages, sans modifier le corpus taxonomique ni démarrer la V0.3.0.
+
+### Tâches
+
+- [x] Agrandir le monde logique à `4000 × 3000`.
+- [x] Réviser les coordonnées manuelles sans ajouter ni supprimer de nœuds.
+- [x] Passer la taxonomie à `0.1.2-prototype.3`.
+- [x] Passer l’application à `0.2.4`.
+- [x] Différencier les structures : médaillon racine, cartouches de fermentation, capsules de familles.
+- [x] Appliquer des tailles apparentes LOD pour perles inconnues, petites bulles et bulles complètes.
+- [x] Afficher les inconnues en perles en vue générale sans `?` surdimensionné.
+- [x] Ajouter des liens fantômes discrets pour les ramifications inconnues.
+- [x] Ajouter des territoires de famille discrets.
+- [x] Calculer Accueil depuis les bounds utiles et les insets.
+- [x] Calculer Tout voir dynamiquement sur la cartographie.
+- [x] Ajouter `getDescendantBounds(structureId, nodes, options)`.
+- [x] Cadrer les structures depuis leurs descendants avec limite de zoom structurel.
+- [x] Cadrer les styles révélés avec leur branche et limite de zoom de révélation.
+- [x] Ajouter un diagnostic layout debug : coordonnées, rayons, territoires, liens fantômes, bounds et collisions.
+- [x] Ajouter des tests automatisés V0.2.4.
+- [x] Créer `tests/manual/V0.2.4-CHECKLIST.md`.
+- [~] Responsive mobile/tablette/desktop vérifié automatiquement et par inspection ; validation graphique humaine restante.
+- [!] iPhone Safari réel indisponible dans l’environnement agent.
+
+### Critère de sortie
+
+V0.2.4 prête pour validation humaine de la lisibilité et du layout. Ne pas commencer la V0.3.0 avant validation explicite.
+
+## 2026-06-13 — V0.2.4 refonte du layout et de la hiérarchie visuelle
+
+- Objectif : remplacer l’amas de bulles V0.2.3 par une cartographie lisible en branches et grappes espacées.
+- Données : monde `4000 × 3000`, coordonnées manuelles révisées, taxonomie `0.1.2-prototype.3`, corpus inchangé à 28 nœuds et 29 liens.
+- Hiérarchie visuelle : racine en médaillon, fermentations en cartouches, familles en capsules, styles seuls en bulles de bière.
+- LOD : inconnues en perles à distance, petites bulles avec `?` en branche, bulles complètes au zoom rapproché ; révélés plus lumineux et nommés.
+- Structure : liens structurels toujours visibles, liens inconnus en fantôme, liens révélés renforcés, territoires de famille discrets.
+- Cadrages : Accueil, Tout voir, focus fermentation/famille/style basés sur bounds et descendants avec limites de zoom.
+- Debug : diagnostic layout avec coordonnées, rayons, bounds, territoires, liens fantômes, collisions et export JSON console.
+- Tests automatisés : `npm test` réussi avec 48 tests après modification ; 44 tests réussissaient avant modification.
+- Tests manuels réalisés : serveur HTTP local et requêtes HTML ; navigateur graphique réel, iPhone Safari, iPad et pinch matériel restent à valider humainement.
+- Limites : pas de persistance, pas de Brassopédie, pas de dégustations, pas de Progression, direction artistique finale des bulles encore perfectible.
+- Prochaine étape : V0.2.4 prête pour validation humaine de la lisibilité et du layout ; ne pas commencer la V0.3.0 avant validation explicite.

@@ -32,7 +32,7 @@ test('compteurs V0.1.1', () => {
 });
 
 test('coordonnées dans le monde SVG cohérent', () => {
-  assert.deepEqual(WORLD, { width: 2400, height: 1800 });
+  assert.deepEqual(WORLD, { width: 4000, height: 3000 });
   for (const node of nodes) {
     assert.ok(node.position.x >= 0 && node.position.x <= WORLD.width, node.id);
     assert.ok(node.position.y >= 0 && node.position.y <= WORLD.height, node.id);
