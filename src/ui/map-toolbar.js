@@ -10,7 +10,7 @@ function button({ id, label, content }) { const b = document.createElement('butt
 export function createMapToolbar(container, handlers) { const nav = document.createElement('nav'); nav.className = 'map-toolbar'; nav.setAttribute('aria-label', 'Contrôles de carte'); const controls = {
   zoomIn: button({ id:'zoom-in', label:'Zoom avant', content:'<span aria-hidden="true">+</span>' }),
   zoomOut: button({ id:'zoom-out', label:'Zoom arrière', content:'<span aria-hidden="true">−</span>' }),
-  recenter: button({ id:'recenter', label:'Recentrer la carte', content:icon('recenter') }),
-  fit: button({ id:'fit', label:'Vue générale', content:icon('fit') }),
+  recenter: button({ id:'recenter', label:'Revenir à l’accueil de la Zythosphère', content:icon('recenter') }),
+  fit: button({ id:'fit', label:'Afficher toute la Zythosphère', content:icon('fit') }),
   motion: button({ id:'motion-toggle', label:'Réduire les animations', content:icon('motion') })
 }; Object.values(controls).forEach(b=>nav.append(b)); container.append(nav); controls.zoomIn.onclick=handlers.onZoomIn; controls.zoomOut.onclick=handlers.onZoomOut; controls.recenter.onclick=handlers.onRecenter; controls.fit.onclick=handlers.onFit; controls.motion.onclick=handlers.onToggleMotion; return { element: nav, controls, setReducedMotion(value){ controls.motion.setAttribute('aria-pressed', String(Boolean(value))); controls.motion.classList.toggle('is-active', Boolean(value)); } }; }

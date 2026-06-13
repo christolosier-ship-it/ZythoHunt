@@ -102,3 +102,22 @@ Le panneau debug conserve les compteurs et versions retirés de l’interface pu
 ## Conception responsable
 
 ZythoHunt s’adresse à un public adulte et encourage la curiosité brassicole sans pression de consommation. Les données personnelles futures resteront locales, exportables, séparées du référentiel commun et sans compte obligatoire.
+
+## V0.2.3 — Optimisation Canvas, gestes mobiles et confort de navigation
+
+La V0.2.3 consolide le moteur Canvas existant sans remplacer la technologie ni démarrer la Brassopédie, la persistance ou la PWA.
+
+- **Ordonnanceur de rendu** : les demandes rapides de pan, zoom, révélation et synchronisation HTML sont fusionnées via `requestAnimationFrame` par `createRenderScheduler`.
+- **Redimensionnement conditionnel** : les Canvas ne sont redimensionnés que si la taille CSS ou le DPR effectif change ; les compteurs debug exposent les resize.
+- **Hit layer persistant** : les boutons HTML des styles découverts sont conservés par identifiant, repositionnés et masqués hors viewport au lieu d’être reconstruits globalement.
+- **Gestes dédiés au viewport** : pan, molette et pointer events sont attachés à `.zythosphere-viewport`, pas aux contrôles de carte.
+- **Accueil et Tout voir** : Accueil restaure une vue de départ centrée sur la structure ; Tout voir ajuste la cartographie complète avec le minimum dynamique.
+- **LOD réels** : les niveaux éloigné, intermédiaire et proche ont des profils distincts, avec hystérésis, texte court et microbulles limitées au niveau riche.
+- **Cache borné** : le cache de sprites utilise des tailles canoniques, une clé stable incluant thème/DPR/LOD et une éviction LRU plafonnée.
+- **Canvas dynamique** : la couche dynamique est réservée aux états transitoires de révélation et sélection, puis reste inactive au repos.
+- **Thème Canvas** : les couleurs principales sont lues depuis les variables CSS pour éviter les duplications en dur.
+- **Révélation** : la barre affiche un état en cours, un succès temporaire, les erreurs précises, le cas déjà révélé et un bouton d’effacement accessible.
+- **Accessibilité** : les Canvas restent `aria-hidden`, les zones tactiles des styles découverts visent au moins 44 px et la live region est réservée aux actions importantes.
+- **Tests de charge** : le banc synthétique reste disponible pour 20, 50, 100, 200 et 300 nœuds via le mode debug.
+
+Les bulles inconnues restent visibles avec `?`, non interactives et sans nom accessible. Une révélation ne dévoile aucun autre style.

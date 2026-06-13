@@ -1164,3 +1164,45 @@ Une fois le dépôt créé avec ce fichier :
 - Tests manuels réalisés : serveur HTTP local à effectuer en validation graphique ; l’environnement agent ne fournit pas de navigateur mobile réel.
 - Limites : pas de persistance, pas de Brassopédie, pas de dégustations, pas de Progression, validation iPhone Safari réelle restante.
 - Prochaine étape : validation humaine V0.2.2 ; ne pas commencer une nouvelle phase avant validation explicite.
+
+## V0.2.3 : Optimisation Canvas, gestes mobiles et confort de navigation
+
+### Objectif
+
+Consolider le moteur Canvas 2D de la V0.2.2 avant toute phase artistique ou fonctionnelle ultérieure.
+
+### Tâches
+
+- [x] Ajouter un redimensionnement Canvas conditionnel avec compteur debug.
+- [x] Ajouter un ordonnanceur `requestAnimationFrame` fusionnant les demandes de rendu.
+- [x] Rendre la couche HTML interactive persistante pour les styles découverts.
+- [x] Attacher les gestes de carte au viewport cartographique.
+- [~] Fiabiliser le pinch-to-zoom par calcul borné ; validation tactile réelle restante.
+- [x] Séparer Accueil et Tout voir dans l’interface.
+- [~] Ajouter un minimum de zoom plus bas pour la vue complète ; validation mobile réelle restante.
+- [~] Ajouter une protection initiale contre la carte perdue ; clamp souple complet à valider humainement.
+- [x] Différencier les profils LOD et ajouter l’hystérésis.
+- [x] Adapter la taille du `?` et des noms au rayon apparent.
+- [x] Borner le cache de sprites avec tailles canoniques et éviction.
+- [~] Utiliser le Canvas dynamique pour les états de révélation/sélection ; animations longues à valider graphiquement.
+- [x] Centraliser les couleurs Canvas depuis les variables CSS.
+- [~] Améliorer la différenciation visuelle des structures ; direction artistique définitive non démarrée.
+- [~] Préparer la navigation structurelle ; couverture complète des familles à valider.
+- [x] Améliorer la barre de révélation et le bouton d’effacement.
+- [x] Ajouter la checklist manuelle V0.2.3.
+- [x] Ajouter des tests automatisés moteur V0.2.3.
+- [!] iPhone Safari réel indisponible dans l’environnement agent.
+
+### Critère de sortie
+
+V0.2.3 prête pour validation humaine : moteur plus stable, gestes mieux isolés, documentation à jour, sans démarrer la V0.2.4 ni la V0.3.0.
+
+## 2026-06-13 — V0.2.3 optimisation Canvas, gestes mobiles et confort de navigation
+
+- Objectif : consolider la V0.2.2 sans modifier la taxonomie `0.1.1-prototype.2`.
+- Moteur : resize conditionnel, scheduler rAF, cache de sprites borné, thème Canvas centralisé et hit layer persistant.
+- Gestes : événements attachés au viewport, Accueil distinct de Tout voir, zoom minimum abaissé pour fit complet.
+- UX : barre de révélation avec état en cours, succès temporaire, erreurs précises et bouton d’effacement.
+- Tests automatisés : `npm test` à exécuter en validation finale agent.
+- Limites : validation graphique réelle, iPhone Safari réel, pinch tactile matériel et clamp souple complet restent à vérifier humainement.
+- Prochaine étape : validation humaine V0.2.3 ; ne pas commencer V0.2.4 avant accord explicite.
