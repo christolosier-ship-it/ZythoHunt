@@ -1,12 +1,1 @@
-:root{--foam-deep:#c9ad73;--foam-base:#ead9ad;--foam-mid:#f1e2bd;--foam-light:#fff5d8;--foam-highlight:#fffaf0;--foam-panel:rgba(255,247,222,.94);--foam-panel-border:rgba(130,91,32,.34);--foam-input:rgba(255,252,238,.96);--foam-ink:#342619;--foam-ink-soft:#6b563d;--foam-line:#8a682f;--beer-amber:#a96216;--beer-action:#a96416;--beer-action-hover:#c07a20;--beer-gold:#d69326;--beer-dark:#4a2d12;--nav-bg:rgba(49,35,23,.96);--nav-border:rgba(218,177,94,.42);--nav-text:#f9edcf;--bg-page:var(--foam-base);--bg-deep:#8b662f;--bg-map:transparent;--bg-map-light:transparent;--bg-map-warm:#f5d789;--bg-panel:var(--foam-panel);--text-main:var(--foam-ink);--text-soft:var(--foam-ink-soft);--text-dim:#806847;--structure-core-dark:#342719;--structure-core-mid:#705330;--structure-core-light:#c29b59;--family-pale-dark:#81460c;--family-pale-mid:#d88718;--family-pale-light:#ffd06a;--family-wheat-dark:#8e762d;--family-wheat-mid:#d9c26a;--family-wheat-light:#fff0b3;--family-lager-dark:#8b630a;--family-lager-mid:#e2b62d;--family-lager-light:#ffeb82;--family-spontaneous-dark:#7f4034;--family-spontaneous-mid:#c96b52;--family-spontaneous-light:#f1a28a;--family-wild-dark:#573547;--family-wild-mid:#8c5873;--family-wild-light:#ce92af;--link-primary:#75501f;--link-primary-active:#b96816;--link-secondary:#647781;--link-secondary-active:#365f75;--focus-ring:#7a4a12;--danger:#9f2f24;--global-nav-height:72px;--zytho-search-height:64px;--map-toolbar-height:56px;--font-display:ui-rounded,"Avenir Next","Trebuchet MS",system-ui,sans-serif;--font-ui:Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
-:root {
-  --canvas-root: #70451e;
-  --canvas-structure: #9a6a2f;
-  --canvas-link-primary: #bda56caa;
-  --canvas-link-secondary: #78a6bf99;
-  --canvas-link-active: #f3d48a;
-  --canvas-text: #fff7e5;
-  --canvas-question: #fff5c9;
-  --canvas-halo: #f7d37a66;
-  --canvas-selection: #ffefaa;
-}
+:root{--zytho-bg-deep:#07568d;--zytho-bg-main:#087eae;--zytho-bg-light:#22b8cf;--zytho-cyan-glow:#6ff2f2;--zytho-gold:#f4d96a;--zytho-gold-bright:#fff1a2;--zytho-gold-dark:#a87420;--zytho-glass-light:rgba(239,253,255,.88);--zytho-glass-mid:rgba(129,224,236,.48);--zytho-glass-edge:rgba(236,255,255,.92);--zytho-ink:#09283b;--zytho-ink-soft:#7ecfe0;--zytho-ink-inverse:#fff;--zytho-ale:#e58b26;--zytho-lager:#f1c538;--zytho-wheat:#e9d56a;--zytho-dark:#4a2b22;--zytho-wild:#76ae4b;--zytho-fruit:#d34f67;--focus-ring:var(--zytho-gold-bright);--danger:#ffb4a8;--global-nav-height:72px;--zytho-search-height:72px;--map-toolbar-height:58px;--font-display:ui-rounded,"Avenir Next Condensed","Arial Narrow","Trebuchet MS",system-ui,sans-serif;--font-ui:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;--text-main:var(--zytho-ink-inverse)}

@@ -7,10 +7,11 @@
 ## 1. Identité du projet
 
 - Application : **ZythoHunt**.
-- Version applicative actuelle : **0.2.7**.
+- Version applicative actuelle : **0.3.0**.
 - Version taxonomique conservée : **0.1.2-prototype.3**.
 - Corpus courant : 28 nœuds, 8 structures, 20 styles capturables, 27 liens principaux, 2 liens secondaires.
 - Technologies : HTML, CSS et JavaScript ES modules sans dépendance npm applicative.
+- Version de présentation cartographique : **1.0.0** (`data/map-presentation.json`).
 
 ## 2. Règles produit actuelles
 
@@ -73,18 +74,45 @@ Rendre la navigation de la Zythosphère fluide sur Safari iPad et réduire forte
 
 V0.2.7 est prête pour validation humaine dès que `npm run validate` réussit et que le pan/pinch sont vérifiés sur un iPad Safari réel.
 
-## 6. Futures phases métier
+## 6. V0.3.0 — Refonte visuelle et UX de référence
 
-Ne pas démarrer avant validation humaine de la fluidité V0.2.7 :
+### Objectif
 
-- V0.3.0 : barre de vérification et capture persistante.
+Traduire la référence visuelle fournie en Zythosphère interactive bleu/cyan/or, sans dégrader l’architecture de fluidité V0.2.7.
+
+### Tâches
+
+- [x] Vérifier et analyser l’image de référence jointe.
+- [x] Créer `data/map-presentation.json` en version `1.0.0`.
+- [x] Séparer coordonnées, niveaux visuels, pictogrammes et palettes de la taxonomie.
+- [x] Remplacer la palette mousse/caramel par la palette bleu, cyan, or et ambre.
+- [x] Créer le fond CSS bleu statique avec halos et bulles décoratives fixes.
+- [x] Dessiner les médaillons en verre Canvas pour racine, fermentations, familles et styles.
+- [x] Ajouter un registre de pictogrammes vectoriels Canvas.
+- [x] Remplacer les liens par des ramifications dorées.
+- [x] Mettre en place le layout monde 4800 × 3000 manuel.
+- [x] Ajouter le zoom sémantique Overview, Structure, Branch et Detail.
+- [x] Refondre barre de révélation, toolbar et navigation basse.
+- [x] Conserver les styles inconnus anonymes et non focusables.
+- [x] Conserver la fluidité pan/pinch par transformation CSS sans redraw pendant `pointermove`.
+- [x] Étendre `npm run validate` à la présentation cartographique.
+- [!] Validation Safari iPad réelle indisponible dans l’environnement agent ; validation humaine obligatoire.
+
+### Critère de sortie
+
+V0.3.0 est prête pour validation humaine de la direction artistique, du layout et de la fluidité sur Safari iPad réel.
+
+## 7. Futures phases métier
+
+Ne pas démarrer avant validation humaine simultanée de la V0.3.0 :
+
 - Brassopédie.
 - Dégustations.
 - Progression.
 - IndexedDB.
 - PWA, manifest final et service worker.
 
-## 7. Journal d’avancement
+## 8. Journal d’avancement
 
 ### 2026-06-13 — V0.2.7 refonte fluidité et nettoyage radical
 
@@ -95,3 +123,15 @@ Ne pas démarrer avant validation humaine de la fluidité V0.2.7 :
 - Transition pinch vers pan implémentée en validant l’état courant puis en recréant un pan sur le doigt restant.
 - Validation taxonomique légère conservée via `npm run validate`.
 - À arbitrer : validation de fluidité sur Safari iPad réel, impossible dans cet environnement.
+
+
+### 2026-06-14 — V0.3.0 refonte visuelle et UX de référence
+
+- Image de référence accessible et analysée : fond bleu/cyan, bulles fixes, médaillons vitrés, liens dorés, pictogrammes brassicoles et hiérarchie descendante.
+- Ajout de `data/map-presentation.json` version `1.0.0` pour la présentation cartographique séparée de la taxonomie.
+- Nouvelle palette centralisée bleu/cyan/or/ambre et suppression de l’ancienne direction mousse/caramel dans le shell.
+- Nouveau rendu Canvas en médaillons de verre avec pictogrammes vectoriels et zoom sémantique.
+- Layout manuel 4800 × 3000 pour les 28 nœuds, avec branches espacées pour les structures et styles prototypes.
+- Conservation de l’architecture fluide V0.2.7 : surface caméra CSS pendant les gestes, rendu final au commit, pas de boucle permanente.
+- Validation `npm run validate` étendue à la présentation.
+- À arbitrer : validation tactile et visuelle réelle sur Safari iPad, impossible dans cet environnement.
