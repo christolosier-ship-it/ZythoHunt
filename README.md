@@ -5,9 +5,9 @@ Carte interactive : **la Zythosphère**. Encyclopédie future : **la Brassopédi
 
 ## Versions
 
-- Application : **0.3.4**
-- Taxonomie : **0.1.2-prototype.3**
-- Présentation cartographique : **1.2.0**
+- Application : **0.4.0**
+- Taxonomie : **1.0.0**
+- Présentation cartographique : **2.0.0**
 
 ## V0.3.0 — Refonte visuelle et UX de référence
 
@@ -97,3 +97,19 @@ La V0.3.4 augmente l’échelle utile des illustrations dans les médaillons, re
 La V0.3.3 supprime la copie JavaScript des recettes : `data/style-icon-recipes.json` est désormais l’unique source de vérité chargée par le loader et attachée aux nœuds capturables. La présentation cartographique passe en **1.2.0** sans modifier la taxonomie.
 
 Le système iconographique Canvas est découpé en verres, liquides, mousses, accessoires et compositions. Les sources de cache passent à 64, 128 et 256 px avec une clé fondée sur la signature de recette, le niveau de détail, la résolution canonique, la version de thème et la version de schéma. Le focus de révélation utilise une transformation CSS temporaire et ne redessine le Canvas qu’à l’arrivée.
+
+## V0.4.0 — Taxonomie complète et Zythosphère radiale
+
+La V0.4.0 intègre le canon **ZythoHunt Taxonomy 1.0.0** : 272 nœuds dont 201 styles capturables, 71 structures et 6 univers principaux. Les identifiants sont stables en kebab-case ; les alias restent des termes de recherche et ne créent jamais de nœuds séparés.
+
+La présentation cartographique passe en **2.0.0**. Les coordonnées sont générées par `scripts/build-radial-layout.mjs` dans `data/generated/zythosphere-layout.json`, puis recopiées dans `data/map-presentation.json`. La racine Bière est centrée, les univers occupent des secteurs pondérés par `sqrt(descendantLeafCount)`, les branches utilisent des anneaux radiaux et des sous-anneaux déterministes pour les zones denses.
+
+Commandes disponibles :
+
+```bash
+npm run build:taxonomy
+npm run build:layout
+npm run validate:taxonomy
+npm run validate:layout
+npm run validate
+```

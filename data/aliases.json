@@ -1,41 +1,64 @@
 {
-  "classic-english-pale-ale": [
-    "English Pale Ale",
-    "British Pale Ale"
+  "strong-bitter": [
+    "Extra Special Bitter",
+    "ESB"
   ],
-  "american-pale-ale": [
-    "APA"
+  "golden-ale": [
+    "Blonde Ale"
   ],
-  "new-zealand-pale-ale": [
-    "NZPA"
-  ],
-  "ipa": [
-    "India Pale Ale"
-  ],
-  "english-ipa": [
-    "British IPA"
-  ],
-  "west-coast-ipa": [
-    "WCIPA",
-    "IPA West Coast"
-  ],
-  "new-england-ipa": [
-    "NEIPA",
-    "Hazy IPA"
+  "hazy-ipa": [
+    "New England IPA",
+    "NEIPA"
   ],
   "double-ipa": [
-    "DIPA",
     "Imperial IPA"
   ],
   "black-ipa": [
     "Cascadian Dark Ale"
   ],
-  "witbier": [
-    "Belgian White",
-    "Blanche belge",
-    "Bière blanche belge"
+  "scotch-ale": [
+    "Wee Heavy"
   ],
-  "india-pale-lager": [
+  "foreign-extra-stout": [
+    "Export Stout"
+  ],
+  "sweet-stout": [
+    "Cream Stout",
+    "Milk Stout"
+  ],
+  "belgian-single": [
+    "Trappist Single"
+  ],
+  "hefeweizen": [
+    "Weissbier"
+  ],
+  "dutch-kuit": [
+    "Kuyt",
+    "Koyt"
+  ],
+  "dortmunder-export": [
+    "Helles Exportbier"
+  ],
+  "american-india-pale-lager": [
+    "India Pale Lager",
     "IPL"
+  ],
+  "festbier": [
+    "Oktoberfest"
+  ],
+  "kellerbier": [
+    "Zwickelbier"
+  ],
+  "american-marzen": [
+    "American Oktoberfest"
+  ],
+  "helles-bock": [
+    "Maibock"
+  ],
+  "traditional-bock": [
+    "Dunkles Bock"
+  ],
+  "ginjo-beer": [
+    "Sake-Yeast Beer"
   ]
 }

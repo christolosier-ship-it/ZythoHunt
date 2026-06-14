@@ -1,205 +1,1899 @@
 [
   {
-    "id": "primary-beer-fermentation-high",
+    "id": "primary-beer-high-fermentation",
     "sourceId": "beer",
-    "targetId": "fermentation-high",
+    "targetId": "high-fermentation",
     "linkType": "primary",
     "visibleWhenHidden": true
   },
   {
-    "id": "primary-beer-fermentation-low",
-    "sourceId": "beer",
-    "targetId": "fermentation-low",
+    "id": "primary-high-fermentation-pale-ale-bitter-ipa",
+    "sourceId": "high-fermentation",
+    "targetId": "pale-ale-bitter-ipa",
     "linkType": "primary",
     "visibleWhenHidden": true
   },
   {
-    "id": "primary-beer-fermentation-spontaneous",
-    "sourceId": "beer",
-    "targetId": "fermentation-spontaneous",
+    "id": "primary-pale-ale-bitter-ipa-british-commonwealth-ales",
+    "sourceId": "pale-ale-bitter-ipa",
+    "targetId": "british-commonwealth-ales",
     "linkType": "primary",
     "visibleWhenHidden": true
   },
   {
-    "id": "primary-beer-fermentation-mixed-wild",
-    "sourceId": "beer",
-    "targetId": "fermentation-mixed-wild",
+    "id": "primary-british-commonwealth-ales-ordinary-bitter",
+    "sourceId": "british-commonwealth-ales",
+    "targetId": "ordinary-bitter",
     "linkType": "primary",
     "visibleWhenHidden": true
   },
   {
-    "id": "primary-fermentation-high-family-pale-ale-ipa",
-    "sourceId": "fermentation-high",
-    "targetId": "family-pale-ale-ipa",
+    "id": "primary-british-commonwealth-ales-best-bitter",
+    "sourceId": "british-commonwealth-ales",
+    "targetId": "best-bitter",
     "linkType": "primary",
     "visibleWhenHidden": true
   },
   {
-    "id": "primary-fermentation-high-family-wheat-beer",
-    "sourceId": "fermentation-high",
-    "targetId": "family-wheat-beer",
+    "id": "primary-british-commonwealth-ales-strong-bitter",
+    "sourceId": "british-commonwealth-ales",
+    "targetId": "strong-bitter",
     "linkType": "primary",
     "visibleWhenHidden": true
   },
   {
-    "id": "primary-fermentation-low-family-pale-lager",
-    "sourceId": "fermentation-low",
-    "targetId": "family-pale-lager",
+    "id": "primary-british-commonwealth-ales-english-summer-ale",
+    "sourceId": "british-commonwealth-ales",
+    "targetId": "english-summer-ale",
     "linkType": "primary",
     "visibleWhenHidden": true
   },
   {
-    "id": "primary-family-pale-ale-ipa-classic-english-pale-ale",
-    "sourceId": "family-pale-ale-ipa",
-    "targetId": "classic-english-pale-ale",
-    "linkType": "primary",
-    "visibleWhenHidden": true
-  },
-  {
-    "id": "primary-family-pale-ale-ipa-american-pale-ale",
-    "sourceId": "family-pale-ale-ipa",
-    "targetId": "american-pale-ale",
-    "linkType": "primary",
-    "visibleWhenHidden": true
-  },
-  {
-    "id": "primary-family-pale-ale-ipa-british-golden-ale",
-    "sourceId": "family-pale-ale-ipa",
+    "id": "primary-british-commonwealth-ales-british-golden-ale",
+    "sourceId": "british-commonwealth-ales",
     "targetId": "british-golden-ale",
     "linkType": "primary",
     "visibleWhenHidden": true
   },
   {
-    "id": "primary-family-pale-ale-ipa-australian-sparkling-ale",
-    "sourceId": "family-pale-ale-ipa",
+    "id": "primary-british-commonwealth-ales-english-pale-ale",
+    "sourceId": "british-commonwealth-ales",
+    "targetId": "english-pale-ale",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-british-commonwealth-ales-british-ipa",
+    "sourceId": "british-commonwealth-ales",
+    "targetId": "british-ipa",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-british-commonwealth-ales-australian-sparkling-ale",
+    "sourceId": "british-commonwealth-ales",
     "targetId": "australian-sparkling-ale",
     "linkType": "primary",
     "visibleWhenHidden": true
   },
   {
-    "id": "primary-family-pale-ale-ipa-new-zealand-pale-ale",
-    "sourceId": "family-pale-ale-ipa",
+    "id": "primary-british-commonwealth-ales-classic-australian-pale-ale",
+    "sourceId": "british-commonwealth-ales",
+    "targetId": "classic-australian-pale-ale",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-british-commonwealth-ales-australian-pale-ale",
+    "sourceId": "british-commonwealth-ales",
+    "targetId": "australian-pale-ale",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-british-commonwealth-ales-new-zealand-pale-ale",
+    "sourceId": "british-commonwealth-ales",
     "targetId": "new-zealand-pale-ale",
     "linkType": "primary",
     "visibleWhenHidden": true
   },
   {
-    "id": "primary-family-pale-ale-ipa-ipa",
-    "sourceId": "family-pale-ale-ipa",
-    "targetId": "ipa",
+    "id": "primary-british-commonwealth-ales-new-zealand-ipa",
+    "sourceId": "british-commonwealth-ales",
+    "targetId": "new-zealand-ipa",
     "linkType": "primary",
     "visibleWhenHidden": true
   },
   {
-    "id": "primary-ipa-english-ipa",
-    "sourceId": "ipa",
-    "targetId": "english-ipa",
+    "id": "primary-british-commonwealth-ales-international-pale-ale",
+    "sourceId": "british-commonwealth-ales",
+    "targetId": "international-pale-ale",
     "linkType": "primary",
     "visibleWhenHidden": true
   },
   {
-    "id": "primary-ipa-american-ipa",
-    "sourceId": "ipa",
+    "id": "primary-pale-ale-bitter-ipa-american-pale-ales",
+    "sourceId": "pale-ale-bitter-ipa",
+    "targetId": "american-pale-ales",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-american-pale-ales-golden-ale",
+    "sourceId": "american-pale-ales",
+    "targetId": "golden-ale",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-american-pale-ales-american-pale-ale",
+    "sourceId": "american-pale-ales",
+    "targetId": "american-pale-ale",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-american-pale-ales-juicy-hazy-pale-ale",
+    "sourceId": "american-pale-ales",
+    "targetId": "juicy-hazy-pale-ale",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-american-pale-ales-american-strong-pale-ale",
+    "sourceId": "american-pale-ales",
+    "targetId": "american-strong-pale-ale",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-american-pale-ales-juicy-hazy-strong-pale-ale",
+    "sourceId": "american-pale-ales",
+    "targetId": "juicy-hazy-strong-pale-ale",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-pale-ale-bitter-ipa-main-american-ipa",
+    "sourceId": "pale-ale-bitter-ipa",
+    "targetId": "main-american-ipa",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-main-american-ipa-american-ipa",
+    "sourceId": "main-american-ipa",
     "targetId": "american-ipa",
     "linkType": "primary",
     "visibleWhenHidden": true
   },
   {
-    "id": "primary-american-ipa-west-coast-ipa",
-    "sourceId": "american-ipa",
+    "id": "primary-main-american-ipa-west-coast-ipa",
+    "sourceId": "main-american-ipa",
     "targetId": "west-coast-ipa",
     "linkType": "primary",
     "visibleWhenHidden": true
   },
   {
-    "id": "primary-american-ipa-new-england-ipa",
-    "sourceId": "american-ipa",
-    "targetId": "new-england-ipa",
+    "id": "primary-main-american-ipa-hazy-ipa",
+    "sourceId": "main-american-ipa",
+    "targetId": "hazy-ipa",
     "linkType": "primary",
     "visibleWhenHidden": true
   },
   {
-    "id": "primary-ipa-session-ipa",
-    "sourceId": "ipa",
+    "id": "primary-main-american-ipa-session-ipa",
+    "sourceId": "main-american-ipa",
     "targetId": "session-ipa",
     "linkType": "primary",
     "visibleWhenHidden": true
   },
   {
-    "id": "primary-ipa-double-ipa",
-    "sourceId": "ipa",
+    "id": "primary-main-american-ipa-double-ipa",
+    "sourceId": "main-american-ipa",
     "targetId": "double-ipa",
     "linkType": "primary",
     "visibleWhenHidden": true
   },
   {
-    "id": "primary-ipa-black-ipa",
-    "sourceId": "ipa",
-    "targetId": "black-ipa",
+    "id": "primary-main-american-ipa-hazy-double-ipa",
+    "sourceId": "main-american-ipa",
+    "targetId": "hazy-double-ipa",
     "linkType": "primary",
     "visibleWhenHidden": true
   },
   {
-    "id": "primary-ipa-red-ipa",
-    "sourceId": "ipa",
-    "targetId": "red-ipa",
+    "id": "primary-pale-ale-bitter-ipa-specialty-ipa",
+    "sourceId": "pale-ale-bitter-ipa",
+    "targetId": "specialty-ipa",
     "linkType": "primary",
     "visibleWhenHidden": true
   },
   {
-    "id": "primary-ipa-white-ipa",
-    "sourceId": "ipa",
-    "targetId": "white-ipa",
-    "linkType": "primary",
-    "visibleWhenHidden": true
-  },
-  {
-    "id": "primary-ipa-belgian-ipa",
-    "sourceId": "ipa",
+    "id": "primary-specialty-ipa-belgian-ipa",
+    "sourceId": "specialty-ipa",
     "targetId": "belgian-ipa",
     "linkType": "primary",
     "visibleWhenHidden": true
   },
   {
-    "id": "primary-ipa-rye-ipa",
-    "sourceId": "ipa",
-    "targetId": "rye-ipa",
+    "id": "primary-specialty-ipa-black-ipa",
+    "sourceId": "specialty-ipa",
+    "targetId": "black-ipa",
     "linkType": "primary",
     "visibleWhenHidden": true
   },
   {
-    "id": "primary-ipa-brown-ipa",
-    "sourceId": "ipa",
+    "id": "primary-specialty-ipa-brown-ipa",
+    "sourceId": "specialty-ipa",
     "targetId": "brown-ipa",
     "linkType": "primary",
     "visibleWhenHidden": true
   },
   {
-    "id": "primary-family-wheat-beer-witbier",
-    "sourceId": "family-wheat-beer",
+    "id": "primary-specialty-ipa-red-ipa",
+    "sourceId": "specialty-ipa",
+    "targetId": "red-ipa",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-specialty-ipa-rye-ipa",
+    "sourceId": "specialty-ipa",
+    "targetId": "rye-ipa",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-specialty-ipa-white-ipa",
+    "sourceId": "specialty-ipa",
+    "targetId": "white-ipa",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-specialty-ipa-brut-ipa",
+    "sourceId": "specialty-ipa",
+    "targetId": "brut-ipa",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-specialty-ipa-experimental-ipa",
+    "sourceId": "specialty-ipa",
+    "targetId": "experimental-ipa",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-pale-ale-bitter-ipa-belgian-transatlantic-pale-ales",
+    "sourceId": "pale-ale-bitter-ipa",
+    "targetId": "belgian-transatlantic-pale-ales",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-belgian-transatlantic-pale-ales-belgian-pale-ale",
+    "sourceId": "belgian-transatlantic-pale-ales",
+    "targetId": "belgian-pale-ale",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-belgian-transatlantic-pale-ales-belgian-session-ale",
+    "sourceId": "belgian-transatlantic-pale-ales",
+    "targetId": "belgian-session-ale",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-belgian-transatlantic-pale-ales-speciale-belge",
+    "sourceId": "belgian-transatlantic-pale-ales",
+    "targetId": "speciale-belge",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-belgian-transatlantic-pale-ales-american-belgo-ale",
+    "sourceId": "belgian-transatlantic-pale-ales",
+    "targetId": "american-belgo-ale",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-pale-ale-bitter-ipa-south-american-local-styles",
+    "sourceId": "pale-ale-bitter-ipa",
+    "targetId": "south-american-local-styles",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-south-american-local-styles-dorada-pampeana",
+    "sourceId": "south-american-local-styles",
+    "targetId": "dorada-pampeana",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-south-american-local-styles-ipa-argenta",
+    "sourceId": "south-american-local-styles",
+    "targetId": "ipa-argenta",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-high-fermentation-mild-amber-brown-red-scottish-ale",
+    "sourceId": "high-fermentation",
+    "targetId": "mild-amber-brown-red-scottish-ale",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-mild-amber-brown-red-scottish-ale-british-mild-brown-ales",
+    "sourceId": "mild-amber-brown-red-scottish-ale",
+    "targetId": "british-mild-brown-ales",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-british-mild-brown-ales-pale-mild",
+    "sourceId": "british-mild-brown-ales",
+    "targetId": "pale-mild",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-british-mild-brown-ales-dark-mild",
+    "sourceId": "british-mild-brown-ales",
+    "targetId": "dark-mild",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-british-mild-brown-ales-london-brown-ale",
+    "sourceId": "british-mild-brown-ales",
+    "targetId": "london-brown-ale",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-british-mild-brown-ales-english-brown-ale",
+    "sourceId": "british-mild-brown-ales",
+    "targetId": "english-brown-ale",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-mild-amber-brown-red-scottish-ale-american-amber-brown-ales",
+    "sourceId": "mild-amber-brown-red-scottish-ale",
+    "targetId": "american-amber-brown-ales",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-american-amber-brown-ales-american-amber-red-ale",
+    "sourceId": "american-amber-brown-ales",
+    "targetId": "american-amber-red-ale",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-american-amber-brown-ales-american-brown-ale",
+    "sourceId": "american-amber-brown-ales",
+    "targetId": "american-brown-ale",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-american-amber-brown-ales-double-hoppy-red-ale",
+    "sourceId": "american-amber-brown-ales",
+    "targetId": "double-hoppy-red-ale",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-american-amber-brown-ales-imperial-red-ale",
+    "sourceId": "american-amber-brown-ales",
+    "targetId": "imperial-red-ale",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-mild-amber-brown-red-scottish-ale-irish-ales",
+    "sourceId": "mild-amber-brown-red-scottish-ale",
+    "targetId": "irish-ales",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-irish-ales-irish-red-ale",
+    "sourceId": "irish-ales",
+    "targetId": "irish-red-ale",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-mild-amber-brown-red-scottish-ale-scottish-ales",
+    "sourceId": "mild-amber-brown-red-scottish-ale",
+    "targetId": "scottish-ales",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-scottish-ales-scottish-light",
+    "sourceId": "scottish-ales",
+    "targetId": "scottish-light",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-scottish-ales-scottish-heavy",
+    "sourceId": "scottish-ales",
+    "targetId": "scottish-heavy",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-scottish-ales-scottish-export",
+    "sourceId": "scottish-ales",
+    "targetId": "scottish-export",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-scottish-ales-scotch-ale",
+    "sourceId": "scottish-ales",
+    "targetId": "scotch-ale",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-high-fermentation-porter-stout",
+    "sourceId": "high-fermentation",
+    "targetId": "porter-stout",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-porter-stout-porters",
+    "sourceId": "porter-stout",
+    "targetId": "porters",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-porters-english-brown-porter",
+    "sourceId": "porters",
+    "targetId": "english-brown-porter",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-porters-american-porter",
+    "sourceId": "porters",
+    "targetId": "american-porter",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-porters-american-imperial-porter",
+    "sourceId": "porters",
+    "targetId": "american-imperial-porter",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-porters-smoke-porter",
+    "sourceId": "porters",
+    "targetId": "smoke-porter",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-porter-stout-british-irish-stouts",
+    "sourceId": "porter-stout",
+    "targetId": "british-irish-stouts",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-british-irish-stouts-dry-stout",
+    "sourceId": "british-irish-stouts",
+    "targetId": "dry-stout",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-british-irish-stouts-irish-extra-stout",
+    "sourceId": "british-irish-stouts",
+    "targetId": "irish-extra-stout",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-british-irish-stouts-foreign-extra-stout",
+    "sourceId": "british-irish-stouts",
+    "targetId": "foreign-extra-stout",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-british-irish-stouts-tropical-stout",
+    "sourceId": "british-irish-stouts",
+    "targetId": "tropical-stout",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-british-irish-stouts-sweet-stout",
+    "sourceId": "british-irish-stouts",
+    "targetId": "sweet-stout",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-british-irish-stouts-oatmeal-stout",
+    "sourceId": "british-irish-stouts",
+    "targetId": "oatmeal-stout",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-british-irish-stouts-british-imperial-stout",
+    "sourceId": "british-irish-stouts",
+    "targetId": "british-imperial-stout",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-porter-stout-american-stouts",
+    "sourceId": "porter-stout",
+    "targetId": "american-stouts",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-american-stouts-american-stout",
+    "sourceId": "american-stouts",
+    "targetId": "american-stout",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-american-stouts-american-imperial-stout",
+    "sourceId": "american-stouts",
+    "targetId": "american-imperial-stout",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-high-fermentation-strong-ales-barley-wines",
+    "sourceId": "high-fermentation",
+    "targetId": "strong-ales-barley-wines",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-strong-ales-barley-wines-british-strong-ales",
+    "sourceId": "strong-ales-barley-wines",
+    "targetId": "british-strong-ales",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-british-strong-ales-british-strong-ale",
+    "sourceId": "british-strong-ales",
+    "targetId": "british-strong-ale",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-british-strong-ales-old-ale",
+    "sourceId": "british-strong-ales",
+    "targetId": "old-ale",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-british-strong-ales-burton-ale",
+    "sourceId": "british-strong-ales",
+    "targetId": "burton-ale",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-british-strong-ales-english-barley-wine",
+    "sourceId": "british-strong-ales",
+    "targetId": "english-barley-wine",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-strong-ales-barley-wines-american-strong-ales",
+    "sourceId": "strong-ales-barley-wines",
+    "targetId": "american-strong-ales",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-american-strong-ales-american-strong-ale",
+    "sourceId": "american-strong-ales",
+    "targetId": "american-strong-ale",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-american-strong-ales-american-barley-wine",
+    "sourceId": "american-strong-ales",
+    "targetId": "american-barley-wine",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-american-strong-ales-wheat-wine",
+    "sourceId": "american-strong-ales",
+    "targetId": "wheat-wine",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-high-fermentation-belgian-monastic-farmhouse",
+    "sourceId": "high-fermentation",
+    "targetId": "belgian-monastic-farmhouse",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-belgian-monastic-farmhouse-light-blond-belgians",
+    "sourceId": "belgian-monastic-farmhouse",
+    "targetId": "light-blond-belgians",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-light-blond-belgians-belgian-table-beer",
+    "sourceId": "light-blond-belgians",
+    "targetId": "belgian-table-beer",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-light-blond-belgians-belgian-blonde-ale",
+    "sourceId": "light-blond-belgians",
+    "targetId": "belgian-blonde-ale",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-light-blond-belgians-belgian-strong-blonde-ale",
+    "sourceId": "light-blond-belgians",
+    "targetId": "belgian-strong-blonde-ale",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-light-blond-belgians-belgian-golden-strong-ale",
+    "sourceId": "light-blond-belgians",
+    "targetId": "belgian-golden-strong-ale",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-belgian-monastic-farmhouse-monastic-ales",
+    "sourceId": "belgian-monastic-farmhouse",
+    "targetId": "monastic-ales",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-monastic-ales-belgian-single",
+    "sourceId": "monastic-ales",
+    "targetId": "belgian-single",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-monastic-ales-dubbel",
+    "sourceId": "monastic-ales",
+    "targetId": "dubbel",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-monastic-ales-tripel",
+    "sourceId": "monastic-ales",
+    "targetId": "tripel",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-monastic-ales-belgian-strong-dark-ale",
+    "sourceId": "monastic-ales",
+    "targetId": "belgian-strong-dark-ale",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-monastic-ales-quadrupel",
+    "sourceId": "monastic-ales",
+    "targetId": "quadrupel",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-belgian-monastic-farmhouse-franco-belgian-farmhouse",
+    "sourceId": "belgian-monastic-farmhouse",
+    "targetId": "franco-belgian-farmhouse",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-franco-belgian-farmhouse-classic-saison",
+    "sourceId": "franco-belgian-farmhouse",
+    "targetId": "classic-saison",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-franco-belgian-farmhouse-specialty-saison",
+    "sourceId": "franco-belgian-farmhouse",
+    "targetId": "specialty-saison",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-franco-belgian-farmhouse-biere-de-garde",
+    "sourceId": "franco-belgian-farmhouse",
+    "targetId": "biere-de-garde",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-high-fermentation-wheat-rye-beers",
+    "sourceId": "high-fermentation",
+    "targetId": "wheat-rye-beers",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-wheat-rye-beers-german-wheat-beers",
+    "sourceId": "wheat-rye-beers",
+    "targetId": "german-wheat-beers",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-german-wheat-beers-hefeweizen",
+    "sourceId": "german-wheat-beers",
+    "targetId": "hefeweizen",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-german-wheat-beers-kristallweizen",
+    "sourceId": "german-wheat-beers",
+    "targetId": "kristallweizen",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-german-wheat-beers-leichtes-weizen",
+    "sourceId": "german-wheat-beers",
+    "targetId": "leichtes-weizen",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-german-wheat-beers-bernsteinfarbenes-weizen",
+    "sourceId": "german-wheat-beers",
+    "targetId": "bernsteinfarbenes-weizen",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-german-wheat-beers-dunkelweizen",
+    "sourceId": "german-wheat-beers",
+    "targetId": "dunkelweizen",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-german-wheat-beers-weizenbock",
+    "sourceId": "german-wheat-beers",
+    "targetId": "weizenbock",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-german-wheat-beers-bamberg-weiss-rauchbier",
+    "sourceId": "german-wheat-beers",
+    "targetId": "bamberg-weiss-rauchbier",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-wheat-rye-beers-german-rye",
+    "sourceId": "wheat-rye-beers",
+    "targetId": "german-rye",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-german-rye-roggenbier",
+    "sourceId": "german-rye",
+    "targetId": "roggenbier",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-wheat-rye-beers-belgian-american-wheat",
+    "sourceId": "wheat-rye-beers",
+    "targetId": "belgian-american-wheat",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-belgian-american-wheat-witbier",
+    "sourceId": "belgian-american-wheat",
     "targetId": "witbier",
     "linkType": "primary",
     "visibleWhenHidden": true
   },
   {
-    "id": "primary-family-pale-lager-india-pale-lager",
-    "sourceId": "family-pale-lager",
-    "targetId": "india-pale-lager",
+    "id": "primary-belgian-american-wheat-american-wheat-beer",
+    "sourceId": "belgian-american-wheat",
+    "targetId": "american-wheat-beer",
     "linkType": "primary",
     "visibleWhenHidden": true
   },
   {
-    "id": "secondary-white-ipa-witbier",
-    "sourceId": "white-ipa",
-    "targetId": "witbier",
-    "linkType": "related-style",
+    "id": "primary-belgian-american-wheat-fruit-wheat-beer",
+    "sourceId": "belgian-american-wheat",
+    "targetId": "fruit-wheat-beer",
+    "linkType": "primary",
     "visibleWhenHidden": true
   },
   {
-    "id": "secondary-india-pale-lager-ipa",
-    "sourceId": "india-pale-lager",
-    "targetId": "ipa",
-    "linkType": "related-style",
+    "id": "primary-wheat-rye-beers-historical-grain-traditions",
+    "sourceId": "wheat-rye-beers",
+    "targetId": "historical-grain-traditions",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-historical-grain-traditions-breslau-schoeps",
+    "sourceId": "historical-grain-traditions",
+    "targetId": "breslau-schoeps",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-historical-grain-traditions-dutch-kuit",
+    "sourceId": "historical-grain-traditions",
+    "targetId": "dutch-kuit",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-high-fermentation-cold-conditioned-german-ales",
+    "sourceId": "high-fermentation",
+    "targetId": "cold-conditioned-german-ales",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-cold-conditioned-german-ales-kolsch",
+    "sourceId": "cold-conditioned-german-ales",
+    "targetId": "kolsch",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-cold-conditioned-german-ales-altbier",
+    "sourceId": "cold-conditioned-german-ales",
+    "targetId": "altbier",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-high-fermentation-nordic-historical-ales",
+    "sourceId": "high-fermentation",
+    "targetId": "nordic-historical-ales",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-nordic-historical-ales-sahti",
+    "sourceId": "nordic-historical-ales",
+    "targetId": "sahti",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-nordic-historical-ales-gotlandsdricke",
+    "sourceId": "nordic-historical-ales",
+    "targetId": "gotlandsdricke",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-nordic-historical-ales-grodziskie",
+    "sourceId": "nordic-historical-ales",
+    "targetId": "grodziskie",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-nordic-historical-ales-adambier",
+    "sourceId": "nordic-historical-ales",
+    "targetId": "adambier",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-beer-low-fermentation",
+    "sourceId": "beer",
+    "targetId": "low-fermentation",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-low-fermentation-pale-lagers",
+    "sourceId": "low-fermentation",
+    "targetId": "pale-lagers",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-pale-lagers-czech-pale-lagers",
+    "sourceId": "pale-lagers",
+    "targetId": "czech-pale-lagers",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-czech-pale-lagers-czech-pale-lager",
+    "sourceId": "czech-pale-lagers",
+    "targetId": "czech-pale-lager",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-czech-pale-lagers-czech-premium-pale-lager",
+    "sourceId": "czech-pale-lagers",
+    "targetId": "czech-premium-pale-lager",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-pale-lagers-german-pale-lagers",
+    "sourceId": "pale-lagers",
+    "targetId": "german-pale-lagers",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-german-pale-lagers-german-leichtbier",
+    "sourceId": "german-pale-lagers",
+    "targetId": "german-leichtbier",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-german-pale-lagers-german-pils",
+    "sourceId": "german-pale-lagers",
+    "targetId": "german-pils",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-german-pale-lagers-munich-helles",
+    "sourceId": "german-pale-lagers",
+    "targetId": "munich-helles",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-german-pale-lagers-dortmunder-export",
+    "sourceId": "german-pale-lagers",
+    "targetId": "dortmunder-export",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-pale-lagers-international-pale-lagers",
+    "sourceId": "pale-lagers",
+    "targetId": "international-pale-lagers",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-international-pale-lagers-international-light-lager",
+    "sourceId": "international-pale-lagers",
+    "targetId": "international-light-lager",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-international-pale-lagers-international-pale-lager",
+    "sourceId": "international-pale-lagers",
+    "targetId": "international-pale-lager",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-international-pale-lagers-international-pilsener",
+    "sourceId": "international-pale-lagers",
+    "targetId": "international-pilsener",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-international-pale-lagers-rice-lager",
+    "sourceId": "international-pale-lagers",
+    "targetId": "rice-lager",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-pale-lagers-american-pale-lagers",
+    "sourceId": "pale-lagers",
+    "targetId": "american-pale-lagers",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-american-pale-lagers-american-light-lager",
+    "sourceId": "american-pale-lagers",
+    "targetId": "american-light-lager",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-american-pale-lagers-american-lager",
+    "sourceId": "american-pale-lagers",
+    "targetId": "american-lager",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-american-pale-lagers-contemporary-american-light-lager",
+    "sourceId": "american-pale-lagers",
+    "targetId": "contemporary-american-light-lager",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-american-pale-lagers-contemporary-american-lager",
+    "sourceId": "american-pale-lagers",
+    "targetId": "contemporary-american-lager",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-american-pale-lagers-american-pilsener",
+    "sourceId": "american-pale-lagers",
+    "targetId": "american-pilsener",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-american-pale-lagers-contemporary-american-pilsener",
+    "sourceId": "american-pale-lagers",
+    "targetId": "contemporary-american-pilsener",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-american-pale-lagers-american-india-pale-lager",
+    "sourceId": "american-pale-lagers",
+    "targetId": "american-india-pale-lager",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-american-pale-lagers-west-coast-pilsener",
+    "sourceId": "american-pale-lagers",
+    "targetId": "west-coast-pilsener",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-american-pale-lagers-pre-prohibition-lager",
+    "sourceId": "american-pale-lagers",
+    "targetId": "pre-prohibition-lager",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-pale-lagers-mexican-pale-lagers",
+    "sourceId": "pale-lagers",
+    "targetId": "mexican-pale-lagers",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-mexican-pale-lagers-mexican-light-lager",
+    "sourceId": "mexican-pale-lagers",
+    "targetId": "mexican-light-lager",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-mexican-pale-lagers-mexican-pale-lager",
+    "sourceId": "mexican-pale-lagers",
+    "targetId": "mexican-pale-lager",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-pale-lagers-italian-new-zealand-pils",
+    "sourceId": "pale-lagers",
+    "targetId": "italian-new-zealand-pils",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-italian-new-zealand-pils-italian-pilsener",
+    "sourceId": "italian-new-zealand-pils",
+    "targetId": "italian-pilsener",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-italian-new-zealand-pils-new-zealand-pilsner",
+    "sourceId": "italian-new-zealand-pils",
+    "targetId": "new-zealand-pilsner",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-low-fermentation-amber-lagers",
+    "sourceId": "low-fermentation",
+    "targetId": "amber-lagers",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-amber-lagers-european-amber-lagers",
+    "sourceId": "amber-lagers",
+    "targetId": "european-amber-lagers",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-european-amber-lagers-vienna-lager",
+    "sourceId": "european-amber-lagers",
+    "targetId": "vienna-lager",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-european-amber-lagers-czech-amber-lager",
+    "sourceId": "european-amber-lagers",
+    "targetId": "czech-amber-lager",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-european-amber-lagers-international-amber-lager",
+    "sourceId": "european-amber-lagers",
+    "targetId": "international-amber-lager",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-european-amber-lagers-franconian-rotbier",
+    "sourceId": "european-amber-lagers",
+    "targetId": "franconian-rotbier",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-european-amber-lagers-marzen",
+    "sourceId": "european-amber-lagers",
+    "targetId": "marzen",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-european-amber-lagers-festbier",
+    "sourceId": "european-amber-lagers",
+    "targetId": "festbier",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-european-amber-lagers-kellerbier",
+    "sourceId": "european-amber-lagers",
+    "targetId": "kellerbier",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-amber-lagers-american-mexican-amber-lagers",
+    "sourceId": "amber-lagers",
+    "targetId": "american-mexican-amber-lagers",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-american-mexican-amber-lagers-american-amber-lager",
+    "sourceId": "american-mexican-amber-lagers",
+    "targetId": "american-amber-lager",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-american-mexican-amber-lagers-american-marzen",
+    "sourceId": "american-mexican-amber-lagers",
+    "targetId": "american-marzen",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-american-mexican-amber-lagers-mexican-amber-lager",
+    "sourceId": "american-mexican-amber-lagers",
+    "targetId": "mexican-amber-lager",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-low-fermentation-dark-lagers",
+    "sourceId": "low-fermentation",
+    "targetId": "dark-lagers",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-dark-lagers-european-dark-lagers",
+    "sourceId": "dark-lagers",
+    "targetId": "european-dark-lagers",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-european-dark-lagers-munich-dunkel",
+    "sourceId": "european-dark-lagers",
+    "targetId": "munich-dunkel",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-european-dark-lagers-czech-dark-lager",
+    "sourceId": "european-dark-lagers",
+    "targetId": "czech-dark-lager",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-european-dark-lagers-european-dark-lager",
+    "sourceId": "european-dark-lagers",
+    "targetId": "european-dark-lager",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-european-dark-lagers-international-dark-lager",
+    "sourceId": "european-dark-lagers",
+    "targetId": "international-dark-lager",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-european-dark-lagers-schwarzbier",
+    "sourceId": "european-dark-lagers",
+    "targetId": "schwarzbier",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-dark-lagers-american-mexican-dark-lagers",
+    "sourceId": "dark-lagers",
+    "targetId": "american-mexican-dark-lagers",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-american-mexican-dark-lagers-american-dark-lager",
+    "sourceId": "american-mexican-dark-lagers",
+    "targetId": "american-dark-lager",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-american-mexican-dark-lagers-mexican-dark-lager",
+    "sourceId": "american-mexican-dark-lagers",
+    "targetId": "mexican-dark-lager",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-low-fermentation-bocks",
+    "sourceId": "low-fermentation",
+    "targetId": "bocks",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-bocks-helles-bock",
+    "sourceId": "bocks",
+    "targetId": "helles-bock",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-bocks-traditional-bock",
+    "sourceId": "bocks",
+    "targetId": "traditional-bock",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-bocks-doppelbock",
+    "sourceId": "bocks",
+    "targetId": "doppelbock",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-bocks-eisbock",
+    "sourceId": "bocks",
+    "targetId": "eisbock",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-low-fermentation-smoked-lagers",
+    "sourceId": "low-fermentation",
+    "targetId": "smoked-lagers",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-smoked-lagers-bamberg-helles-rauchbier",
+    "sourceId": "smoked-lagers",
+    "targetId": "bamberg-helles-rauchbier",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-smoked-lagers-bamberg-marzen-rauchbier",
+    "sourceId": "smoked-lagers",
+    "targetId": "bamberg-marzen-rauchbier",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-smoked-lagers-bamberg-bock-rauchbier",
+    "sourceId": "smoked-lagers",
+    "targetId": "bamberg-bock-rauchbier",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-low-fermentation-strong-special-lagers",
+    "sourceId": "low-fermentation",
+    "targetId": "strong-special-lagers",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-strong-special-lagers-baltic-porter",
+    "sourceId": "strong-special-lagers",
+    "targetId": "baltic-porter",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-strong-special-lagers-american-malt-liquor",
+    "sourceId": "strong-special-lagers",
+    "targetId": "american-malt-liquor",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-beer-spontaneous-fermentation",
+    "sourceId": "beer",
+    "targetId": "spontaneous-fermentation",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-spontaneous-fermentation-unfruited-lambics",
+    "sourceId": "spontaneous-fermentation",
+    "targetId": "unfruited-lambics",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-unfruited-lambics-lambic",
+    "sourceId": "unfruited-lambics",
+    "targetId": "lambic",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-unfruited-lambics-traditional-gueuze",
+    "sourceId": "unfruited-lambics",
+    "targetId": "traditional-gueuze",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-unfruited-lambics-contemporary-spontaneous-fermented-ale",
+    "sourceId": "unfruited-lambics",
+    "targetId": "contemporary-spontaneous-fermented-ale",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-spontaneous-fermentation-fruited-lambics",
+    "sourceId": "spontaneous-fermentation",
+    "targetId": "fruited-lambics",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-fruited-lambics-kriek",
+    "sourceId": "fruited-lambics",
+    "targetId": "kriek",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-fruited-lambics-framboise",
+    "sourceId": "fruited-lambics",
+    "targetId": "framboise",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-fruited-lambics-other-fruit-lambic",
+    "sourceId": "fruited-lambics",
+    "targetId": "other-fruit-lambic",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-beer-mixed-wild-sour-fermentation",
+    "sourceId": "beer",
+    "targetId": "mixed-wild-sour-fermentation",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-mixed-wild-sour-fermentation-flanders-ales",
+    "sourceId": "mixed-wild-sour-fermentation",
+    "targetId": "flanders-ales",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-flanders-ales-flanders-red-ale",
+    "sourceId": "flanders-ales",
+    "targetId": "flanders-red-ale",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-flanders-ales-oud-bruin",
+    "sourceId": "flanders-ales",
+    "targetId": "oud-bruin",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-mixed-wild-sour-fermentation-german-sour-ales",
+    "sourceId": "mixed-wild-sour-fermentation",
+    "targetId": "german-sour-ales",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-german-sour-ales-berliner-weisse",
+    "sourceId": "german-sour-ales",
+    "targetId": "berliner-weisse",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-german-sour-ales-leipzig-gose",
+    "sourceId": "german-sour-ales",
+    "targetId": "leipzig-gose",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-german-sour-ales-contemporary-gose",
+    "sourceId": "german-sour-ales",
+    "targetId": "contemporary-gose",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-german-sour-ales-lichtenhainer",
+    "sourceId": "german-sour-ales",
+    "targetId": "lichtenhainer",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-mixed-wild-sour-fermentation-american-modern-sour-ales",
+    "sourceId": "mixed-wild-sour-fermentation",
+    "targetId": "american-modern-sour-ales",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-american-modern-sour-ales-american-sour-ale",
+    "sourceId": "american-modern-sour-ales",
+    "targetId": "american-sour-ale",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-american-modern-sour-ales-american-fruited-sour-ale",
+    "sourceId": "american-modern-sour-ales",
+    "targetId": "american-fruited-sour-ale",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-american-modern-sour-ales-mixed-fermentation-sour-beer",
+    "sourceId": "american-modern-sour-ales",
+    "targetId": "mixed-fermentation-sour-beer",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-american-modern-sour-ales-wild-specialty-beer",
+    "sourceId": "american-modern-sour-ales",
+    "targetId": "wild-specialty-beer",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-mixed-wild-sour-fermentation-brett-mixed-cultures",
+    "sourceId": "mixed-wild-sour-fermentation",
+    "targetId": "brett-mixed-cultures",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-brett-mixed-cultures-brett-beer",
+    "sourceId": "brett-mixed-cultures",
+    "targetId": "brett-beer",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-brett-mixed-cultures-mixed-culture-brett-beer",
+    "sourceId": "brett-mixed-cultures",
+    "targetId": "mixed-culture-brett-beer",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-mixed-wild-sour-fermentation-wooden-sours",
+    "sourceId": "mixed-wild-sour-fermentation",
+    "targetId": "wooden-sours",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-wooden-sours-wood-and-barrel-aged-sour-beer",
+    "sourceId": "wooden-sours",
+    "targetId": "wood-and-barrel-aged-sour-beer",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-mixed-wild-sour-fermentation-brazilian-local-style",
+    "sourceId": "mixed-wild-sour-fermentation",
+    "targetId": "brazilian-local-style",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-brazilian-local-style-catharina-sour",
+    "sourceId": "brazilian-local-style",
+    "targetId": "catharina-sour",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-beer-hybrid-fermentations",
+    "sourceId": "beer",
+    "targetId": "hybrid-fermentations",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-hybrid-fermentations-american-hybrids",
+    "sourceId": "hybrid-fermentations",
+    "targetId": "american-hybrids",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-american-hybrids-cream-ale",
+    "sourceId": "american-hybrids",
+    "targetId": "cream-ale",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-american-hybrids-california-common",
+    "sourceId": "american-hybrids",
+    "targetId": "california-common",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-hybrid-fermentations-variable-fermentation-historical-porter",
+    "sourceId": "hybrid-fermentations",
+    "targetId": "variable-fermentation-historical-porter",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-variable-fermentation-historical-porter-pre-prohibition-porter",
+    "sourceId": "variable-fermentation-historical-porter",
+    "targetId": "pre-prohibition-porter",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-beer-specialties",
+    "sourceId": "beer",
+    "targetId": "specialties",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-specialties-fruit-beers",
+    "sourceId": "specialties",
+    "targetId": "fruit-beers",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-fruit-beers-fruit-beer",
+    "sourceId": "fruit-beers",
+    "targetId": "fruit-beer",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-fruit-beers-american-fruit-beer",
+    "sourceId": "fruit-beers",
+    "targetId": "american-fruit-beer",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-fruit-beers-belgian-fruit-beer",
+    "sourceId": "fruit-beers",
+    "targetId": "belgian-fruit-beer",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-fruit-beers-fruit-and-spice-beer",
+    "sourceId": "fruit-beers",
+    "targetId": "fruit-and-spice-beer",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-fruit-beers-specialty-fruit-beer",
+    "sourceId": "fruit-beers",
+    "targetId": "specialty-fruit-beer",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-fruit-beers-italian-grape-ale",
+    "sourceId": "fruit-beers",
+    "targetId": "italian-grape-ale",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-specialties-vegetable-seasonal-beers",
+    "sourceId": "specialties",
+    "targetId": "vegetable-seasonal-beers",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-vegetable-seasonal-beers-field-beer",
+    "sourceId": "vegetable-seasonal-beers",
+    "targetId": "field-beer",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-vegetable-seasonal-beers-pumpkin-squash-beer",
+    "sourceId": "vegetable-seasonal-beers",
+    "targetId": "pumpkin-squash-beer",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-vegetable-seasonal-beers-pumpkin-spice-beer",
+    "sourceId": "vegetable-seasonal-beers",
+    "targetId": "pumpkin-spice-beer",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-specialties-spice-herb-chili-beers",
+    "sourceId": "specialties",
+    "targetId": "spice-herb-chili-beers",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-spice-herb-chili-beers-herb-and-spice-beer",
+    "sourceId": "spice-herb-chili-beers",
+    "targetId": "herb-and-spice-beer",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-spice-herb-chili-beers-chili-pepper-beer",
+    "sourceId": "spice-herb-chili-beers",
+    "targetId": "chili-pepper-beer",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-specialties-gourmet-beers",
+    "sourceId": "specialties",
+    "targetId": "gourmet-beers",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-gourmet-beers-chocolate-cocoa-beer",
+    "sourceId": "gourmet-beers",
+    "targetId": "chocolate-cocoa-beer",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-gourmet-beers-coffee-beer",
+    "sourceId": "gourmet-beers",
+    "targetId": "coffee-beer",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-gourmet-beers-specialty-honey-beer",
+    "sourceId": "gourmet-beers",
+    "targetId": "specialty-honey-beer",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-gourmet-beers-dessert-pastry-beer",
+    "sourceId": "gourmet-beers",
+    "targetId": "dessert-pastry-beer",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-specialties-alternative-fermentables",
+    "sourceId": "specialties",
+    "targetId": "alternative-fermentables",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-alternative-fermentables-alternative-grain-beer",
+    "sourceId": "alternative-fermentables",
+    "targetId": "alternative-grain-beer",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-alternative-fermentables-alternative-sugar-beer",
+    "sourceId": "alternative-fermentables",
+    "targetId": "alternative-sugar-beer",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-alternative-fermentables-rye-beer",
+    "sourceId": "alternative-fermentables",
+    "targetId": "rye-beer",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-alternative-fermentables-ginjo-beer",
+    "sourceId": "alternative-fermentables",
+    "targetId": "ginjo-beer",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-specialties-generic-smoked-beers",
+    "sourceId": "specialties",
+    "targetId": "generic-smoked-beers",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-generic-smoked-beers-classic-style-smoked-beer",
+    "sourceId": "generic-smoked-beers",
+    "targetId": "classic-style-smoked-beer",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-generic-smoked-beers-specialty-smoked-beer",
+    "sourceId": "generic-smoked-beers",
+    "targetId": "specialty-smoked-beer",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-specialties-wood-aged-beers",
+    "sourceId": "specialties",
+    "targetId": "wood-aged-beers",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-wood-aged-beers-wood-aged-beer",
+    "sourceId": "wood-aged-beers",
+    "targetId": "wood-aged-beer",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-wood-aged-beers-specialty-wood-aged-beer",
+    "sourceId": "wood-aged-beers",
+    "targetId": "specialty-wood-aged-beer",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-wood-aged-beers-aged-beer",
+    "sourceId": "wood-aged-beers",
+    "targetId": "aged-beer",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-specialties-special-production-styles",
+    "sourceId": "specialties",
+    "targetId": "special-production-styles",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-special-production-styles-fresh-hop-beer",
+    "sourceId": "special-production-styles",
+    "targetId": "fresh-hop-beer",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-special-production-styles-gluten-free-beer",
+    "sourceId": "special-production-styles",
+    "targetId": "gluten-free-beer",
+    "linkType": "primary",
+    "visibleWhenHidden": true
+  },
+  {
+    "id": "primary-special-production-styles-non-alcohol-malt-beverage",
+    "sourceId": "special-production-styles",
+    "targetId": "non-alcohol-malt-beverage",
+    "linkType": "primary",
     "visibleWhenHidden": true
   }
 ]

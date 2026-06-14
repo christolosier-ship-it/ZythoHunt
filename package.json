@@ -1,9 +1,13 @@
 {
   "name": "zythohunt",
-  "version": "0.3.4",
+  "version": "0.4.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "validate": "node scripts/validate-taxonomy.mjs"
+    "build:taxonomy": "node scripts/build-taxonomy.mjs",
+    "build:layout": "node scripts/build-radial-layout.mjs",
+    "validate:taxonomy": "node scripts/validate-taxonomy.mjs --taxonomy-only",
+    "validate:layout": "node scripts/validate-taxonomy.mjs --layout-only",
+    "validate": "npm run build:taxonomy && npm run build:layout && node scripts/validate-taxonomy.mjs"
   }
 }

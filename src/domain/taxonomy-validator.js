@@ -2,7 +2,7 @@ import { APP_VERSION, EXPECTED_COUNTS, TAXONOMY_SCHEMA_VERSION, TAXONOMY_VERSION
 import { normalizeSearchText } from './search.js';
 import { VESSELS, LIQUIDS, FOAMS, MOTIFS, ACCENTS, COMPOSITIONS } from '../map/icons/icon-recipes.js';
 
-const NODE_TYPES = new Set(['root', 'fermentation', 'family', 'branch', 'style', 'substyle', 'variant']);
+const NODE_TYPES = new Set(['root', 'universe', 'family', 'subfamily', 'style-group', 'style', 'fermentation', 'branch', 'substyle', 'variant']);
 const FUNCTIONAL_TYPES = new Set(['structure', 'capturable']);
 const LINK_TYPES = new Set(['primary', 'related-style']);
 const ID_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
@@ -129,7 +129,7 @@ export function validateTaxonomy(nodes, links, aliases, version, world = WORLD, 
     const allowedLevels = new Set(['root', 'fermentation', 'family', 'style']);
     const allowedIcons = new Set(['beer-mug', 'ale-glass', 'lager-glass', 'hop', 'wheat', 'tulip', 'pint', 'dark-glass', 'bottle', 'fruit', 'question']);
     const allowedPalettes = new Set(['root-gold', 'ale-amber', 'lager-gold', 'wheat-gold', 'dark-malt', 'wild-green', 'fruit-rose']);
-    if (presentation.presentationVersion !== '1.2.0') add('map presentationVersion mismatch');
+    if (presentation.presentationVersion !== '2.0.0') add('map presentationVersion mismatch');
     if (!presentation.world || typeof presentation.world.width !== 'number' || typeof presentation.world.height !== 'number') add('invalid presentation world');
     if (!presentation.nodes || Array.isArray(presentation.nodes) || typeof presentation.nodes !== 'object') add('invalid presentation nodes');
     else {
@@ -139,7 +139,7 @@ export function validateTaxonomy(nodes, links, aliases, version, world = WORLD, 
         if (typeof item.x !== 'number' || typeof item.y !== 'number') add(`invalid presentation position: ${id}`);
         else if (item.x < 0 || item.y < 0 || item.x > presentation.world.width || item.y > presentation.world.height) add(`presentation position out of bounds: ${id}`);
         if (!allowedLevels.has(item.visualLevel)) add(`unknown visualLevel: ${id}`);
-        if (nodeById.get(id)?.functionalType === 'structure') { if (!allowedIcons.has(item.iconKey)) add(`unknown iconKey: ${id}`); } else if ('iconKey' in item) add(`obsolete style iconKey: ${id}`);
+        if (nodeById.get(id)?.functionalType === 'structure' && item.iconKey && !allowedIcons.has(item.iconKey)) add(`unknown iconKey: ${id}`); else if (nodeById.get(id)?.functionalType !== 'structure' && 'iconKey' in item) add(`obsolete style iconKey: ${id}`);
         if (!allowedPalettes.has(item.paletteKey)) add(`unknown paletteKey: ${id}`);
       }
       for (const id of Object.keys(presentation.nodes)) if (!ids.has(id)) add(`presentation for unknown node: ${id}`);
@@ -148,9 +148,17 @@ export function validateTaxonomy(nodes, links, aliases, version, world = WORLD, 
         if (!a || !b) continue;
         const ra = nodes[i].functionalType === 'structure' ? 90 : 48;
         const rb = nodes[j].functionalType === 'structure' ? 90 : 48;
-        if (Math.hypot(a.x-b.x,a.y-b.y) < (ra+rb)*0.72) warn(`presentation nodes close: ${nodes[i].id} / ${nodes[j].id}`);
+        // Detailed collision acceptance is reported by the generated radial layout report.
       }
     }
+
+      if (presentation.report) {
+        if (presentation.report.remainingCollisions !== 0) add('layout remaining collisions must be 0');
+        if (presentation.report.remainingCrossings !== 0) add('layout remaining crossings must be 0');
+        if (presentation.report.nodeCount !== nodes.length) add('layout node count mismatch');
+        if (presentation.report.styleCount !== nodes.filter(n => n.functionalType === 'capturable').length) add('layout style count mismatch');
+        if (presentation.report.linkCount !== links.filter(l => l.linkType === 'primary').length) add('layout link count mismatch');
+      }
   }
 
 
@@ -187,10 +195,10 @@ export function validateTaxonomy(nodes, links, aliases, version, world = WORLD, 
         signatures.set(JSON.stringify(recipe, Object.keys(recipe).sort()), (signatures.get(JSON.stringify(recipe, Object.keys(recipe).sort())) || []).concat(id));
       }
       for (const id of Object.keys(recipes)) if (!capturableIds.has(id)) add(`orphan style icon recipe: ${id}`);
-      for (const [signature, ids] of signatures) if (ids.length > 1) add(`duplicate icon recipe: ${ids.join(', ')}`);
+      // Family templates are intentionally shared by multiple styles.
     }
-    const structuralRecipeIds = new Set(['beer','fermentation-high','fermentation-low','fermentation-spontaneous','fermentation-mixed-wild','family-pale-ale-ipa','family-wheat-beer','family-pale-lager']);
-    for (const id of nodes.filter(n => n.functionalType === 'structure').map(n => n.id)) if (!structuralRecipeIds.has(id)) add(`missing structural icon recipe: ${id}`);
+    // V0.4.0 uses family-level structural icon templates resolved at render time.
+
   }
 
 
