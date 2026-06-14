@@ -1,620 +1,7104 @@
 [
   {
     "id": "beer",
+    "name": "Bière",
     "nodeType": "root",
     "functionalType": "structure",
-    "name": "Bière",
+    "parentId": null,
+    "rank": 0,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "visualFamily": "core",
     "shortName": "Bière",
     "originalName": "Bière",
-    "rank": 0,
-    "parentId": null,
     "secondaryParentIds": [],
-    "familyId": null,
     "position": {
-      "x": 220,
-      "y": 1450
+      "x": 4500,
+      "y": 4500
     },
-    "visualFamily": "core",
-    "capturable": false,
-    "status": "prototype",
     "sourceRefs": [
-      "prototype-v0.1"
+      "zythohunt-taxonomy-1.0.0"
     ]
   },
   {
-    "id": "fermentation-high",
-    "nodeType": "fermentation",
+    "id": "high-fermentation",
+    "name": "Fermentation haute — Ales",
+    "nodeType": "universe",
     "functionalType": "structure",
-    "name": "Ale",
-    "shortName": "Ale",
-    "originalName": "Ale",
-    "subtitle": "fermentation haute",
-    "rank": 1,
     "parentId": "beer",
-    "secondaryParentIds": [],
-    "familyId": null,
-    "position": {
-      "x": 720,
-      "y": 780
-    },
+    "rank": 1,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "high-fermentation",
     "visualFamily": "high",
-    "capturable": false,
-    "status": "prototype",
-    "sourceRefs": [
-      "prototype-v0.1"
-    ]
-  },
-  {
-    "id": "fermentation-low",
-    "nodeType": "fermentation",
-    "functionalType": "structure",
-    "name": "Lager",
-    "shortName": "Lager",
-    "originalName": "Lager",
-    "subtitle": "fermentation basse",
-    "rank": 1,
-    "parentId": "beer",
+    "shortName": "Fermentation haute — Ales",
+    "originalName": "Fermentation haute — Ales",
     "secondaryParentIds": [],
-    "familyId": null,
     "position": {
-      "x": 720,
-      "y": 1900
+      "x": 4867.255988770677,
+      "y": 5119.292369331379
     },
-    "visualFamily": "low",
-    "capturable": false,
-    "status": "prototype",
     "sourceRefs": [
-      "prototype-v0.1"
+      "zythohunt-taxonomy-1.0.0"
     ]
   },
   {
-    "id": "fermentation-spontaneous",
-    "nodeType": "fermentation",
-    "functionalType": "structure",
-    "name": "Fermentation spontanée",
-    "shortName": "Spontanée",
-    "originalName": "Spontaneous fermentation",
-    "rank": 1,
-    "parentId": "beer",
-    "secondaryParentIds": [],
-    "familyId": null,
-    "position": {
-      "x": 720,
-      "y": 2450
-    },
-    "visualFamily": "spontaneous",
-    "capturable": false,
-    "status": "prototype",
-    "sourceRefs": [
-      "prototype-v0.1.1"
-    ]
-  },
-  {
-    "id": "fermentation-mixed-wild",
-    "nodeType": "fermentation",
-    "functionalType": "structure",
-    "name": "Fermentation mixte / sauvage",
-    "shortName": "Mixte / sauvage",
-    "originalName": "Mixed and wild fermentation",
-    "rank": 1,
-    "parentId": "beer",
-    "secondaryParentIds": [],
-    "familyId": null,
-    "position": {
-      "x": 720,
-      "y": 2750
-    },
-    "visualFamily": "mixed-wild",
-    "capturable": false,
-    "status": "prototype",
-    "sourceRefs": [
-      "prototype-v0.1.1"
-    ]
-  },
-  {
-    "id": "family-pale-ale-ipa",
+    "id": "pale-ale-bitter-ipa",
+    "name": "Pale Ale, Bitter et IPA",
     "nodeType": "family",
     "functionalType": "structure",
-    "name": "Pale Ale & IPA",
-    "shortName": "Pale Ale & IPA",
-    "originalName": "Pale Ale & IPA",
+    "parentId": "high-fermentation",
     "rank": 2,
-    "parentId": "fermentation-high",
-    "secondaryParentIds": [],
-    "familyId": "family-pale-ale-ipa",
-    "position": {
-      "x": 1280,
-      "y": 620
-    },
-    "visualFamily": "pale-ale-ipa",
     "capturable": false,
-    "status": "prototype",
+    "aliases": [],
+    "status": "core",
+    "familyId": "pale-ale-bitter-ipa",
+    "visualFamily": "high",
+    "shortName": "Pale Ale, Bitter et IPA",
+    "originalName": "Pale Ale, Bitter et IPA",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5165.926368322305,
+      "y": 5708.69436665067
+    },
     "sourceRefs": [
-      "prototype-v0.1"
+      "zythohunt-taxonomy-1.0.0"
     ]
   },
   {
-    "id": "family-wheat-beer",
-    "nodeType": "family",
+    "id": "british-commonwealth-ales",
+    "name": "Ales britanniques et Commonwealth",
+    "nodeType": "subfamily",
     "functionalType": "structure",
-    "name": "Bières de blé",
-    "shortName": "Bières de blé",
-    "originalName": "Bières de blé",
-    "rank": 2,
-    "parentId": "fermentation-high",
-    "secondaryParentIds": [],
-    "familyId": "family-wheat-beer",
-    "position": {
-      "x": 1280,
-      "y": 1180
-    },
-    "visualFamily": "wheat",
+    "parentId": "pale-ale-bitter-ipa",
+    "rank": 3,
     "capturable": false,
-    "status": "prototype",
+    "aliases": [],
+    "status": "core",
+    "familyId": "pale-ale-bitter-ipa",
+    "visualFamily": "high",
+    "shortName": "Ales britanniques et Commonwealth",
+    "originalName": "Ales britanniques et Commonwealth",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5558.589649548486,
+      "y": 6255.530675855256
+    },
     "sourceRefs": [
-      "prototype-v0.1"
+      "zythohunt-taxonomy-1.0.0"
     ]
   },
   {
-    "id": "family-pale-lager",
-    "nodeType": "family",
-    "functionalType": "structure",
-    "name": "Lagers blondes",
-    "shortName": "Lagers blondes",
-    "originalName": "Lagers blondes",
-    "rank": 2,
-    "parentId": "fermentation-low",
-    "secondaryParentIds": [],
-    "familyId": "family-pale-lager",
-    "position": {
-      "x": 1280,
-      "y": 1960
-    },
-    "visualFamily": "lager",
-    "capturable": false,
-    "status": "prototype",
-    "sourceRefs": [
-      "prototype-v0.1"
-    ]
-  },
-  {
-    "id": "classic-english-pale-ale",
+    "id": "ordinary-bitter",
+    "name": "Ordinary Bitter",
     "nodeType": "style",
     "functionalType": "capturable",
-    "name": "Classic English Pale Ale",
-    "shortName": "English Pale Ale",
-    "originalName": "Classic English Pale Ale",
-    "rank": 3,
-    "parentId": "family-pale-ale-ipa",
-    "secondaryParentIds": [],
-    "familyId": "family-pale-ale-ipa",
-    "position": {
-      "x": 1780,
-      "y": 300
-    },
-    "visualFamily": "pale-ale-ipa",
+    "parentId": "british-commonwealth-ales",
+    "rank": 4,
     "capturable": true,
-    "status": "prototype",
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-ale-bitter-ipa",
+    "visualFamily": "high",
+    "shortName": "Ordinary Bitter",
+    "originalName": "Ordinary Bitter",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5935.702859659919,
+      "y": 7122.757575294432
+    },
     "sourceRefs": [
-      "prototype-v0.1"
+      "zythohunt-taxonomy-1.0.0"
     ]
   },
   {
-    "id": "american-pale-ale",
+    "id": "best-bitter",
+    "name": "Best Bitter",
     "nodeType": "style",
     "functionalType": "capturable",
-    "name": "American Pale Ale",
-    "shortName": "American Pale Ale",
-    "originalName": "American Pale Ale",
-    "rank": 3,
-    "parentId": "family-pale-ale-ipa",
-    "secondaryParentIds": [],
-    "familyId": "family-pale-ale-ipa",
-    "position": {
-      "x": 1760,
-      "y": 500
-    },
-    "visualFamily": "pale-ale-ipa",
+    "parentId": "british-commonwealth-ales",
+    "rank": 4,
     "capturable": true,
-    "status": "prototype",
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-ale-bitter-ipa",
+    "visualFamily": "high",
+    "shortName": "Best Bitter",
+    "originalName": "Best Bitter",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6128.691714104557,
+      "y": 7007.48146561588
+    },
     "sourceRefs": [
-      "prototype-v0.1"
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "strong-bitter",
+    "name": "Strong Bitter",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "british-commonwealth-ales",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [
+      "Extra Special Bitter",
+      "ESB"
+    ],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-ale-bitter-ipa",
+    "visualFamily": "high",
+    "shortName": "Strong Bitter",
+    "originalName": "Strong Bitter",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5800.2609758661065,
+      "y": 6923.18414377441
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "english-summer-ale",
+    "name": "English Summer Ale",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "british-commonwealth-ales",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-ale-bitter-ipa",
+    "visualFamily": "high",
+    "shortName": "English Summer Ale",
+    "originalName": "English Summer Ale",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5961.438109448199,
+      "y": 6970.040212679234
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
     ]
   },
   {
     "id": "british-golden-ale",
+    "name": "British Golden Ale",
     "nodeType": "style",
     "functionalType": "capturable",
-    "name": "British Golden Ale",
-    "shortName": "Golden Ale",
-    "originalName": "British Golden Ale",
-    "rank": 3,
-    "parentId": "family-pale-ale-ipa",
-    "secondaryParentIds": [],
-    "familyId": "family-pale-ale-ipa",
-    "position": {
-      "x": 1780,
-      "y": 700
-    },
-    "visualFamily": "pale-ale-ipa",
+    "parentId": "british-commonwealth-ales",
+    "rank": 4,
     "capturable": true,
-    "status": "prototype",
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-ale-bitter-ipa",
+    "visualFamily": "high",
+    "shortName": "British Golden Ale",
+    "originalName": "British Golden Ale",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5978.638766501472,
+      "y": 6818.647752074257
+    },
     "sourceRefs": [
-      "prototype-v0.1"
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "english-pale-ale",
+    "name": "English Pale Ale",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "british-commonwealth-ales",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-ale-bitter-ipa",
+    "visualFamily": "high",
+    "shortName": "English Pale Ale",
+    "originalName": "English Pale Ale",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5920.059285979676,
+      "y": 6854.980174927783
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "british-ipa",
+    "name": "British IPA",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "british-commonwealth-ales",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-ale-bitter-ipa",
+    "visualFamily": "high",
+    "shortName": "British IPA",
+    "originalName": "British IPA",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6022.88847378086,
+      "y": 6932.634517642427
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
     ]
   },
   {
     "id": "australian-sparkling-ale",
+    "name": "Australian Sparkling Ale",
     "nodeType": "style",
     "functionalType": "capturable",
-    "name": "Australian Sparkling Ale",
-    "shortName": "Sparkling Ale",
-    "originalName": "Australian Sparkling Ale",
-    "rank": 3,
-    "parentId": "family-pale-ale-ipa",
-    "secondaryParentIds": [],
-    "familyId": "family-pale-ale-ipa",
-    "position": {
-      "x": 1760,
-      "y": 900
-    },
-    "visualFamily": "pale-ale-ipa",
+    "parentId": "british-commonwealth-ales",
+    "rank": 4,
     "capturable": true,
-    "status": "prototype",
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-ale-bitter-ipa",
+    "visualFamily": "high",
+    "shortName": "Australian Sparkling Ale",
+    "originalName": "Australian Sparkling Ale",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6083.381990825439,
+      "y": 6893.70037204527
+    },
     "sourceRefs": [
-      "prototype-v0.1"
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "classic-australian-pale-ale",
+    "name": "Classic Australian Pale Ale",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "british-commonwealth-ales",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-ale-bitter-ipa",
+    "visualFamily": "high",
+    "shortName": "Classic Australian Pale Ale",
+    "originalName": "Classic Australian Pale Ale",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6065.332135235204,
+      "y": 7047.5155164198695
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "australian-pale-ale",
+    "name": "Australian Pale Ale",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "british-commonwealth-ales",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-ale-bitter-ipa",
+    "visualFamily": "high",
+    "shortName": "Australian Pale Ale",
+    "originalName": "Australian Pale Ale",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6036.289202304537,
+      "y": 6780.858497777205
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
     ]
   },
   {
     "id": "new-zealand-pale-ale",
-    "nodeType": "style",
-    "functionalType": "capturable",
     "name": "New Zealand Pale Ale",
-    "shortName": "NZ Pale Ale",
-    "originalName": "New Zealand Pale Ale",
-    "rank": 3,
-    "parentId": "family-pale-ale-ipa",
-    "secondaryParentIds": [],
-    "familyId": "family-pale-ale-ipa",
-    "position": {
-      "x": 2040,
-      "y": 430
-    },
-    "visualFamily": "pale-ale-ipa",
-    "capturable": true,
-    "status": "prototype",
-    "sourceRefs": [
-      "prototype-v0.1"
-    ]
-  },
-  {
-    "id": "ipa",
     "nodeType": "style",
     "functionalType": "capturable",
-    "name": "IPA",
-    "shortName": "IPA",
-    "originalName": "IPA",
-    "rank": 3,
-    "parentId": "family-pale-ale-ipa",
-    "secondaryParentIds": [],
-    "familyId": "family-pale-ale-ipa",
-    "position": {
-      "x": 2100,
-      "y": 760
-    },
-    "visualFamily": "pale-ale-ipa",
+    "parentId": "british-commonwealth-ales",
+    "rank": 4,
     "capturable": true,
-    "status": "prototype",
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-ale-bitter-ipa",
+    "visualFamily": "high",
+    "shortName": "New Zealand Pale Ale",
+    "originalName": "New Zealand Pale Ale",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5899.069507755548,
+      "y": 7005.893954753203
+    },
     "sourceRefs": [
-      "prototype-v0.1"
+      "zythohunt-taxonomy-1.0.0"
     ]
   },
   {
-    "id": "english-ipa",
-    "nodeType": "substyle",
+    "id": "new-zealand-ipa",
+    "name": "New Zealand IPA",
+    "nodeType": "style",
     "functionalType": "capturable",
-    "name": "English IPA",
-    "shortName": "English IPA",
-    "originalName": "English IPA",
+    "parentId": "british-commonwealth-ales",
     "rank": 4,
-    "parentId": "ipa",
-    "secondaryParentIds": [],
-    "familyId": "family-pale-ale-ipa",
-    "position": {
-      "x": 2440,
-      "y": 520
-    },
-    "visualFamily": "pale-ale-ipa",
     "capturable": true,
-    "status": "prototype",
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-ale-bitter-ipa",
+    "visualFamily": "high",
+    "shortName": "New Zealand IPA",
+    "originalName": "New Zealand IPA",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5860.587566859916,
+      "y": 6889.832938283807
+    },
     "sourceRefs": [
-      "prototype-v0.1"
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "international-pale-ale",
+    "name": "International Pale Ale",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "british-commonwealth-ales",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-ale-bitter-ipa",
+    "visualFamily": "high",
+    "shortName": "International Pale Ale",
+    "originalName": "International Pale Ale",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6000.989041266529,
+      "y": 7085.948935690298
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "american-pale-ales",
+    "name": "Pale Ales américaines",
+    "nodeType": "subfamily",
+    "functionalType": "structure",
+    "parentId": "pale-ale-bitter-ipa",
+    "rank": 3,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "pale-ale-bitter-ipa",
+    "visualFamily": "high",
+    "shortName": "Pale Ales américaines",
+    "originalName": "Pale Ales américaines",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5819.211537048036,
+      "y": 6069.133812177712
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "golden-ale",
+    "name": "Golden Ale",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "american-pale-ales",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [
+      "Blonde Ale"
+    ],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-ale-bitter-ipa",
+    "visualFamily": "high",
+    "shortName": "Golden Ale",
+    "originalName": "Golden Ale",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6269.674013113219,
+      "y": 6604.935601701809
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "american-pale-ale",
+    "name": "American Pale Ale",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "american-pale-ales",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-ale-bitter-ipa",
+    "visualFamily": "high",
+    "shortName": "American Pale Ale",
+    "originalName": "American Pale Ale",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6332.282790884998,
+      "y": 6550.668128739188
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "juicy-hazy-pale-ale",
+    "name": "Juicy Hazy Pale Ale",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "american-pale-ales",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-ale-bitter-ipa",
+    "visualFamily": "high",
+    "shortName": "Juicy Hazy Pale Ale",
+    "originalName": "Juicy Hazy Pale Ale",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6237.763610168591,
+      "y": 6631.355820874081
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "american-strong-pale-ale",
+    "name": "American Strong Pale Ale",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "american-pale-ales",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-ale-bitter-ipa",
+    "visualFamily": "high",
+    "shortName": "American Strong Pale Ale",
+    "originalName": "American Strong Pale Ale",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6301.1827903138255,
+      "y": 6578.037669503925
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "juicy-hazy-strong-pale-ale",
+    "name": "Juicy Hazy Strong Pale Ale",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "american-pale-ales",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-ale-bitter-ipa",
+    "visualFamily": "high",
+    "shortName": "Juicy Hazy Strong Pale Ale",
+    "originalName": "Juicy Hazy Strong Pale Ale",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6205.4588235139145,
+      "y": 6657.292330978474
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "main-american-ipa",
+    "name": "IPA américaines principales",
+    "nodeType": "subfamily",
+    "functionalType": "structure",
+    "parentId": "pale-ale-bitter-ipa",
+    "rank": 3,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "pale-ale-bitter-ipa",
+    "visualFamily": "high",
+    "shortName": "IPA américaines principales",
+    "originalName": "IPA américaines principales",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5388.983342671895,
+      "y": 6347.2164508935875
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
     ]
   },
   {
     "id": "american-ipa",
-    "nodeType": "substyle",
-    "functionalType": "capturable",
     "name": "American IPA",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "main-american-ipa",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-ale-bitter-ipa",
+    "visualFamily": "high",
     "shortName": "American IPA",
     "originalName": "American IPA",
-    "rank": 4,
-    "parentId": "ipa",
     "secondaryParentIds": [],
-    "familyId": "family-pale-ale-ipa",
     "position": {
-      "x": 2460,
-      "y": 800
+      "x": 5774.588998965547,
+      "y": 6936.785358564846
     },
-    "visualFamily": "pale-ale-ipa",
-    "capturable": true,
-    "status": "prototype",
     "sourceRefs": [
-      "prototype-v0.1"
+      "zythohunt-taxonomy-1.0.0"
     ]
   },
   {
     "id": "west-coast-ipa",
-    "nodeType": "substyle",
-    "functionalType": "capturable",
     "name": "West Coast IPA",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "main-american-ipa",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-ale-bitter-ipa",
+    "visualFamily": "high",
     "shortName": "West Coast IPA",
     "originalName": "West Coast IPA",
-    "rank": 5,
-    "parentId": "american-ipa",
     "secondaryParentIds": [],
-    "familyId": "family-pale-ale-ipa",
     "position": {
-      "x": 2840,
-      "y": 660
+      "x": 5609.1591298968915,
+      "y": 7016.399416739396
     },
-    "visualFamily": "pale-ale-ipa",
-    "capturable": true,
-    "status": "prototype",
     "sourceRefs": [
-      "prototype-v0.1"
+      "zythohunt-taxonomy-1.0.0"
     ]
   },
   {
-    "id": "new-england-ipa",
-    "nodeType": "substyle",
+    "id": "hazy-ipa",
+    "name": "Hazy IPA",
+    "nodeType": "style",
     "functionalType": "capturable",
-    "name": "New England IPA",
-    "shortName": "NEIPA",
-    "originalName": "New England IPA",
-    "rank": 5,
-    "parentId": "american-ipa",
-    "secondaryParentIds": [],
-    "familyId": "family-pale-ale-ipa",
-    "position": {
-      "x": 2860,
-      "y": 860
-    },
-    "visualFamily": "pale-ale-ipa",
+    "parentId": "main-american-ipa",
+    "rank": 4,
     "capturable": true,
-    "status": "prototype",
+    "aliases": [
+      "New England IPA",
+      "NEIPA"
+    ],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-ale-bitter-ipa",
+    "visualFamily": "high",
+    "shortName": "Hazy IPA",
+    "originalName": "Hazy IPA",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5675.966107794439,
+      "y": 6985.880872712689
+    },
     "sourceRefs": [
-      "prototype-v0.1"
+      "zythohunt-taxonomy-1.0.0"
     ]
   },
   {
     "id": "session-ipa",
-    "nodeType": "substyle",
-    "functionalType": "capturable",
     "name": "Session IPA",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "main-american-ipa",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-ale-bitter-ipa",
+    "visualFamily": "high",
     "shortName": "Session IPA",
     "originalName": "Session IPA",
-    "rank": 4,
-    "parentId": "ipa",
     "secondaryParentIds": [],
-    "familyId": "family-pale-ale-ipa",
     "position": {
-      "x": 2440,
-      "y": 1040
+      "x": 5642.664510416703,
+      "y": 7001.363191668526
     },
-    "visualFamily": "pale-ale-ipa",
-    "capturable": true,
-    "status": "prototype",
     "sourceRefs": [
-      "prototype-v0.1"
+      "zythohunt-taxonomy-1.0.0"
     ]
   },
   {
     "id": "double-ipa",
-    "nodeType": "substyle",
-    "functionalType": "capturable",
     "name": "Double IPA",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "main-american-ipa",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [
+      "Imperial IPA"
+    ],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-ale-bitter-ipa",
+    "visualFamily": "high",
     "shortName": "Double IPA",
     "originalName": "Double IPA",
-    "rank": 4,
-    "parentId": "ipa",
     "secondaryParentIds": [],
-    "familyId": "family-pale-ale-ipa",
     "position": {
-      "x": 2700,
-      "y": 1100
+      "x": 5741.934234456914,
+      "y": 6953.589076696406
     },
-    "visualFamily": "pale-ale-ipa",
-    "capturable": true,
-    "status": "prototype",
     "sourceRefs": [
-      "prototype-v0.1"
+      "zythohunt-taxonomy-1.0.0"
     ]
   },
   {
-    "id": "black-ipa",
-    "nodeType": "substyle",
+    "id": "hazy-double-ipa",
+    "name": "Hazy Double IPA",
+    "nodeType": "style",
     "functionalType": "capturable",
-    "name": "Black IPA",
-    "shortName": "Black IPA",
-    "originalName": "Black IPA",
+    "parentId": "main-american-ipa",
     "rank": 4,
-    "parentId": "ipa",
-    "secondaryParentIds": [],
-    "familyId": "family-pale-ale-ipa",
-    "position": {
-      "x": 2180,
-      "y": 1140
-    },
-    "visualFamily": "pale-ale-ipa",
     "capturable": true,
-    "status": "prototype",
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-ale-bitter-ipa",
+    "visualFamily": "high",
+    "shortName": "Hazy Double IPA",
+    "originalName": "Hazy Double IPA",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5709.057983012929,
+      "y": 6969.95522099343
+    },
     "sourceRefs": [
-      "prototype-v0.1"
+      "zythohunt-taxonomy-1.0.0"
     ]
   },
   {
-    "id": "red-ipa",
-    "nodeType": "substyle",
-    "functionalType": "capturable",
-    "name": "Red IPA",
-    "shortName": "Red IPA",
-    "originalName": "Red IPA",
-    "rank": 4,
-    "parentId": "ipa",
+    "id": "specialty-ipa",
+    "name": "Specialty IPA",
+    "nodeType": "subfamily",
+    "functionalType": "structure",
+    "parentId": "pale-ale-bitter-ipa",
+    "rank": 3,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "pale-ale-bitter-ipa",
+    "visualFamily": "high",
+    "shortName": "Specialty IPA",
+    "originalName": "Specialty IPA",
     "secondaryParentIds": [],
-    "familyId": "family-pale-ale-ipa",
     "position": {
-      "x": 1980,
-      "y": 1060
+      "x": 5137.723878190302,
+      "y": 6448.283412439248
     },
-    "visualFamily": "pale-ale-ipa",
-    "capturable": true,
-    "status": "prototype",
     "sourceRefs": [
-      "prototype-v0.1"
-    ]
-  },
-  {
-    "id": "white-ipa",
-    "nodeType": "substyle",
-    "functionalType": "capturable",
-    "name": "White IPA",
-    "shortName": "White IPA",
-    "originalName": "White IPA",
-    "rank": 4,
-    "parentId": "ipa",
-    "secondaryParentIds": [],
-    "familyId": "family-pale-ale-ipa",
-    "position": {
-      "x": 2280,
-      "y": 1260
-    },
-    "visualFamily": "pale-ale-ipa",
-    "capturable": true,
-    "status": "prototype",
-    "sourceRefs": [
-      "prototype-v0.1"
+      "zythohunt-taxonomy-1.0.0"
     ]
   },
   {
     "id": "belgian-ipa",
-    "nodeType": "substyle",
-    "functionalType": "capturable",
     "name": "Belgian IPA",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "specialty-ipa",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-ale-bitter-ipa",
+    "visualFamily": "high",
     "shortName": "Belgian IPA",
     "originalName": "Belgian IPA",
-    "rank": 4,
-    "parentId": "ipa",
     "secondaryParentIds": [],
-    "familyId": "family-pale-ale-ipa",
     "position": {
-      "x": 2580,
-      "y": 1280
+      "x": 5456.696150003363,
+      "y": 7078.2227360274255
     },
-    "visualFamily": "pale-ale-ipa",
-    "capturable": true,
-    "status": "prototype",
     "sourceRefs": [
-      "prototype-v0.1"
+      "zythohunt-taxonomy-1.0.0"
     ]
   },
   {
-    "id": "rye-ipa",
-    "nodeType": "substyle",
+    "id": "black-ipa",
+    "name": "Black IPA",
+    "nodeType": "style",
     "functionalType": "capturable",
-    "name": "Rye IPA",
-    "shortName": "Rye IPA",
-    "originalName": "Rye IPA",
+    "parentId": "specialty-ipa",
     "rank": 4,
-    "parentId": "ipa",
-    "secondaryParentIds": [],
-    "familyId": "family-pale-ale-ipa",
-    "position": {
-      "x": 2920,
-      "y": 1160
-    },
-    "visualFamily": "pale-ale-ipa",
     "capturable": true,
-    "status": "prototype",
+    "aliases": [
+      "Cascadian Dark Ale"
+    ],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-ale-bitter-ipa",
+    "visualFamily": "high",
+    "shortName": "Black IPA",
+    "originalName": "Black IPA",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5427.919840661345,
+      "y": 7088.718750522548
+    },
     "sourceRefs": [
-      "prototype-v0.1"
+      "zythohunt-taxonomy-1.0.0"
     ]
   },
   {
     "id": "brown-ipa",
-    "nodeType": "substyle",
-    "functionalType": "capturable",
     "name": "Brown IPA",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "specialty-ipa",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-ale-bitter-ipa",
+    "visualFamily": "high",
     "shortName": "Brown IPA",
     "originalName": "Brown IPA",
-    "rank": 4,
-    "parentId": "ipa",
     "secondaryParentIds": [],
-    "familyId": "family-pale-ale-ipa",
     "position": {
-      "x": 3100,
-      "y": 980
+      "x": 5399.02840885385,
+      "y": 7098.893595373561
     },
-    "visualFamily": "pale-ale-ipa",
-    "capturable": true,
-    "status": "prototype",
     "sourceRefs": [
-      "prototype-v0.1"
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "red-ipa",
+    "name": "Red IPA",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "specialty-ipa",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-ale-bitter-ipa",
+    "visualFamily": "high",
+    "shortName": "Red IPA",
+    "originalName": "Red IPA",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5311.699291565008,
+      "y": 7127.478688795185
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "rye-ipa",
+    "name": "Rye IPA",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "specialty-ipa",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-ale-bitter-ipa",
+    "visualFamily": "high",
+    "shortName": "Rye IPA",
+    "originalName": "Rye IPA",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5282.383350224671,
+      "y": 7136.356632417401
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "white-ipa",
+    "name": "White IPA",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "specialty-ipa",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-ale-bitter-ipa",
+    "visualFamily": "high",
+    "shortName": "White IPA",
+    "originalName": "White IPA",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5252.970342417728,
+      "y": 7144.907496197046
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "brut-ipa",
+    "name": "Brut IPA",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "specialty-ipa",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-ale-bitter-ipa",
+    "visualFamily": "high",
+    "shortName": "Brut IPA",
+    "originalName": "Brut IPA",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5370.025438999181,
+      "y": 7108.746008237345
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "experimental-ipa",
+    "name": "Experimental IPA",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "specialty-ipa",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-ale-bitter-ipa",
+    "visualFamily": "high",
+    "shortName": "Experimental IPA",
+    "originalName": "Experimental IPA",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5340.914529353619,
+      "y": 7118.274766773338
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "belgian-transatlantic-pale-ales",
+    "name": "Pale Ales belges et transatlantiques",
+    "nodeType": "subfamily",
+    "functionalType": "structure",
+    "parentId": "pale-ale-bitter-ipa",
+    "rank": 3,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "pale-ale-bitter-ipa",
+    "visualFamily": "high",
+    "shortName": "Pale Ales belges et transatlantiques",
+    "originalName": "Pale Ales belges et transatlantiques",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5708.452263946375,
+      "y": 6155.9417640010415
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "belgian-pale-ale",
+    "name": "Belgian Pale Ale",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "belgian-transatlantic-pale-ales",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-ale-bitter-ipa",
+    "visualFamily": "high",
+    "shortName": "Belgian Pale Ale",
+    "originalName": "Belgian Pale Ale",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6140.5590846519735,
+      "y": 6707.049136237314
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "belgian-session-ale",
+    "name": "Belgian Session Ale",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "belgian-transatlantic-pale-ales",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-ale-bitter-ipa",
+    "visualFamily": "high",
+    "shortName": "Belgian Session Ale",
+    "originalName": "Belgian Session Ale",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6101.50464540608,
+      "y": 6735.549791604461
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "speciale-belge",
+    "name": "Speciale Belge",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "belgian-transatlantic-pale-ales",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-ale-bitter-ipa",
+    "visualFamily": "high",
+    "shortName": "Speciale Belge",
+    "originalName": "Speciale Belge",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6061.9551878866605,
+      "y": 6763.359448040445
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "american-belgo-ale",
+    "name": "American-Belgo Ale",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "belgian-transatlantic-pale-ales",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-ale-bitter-ipa",
+    "visualFamily": "high",
+    "shortName": "American-Belgo Ale",
+    "originalName": "American-Belgo Ale",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6179.106434063297,
+      "y": 6677.86629137035
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "south-american-local-styles",
+    "name": "Styles locaux sud-américains",
+    "nodeType": "subfamily",
+    "functionalType": "structure",
+    "parentId": "pale-ale-bitter-ipa",
+    "rank": 3,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "pale-ale-bitter-ipa",
+    "visualFamily": "high",
+    "shortName": "Styles locaux sud-américains",
+    "originalName": "Styles locaux sud-américains",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5270.058620560774,
+      "y": 6399.870974803299
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "dorada-pampeana",
+    "name": "Dorada Pampeana",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "south-american-local-styles",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-ale-bitter-ipa",
+    "visualFamily": "high",
+    "shortName": "Dorada Pampeana",
+    "originalName": "Dorada Pampeana",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5571.457520419008,
+      "y": 7032.682132036618
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "ipa-argenta",
+    "name": "IPA Argenta",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "south-american-local-styles",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-ale-bitter-ipa",
+    "visualFamily": "high",
+    "shortName": "IPA Argenta",
+    "originalName": "IPA Argenta",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5494.316805056626,
+      "y": 7063.948925228813
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "mild-amber-brown-red-scottish-ale",
+    "name": "Mild, Amber, Brown, Red et Scottish Ale",
+    "nodeType": "family",
+    "functionalType": "structure",
+    "parentId": "high-fermentation",
+    "rank": 2,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "mild-amber-brown-red-scottish-ale",
+    "visualFamily": "high",
+    "shortName": "Mild, Amber, Brown, Red et Scottish Ale",
+    "originalName": "Mild, Amber, Brown, Red et Scottish Ale",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5693.376711045565,
+      "y": 5193.002182921577
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "british-mild-brown-ales",
+    "name": "Britanniques",
+    "nodeType": "subfamily",
+    "functionalType": "structure",
+    "parentId": "mild-amber-brown-red-scottish-ale",
+    "rank": 3,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "mild-amber-brown-red-scottish-ale",
+    "visualFamily": "high",
+    "shortName": "Britanniques",
+    "originalName": "Britanniques",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6294.310066329999,
+      "y": 5491.439047983703
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "pale-mild",
+    "name": "Pale Mild",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "british-mild-brown-ales",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "mild-amber-brown-red-scottish-ale",
+    "visualFamily": "high",
+    "shortName": "Pale Mild",
+    "originalName": "Pale Mild",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6862.65648372367,
+      "y": 5907.2506315218
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "dark-mild",
+    "name": "Dark Mild",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "british-mild-brown-ales",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "mild-amber-brown-red-scottish-ale",
+    "visualFamily": "high",
+    "shortName": "Dark Mild",
+    "originalName": "Dark Mild",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6948.819828725464,
+      "y": 5751.311890154086
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "london-brown-ale",
+    "name": "London Brown Ale",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "british-mild-brown-ales",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "mild-amber-brown-red-scottish-ale",
+    "visualFamily": "high",
+    "shortName": "London Brown Ale",
+    "originalName": "London Brown Ale",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6892.498156431166,
+      "y": 5855.895486928648
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "english-brown-ale",
+    "name": "English Brown Ale",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "british-mild-brown-ales",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "mild-amber-brown-red-scottish-ale",
+    "visualFamily": "high",
+    "shortName": "English Brown Ale",
+    "originalName": "English Brown Ale",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6921.223738221819,
+      "y": 5803.907822459534
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "american-amber-brown-ales",
+    "name": "Américaines",
+    "nodeType": "subfamily",
+    "functionalType": "structure",
+    "parentId": "mild-amber-brown-red-scottish-ale",
+    "rank": 3,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "mild-amber-brown-red-scottish-ale",
+    "visualFamily": "high",
+    "shortName": "Américaines",
+    "originalName": "Américaines",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6365.239426013823,
+      "y": 5350.518596882881
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "american-amber-red-ale",
+    "name": "American Amber Red Ale",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "american-amber-brown-ales",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "mild-amber-brown-red-scottish-ale",
+    "visualFamily": "high",
+    "shortName": "American Amber Red Ale",
+    "originalName": "American Amber Red Ale",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 7037.795525342757,
+      "y": 5559.289323815869
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "american-brown-ale",
+    "name": "American Brown Ale",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "american-amber-brown-ales",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "mild-amber-brown-red-scottish-ale",
+    "visualFamily": "high",
+    "shortName": "American Brown Ale",
+    "originalName": "American Brown Ale",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 7014.32584270882,
+      "y": 5613.851676250739
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "double-hoppy-red-ale",
+    "name": "Double Hoppy Red Ale",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "american-amber-brown-ales",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "mild-amber-brown-red-scottish-ale",
+    "visualFamily": "high",
+    "shortName": "Double Hoppy Red Ale",
+    "originalName": "Double Hoppy Red Ale",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6989.683237024772,
+      "y": 5667.894421288951
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "imperial-red-ale",
+    "name": "Imperial Red Ale",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "american-amber-brown-ales",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "mild-amber-brown-red-scottish-ale",
+    "visualFamily": "high",
+    "shortName": "Imperial Red Ale",
+    "originalName": "Imperial Red Ale",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6963.87920396859,
+      "y": 5721.392348203928
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "irish-ales",
+    "name": "Irlandaises",
+    "nodeType": "subfamily",
+    "functionalType": "structure",
+    "parentId": "mild-amber-brown-red-scottish-ale",
+    "rank": 3,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "mild-amber-brown-red-scottish-ale",
+    "visualFamily": "high",
+    "shortName": "Irlandaises",
+    "originalName": "Irlandaises",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6231.844187993057,
+      "y": 5596.9118964231675
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "irish-red-ale",
+    "name": "Irish Red Ale",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "irish-ales",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "mild-amber-brown-red-scottish-ale",
+    "visualFamily": "high",
+    "shortName": "Irish Red Ale",
+    "originalName": "Irish Red Ale",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6823.205618039467,
+      "y": 5971.467178128639
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "scottish-ales",
+    "name": "Écossaises",
+    "nodeType": "subfamily",
+    "functionalType": "structure",
+    "parentId": "mild-amber-brown-red-scottish-ale",
+    "rank": 3,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "mild-amber-brown-red-scottish-ale",
+    "visualFamily": "high",
+    "shortName": "Écossaises",
+    "originalName": "Écossaises",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6163.185907502418,
+      "y": 5698.462613970649
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "scottish-light",
+    "name": "Scottish Light",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "scottish-ales",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "mild-amber-brown-red-scottish-ale",
+    "visualFamily": "high",
+    "shortName": "Scottish Light",
+    "originalName": "Scottish Light",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6677.854594979146,
+      "y": 6179.121604627913
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "scottish-heavy",
+    "name": "Scottish Heavy",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "scottish-ales",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "mild-amber-brown-red-scottish-ale",
+    "visualFamily": "high",
+    "shortName": "Scottish Heavy",
+    "originalName": "Scottish Heavy",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6713.611040430906,
+      "y": 6131.694261092563
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "scottish-export",
+    "name": "Scottish Export",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "scottish-ales",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "mild-amber-brown-red-scottish-ale",
+    "visualFamily": "high",
+    "shortName": "Scottish Export",
+    "originalName": "Scottish Export",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6748.33484509713,
+      "y": 6083.505738645132
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "scotch-ale",
+    "name": "Scotch Ale",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "scottish-ales",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [
+      "Wee Heavy"
+    ],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "mild-amber-brown-red-scottish-ale",
+    "visualFamily": "high",
+    "shortName": "Scotch Ale",
+    "originalName": "Scotch Ale",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6782.009810460433,
+      "y": 6034.578517040538
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "porter-stout",
+    "name": "Porter et Stout",
+    "nodeType": "family",
+    "functionalType": "structure",
+    "parentId": "high-fermentation",
+    "rank": 2,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "porter-stout",
+    "visualFamily": "high",
+    "shortName": "Porter et Stout",
+    "originalName": "Porter et Stout",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 4674.62909235469,
+      "y": 5868.906381058755
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "porters",
+    "name": "Porters",
+    "nodeType": "subfamily",
+    "functionalType": "structure",
+    "parentId": "porter-stout",
+    "rank": 3,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "porter-stout",
+    "visualFamily": "high",
+    "shortName": "Porters",
+    "originalName": "Porters",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 4570.449844011603,
+      "y": 6548.789110542795
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "english-brown-porter",
+    "name": "English Brown Porter",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "porters",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "porter-stout",
+    "visualFamily": "high",
+    "shortName": "English Brown Porter",
+    "originalName": "English Brown Porter",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 4559.820021369766,
+      "y": 7249.349298478337
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "american-porter",
+    "name": "American Porter",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "porters",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "porter-stout",
+    "visualFamily": "high",
+    "shortName": "American Porter",
+    "originalName": "American Porter",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 4629.1767085673755,
+      "y": 7246.964393282829
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "american-imperial-porter",
+    "name": "American Imperial Porter",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "porters",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "porter-stout",
+    "visualFamily": "high",
+    "shortName": "American Imperial Porter",
+    "originalName": "American Imperial Porter",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 4698.4511319745125,
+      "y": 7242.830134772847
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "smoke-porter",
+    "name": "Smoke Porter",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "porters",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "porter-stout",
+    "visualFamily": "high",
+    "shortName": "Smoke Porter",
+    "originalName": "Smoke Porter",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 4490.425238901278,
+      "y": 7249.983331576739
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "british-irish-stouts",
+    "name": "Stouts britanniques et irlandais",
+    "nodeType": "subfamily",
+    "functionalType": "structure",
+    "parentId": "porter-stout",
+    "rank": 3,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "porter-stout",
+    "visualFamily": "high",
+    "shortName": "Stouts britanniques et irlandais",
+    "originalName": "Stouts britanniques et irlandais",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 4783.294194616627,
+      "y": 6530.331105828927
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "dry-stout",
+    "name": "Dry Stout",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "british-irish-stouts",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "porter-stout",
+    "visualFamily": "high",
+    "shortName": "Dry Stout",
+    "originalName": "Dry Stout",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 4974.409532221435,
+      "y": 7208.770126041972
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "irish-extra-stout",
+    "name": "Irish Extra Stout",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "british-irish-stouts",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "porter-stout",
+    "visualFamily": "high",
+    "shortName": "Irish Extra Stout",
+    "originalName": "Irish Extra Stout",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 4880.0287976564505,
+      "y": 7223.614898063195
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "foreign-extra-stout",
+    "name": "Foreign Extra Stout",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "british-irish-stouts",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [
+      "Export Stout"
+    ],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "porter-stout",
+    "visualFamily": "high",
+    "shortName": "Foreign Extra Stout",
+    "originalName": "Foreign Extra Stout",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 4927.283637301054,
+      "y": 7216.602417229062
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "tropical-stout",
+    "name": "Tropical Stout",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "british-irish-stouts",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "porter-stout",
+    "visualFamily": "high",
+    "shortName": "Tropical Stout",
+    "originalName": "Tropical Stout",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 4737.6333837337315,
+      "y": 7239.713557095934
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "sweet-stout",
+    "name": "Sweet Stout",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "british-irish-stouts",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [
+      "Cream Stout",
+      "Milk Stout"
+    ],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "porter-stout",
+    "visualFamily": "high",
+    "shortName": "Sweet Stout",
+    "originalName": "Sweet Stout",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 4785.189360653556,
+      "y": 7235.17221186711
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "oatmeal-stout",
+    "name": "Oatmeal Stout",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "british-irish-stouts",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "porter-stout",
+    "visualFamily": "high",
+    "shortName": "Oatmeal Stout",
+    "originalName": "Oatmeal Stout",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 4832.659273750079,
+      "y": 7229.805452333201
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "british-imperial-stout",
+    "name": "British Imperial Stout",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "british-irish-stouts",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "porter-stout",
+    "visualFamily": "high",
+    "shortName": "British Imperial Stout",
+    "originalName": "British Imperial Stout",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5021.392260867801,
+      "y": 7200.120388113679
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "american-stouts",
+    "name": "Stouts américains",
+    "nodeType": "subfamily",
+    "functionalType": "structure",
+    "parentId": "porter-stout",
+    "rank": 3,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "porter-stout",
+    "visualFamily": "high",
+    "shortName": "Stouts américains",
+    "originalName": "Stouts américains",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 4969.64187762705,
+      "y": 6495.479016872625
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "american-stout",
+    "name": "American Stout",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "american-stouts",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "porter-stout",
+    "visualFamily": "high",
+    "shortName": "American Stout",
+    "originalName": "American Stout",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5071.711274455867,
+      "y": 7189.915652703639
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "american-imperial-stout",
+    "name": "American Imperial Stout",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "american-stouts",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "porter-stout",
+    "visualFamily": "high",
+    "shortName": "American Imperial Stout",
+    "originalName": "American Imperial Stout",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5188.006211232832,
+      "y": 7162.545296010012
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "strong-ales-barley-wines",
+    "name": "Ales fortes et vins d’orge",
+    "nodeType": "family",
+    "functionalType": "structure",
+    "parentId": "high-fermentation",
+    "rank": 2,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "strong-ales-barley-wines",
+    "visualFamily": "high",
+    "shortName": "Ales fortes et vins d’orge",
+    "originalName": "Ales fortes et vins d’orge",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 4334.300258321068,
+      "y": 5870.015910713279
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "british-strong-ales",
+    "name": "Britanniques",
+    "nodeType": "subfamily",
+    "functionalType": "structure",
+    "parentId": "strong-ales-barley-wines",
+    "rank": 3,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "strong-ales-barley-wines",
+    "visualFamily": "high",
+    "shortName": "Britanniques",
+    "originalName": "Britanniques",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 4155.6144806636885,
+      "y": 6520.865808031661
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "british-strong-ale",
+    "name": "British Strong Ale",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "british-strong-ales",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "strong-ales-barley-wines",
+    "visualFamily": "high",
+    "shortName": "British Strong Ale",
+    "originalName": "British Strong Ale",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 4163.518642843334,
+      "y": 7229.3369700874255
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "old-ale",
+    "name": "Old Ale",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "british-strong-ales",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "strong-ales-barley-wines",
+    "visualFamily": "high",
+    "shortName": "Old Ale",
+    "originalName": "Old Ale",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 3913.5030781097557,
+      "y": 7186.73060812082
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "burton-ale",
+    "name": "Burton Ale",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "british-strong-ales",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "strong-ales-barley-wines",
+    "visualFamily": "high",
+    "shortName": "Burton Ale",
+    "originalName": "Burton Ale",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 4079.7564376468313,
+      "y": 7217.700378684287
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "english-barley-wine",
+    "name": "English Barley Wine",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "british-strong-ales",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "strong-ales-barley-wines",
+    "visualFamily": "high",
+    "shortName": "English Barley Wine",
+    "originalName": "English Barley Wine",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 3996.391637950824,
+      "y": 7203.493779847504
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "american-strong-ales",
+    "name": "Américaines",
+    "nodeType": "subfamily",
+    "functionalType": "structure",
+    "parentId": "strong-ales-barley-wines",
+    "rank": 3,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "strong-ales-barley-wines",
+    "visualFamily": "high",
+    "shortName": "Américaines",
+    "originalName": "Américaines",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 4366.064690878519,
+      "y": 6545.620036314303
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "american-strong-ale",
+    "name": "American Strong Ale",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "american-strong-ales",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "strong-ales-barley-wines",
+    "visualFamily": "high",
+    "shortName": "American Strong Ale",
+    "originalName": "American Strong Ale",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 4320.3306828858185,
+      "y": 7244.1244389582125
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "american-barley-wine",
+    "name": "American Barley Wine",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "american-strong-ales",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "strong-ales-barley-wines",
+    "visualFamily": "high",
+    "shortName": "American Barley Wine",
+    "originalName": "American Barley Wine",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 4424.806502488304,
+      "y": 7248.971796496275
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "wheat-wine",
+    "name": "Wheat Wine",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "american-strong-ales",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "strong-ales-barley-wines",
+    "visualFamily": "high",
+    "shortName": "Wheat Wine",
+    "originalName": "Wheat Wine",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 4216.1147439626575,
+      "y": 7235.307873239247
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "belgian-monastic-farmhouse",
+    "name": "Belges, monastiques et farmhouse",
+    "nodeType": "family",
+    "functionalType": "structure",
+    "parentId": "high-fermentation",
+    "rank": 2,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "belgian-monastic-farmhouse",
+    "visualFamily": "high",
+    "shortName": "Belges, monastiques et farmhouse",
+    "originalName": "Belges, monastiques et farmhouse",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5868.809944155994,
+      "y": 4675.383399384501
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "light-blond-belgians",
+    "name": "Belges légères et blondes",
+    "nodeType": "subfamily",
+    "functionalType": "structure",
+    "parentId": "belgian-monastic-farmhouse",
+    "rank": 3,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "belgian-monastic-farmhouse",
+    "visualFamily": "high",
+    "shortName": "Belges légères et blondes",
+    "originalName": "Belges légères et blondes",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6535.848310949772,
+      "y": 4740.461337439013
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "belgian-table-beer",
+    "name": "Belgian Table Beer",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "light-blond-belgians",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "belgian-monastic-farmhouse",
+    "visualFamily": "high",
+    "shortName": "Belgian Table Beer",
+    "originalName": "Belgian Table Beer",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 7217.244575177194,
+      "y": 4923.180716325912
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "belgian-blonde-ale",
+    "name": "Belgian Blonde Ale",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "light-blond-belgians",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "belgian-monastic-farmhouse",
+    "visualFamily": "high",
+    "shortName": "Belgian Blonde Ale",
+    "originalName": "Belgian Blonde Ale",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 7241.063491623379,
+      "y": 4721.519603849071
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "belgian-strong-blonde-ale",
+    "name": "Belgian Strong Blonde Ale",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "light-blond-belgians",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "belgian-monastic-farmhouse",
+    "visualFamily": "high",
+    "shortName": "Belgian Strong Blonde Ale",
+    "originalName": "Belgian Strong Blonde Ale",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 7226.838496241198,
+      "y": 4856.162624958095
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "belgian-golden-strong-ale",
+    "name": "Belgian Golden Strong Ale",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "light-blond-belgians",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "belgian-monastic-farmhouse",
+    "visualFamily": "high",
+    "shortName": "Belgian Golden Strong Ale",
+    "originalName": "Belgian Golden Strong Ale",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 7234.779739395239,
+      "y": 4788.9286711167815
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "monastic-ales",
+    "name": "Monastiques",
+    "nodeType": "subfamily",
+    "functionalType": "structure",
+    "parentId": "belgian-monastic-farmhouse",
+    "rank": 3,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "belgian-monastic-farmhouse",
+    "visualFamily": "high",
+    "shortName": "Monastiques",
+    "originalName": "Monastiques",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6504.491513086745,
+      "y": 4929.55066518772
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "belgian-single",
+    "name": "Belgian Single",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "monastic-ales",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [
+      "Trappist Single"
+    ],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "belgian-monastic-farmhouse",
+    "visualFamily": "high",
+    "shortName": "Belgian Single",
+    "originalName": "Belgian Single",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 7210.863544986414,
+      "y": 4962.297350699407
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "dubbel",
+    "name": "Dubbel",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "monastic-ales",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "belgian-monastic-farmhouse",
+    "visualFamily": "high",
+    "shortName": "Dubbel",
+    "originalName": "Dubbel",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 7188.952029750511,
+      "y": 5076.226502081088
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "tripel",
+    "name": "Tripel",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "monastic-ales",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "belgian-monastic-farmhouse",
+    "visualFamily": "high",
+    "shortName": "Tripel",
+    "originalName": "Tripel",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 7162.254636433445,
+      "y": 5189.130068121126
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "belgian-strong-dark-ale",
+    "name": "Belgian Strong Dark Ale",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "monastic-ales",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "belgian-monastic-farmhouse",
+    "visualFamily": "high",
+    "shortName": "Belgian Strong Dark Ale",
+    "originalName": "Belgian Strong Dark Ale",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 7200.508660081746,
+      "y": 5019.377489715808
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "quadrupel",
+    "name": "Quadrupel",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "monastic-ales",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "belgian-monastic-farmhouse",
+    "visualFamily": "high",
+    "shortName": "Quadrupel",
+    "originalName": "Quadrupel",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 7176.198796774828,
+      "y": 5132.819089583239
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "franco-belgian-farmhouse",
+    "name": "Farmhouse franco-belges",
+    "nodeType": "subfamily",
+    "functionalType": "structure",
+    "parentId": "belgian-monastic-farmhouse",
+    "rank": 3,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "belgian-monastic-farmhouse",
+    "visualFamily": "high",
+    "shortName": "Farmhouse franco-belges",
+    "originalName": "Farmhouse franco-belges",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6548.82206194264,
+      "y": 4569.484951587434
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "classic-saison",
+    "name": "Classic Saison",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "franco-belgian-farmhouse",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "belgian-monastic-farmhouse",
+    "visualFamily": "high",
+    "shortName": "Classic Saison",
+    "originalName": "Classic Saison",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 7248.419839191347,
+      "y": 4593.211520422167
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "specialty-saison",
+    "name": "Specialty Saison",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "franco-belgian-farmhouse",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "belgian-monastic-farmhouse",
+    "visualFamily": "high",
+    "shortName": "Specialty Saison",
+    "originalName": "Specialty Saison",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 7244.308152945961,
+      "y": 4676.841063314853
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "biere-de-garde",
+    "name": "Bière de Garde",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "franco-belgian-farmhouse",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "belgian-monastic-farmhouse",
+    "visualFamily": "high",
+    "shortName": "Bière de Garde",
+    "originalName": "Bière de Garde",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 7249.983606174441,
+      "y": 4509.495565903076
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "wheat-rye-beers",
+    "name": "Bières de blé et de seigle",
+    "nodeType": "family",
+    "functionalType": "structure",
+    "parentId": "high-fermentation",
+    "rank": 2,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "wheat-rye-beers",
+    "visualFamily": "high",
+    "shortName": "Bières de blé et de seigle",
+    "originalName": "Bières de blé et de seigle",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 4004.049225005246,
+      "y": 5787.801548679805
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "german-wheat-beers",
+    "name": "Blés allemands",
+    "nodeType": "subfamily",
+    "functionalType": "structure",
+    "parentId": "wheat-rye-beers",
+    "rank": 3,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "wheat-rye-beers",
+    "visualFamily": "high",
+    "shortName": "Blés allemands",
+    "originalName": "Blés allemands",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 3710.9995395316773,
+      "y": 6392.0830513962055
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "hefeweizen",
+    "name": "Hefeweizen",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "german-wheat-beers",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [
+      "Weissbier"
+    ],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "wheat-rye-beers",
+    "visualFamily": "high",
+    "shortName": "Hefeweizen",
+    "originalName": "Hefeweizen",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 3441.5847481522496,
+      "y": 7038.160190897348
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "kristallweizen",
+    "name": "Kristallweizen",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "german-wheat-beers",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "wheat-rye-beers",
+    "visualFamily": "high",
+    "shortName": "Kristallweizen",
+    "originalName": "Kristallweizen",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 3402.8171084846167,
+      "y": 7021.644245837613
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "leichtes-weizen",
+    "name": "Leichtes Weizen",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "german-wheat-beers",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "wheat-rye-beers",
+    "visualFamily": "high",
+    "shortName": "Leichtes Weizen",
+    "originalName": "Leichtes Weizen",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 3364.3070919048405,
+      "y": 7004.53620826339
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "bernsteinfarbenes-weizen",
+    "name": "Bernsteinfarbenes Weizen",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "german-wheat-beers",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "wheat-rye-beers",
+    "visualFamily": "high",
+    "shortName": "Bernsteinfarbenes Weizen",
+    "originalName": "Bernsteinfarbenes Weizen",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 3519.85642718796,
+      "y": 7069.400431360447
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "dunkelweizen",
+    "name": "Dunkelweizen",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "german-wheat-beers",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "wheat-rye-beers",
+    "visualFamily": "high",
+    "shortName": "Dunkelweizen",
+    "originalName": "Dunkelweizen",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 3480.600908105356,
+      "y": 7054.080165430281
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "weizenbock",
+    "name": "Weizenbock",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "german-wheat-beers",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "wheat-rye-beers",
+    "visualFamily": "high",
+    "shortName": "Weizenbock",
+    "originalName": "Weizenbock",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 3326.0637407243366,
+      "y": 6986.84009521277
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "bamberg-weiss-rauchbier",
+    "name": "Bamberg Weiss Rauchbier",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "german-wheat-beers",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "wheat-rye-beers",
+    "visualFamily": "high",
+    "shortName": "Bamberg Weiss Rauchbier",
+    "originalName": "Bamberg Weiss Rauchbier",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 3559.3420880415697,
+      "y": 7084.11739142594
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "german-rye",
+    "name": "Seigle allemand",
+    "nodeType": "subfamily",
+    "functionalType": "structure",
+    "parentId": "wheat-rye-beers",
+    "rank": 3,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "wheat-rye-beers",
+    "visualFamily": "high",
+    "shortName": "Seigle allemand",
+    "originalName": "Seigle allemand",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 3850.733033829276,
+      "y": 6444.46712665436
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "roggenbier",
+    "name": "Roggenbier",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "german-rye",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "wheat-rye-beers",
+    "visualFamily": "high",
+    "shortName": "Roggenbier",
+    "originalName": "Roggenbier",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 3629.0321185514676,
+      "y": 7108.431511365605
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "belgian-american-wheat",
+    "name": "Blés belges et américains",
+    "nodeType": "subfamily",
+    "functionalType": "structure",
+    "parentId": "wheat-rye-beers",
+    "rank": 3,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "wheat-rye-beers",
+    "visualFamily": "high",
+    "shortName": "Blés belges et américains",
+    "originalName": "Blés belges et américains",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 3961.8514472833344,
+      "y": 6478.104177036426
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
     ]
   },
   {
     "id": "witbier",
+    "name": "Witbier",
     "nodeType": "style",
     "functionalType": "capturable",
-    "name": "Witbier",
+    "parentId": "belgian-american-wheat",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "wheat-rye-beers",
+    "visualFamily": "high",
     "shortName": "Witbier",
     "originalName": "Witbier",
-    "rank": 3,
-    "parentId": "family-wheat-beer",
     "secondaryParentIds": [],
-    "familyId": "family-wheat-beer",
     "position": {
-      "x": 1760,
-      "y": 1220
+      "x": 3705.3207803618384,
+      "y": 7132.67638305115
     },
-    "visualFamily": "wheat",
-    "capturable": true,
-    "status": "prototype",
     "sourceRefs": [
-      "prototype-v0.1"
+      "zythohunt-taxonomy-1.0.0"
     ]
   },
   {
-    "id": "india-pale-lager",
+    "id": "american-wheat-beer",
+    "name": "American Wheat Beer",
     "nodeType": "style",
     "functionalType": "capturable",
-    "name": "India Pale Lager",
-    "shortName": "India Pale Lager",
-    "originalName": "India Pale Lager",
-    "rank": 3,
-    "parentId": "family-pale-lager",
-    "secondaryParentIds": [],
-    "familyId": "family-pale-lager",
-    "position": {
-      "x": 1780,
-      "y": 1980
-    },
-    "visualFamily": "lager",
+    "parentId": "belgian-american-wheat",
+    "rank": 4,
     "capturable": true,
-    "status": "prototype",
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "wheat-rye-beers",
+    "visualFamily": "high",
+    "shortName": "American Wheat Beer",
+    "originalName": "American Wheat Beer",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 3851.4131745589457,
+      "y": 7172.4212111612
+    },
     "sourceRefs": [
-      "prototype-v0.1"
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "fruit-wheat-beer",
+    "name": "Fruit Wheat Beer",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "belgian-american-wheat",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "wheat-rye-beers",
+    "visualFamily": "high",
+    "shortName": "Fruit Wheat Beer",
+    "originalName": "Fruit Wheat Beer",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 3778.093404892278,
+      "y": 7153.554383829352
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "historical-grain-traditions",
+    "name": "Traditions céréalières historiques",
+    "nodeType": "subfamily",
+    "functionalType": "structure",
+    "parentId": "wheat-rye-beers",
+    "rank": 3,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "wheat-rye-beers",
+    "visualFamily": "high",
+    "shortName": "Traditions céréalières historiques",
+    "originalName": "Traditions céréalières historiques",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 3562.0593943915705,
+      "y": 6322.845967258587
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "breslau-schoeps",
+    "name": "Breslau Schoeps",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "historical-grain-traditions",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "wheat-rye-beers",
+    "visualFamily": "high",
+    "shortName": "Breslau Schoeps",
+    "originalName": "Breslau Schoeps",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 3288.872261974753,
+      "y": 6968.940987991784
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "dutch-kuit",
+    "name": "Dutch Kuit",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "historical-grain-traditions",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [
+      "Kuyt",
+      "Koyt"
+    ],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "wheat-rye-beers",
+    "visualFamily": "high",
+    "shortName": "Dutch Kuit",
+    "originalName": "Dutch Kuit",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 3195.1637153900247,
+      "y": 6920.723501427876
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "cold-conditioned-german-ales",
+    "name": "Ales allemandes maturées à froid",
+    "nodeType": "family",
+    "functionalType": "structure",
+    "parentId": "high-fermentation",
+    "rank": 2,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "cold-conditioned-german-ales",
+    "visualFamily": "high",
+    "shortName": "Ales allemandes maturées à froid",
+    "originalName": "Ales allemandes maturées à froid",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5808.1225887698265,
+      "y": 4939.562615278106
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "kolsch",
+    "name": "Kölsch",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "cold-conditioned-german-ales",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "cold-conditioned-german-ales",
+    "visualFamily": "high",
+    "shortName": "Kölsch",
+    "originalName": "Kölsch",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6415.682289378266,
+      "y": 5229.836533863881
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "altbier",
+    "name": "Altbier",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "cold-conditioned-german-ales",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "cold-conditioned-german-ales",
+    "visualFamily": "high",
+    "shortName": "Altbier",
+    "originalName": "Altbier",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6467.686276213836,
+      "y": 5075.074532908323
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "nordic-historical-ales",
+    "name": "Ales nordiques et historiques",
+    "nodeType": "family",
+    "functionalType": "structure",
+    "parentId": "high-fermentation",
+    "rank": 2,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "nordic-historical-ales",
+    "visualFamily": "high",
+    "shortName": "Ales nordiques et historiques",
+    "originalName": "Ales nordiques et historiques",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5510.10395138115,
+      "y": 5440.26060611098
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "sahti",
+    "name": "Sahti",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "nordic-historical-ales",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "nordic-historical-ales",
+    "visualFamily": "high",
+    "shortName": "Sahti",
+    "originalName": "Sahti",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5900.036867487085,
+      "y": 5997.46344518888
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "gotlandsdricke",
+    "name": "Gotlandsdricke",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "nordic-historical-ales",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "nordic-historical-ales",
+    "visualFamily": "high",
+    "shortName": "Gotlandsdricke",
+    "originalName": "Gotlandsdricke",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6032.427266501147,
+      "y": 5861.677888813585
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "grodziskie",
+    "name": "Grodziskie",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "nordic-historical-ales",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "nordic-historical-ales",
+    "visualFamily": "high",
+    "shortName": "Grodziskie",
+    "originalName": "Grodziskie",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5967.803087478656,
+      "y": 5931.102405975242
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "adambier",
+    "name": "Adambier",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "nordic-historical-ales",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "high",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "nordic-historical-ales",
+    "visualFamily": "high",
+    "shortName": "Adambier",
+    "originalName": "Adambier",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6093.771067321305,
+      "y": 5789.338506742705
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "low-fermentation",
+    "name": "Fermentation basse — Lagers",
+    "nodeType": "universe",
+    "functionalType": "structure",
+    "parentId": "beer",
+    "rank": 1,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "low-fermentation",
+    "visualFamily": "low",
+    "shortName": "Fermentation basse — Lagers",
+    "originalName": "Fermentation basse — Lagers",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 3780.490417235722,
+      "y": 4473.430086368709
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "pale-lagers",
+    "name": "Lagers pâles",
+    "nodeType": "family",
+    "functionalType": "structure",
+    "parentId": "low-fermentation",
+    "rank": 2,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "pale-lagers",
+    "visualFamily": "low",
+    "shortName": "Lagers pâles",
+    "originalName": "Lagers pâles",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 3161.2769639055205,
+      "y": 4165.006518526137
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "czech-pale-lagers",
+    "name": "Tchèques",
+    "nodeType": "subfamily",
+    "functionalType": "structure",
+    "parentId": "pale-lagers",
+    "rank": 3,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "pale-lagers",
+    "visualFamily": "low",
+    "shortName": "Tchèques",
+    "originalName": "Tchèques",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 2479.4494601252236,
+      "y": 4153.769562557319
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "czech-pale-lager",
+    "name": "Czech Pale Lager",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "czech-pale-lagers",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-lagers",
+    "visualFamily": "low",
+    "shortName": "Czech Pale Lager",
+    "originalName": "Czech Pale Lager",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 1781.701102452007,
+      "y": 4083.645459266545
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "czech-premium-pale-lager",
+    "name": "Czech Premium Pale Lager",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "czech-pale-lagers",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-lagers",
+    "visualFamily": "low",
+    "shortName": "Czech Premium Pale Lager",
+    "originalName": "Czech Premium Pale Lager",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 1798.160732565675,
+      "y": 3987.5894488303825
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "german-pale-lagers",
+    "name": "Allemandes",
+    "nodeType": "subfamily",
+    "functionalType": "structure",
+    "parentId": "pale-lagers",
+    "rank": 3,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "pale-lagers",
+    "visualFamily": "low",
+    "shortName": "Allemandes",
+    "originalName": "Allemandes",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 2505.9361266740484,
+      "y": 4024.3853775415405
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "german-leichtbier",
+    "name": "German Leichtbier",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "german-pale-lagers",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-lagers",
+    "visualFamily": "low",
+    "shortName": "German Leichtbier",
+    "originalName": "German Leichtbier",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 1818.6112137145042,
+      "y": 3889.5459257385564
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "german-pils",
+    "name": "German Pils",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "german-pale-lagers",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-lagers",
+    "visualFamily": "low",
+    "shortName": "German Pils",
+    "originalName": "German Pils",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 1831.7446960031034,
+      "y": 3834.482432468961
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "munich-helles",
+    "name": "Munich Helles",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "german-pale-lagers",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-lagers",
+    "visualFamily": "low",
+    "shortName": "Munich Helles",
+    "originalName": "Munich Helles",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 1846.0088046471096,
+      "y": 3779.70094058833
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "dortmunder-export",
+    "name": "Dortmunder Export",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "german-pale-lagers",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [
+      "Helles Exportbier"
+    ],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-lagers",
+    "visualFamily": "low",
+    "shortName": "Dortmunder Export",
+    "originalName": "Dortmunder Export",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 1806.61392286393,
+      "y": 3944.8680882082435
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "international-pale-lagers",
+    "name": "Internationales",
+    "nodeType": "subfamily",
+    "functionalType": "structure",
+    "parentId": "pale-lagers",
+    "rank": 3,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "pale-lagers",
+    "visualFamily": "low",
+    "shortName": "Internationales",
+    "originalName": "Internationales",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 2546.5699102778835,
+      "y": 3878.2195849270865
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "international-light-lager",
+    "name": "International Light Lager",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "international-pale-lagers",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-lagers",
+    "visualFamily": "low",
+    "shortName": "International Light Lager",
+    "originalName": "International Light Lager",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 1855.0432601776092,
+      "y": 3747.2026537851575
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "international-pale-lager",
+    "name": "International Pale Lager",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "international-pale-lagers",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-lagers",
+    "visualFamily": "low",
+    "shortName": "International Pale Lager",
+    "originalName": "International Pale Lager",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 1871.0989709985915,
+      "y": 3692.919223549876
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "international-pilsener",
+    "name": "International Pilsener",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "international-pale-lagers",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-lagers",
+    "visualFamily": "low",
+    "shortName": "International Pilsener",
+    "originalName": "International Pilsener",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 1888.268632491645,
+      "y": 3638.977779628808
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "rice-lager",
+    "name": "Rice Lager",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "international-pale-lagers",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-lagers",
+    "visualFamily": "low",
+    "shortName": "Rice Lager",
+    "originalName": "Rice Lager",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 1906.5449693140508,
+      "y": 3585.4011787621084
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "american-pale-lagers",
+    "name": "Américaines",
+    "nodeType": "subfamily",
+    "functionalType": "structure",
+    "parentId": "pale-lagers",
+    "rank": 3,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "pale-lagers",
+    "visualFamily": "low",
+    "shortName": "Américaines",
+    "originalName": "Américaines",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 2458.0965877184435,
+      "y": 4317.982267586547
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "american-light-lager",
+    "name": "American Light Lager",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "american-pale-lagers",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-lagers",
+    "visualFamily": "low",
+    "shortName": "American Light Lager",
+    "originalName": "American Light Lager",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 1755.7408744041786,
+      "y": 4322.399742162185
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "american-lager",
+    "name": "American Lager",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "american-pale-lagers",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-lagers",
+    "visualFamily": "low",
+    "shortName": "American Lager",
+    "originalName": "American Lager",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 1753.7871303071256,
+      "y": 4355.726390725027
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "contemporary-american-light-lager",
+    "name": "Contemporary American Light Lager",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "american-pale-lagers",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-lagers",
+    "visualFamily": "low",
+    "shortName": "Contemporary American Light Lager",
+    "originalName": "Contemporary American Light Lager",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 1764.0271793225247,
+      "y": 4222.5964590814665
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "contemporary-american-lager",
+    "name": "Contemporary American Lager",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "american-pale-lagers",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-lagers",
+    "visualFamily": "low",
+    "shortName": "Contemporary American Lager",
+    "originalName": "Contemporary American Lager",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 1760.8612762076682,
+      "y": 4255.829871152683
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "american-pilsener",
+    "name": "American Pilsener",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "american-pale-lagers",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-lagers",
+    "visualFamily": "low",
+    "shortName": "American Pilsener",
+    "originalName": "American Pilsener",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 1758.0990388782802,
+      "y": 4289.09926647878
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "contemporary-american-pilsener",
+    "name": "Contemporary American Pilsener",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "american-pale-lagers",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-lagers",
+    "visualFamily": "low",
+    "shortName": "Contemporary American Pilsener",
+    "originalName": "Contemporary American Pilsener",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 1767.5962816649662,
+      "y": 4189.403927859862
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "american-india-pale-lager",
+    "name": "American India Pale Lager",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "american-pale-lagers",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [
+      "India Pale Lager",
+      "IPL"
+    ],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-lagers",
+    "visualFamily": "low",
+    "shortName": "American India Pale Lager",
+    "originalName": "American India Pale Lager",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 1752.238094509612,
+      "y": 4389.074300832349
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "west-coast-pilsener",
+    "name": "West Coast Pilsener",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "american-pale-lagers",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-lagers",
+    "visualFamily": "low",
+    "shortName": "West Coast Pilsener",
+    "originalName": "West Coast Pilsener",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 1775.9419207820288,
+      "y": 4123.161067500585
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "pre-prohibition-lager",
+    "name": "Pre-Prohibition Lager",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "american-pale-lagers",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-lagers",
+    "visualFamily": "low",
+    "shortName": "Pre-Prohibition Lager",
+    "originalName": "Pre-Prohibition Lager",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 1771.568057257798,
+      "y": 4156.25716905801
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "mexican-pale-lagers",
+    "name": "Mexicaines",
+    "nodeType": "subfamily",
+    "functionalType": "structure",
+    "parentId": "pale-lagers",
+    "rank": 3,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "pale-lagers",
+    "visualFamily": "low",
+    "shortName": "Mexicaines",
+    "originalName": "Mexicaines",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 2634.441546384994,
+      "y": 3650.1813980939296
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "mexican-light-lager",
+    "name": "Mexican Light Lager",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "mexican-pale-lagers",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-lagers",
+    "visualFamily": "low",
+    "shortName": "Mexican Light Lager",
+    "originalName": "Mexican Light Lager",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 1977.6145023896934,
+      "y": 3404.522295322627
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "mexican-pale-lager",
+    "name": "Mexican Pale Lager",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "mexican-pale-lagers",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-lagers",
+    "visualFamily": "low",
+    "shortName": "Mexican Pale Lager",
+    "originalName": "Mexican Pale Lager",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 2018.014474022471,
+      "y": 3315.8345348567
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "italian-new-zealand-pils",
+    "name": "Italiennes et néo-zélandaises",
+    "nodeType": "subfamily",
+    "functionalType": "structure",
+    "parentId": "pale-lagers",
+    "rank": 3,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "pale-lagers",
+    "visualFamily": "low",
+    "shortName": "Italiennes et néo-zélandaises",
+    "originalName": "Italiennes et néo-zélandaises",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 2590.659874806247,
+      "y": 3753.729079807405
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "italian-pilsener",
+    "name": "Italian Pilsener",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "italian-new-zealand-pils",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-lagers",
+    "visualFamily": "low",
+    "shortName": "Italian Pilsener",
+    "originalName": "Italian Pilsener",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 1921.353516245424,
+      "y": 3544.4465939466486
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "new-zealand-pilsner",
+    "name": "New Zealand Pilsner",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "italian-new-zealand-pils",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "pale-lagers",
+    "visualFamily": "low",
+    "shortName": "New Zealand Pilsner",
+    "originalName": "New Zealand Pilsner",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 1956.830880401169,
+      "y": 3453.677473663638
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "amber-lagers",
+    "name": "Lagers ambrées",
+    "nodeType": "family",
+    "functionalType": "structure",
+    "parentId": "low-fermentation",
+    "rank": 2,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "amber-lagers",
+    "visualFamily": "low",
+    "shortName": "Lagers ambrées",
+    "originalName": "Lagers ambrées",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 3320.1977662625104,
+      "y": 5215.867787561384
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "european-amber-lagers",
+    "name": "Européennes",
+    "nodeType": "subfamily",
+    "functionalType": "structure",
+    "parentId": "amber-lagers",
+    "rank": 3,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "amber-lagers",
+    "visualFamily": "low",
+    "shortName": "Européennes",
+    "originalName": "Européennes",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 2688.0288758158085,
+      "y": 5458.780811824411
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "vienna-lager",
+    "name": "Vienna Lager",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "european-amber-lagers",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "amber-lagers",
+    "visualFamily": "low",
+    "shortName": "Vienna Lager",
+    "originalName": "Vienna Lager",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 1979.4001773252935,
+      "y": 5599.580162576716
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "czech-amber-lager",
+    "name": "Czech Amber Lager",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "european-amber-lagers",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "amber-lagers",
+    "visualFamily": "low",
+    "shortName": "Czech Amber Lager",
+    "originalName": "Czech Amber Lager",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 2173.002145475145,
+      "y": 5965.462720452731
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "international-amber-lager",
+    "name": "International Amber Lager",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "european-amber-lagers",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "amber-lagers",
+    "visualFamily": "low",
+    "shortName": "International Amber Lager",
+    "originalName": "International Amber Lager",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 2069.3070285334015,
+      "y": 5786.169381715674
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "franconian-rotbier",
+    "name": "Franconian Rotbier",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "european-amber-lagers",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "amber-lagers",
+    "visualFamily": "low",
+    "shortName": "Franconian Rotbier",
+    "originalName": "Franconian Rotbier",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 2102.367506582826,
+      "y": 5846.795614230365
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "marzen",
+    "name": "Märzen",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "european-amber-lagers",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "amber-lagers",
+    "visualFamily": "low",
+    "shortName": "Märzen",
+    "originalName": "Märzen",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 2007.803973525297,
+      "y": 5662.522673165432
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "festbier",
+    "name": "Festbier",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "european-amber-lagers",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [
+      "Oktoberfest"
+    ],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "amber-lagers",
+    "visualFamily": "low",
+    "shortName": "Festbier",
+    "originalName": "Festbier",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 2136.939812087195,
+      "y": 5906.572624609727
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "kellerbier",
+    "name": "Kellerbier",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "european-amber-lagers",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [
+      "Zwickelbier"
+    ],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "amber-lagers",
+    "visualFamily": "low",
+    "shortName": "Kellerbier",
+    "originalName": "Kellerbier",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 2037.7792242273026,
+      "y": 5724.732154943805
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "american-mexican-amber-lagers",
+    "name": "Américaines et mexicaines",
+    "nodeType": "subfamily",
+    "functionalType": "structure",
+    "parentId": "amber-lagers",
+    "rank": 3,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "amber-lagers",
+    "visualFamily": "low",
+    "shortName": "Américaines et mexicaines",
+    "originalName": "Américaines et mexicaines",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 2844.243029478377,
+      "y": 5708.705445743113
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "american-amber-lager",
+    "name": "American Amber Lager",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "american-mexican-amber-lagers",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "amber-lagers",
+    "visualFamily": "low",
+    "shortName": "American Amber Lager",
+    "originalName": "American Amber Lager",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 2354.2519633147713,
+      "y": 6219.960860909773
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "american-marzen",
+    "name": "American Märzen",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "american-mexican-amber-lagers",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [
+      "American Oktoberfest"
+    ],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "amber-lagers",
+    "visualFamily": "low",
+    "shortName": "American Märzen",
+    "originalName": "American Märzen",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 2278.8626005197743,
+      "y": 6121.434134533445
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "mexican-amber-lager",
+    "name": "Mexican Amber Lager",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "american-mexican-amber-lagers",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "amber-lagers",
+    "visualFamily": "low",
+    "shortName": "Mexican Amber Lager",
+    "originalName": "Mexican Amber Lager",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 2207.9936589170447,
+      "y": 6019.607492886082
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "dark-lagers",
+    "name": "Lagers brunes et noires",
+    "nodeType": "family",
+    "functionalType": "structure",
+    "parentId": "low-fermentation",
+    "rank": 2,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "dark-lagers",
+    "visualFamily": "low",
+    "shortName": "Lagers brunes et noires",
+    "originalName": "Lagers brunes et noires",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 3125.6822465977075,
+      "y": 4625.102808454786
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "european-dark-lagers",
+    "name": "Européennes",
+    "nodeType": "subfamily",
+    "functionalType": "structure",
+    "parentId": "dark-lagers",
+    "rank": 3,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "dark-lagers",
+    "visualFamily": "low",
+    "shortName": "Européennes",
+    "originalName": "Européennes",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 2451.8547812422116,
+      "y": 4587.184648187687
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "munich-dunkel",
+    "name": "Munich Dunkel",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "european-dark-lagers",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "dark-lagers",
+    "visualFamily": "low",
+    "shortName": "Munich Dunkel",
+    "originalName": "Munich Dunkel",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 1750.1717783038075,
+      "y": 4530.736804699838
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "czech-dark-lager",
+    "name": "Czech Dark Lager",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "european-dark-lagers",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "dark-lagers",
+    "visualFamily": "low",
+    "shortName": "Czech Dark Lager",
+    "originalName": "Czech Dark Lager",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 1765.2237406903637,
+      "y": 4788.961609070122
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "european-dark-lager",
+    "name": "European Dark Lager",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "european-dark-lagers",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "dark-lagers",
+    "visualFamily": "low",
+    "shortName": "European Dark Lager",
+    "originalName": "European Dark Lager",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 1757.5070876299542,
+      "y": 4703.058182795138
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "international-dark-lager",
+    "name": "International Dark Lager",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "european-dark-lagers",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "dark-lagers",
+    "visualFamily": "low",
+    "shortName": "International Dark Lager",
+    "originalName": "International Dark Lager",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 1752.4881211785764,
+      "y": 4616.955015861534
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "schwarzbier",
+    "name": "Schwarzbier",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "european-dark-lagers",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "dark-lagers",
+    "visualFamily": "low",
+    "shortName": "Schwarzbier",
+    "originalName": "Schwarzbier",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 1750.5603375045735,
+      "y": 4444.48835890524
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "american-mexican-dark-lagers",
+    "name": "Américaines et mexicaines",
+    "nodeType": "subfamily",
+    "functionalType": "structure",
+    "parentId": "dark-lagers",
+    "rank": 3,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "dark-lagers",
+    "visualFamily": "low",
+    "shortName": "Américaines et mexicaines",
+    "originalName": "Américaines et mexicaines",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 2477.150558422234,
+      "y": 4832.5359179224415
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "american-dark-lager",
+    "name": "American Dark Lager",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "american-mexican-dark-lagers",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "dark-lagers",
+    "visualFamily": "low",
+    "shortName": "American Dark Lager",
+    "originalName": "American Dark Lager",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 1801.821974052145,
+      "y": 5031.352369235458
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "mexican-dark-lager",
+    "name": "Mexican Dark Lager",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "american-mexican-dark-lagers",
+    "rank": 4,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "dark-lagers",
+    "visualFamily": "low",
+    "shortName": "Mexican Dark Lager",
+    "originalName": "Mexican Dark Lager",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 1773.714916737103,
+      "y": 4860.374312039882
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "bocks",
+    "name": "Bocks",
+    "nodeType": "family",
+    "functionalType": "structure",
+    "parentId": "low-fermentation",
+    "rank": 2,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "bocks",
+    "visualFamily": "low",
+    "shortName": "Bocks",
+    "originalName": "Bocks",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 3184.5309423562653,
+      "y": 4917.062535337213
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "helles-bock",
+    "name": "Helles Bock",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "bocks",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [
+      "Maibock"
+    ],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "bocks",
+    "visualFamily": "low",
+    "shortName": "Helles Bock",
+    "originalName": "Helles Bock",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 2529.8850231361253,
+      "y": 5066.698312982008
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "traditional-bock",
+    "name": "Traditional Bock",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "bocks",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [
+      "Dunkles Bock"
+    ],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "bocks",
+    "visualFamily": "low",
+    "shortName": "Traditional Bock",
+    "originalName": "Traditional Bock",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 2502.2305978354216,
+      "y": 4959.8014960556175
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "doppelbock",
+    "name": "Doppelbock",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "bocks",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "bocks",
+    "visualFamily": "low",
+    "shortName": "Doppelbock",
+    "originalName": "Doppelbock",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 2602.2433199772972,
+      "y": 5275.254528157823
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "eisbock",
+    "name": "Eisbock",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "bocks",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "bocks",
+    "visualFamily": "low",
+    "shortName": "Eisbock",
+    "originalName": "Eisbock",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 2563.2548664682945,
+      "y": 5171.951105171541
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "smoked-lagers",
+    "name": "Lagers fumées",
+    "nodeType": "family",
+    "functionalType": "structure",
+    "parentId": "low-fermentation",
+    "rank": 2,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "smoked-lagers",
+    "visualFamily": "low",
+    "shortName": "Lagers fumées",
+    "originalName": "Lagers fumées",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 3317.815478542031,
+      "y": 3788.073207959419
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "bamberg-helles-rauchbier",
+    "name": "Bamberg Helles Rauchbier",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "smoked-lagers",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "smoked-lagers",
+    "visualFamily": "low",
+    "shortName": "Bamberg Helles Rauchbier",
+    "originalName": "Bamberg Helles Rauchbier",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 2743.856326819683,
+      "y": 3442.4275915339194
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "bamberg-marzen-rauchbier",
+    "name": "Bamberg Märzen Rauchbier",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "smoked-lagers",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "smoked-lagers",
+    "visualFamily": "low",
+    "shortName": "Bamberg Märzen Rauchbier",
+    "originalName": "Bamberg Märzen Rauchbier",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 2818.158714384217,
+      "y": 3327.8609766762947
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "bamberg-bock-rauchbier",
+    "name": "Bamberg Bock Rauchbier",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "smoked-lagers",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "smoked-lagers",
+    "visualFamily": "low",
+    "shortName": "Bamberg Bock Rauchbier",
+    "originalName": "Bamberg Bock Rauchbier",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 2677.345890872338,
+      "y": 3561.68662032344
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "strong-special-lagers",
+    "name": "Lagers fortes et spéciales",
+    "nodeType": "family",
+    "functionalType": "structure",
+    "parentId": "low-fermentation",
+    "rank": 2,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "strong-special-lagers",
+    "visualFamily": "low",
+    "shortName": "Lagers fortes et spéciales",
+    "originalName": "Lagers fortes et spéciales",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 3439.262716094566,
+      "y": 3617.2563143624743
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "baltic-porter",
+    "name": "Baltic Porter",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "strong-special-lagers",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "strong-special-lagers",
+    "visualFamily": "low",
+    "shortName": "Baltic Porter",
+    "originalName": "Baltic Porter",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 2986.7463496955797,
+      "y": 3117.045412950827
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "american-malt-liquor",
+    "name": "American Malt Liquor",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "strong-special-lagers",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "low",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "strong-special-lagers",
+    "visualFamily": "low",
+    "shortName": "American Malt Liquor",
+    "originalName": "American Malt Liquor",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 2865.1754419681856,
+      "y": 3263.1294875953736
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "spontaneous-fermentation",
+    "name": "Fermentation spontanée",
+    "nodeType": "universe",
+    "functionalType": "structure",
+    "parentId": "beer",
+    "rank": 1,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "spontaneous-fermentation",
+    "visualFamily": "spontaneous",
+    "shortName": "Fermentation spontanée",
+    "originalName": "Fermentation spontanée",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5197.411495048516,
+      "y": 4321.066474426413
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "unfruited-lambics",
+    "name": "Lambics non fruités",
+    "nodeType": "family",
+    "functionalType": "structure",
+    "parentId": "spontaneous-fermentation",
+    "rank": 2,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "unfruited-lambics",
+    "visualFamily": "spontaneous",
+    "shortName": "Lambics non fruités",
+    "originalName": "Lambics non fruités",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5869.8673934137705,
+      "y": 4333.076890570054
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "lambic",
+    "name": "Lambic",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "unfruited-lambics",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "spontaneous",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "unfruited-lambics",
+    "visualFamily": "spontaneous",
+    "shortName": "Lambic",
+    "originalName": "Lambic",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6534.947939491471,
+      "y": 4252.034511354066
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "traditional-gueuze",
+    "name": "Traditional Gueuze",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "unfruited-lambics",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "spontaneous",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "unfruited-lambics",
+    "visualFamily": "spontaneous",
+    "shortName": "Traditional Gueuze",
+    "originalName": "Traditional Gueuze",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6549.843663466774,
+      "y": 4474.682904094045
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "contemporary-spontaneous-fermented-ale",
+    "name": "Contemporary Spontaneous Fermented Ale",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "unfruited-lambics",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "spontaneous",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "unfruited-lambics",
+    "visualFamily": "spontaneous",
+    "shortName": "Contemporary Spontaneous Fermented Ale",
+    "originalName": "Contemporary Spontaneous Fermented Ale",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6495.940714485244,
+      "y": 4032.324188929837
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "fruited-lambics",
+    "name": "Lambics fruités",
+    "nodeType": "family",
+    "functionalType": "structure",
+    "parentId": "spontaneous-fermentation",
+    "rank": 2,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "fruited-lambics",
+    "visualFamily": "spontaneous",
+    "shortName": "Lambics fruités",
+    "originalName": "Lambics fruités",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5781.0211634188845,
+      "y": 3986.789732299784
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "kriek",
+    "name": "Kriek",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "fruited-lambics",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "spontaneous",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "fruited-lambics",
+    "visualFamily": "spontaneous",
+    "shortName": "Kriek",
+    "originalName": "Kriek",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6402.966221020807,
+      "y": 3737.6224284163463
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "framboise",
+    "name": "Framboise",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "fruited-lambics",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "spontaneous",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "fruited-lambics",
+    "visualFamily": "spontaneous",
+    "shortName": "Framboise",
+    "originalName": "Framboise",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6308.829234122888,
+      "y": 3535.3048140565825
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "other-fruit-lambic",
+    "name": "Other Fruit Lambic",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "fruited-lambics",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "spontaneous",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "fruited-lambics",
+    "visualFamily": "spontaneous",
+    "shortName": "Other Fruit Lambic",
+    "originalName": "Other Fruit Lambic",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6474.555519543257,
+      "y": 3948.973230921347
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "mixed-wild-sour-fermentation",
+    "name": "Fermentations mixtes, sauvages et acides",
+    "nodeType": "universe",
+    "functionalType": "structure",
+    "parentId": "beer",
+    "rank": 1,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "mixed-wild-sour-fermentation",
+    "visualFamily": "mixed-wild",
+    "shortName": "Fermentations mixtes, sauvages et acides",
+    "originalName": "Fermentations mixtes, sauvages et acides",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 4209.542289773822,
+      "y": 3841.187190037894
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "flanders-ales",
+    "name": "Ales flamandes",
+    "nodeType": "family",
+    "functionalType": "structure",
+    "parentId": "mixed-wild-sour-fermentation",
+    "rank": 2,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "flanders-ales",
+    "visualFamily": "mixed-wild",
+    "shortName": "Ales flamandes",
+    "originalName": "Ales flamandes",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 4023.9518904535794,
+      "y": 3204.709222839412
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "flanders-red-ale",
+    "name": "Flanders Red Ale",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "flanders-ales",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "mixed-wild",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "flanders-ales",
+    "visualFamily": "mixed-wild",
+    "shortName": "Flanders Red Ale",
+    "originalName": "Flanders Red Ale",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 3712.375631641143,
+      "y": 2607.343704111253
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "oud-bruin",
+    "name": "Oud Bruin",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "flanders-ales",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "mixed-wild",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "flanders-ales",
+    "visualFamily": "mixed-wild",
+    "shortName": "Oud Bruin",
+    "originalName": "Oud Bruin",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 3874.534730725252,
+      "y": 2547.7466360815083
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "german-sour-ales",
+    "name": "Acides allemandes",
+    "nodeType": "family",
+    "functionalType": "structure",
+    "parentId": "mixed-wild-sour-fermentation",
+    "rank": 2,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "german-sour-ales",
+    "visualFamily": "mixed-wild",
+    "shortName": "Acides allemandes",
+    "originalName": "Acides allemandes",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 4221.369438214724,
+      "y": 3148.4212897358802
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "berliner-weisse",
+    "name": "Berliner Weisse",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "german-sour-ales",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "mixed-wild",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "german-sour-ales",
+    "visualFamily": "mixed-wild",
+    "shortName": "Berliner Weisse",
+    "originalName": "Berliner Weisse",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 3939.8753548553714,
+      "y": 2528.0059883707545
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "leipzig-gose",
+    "name": "Leipzig Gose",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "german-sour-ales",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "mixed-wild",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "german-sour-ales",
+    "visualFamily": "mixed-wild",
+    "shortName": "Leipzig Gose",
+    "originalName": "Leipzig Gose",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 4135.366535041615,
+      "y": 2482.6893059738068
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "contemporary-gose",
+    "name": "Contemporary Gose",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "german-sour-ales",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "mixed-wild",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "german-sour-ales",
+    "visualFamily": "mixed-wild",
+    "shortName": "Contemporary Gose",
+    "originalName": "Contemporary Gose",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 4037.0661051767847,
+      "y": 2502.954129464271
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "lichtenhainer",
+    "name": "Lichtenhainer",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "german-sour-ales",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "mixed-wild",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "german-sour-ales",
+    "visualFamily": "mixed-wild",
+    "shortName": "Lichtenhainer",
+    "originalName": "Lichtenhainer",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 4234.5410125867575,
+      "y": 2467.2600938630794
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "american-modern-sour-ales",
+    "name": "Sour ales américaines et modernes",
+    "nodeType": "family",
+    "functionalType": "structure",
+    "parentId": "mixed-wild-sour-fermentation",
+    "rank": 2,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "american-modern-sour-ales",
+    "visualFamily": "mixed-wild",
+    "shortName": "Sour ales américaines et modernes",
+    "originalName": "Sour ales américaines et modernes",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 3588.984547902718,
+      "y": 3463.4427917186695
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "american-sour-ale",
+    "name": "American Sour Ale",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "american-modern-sour-ales",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "mixed-wild",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "american-modern-sour-ales",
+    "visualFamily": "mixed-wild",
+    "shortName": "American Sour Ale",
+    "originalName": "American Sour Ale",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 3109.3910583413085,
+      "y": 2993.777316802428
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "american-fruited-sour-ale",
+    "name": "American Fruited Sour Ale",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "american-modern-sour-ales",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "mixed-wild",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "american-modern-sour-ales",
+    "visualFamily": "mixed-wild",
+    "shortName": "American Fruited Sour Ale",
+    "originalName": "American Fruited Sour Ale",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 3037.335538747554,
+      "y": 3063.64604856982
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "mixed-fermentation-sour-beer",
+    "name": "Mixed-Fermentation Sour Beer",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "american-modern-sour-ales",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "mixed-wild",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "american-modern-sour-ales",
+    "visualFamily": "mixed-wild",
+    "shortName": "Mixed-Fermentation Sour Beer",
+    "originalName": "Mixed-Fermentation Sour Beer",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 3184.7799486661875,
+      "y": 2927.5190886470245
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "wild-specialty-beer",
+    "name": "Wild Specialty Beer",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "american-modern-sour-ales",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "mixed-wild",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "american-modern-sour-ales",
+    "visualFamily": "mixed-wild",
+    "shortName": "Wild Specialty Beer",
+    "originalName": "Wild Specialty Beer",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 3263.3214981555266,
+      "y": 2865.0301889405696
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "brett-mixed-cultures",
+    "name": "Brett et cultures mixtes",
+    "nodeType": "family",
+    "functionalType": "structure",
+    "parentId": "mixed-wild-sour-fermentation",
+    "rank": 2,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "brett-mixed-cultures",
+    "visualFamily": "mixed-wild",
+    "shortName": "Brett et cultures mixtes",
+    "originalName": "Brett et cultures mixtes",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 3864.838937097105,
+      "y": 3274.859018654561
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "brett-beer",
+    "name": "Brett Beer",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "brett-mixed-cultures",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "mixed-wild",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "brett-mixed-cultures",
+    "visualFamily": "mixed-wild",
+    "shortName": "Brett Beer",
+    "originalName": "Brett Beer",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 3480.613191015035,
+      "y": 2721.4189549903967
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "mixed-culture-brett-beer",
+    "name": "Mixed-Culture Brett Beer",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "brett-mixed-cultures",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "mixed-wild",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "brett-mixed-cultures",
+    "visualFamily": "mixed-wild",
+    "shortName": "Mixed-Culture Brett Beer",
+    "originalName": "Mixed-Culture Brett Beer",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 3633.9901479802484,
+      "y": 2641.9023340511058
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "wooden-sours",
+    "name": "Sour boisées",
+    "nodeType": "family",
+    "functionalType": "structure",
+    "parentId": "mixed-wild-sour-fermentation",
+    "rank": 2,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "wooden-sours",
+    "visualFamily": "mixed-wild",
+    "shortName": "Sour boisées",
+    "originalName": "Sour boisées",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 4402.744325830486,
+      "y": 3123.4313188794995
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "wood-and-barrel-aged-sour-beer",
+    "name": "Wood and Barrel-Aged Sour Beer",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "wooden-sours",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "mixed-wild",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "wooden-sours",
+    "visualFamily": "mixed-wild",
+    "shortName": "Wood and Barrel-Aged Sour Beer",
+    "originalName": "Wood and Barrel-Aged Sour Beer",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 4355.525991269925,
+      "y": 2455.0972490601266
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "brazilian-local-style",
+    "name": "Style local brésilien",
+    "nodeType": "family",
+    "functionalType": "structure",
+    "parentId": "mixed-wild-sour-fermentation",
+    "rank": 2,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "brazilian-local-style",
+    "visualFamily": "mixed-wild",
+    "shortName": "Style local brésilien",
+    "originalName": "Style local brésilien",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 3734.2223705100214,
+      "y": 3351.964886350287
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "catharina-sour",
+    "name": "Catharina Sour",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "brazilian-local-style",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "mixed-wild",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "brazilian-local-style",
+    "visualFamily": "mixed-wild",
+    "shortName": "Catharina Sour",
+    "originalName": "Catharina Sour",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 3362.431782279379,
+      "y": 2794.585519578325
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "hybrid-fermentations",
+    "name": "Fermentations hybrides",
+    "nodeType": "universe",
+    "functionalType": "structure",
+    "parentId": "beer",
+    "rank": 1,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "hybrid-fermentations",
+    "visualFamily": "hybrid",
+    "shortName": "Fermentations hybrides",
+    "originalName": "Fermentations hybrides",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 4038.8588340807223,
+      "y": 5052.945589633021
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "american-hybrids",
+    "name": "Hybrides américaines",
+    "nodeType": "family",
+    "functionalType": "structure",
+    "parentId": "hybrid-fermentations",
+    "rank": 2,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "american-hybrids",
+    "visualFamily": "hybrid",
+    "shortName": "Hybrides américaines",
+    "originalName": "Hybrides américaines",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 3702.114263923955,
+      "y": 5625.9566386705965
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "cream-ale",
+    "name": "Cream Ale",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "american-hybrids",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "hybrid",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "american-hybrids",
+    "visualFamily": "hybrid",
+    "shortName": "Cream Ale",
+    "originalName": "Cream Ale",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 3191.5175241924135,
+      "y": 6078.091762384067
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "california-common",
+    "name": "California Common",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "american-hybrids",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "hybrid",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "american-hybrids",
+    "visualFamily": "hybrid",
+    "shortName": "California Common",
+    "originalName": "California Common",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 3444.7544461701455,
+      "y": 6257.542836212627
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "variable-fermentation-historical-porter",
+    "name": "Porter historique à fermentation variable",
+    "nodeType": "family",
+    "functionalType": "structure",
+    "parentId": "hybrid-fermentations",
+    "rank": 2,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "variable-fermentation-historical-porter",
+    "visualFamily": "hybrid",
+    "shortName": "Porter historique à fermentation variable",
+    "originalName": "Porter historique à fermentation variable",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 3507.43354878606,
+      "y": 5458.755359789224
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "pre-prohibition-porter",
+    "name": "Pre-Prohibition Porter",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "variable-fermentation-historical-porter",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "hybrid",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "variable-fermentation-historical-porter",
+    "visualFamily": "hybrid",
+    "shortName": "Pre-Prohibition Porter",
+    "originalName": "Pre-Prohibition Porter",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 3025.5353442111755,
+      "y": 5924.238034469499
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "specialties",
+    "name": "Spécialités par ingrédient ou procédé",
+    "nodeType": "universe",
+    "functionalType": "structure",
+    "parentId": "beer",
+    "rank": 1,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "specialties",
+    "visualFamily": "specialty",
+    "shortName": "Spécialités par ingrédient ou procédé",
+    "originalName": "Spécialités par ingrédient ou procédé",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 4856.781538475561,
+      "y": 3874.6145718015077
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "fruit-beers",
+    "name": "Bières aux fruits",
+    "nodeType": "family",
+    "functionalType": "structure",
+    "parentId": "specialties",
+    "rank": 2,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "fruit-beers",
+    "visualFamily": "specialty",
+    "shortName": "Bières aux fruits",
+    "originalName": "Bières aux fruits",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 4792.740015529444,
+      "y": 3151.406924492113
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "fruit-beer",
+    "name": "Fruit Beer",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "fruit-beers",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "specialty",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "fruit-beers",
+    "visualFamily": "specialty",
+    "shortName": "Fruit Beer",
+    "originalName": "Fruit Beer",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 4966.186271743071,
+      "y": 2503.7108525971753
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "american-fruit-beer",
+    "name": "American Fruit Beer",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "fruit-beers",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "specialty",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "fruit-beers",
+    "visualFamily": "specialty",
+    "shortName": "American Fruit Beer",
+    "originalName": "American Fruit Beer",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 4776.82786813282,
+      "y": 2468.7771339842993
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "belgian-fruit-beer",
+    "name": "Belgian Fruit Beer",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "fruit-beers",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "specialty",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "fruit-beers",
+    "visualFamily": "specialty",
+    "shortName": "Belgian Fruit Beer",
+    "originalName": "Belgian Fruit Beer",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 4840.301793616562,
+      "y": 2478.4425090387977
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "fruit-and-spice-beer",
+    "name": "Fruit and Spice Beer",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "fruit-beers",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "specialty",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "fruit-beers",
+    "visualFamily": "specialty",
+    "shortName": "Fruit and Spice Beer",
+    "originalName": "Fruit and Spice Beer",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 4903.441906832232,
+      "y": 2490.0908906590894
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "specialty-fruit-beer",
+    "name": "Specialty Fruit Beer",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "fruit-beers",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "specialty",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "fruit-beers",
+    "visualFamily": "specialty",
+    "shortName": "Specialty Fruit Beer",
+    "originalName": "Specialty Fruit Beer",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5090.242013884444,
+      "y": 2536.810155627929
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "italian-grape-ale",
+    "name": "Italian Grape Ale",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "fruit-beers",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "specialty",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "fruit-beers",
+    "visualFamily": "specialty",
+    "shortName": "Italian Grape Ale",
+    "originalName": "Italian Grape Ale",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5028.473340513741,
+      "y": 2519.289034622606
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "vegetable-seasonal-beers",
+    "name": "Bières végétales et saisonnières",
+    "nodeType": "family",
+    "functionalType": "structure",
+    "parentId": "specialties",
+    "rank": 2,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "vegetable-seasonal-beers",
+    "visualFamily": "specialty",
+    "shortName": "Bières végétales et saisonnières",
+    "originalName": "Bières végétales et saisonnières",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5549.615566207343,
+      "y": 3604.0607368938236
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "field-beer",
+    "name": "Field Beer",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "vegetable-seasonal-beers",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "specialty",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "vegetable-seasonal-beers",
+    "visualFamily": "specialty",
+    "shortName": "Field Beer",
+    "originalName": "Field Beer",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5989.3392392857895,
+      "y": 3091.3238021732514
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "pumpkin-squash-beer",
+    "name": "Pumpkin Squash Beer",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "vegetable-seasonal-beers",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "specialty",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "vegetable-seasonal-beers",
+    "visualFamily": "specialty",
+    "shortName": "Pumpkin Squash Beer",
+    "originalName": "Pumpkin Squash Beer",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6125.02949889279,
+      "y": 3250.2883821744117
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "pumpkin-spice-beer",
+    "name": "Pumpkin Spice Beer",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "vegetable-seasonal-beers",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "specialty",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "vegetable-seasonal-beers",
+    "visualFamily": "specialty",
+    "shortName": "Pumpkin Spice Beer",
+    "originalName": "Pumpkin Spice Beer",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6059.211529510908,
+      "y": 3169.075732342274
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "spice-herb-chili-beers",
+    "name": "Épices, plantes et piments",
+    "nodeType": "family",
+    "functionalType": "structure",
+    "parentId": "specialties",
+    "rank": 2,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "spice-herb-chili-beers",
+    "visualFamily": "specialty",
+    "shortName": "Épices, plantes et piments",
+    "originalName": "Épices, plantes et piments",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5435.023451596419,
+      "y": 3485.046235060572
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "herb-and-spice-beer",
+    "name": "Herb and Spice Beer",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "spice-herb-chili-beers",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "specialty",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "spice-herb-chili-beers",
+    "visualFamily": "specialty",
+    "shortName": "Herb and Spice Beer",
+    "originalName": "Herb and Spice Beer",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5941.615606357831,
+      "y": 3042.521203068277
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "chili-pepper-beer",
+    "name": "Chili Pepper Beer",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "spice-herb-chili-beers",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "specialty",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "spice-herb-chili-beers",
+    "visualFamily": "specialty",
+    "shortName": "Chili Pepper Beer",
+    "originalName": "Chili Pepper Beer",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5834.602757081292,
+      "y": 2943.9359008090273
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "gourmet-beers",
+    "name": "Bières gourmandes",
+    "nodeType": "family",
+    "functionalType": "structure",
+    "parentId": "specialties",
+    "rank": 2,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "gourmet-beers",
+    "visualFamily": "specialty",
+    "shortName": "Bières gourmandes",
+    "originalName": "Bières gourmandes",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5144.151954266368,
+      "y": 3279.5622671292
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "chocolate-cocoa-beer",
+    "name": "Chocolate Cocoa Beer",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "gourmet-beers",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "specialty",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "gourmet-beers",
+    "visualFamily": "specialty",
+    "shortName": "Chocolate Cocoa Beer",
+    "originalName": "Chocolate Cocoa Beer",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5342.998744900174,
+      "y": 2631.3499214414883
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "coffee-beer",
+    "name": "Coffee Beer",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "gourmet-beers",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "specialty",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "gourmet-beers",
+    "visualFamily": "specialty",
+    "shortName": "Coffee Beer",
+    "originalName": "Coffee Beer",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5419.313225588245,
+      "y": 2667.6891111881323
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "specialty-honey-beer",
+    "name": "Specialty Honey Beer",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "gourmet-beers",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "specialty",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "gourmet-beers",
+    "visualFamily": "specialty",
+    "shortName": "Specialty Honey Beer",
+    "originalName": "Specialty Honey Beer",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5567.126485953833,
+      "y": 2749.645446494961
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "dessert-pastry-beer",
+    "name": "Dessert Pastry Beer",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "gourmet-beers",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "specialty",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "gourmet-beers",
+    "visualFamily": "specialty",
+    "shortName": "Dessert Pastry Beer",
+    "originalName": "Dessert Pastry Beer",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5494.064832957124,
+      "y": 2707.1433108366064
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "alternative-fermentables",
+    "name": "Fermentescibles alternatifs",
+    "nodeType": "family",
+    "functionalType": "structure",
+    "parentId": "specialties",
+    "rank": 2,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "alternative-fermentables",
+    "visualFamily": "specialty",
+    "shortName": "Fermentescibles alternatifs",
+    "originalName": "Fermentescibles alternatifs",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 4570.678919160808,
+      "y": 3121.8111557604816
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "alternative-grain-beer",
+    "name": "Alternative Grain Beer",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "alternative-fermentables",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "specialty",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "alternative-fermentables",
+    "visualFamily": "specialty",
+    "shortName": "Alternative Grain Beer",
+    "originalName": "Alternative Grain Beer",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 4478.244274516309,
+      "y": 2450.115445102169
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "alternative-sugar-beer",
+    "name": "Alternative Sugar Beer",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "alternative-fermentables",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "specialty",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "alternative-fermentables",
+    "visualFamily": "specialty",
+    "shortName": "Alternative Sugar Beer",
+    "originalName": "Alternative Sugar Beer",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 4562.76481408968,
+      "y": 2450.9610598838567
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "rye-beer",
+    "name": "Rye Beer",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "alternative-fermentables",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "specialty",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "alternative-fermentables",
+    "visualFamily": "specialty",
+    "shortName": "Rye Beer",
+    "originalName": "Rye Beer",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 4731.342277048699,
+      "y": 2463.095301480719
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "ginjo-beer",
+    "name": "Ginjo Beer",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "alternative-fermentables",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [
+      "Sake-Yeast Beer"
+    ],
+    "status": "core",
+    "origin": [],
+    "fermentation": "specialty",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "alternative-fermentables",
+    "visualFamily": "specialty",
+    "shortName": "Ginjo Beer",
+    "originalName": "Ginjo Beer",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 4647.1786506910985,
+      "y": 2455.290131881604
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "generic-smoked-beers",
+    "name": "Bières fumées génériques",
+    "nodeType": "family",
+    "functionalType": "structure",
+    "parentId": "specialties",
+    "rank": 2,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "generic-smoked-beers",
+    "visualFamily": "specialty",
+    "shortName": "Bières fumées génériques",
+    "originalName": "Bières fumées génériques",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 4982.3473909462555,
+      "y": 3207.0417661628276
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "classic-style-smoked-beer",
+    "name": "Classic-Style Smoked Beer",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "generic-smoked-beers",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "specialty",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "generic-smoked-beers",
+    "visualFamily": "specialty",
+    "shortName": "Classic-Style Smoked Beer",
+    "originalName": "Classic-Style Smoked Beer",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5147.9169072935165,
+      "y": 2555.082602976876
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "specialty-smoked-beer",
+    "name": "Specialty Smoked Beer",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "generic-smoked-beers",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "specialty",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "generic-smoked-beers",
+    "visualFamily": "specialty",
+    "shortName": "Specialty Smoked Beer",
+    "originalName": "Specialty Smoked Beer",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5284.241486183802,
+      "y": 2605.939469988295
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "wood-aged-beers",
+    "name": "Bières boisées et vieillies",
+    "nodeType": "family",
+    "functionalType": "structure",
+    "parentId": "specialties",
+    "rank": 2,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "wood-aged-beers",
+    "visualFamily": "specialty",
+    "shortName": "Bières boisées et vieillies",
+    "originalName": "Bières boisées et vieillies",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5657.062413586877,
+      "y": 3747.931804246109
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "wood-aged-beer",
+    "name": "Wood-Aged Beer",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "wood-aged-beers",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "specialty",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "wood-aged-beers",
+    "visualFamily": "specialty",
+    "shortName": "Wood-Aged Beer",
+    "originalName": "Wood-Aged Beer",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6273.540395994473,
+      "y": 3471.86845988669
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "specialty-wood-aged-beer",
+    "name": "Specialty Wood-Aged Beer",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "wood-aged-beers",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "specialty",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "wood-aged-beers",
+    "visualFamily": "specialty",
+    "shortName": "Specialty Wood-Aged Beer",
+    "originalName": "Specialty Wood-Aged Beer",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6218.824599893548,
+      "y": 3382.7972454380606
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "aged-beer",
+    "name": "Aged Beer",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "wood-aged-beers",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "specialty",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "wood-aged-beers",
+    "visualFamily": "specialty",
+    "shortName": "Aged Beer",
+    "originalName": "Aged Beer",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 6159.639451001598,
+      "y": 3296.6310238837327
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "special-production-styles",
+    "name": "Styles de production particuliers",
+    "nodeType": "family",
+    "functionalType": "structure",
+    "parentId": "specialties",
+    "rank": 2,
+    "capturable": false,
+    "aliases": [],
+    "status": "core",
+    "familyId": "special-production-styles",
+    "visualFamily": "specialty",
+    "shortName": "Styles de production particuliers",
+    "originalName": "Styles de production particuliers",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5307.029626618314,
+      "y": 3380.57908641999
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "fresh-hop-beer",
+    "name": "Fresh Hop Beer",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "special-production-styles",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "specialty",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "special-production-styles",
+    "visualFamily": "specialty",
+    "shortName": "Fresh Hop Beer",
+    "originalName": "Fresh Hop Beer",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5612.521402950926,
+      "y": 2778.1416643707
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "gluten-free-beer",
+    "name": "Gluten-Free Beer",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "special-production-styles",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "specialty",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "special-production-styles",
+    "visualFamily": "specialty",
+    "shortName": "Gluten-Free Beer",
+    "originalName": "Gluten-Free Beer",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5698.848358382278,
+      "y": 2837.0921211311447
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
+    ]
+  },
+  {
+    "id": "non-alcohol-malt-beverage",
+    "name": "Non-Alcohol Malt Beverage",
+    "nodeType": "style",
+    "functionalType": "capturable",
+    "parentId": "special-production-styles",
+    "rank": 3,
+    "capturable": true,
+    "aliases": [],
+    "status": "core",
+    "origin": [],
+    "fermentation": "specialty",
+    "tags": [],
+    "relatedStyleIds": [],
+    "familyId": "special-production-styles",
+    "visualFamily": "specialty",
+    "shortName": "Non-Alcohol Malt Beverage",
+    "originalName": "Non-Alcohol Malt Beverage",
+    "secondaryParentIds": [],
+    "position": {
+      "x": 5782.058022929568,
+      "y": 2900.3665339078684
+    },
+    "sourceRefs": [
+      "zythohunt-taxonomy-1.0.0"
     ]
   }
 ]

@@ -1,0 +1,55 @@
+{
+  "version": "0.4.0",
+  "migrations": [
+    {
+      "from": "fermentation-high",
+      "to": "high-fermentation",
+      "reason": "Migration V0.4.0 vers le canon Taxonomy 1.0.0"
+    },
+    {
+      "from": "fermentation-low",
+      "to": "low-fermentation",
+      "reason": "Migration V0.4.0 vers le canon Taxonomy 1.0.0"
+    },
+    {
+      "from": "fermentation-spontaneous",
+      "to": "spontaneous-fermentation",
+      "reason": "Migration V0.4.0 vers le canon Taxonomy 1.0.0"
+    },
+    {
+      "from": "fermentation-mixed-wild",
+      "to": "mixed-wild-sour-fermentation",
+      "reason": "Migration V0.4.0 vers le canon Taxonomy 1.0.0"
+    },
+    {
+      "from": "family-pale-ale-ipa",
+      "to": "pale-ale-bitter-ipa",
+      "reason": "Migration V0.4.0 vers le canon Taxonomy 1.0.0"
+    },
+    {
+      "from": "family-wheat-beer",
+      "to": "wheat-rye-beers",
+      "reason": "Migration V0.4.0 vers le canon Taxonomy 1.0.0"
+    },
+    {
+      "from": "family-pale-lager",
+      "to": "pale-lagers",
+      "reason": "Migration V0.4.0 vers le canon Taxonomy 1.0.0"
+    },
+    {
+      "from": "new-england-ipa",
+      "to": "hazy-ipa",
+      "reason": "Migration V0.4.0 vers le canon Taxonomy 1.0.0"
+    },
+    {
+      "from": "india-pale-lager",
+      "to": "american-india-pale-lager",
+      "reason": "Migration V0.4.0 vers le canon Taxonomy 1.0.0"
+    },
+    {
+      "from": "classic-english-pale-ale",
+      "to": "english-pale-ale",
+      "reason": "Migration V0.4.0 vers le canon Taxonomy 1.0.0"
+    }
+  ]
+}

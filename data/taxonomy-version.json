@@ -1,23 +1,14 @@
 {
-  "appVersion": "0.3.4",
-  "taxonomyVersion": "0.1.2-prototype.3",
-  "schemaVersion": 1,
-  "status": "prototype",
-  "scope": "Prototype Pale Ale, IPA, quatre troncs de fermentation et liens secondaires voisins — révision des coordonnées et du layout sans modification du corpus taxonomique.",
-  "nodeCount": 28,
-  "structureNodeCount": 8,
-  "capturableNodeCount": 20,
-  "primaryLinkCount": 27,
-  "secondaryLinkCount": 2,
-  "updatedAt": "2026-06-14",
-  "sourceRefs": [
-    {
-      "id": "prototype-v0.1.1",
-      "label": "Corpus technique provisoire de ZythoHunt V0.1.1"
-    },
-    {
-      "id": "prototype-v0.1.2",
-      "label": "Révision des coordonnées et du layout V0.2.7 sans modification du corpus taxonomique"
-    }
-  ]
+  "applicationVersion": "0.4.0",
+  "taxonomyVersion": "1.0.0",
+  "taxonomyName": "ZythoHunt Taxonomy",
+  "taxonomyStatus": "canonical",
+  "presentationVersion": "2.0.0",
+  "appVersion": "0.4.0",
+  "schemaVersion": 2,
+  "nodeCount": 272,
+  "structureNodeCount": 71,
+  "capturableNodeCount": 201,
+  "primaryLinkCount": 271,
+  "secondaryLinkCount": 0
 }

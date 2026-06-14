@@ -7,8 +7,8 @@
 ## 1. Identité du projet
 
 - Application : **ZythoHunt**.
-- Version applicative actuelle : **0.3.4**.
-- Version taxonomique conservée : **0.1.2-prototype.3**.
+- Version applicative actuelle : **0.4.0**.
+- Version taxonomique conservée : **1.0.0**.
 - Corpus courant : 28 nœuds, 8 structures, 20 styles capturables, 27 liens principaux, 2 liens secondaires.
 - Technologies : HTML, CSS et JavaScript ES modules sans dépendance npm applicative.
 - Version de présentation cartographique : **1.2.0** (`data/map-presentation.json`).
@@ -273,3 +273,30 @@ V0.3.4 est prête pour validation humaine dès que `npm run validate` réussit e
 - Verres élargis, contours renforcés, liquides remontés, mousses plus expressives et accessoires rapprochés.
 - Contrôle prioritaire des recettes IPA, West Coast IPA, Black IPA, Double IPA et Mixte sauvage.
 - À arbitrer : validation visuelle complète du bouton All et validation Safari iPad réelle, impossibles dans cet environnement.
+
+## 15. V0.4.0 — Taxonomie complète et Zythosphère radiale
+
+### Objectif
+
+Intégrer le canon ZythoHunt Taxonomy 1.0.0, remplacer la cartographie pyramidale par une arborescence radiale générée et préparer les données communes pour la future Brassopédie sans développer cette vue.
+
+### Tâches
+
+- [x] Auditer le dépôt et exécuter la validation initiale.
+- [x] Intégrer les 6 univers et 201 styles capturables du canon.
+- [x] Ajouter les structures intermédiaires nécessaires, pour 272 nœuds au total.
+- [x] Générer les liens hiérarchiques depuis `parentId`.
+- [x] Ajouter les migrations d’identifiants historiques.
+- [x] Générer la présentation radiale 2.0.0 et le fichier `data/generated/zythosphere-layout.json`.
+- [x] Ajouter les commandes `build:taxonomy`, `build:layout`, `validate:taxonomy` et `validate:layout`.
+- [x] Générer une recette iconographique validable pour chaque style capturable.
+- [x] Vérifier les alias canoniques demandés par la mission.
+- [!] Validation Safari iPad réelle indisponible dans l’environnement agent ; validation humaine obligatoire.
+
+### Journal d’avancement — 2026-06-14
+
+- Passage applicatif en 0.4.0, taxonomie en 1.0.0 et présentation cartographique en 2.0.0.
+- Corpus porté à 272 nœuds : 71 structures, 201 styles capturables et 271 liens hiérarchiques.
+- Layout radial déterministe généré autour de Bière avec secteurs d’univers pondérés et sous-anneaux pour branches denses.
+- Rapport généré : collisions restantes 0, croisements restants 0.
+- À arbitrer : contrôle visuel complet et validation de fluidité sur Safari iPad réel, impossibles dans cet environnement.
