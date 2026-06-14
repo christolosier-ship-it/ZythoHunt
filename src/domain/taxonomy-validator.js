@@ -1,5 +1,6 @@
 import { APP_VERSION, EXPECTED_COUNTS, TAXONOMY_SCHEMA_VERSION, TAXONOMY_VERSION, WORLD } from '../config.js';
 import { normalizeSearchText } from './search.js';
+import { VESSELS, LIQUIDS, FOAMS, MOTIFS, ACCENTS, COMPOSITIONS, CLARITIES, FILL_LEVELS } from '../map/icons/icon-recipes.js';
 
 const NODE_TYPES = new Set(['root', 'fermentation', 'family', 'branch', 'style', 'substyle', 'variant']);
 const FUNCTIONAL_TYPES = new Set(['structure', 'capturable']);
@@ -128,7 +129,7 @@ export function validateTaxonomy(nodes, links, aliases, version, world = WORLD, 
     const allowedLevels = new Set(['root', 'fermentation', 'family', 'style']);
     const allowedIcons = new Set(['beer-mug', 'ale-glass', 'lager-glass', 'hop', 'wheat', 'tulip', 'pint', 'dark-glass', 'bottle', 'fruit', 'question']);
     const allowedPalettes = new Set(['root-gold', 'ale-amber', 'lager-gold', 'wheat-gold', 'dark-malt', 'wild-green', 'fruit-rose']);
-    if (presentation.presentationVersion !== '1.1.0') add('map presentationVersion mismatch');
+    if (presentation.presentationVersion !== '1.2.0') add('map presentationVersion mismatch');
     if (!presentation.world || typeof presentation.world.width !== 'number' || typeof presentation.world.height !== 'number') add('invalid presentation world');
     if (!presentation.nodes || Array.isArray(presentation.nodes) || typeof presentation.nodes !== 'object') add('invalid presentation nodes');
     else {
@@ -138,7 +139,7 @@ export function validateTaxonomy(nodes, links, aliases, version, world = WORLD, 
         if (typeof item.x !== 'number' || typeof item.y !== 'number') add(`invalid presentation position: ${id}`);
         else if (item.x < 0 || item.y < 0 || item.x > presentation.world.width || item.y > presentation.world.height) add(`presentation position out of bounds: ${id}`);
         if (!allowedLevels.has(item.visualLevel)) add(`unknown visualLevel: ${id}`);
-        if (!allowedIcons.has(item.iconKey)) add(`unknown iconKey: ${id}`);
+        if (nodeById.get(id)?.functionalType === 'structure') { if (!allowedIcons.has(item.iconKey)) add(`unknown iconKey: ${id}`); } else if ('iconKey' in item) add(`obsolete style iconKey: ${id}`);
         if (!allowedPalettes.has(item.paletteKey)) add(`unknown paletteKey: ${id}`);
       }
       for (const id of Object.keys(presentation.nodes)) if (!ids.has(id)) add(`presentation for unknown node: ${id}`);
@@ -154,12 +155,10 @@ export function validateTaxonomy(nodes, links, aliases, version, world = WORLD, 
 
 
   if (appMeta.iconRecipes) {
-    const VESSELS = new Set(['american-pint','british-pint','mug','tulip','belgian-chalice','weizen','flute','pilsner','snifter','bottle','can']);
-    const LIQUIDS = new Set(['pale-straw','pale-gold','golden','hazy-straw','hazy-orange','orange','amber','deep-amber','copper','brown','black','ruby','rose','wild']);
-    const FOAMS = new Set(['none','thin-white','regular-white','generous-white','overflow-white','thin-cream','regular-cream','generous-cream','beige','pink']);
-    const MOTIFS = new Set(['none','hop-cone','hop-leaf','wheat','grain','citrus','cherry','raspberry','coffee','cacao','pine-needle','yeast-cell','barrel','wild-bottle','sparkle','question']);
-    const ACCENTS = new Set(['hop-green','citrus-gold','wheat-gold','roasted-brown','malt-gold','gold','cyan','ruby','wild-green']);
-    const allowedKeys = new Set(['vessel','liquid','foam','primaryMotif','secondaryMotif','accent']);
+    const allowedKeys = new Set(['vessel','liquid','foam','primaryMotif','secondaryMotif','composition','accent','clarity','fillLevel']);
+    const legacyVessels = new Set(['british-pint','pilsner','weizen','tulip','mug','flute','can']);
+    const legacyFoams = new Set(['overflow-white','thin-cream','regular-cream','generous-cream','pink']);
+    const legacyMotifs = new Set(['wheat','grain','citrus','coffee','cacao','pine-needle','yeast-cell','cherry','raspberry','question']);
     const recipes = appMeta.iconRecipes;
     if (!recipes || Array.isArray(recipes) || typeof recipes !== 'object') add('invalid style icon recipes');
     else {
@@ -168,16 +167,28 @@ export function validateTaxonomy(nodes, links, aliases, version, world = WORLD, 
         const recipe = recipes[id];
         if (!recipe) { add(`missing style icon recipe: ${id}`); continue; }
         for (const key of Object.keys(recipe)) if (!allowedKeys.has(key)) add(`unknown icon recipe key: ${id}.${key}`);
+        if (legacyVessels.has(recipe.vessel)) add(`obsolete icon vessel: ${id}.${recipe.vessel}`);
         if (!VESSELS.has(recipe.vessel)) add(`unknown icon vessel: ${id}`);
-        if (!LIQUIDS.has(recipe.liquid)) add(`unknown icon liquid: ${id}`);
+        if (!Object.hasOwn(LIQUIDS, recipe.liquid)) add(`unknown icon liquid: ${id}`);
+        if (legacyFoams.has(recipe.foam)) add(`obsolete icon foam: ${id}.${recipe.foam}`);
         if (!FOAMS.has(recipe.foam)) add(`unknown icon foam: ${id}`);
+        if (legacyMotifs.has(recipe.primaryMotif)) add(`obsolete primary icon motif: ${id}.${recipe.primaryMotif}`);
         if (!MOTIFS.has(recipe.primaryMotif)) add(`unknown primary icon motif: ${id}`);
-        if (recipe.secondaryMotif !== undefined && !MOTIFS.has(recipe.secondaryMotif)) add(`unknown secondary icon motif: ${id}`);
+        if (recipe.secondaryMotif !== undefined) {
+          if (legacyMotifs.has(recipe.secondaryMotif)) add(`obsolete secondary icon motif: ${id}.${recipe.secondaryMotif}`);
+          if (!MOTIFS.has(recipe.secondaryMotif)) add(`unknown secondary icon motif: ${id}`);
+        }
+        if (!COMPOSITIONS.has(recipe.composition)) add(`unknown icon composition: ${id}`);
         if (!ACCENTS.has(recipe.accent)) add(`unknown icon accent: ${id}`);
+        if (!CLARITIES.has(recipe.clarity ?? 'clear')) add(`unknown icon clarity: ${id}`);
+        if (!FILL_LEVELS.has(recipe.fillLevel ?? 'normal')) add(`unknown icon fillLevel: ${id}`);
       }
       for (const id of Object.keys(recipes)) if (!capturableIds.has(id)) add(`orphan style icon recipe: ${id}`);
     }
+    const structuralRecipeIds = new Set(['beer','fermentation-high','fermentation-low','fermentation-spontaneous','fermentation-mixed-wild','family-pale-ale-ipa','family-wheat-beer','family-pale-lager']);
+    for (const id of nodes.filter(n => n.functionalType === 'structure').map(n => n.id)) if (!structuralRecipeIds.has(id)) add(`missing structural icon recipe: ${id}`);
   }
+
 
   const stats = {
     nodeCount: nodes.length,

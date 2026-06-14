@@ -1,9 +1,9 @@
 {
-  "appVersion": "0.3.1",
+  "appVersion": "0.3.2",
   "taxonomyVersion": "0.1.2-prototype.3",
   "schemaVersion": 1,
   "status": "prototype",
-  "scope": "Prototype Pale Ale, IPA, quatre troncs de fermentation et liens secondaires voisins — révision des coordonnées et du layout sans modification du corpus taxonomique.",
+  "scope": "Prototype Pale Ale, IPA, quatre troncs de fermentation et liens secondaires voisins \u2014 r\u00e9vision des coordonn\u00e9es et du layout sans modification du corpus taxonomique.",
   "nodeCount": 28,
   "structureNodeCount": 8,
   "capturableNodeCount": 20,
@@ -17,7 +17,7 @@
     },
     {
       "id": "prototype-v0.1.2",
-      "label": "Révision des coordonnées et du layout V0.2.7 sans modification du corpus taxonomique"
+      "label": "R\u00e9vision des coordonn\u00e9es et du layout V0.2.7 sans modification du corpus taxonomique"
     }
   ]
 }
