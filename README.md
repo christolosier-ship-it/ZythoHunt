@@ -5,48 +5,21 @@ Carte interactive : **la Zythosphère**. Encyclopédie future : **la Brassopédi
 
 ## Versions
 
-- Application : **0.2.5**
+- Application : **0.3.0**
 - Taxonomie : **0.1.2-prototype.3**
+- Présentation cartographique : **1.0.0**
 
+## V0.3.0 — Refonte visuelle et UX de référence
 
-## V0.2.5 — Hotfix des dimensions Canvas et stabilisation
+La V0.3.0 remplace la direction artistique mousse/caramel par une Zythosphère bleue et cyan inspirée de la référence visuelle jointe à la mission : fond bleu profond pétillant, ramifications dorées, médaillons en verre, pictogrammes brassicoles vectoriels et hiérarchie descendante/radiale.
 
-La V0.2.4 a été rejetée en validation visuelle : les tailles natives des sprites canoniques étaient réutilisées comme dimensions finales, produisant des bulles géantes, des superpositions et une charge GPU excessive.
+La fluidité V0.2.7 reste le socle technique : un seul Canvas plein écran, une surface caméra transformée en CSS pendant pan/pinch, aucun rendu Canvas complet pendant `pointermove`, puis un rendu final au commit du geste.
 
-La V0.2.5 corrige uniquement ce contrat :
+## Données et présentation
 
-- le cache choisit une résolution source bornée, jamais la taille finale ;
-- le renderer dessine les styles à leur diamètre CSS demandé ;
-- les structures sont dessinées directement en Canvas ;
-- les territoires, liens fantômes et décorations coûteuses sont désactivés par défaut ;
-- la taxonomie reste `0.1.2-prototype.3` et les coordonnées V0.2.4 sont conservées.
-
-## V0.2.2 — Interface plein écran et shell applicatif
-
-La V0.2.2 consolide l’UX de la Zythosphère sans modifier la taxonomie ni démarrer les vues futures :
-
-- suppression du header public et des versions visibles dans l’interface principale ;
-- shell applicatif plein écran avec `app-shell`, `view-root` et navigation globale extérieure aux vues ;
-- Zythosphère sur toute la surface disponible, derrière des overlays fixes ;
-- barre de révélation compacte en haut, compatible safe area iPhone ;
-- barre de contrôles de carte en bas, juste au-dessus de la navigation ;
-- navigation globale permanente avec quatre icônes SVG inline distinctes ;
-- fond CSS clair inspiré de mousse de bière ;
-- Canvas statique transparent : le moteur Canvas ne redessine plus le fond vert à chaque rendu ;
-- calcul d’insets pour protéger le fit et le focus sous les overlays.
-
-## Moteur Canvas
-
-Le moteur **Canvas 2D natif** reste le moteur par défaut :
-
-- un Canvas statique pour les liens, structures et bulles ;
-- un Canvas dynamique réservé aux effets transitoires ;
-- une couche HTML légère pour l’accessibilité et les styles découverts visibles ;
-- culling des éléments hors viewport ;
-- niveaux de détail selon le zoom ;
-- cache de sprites générés en mémoire.
-
-Le moteur Canvas 2D est désormais l’unique moteur graphique de la Zythosphère.
+- `data/taxonomy-nodes.json` conserve le corpus taxonomique actuel.
+- `data/map-presentation.json` est la source de vérité visuelle : version de présentation, monde 4800 × 3000, coordonnées, niveau visuel, pictogramme et palette.
+- Les noms, parents, alias et relations restent dans les fichiers taxonomiques existants.
 
 ## Règle de visibilité
 
@@ -55,16 +28,19 @@ Le moteur Canvas 2D est désormais l’unique moteur graphique de la Zythosphèr
 - Un style inconnu affiche `?` uniquement lorsque sa taille apparente le permet ; en vue générale il peut rester une perle anonyme.
 - Un style inconnu ne révèle aucun nom, alias ou description.
 - Un style inconnu n’est pas consultable, focusable ni cliquable.
-- Un style découvert affiche son nom et devient sélectionnable.
-- Les liens stylistiques inconnus peuvent apparaître en fantôme discret ; les liens révélés sont renforcés progressivement.
+- Un style découvert affiche son pictogramme et son nom selon le zoom, puis devient sélectionnable.
+- Les liens stylistiques inconnus restent discrets ; les liens révélés sont renforcés.
 - Chaque style reste découvert individuellement.
 - Une révélation ne révèle aucun autre nom.
 
-## Révélation
+## Zoom sémantique
 
-La barre supérieure permet de saisir un style goûté. La recherche utilise noms officiels, noms courts, noms originaux et alias, avec normalisation de casse, accents, tirets et espaces. Elle ne propose pas d’autocomplétion révélatrice.
+La géométrie est fixe et zoomée uniformément. Les détails changent seulement au rendu validé :
 
-Les découvertes restent **uniquement en mémoire** : elles sont réinitialisées au rechargement. La révélation de `West Coast IPA` ne révèle pas `IPA`, `American IPA` ni aucun autre style.
+1. **Overview** : médaillons simplifiés, styles en pastilles, liens principaux.
+2. **Structure** : noms des structures, pictogrammes structurels, inconnus anonymes ou `?` petits.
+3. **Branch** : styles découverts abrégés, pictogrammes, sélection.
+4. **Detail** : noms complets, reflets, contours et états renforcés.
 
 ## Navigation globale
 
@@ -77,10 +53,6 @@ La navigation permanente contient :
 
 La Zythosphère reste active. Les trois autres entrées affichent seulement un toast provisoire et ne développent pas encore leurs vues.
 
-## Safe areas et responsive
-
-Les overlays utilisent les safe areas (`env(safe-area-inset-*)`) et une mesure de hauteur partagée via `--global-nav-height`, `--zytho-search-height` et `--map-toolbar-height`. Ces mesures alimentent les insets de carte afin que la vue générale et le focus ne placent pas volontairement les bulles sous la recherche, les contrôles ou la navigation basse.
-
 ## Limites actuelles
 
 - Pas de persistance, IndexedDB, localStorage ni cookie.
@@ -88,7 +60,7 @@ Les overlays utilisent les safe areas (`env(safe-area-inset-*)`) et une mesure d
 - Pas de journal de dégustation.
 - Pas de vue Progression fonctionnelle.
 - Pas de PWA, manifeste ni service worker.
-- Les bulles peuvent encore être améliorées artistiquement après validation humaine.
+- Validation tactile réelle Safari iPad à faire humainement.
 
 ## Lancement
 
@@ -98,57 +70,12 @@ python3 -m http.server 4173
 
 Ouvrir `http://127.0.0.1:4173/`.
 
-## Tests
+## Validation
 
 ```bash
-npm test
+npm run validate
 ```
-
-## Paramètres debug
-
-- `?debug=1&renderer=canvas` : force le moteur Canvas.
-- `?debug=1&load=200` : scénario de charge logique accepté (20, 50, 100, 200, 300).
-
-Le panneau debug conserve les compteurs et versions retirés de l’interface publique.
 
 ## Conception responsable
 
 ZythoHunt s’adresse à un public adulte et encourage la curiosité brassicole sans pression de consommation. Les données personnelles futures resteront locales, exportables, séparées du référentiel commun et sans compte obligatoire.
-
-## V0.2.3 — Optimisation Canvas, gestes mobiles et confort de navigation
-
-La V0.2.3 consolide le moteur Canvas existant sans remplacer la technologie ni démarrer la Brassopédie, la persistance ou la PWA.
-
-- **Ordonnanceur de rendu** : les demandes rapides de pan, zoom, révélation et synchronisation HTML sont fusionnées via `requestAnimationFrame` par `createRenderScheduler`.
-- **Redimensionnement conditionnel** : les Canvas ne sont redimensionnés que si la taille CSS ou le DPR effectif change ; les compteurs debug exposent les resize.
-- **Hit layer persistant** : les boutons HTML des styles découverts sont conservés par identifiant, repositionnés et masqués hors viewport au lieu d’être reconstruits globalement.
-- **Gestes dédiés au viewport** : pan, molette et pointer events sont attachés à `.zythosphere-viewport`, pas aux contrôles de carte.
-- **Accueil et Tout voir** : Accueil restaure une vue de départ centrée sur la structure ; Tout voir ajuste la cartographie complète avec le minimum dynamique.
-- **LOD réels** : les niveaux éloigné, intermédiaire et proche ont des profils distincts, avec hystérésis, texte court et microbulles limitées au niveau riche.
-- **Cache borné** : le cache de sprites utilise des tailles canoniques, une clé stable incluant thème/DPR/LOD et une éviction LRU plafonnée.
-- **Canvas dynamique** : la couche dynamique est réservée aux états transitoires de révélation et sélection, puis reste inactive au repos.
-- **Thème Canvas** : les couleurs principales sont lues depuis les variables CSS pour éviter les duplications en dur.
-- **Révélation** : la barre affiche un état en cours, un succès temporaire, les erreurs précises, le cas déjà révélé et un bouton d’effacement accessible.
-- **Accessibilité** : les Canvas restent `aria-hidden`, les zones tactiles des styles découverts visent au moins 44 px et la live region est réservée aux actions importantes.
-- **Tests de charge** : le banc synthétique reste disponible pour 20, 50, 100, 200 et 300 nœuds via le mode debug.
-
-Les bulles inconnues restent visibles avec `?`, non interactives et sans nom accessible. Une révélation ne dévoile aucun autre style.
-
-## V0.2.7 — stabilisation des échelles et fluidité Safari
-
-La V0.2.7 revient à une Zythosphère plus simple : la priorité est la lisibilité immédiate et un pan/zoom fluide, notamment sur Safari iPad.
-
-- Les animations permanentes du rendu Canvas normal sont supprimées ; seule la révélation d’un style peut animer temporairement la couche dynamique.
-- La sélection est statique : contour, état visuel et lien renforcé, sans pulsation.
-- Les tailles de styles sont progressives et bornées : inconnues 10–24 px de rayon, découvertes 15–36 px, sélectionnées 17–40 px.
-- Les structures utilisent des dimensions progressives et ne dépassent pas 170 × 94 px.
-- La vue Accueil cadre uniquement les huit structures principales ; le bouton Tout voir reste dédié à la carte complète.
-- La révélation cadre un voisinage local du style, avec parent, famille, fratrie et enfants directs dans une limite courte.
-- Le DPR Canvas est adaptatif pour éviter les très grands buffers sur iPad et desktop.
-- Un mode interaction rapide simplifie le rendu pendant pan, wheel et pinch, puis restaure la qualité après le geste.
-- Les `backdrop-filter` et grandes ombres de l’interface normale sont retirés au profit de fonds quasi opaques.
-- Les diagnostics de layout ne calculent plus les collisions hors debug actif et panneau demandé.
-
-### Limitations actuelles
-
-La validation tactile réelle sur Safari iPad reste obligatoire : l’environnement automatisé ne permet pas de confirmer le ressenti de latence, le pinch matériel ni la stabilité mémoire sur appareil réel.

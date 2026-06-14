@@ -48,3 +48,8 @@
 - Les ramifications peuvent apparaître sans afficher les bulles cachées.
 - Capture et dégustation sont deux objets différents.
 - La Zythosphère et la Brassopédie utilisent une seule source de données.
+
+## Note V0.3.0
+
+- La présentation cartographique est séparée dans `data/map-presentation.json` et doit rester cohérente avec la taxonomie sans dupliquer noms, parents ni alias.
+- La direction artistique courante est bleu/cyan/or avec médaillons en verre ; ne pas restaurer l’ancienne DA mousse/caramel.

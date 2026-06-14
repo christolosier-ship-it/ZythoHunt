@@ -7,7 +7,7 @@ const LINK_TYPES = new Set(['primary', 'related-style']);
 const ID_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const REQUIRED_NODE_FIELDS = ['id', 'nodeType', 'functionalType', 'name', 'shortName', 'originalName', 'rank', 'secondaryParentIds', 'position', 'visualFamily', 'capturable', 'status', 'sourceRefs'];
 
-export function validateTaxonomy(nodes, links, aliases, version, world = WORLD, appMeta = {}) {
+export function validateTaxonomy(nodes, links, aliases, version, world = WORLD, appMeta = {}, presentation = null) {
   const errors = [];
   const warnings = [];
   const add = message => errors.push(message);
@@ -119,6 +119,36 @@ export function validateTaxonomy(nodes, links, aliases, version, world = WORLD, 
       if (primaryOwner && primaryOwner !== id) add(`alias equals another primary name: ${alias}`);
       if (aliasOwner.has(normalized) && aliasOwner.get(normalized) !== id) add(`ambiguous alias: ${alias}`);
       aliasOwner.set(normalized, id);
+    }
+  }
+
+
+
+  if (presentation) {
+    const allowedLevels = new Set(['root', 'fermentation', 'family', 'style']);
+    const allowedIcons = new Set(['beer-mug', 'ale-glass', 'lager-glass', 'hop', 'wheat', 'tulip', 'pint', 'dark-glass', 'bottle', 'fruit', 'question']);
+    const allowedPalettes = new Set(['root-gold', 'ale-amber', 'lager-gold', 'wheat-gold', 'dark-malt', 'wild-green', 'fruit-rose']);
+    if (presentation.presentationVersion !== '1.0.0') add('map presentationVersion mismatch');
+    if (!presentation.world || typeof presentation.world.width !== 'number' || typeof presentation.world.height !== 'number') add('invalid presentation world');
+    if (!presentation.nodes || Array.isArray(presentation.nodes) || typeof presentation.nodes !== 'object') add('invalid presentation nodes');
+    else {
+      for (const id of ids) {
+        const item = presentation.nodes[id];
+        if (!item) { add(`missing presentation node: ${id}`); continue; }
+        if (typeof item.x !== 'number' || typeof item.y !== 'number') add(`invalid presentation position: ${id}`);
+        else if (item.x < 0 || item.y < 0 || item.x > presentation.world.width || item.y > presentation.world.height) add(`presentation position out of bounds: ${id}`);
+        if (!allowedLevels.has(item.visualLevel)) add(`unknown visualLevel: ${id}`);
+        if (!allowedIcons.has(item.iconKey)) add(`unknown iconKey: ${id}`);
+        if (!allowedPalettes.has(item.paletteKey)) add(`unknown paletteKey: ${id}`);
+      }
+      for (const id of Object.keys(presentation.nodes)) if (!ids.has(id)) add(`presentation for unknown node: ${id}`);
+      for (let i=0;i<nodes.length;i++) for (let j=i+1;j<nodes.length;j++) {
+        const a=presentation.nodes[nodes[i].id], b=presentation.nodes[nodes[j].id];
+        if (!a || !b) continue;
+        const ra = nodes[i].functionalType === 'structure' ? 90 : 48;
+        const rb = nodes[j].functionalType === 'structure' ? 90 : 48;
+        if (Math.hypot(a.x-b.x,a.y-b.y) < (ra+rb)*0.72) warn(`presentation nodes close: ${nodes[i].id} / ${nodes[j].id}`);
+      }
     }
   }
 
