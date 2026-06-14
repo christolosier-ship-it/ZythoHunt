@@ -1,0 +1,23 @@
+{
+  "totalNodeCount": 272,
+  "totalLinkCount": 271,
+  "nodeCount": 272,
+  "styleCount": 201,
+  "structureCount": 71,
+  "linkCount": 271,
+  "worldWidth": 28871.09,
+  "worldHeight": 33560.13,
+  "maxTaxonomyDepth": 4,
+  "maxSpatialDepth": 4.84,
+  "nodeCollisionsBeforeResolution": 74,
+  "nodeCollisionsAfterResolution": 0,
+  "linkNodeIntersectionsBeforeResolution": 20,
+  "linkNodeIntersectionsAfterResolution": 20,
+  "linkCrossingsBeforeResolution": 0,
+  "linkCrossingsAfterResolution": 0,
+  "minimumNodeGap": 0.35,
+  "maximumBezierLength": 9233.47,
+  "averageBezierLength": 2104.8,
+  "layoutIterationCount": 9,
+  "routingIterationCount": 1
+}

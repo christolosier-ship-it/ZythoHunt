@@ -8,7 +8,7 @@ const [nodes, links, aliases, version, pkg, presentation, iconRecipes] = await P
   readJson('data/aliases.json'),
   readJson('data/taxonomy-version.json'),
   readJson('package.json'),
-  readJson('data/map-presentation.json'),
+  readJson('data/generated/zythosphere-layout.json'),
   readJson('data/style-icon-recipes.json')
 ]);
 const result = validateTaxonomy(nodes, links, aliases, version, undefined, { packageVersion: pkg.version, iconRecipes }, presentation);

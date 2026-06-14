@@ -9,7 +9,7 @@ function withPresentation(nodes, presentation) {
 }
 export async function loadTaxonomy() {
   if (location.protocol === 'file:') throw new Error('Un serveur HTTP local est nécessaire. Lancez par exemple : python3 -m http.server 8080');
-  const [nodes, links, aliases, version, presentation, iconRecipes] = await Promise.all([loadJson('../../data/taxonomy-nodes.json'), loadJson('../../data/taxonomy-links.json'), loadJson('../../data/aliases.json'), loadJson('../../data/taxonomy-version.json'), loadJson('../../data/map-presentation.json'), loadJson('../../data/style-icon-recipes.json')]);
+  const [nodes, links, aliases, version, presentation, iconRecipes] = await Promise.all([loadJson('../../data/taxonomy-nodes.json'), loadJson('../../data/taxonomy-links.json'), loadJson('../../data/aliases.json'), loadJson('../../data/taxonomy-version.json'), loadJson('../../data/generated/zythosphere-layout.json'), loadJson('../../data/style-icon-recipes.json')]);
   const joined = withPresentation(nodes.map(n => ({...n, aliases: aliases[n.id] || [], iconRecipe: iconRecipes[n.id]})), presentation);
   const validation = validateTaxonomy(nodes, links, aliases, version, undefined, { iconRecipes }, presentation);
   if(!validation.valid) { console.error('Validation taxonomique échouée', validation); throw new Error(`Taxonomie invalide (${validation.errors.length} erreur(s))`); }

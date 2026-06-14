@@ -1,4 +1,4 @@
-export const NODE_METRICS_VERSION = '0.4.1';
+export const NODE_METRICS_VERSION = '0.4.2';
 export const NODE_METRICS = {
   root: { medallionRadius: 135, medallionHeight: 270, textMaxWidth: 260, textMaxHeight: 56, margin: 34, stroke: 8, safety: 42 },
   universe: { medallionRadius: 112, medallionHeight: 224, textMaxWidth: 300, textMaxHeight: 82, margin: 30, stroke: 7, safety: 38 },

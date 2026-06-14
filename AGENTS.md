@@ -1,55 +1,45 @@
 # Instructions pour les agents ZythoHunt
 
-## Avant toute intervention
+## Avant intervention
 
-1. Lire entièrement `roadmap.md`, source de vérité du projet.
-2. Lire les documents pertinents du dossier `docs/`.
-3. Inspecter le code et les documents existants.
-4. Identifier la phase active et ses prérequis.
-5. Vérifier que les prérequis sont satisfaits.
-6. Ne pas dépasser le périmètre demandé.
+1. Lire `README.md` et `roadmap.md`.
+2. Lire les documents pertinents de `docs/`.
+3. Inspecter le code et les données avant modification.
+4. Vérifier la phase active et ne pas dépasser son périmètre.
 
-## Pendant l’intervention
+## Invariants produit
 
-- Préserver les décisions déjà validées.
-- Ne pas inventer de nouvelle règle produit.
-- Placer les incertitudes dans une section « À arbitrer ».
-- Ne jamais modifier silencieusement une règle structurante.
-- Privilégier des changements limités, testables et réversibles.
-- Séparer le référentiel commun des données personnelles.
-- Ne pas générer de fichiers PNG.
-- Ne pas ajouter de dépendance sans justification documentée.
-- Respecter le fonctionnement hors ligne futur.
-- Préserver la compatibilité mobile et iPhone Safari.
-- Ne pas réintroduire de moteur SVG pour la Zythosphère.
-- Ne pas conserver deux Canvas plein écran permanents.
-- Ne pas ajouter de debug permanent, de charge synthétique ou de diagnostics continus.
-- Ne pas restaurer les tests historiques supprimés.
-- Ne pas ajouter d’animation permanente hors révélation.
-- Ne jamais déclencher de redraw Canvas complet pendant `pointermove`.
-
-## Après l’intervention
-
-- Exécuter les vérifications pertinentes.
-- Inspecter le diff complet.
-- Mettre à jour les cases de la roadmap.
-- Ne cocher `[x]` que les tâches réellement terminées et vérifiées.
-- Utiliser `[~]` pour une tâche partielle.
-- Utiliser `[!]` pour un blocage.
-- Ajouter une entrée au journal d’avancement.
-- Fournir un compte rendu final.
-- Ne pas lancer automatiquement la phase suivante.
-
-## Règles cardinales du produit
-
-- Les nœuds structurels et les bulles inconnues marquées ? sont visibles par défaut. Seul le nom d’un style découvert est visible.
+- Les nœuds structurels et les bulles inconnues `?` sont visibles par défaut.
+- Un style inconnu ne révèle ni nom, ni alias, ni fiche.
 - Chaque style est capturé individuellement.
 - Une capture ne révèle aucun autre style.
-- Les ramifications peuvent apparaître sans afficher les bulles cachées.
 - Capture et dégustation sont deux objets différents.
-- La Zythosphère et la Brassopédie utilisent une seule source de données.
+- Taxonomie, layout généré et iconographie déclarative sont séparés.
+- La Zythosphère et la future Brassopédie utilisent le même référentiel taxonomique.
 
-## Note V0.3.0
+## Contraintes techniques
 
-- La présentation cartographique est séparée dans `data/map-presentation.json` et doit rester cohérente avec la taxonomie sans dupliquer noms, parents ni alias.
-- La direction artistique courante est bleu/cyan/or avec médaillons en verre ; ne pas restaurer l’ancienne DA mousse/caramel.
+- Conserver un moteur Canvas unique pour la carte.
+- Ne pas réintroduire de moteur SVG.
+- Ne jamais déclencher de redraw Canvas complet pendant `pointermove`.
+- Ne pas recalculer layout, collisions ou routage dans le navigateur pendant pan/pinch.
+- Préserver la compatibilité mobile et iPhone/iPad Safari.
+- Ne pas ajouter de dépendance ou framework sans justification documentée.
+- Ne pas générer ni intégrer de fichiers PNG.
+
+## Données
+
+- Ne pas modifier identifiants, noms canoniques, alias, parents, capturabilité ou rangs sans mission explicite.
+- Les coordonnées graphiques appartiennent au layout généré, pas à la taxonomie.
+- Les rapports et diagnostics ne doivent pas être chargés par le navigateur.
+
+## Validation
+
+- Exécuter les validateurs pertinents après modification.
+- Inspecter le diff complet.
+- Mettre à jour la roadmap : `[x]` terminé et vérifié, `[~]` partiel, `[!]` bloqué.
+- Ajouter une entrée au journal d’avancement si le périmètre change.
+
+## Git
+
+- Ne pas faire de commit ou push sans instruction explicite.

@@ -1,5 +1,5 @@
 export const ICON_SCHEMA_VERSION = '2.0.0';
-export const ICON_THEME_VERSION = 'zytho-blue-cyan-gold-0.4.1';
+export const ICON_THEME_VERSION = 'zytho-blue-cyan-gold-0.4.2';
 export const VESSELS = new Set(['teku','inao','tulip','nonic','stange','pint','weizen','snifter','pilsner','beer-mug','chalice','stout-glass']);
 export const LIQUIDS = {
   'pale-straw': {top:'#f8e98d', bottom:'#e7bd36', clarity:'clear', opacity:1},
