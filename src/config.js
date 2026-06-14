@@ -1,7 +1,7 @@
-export const APP_VERSION = '0.4.0';
+export const APP_VERSION = '0.4.1';
 export const TAXONOMY_VERSION = '1.0.0';
 export const TAXONOMY_SCHEMA_VERSION = 2;
-export const WORLD = { width: 9000, height: 9000 };
+export const WORLD = { width: 20000, height: 20000 };
 export const EXPECTED_COUNTS = {
   nodeCount: 272,
   structureNodeCount: 71,

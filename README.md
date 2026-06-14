@@ -5,9 +5,9 @@ Carte interactive : **la Zythosphère**. Encyclopédie future : **la Brassopédi
 
 ## Versions
 
-- Application : **0.4.0**
+- Application : **0.4.1**
 - Taxonomie : **1.0.0**
-- Présentation cartographique : **2.0.0**
+- Présentation cartographique : **2.1.0**
 
 ## V0.3.0 — Refonte visuelle et UX de référence
 
@@ -113,3 +113,8 @@ npm run validate:taxonomy
 npm run validate:layout
 npm run validate
 ```
+
+
+## V0.4.1 — Layout radial organique et routage Bézier
+
+La V0.4.1 remplace les anneaux fixes et le routage `radial-arc` par un layout radial organique généré hors navigateur. Les métriques partagées réservent les boîtes maximales des nœuds, les secteurs sont alloués selon l’encombrement des sous-arbres, le monde est dimensionné après placement et les liens visibles utilisent des Bézier cubiques précalculées avec culling viewport.

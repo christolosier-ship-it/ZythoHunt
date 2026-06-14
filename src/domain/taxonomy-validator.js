@@ -129,7 +129,7 @@ export function validateTaxonomy(nodes, links, aliases, version, world = WORLD, 
     const allowedLevels = new Set(['root', 'fermentation', 'family', 'style']);
     const allowedIcons = new Set(['beer-mug', 'ale-glass', 'lager-glass', 'hop', 'wheat', 'tulip', 'pint', 'dark-glass', 'bottle', 'fruit', 'question']);
     const allowedPalettes = new Set(['root-gold', 'ale-amber', 'lager-gold', 'wheat-gold', 'dark-malt', 'wild-green', 'fruit-rose']);
-    if (presentation.presentationVersion !== '2.0.0') add('map presentationVersion mismatch');
+    if (presentation.presentationVersion !== '2.1.0') add('map presentationVersion mismatch');
     if (!presentation.world || typeof presentation.world.width !== 'number' || typeof presentation.world.height !== 'number') add('invalid presentation world');
     if (!presentation.nodes || Array.isArray(presentation.nodes) || typeof presentation.nodes !== 'object') add('invalid presentation nodes');
     else {
@@ -153,11 +153,13 @@ export function validateTaxonomy(nodes, links, aliases, version, world = WORLD, 
     }
 
       if (presentation.report) {
-        if (presentation.report.remainingCollisions !== 0) add('layout remaining collisions must be 0');
-        if (presentation.report.remainingCrossings !== 0) add('layout remaining crossings must be 0');
-        if (presentation.report.nodeCount !== nodes.length) add('layout node count mismatch');
+        if (presentation.report.nodeCollisionsAfterResolution !== 0) add('layout node collisions after resolution must be 0');
+        if (presentation.report.linkNodeIntersectionsAfterResolution !== 0) add('layout link-node intersections after resolution must be 0');
+        if (presentation.report.linkCrossingsAfterResolution !== 0) add('layout link crossings after resolution must be 0');
+        if (presentation.report.minimumNodeGap < 0) add('layout minimum node gap must be positive');
+        if (presentation.report.totalNodeCount !== nodes.length) add('layout node count mismatch');
         if (presentation.report.styleCount !== nodes.filter(n => n.functionalType === 'capturable').length) add('layout style count mismatch');
-        if (presentation.report.linkCount !== links.filter(l => l.linkType === 'primary').length) add('layout link count mismatch');
+        if (presentation.report.totalLinkCount !== links.filter(l => l.linkType === 'primary').length) add('layout link count mismatch');
       }
   }
 

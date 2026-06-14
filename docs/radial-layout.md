@@ -1,13 +1,26 @@
-# Layout radial V0.4.0
+# Layout radial V0.4.1
 
-Le layout est généré par `scripts/build-radial-layout.mjs`.
+La V0.4.1 remplace le layout à anneaux fixes par une génération radiale organique précalculée.
 
-1. Chargement de `data/taxonomy-nodes.json`.
-2. Construction de l'arbre depuis `parentId`.
-3. Comptage des feuilles capturables descendantes.
-4. Attribution des secteurs d'univers avec `sqrt(descendantLeafCount)`.
-5. Placement sur anneaux radiaux par rang, avec sous-anneaux pour fratries denses.
-6. Export de `data/generated/zythosphere-layout.json` et `data/map-presentation.json`.
-7. Rapport validé : nœuds, styles, structures, liens, profondeur, sous-anneaux, collisions restantes et croisements restants.
+## Principes
 
-Les coordonnées monde sont indépendantes de la résolution écran. Les liens graphiques restent hiérarchiques ; les relations secondaires ne sont pas dessinées dans la Zythosphère.
+- Le rang taxonomique reste logique et ne force plus un rayon unique.
+- Les six univers reçoivent des secteurs distincts, pondérés par l'encombrement mesuré des sous-arbres.
+- Les coordonnées, boîtes de collision et routes sont générées hors navigateur dans `data/generated/zythosphere-layout.json`, puis recopiées dans `data/map-presentation.json`.
+- Les métriques de nœuds sont partagées dans `src/map/layout/node-metrics.js` et réservent l'état maximal d'un style sélectionné.
+- Tous les liens primaires sont des Bézier cubiques précalculées avec `start`, `control1`, `control2` et `end` sur les bords des boîtes de nœuds.
+
+## Validation géométrique
+
+Le rapport généré expose les compteurs réels de la passe V0.4.1 : collisions de nœuds avant/après résolution, intersections lien-nœud, croisements lien-lien, dimensions du monde, profondeur spatiale et longueurs de Bézier.
+
+Les valeurs finales attendues sont :
+
+- `nodeCollisionsAfterResolution = 0` ;
+- `linkNodeIntersectionsAfterResolution = 0` ;
+- `linkCrossingsAfterResolution = 0` ;
+- `minimumNodeGap >= 0`.
+
+## Rendu
+
+Le renderer Canvas ne parcourt plus tous les liens : il dessine `scene.visibleLinks`, puis applique un culling par boîte englobante pour les nœuds et les liens intersectant le viewport monde augmenté d'un overscan.

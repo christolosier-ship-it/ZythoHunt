@@ -7,7 +7,7 @@
 ## 1. Identité du projet
 
 - Application : **ZythoHunt**.
-- Version applicative actuelle : **0.4.0**.
+- Version applicative actuelle : **0.4.1**.
 - Version taxonomique conservée : **1.0.0**.
 - Corpus courant : 28 nœuds, 8 structures, 20 styles capturables, 27 liens principaux, 2 liens secondaires.
 - Technologies : HTML, CSS et JavaScript ES modules sans dépendance npm applicative.
@@ -300,3 +300,25 @@ Intégrer le canon ZythoHunt Taxonomy 1.0.0, remplacer la cartographie pyramidal
 - Layout radial déterministe généré autour de Bière avec secteurs d’univers pondérés et sous-anneaux pour branches denses.
 - Rapport généré : collisions restantes 0, croisements restants 0.
 - À arbitrer : contrôle visuel complet et validation de fluidité sur Safari iPad réel, impossibles dans cet environnement.
+
+
+## V0.4.1 — Layout radial organique et routage Bézier sans collisions
+
+### Tâches
+
+- [x] Centraliser les métriques maximales de nœuds.
+- [x] Remplacer les anneaux fixes par des secteurs radiaux organiques.
+- [x] Générer des routes Bézier cubiques précalculées.
+- [x] Remplacer le dessin global des liens par `scene.visibleLinks` avec culling.
+- [x] Publier un rapport géométrique V0.4.1 avec dimensions du monde et compteurs finaux.
+- [!] Validation tactile Safari iPad réelle indisponible dans l’environnement agent.
+
+## Journal d’avancement — complément V0.4.1
+
+### 2026-06-14 — Layout radial organique et routage Bézier
+
+- Ajout de métriques partagées pour réserver les états inconnus, découverts et sélectionnés des styles.
+- Remplacement du générateur radial à anneaux par un placement déterministe à secteurs et rayons variables.
+- Suppression du routage `radial-arc` généré au profit de Bézier cubiques précalculées.
+- Ajout du culling de rendu des nœuds et liens visibles dans le viewport.
+- À arbitrer : validation visuelle fine et test Safari iPad réel, impossibles dans cet environnement.
