@@ -7,7 +7,7 @@
 ## 1. Identité du projet
 
 - Application : **ZythoHunt**.
-- Version applicative actuelle : **0.3.3**.
+- Version applicative actuelle : **0.3.4**.
 - Version taxonomique conservée : **0.1.2-prototype.3**.
 - Corpus courant : 28 nœuds, 8 structures, 20 styles capturables, 27 liens principaux, 2 liens secondaires.
 - Technologies : HTML, CSS et JavaScript ES modules sans dépendance npm applicative.
@@ -238,3 +238,38 @@ V0.3.3 est prête pour validation humaine dès que `npm run validate` réussit e
 - Refonte du registre de verres avec douze silhouettes Path2D distinctes et liquides découpés par verre.
 - Centralisation des liquides en objets `top`, `bottom`, `clarity` et `opacity`.
 - À arbitrer : contrôle visuel complet du bouton All et validation Safari iPad réelle, impossibles dans cet environnement.
+
+
+## 13. V0.3.4 — Correction iconographique : échelle, lisibilité et composition
+
+### Objectif
+
+Corriger le rendu artistique des médaillons sans changer la taxonomie, les coordonnées, le layout global ni l’architecture de fluidité.
+
+### Tâches
+
+- [x] Agrandir nettement les illustrations internes des styles et structures.
+- [x] Réduire et remonter le reflet blanc des médaillons.
+- [x] Alléger le fond interne par un dégradé plus respirant.
+- [x] Renforcer les contours des verres et accessoires.
+- [x] Augmenter la présence visuelle des liquides.
+- [x] Rendre les mousses plus volumineuses et lisibles.
+- [x] Rapprocher et agrandir les accessoires autour du verre.
+- [x] Remonter le texte pour mieux l’intégrer à l’emblème.
+- [x] Contrôler spécifiquement IPA, West Coast IPA, Black IPA, Double IPA et Mixte sauvage dans les recettes/compositions.
+- [!] Validation visuelle réelle via bouton All et Safari iPad indisponible dans l’environnement agent ; validation humaine obligatoire.
+
+### Critère de sortie
+
+V0.3.4 est prête pour validation humaine dès que `npm run validate` réussit et que le bouton All confirme la lisibilité globale dans un navigateur réel.
+
+## 14. Journal d’avancement — complément V0.3.4
+
+### 2026-06-14 — Correction iconographique : échelle, lisibilité et composition
+
+- Passage applicatif en 0.3.4 sans modifier la taxonomie ni la présentation cartographique.
+- Agrandissement des illustrations dans les médaillons, avec traitement plus fort pour les nœuds structurels.
+- Réduction du reflet elliptique, fond interne moins massif et texte remonté sous l’illustration.
+- Verres élargis, contours renforcés, liquides remontés, mousses plus expressives et accessoires rapprochés.
+- Contrôle prioritaire des recettes IPA, West Coast IPA, Black IPA, Double IPA et Mixte sauvage.
+- À arbitrer : validation visuelle complète du bouton All et validation Safari iPad réelle, impossibles dans cet environnement.
