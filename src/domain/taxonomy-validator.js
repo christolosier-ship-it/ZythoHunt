@@ -1,6 +1,6 @@
 import { APP_VERSION, EXPECTED_COUNTS, TAXONOMY_SCHEMA_VERSION, TAXONOMY_VERSION, WORLD } from '../config.js';
 import { normalizeSearchText } from './search.js';
-import { VESSELS, LIQUIDS, FOAMS, MOTIFS, ACCENTS, COMPOSITIONS, CLARITIES, FILL_LEVELS } from '../map/icons/icon-recipes.js';
+import { VESSELS, LIQUIDS, FOAMS, MOTIFS, ACCENTS, COMPOSITIONS } from '../map/icons/icon-recipes.js';
 
 const NODE_TYPES = new Set(['root', 'fermentation', 'family', 'branch', 'style', 'substyle', 'variant']);
 const FUNCTIONAL_TYPES = new Set(['structure', 'capturable']);
@@ -155,11 +155,14 @@ export function validateTaxonomy(nodes, links, aliases, version, world = WORLD, 
 
 
   if (appMeta.iconRecipes) {
-    const allowedKeys = new Set(['vessel','liquid','foam','primaryMotif','secondaryMotif','composition','accent','clarity','fillLevel']);
-    const legacyVessels = new Set(['british-pint','pilsner','weizen','tulip','mug','flute','can']);
+    const allowedKeys = new Set(['vessel','liquid','foam','primaryMotif','secondaryMotif','composition','accent']);
+    const canonicalVessels = ['teku','inao','tulip','nonic','stange','pint','weizen','snifter','pilsner','beer-mug','chalice','stout-glass'];
+    const legacyVessels = new Set(['american-pint','british-pint','british-nonic','irish-tulip-pint','pilsner-glass','weizen-glass','tulip-glass','belgian-chalice','teku-glass','willi-becher','pokal','witbier-tumbler','thistle-glass','beer-flute','mug','flute','can','bottle']);
     const legacyFoams = new Set(['overflow-white','thin-cream','regular-cream','generous-cream','pink']);
-    const legacyMotifs = new Set(['wheat','grain','citrus','coffee','cacao','pine-needle','yeast-cell','cherry','raspberry','question']);
+    const legacyMotifs = new Set(['wheat','grain','citrus','coffee','cacao','pine-needle','yeast-cell','question']);
     const recipes = appMeta.iconRecipes;
+    if (VESSELS.size !== 12 || canonicalVessels.some(v => !VESSELS.has(v))) add('icon vessel registry must contain exactly 12 canonical vessels');
+    const signatures = new Map();
     if (!recipes || Array.isArray(recipes) || typeof recipes !== 'object') add('invalid style icon recipes');
     else {
       const capturableIds = new Set(nodes.filter(n => n.functionalType === 'capturable').map(n => n.id));
@@ -180,10 +183,10 @@ export function validateTaxonomy(nodes, links, aliases, version, world = WORLD, 
         }
         if (!COMPOSITIONS.has(recipe.composition)) add(`unknown icon composition: ${id}`);
         if (!ACCENTS.has(recipe.accent)) add(`unknown icon accent: ${id}`);
-        if (!CLARITIES.has(recipe.clarity ?? 'clear')) add(`unknown icon clarity: ${id}`);
-        if (!FILL_LEVELS.has(recipe.fillLevel ?? 'normal')) add(`unknown icon fillLevel: ${id}`);
+        signatures.set(JSON.stringify(recipe, Object.keys(recipe).sort()), (signatures.get(JSON.stringify(recipe, Object.keys(recipe).sort())) || []).concat(id));
       }
       for (const id of Object.keys(recipes)) if (!capturableIds.has(id)) add(`orphan style icon recipe: ${id}`);
+      for (const [signature, ids] of signatures) if (ids.length > 1) add(`duplicate icon recipe: ${ids.join(', ')}`);
     }
     const structuralRecipeIds = new Set(['beer','fermentation-high','fermentation-low','fermentation-spontaneous','fermentation-mixed-wild','family-pale-ale-ipa','family-wheat-beer','family-pale-lager']);
     for (const id of nodes.filter(n => n.functionalType === 'structure').map(n => n.id)) if (!structuralRecipeIds.has(id)) add(`missing structural icon recipe: ${id}`);

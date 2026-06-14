@@ -7,7 +7,7 @@
 ## 1. Identité du projet
 
 - Application : **ZythoHunt**.
-- Version applicative actuelle : **0.3.2**.
+- Version applicative actuelle : **0.3.3**.
 - Version taxonomique conservée : **0.1.2-prototype.3**.
 - Corpus courant : 28 nœuds, 8 structures, 20 styles capturables, 27 liens principaux, 2 liens secondaires.
 - Technologies : HTML, CSS et JavaScript ES modules sans dépendance npm applicative.
@@ -172,7 +172,7 @@ V0.3.1 est prête pour validation humaine de l’iconographie, du bouton All et 
 - Révélation normale reséquencée : focus court de caméra avant mutation visuelle, puis animation de révélation et sélection du style ciblé uniquement.
 - À arbitrer : validation visuelle fine des pictogrammes et contrôle de fluidité sur Safari iPad réel, impossible dans cet environnement.
 
-## 9. V0.3.2 — Refonte iconographique générale
+## 9. V0.3.3 — Refonte iconographique générale
 
 ### Objectif
 
@@ -195,11 +195,11 @@ Remplacer les silhouettes trop génériques par une iconographie Canvas modulair
 
 ### Critère de sortie
 
-V0.3.2 est prête pour validation humaine de la refonte iconographique et du focus rapproché dès que `npm run validate` réussit et que le bouton All est contrôlé dans un navigateur.
+V0.3.3 est prête pour validation humaine de la refonte iconographique et du focus rapproché dès que `npm run validate` réussit et que le bouton All est contrôlé dans un navigateur.
 
-## 10. Journal d’avancement — complément V0.3.2
+## 10. Journal d’avancement — complément V0.3.3
 
-### 2026-06-14 — V0.3.2 refonte iconographique générale
+### 2026-06-14 — V0.3.3 refonte iconographique générale
 
 - Suppression de la duplication des recettes et migration vers `data/style-icon-recipes.json` comme source unique.
 - Ajout des modules `vessels.js`, `foams.js` et `compositions.js`, puis refonte des accessoires organiques existants.
@@ -207,3 +207,34 @@ V0.3.2 est prête pour validation humaine de la refonte iconographique et du foc
 - Ajout de compositions structurelles dédiées et passage de la présentation cartographique en 1.2.0.
 - Focus de révélation rapproché avec transformation CSS pendant l’interpolation et un seul rendu Canvas final.
 - À arbitrer : validation visuelle complète du bouton All et validation Safari iPad réelle, impossibles dans cet environnement.
+
+
+## 11. V0.3.3 — Normalisation des 12 verres et refonte iconographique
+
+### Objectif
+
+Adapter la mission V0.3.2 sur un dépôt déjà en 0.3.2 sans rétrogradation : passage applicatif en 0.3.3, conservation de la taxonomie 0.1.2-prototype.3 et maintien de la présentation iconographique 1.2.0.
+
+### Tâches
+
+- [x] Inventorier les clés de verres et recettes existantes.
+- [x] Migrer les recettes vers les 12 verres canoniques : teku, inao, tulip, nonic, stange, pint, weizen, snifter, pilsner, beer-mug, chalice et stout-glass.
+- [x] Supprimer les anciennes clés actives et les fallbacks cachés associés.
+- [x] Centraliser les liquides au schéma top/bottom/clarity/opacity.
+- [x] Conserver les mousses modulaires et les accessoires utiles, en ajoutant les motifs fruités manquants.
+- [x] Étendre la validation aux 12 verres exacts, aux anciennes clés, aux recettes dupliquées, aux registres de liquides, mousses, accessoires et compositions.
+- [!] Validation Safari iPad réelle indisponible dans l’environnement agent ; validation humaine obligatoire.
+
+### Critère de sortie
+
+V0.3.3 est prête pour validation humaine dès que `npm run validate` réussit et que le bouton All est contrôlé dans un navigateur réel.
+
+## 12. Journal d’avancement — complément V0.3.3
+
+### 2026-06-14 — Normalisation canonique des verres
+
+- Le dépôt étant déjà en 0.3.2, la version applicative a été incrémentée en 0.3.3 sans modifier la version taxonomique.
+- Migration des vingt recettes capturables vers les 12 clés de verres canoniques et suppression des clés `american-pint`, `british-nonic`, `pilsner-glass`, `weizen-glass`, `tulip-glass` et `belgian-chalice` des données actives.
+- Refonte du registre de verres avec douze silhouettes Path2D distinctes et liquides découpés par verre.
+- Centralisation des liquides en objets `top`, `bottom`, `clarity` et `opacity`.
+- À arbitrer : contrôle visuel complet du bouton All et validation Safari iPad réelle, impossibles dans cet environnement.

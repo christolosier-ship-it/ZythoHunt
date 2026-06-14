@@ -5,7 +5,7 @@ Carte interactive : **la Zythosphère**. Encyclopédie future : **la Brassopédi
 
 ## Versions
 
-- Application : **0.3.2**
+- Application : **0.3.3**
 - Taxonomie : **0.1.2-prototype.3**
 - Présentation cartographique : **1.2.0**
 
@@ -88,8 +88,8 @@ Les recettes de styles sont séparées de la taxonomie dans `data/style-icon-rec
 
 La barre de révélation ajoute un bouton de test **All** au-dessus de **Révéler**. Il révèle tous les styles en mémoire pour contrôle visuel, sans persistance, sans focus et sans animation individuelle. La révélation normale cadre désormais le style puis lance l’animation seulement après la fin du focus.
 
-## V0.3.2 — Refonte iconographique générale
+## V0.3.3 — Refonte iconographique générale
 
-La V0.3.2 supprime la copie JavaScript des recettes : `data/style-icon-recipes.json` est désormais l’unique source de vérité chargée par le loader et attachée aux nœuds capturables. La présentation cartographique passe en **1.2.0** sans modifier la taxonomie.
+La V0.3.3 supprime la copie JavaScript des recettes : `data/style-icon-recipes.json` est désormais l’unique source de vérité chargée par le loader et attachée aux nœuds capturables. La présentation cartographique passe en **1.2.0** sans modifier la taxonomie.
 
 Le système iconographique Canvas est découpé en verres, liquides, mousses, accessoires et compositions. Les sources de cache passent à 64, 128 et 256 px avec une clé fondée sur la signature de recette, le niveau de détail, la résolution canonique, la version de thème et la version de schéma. Le focus de révélation utilise une transformation CSS temporaire et ne redessine le Canvas qu’à l’arrivée.
