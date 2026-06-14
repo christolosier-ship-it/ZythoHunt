@@ -1,5 +1,5 @@
 {
-  "appVersion": "0.3.0",
+  "appVersion": "0.3.1",
   "taxonomyVersion": "0.1.2-prototype.3",
   "schemaVersion": 1,
   "status": "prototype",
@@ -9,7 +9,7 @@
   "capturableNodeCount": 20,
   "primaryLinkCount": 27,
   "secondaryLinkCount": 2,
-  "updatedAt": "2026-06-13",
+  "updatedAt": "2026-06-14",
   "sourceRefs": [
     {
       "id": "prototype-v0.1.1",
