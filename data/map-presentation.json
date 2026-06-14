@@ -1,5 +1,5 @@
 {
-  "presentationVersion": "1.1.0",
+  "presentationVersion": "1.2.0",
   "world": {
     "width": 4800,
     "height": 3000
@@ -95,140 +95,120 @@
       "x": 340,
       "y": 1900,
       "visualLevel": "style",
-      "iconKey": "pint",
       "paletteKey": "ale-amber"
     },
     "american-pale-ale": {
       "x": 660,
       "y": 2050,
       "visualLevel": "style",
-      "iconKey": "hop",
       "paletteKey": "ale-amber"
     },
     "british-golden-ale": {
       "x": 980,
       "y": 2020,
       "visualLevel": "style",
-      "iconKey": "ale-glass",
       "paletteKey": "ale-amber"
     },
     "australian-sparkling-ale": {
       "x": 1240,
       "y": 1880,
       "visualLevel": "style",
-      "iconKey": "pint",
       "paletteKey": "ale-amber"
     },
     "new-zealand-pale-ale": {
       "x": 480,
       "y": 2350,
       "visualLevel": "style",
-      "iconKey": "hop",
       "paletteKey": "ale-amber"
     },
     "ipa": {
       "x": 1120,
       "y": 2400,
       "visualLevel": "style",
-      "iconKey": "hop",
       "paletteKey": "ale-amber"
     },
     "english-ipa": {
       "x": 780,
       "y": 2670,
       "visualLevel": "style",
-      "iconKey": "pint",
       "paletteKey": "ale-amber"
     },
     "american-ipa": {
       "x": 1140,
       "y": 2730,
       "visualLevel": "style",
-      "iconKey": "hop",
       "paletteKey": "ale-amber"
     },
     "west-coast-ipa": {
       "x": 1440,
       "y": 2600,
       "visualLevel": "style",
-      "iconKey": "hop",
       "paletteKey": "ale-amber"
     },
     "new-england-ipa": {
       "x": 1520,
       "y": 2850,
       "visualLevel": "style",
-      "iconKey": "tulip",
       "paletteKey": "wheat-gold"
     },
     "session-ipa": {
       "x": 1380,
       "y": 2320,
       "visualLevel": "style",
-      "iconKey": "ale-glass",
       "paletteKey": "ale-amber"
     },
     "double-ipa": {
       "x": 1700,
       "y": 2440,
       "visualLevel": "style",
-      "iconKey": "beer-mug",
       "paletteKey": "ale-amber"
     },
     "black-ipa": {
       "x": 840,
       "y": 2340,
       "visualLevel": "style",
-      "iconKey": "dark-glass",
       "paletteKey": "dark-malt"
     },
     "red-ipa": {
       "x": 1480,
       "y": 2180,
       "visualLevel": "style",
-      "iconKey": "tulip",
       "paletteKey": "fruit-rose"
     },
     "white-ipa": {
       "x": 1840,
       "y": 2220,
       "visualLevel": "style",
-      "iconKey": "wheat",
       "paletteKey": "wheat-gold"
     },
     "belgian-ipa": {
       "x": 1860,
       "y": 2650,
       "visualLevel": "style",
-      "iconKey": "tulip",
       "paletteKey": "wheat-gold"
     },
     "rye-ipa": {
       "x": 2140,
       "y": 2440,
       "visualLevel": "style",
-      "iconKey": "wheat",
       "paletteKey": "ale-amber"
     },
     "brown-ipa": {
       "x": 2140,
       "y": 2730,
       "visualLevel": "style",
-      "iconKey": "dark-glass",
       "paletteKey": "dark-malt"
     },
     "witbier": {
       "x": 1960,
       "y": 1900,
       "visualLevel": "style",
-      "iconKey": "wheat",
       "paletteKey": "wheat-gold"
     },
     "india-pale-lager": {
       "x": 3360,
       "y": 2070,
       "visualLevel": "style",
-      "iconKey": "lager-glass",
       "paletteKey": "lager-gold"
     }
   }

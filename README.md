@@ -5,9 +5,9 @@ Carte interactive : **la Zythosphère**. Encyclopédie future : **la Brassopédi
 
 ## Versions
 
-- Application : **0.3.1**
+- Application : **0.3.2**
 - Taxonomie : **0.1.2-prototype.3**
-- Présentation cartographique : **1.1.0**
+- Présentation cartographique : **1.2.0**
 
 ## V0.3.0 — Refonte visuelle et UX de référence
 
@@ -84,6 +84,12 @@ ZythoHunt s’adresse à un public adulte et encourage la curiosité brassicole 
 
 La V0.3.1 introduit une bibliothèque iconographique Canvas sans dépendance : contenants normalisés, liquides, mousses, motifs brassicoles, recettes déclaratives par style et illustrations dédiées pour les nœuds structurels. Les détails changent selon le zoom sémantique sans modifier la géométrie des bulles.
 
-Les recettes de styles sont séparées de la taxonomie dans `data/style-icon-recipes.json`. Le cache mémoire produit des sources 64, 128 ou 192 px et ne dépend ni de la caméra, ni du pan, ni de la taille exacte à l’écran. Les styles inconnus restent anonymes : fond familial générique, `?`, aucun motif distinctif et aucun nom.
+Les recettes de styles sont séparées de la taxonomie dans `data/style-icon-recipes.json`. Le cache mémoire produit des sources 64, 128 ou 256 px et ne dépend ni de la caméra, ni du pan, ni de la taille exacte à l’écran. Les styles inconnus restent anonymes : fond familial générique, `?`, aucun motif distinctif et aucun nom.
 
 La barre de révélation ajoute un bouton de test **All** au-dessus de **Révéler**. Il révèle tous les styles en mémoire pour contrôle visuel, sans persistance, sans focus et sans animation individuelle. La révélation normale cadre désormais le style puis lance l’animation seulement après la fin du focus.
+
+## V0.3.2 — Refonte iconographique générale
+
+La V0.3.2 supprime la copie JavaScript des recettes : `data/style-icon-recipes.json` est désormais l’unique source de vérité chargée par le loader et attachée aux nœuds capturables. La présentation cartographique passe en **1.2.0** sans modifier la taxonomie.
+
+Le système iconographique Canvas est découpé en verres, liquides, mousses, accessoires et compositions. Les sources de cache passent à 64, 128 et 256 px avec une clé fondée sur la signature de recette, le niveau de détail, la résolution canonique, la version de thème et la version de schéma. Le focus de révélation utilise une transformation CSS temporaire et ne redessine le Canvas qu’à l’arrivée.

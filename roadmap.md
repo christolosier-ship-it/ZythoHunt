@@ -7,11 +7,11 @@
 ## 1. Identité du projet
 
 - Application : **ZythoHunt**.
-- Version applicative actuelle : **0.3.1**.
+- Version applicative actuelle : **0.3.2**.
 - Version taxonomique conservée : **0.1.2-prototype.3**.
 - Corpus courant : 28 nœuds, 8 structures, 20 styles capturables, 27 liens principaux, 2 liens secondaires.
 - Technologies : HTML, CSS et JavaScript ES modules sans dépendance npm applicative.
-- Version de présentation cartographique : **1.1.0** (`data/map-presentation.json`).
+- Version de présentation cartographique : **1.2.0** (`data/map-presentation.json`).
 
 ## 2. Règles produit actuelles
 
@@ -171,3 +171,39 @@ V0.3.1 est prête pour validation humaine de l’iconographie, du bouton All et 
 - Ajout du bouton All de test au-dessus du bouton Révéler ; il révèle tous les styles en mémoire, conserve la caméra et désactive son action après usage.
 - Révélation normale reséquencée : focus court de caméra avant mutation visuelle, puis animation de révélation et sélection du style ciblé uniquement.
 - À arbitrer : validation visuelle fine des pictogrammes et contrôle de fluidité sur Safari iPad réel, impossible dans cet environnement.
+
+## 9. V0.3.2 — Refonte iconographique générale
+
+### Objectif
+
+Remplacer les silhouettes trop génériques par une iconographie Canvas modulaire plus expressive, supprimer la duplication des recettes et rapprocher le focus de révélation sans redraw Canvas par frame.
+
+### Tâches
+
+- [x] Supprimer la copie statique `src/map/icons/style-icon-recipes.js`.
+- [x] Charger `data/style-icon-recipes.json` comme source unique et attacher les recettes aux nœuds capturables.
+- [x] Créer sept silhouettes distinctes : american-pint, british-nonic, pilsner-glass, weizen-glass, tulip-glass, belgian-chalice et snifter.
+- [x] Conserver beer-mug et bottle pour les illustrations structurelles.
+- [x] Modulariser liquides, mousses, accessoires et compositions.
+- [x] Migrer les vingt recettes vers les nouveaux identifiants, avec composition, clarté et niveau de remplissage.
+- [x] Créer des compositions structurelles dédiées pour les huit structures.
+- [x] Améliorer la clé du cache iconographique avec signature de recette, niveau de détail, résolution canonique, version de thème et version de schéma.
+- [x] Corriger le focus de révélation pour viser une bulle de 210 à 260 px sans faire tenir toute la fratrie.
+- [x] Supprimer le redraw Canvas à chaque frame du focus au profit d'une transformation CSS temporaire.
+- [x] Étendre `npm run validate` aux nouveaux verres, mousses, motifs, compositions, clartés, remplissages, clés héritées et version de présentation 1.2.0.
+- [!] Validation Safari iPad réelle indisponible dans l’environnement agent ; validation humaine obligatoire.
+
+### Critère de sortie
+
+V0.3.2 est prête pour validation humaine de la refonte iconographique et du focus rapproché dès que `npm run validate` réussit et que le bouton All est contrôlé dans un navigateur.
+
+## 10. Journal d’avancement — complément V0.3.2
+
+### 2026-06-14 — V0.3.2 refonte iconographique générale
+
+- Suppression de la duplication des recettes et migration vers `data/style-icon-recipes.json` comme source unique.
+- Ajout des modules `vessels.js`, `foams.js` et `compositions.js`, puis refonte des accessoires organiques existants.
+- Migration des vingt styles vers les nouveaux verres, mousses, motifs et compositions adaptatives.
+- Ajout de compositions structurelles dédiées et passage de la présentation cartographique en 1.2.0.
+- Focus de révélation rapproché avec transformation CSS pendant l’interpolation et un seul rendu Canvas final.
+- À arbitrer : validation visuelle complète du bouton All et validation Safari iPad réelle, impossibles dans cet environnement.
