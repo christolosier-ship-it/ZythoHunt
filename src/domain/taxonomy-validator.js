@@ -155,7 +155,7 @@ export function validateTaxonomy(nodes, links, aliases, version, world = WORLD, 
 
 
   if (appMeta.iconRecipes) {
-    const allowedKeys = new Set(['vessel','liquid','foam','primaryMotif','secondaryMotif','composition','accent']);
+    const allowedKeys = new Set(['vessel','liquid','foam','primaryMotif','secondaryMotif','composition','accent','fillLevel']);
     const canonicalVessels = ['teku','inao','tulip','nonic','stange','pint','weizen','snifter','pilsner','beer-mug','chalice','stout-glass'];
     const legacyVessels = new Set(['american-pint','british-pint','british-nonic','irish-tulip-pint','pilsner-glass','weizen-glass','tulip-glass','belgian-chalice','teku-glass','willi-becher','pokal','witbier-tumbler','thistle-glass','beer-flute','mug','flute','can','bottle']);
     const legacyFoams = new Set(['overflow-white','thin-cream','regular-cream','generous-cream','pink']);
@@ -183,6 +183,7 @@ export function validateTaxonomy(nodes, links, aliases, version, world = WORLD, 
         }
         if (!COMPOSITIONS.has(recipe.composition)) add(`unknown icon composition: ${id}`);
         if (!ACCENTS.has(recipe.accent)) add(`unknown icon accent: ${id}`);
+        if (recipe.fillLevel !== undefined && !['low','normal','high'].includes(recipe.fillLevel)) add(`unknown icon fillLevel: ${id}`);
         signatures.set(JSON.stringify(recipe, Object.keys(recipe).sort()), (signatures.get(JSON.stringify(recipe, Object.keys(recipe).sort())) || []).concat(id));
       }
       for (const id of Object.keys(recipes)) if (!capturableIds.has(id)) add(`orphan style icon recipe: ${id}`);

@@ -1,22 +1,202 @@
 {
-  "classic-english-pale-ale": {"vessel":"nonic","liquid":"clear-amber","foam":"cream","primaryMotif":"barley-grain","secondaryMotif":"hop-leaf","composition":"left-right","accent":"malt-gold"},
-  "american-pale-ale": {"vessel":"pint","liquid":"clear-gold","foam":"regular-white","primaryMotif":"hop-cone","secondaryMotif":"citrus-slice","composition":"symmetric","accent":"hop-green"},
-  "british-golden-ale": {"vessel":"nonic","liquid":"pale-gold","foam":"thin-white","primaryMotif":"barley-grain","secondaryMotif":"sparkle","composition":"single-left","accent":"gold"},
-  "australian-sparkling-ale": {"vessel":"pilsner","liquid":"clear-gold","foam":"generous-white","primaryMotif":"sparkle","secondaryMotif":"barley-grain","composition":"low-crown","accent":"cyan"},
-  "new-zealand-pale-ale": {"vessel":"pint","liquid":"clear-gold","foam":"regular-white","primaryMotif":"hop-cone","secondaryMotif":"pine-branch","composition":"back-left","accent":"hop-green"},
-  "ipa": {"vessel":"teku","liquid":"deep-amber","foam":"regular-white","primaryMotif":"hop-cone","secondaryMotif":"hop-leaf","composition":"symmetric","accent":"hop-green"},
-  "english-ipa": {"vessel":"nonic","liquid":"copper","foam":"cream","primaryMotif":"hop-leaf","secondaryMotif":"barley-grain","composition":"left-right","accent":"malt-gold"},
-  "american-ipa": {"vessel":"pint","liquid":"hazy-orange","foam":"regular-white","primaryMotif":"hop-cone","secondaryMotif":"citrus-slice","composition":"back-right","accent":"hop-green"},
-  "west-coast-ipa": {"vessel":"pint","liquid":"clear-amber","foam":"thin-white","primaryMotif":"hop-cone","secondaryMotif":"pine-branch","composition":"left-right","accent":"hop-green"},
-  "new-england-ipa": {"vessel":"teku","liquid":"hazy-orange","foam":"generous-white","primaryMotif":"hop-cone","secondaryMotif":"citrus-slice","composition":"low-crown","accent":"citrus-gold"},
-  "session-ipa": {"vessel":"inao","liquid":"pale-gold","foam":"thin-white","primaryMotif":"hop-leaf","secondaryMotif":"sparkle","composition":"single-right","accent":"hop-green"},
-  "double-ipa": {"vessel":"snifter","liquid":"copper","foam":"generous-white","primaryMotif":"hop-cone","secondaryMotif":"sparkle","composition":"behind-vessel","accent":"gold"},
-  "black-ipa": {"vessel":"stout-glass","liquid":"near-black","foam":"beige","primaryMotif":"hop-cone","secondaryMotif":"coffee-beans","composition":"left-right","accent":"roasted-brown"},
-  "red-ipa": {"vessel":"tulip","liquid":"ruby","foam":"cream","primaryMotif":"hop-cone","secondaryMotif":"citrus-slice","composition":"single-left","accent":"ruby"},
-  "white-ipa": {"vessel":"weizen","liquid":"hazy-straw","foam":"generous-white","primaryMotif":"wheat-ear","secondaryMotif":"hop-cone","composition":"symmetric","accent":"wheat-gold"},
-  "belgian-ipa": {"vessel":"chalice","liquid":"hazy-orange","foam":"cream","primaryMotif":"yeast-cells","secondaryMotif":"hop-cone","composition":"behind-vessel","accent":"citrus-gold"},
-  "rye-ipa": {"vessel":"nonic","liquid":"copper","foam":"cream","primaryMotif":"barley-grain","secondaryMotif":"hop-cone","composition":"left-right","accent":"malt-gold"},
-  "brown-ipa": {"vessel":"snifter","liquid":"brown","foam":"beige","primaryMotif":"hop-cone","secondaryMotif":"cacao-pod","composition":"back-left","accent":"roasted-brown"},
-  "witbier": {"vessel":"weizen","liquid":"hazy-straw","foam":"generous-white","primaryMotif":"wheat-ear","secondaryMotif":"citrus-slice","composition":"low-crown","accent":"wheat-gold"},
-  "india-pale-lager": {"vessel":"pilsner","liquid":"pale-gold","foam":"thin-white","primaryMotif":"hop-cone","secondaryMotif":"barley-grain","composition":"symmetric","accent":"hop-green"}
+  "classic-english-pale-ale": {
+    "vessel": "nonic",
+    "liquid": "clear-amber",
+    "foam": "cream",
+    "primaryMotif": "barley-grain",
+    "secondaryMotif": "hop-leaf",
+    "composition": "left-right",
+    "accent": "malt-gold",
+    "fillLevel": "normal"
+  },
+  "american-pale-ale": {
+    "vessel": "pint",
+    "liquid": "clear-gold",
+    "foam": "regular-white",
+    "primaryMotif": "hop-cone",
+    "secondaryMotif": "citrus-slice",
+    "composition": "symmetric",
+    "accent": "hop-green",
+    "fillLevel": "normal"
+  },
+  "british-golden-ale": {
+    "vessel": "nonic",
+    "liquid": "pale-gold",
+    "foam": "thin-white",
+    "primaryMotif": "barley-grain",
+    "secondaryMotif": "sparkle",
+    "composition": "single-left",
+    "accent": "gold",
+    "fillLevel": "normal"
+  },
+  "australian-sparkling-ale": {
+    "vessel": "pilsner",
+    "liquid": "clear-gold",
+    "foam": "generous-white",
+    "primaryMotif": "sparkle",
+    "secondaryMotif": "barley-grain",
+    "composition": "low-crown",
+    "accent": "cyan",
+    "fillLevel": "normal"
+  },
+  "new-zealand-pale-ale": {
+    "vessel": "pint",
+    "liquid": "clear-gold",
+    "foam": "regular-white",
+    "primaryMotif": "hop-cone",
+    "secondaryMotif": "pine-branch",
+    "composition": "back-left",
+    "accent": "hop-green",
+    "fillLevel": "normal"
+  },
+  "ipa": {
+    "vessel": "teku",
+    "liquid": "deep-amber",
+    "foam": "generous-white",
+    "primaryMotif": "hop-cone",
+    "secondaryMotif": "hop-leaf",
+    "composition": "symmetric",
+    "accent": "hop-green",
+    "fillLevel": "high"
+  },
+  "english-ipa": {
+    "vessel": "nonic",
+    "liquid": "copper",
+    "foam": "cream",
+    "primaryMotif": "hop-leaf",
+    "secondaryMotif": "barley-grain",
+    "composition": "left-right",
+    "accent": "malt-gold",
+    "fillLevel": "high"
+  },
+  "american-ipa": {
+    "vessel": "pint",
+    "liquid": "hazy-orange",
+    "foam": "regular-white",
+    "primaryMotif": "hop-cone",
+    "secondaryMotif": "citrus-slice",
+    "composition": "back-right",
+    "accent": "hop-green",
+    "fillLevel": "high"
+  },
+  "west-coast-ipa": {
+    "vessel": "pint",
+    "liquid": "clear-amber",
+    "foam": "regular-white",
+    "primaryMotif": "hop-cone",
+    "secondaryMotif": "pine-branch",
+    "composition": "left-right",
+    "accent": "hop-green",
+    "fillLevel": "high"
+  },
+  "new-england-ipa": {
+    "vessel": "teku",
+    "liquid": "hazy-orange",
+    "foam": "generous-white",
+    "primaryMotif": "hop-cone",
+    "secondaryMotif": "citrus-slice",
+    "composition": "low-crown",
+    "accent": "citrus-gold",
+    "fillLevel": "high"
+  },
+  "session-ipa": {
+    "vessel": "inao",
+    "liquid": "pale-gold",
+    "foam": "thin-white",
+    "primaryMotif": "hop-leaf",
+    "secondaryMotif": "sparkle",
+    "composition": "single-right",
+    "accent": "hop-green",
+    "fillLevel": "high"
+  },
+  "double-ipa": {
+    "vessel": "snifter",
+    "liquid": "copper",
+    "foam": "generous-white",
+    "primaryMotif": "hop-cone",
+    "secondaryMotif": "sparkle",
+    "composition": "behind-vessel",
+    "accent": "gold",
+    "fillLevel": "high"
+  },
+  "black-ipa": {
+    "vessel": "stout-glass",
+    "liquid": "near-black",
+    "foam": "beige",
+    "primaryMotif": "hop-cone",
+    "secondaryMotif": "coffee-beans",
+    "composition": "left-right",
+    "accent": "roasted-brown",
+    "fillLevel": "high"
+  },
+  "red-ipa": {
+    "vessel": "tulip",
+    "liquid": "ruby",
+    "foam": "cream",
+    "primaryMotif": "hop-cone",
+    "secondaryMotif": "citrus-slice",
+    "composition": "single-left",
+    "accent": "ruby",
+    "fillLevel": "high"
+  },
+  "white-ipa": {
+    "vessel": "weizen",
+    "liquid": "hazy-straw",
+    "foam": "generous-white",
+    "primaryMotif": "wheat-ear",
+    "secondaryMotif": "hop-cone",
+    "composition": "symmetric",
+    "accent": "wheat-gold",
+    "fillLevel": "high"
+  },
+  "belgian-ipa": {
+    "vessel": "chalice",
+    "liquid": "hazy-orange",
+    "foam": "cream",
+    "primaryMotif": "yeast-cells",
+    "secondaryMotif": "hop-cone",
+    "composition": "behind-vessel",
+    "accent": "citrus-gold",
+    "fillLevel": "high"
+  },
+  "rye-ipa": {
+    "vessel": "nonic",
+    "liquid": "copper",
+    "foam": "cream",
+    "primaryMotif": "barley-grain",
+    "secondaryMotif": "hop-cone",
+    "composition": "left-right",
+    "accent": "malt-gold",
+    "fillLevel": "high"
+  },
+  "brown-ipa": {
+    "vessel": "snifter",
+    "liquid": "brown",
+    "foam": "beige",
+    "primaryMotif": "hop-cone",
+    "secondaryMotif": "cacao-pod",
+    "composition": "back-left",
+    "accent": "roasted-brown",
+    "fillLevel": "high"
+  },
+  "witbier": {
+    "vessel": "weizen",
+    "liquid": "hazy-straw",
+    "foam": "generous-white",
+    "primaryMotif": "wheat-ear",
+    "secondaryMotif": "citrus-slice",
+    "composition": "low-crown",
+    "accent": "wheat-gold",
+    "fillLevel": "normal"
+  },
+  "india-pale-lager": {
+    "vessel": "pilsner",
+    "liquid": "pale-gold",
+    "foam": "thin-white",
+    "primaryMotif": "hop-cone",
+    "secondaryMotif": "barley-grain",
+    "composition": "symmetric",
+    "accent": "hop-green",
+    "fillLevel": "normal"
+  }
 }

@@ -5,7 +5,7 @@ Carte interactive : **la Zythosphère**. Encyclopédie future : **la Brassopédi
 
 ## Versions
 
-- Application : **0.3.3**
+- Application : **0.3.4**
 - Taxonomie : **0.1.2-prototype.3**
 - Présentation cartographique : **1.2.0**
 
@@ -87,6 +87,10 @@ La V0.3.1 introduit une bibliothèque iconographique Canvas sans dépendance : c
 Les recettes de styles sont séparées de la taxonomie dans `data/style-icon-recipes.json`. Le cache mémoire produit des sources 64, 128 ou 256 px et ne dépend ni de la caméra, ni du pan, ni de la taille exacte à l’écran. Les styles inconnus restent anonymes : fond familial générique, `?`, aucun motif distinctif et aucun nom.
 
 La barre de révélation ajoute un bouton de test **All** au-dessus de **Révéler**. Il révèle tous les styles en mémoire pour contrôle visuel, sans persistance, sans focus et sans animation individuelle. La révélation normale cadre désormais le style puis lance l’animation seulement après la fin du focus.
+
+## V0.3.4 — Correction iconographique
+
+La V0.3.4 augmente l’échelle utile des illustrations dans les médaillons, renforce les contours des verres, rend les liquides et mousses plus présents, rapproche les accessoires du verre et allège le reflet ainsi que le fond interne des bulles. Le placement du texte est remonté pour mieux former un emblème lisible avec l’illustration, sans modifier la taxonomie ni le layout global de la Zythosphère.
 
 ## V0.3.3 — Refonte iconographique générale
 

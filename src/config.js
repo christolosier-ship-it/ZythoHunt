@@ -1,4 +1,4 @@
-export const APP_VERSION = '0.3.3';
+export const APP_VERSION = '0.3.4';
 export const TAXONOMY_VERSION = '0.1.2-prototype.3';
 export const TAXONOMY_SCHEMA_VERSION = 1;
 export const WORLD = { width: 4800, height: 3000 };
