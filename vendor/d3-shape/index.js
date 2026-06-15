@@ -1,0 +1,2 @@
+export const curveCatmullRom={alpha(){return this}};
+export function line(){let x=d=>d[0],y=d=>d[1],ctx=null;function l(data){if(!ctx)return ''; if(!data.length)return;ctx.moveTo(x(data[0]),y(data[0]));for(let i=1;i<data.length;i++){const p0=data[Math.max(0,i-2)],p1=data[i-1],p2=data[i],p3=data[Math.min(data.length-1,i+1)];ctx.bezierCurveTo(x(p1)+(x(p2)-x(p0))/6,y(p1)+(y(p2)-y(p0))/6,x(p2)-(x(p3)-x(p1))/6,y(p2)-(y(p3)-y(p1))/6,x(p2),y(p2));}}l.x=f=>{x=f;return l};l.y=f=>{y=f;return l};l.curve=()=>l;l.context=c=>{ctx=c;return l};return l}

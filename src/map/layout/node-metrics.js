@@ -1,4 +1,4 @@
-export const NODE_METRICS_VERSION = '0.4.4';
+export const NODE_METRICS_VERSION = '0.4.5';
 export const NODE_METRICS = {
   root: { medallionRadius: 190, medallionHeight: 380, textMaxWidth: 260, textMaxHeight: 56, margin: 18, stroke: 8, safety: 18 },
   universe: { medallionRadius: 125, medallionHeight: 250, textMaxWidth: 300, textMaxHeight: 82, margin: 18, stroke: 7, safety: 18 },
@@ -23,5 +23,10 @@ export function metricForNode(node) { return node?.functionalType === 'capturabl
 function baseBox(node, x, y, extra = 0) { const m = metricForNode(node); const w = Math.max(m.medallionRadius * 2 + m.stroke * 2, m.textMaxWidth) + m.margin * 2 + m.safety * 2 + extra * 2; const h = m.medallionHeight + m.textMaxHeight + m.margin * 2 + m.safety * 2 + extra * 2; return { minX: x - w / 2, minY: y - h / 2, maxX: x + w / 2, maxY: y + h / 2, width: w, height: h }; }
 export function visualBoxFor(node, x, y) { return baseBox(node, x, y, 0); }
 export function collisionBoxFor(node, x, y) { const extra = node?.nodeType === 'root' ? 34 : node?.nodeType === 'universe' ? 28 : node?.functionalType === 'capturable' ? 20 : 24; return baseBox(node, x, y, extra); }
-export function routingObstacleBoxFor(node, x, y) { const r = 1; return { minX:x-r, minY:y-r, maxX:x+r, maxY:y+r, width:r*2, height:r*2 }; }
+export function visualRadiusFor(node) { const m = metricForNode(node); return Math.max(m.medallionRadius + m.stroke + m.safety, m.medallionHeight / 2 + m.stroke + m.safety); }
+export function collisionRadiusFor(node) { const breathing = node?.nodeType === 'root' ? 48 : node?.nodeType === 'universe' ? 38 : node?.functionalType === 'capturable' ? 22 : 30; return visualRadiusFor(node) + breathing; }
+export function routingRadiusFor(node) { return collisionRadiusFor(node) + (node?.functionalType === 'capturable' ? 14 : 18); }
+export function cullingRadiusFor(node) { return visualRadiusFor(node) + 52; }
+function circleBox(x, y, r) { return { minX:x-r, minY:y-r, maxX:x+r, maxY:y+r, width:r*2, height:r*2, radius:r }; }
+export function routingObstacleBoxFor(node, x, y) { return circleBox(x, y, routingRadiusFor(node)); }
 export function cullingBoxFor(node, x, y) { return baseBox(node, x, y, 36); }

@@ -2,10 +2,10 @@
 
 ## État courant
 
-- Version applicative : **0.4.4**.
+- Version applicative : **0.4.5**.
 - Taxonomie : **1.0.0** inchangée.
 - Corpus attendu et conservé : 272 nœuds, 201 styles capturables, 71 structures, 271 relations, 1 racine, 6 univers.
-- Phase active : densification V0.4.4.
+- Phase active : générateur D3 hybride V0.4.5.
 
 ## Décisions verrouillées
 
@@ -45,6 +45,15 @@
 - [x] Générer des liens Bézier à segments.
 - [x] Valider zéro conflit géométrique.
 
+
+## V0.4.5 — Générateur D3 hybride et routes Catmull-Rom
+
+- [x] Ajouter `d3-hierarchy`, `d3-force` et `d3-shape` comme dépendances de build uniquement.
+- [x] Centraliser les paramètres du layout hybride.
+- [x] Générer des routes par waypoints lissées en Catmull-Rom centripète.
+- [x] Exporter des segments cubiques sans D3 runtime.
+- [x] Ajouter la validation de déterminisme.
+
 ## Hors périmètre
 
 Brassopédie complète, dégustations, progression, IndexedDB, comptes, cloud, nouvelle taxonomie et nouvelle direction artistique.
@@ -65,7 +74,11 @@ Brassopédie complète, dégustations, progression, IndexedDB, comptes, cloud, n
 - Rendu runtime des extrémités dynamiques selon état visuel sans reroutage navigateur.
 - Validation des attaches source/cible ajoutée au validateur de layout.
 
-### 2026-06-15 — V0.4.4 densification organique
+### 2026-06-15 — V0.4.5 densification organique
 
 - Passage application à 0.4.4 et présentation à 2.2.0.
 - Layout régénéré avec boîtes spécialisées, rayons variables, routes segmentées et validation géométrique à zéro conflit.
+
+### 2026-06-15 — V0.4.5 générateur D3 hybride
+
+- Moteur `d3-hybrid` build-only ajouté avec routes Catmull-Rom et validation déterministe.

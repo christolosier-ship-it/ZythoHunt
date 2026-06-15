@@ -22,5 +22,7 @@ ZythoHunt est une application web native sans framework. L’interface charge de
 ## Scripts
 
 - `scripts/build-taxonomy.mjs` prépare la taxonomie.
-- `scripts/build-radial-layout.mjs` génère positions et Bézier hors navigateur.
-- `scripts/validate-taxonomy.mjs`, `scripts/validate-icons.mjs` et `scripts/validate-layout.mjs` contrôlent les données.
+- `scripts/build-layout.mjs` génère positions, waypoints et routes Catmull-Rom hors navigateur avec `d3-hierarchy`, `d3-force` et `d3-shape` comme tooling de build uniquement.
+- `scripts/validate-taxonomy.mjs`, `scripts/validate-icons.mjs`, `scripts/validate-layout.mjs` et `scripts/validate-determinism.mjs` contrôlent les données.
+
+D3 est interdit au runtime : aucun import D3 n’existe dans `src/`, l’application reste vanilla JavaScript et Canvas.

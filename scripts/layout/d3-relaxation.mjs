@@ -1,0 +1,3 @@
+import { forceSimulation, forceLink, forceCollide, forceManyBody } from 'd3-force';
+import { FORCE_PHASES } from './layout-config.mjs';
+export function relaxWithD3(nodes, links){ const sim=forceSimulation(nodes).stop().randomSource(()=>0.42).force('link', forceLink(links.map(l=>({source:l.sourceId,target:l.targetId}))).id(d=>d.id).distance(l=>nodes.find(n=>n.id===l.source)?.targetDistance||520).strength(.05)).force('collide', forceCollide(d=>d.collisionRadius).strength(1).iterations(3)).force('charge', forceManyBody().strength(-3)); let ticks=0; for(const p of FORCE_PHASES){ sim.tick(p.ticks); ticks+=p.ticks; } return {nodes,ticks,phaseCount:FORCE_PHASES.length}; }

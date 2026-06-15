@@ -1,14 +1,16 @@
 {
-  "applicationVersion": "0.4.4",
+  "applicationVersion": "0.4.5",
   "taxonomyVersion": "1.0.0",
   "taxonomyName": "ZythoHunt Taxonomy",
   "taxonomyStatus": "canonical",
-  "presentationVersion": "2.2.0",
-  "appVersion": "0.4.4",
+  "presentationVersion": "2.3.0",
+  "appVersion": "0.4.5",
   "schemaVersion": 2,
   "nodeCount": 272,
   "structureNodeCount": 71,
   "capturableNodeCount": 201,
   "primaryLinkCount": 271,
-  "secondaryLinkCount": 0
+  "secondaryLinkCount": 0,
+  "layoutEngine": "d3-hybrid",
+  "layoutEngineVersion": "1.0.0"
 }

@@ -1,36 +1,39 @@
 # Layout de la Zythosphère
 
-Le layout est généré hors navigateur par `npm run build:layout`. Le navigateur charge uniquement `data/generated/zythosphere-layout.json` pour dessiner la carte Canvas ; aucune collision, aucun routage et aucun recalcul lourd ne sont effectués pendant pan, pinch ou zoom.
+Le layout est généré hors navigateur par `npm run build:layout`. Le navigateur charge uniquement `data/generated/zythosphere-layout.json` et dessine des segments cubiques précalculés sur Canvas : aucune dépendance D3, simulation, collision, Catmull-Rom ou recherche de chemin n’est exécutée dans `src/`.
 
-## Philosophie compacte V0.4.4
+## Architecture V0.4.5 — D3 hybride build-only
 
-La carte reste radiale et hiérarchique : `beer` est au centre, les six univers gardent un ordre stable et chaque descendant reste dans le secteur de sa branche. Le rang taxonomique ne définit plus un anneau strict : les rayons varient selon la taille réelle du parent, de l’enfant, du bouquet local et de la profondeur utile du sous-arbre.
+Le moteur `layoutEngine = "d3-hybrid"` version `1.0.0` sépare les responsabilités :
 
-La densification vient du placement initial compact, de pas radiaux dépendants des boîtes réelles, de bouquets terminaux et de secteurs moins étirés. Les sous-arbres sont déplacés comme des groupes cohérents lors des corrections.
+1. taxonomie canonique inchangée ;
+2. hiérarchie déterministe avec `d3-hierarchy` ;
+3. amorce radiale avec `d3.tree()` ;
+4. relaxation statique avec `d3-force` ;
+5. compactage déterministe hors navigateur ;
+6. génération de waypoints ;
+7. lissage `curveCatmullRom.alpha(0.5)` via `d3-shape` ;
+8. export en segments cubiques Canvas ;
+9. validation indépendante par `scripts/validate-layout.mjs`.
 
-## Boîtes géométriques
+Les paramètres majeurs sont centralisés dans `scripts/layout/layout-config.mjs` : phases, ticks, marges, échantillonnage, candidats et limites de passes exactes.
 
-Toutes les métriques viennent de `src/map/layout/node-metrics.js`.
+## Hiérarchie et secteurs
 
-- `visualBox` : dessin visible maximal du nœud, médaillon, contour et libellé utile.
-- `collisionBox` : `visualBox` plus respiration nœud-nœud adaptée au type de nœud.
-- `routingObstacleBox` : obstacle utilisé par les validations et ports de routage.
-- `cullingBox` : zone de viewport avec halo et overscan raisonnable.
+`build-hierarchy.mjs` construit une racine unique `beer` depuis `id` et `parentId`. L’ordre est stable par parent puis identifiant. Les six univers conservent des secteurs distincts et la racine reste au centre.
 
-Le renderer utilise la `cullingBox` pour limiter le dessin et ne réutilise pas la boîte de collision comme boîte universelle.
+## Simulation statique
 
-## Placement et bouquets
+`d3-relaxation.mjs` crée une simulation arrêtée immédiatement, sans timer ni événement `tick`. Les phases sont : structure, compaction et finition, pour 620 ticks déterministes. Les forces utilisées sont link, collide, charge faible et contraintes préparées pour secteur, radialité souple et compaction.
 
-Le générateur mesure chaque sous-arbre, alloue un secteur local et place les enfants avec un rayon variable. Les parents avec peu d’enfants forment un éventail court ; les parents denses alternent des profondeurs et décalages déterministes pour éviter les colliers mécaniques. Les variations organiques sont dérivées de l’identifiant stable du nœud.
+## Géométrie réelle
 
-## Résolution et compactage
+`src/map/layout/node-metrics.js` expose `visualRadius`, `collisionRadius`, `routingRadius` et `cullingRadius`. L’ancien obstacle de routage 2 × 2 a été supprimé au profit du rayon de routage réel. Les libellés restent dessinés dans les médaillons et ne créent pas de boîte texte externe fictive.
 
-La génération conserve une passe de résolution des collisions sur `collisionBox`, puis produit le monde à partir des limites réellement obtenues. Le rapport expose les métriques de densité : dimensions, surface, longueurs de Bézier, attaches et conflits.
+## Routes Catmull-Rom
 
-## Routage
+Chaque lien est défini par des waypoints : attache parent, sortie, dérives organiques, approche et attache enfant. `catmull-rom.mjs` utilise `curveCatmullRom.alpha(0.5)` avec un collecteur de contexte Canvas qui exporte `start` et `segments[]` en cubiques. Le runtime ne reçoit pas de chaîne SVG et n’a pas besoin de `Path2D`.
 
-Les liens sont précalculés sous forme de routes Bézier. Le format V0.4.4 ajoute `segments`, tableau d’un ou deux segments cubiques continus, tout en conservant `control1` et `control2` de compatibilité pour le premier et dernier segment. Les extrémités sont recalculées sur le bord circulaire des médaillons source et cible. Le marqueur lumineux reste dessiné uniquement côté enfant.
+## Validation et déterminisme
 
-## Validation
-
-`npm run validate:layout` recharge le layout runtime, échantillonne les routes, contrôle les boîtes de nœuds, les attaches circulaires, les intersections lien-nœud, les croisements lien-lien et les dimensions du monde. Les objectifs V0.4.4 sont : 0 collision, 0 intersection lien-nœud, 0 croisement lien-lien et 0 erreur d’attache.
+`validate-layout.mjs` recharge le JSON produit, recalcule attaches, longueurs, compteurs et métriques de densité. `npm run validate:determinism` exécute deux générations successives et compare le hash SHA-256 du layout. Les rapports ne sont pas chargés par le navigateur.

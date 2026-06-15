@@ -30,7 +30,8 @@
 - Ne jamais déclencher de redraw Canvas complet pendant `pointermove`.
 - Ne pas recalculer layout, collisions ou routage dans le navigateur pendant pan/pinch.
 - Préserver la compatibilité mobile et iPhone/iPad Safari.
-- Ne pas ajouter de dépendance ou framework sans justification documentée.
+- Aucune dépendance runtime ou framework sans mission explicite.
+- D3-hierarchy, D3-force et D3-shape sont autorisés uniquement dans les scripts de build du layout.
 - Ne pas générer ni intégrer de fichiers PNG.
 
 ## Données

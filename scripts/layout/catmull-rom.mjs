@@ -1,0 +1,3 @@
+import { line, curveCatmullRom } from 'd3-shape';
+export class CatmullRomPathCollector { constructor(){ this.start=null; this.segments=[]; } moveTo(x,y){ this.start={x,y}; this.current=this.start; } lineTo(x,y){ this.segments.push({control1:{...this.current},control2:{x,y},end:{x,y}}); this.current={x,y}; } bezierCurveTo(x1,y1,x2,y2,x,y){ this.segments.push({control1:{x:x1,y:y1},control2:{x:x2,y:y2},end:{x,y}}); this.current={x,y}; } closePath(){} }
+export function catmullRomToCubic(points){ const c=new CatmullRomPathCollector(); line().x(d=>d.x).y(d=>d.y).curve(curveCatmullRom.alpha(0.5)).context(c)(points); return {start:c.start,segments:c.segments}; }
