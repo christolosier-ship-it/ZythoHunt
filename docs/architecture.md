@@ -1,26 +1,23 @@
-# Architecture
+# Architecture ZythoHunt V0.5.0
 
-ZythoHunt est une application web native sans framework. L’interface charge des modules ES depuis `src/`, des styles CSS statiques et des fichiers JSON du dossier `data/`.
+La V0.5.0 conserve une carte Canvas unique et remplace le générateur radial par `scripts/build-cloud-layout.mjs`.
 
-## Runtime
+## Pipeline de données
 
-- `src/app.js` orchestre le chargement, la recherche, la révélation et le renderer.
-- `src/domain/taxonomy-loader.js` charge la taxonomie, les liens, les alias, les versions, le layout généré et les recettes iconographiques.
-- `src/canvas/canvas-map-renderer.js` dessine la Zythosphère sur un Canvas unique.
-- La caméra applique pan/pinch par transformation CSS pendant les gestes, puis redessine au commit.
-- Le rendu utilise `scene.visibleLinks` et applique un culling simple par boîte englobante.
+1. `npm run build:taxonomy` prépare le référentiel taxonomique canonique.
+2. `npm run build:layout` génère un layout `compact-bubble-cloud` précalculé.
+3. `npm run validate:layout` et `npm run validate:determinism` contrôlent la géométrie et la reproductibilité.
 
-## Données
+La taxonomie, les recettes iconographiques et le layout généré restent séparés. Le navigateur charge uniquement les fichiers runtime nécessaires, jamais les diagnostics comme source applicative.
 
-- Taxonomie : `data/taxonomy-nodes.json`.
-- Liens : `data/taxonomy-links.json`.
-- Alias : `data/aliases.json`.
-- Iconographie active : `data/style-icon-recipes.json`.
-- Layout runtime : `data/generated/zythosphere-layout.json`.
-- Rapport de build : `data/generated/zythosphere-layout-report.json`.
+## Renderer Canvas
 
-## Scripts
+`src/canvas/canvas-map-renderer.js` applique uniquement caméra, culling, dessin des segments droits, dessin des bulles et synchronisation d’accessibilité. Il ne calcule ni layout, ni collision, ni routage, ni croisement.
 
-- `scripts/build-taxonomy.mjs` prépare la taxonomie.
-- `scripts/build-radial-layout.mjs` génère positions et Bézier hors navigateur.
-- `scripts/validate-taxonomy.mjs`, `scripts/validate-icons.mjs` et `scripts/validate-layout.mjs` contrôlent les données.
+## Caméra
+
+La caméra démarre sur Bière à 100 %. Le zoom est borné entre 80 % et 120 %. Le recentrage revient sur Bière à 100 %, et le focus de révélation centre le style à 120 %. Il n’existe plus de vue complète.
+
+## Liens et iconographie
+
+Les liens sont des segments droits précalculés et réattachés au runtime selon le rayon visuel courant. L’iconographie utilise un rendu complet fixe, sans variantes de zoom sémantique.

@@ -1,56 +1,36 @@
 # ZythoHunt
 
-ZythoHunt est une application web native HTML/CSS/JavaScript dédiée à l’exploration progressive des styles de bière. Sa carte interactive, la **Zythosphère**, affiche la structure complète du corpus tout en gardant les styles non découverts anonymes.
+ZythoHunt est un prototype de chasse et de découverte des styles de bière. La V0.5.0 refond la Zythosphère en carte Canvas compacte, organisée comme un nuage hiérarchique de bulles.
 
-## État actuel
+## Zythosphère V0.5.0
 
-- Application : **0.4.4**.
-- Taxonomie : **1.0.0**.
-- Présentation cartographique : **2.2.0**.
-- Corpus : 272 nœuds, 201 styles capturables, 71 nœuds structurels, 271 relations principales, 1 racine et 6 univers.
+- nuage dense et compact de bulles ;
+- carte volontairement plus grande que l’écran, même à 80 % ;
+- exploration locale fluide par pan ;
+- zoom unique limité à 80–120 % ;
+- aucun élément n’apparaît ou ne disparaît selon le zoom ;
+- absence de vue complète : le recentrage cible Bière ;
+- liens droits entre bords circulaires ;
+- validation géométrique par cercles et segments ;
+- layout calculé hors navigateur.
 
-## Fonctions disponibles
+Les styles inconnus affichent seulement un `?`. Une capture révèle uniquement le style capturé. Les structures et bulles inconnues restent visibles par défaut.
 
-- Carte Canvas unique avec pan, zoom, focus, recentrage et vue complète.
-- Styles inconnus visibles sous forme de bulles anonymes `?`.
-- Recherche normalisée par casse, accents, ponctuation et alias.
-- Révélation individuelle d’un style découvert.
-- Bouton de contrôle **All** pour révéler tous les styles en mémoire.
-- Navigation basse préparée pour Brassopédie, Dégustations et Progression, encore non fonctionnelles.
+## Versions
 
-## Architecture réelle
+- application : 0.5.0 ;
+- taxonomie : 1.0.0 ;
+- présentation cartographique : 3.0.0 ;
+- moteur : `compact-bubble-cloud` 1.0.0.
 
-- `index.html`, `styles/` et `src/` forment l’application native sans framework.
-- `data/taxonomy-nodes.json` contient la taxonomie canonique.
-- `data/taxonomy-links.json` et `data/aliases.json` restent chargés tant que leur migration n’est pas terminée.
-- `data/style-icon-recipes.json` reste la source iconographique active.
-- `data/generated/zythosphere-layout.json` est le layout runtime chargé par le navigateur.
-- `data/generated/zythosphere-layout-report.json` contient les métriques de génération et n’est pas nécessaire au rendu.
-
-## Lancement local
+## Commandes
 
 ```bash
-python3 -m http.server 4173
-```
-
-Ouvrir `http://127.0.0.1:4173/`.
-
-## Commandes npm
-
-```bash
+npm run build:taxonomy
 npm run build:layout
 npm run validate:taxonomy
 npm run validate:icons
 npm run validate:layout
+npm run validate:determinism
 npm run validate
 ```
-
-## Statut géométrique V0.4.4
-
-La V0.4.4 densifie la Zythosphère, spécialise les boîtes géométriques et introduit des routes Bézier segmentées. `npm run validate:layout` recalcule les conflits depuis le layout runtime et confirme les objectifs géométriques à zéro.
-
-## Limites connues
-
-- Brassopédie complète, dégustations, progression, persistance, comptes, cloud et PWA sont hors périmètre.
-- Validation réelle Safari iPad non effectuée dans l’environnement agent.
-- Migration des recettes vers profils iconographiques et suppression des données dérivables restent à terminer après correction géométrique.

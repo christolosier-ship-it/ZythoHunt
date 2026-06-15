@@ -17,6 +17,16 @@
 - Taxonomie, layout généré et iconographie déclarative sont séparés.
 - La Zythosphère et la future Brassopédie utilisent le même référentiel taxonomique.
 
+- La Zythosphère est un nuage compact, pas une carte conçue pour être affichée entièrement.
+- La bonne visibilité locale prime sur le cadrage global.
+- Le zoom est limité à 80-120 %.
+- Aucun élément n’apparaît ou disparaît selon le zoom.
+- Les ratios de bulles sont verrouillés : styles ×0,8 / ×1 / ×1,2, structures ×1,5, Bière ×2.
+- Les liens sont droits.
+- La densité est une exigence produit.
+- Les conflits se résolvent par placement, jamais par routage courbe.
+- Aucun routage courbe ne doit être réintroduit sans nouvelle mission explicite.
+
 ## Contraintes techniques
 
 - Conserver un moteur Canvas unique pour la carte.

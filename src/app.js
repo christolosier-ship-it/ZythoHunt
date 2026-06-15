@@ -34,6 +34,6 @@ try {
   createBottomNavigation($('#global-navigation-root'), { activeView: 'zythosphere', onNavigate: (view, item) => { if (view !== 'zythosphere') toast.show(`${item.label} sera disponible dans une prochaine version.`); } });
   createRevealBar($('#zythosphere-search-slot'), data.nodes, data.aliases, { isDiscovered: id => appState.discovered.has(id), onReveal: previewReveal, onAlready: focusAlreadyRevealed, onRevealAll: revealAllForTest });
   shell.updateMeasurements(); map = createMap($('.map-shell'), data, { getInsets: shell.getMapViewportInsets });
-  toolbar = createMapToolbar($('#map-toolbar-slot'), { onZoomIn: () => { map.controls.zoomIn(); renderNow(); }, onZoomOut: () => { map.controls.zoomOut(); renderNow(); }, onRecenter: () => { map.controls.home(); renderNow(); setLive('Accueil de la Zythosphère.'); }, onFit: () => { renderNow({ fit: true }); setLive('Toute la Zythosphère est affichée.'); }, onToggleMotion: () => setReducedMotion(!appState.presentation.reducedMotion) });
+  toolbar = createMapToolbar($('#map-toolbar-slot'), { onZoomIn: () => { map.controls.zoomIn(); renderNow(); }, onZoomOut: () => { map.controls.zoomOut(); renderNow(); }, onRecenter: () => { map.controls.home(); renderNow(); setLive('Accueil de la Zythosphère.'); }, onToggleMotion: () => setReducedMotion(!appState.presentation.reducedMotion) });
   setReducedMotion(prefersReduced); map.controls.home(); renderNow();
 } catch (error) { console.error(error); setLive(error.message); document.body.classList.add('is-error'); }

@@ -1,36 +1,44 @@
-# Layout de la Zythosphère
+# Layout V0.5.0 — nuage compact de bulles
 
-Le layout est généré hors navigateur par `npm run build:layout`. Le navigateur charge uniquement `data/generated/zythosphere-layout.json` pour dessiner la carte Canvas ; aucune collision, aucun routage et aucun recalcul lourd ne sont effectués pendant pan, pinch ou zoom.
+La Zythosphère est désormais un nuage hiérarchique compact précalculé hors navigateur. La carte est volontairement plus grande que le viewport : l’exploration se fait localement par pan, avec un zoom limité à 80–120 %, sans vue complète.
 
-## Philosophie compacte V0.4.4
+## Ratios verrouillés
 
-La carte reste radiale et hiérarchique : `beer` est au centre, les six univers gardent un ordre stable et chaque descendant reste dans le secteur de sa branche. Le rang taxonomique ne définit plus un anneau strict : les rayons varient selon la taille réelle du parent, de l’enfant, du bouquet local et de la profondeur utile du sous-arbre.
+La référence est `STYLE_BASE_RADIUS = 72`.
 
-La densification vient du placement initial compact, de pas radiaux dépendants des boîtes réelles, de bouquets terminaux et de secteurs moins étirés. Les sous-arbres sont déplacés comme des groupes cohérents lors des corrections.
+- style inconnu : ×0,8 = 57,6 ;
+- style découvert : ×1 = 72 ;
+- style sélectionné ou en révélation : ×1,2 = 86,4 ;
+- structure : ×1,5 = 108 ;
+- Bière : ×2 = 144.
 
-## Boîtes géométriques
+Le layout réserve toujours le rayon maximal des styles (86,4) afin qu’une révélation ou sélection ne déplace aucun voisin.
 
-Toutes les métriques viennent de `src/map/layout/node-metrics.js`.
+## Contenu fixe et zoom
 
-- `visualBox` : dessin visible maximal du nœud, médaillon, contour et libellé utile.
-- `collisionBox` : `visualBox` plus respiration nœud-nœud adaptée au type de nœud.
-- `routingObstacleBox` : obstacle utilisé par les validations et ports de routage.
-- `cullingBox` : zone de viewport avec halo et overscan raisonnable.
+Le zoom ne modifie aucun contenu. Les styles inconnus affichent uniquement `?`. Les styles découverts et les structures affichent leur illustration complète, leurs accessoires, reflets et libellés à toutes les échelles.
 
-Le renderer utilise la `cullingBox` pour limiter le dessin et ne réutilise pas la boîte de collision comme boîte universelle.
+## Packing et compactage
 
-## Placement et bouquets
+`scripts/build-cloud-layout.mjs` mesure les sous-arbres, place Bière au centre logique, distribue les six univers autour d’elle, puis packe récursivement les enfants au plus près de leur parent avec une asymétrie déterministe dérivée des identifiants. Les sous-arbres sont traités comme des blocs cohérents et les passes de compactage réduisent les espaces morts sans recalcul runtime.
 
-Le générateur mesure chaque sous-arbre, alloue un secteur local et place les enfants avec un rayon variable. Les parents avec peu d’enfants forment un éventail court ; les parents denses alternent des profondeurs et décalages déterministes pour éviter les colliers mécaniques. Les variations organiques sont dérivées de l’identifiant stable du nœud.
+## Liens droits
 
-## Résolution et compactage
-
-La génération conserve une passe de résolution des collisions sur `collisionBox`, puis produit le monde à partir des limites réellement obtenues. Le rapport expose les métriques de densité : dimensions, surface, longueurs de Bézier, attaches et conflits.
-
-## Routage
-
-Les liens sont précalculés sous forme de routes Bézier. Le format V0.4.4 ajoute `segments`, tableau d’un ou deux segments cubiques continus, tout en conservant `control1` et `control2` de compatibilité pour le premier et dernier segment. Les extrémités sont recalculées sur le bord circulaire des médaillons source et cible. Le marqueur lumineux reste dessiné uniquement côté enfant.
+Chaque relation est un segment unique avec `start`, `end`, `boundingBox` et `visibleByDefault`. Les points de départ et d’arrivée sont attachés au bord circulaire des bulles. Les champs Bézier (`control1`, `control2`, `segments`) sont obsolètes.
 
 ## Validation
 
-`npm run validate:layout` recharge le layout runtime, échantillonne les routes, contrôle les boîtes de nœuds, les attaches circulaires, les intersections lien-nœud, les croisements lien-lien et les dimensions du monde. Les objectifs V0.4.4 sont : 0 collision, 0 intersection lien-nœud, 0 croisement lien-lien et 0 erreur d’attache.
+La validation s’appuie sur des cercles pour les collisions, des segments contre cercles pour les liens-nœuds, et des segments contre segments pour les croisements. Les rapports générés exposent les métriques de monde, distances, longueurs de liens, collisions, intersections, croisements, attaches et déterminisme.
+
+Commandes :
+
+```bash
+npm run build:layout
+npm run validate:layout
+npm run validate:determinism
+npm run validate
+```
+
+## Schéma runtime
+
+Les nœuds stockent position, niveau visuel, palette, lignes de libellé, rayons `layoutRadius`, `collisionRadius`, `routingRadius`, `cullingRadius` et boîtes dérivées. Les liens stockent seulement source, cible, segment droit, boîte de culling et visibilité initiale.

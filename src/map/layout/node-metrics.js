@@ -1,27 +1,22 @@
-export const NODE_METRICS_VERSION = '0.4.4';
-export const NODE_METRICS = {
-  root: { medallionRadius: 190, medallionHeight: 380, textMaxWidth: 260, textMaxHeight: 56, margin: 18, stroke: 8, safety: 18 },
-  universe: { medallionRadius: 125, medallionHeight: 250, textMaxWidth: 300, textMaxHeight: 82, margin: 18, stroke: 7, safety: 18 },
-  family: { medallionRadius: 92, medallionHeight: 184, textMaxWidth: 280, textMaxHeight: 76, margin: 16, stroke: 6, safety: 16 },
-  subfamily: { medallionRadius: 92, medallionHeight: 184, textMaxWidth: 250, textMaxHeight: 72, margin: 15, stroke: 5, safety: 15 },
-  'style-group': { medallionRadius: 92, medallionHeight: 184, textMaxWidth: 230, textMaxHeight: 68, margin: 14, stroke: 5, safety: 14 },
-  style: { medallionRadius: 68, medallionHeight: 136, textMaxWidth: 210, textMaxHeight: 64, margin: 12, stroke: 5, safety: 12 },
-  'style-unknown': { medallionRadius: 48, medallionHeight: 96, textMaxWidth: 60, textMaxHeight: 54, margin: 12, stroke: 5, safety: 12 },
-  'style-discovered': { medallionRadius: 62, medallionHeight: 124, textMaxWidth: 230, textMaxHeight: 72, margin: 14, stroke: 5, safety: 14 },
-  'style-selected': { medallionRadius: 68, medallionHeight: 136, textMaxWidth: 250, textMaxHeight: 80, margin: 16, stroke: 7, safety: 16 }
-};
-export function getNodeMedallionRadius(node, state = 'unknown') {
-  if (node?.visualLevel === 'root' || node?.id === 'beer' || node?.nodeType === 'root') return NODE_METRICS.root.medallionRadius;
-  if (node?.visualLevel === 'fermentation' || node?.nodeType === 'universe' || node?.nodeType === 'fermentation') return NODE_METRICS.universe.medallionRadius;
-  if (node?.functionalType !== 'capturable') return NODE_METRICS.family.medallionRadius;
-  if (state === 'selected' || state === 'reveal-pending') return NODE_METRICS['style-selected'].medallionRadius;
-  if (state === 'discovered' || state === 'explored') return NODE_METRICS['style-discovered'].medallionRadius;
-  return NODE_METRICS['style-unknown'].medallionRadius;
-}
-export function getMaximumNodeMedallionRadius(node) { return node?.functionalType === 'capturable' ? NODE_METRICS['style-selected'].medallionRadius : getNodeMedallionRadius(node, 'structure'); }
-export function metricForNode(node) { return node?.functionalType === 'capturable' ? NODE_METRICS['style-selected'] : (NODE_METRICS[node?.nodeType] || NODE_METRICS.family); }
-function baseBox(node, x, y, extra = 0) { const m = metricForNode(node); const w = Math.max(m.medallionRadius * 2 + m.stroke * 2, m.textMaxWidth) + m.margin * 2 + m.safety * 2 + extra * 2; const h = m.medallionHeight + m.textMaxHeight + m.margin * 2 + m.safety * 2 + extra * 2; return { minX: x - w / 2, minY: y - h / 2, maxX: x + w / 2, maxY: y + h / 2, width: w, height: h }; }
-export function visualBoxFor(node, x, y) { return baseBox(node, x, y, 0); }
-export function collisionBoxFor(node, x, y) { const extra = node?.nodeType === 'root' ? 34 : node?.nodeType === 'universe' ? 28 : node?.functionalType === 'capturable' ? 20 : 24; return baseBox(node, x, y, extra); }
-export function routingObstacleBoxFor(node, x, y) { const r = 1; return { minX:x-r, minY:y-r, maxX:x+r, maxY:y+r, width:r*2, height:r*2 }; }
-export function cullingBoxFor(node, x, y) { return baseBox(node, x, y, 36); }
+export const NODE_METRICS_VERSION = '0.5.0';
+export const STYLE_BASE_RADIUS = 72;
+export const BUBBLE_RATIOS = Object.freeze({ unknown: 0.8, discovered: 1, selected: 1.2, structure: 1.5, beer: 2 });
+export const NODE_METRICS = Object.freeze({
+  style: { visualRadius: STYLE_BASE_RADIUS, layoutRadius: STYLE_BASE_RADIUS * 1.2, collisionRadius: 96, routingRadius: 92, cullingRadius: STYLE_BASE_RADIUS * 1.2 + 20 },
+  'style-unknown': { visualRadius: STYLE_BASE_RADIUS * 0.8, layoutRadius: STYLE_BASE_RADIUS * 1.2, collisionRadius: 96, routingRadius: 92, cullingRadius: STYLE_BASE_RADIUS * 1.2 + 20 },
+  'style-discovered': { visualRadius: STYLE_BASE_RADIUS, layoutRadius: STYLE_BASE_RADIUS * 1.2, collisionRadius: 96, routingRadius: 92, cullingRadius: STYLE_BASE_RADIUS * 1.2 + 20 },
+  'style-selected': { visualRadius: STYLE_BASE_RADIUS * 1.2, layoutRadius: STYLE_BASE_RADIUS * 1.2, collisionRadius: 96, routingRadius: 92, cullingRadius: STYLE_BASE_RADIUS * 1.2 + 20 },
+  structure: { visualRadius: STYLE_BASE_RADIUS * 1.5, layoutRadius: STYLE_BASE_RADIUS * 1.5, collisionRadius: 120, routingRadius: 114, cullingRadius: STYLE_BASE_RADIUS * 1.5 + 20 },
+  beer: { visualRadius: STYLE_BASE_RADIUS * 2, layoutRadius: STYLE_BASE_RADIUS * 2, collisionRadius: 160, routingRadius: 150, cullingRadius: STYLE_BASE_RADIUS * 2 + 20 }
+});
+function kind(node, state='unknown') { if (node?.id === 'beer' || node?.visualLevel === 'root' || node?.nodeType === 'root') return 'beer'; if (node?.functionalType !== 'capturable') return 'structure'; if (state === 'selected' || state === 'reveal-pending') return 'style-selected'; if (state === 'discovered' || state === 'explored') return 'style-discovered'; return 'style-unknown'; }
+export function metricsForNode(node, state='unknown') { return NODE_METRICS[kind(node,state)] || NODE_METRICS.structure; }
+export function layoutMetricsForNode(node) { return node?.id === 'beer' ? NODE_METRICS.beer : node?.functionalType === 'capturable' ? NODE_METRICS.style : NODE_METRICS.structure; }
+export function getNodeMedallionRadius(node, state = 'unknown') { return metricsForNode(node,state).visualRadius; }
+export function getMaximumNodeMedallionRadius(node) { return layoutMetricsForNode(node).layoutRadius; }
+export function metricForNode(node) { return layoutMetricsForNode(node); }
+function circleBox(x,y,r){ return { minX:x-r, minY:y-r, maxX:x+r, maxY:y+r, width:r*2, height:r*2 }; }
+export function visualBoxFor(node,x,y,state='unknown'){ return circleBox(x,y,metricsForNode(node,state).visualRadius); }
+export function collisionBoxFor(node,x,y){ return circleBox(x,y,layoutMetricsForNode(node).collisionRadius); }
+export function routingObstacleBoxFor(node,x,y){ return circleBox(x,y,layoutMetricsForNode(node).routingRadius); }
+export function cullingBoxFor(node,x,y){ return circleBox(x,y,layoutMetricsForNode(node).cullingRadius); }
