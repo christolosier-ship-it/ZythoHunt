@@ -20,6 +20,12 @@
 ## Contraintes techniques
 
 - Conserver un moteur Canvas unique pour la carte.
+- La compacité est un objectif produit : ne pas étirer artificiellement le monde.
+- Le rang taxonomique ne définit pas un anneau graphique obligatoire.
+- Déplacer les sous-arbres comme des groupes cohérents lors des corrections.
+- Les marges de layout doivent provenir de la géométrie réelle.
+- Aucun changement isolé de constante ne suffit sans validation complète.
+- Aucun calcul lourd de layout ou routage ne doit se dérouler au runtime.
 - Ne pas réintroduire de moteur SVG.
 - Ne jamais déclencher de redraw Canvas complet pendant `pointermove`.
 - Ne pas recalculer layout, collisions ou routage dans le navigateur pendant pan/pinch.

@@ -1,10 +1,10 @@
 {
-  "applicationVersion": "0.4.3",
+  "applicationVersion": "0.4.4",
   "taxonomyVersion": "1.0.0",
   "taxonomyName": "ZythoHunt Taxonomy",
   "taxonomyStatus": "canonical",
-  "presentationVersion": "2.1.0",
-  "appVersion": "0.4.3",
+  "presentationVersion": "2.2.0",
+  "appVersion": "0.4.4",
   "schemaVersion": 2,
   "nodeCount": 272,
   "structureNodeCount": 71,

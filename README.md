@@ -4,9 +4,9 @@ ZythoHunt est une application web native HTML/CSS/JavaScript dédiée à l’exp
 
 ## État actuel
 
-- Application : **0.4.3**.
+- Application : **0.4.4**.
 - Taxonomie : **1.0.0**.
-- Présentation cartographique : **2.1.0**.
+- Présentation cartographique : **2.2.0**.
 - Corpus : 272 nœuds, 201 styles capturables, 71 nœuds structurels, 271 relations principales, 1 racine et 6 univers.
 
 ## Fonctions disponibles
@@ -45,9 +45,9 @@ npm run validate:layout
 npm run validate
 ```
 
-## Statut géométrique V0.4.3
+## Statut géométrique V0.4.4
 
-La V0.4.3 sépare le runtime du rapport et ajoute une validation indépendante qui recalcule la géométrie à partir du fichier réellement chargé. L’audit confirme que les collisions entre boîtes de nœuds sont résolues, mais que le routage Bézier conserve actuellement des intersections lien-nœud. `npm run validate:layout` échoue donc volontairement tant que ces conflits ne sont pas réellement corrigés.
+La V0.4.4 densifie la Zythosphère, spécialise les boîtes géométriques et introduit des routes Bézier segmentées. `npm run validate:layout` recalcule les conflits depuis le layout runtime et confirme les objectifs géométriques à zéro.
 
 ## Limites connues
 

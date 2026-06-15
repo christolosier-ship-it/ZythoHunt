@@ -129,7 +129,7 @@ export function validateTaxonomy(nodes, links, aliases, version, world = WORLD, 
     const allowedLevels = new Set(['root', 'fermentation', 'family', 'style']);
     const allowedIcons = new Set(['beer-mug', 'ale-glass', 'lager-glass', 'hop', 'wheat', 'tulip', 'pint', 'dark-glass', 'bottle', 'fruit', 'question']);
     const allowedPalettes = new Set(['root-gold', 'ale-amber', 'lager-gold', 'wheat-gold', 'dark-malt', 'wild-green', 'fruit-rose']);
-    if (presentation.presentationVersion !== '2.1.0') add('map presentationVersion mismatch');
+    if (presentation.presentationVersion !== '2.2.0') add('map presentationVersion mismatch');
     if (!presentation.world || typeof presentation.world.width !== 'number' || typeof presentation.world.height !== 'number') add('invalid presentation world');
     if (!presentation.nodes || Array.isArray(presentation.nodes) || typeof presentation.nodes !== 'object') add('invalid presentation nodes');
     else {

@@ -43,7 +43,7 @@ let maximumSourceEdgeError = 0;
 let maximumTargetEdgeError = 0;
 const EDGE_TOLERANCE = 0.75;
 for (const link of links) {
-  for (const key of ['start', 'control1', 'control2', 'end']) if (!link[key] || !number(link[key].x) || !number(link[key].y)) errors.push(`Bézier incomplète: ${link.id}.${key}`);
+  for (const key of ['start', 'end']) if (!link[key] || !number(link[key].x) || !number(link[key].y)) errors.push(`Bézier incomplète: ${link.id}.${key}`); if (Array.isArray(link.segments)) { for (const [si, segment] of link.segments.entries()) for (const key of ['control1','control2','end']) if (!segment[key] || !number(segment[key].x) || !number(segment[key].y)) errors.push(`Bézier incomplète: ${link.id}.segments.${si}.${key}`); } else { for (const key of ['control1', 'control2']) if (!link[key] || !number(link[key].x) || !number(link[key].y)) errors.push(`Bézier incomplète: ${link.id}.${key}`); }
   if (!nodeIds.has(link.sourceId) || !nodeIds.has(link.targetId)) errors.push(`lien orphelin: ${link.id}`);
   const sourceNode = nodeById.get(link.sourceId);
   const targetNode = nodeById.get(link.targetId);
@@ -72,7 +72,7 @@ let linkNodeIntersections = 0;
 for (const link of sampledLinks) {
   for (const node of nodes) {
     if (node.id === link.sourceId || node.id === link.targetId) continue;
-    const box = node.collisionBox ?? node.boundingBox;
+    const box = node.routingObstacleBox ?? node.visualBox ?? node.boundingBox;
     if (!boxIntersects(link.sampledBox, box)) continue;
     for (let i = 1; i < link.sampled.length; i += 1) {
       if (segmentBoxHit(link.sampled[i - 1], link.sampled[i], box)) { linkNodeIntersections += 1; break; }
