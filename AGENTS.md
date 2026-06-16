@@ -59,3 +59,13 @@
 ## Git
 
 - Ne pas faire de commit ou push sans instruction explicite.
+
+## Règles V0.5.1
+
+- Tous les liens, y compris masqués au démarrage ou révélés par All, sont validés.
+- Le rapport de build n’est jamais une preuve : le validateur recalcule le JSON final.
+- Les sous-arbres validés sont déplacés comme des blocs rigides.
+- Aucune relaxation individuelle de nœuds n’est autorisée.
+- Aucun corridor spatial large n’est réservé autour des liens.
+- Une insertion doit être validée avant la suivante.
+- Un retour arrière local est obligatoire en cas de blocage.
