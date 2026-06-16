@@ -1,6 +1,6 @@
 {
   "name": "zythohunt",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "private": true,
   "type": "module",
   "scripts": {
@@ -8,8 +8,9 @@
     "build:layout": "node scripts/build-cloud-layout.mjs",
     "validate:taxonomy": "node scripts/validate-taxonomy.mjs --taxonomy-only",
     "validate:layout": "node scripts/validate-layout.mjs",
-    "validate": "npm run build:taxonomy && npm run build:layout && npm run validate:taxonomy && npm run validate:icons && npm run validate:layout && npm run validate:determinism",
+    "validate": "npm run test:geometry && npm run build:taxonomy && npm run build:layout && npm run validate:taxonomy && npm run validate:icons && npm run validate:layout && npm run validate:determinism",
     "validate:icons": "node scripts/validate-icons.mjs",
-    "validate:determinism": "node scripts/validate-determinism.mjs"
+    "validate:determinism": "node scripts/validate-determinism.mjs",
+    "test:geometry": "node scripts/tests/geometry.test.mjs"
   }
 }

@@ -1,0 +1,13 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { segmentIntersectionDetail, segmentCircleIntersection, distancePointToSegment, circleCircleDistance } from '../layout/geometry.mjs';
+test('segments en X',()=>assert.equal(segmentIntersectionDetail({x:0,y:0},{x:10,y:10},{x:0,y:10},{x:10,y:0}).proper,true));
+test('parallèles séparés',()=>assert.equal(segmentIntersectionDetail({x:0,y:0},{x:10,y:0},{x:0,y:1},{x:10,y:1}).intersects,false));
+test('colinéaires séparés',()=>assert.equal(segmentIntersectionDetail({x:0,y:0},{x:1,y:0},{x:2,y:0},{x:3,y:0}).intersects,false));
+test('colinéaires superposés',()=>assert.equal(segmentIntersectionDetail({x:0,y:0},{x:3,y:0},{x:2,y:0},{x:4,y:0}).overlap,true));
+test('extrémité partagée',()=>{const r=segmentIntersectionDetail({x:0,y:0},{x:1,y:0},{x:1,y:0},{x:1,y:1}); assert.equal(r.touches,true); assert.equal(r.proper,false);});
+test('segment traverse cercle',()=>assert.equal(segmentCircleIntersection({x:-2,y:0},{x:2,y:0},{x:0,y:0,radius:1}),true));
+test('segment tangent cercle',()=>assert.equal(segmentCircleIntersection({x:-2,y:1},{x:2,y:1},{x:0,y:0,radius:1}),true));
+test('segment juste hors cercle',()=>assert.equal(segmentCircleIntersection({x:-2,y:1.01},{x:2,y:1.01},{x:0,y:0,radius:1}),false));
+test('distance point segment',()=>assert.equal(distancePointToSegment({x:1,y:2},{x:0,y:0},{x:3,y:0}),2));
+test('cercles tangents non superposés',()=>assert.equal(circleCircleDistance({x:0,y:0,radius:1},{x:2,y:0,radius:1})>=0,true));

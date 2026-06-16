@@ -2,8 +2,8 @@
   "taxonomyVersion": "1.0.0",
   "taxonomyName": "ZythoHunt Taxonomy",
   "taxonomyStatus": "canonical",
-  "presentationVersion": "3.0.0",
-  "appVersion": "0.5.0",
+  "presentationVersion": "3.1.0",
+  "appVersion": "0.5.1",
   "schemaVersion": 3,
   "nodeCount": 272,
   "structureNodeCount": 71,
@@ -11,5 +11,5 @@
   "primaryLinkCount": 271,
   "secondaryLinkCount": 0,
   "layoutEngine": "compact-bubble-cloud",
-  "layoutEngineVersion": "1.0.0"
+  "layoutEngineVersion": "1.1.0"
 }

@@ -1,6 +1,6 @@
-# Layout V0.5.0 — nuage compact de bulles
+# Layout V0.5.1 — construction incrémentale du nuage
 
-La Zythosphère est désormais un nuage hiérarchique compact précalculé hors navigateur. La carte est volontairement plus grande que le viewport : l’exploration se fait localement par pan, avec un zoom limité à 80–120 %, sans vue complète.
+La Zythosphère est un layout `compact-bubble-cloud` précalculé hors navigateur. Le renderer Canvas consomme uniquement les nœuds, rayons, boîtes et segments droits générés.
 
 ## Ratios verrouillés
 
@@ -12,33 +12,32 @@ La référence est `STYLE_BASE_RADIUS = 72`.
 - structure : ×1,5 = 108 ;
 - Bière : ×2 = 144.
 
-Le layout réserve toujours le rayon maximal des styles (86,4) afin qu’une révélation ou sélection ne déplace aucun voisin.
+Le layout réserve le rayon maximal des styles afin qu’une révélation ou sélection ne déplace aucun voisin.
 
-## Contenu fixe et zoom
+## Packing
 
-Le zoom ne modifie aucun contenu. Les styles inconnus affichent uniquement `?`. Les styles découverts et les structures affichent leur illustration complète, leurs accessoires, reflets et libellés à toutes les échelles.
+Le moteur manipule des blocs internes de type `SubtreeBlock` : racine, nœuds, liens, bornes, profondeur, score et direction extérieure. Un bloc déjà validé est déplacé comme un objet rigide : translation et rotation seulement, jamais relaxation individuelle des nœuds.
 
-## Packing et compactage
+La construction se fait bas en haut : feuilles, structures, puis assemblage racine autour de Bière. Les enfants sont ordonnés de façon stable. Les candidats de placement sont déterministes, évalués par validation cercles/segments, puis sélectionnés par score. Un faisceau borné conserve plusieurs états partiels et fournit un retour arrière local si une insertion bloque.
 
-`scripts/build-cloud-layout.mjs` mesure les sous-arbres, place Bière au centre logique, distribue les six univers autour d’elle, puis packe récursivement les enfants au plus près de leur parent avec une asymétrie déterministe dérivée des identifiants. Les sous-arbres sont traités comme des blocs cohérents et les passes de compactage réduisent les espaces morts sans recalcul runtime.
+Le compactage accepte uniquement des déplacements rigides qui améliorent le score et gardent la validation complète. Aucun corridor large n’est réservé autour des liens : le rayon `routingRadius` des bulles est la marge géométrique.
 
 ## Liens droits
 
 Chaque relation est un segment unique avec `start`, `end`, `boundingBox` et `visibleByDefault`. Les points de départ et d’arrivée sont attachés au bord circulaire des bulles. Les champs Bézier (`control1`, `control2`, `segments`) sont obsolètes.
 
-## Validation
+Tous les liens participent à la validation, y compris les liens masqués au démarrage et ceux révélés par All.
 
-La validation s’appuie sur des cercles pour les collisions, des segments contre cercles pour les liens-nœuds, et des segments contre segments pour les croisements. Les rapports générés exposent les métriques de monde, distances, longueurs de liens, collisions, intersections, croisements, attaches et déterminisme.
+## Validation indépendante
+
+Le rapport de build n’est jamais une preuve. `scripts/validate-layout.mjs` recharge `data/generated/zythosphere-layout.json` ou un fichier fourni, puis recalcule collisions nœud-nœud, intersections lien-nœud, croisements, superpositions, attaches et métriques de densité.
 
 Commandes :
 
 ```bash
+npm run test:geometry
 npm run build:layout
 npm run validate:layout
 npm run validate:determinism
 npm run validate
 ```
-
-## Schéma runtime
-
-Les nœuds stockent position, niveau visuel, palette, lignes de libellé, rayons `layoutRadius`, `collisionRadius`, `routingRadius`, `cullingRadius` et boîtes dérivées. Les liens stockent seulement source, cible, segment droit, boîte de culling et visibilité initiale.
