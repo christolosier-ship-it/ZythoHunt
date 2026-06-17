@@ -1,13 +1,14 @@
-const CARD_BACK = "/assets/collections/porters-stouts/card-back.webp";
-const CARD_FRAME = "/assets/collections/porters-stouts/card-front-frame.svg";
-
+import { assetUrl } from "./asset-url.js";
 import { cards } from "../data/cards.js";
+
+export const CARD_BACK_URL = assetUrl("/assets/collections/porters-stouts/card-back.webp");
+export const CARD_FRAME_URL = assetUrl("/assets/collections/porters-stouts/card-front-frame.svg");
 
 export async function preloadAssets(onProgress) {
   const urls = [
-    CARD_BACK,
-    CARD_FRAME,
-    ...cards.map((c) => c.image)
+    CARD_BACK_URL,
+    CARD_FRAME_URL,
+    ...cards.map((c) => assetUrl(c.image))
   ];
 
   let loaded = 0;
@@ -30,6 +31,3 @@ export async function preloadAssets(onProgress) {
 
   await Promise.all(urls.map(load));
 }
-
-export const CARD_BACK_URL = CARD_BACK;
-export const CARD_FRAME_URL = CARD_FRAME;

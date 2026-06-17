@@ -1,0 +1,102 @@
+Corrige exclusivement le déploiement GitHub Pages du projet actuel.
+
+Dépôt cible :
+christolosier-ship-it/ZythoHunt-Reveal-Lab
+
+L’application Vite à publier se trouve dans :
+artifacts/zythohunt/
+
+Ne modifie absolument pas l’interface, les animations GSAP, les réglages, les textes ou les assets visuels.
+
+1. Compatibilité des chemins GitHub Pages
+
+Le site sera publié sous :
+
+/ZythoHunt-Reveal-Lab/
+
+Dans tout le code de artifacts/zythohunt/, recherche les chemins absolus commençant notamment par :
+
+/assets/
+
+Remplace leur construction par des URL compatibles avec le base path Vite, en utilisant :
+
+import.meta.env.BASE_URL
+
+Créer si nécessaire une fonction utilitaire de ce type :
+
+const assetUrl = (path) =>
+  `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
+
+Utiliser cette fonction pour :
+
+- card-back.webp
+- card-front-frame.svg
+- stout.webp
+- imperial-stout.webp
+- baltic-porter.webp
+- tout autre asset local référencé avec un chemin absolu
+
+Vérifier également les éventuels chemins présents dans le CSS ou dans les autres fichiers JavaScript.
+
+2. Configuration Vite
+
+Dans :
+
+artifacts/zythohunt/vite.config.ts
+
+Conserver le fonctionnement actuel avec BASE_PATH, mais permettre une compilation hors de Replit avec des valeurs par défaut :
+
+- PORT par défaut : 4173
+- BASE_PATH par défaut : "/"
+
+Le workflow GitHub définira lui-même :
+
+BASE_PATH=/ZythoHunt-Reveal-Lab/
+
+Conserver le dossier de sortie existant :
+
+artifacts/zythohunt/dist/public
+
+3. Workflow GitHub Pages
+
+Créer exactement :
+
+.github/workflows/deploy-pages.yml
+
+Utiliser un workflow GitHub Actions qui :
+
+- se déclenche sur chaque push vers main ;
+- peut être lancé manuellement ;
+- utilise Node.js 24 ;
+- installe pnpm ;
+- exécute pnpm install --frozen-lockfile ;
+- compile uniquement le package @workspace/zythohunt ;
+- définit pendant la compilation :
+  PORT=4173
+  BASE_PATH=/ZythoHunt-Reveal-Lab/
+- publie le dossier :
+  artifacts/zythohunt/dist/public
+- utilise les actions GitHub Pages officielles :
+  actions/configure-pages
+  actions/upload-pages-artifact
+  actions/deploy-pages
+- utilise les permissions :
+  contents: read
+  pages: write
+  id-token: write
+
+4. Validation
+
+Exécuter localement :
+
+PORT=4173 BASE_PATH=/ZythoHunt-Reveal-Lab/ pnpm --filter @workspace/zythohunt run build
+
+Vérifier que :
+
+- la compilation réussit ;
+- artifacts/zythohunt/dist/public/index.html existe ;
+- les chemins générés commencent correctement par /ZythoHunt-Reveal-Lab/ ;
+- aucun asset n’utilise encore incorrectement /assets/ à la racine du domaine ;
+- aucune modification visuelle ou fonctionnelle n’a été faite.
+
+À la fin, donne la liste précise des fichiers créés ou modifiés.

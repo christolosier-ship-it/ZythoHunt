@@ -1,4 +1,5 @@
 import { CARD_BACK_URL, CARD_FRAME_URL } from "../utils/preload-assets.js";
+import { assetUrl } from "../utils/asset-url.js";
 
 /**
  * Creates a single card DOM element.
@@ -44,7 +45,7 @@ export function createCard({ index, cardData, revealable }) {
     illWindow.className = "illustration-window";
     const illImg = document.createElement("img");
     illImg.className = "card-illustration";
-    illImg.src = cardData.image;
+    illImg.src = assetUrl(cardData.image);
     illImg.alt = cardData.name;
     illImg.draggable = false;
     illWindow.appendChild(illImg);
@@ -132,7 +133,7 @@ export function cloneCardForReveal(cardEl, rect, cardData) {
   illWindow.className = "illustration-window";
   const illImg = document.createElement("img");
   illImg.className = "card-illustration";
-  illImg.src = cardData.image;
+  illImg.src = assetUrl(cardData.image);
   illImg.alt = cardData.name;
   illImg.draggable = false;
   illWindow.appendChild(illImg);
