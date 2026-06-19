@@ -2,7 +2,11 @@ name: Deploy ZythoHunt Pages
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
@@ -11,36 +15,64 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
+  group: github-pages-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
         with:
+          version: 10
           run_install: false
-      - uses: actions/setup-node@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 24
           cache: pnpm
-      - run: pnpm install --frozen-lockfile
-      - run: pnpm --filter @workspace/zythohunt run typecheck
-      - run: pnpm --filter @workspace/zythohunt run test
-      - run: pnpm --filter @workspace/zythohunt run build
+          cache-dependency-path: pnpm-lock.yaml
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Typecheck application JavaScript
+        run: pnpm --filter @workspace/zythohunt run typecheck
+
+      - name: Run discovery tests
+        run: pnpm --filter @workspace/zythohunt run test
+
+      - name: Build GitHub Pages artifact
+        run: pnpm --filter @workspace/zythohunt run build
         env:
+          PORT: 4173
           BASE_PATH: /ZythoHunt-Reveal-Lab/
-      - uses: actions/upload-pages-artifact@v3
+
+      - name: Configure GitHub Pages
+        if: github.event_name != 'pull_request'
+        uses: actions/configure-pages@v5
+
+      - name: Upload GitHub Pages artifact
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
         with:
           path: artifacts/zythohunt/dist/public
+
   deploy:
+    if: github.event_name != 'pull_request'
     needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
-      - id: deployment
+      - name: Deploy GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4
