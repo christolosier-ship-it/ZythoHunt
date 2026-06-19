@@ -1,4 +1,4 @@
-name: Deploy ZythoHunt Pages
+name: Validate and deploy ZythoHunt
 
 on:
   push:
@@ -21,7 +21,6 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -36,22 +35,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 24
-          cache: pnpm
-          cache-dependency-path: pnpm-lock.yaml
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --no-frozen-lockfile
 
-      - name: Typecheck application JavaScript
-        run: pnpm --filter @workspace/zythohunt run typecheck
-
-      - name: Run discovery tests
-        run: pnpm --filter @workspace/zythohunt run test
-
-      - name: Build GitHub Pages artifact
-        run: pnpm --filter @workspace/zythohunt run build
+      - name: Validate application
+        run: pnpm check
         env:
-          PORT: 4173
           BASE_PATH: /ZythoHunt-Reveal-Lab/
 
       - name: Configure GitHub Pages
@@ -62,7 +52,7 @@ jobs:
         if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v3
         with:
-          path: artifacts/zythohunt/dist/public
+          path: dist
 
   deploy:
     if: github.event_name != 'pull_request'
@@ -71,7 +61,6 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-
     steps:
       - name: Deploy GitHub Pages
         id: deployment
