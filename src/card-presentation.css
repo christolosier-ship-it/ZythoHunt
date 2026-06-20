@@ -29,3 +29,29 @@
 .csl-card.is-inspecting {
   z-index: 160 !important;
 }
+
+.card-click-glow {
+  position: absolute;
+  inset: -5%;
+  z-index: 20;
+  border: 2px solid rgba(255, 184, 82, 0.96);
+  border-radius: calc(var(--csl-radius) + 8px);
+  box-shadow:
+    0 0 14px rgba(255, 177, 67, 0.95),
+    0 0 34px rgba(232, 126, 32, 0.8),
+    0 0 62px rgba(180, 73, 12, 0.45),
+    inset 0 0 18px rgba(255, 195, 103, 0.34);
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.92);
+  transform-origin: center;
+  will-change: opacity, transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-click-glow {
+    box-shadow:
+      0 0 12px rgba(255, 177, 67, 0.88),
+      0 0 26px rgba(232, 126, 32, 0.58);
+  }
+}
