@@ -38,8 +38,14 @@ jobs:
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
 
-      - name: Validate application
-        run: pnpm check
+      - name: Typecheck JavaScript
+        run: pnpm typecheck
+
+      - name: Run tests
+        run: pnpm test
+
+      - name: Build GitHub Pages artifact
+        run: pnpm build
         env:
           BASE_PATH: /ZythoHunt-Reveal-Lab/
 
