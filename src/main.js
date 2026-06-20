@@ -1,5 +1,6 @@
 /** @typedef {any} Any */
 import "./styles.css";
+import "./card-presentation.css";
 import gsap from "gsap";
 import { preloadAssets } from "./utils/preload-assets.js";
 import { createDebugPanel, resetDebugPanel } from "./components/create-debug-panel.js";
