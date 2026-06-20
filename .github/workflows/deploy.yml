@@ -25,18 +25,20 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 24
-
       - name: Enable pnpm
         run: |
           corepack enable
           corepack prepare pnpm@10.12.4 --activate
 
-      - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+
+      - name: Install frozen dependencies
+        run: pnpm install --frozen-lockfile
 
       - name: Typecheck JavaScript
         run: pnpm typecheck
