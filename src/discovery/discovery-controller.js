@@ -1,4 +1,4 @@
-export function createDiscoveryController({ formEl, inputEl, feedbackEl, submitEl, carousel, revealEngine, store, resolver, cards, progressEl, settingsPanelEl, beforeReveal }) {
+export function createDiscoveryController({ formEl, inputEl, feedbackEl, submitEl, carousel, revealEngine, store, resolver, cards, progressEl, settingsPanelEl, beforeReveal, afterReveal }) {
   let busy = false;
   const realCards = cards.filter((card) => card.revealable);
   const byId = Object.fromEntries(realCards.map((card) => [card.id, card]));
@@ -12,17 +12,19 @@ export function createDiscoveryController({ formEl, inputEl, feedbackEl, submitE
     const result = resolver.resolve(inputEl.value);
     if (!inputEl.value.trim() || result.status === "unknown") { setFeedback("Aucun style reconnu dans ce prototype.", true); inputEl.animate?.([{ transform: "translateX(0)" }, { transform: "translateX(-5px)" }, { transform: "translateX(5px)" }, { transform: "translateX(0)" }], { duration: 180 }); return; }
     const card = byId[result.cardId]; setBusy(true); settingsPanelEl.hidden = true; carousel.closeInspection?.(); carousel.lock();
+    let revealStarted = false;
     try {
       await carousel.focusCard(card.id);
       if (store.isDiscovered(card.id)) { await carousel.highlight(card.id); setFeedback("Cette carte est déjà découverte"); return; }
       await ensureImage(card);
-      beforeReveal?.();
+      await beforeReveal?.();
+      revealStarted = true;
       const revealResult = await revealEngine.reveal({ cardEl: carousel.getCardElement(card.id), cardData: card, sceneContext: carousel.createRevealContext(card.id), mode: "full" });
       if (revealResult.status !== "completed") return;
       setFeedback("Nouvelle carte révélée");
       await revealEngine.returnToSource({ beforeSourceRestore: () => { store.markDiscovered(card.id); carousel.setDiscovered(card.id, true); updateProgress(); } });
     } catch (error) { console.error(error); setFeedback("La révélation a échoué. Réessaie.", true); }
-    finally { carousel.unlock(); setBusy(false); inputEl.focus(); }
+    finally { if (revealStarted) await afterReveal?.(); carousel.unlock(); setBusy(false); inputEl.focus(); }
   }
   function mount() { updateProgress(); realCards.forEach((card) => carousel.setDiscovered(card.id, store.isDiscovered(card.id))); formEl.addEventListener("submit", handleSubmit); }
   function destroy() { formEl.removeEventListener("submit", handleSubmit); }
