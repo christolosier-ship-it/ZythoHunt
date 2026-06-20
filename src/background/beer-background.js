@@ -18,9 +18,13 @@ const BEER_STOPS = [
 
 const lerp = (a, b, t) => a + (b - a) * t;
 const lerpTriplet = (a, b, t) => [lerp(a[0], b[0], t), lerp(a[1], b[1], t), lerp(a[2], b[2], t)];
-const toHsl = ([h, s, l], alpha = 1) => alpha < 1
-  ? `hsl(${h.toFixed(1)} ${s.toFixed(1)}% ${l.toFixed(1)}% / ${alpha})`
-  : `hsl(${h.toFixed(1)} ${s.toFixed(1)}% ${l.toFixed(1)}%)`;
+/** @param {number[]} triplet */
+const toHsl = (triplet, alpha = 1) => {
+  const [h, s, l] = triplet;
+  return alpha < 1
+    ? `hsl(${h.toFixed(1)} ${s.toFixed(1)}% ${l.toFixed(1)}% / ${alpha})`
+    : `hsl(${h.toFixed(1)} ${s.toFixed(1)}% ${l.toFixed(1)}%)`;
+};
 
 function getPalette(value) {
   const clamped = Math.max(0, Math.min(100, Number(value) || 0));
