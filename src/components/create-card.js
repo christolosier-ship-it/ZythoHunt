@@ -51,6 +51,13 @@ function createBackFace() {
   return backFace;
 }
 
+function createClickGlow() {
+  const glow = document.createElement("span");
+  glow.className = "card-click-glow";
+  glow.setAttribute("aria-hidden", "true");
+  return glow;
+}
+
 export function fitCardName(nameEl, containerEl = nameEl?.parentElement) {
   if (!nameEl || !containerEl) return;
 
@@ -99,7 +106,10 @@ export function createCard({ index = 0, cardData, revealable, discovered = false
     frontFace.setAttribute("aria-hidden", "false");
     card.style.transform = "rotateY(180deg)";
   }
-  wrapper.appendChild(card);
+
+  if (as === "carousel") wrapper.append(card, createClickGlow());
+  else wrapper.appendChild(card);
+
   scheduleCardNameFit(wrapper);
   return wrapper;
 }
