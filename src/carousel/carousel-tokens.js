@@ -1,14 +1,14 @@
 const STORAGE_KEY = "zythohunt_carousel_tokens";
 
 const defaults = {
-  spacing:       156,
-  depthStep:     110,
-  rotationStep:   14,
-  scaleStep:    0.11,
+  spacing:       128,
+  depthStep:     170,
+  rotationStep:   28,
+  scaleStep:    0.06,
   minScale:     0.62,
   opacityStep:  0.15,
   minOpacity:   0.55,
-  snapDuration: 0.40
+  snapDuration: 0.55
 };
 
 function load() {
