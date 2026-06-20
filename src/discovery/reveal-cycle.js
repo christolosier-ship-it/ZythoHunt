@@ -19,13 +19,13 @@ export async function runRevealCycle({
 
     if (store.isDiscovered(card.id)) {
       await carousel.highlight(card.id);
-      await onAlreadyDiscovered?.(card);
+      if (onAlreadyDiscovered) await onAlreadyDiscovered();
       return { status: "already-discovered" };
     }
 
     await ensureImage(card);
     revealStarted = true;
-    await beforeReveal?.(card);
+    if (beforeReveal) await beforeReveal();
 
     const revealResult = await revealEngine.reveal({
       cardEl: carousel.getCardElement(card.id),
@@ -42,13 +42,13 @@ export async function runRevealCycle({
       beforeSourceRestore: () => {
         store.markDiscovered(card.id);
         carousel.setDiscovered(card.id, true);
-        onDiscovered?.(card);
+        if (onDiscovered) onDiscovered();
       }
     });
 
     return { status: "completed" };
   } finally {
-    if (revealStarted) await afterReveal?.(card);
+    if (revealStarted && afterReveal) await afterReveal();
     if (prepared) carousel.unlock();
   }
 }
