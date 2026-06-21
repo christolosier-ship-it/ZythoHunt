@@ -8,7 +8,8 @@ const defaults = {
   minScale:     0.62,
   opacityStep:  0.15,
   minOpacity:   0.55,
-  snapDuration: 0.55
+  snapDuration: 0.55,
+  renderWindow: 8
 };
 
 function load() {

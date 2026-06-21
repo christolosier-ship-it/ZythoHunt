@@ -6,6 +6,11 @@ import { motionTokens } from "../animation/motion-tokens.js";
 
 gsap.registerPlugin(Draggable);
 const DRAG_CLICK_THRESHOLD = 8;
+const DEFAULT_RENDER_WINDOW = 8;
+
+export function isInsideRenderWindow(index, vPos, renderWindow = DEFAULT_RENDER_WINDOW) {
+  return Math.abs(index - vPos) <= renderWindow;
+}
 
 export function createCarousel(/** @type {any} */ { containerEl, cards, collection, tokens, store, onActiveChange, onInspect }) {
   let activeIndex = 4;
@@ -28,6 +33,7 @@ export function createCarousel(/** @type {any} */ { containerEl, cards, collecti
   const isDiscovered = (id) => store?.isDiscovered(id) || false;
   const now = () => performance.now();
   const isFormField = (el) => ["INPUT", "TEXTAREA", "SELECT", "BUTTON"].includes(el?.tagName) || el?.closest?.("#debug-panel");
+  const getRenderWindow = () => Number(tokens.renderWindow) || DEFAULT_RENDER_WINDOW;
 
   function getVisualState(index, vPos) {
     const distance = index - vPos;
@@ -54,6 +60,14 @@ export function createCarousel(/** @type {any} */ { containerEl, cards, collecti
     }
   }
 
+  function setRenderState(cardEl, visible) {
+    const state = visible ? "visible" : "hidden";
+    if (cardEl.dataset.renderState === state) return;
+    cardEl.dataset.renderState = state;
+    cardEl.style.visibility = visible ? "visible" : "hidden";
+    cardEl.style.pointerEvents = visible ? "" : "none";
+  }
+
   function updateA11y() {
     cardEls.forEach((wrap, i) => {
       const card = cards[i];
@@ -71,8 +85,12 @@ export function createCarousel(/** @type {any} */ { containerEl, cards, collecti
   }
 
   function updateFromVPos(vPos, animate) {
+    const renderWindow = getRenderWindow();
     cardEls.forEach((el, i) => {
       if (cards[i]?.id === inspectionId) return;
+      const visible = isInsideRenderWindow(i, vPos, renderWindow);
+      setRenderState(el, visible);
+      if (!visible) return;
       applyState(el, getVisualState(i, vPos), animate);
       el.style.zIndex = String(Math.round(20 - Math.abs(i - vPos) * 4));
     });
@@ -186,7 +204,7 @@ export function createCarousel(/** @type {any} */ { containerEl, cards, collecti
     inspectionId = cardId;
     const wrap = cardEls[index];
     const inner = getCardElement(cardId);
-    const otherWraps = cardEls.filter((_, otherIndex) => otherIndex !== index);
+    const otherWraps = cardEls.filter((_, otherIndex) => otherIndex !== index && isInsideRenderWindow(otherIndex, activeIndex, getRenderWindow()));
     wrap.classList.add("is-inspecting");
     wrap.style.zIndex = "160";
 
@@ -428,28 +446,7 @@ export function createCarousel(/** @type {any} */ { containerEl, cards, collecti
     inspectionTl?.kill();
     draggableInstance?.kill();
     proxyEl?.remove();
-    containerEl.innerHTML = "";
   }
 
-  return {
-    mount,
-    destroy,
-    snapTo,
-    focusCard,
-    getCardElement,
-    setDiscovered,
-    isDiscovered,
-    lock,
-    prepareForReveal,
-    unlock,
-    createRevealContext,
-    highlight,
-    refresh,
-    inspectCard,
-    closeInspection,
-    isInspecting,
-    playLockedFeedback,
-    getActiveIndex: () => activeIndex,
-    getActiveCardId: () => cards[activeIndex]?.id
-  };
+  return { mount, destroy, refresh, focusCard, setDiscovered, highlight, prepareForReveal, unlock, getCardElement, createRevealContext, getActiveCardId: () => cards[activeIndex]?.id, closeInspection, isInspecting };
 }
