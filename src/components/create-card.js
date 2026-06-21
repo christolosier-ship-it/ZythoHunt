@@ -17,7 +17,7 @@ export function createCardFront({ cardData, frameUrl, imageLoading = "eager", im
     illImg.draggable = false;
     illImg.loading = imageLoading;
     illImg.decoding = "async";
-    illImg.fetchPriority = imageFetchPriority;
+    illImg.setAttribute("fetchpriority", imageFetchPriority);
     illWindow.appendChild(illImg);
 
     const resolvedFrameUrl = frameUrl || (cardData.frame ? assetUrl(cardData.frame) : CARD_FRAME_URL);
@@ -53,8 +53,7 @@ function createBackFace(backUrl = CARD_BACK_URL) {
   backImg.alt = "";
   backImg.draggable = false;
   backImg.decoding = "async";
-  backFace.appendChild(backImg);
-  return backFace;
+  return backFace.appendChild(backImg), backFace;
 }
 
 function createClickGlow() {
