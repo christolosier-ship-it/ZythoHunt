@@ -17,6 +17,7 @@ import { createRevealEngine } from "./reveal/reveal-engine.js";
 import { motionTokens, resetTokens } from "./animation/motion-tokens.js";
 import { createBeerBackground } from "./background/beer-background.js";
 import { backgroundSettings, resetBackgroundSettings } from "./background/background-settings.js";
+import { getCollectionBackgroundSettings } from "./background/background-presets.js";
 import { createLabPanel } from "./lab/lab-panel.js";
 import { createBrassopediePanel, shouldOpenBrassopedie } from "./brassopedie/brassopedie-panel.js";
 
@@ -51,10 +52,17 @@ function mountBackground() {
   }
 }
 
+function applyCollectionBackground(background, collection) {
+  const nextSettings = getCollectionBackgroundSettings(backgroundSettings, collection.backgroundPreset);
+  background.update(nextSettings);
+  return nextSettings;
+}
+
 async function boot() {
   const activeBundle = collectionManager.getActiveBundle();
   const { collection, cards, cardsById, revealableCards } = activeBundle;
   const background = mountBackground();
+  applyCollectionBackground(background, collection);
   const assetQueue = createAssetPreloadQueue({ cards });
 
   gsap.set(loadingScreen, { opacity: 1 });
@@ -141,7 +149,7 @@ async function boot() {
 
   $("debug-reset-background").addEventListener("click", () => {
     resetBackgroundSettings();
-    background.update(backgroundSettings);
+    applyCollectionBackground(background, collection);
     labPanel.render();
   });
 
@@ -159,7 +167,7 @@ async function boot() {
   $("debug-reset-all").addEventListener("click", async () => {
     await carousel.closeInspection();
     resetBackgroundSettings();
-    background.update(backgroundSettings);
+    applyCollectionBackground(background, collection);
     resetCarouselTokens();
     resetTokens();
     labPanel.render();
