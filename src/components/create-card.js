@@ -2,7 +2,7 @@
 import { CARD_BACK_URL, CARD_FRAME_URL } from "../utils/preload-assets.js";
 import { assetUrl } from "../utils/asset-url.js";
 
-export function createCardFront({ cardData, frameUrl = CARD_FRAME_URL }) {
+export function createCardFront({ cardData, frameUrl }) {
   const frontFace = document.createElement("div");
   frontFace.className = "card-face card-front";
   frontFace.setAttribute("aria-hidden", "true");
@@ -17,9 +17,10 @@ export function createCardFront({ cardData, frameUrl = CARD_FRAME_URL }) {
     illImg.draggable = false;
     illWindow.appendChild(illImg);
 
+    const resolvedFrameUrl = frameUrl || (cardData.frame ? assetUrl(cardData.frame) : CARD_FRAME_URL);
     const frameImg = document.createElement("img");
     frameImg.className = "card-frame";
-    frameImg.src = frameUrl;
+    frameImg.src = resolvedFrameUrl;
     frameImg.alt = "";
     frameImg.draggable = false;
 
@@ -104,7 +105,7 @@ export function createCard({ index = 0, cardData, revealable, discovered = false
   card.setAttribute("tabindex", "-1");
   card.setAttribute("role", "button");
 
-  const frameUrl = collection?.cardFrame ? assetUrl(collection.cardFrame) : CARD_FRAME_URL;
+  const frameUrl = cardData?.frame ? assetUrl(cardData.frame) : collection?.cardFrame ? assetUrl(collection.cardFrame) : CARD_FRAME_URL;
   const backUrl = collection?.cardBack ? assetUrl(collection.cardBack) : CARD_BACK_URL;
   const frontFace = createCardFront({ cardData, frameUrl });
   card.append(createBackFace(backUrl), frontFace);
