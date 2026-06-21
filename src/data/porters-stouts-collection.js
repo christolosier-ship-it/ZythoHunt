@@ -8,14 +8,11 @@ export const porterStoutCollection = {
   subtitle: "Noirs, torréfiés et profonds",
   cardBack: porterStoutAssetPath(porterStoutCollectionAssets.cardBack),
   cardFrame: porterStoutAssetPath(porterStoutCollectionAssets.collectionFace),
-  collectionFace: porterStoutAssetPath(porterStoutCollectionAssets.collectionFace),
-  cardBackThumb: porterStoutAssetPath(`thumb/${porterStoutCollectionAssets.cardBack}`),
-  collectionFaceThumb: porterStoutAssetPath(`thumb/${porterStoutCollectionAssets.collectionFace}`)
+  collectionFace: porterStoutAssetPath(porterStoutCollectionAssets.collectionFace)
 };
 
 export const porterStoutCards = collectionJson.cartes.map((entry) => {
-  const fileName = porterStoutCardImages[entry.id];
-  const image = porterStoutAssetPath(fileName);
+  const image = porterStoutAssetPath(porterStoutCardImages[entry.id]);
   return {
     id: entry.id,
     name: entry.nom,
@@ -23,7 +20,7 @@ export const porterStoutCards = collectionJson.cartes.map((entry) => {
     path: entry.parentPrincipalId ? `${entry.parentPrincipalId} › ${entry.nom}` : entry.nom,
     tagline: entry.description,
     image,
-    thumbImage: porterStoutAssetPath(`thumb/${fileName}`),
+    thumbImage: image,
     fullImage: image,
     frame: porterStoutCollection.cardFrame,
     revealable: true,
@@ -49,8 +46,6 @@ export function validatePorterStoutCollection() {
   if (!porterStoutCollectionAssets.cardBack) errors.push("Missing collection card back declaration.");
   if (!porterStoutCollectionAssets.collectionFace) errors.push("Missing collection face declaration.");
   if (!porterStoutCollection.cardFrame) errors.push("Missing collection card frame declaration.");
-  if (!porterStoutCollection.cardBackThumb) errors.push("Missing collection card back thumbnail declaration.");
-  if (!porterStoutCollection.collectionFaceThumb) errors.push("Missing collection face thumbnail declaration.");
   return { valid: errors.length === 0, errors };
 }
 
