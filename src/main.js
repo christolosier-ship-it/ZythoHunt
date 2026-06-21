@@ -7,8 +7,8 @@ import gsap from "gsap";
 import { preloadAssets } from "./utils/preload-assets.js";
 import { carouselTokens, resetCarouselTokens } from "./carousel/carousel-tokens.js";
 import { createCarousel } from "./carousel/carousel-controller.js";
-import { collections } from "./data/collections.js";
-import { porterStoutCards, porterStoutCardsById, revealablePorterStoutCards, validatePorterStoutCollection } from "./data/porters-stouts-collection.js";
+import { collectionBundles } from "./data/collections.js";
+import { createCollectionManager, validateCollectionBundle } from "./data/collection-manager.js";
 import { createDiscoveryStore } from "./discovery/discovery-store.js";
 import { createBeerResolver } from "./discovery/beer-resolver.js";
 import { createDiscoveryController } from "./discovery/discovery-controller.js";
@@ -22,7 +22,7 @@ import { createBrassopediePanel, shouldOpenBrassopedie } from "./brassopedie/bra
 const $ = (id) => document.getElementById(id);
 const loadingScreen = $("loading-screen");
 const loadingBar = $("loading-bar");
-const collection = collections[0];
+const collectionManager = createCollectionManager(collectionBundles);
 
 function createBackgroundFallback(hostEl, error) {
   console.error("Le fond animé n'a pas pu démarrer. Le laboratoire continue avec un fond statique.", error);
@@ -51,6 +51,8 @@ function mountBackground() {
 }
 
 async function boot() {
+  const activeBundle = collectionManager.getActiveBundle();
+  const { collection, cards, cardsById, revealableCards } = activeBundle;
   const background = mountBackground();
 
   gsap.set(loadingScreen, { opacity: 1 });
@@ -58,20 +60,20 @@ async function boot() {
     width: `${progress * 100}%`,
     duration: 0.3,
     ease: "power2.out"
-  }));
+  }), { cards });
 
-  const validation = validatePorterStoutCollection();
-  if (!validation.valid) console.error("Collection Porters & Stouts invalide", validation.errors);
+  const validation = validateCollectionBundle(activeBundle);
+  if (!validation.valid) console.error(`Collection ${collection.name} invalide`, validation.errors);
 
-  const store = createDiscoveryStore();
+  const store = createDiscoveryStore({ key: collection.discoveryKey });
   const brassopediePanel = createBrassopediePanel({
-    cardsById: porterStoutCardsById,
+    cardsById,
     onOpen: () => background.pause(),
     onClose: () => background.resume()
   });
   const carousel = createCarousel({
     containerEl: $("carousel-container"),
-    cards: porterStoutCards,
+    cards,
     collection,
     tokens: carouselTokens,
     store,
@@ -111,8 +113,8 @@ async function boot() {
     carousel,
     revealEngine,
     store,
-    resolver: createBeerResolver(revealablePorterStoutCards),
-    cards: porterStoutCards,
+    resolver: createBeerResolver(revealableCards),
+    cards,
     progressEl: $("progress-display"),
     closeSettings: labPanel.close,
     beforeReveal: () => background.pause(),
@@ -128,7 +130,7 @@ async function boot() {
     if (revealEngine.isBusy()) return;
     await carousel.closeInspection();
     store.reset();
-    revealablePorterStoutCards.forEach((card) => carousel.setDiscovered(card.id, false));
+    revealableCards.forEach((card) => carousel.setDiscovered(card.id, false));
     discovery.updateProgress();
   });
 
@@ -162,7 +164,7 @@ async function boot() {
   $("debug-replay").addEventListener("click", async () => {
     if (revealEngine.isBusy()) return;
     const id = carousel.getActiveCardId();
-    const card = revealablePorterStoutCards.find((candidate) => candidate.id === id);
+    const card = revealableCards.find((candidate) => candidate.id === id);
     if (!card) return;
 
     labPanel.close();
