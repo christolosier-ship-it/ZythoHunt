@@ -123,9 +123,10 @@ export function createCard({ index = 0, cardData, revealable, discovered = false
 
 export function cloneCardForReveal(cardEl, rect, cardData) {
   const clone = document.createElement("div");
+  const frameUrl = cardData?.frame ? assetUrl(cardData.frame) : CARD_FRAME_URL;
   clone.className = "beer-card beer-card--clone";
   clone.style.cssText = `position:fixed;left:${rect.left}px;top:${rect.top}px;width:${rect.width}px;height:${rect.height}px;z-index:1000;pointer-events:none;`;
-  clone.append(createBackFace(), createCardFront({ cardData, frameUrl: CARD_FRAME_URL }));
+  clone.append(createBackFace(), createCardFront({ cardData, frameUrl }));
   scheduleCardNameFit(clone);
   return clone;
 }
