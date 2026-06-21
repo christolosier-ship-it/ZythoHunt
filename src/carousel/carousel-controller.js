@@ -7,7 +7,7 @@ import { motionTokens } from "../animation/motion-tokens.js";
 gsap.registerPlugin(Draggable);
 const DRAG_CLICK_THRESHOLD = 8;
 
-export function createCarousel(/** @type {any} */ { containerEl, cards, collection, tokens, store, onActiveChange }) {
+export function createCarousel(/** @type {any} */ { containerEl, cards, collection, tokens, store, onActiveChange, onInspect }) {
   let activeIndex = 4;
   let draggableInstance = null;
   let cardEls = [];
@@ -211,6 +211,7 @@ export function createCarousel(/** @type {any} */ { containerEl, cards, collecti
     }, 0);
 
     await inspectionTl;
+    onInspect?.(cardId);
     return { status: "inspecting" };
   }
 

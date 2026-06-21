@@ -50,7 +50,7 @@ export function createDiscoveryController({
 
     const result = resolver.resolve(inputEl.value);
     if (!inputEl.value.trim() || result.status === "unknown") {
-      setFeedback("Aucun style reconnu dans ce prototype.", true);
+      setFeedback("Aucun style reconnu dans cette collection.", true);
       inputEl.animate?.(
         [
           { transform: "translateX(0)" },

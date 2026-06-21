@@ -1,14 +1,14 @@
 import { assetUrl } from "./asset-url.js";
-import { cards } from "../data/cards.js";
+import { porterStoutCards, porterStoutCollection } from "../data/porters-stouts-collection.js";
 
-export const CARD_BACK_URL = assetUrl("/assets/collections/porters-stouts/card-back.webp");
+export const CARD_BACK_URL = assetUrl(porterStoutCollection.cardBack);
 export const CARD_FRAME_URL = assetUrl("/assets/collections/porters-stouts/card-front-frame.svg");
 
 export async function preloadAssets(onProgress) {
   const urls = [
     CARD_BACK_URL,
     CARD_FRAME_URL,
-    ...cards.map((c) => assetUrl(c.image))
+    ...porterStoutCards.map((c) => assetUrl(c.image))
   ];
 
   let loaded = 0;

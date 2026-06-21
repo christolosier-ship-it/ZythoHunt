@@ -2,12 +2,13 @@
 import "./styles.css";
 import "./card-presentation.css";
 import "./background/background-integration.css";
+import "./brassopedie/brassopedie-panel.css";
 import gsap from "gsap";
 import { preloadAssets } from "./utils/preload-assets.js";
 import { carouselTokens, resetCarouselTokens } from "./carousel/carousel-tokens.js";
 import { createCarousel } from "./carousel/carousel-controller.js";
 import { collections } from "./data/collections.js";
-import { prototypeCards, revealablePrototypeCards } from "./data/prototype-carousel.js";
+import { porterStoutCards, porterStoutCardsById, revealablePorterStoutCards, validatePorterStoutCollection } from "./data/porters-stouts-collection.js";
 import { createDiscoveryStore } from "./discovery/discovery-store.js";
 import { createBeerResolver } from "./discovery/beer-resolver.js";
 import { createDiscoveryController } from "./discovery/discovery-controller.js";
@@ -16,6 +17,7 @@ import { motionTokens, resetTokens } from "./animation/motion-tokens.js";
 import { createBeerBackground } from "./background/beer-background.js";
 import { backgroundSettings, resetBackgroundSettings } from "./background/background-settings.js";
 import { createLabPanel } from "./lab/lab-panel.js";
+import { createBrassopediePanel, shouldOpenBrassopedie } from "./brassopedie/brassopedie-panel.js";
 
 const $ = (id) => document.getElementById(id);
 const loadingScreen = $("loading-screen");
@@ -58,13 +60,20 @@ async function boot() {
     ease: "power2.out"
   }));
 
+  const validation = validatePorterStoutCollection();
+  if (!validation.valid) console.error("Collection Porters & Stouts invalide", validation.errors);
+
   const store = createDiscoveryStore();
+  const brassopediePanel = createBrassopediePanel({ cardsById: porterStoutCardsById });
   const carousel = createCarousel({
     containerEl: $("carousel-container"),
-    cards: prototypeCards,
+    cards: porterStoutCards,
     collection,
     tokens: carouselTokens,
-    store
+    store,
+    onInspect: (cardId) => {
+      if (shouldOpenBrassopedie({ cardId, isDiscovered: store.isDiscovered })) brassopediePanel.open(cardId);
+    }
   });
   carousel.mount();
 
@@ -98,8 +107,8 @@ async function boot() {
     carousel,
     revealEngine,
     store,
-    resolver: createBeerResolver(revealablePrototypeCards),
-    cards: prototypeCards,
+    resolver: createBeerResolver(revealablePorterStoutCards),
+    cards: porterStoutCards,
     progressEl: $("progress-display"),
     closeSettings: labPanel.close,
     beforeReveal: () => background.pause(),
@@ -115,7 +124,7 @@ async function boot() {
     if (revealEngine.isBusy()) return;
     await carousel.closeInspection();
     store.reset();
-    revealablePrototypeCards.forEach((card) => carousel.setDiscovered(card.id, false));
+    revealablePorterStoutCards.forEach((card) => carousel.setDiscovered(card.id, false));
     discovery.updateProgress();
   });
 
@@ -149,7 +158,7 @@ async function boot() {
   $("debug-replay").addEventListener("click", async () => {
     if (revealEngine.isBusy()) return;
     const id = carousel.getActiveCardId();
-    const card = revealablePrototypeCards.find((candidate) => candidate.id === id);
+    const card = revealablePorterStoutCards.find((candidate) => candidate.id === id);
     if (!card) return;
 
     labPanel.close();

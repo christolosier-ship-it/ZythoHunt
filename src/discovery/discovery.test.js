@@ -35,7 +35,8 @@ test("store supports progress, reset, migration, and corrupt data", () => {
   data.clear(); data.set("zythohunt_revealed", JSON.stringify([0, 4, 8]));
   store = createDiscoveryStore();
   assert.deepEqual(store.getDiscoveredIds().sort(), ["baltic-porter", "imperial-stout", "stout"]);
-  data.set("zythohunt_progress_v2", "{");
+  data.set("zythohunt.discovery.porters-et-stouts.v1", "{");
+  data.delete("zythohunt_revealed");
   store = createDiscoveryStore();
   assert.deepEqual(store.getDiscoveredIds(), []);
 });

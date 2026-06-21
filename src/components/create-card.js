@@ -40,11 +40,11 @@ export function createCardFront({ cardData, frameUrl = CARD_FRAME_URL }) {
   return frontFace;
 }
 
-function createBackFace() {
+function createBackFace(backUrl = CARD_BACK_URL) {
   const backFace = document.createElement("div");
   backFace.className = "card-face card-back";
   const backImg = document.createElement("img");
-  backImg.src = CARD_BACK_URL;
+  backImg.src = backUrl;
   backImg.alt = "";
   backImg.draggable = false;
   backFace.appendChild(backImg);
@@ -105,8 +105,9 @@ export function createCard({ index = 0, cardData, revealable, discovered = false
   card.setAttribute("role", "button");
 
   const frameUrl = collection?.cardFrame ? assetUrl(collection.cardFrame) : CARD_FRAME_URL;
+  const backUrl = collection?.cardBack ? assetUrl(collection.cardBack) : CARD_BACK_URL;
   const frontFace = createCardFront({ cardData, frameUrl });
-  card.append(createBackFace(), frontFace);
+  card.append(createBackFace(backUrl), frontFace);
   if (discovered) {
     card.classList.add("beer-card--discovered");
     frontFace.setAttribute("aria-hidden", "false");
