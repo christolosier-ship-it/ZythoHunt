@@ -5,6 +5,7 @@ import "./background/background-integration.css";
 import "./brassopedie/brassopedie-panel.css";
 import gsap from "gsap";
 import { preloadAssets } from "./utils/preload-assets.js";
+import { createAssetPreloadQueue } from "./utils/asset-preload-queue.js";
 import { carouselTokens, resetCarouselTokens } from "./carousel/carousel-tokens.js";
 import { createCarousel } from "./carousel/carousel-controller.js";
 import { collectionBundles } from "./data/collections.js";
@@ -54,6 +55,7 @@ async function boot() {
   const activeBundle = collectionManager.getActiveBundle();
   const { collection, cards, cardsById, revealableCards } = activeBundle;
   const background = mountBackground();
+  const assetQueue = createAssetPreloadQueue({ cards });
 
   gsap.set(loadingScreen, { opacity: 1 });
   await preloadAssets((progress) => gsap.to(loadingBar, {
@@ -77,11 +79,14 @@ async function boot() {
     collection,
     tokens: carouselTokens,
     store,
+    onActiveChange: (index) => { void assetQueue.preloadAround(index, { purpose: "thumb" }); },
     onInspect: (cardId) => {
+      void assetQueue.preloadCard(cardId, { purpose: "full" });
       if (shouldOpenBrassopedie({ cardId, isDiscovered: store.isDiscovered })) brassopediePanel.open(cardId);
     }
   });
   carousel.mount();
+  void assetQueue.preloadAround(4, { purpose: "thumb" });
 
   const revealEngine = createRevealEngine({
     stageEl: $("reveal-stage"),
