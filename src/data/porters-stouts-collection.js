@@ -7,6 +7,7 @@ export const porterStoutCollection = {
   name: collectionJson.collection?.nom || "Porters & Stouts",
   subtitle: "Noirs, torréfiés et profonds",
   cardBack: porterStoutAssetPath(porterStoutCollectionAssets.cardBack),
+  cardFrame: porterStoutAssetPath(porterStoutCollectionAssets.collectionFace),
   collectionFace: porterStoutAssetPath(porterStoutCollectionAssets.collectionFace)
 };
 
@@ -17,6 +18,7 @@ export const porterStoutCards = collectionJson.cartes.map((entry) => ({
   path: entry.parentPrincipalId ? `${entry.parentPrincipalId} › ${entry.nom}` : entry.nom,
   tagline: entry.description,
   image: porterStoutAssetPath(porterStoutCardImages[entry.id]),
+  frame: porterStoutCollection.cardFrame,
   revealable: true,
   aliases: entry.aliases || [],
   brassopedie: entry
@@ -34,6 +36,7 @@ export function validatePorterStoutCollection() {
   Object.keys(porterStoutCardImages).forEach((id) => { if (!porterStoutCardsById[id]) errors.push(`Image mapping references unknown ID ${id}.`); });
   if (!porterStoutCollectionAssets.cardBack) errors.push("Missing collection card back declaration.");
   if (!porterStoutCollectionAssets.collectionFace) errors.push("Missing collection face declaration.");
+  if (!porterStoutCollection.cardFrame) errors.push("Missing collection card frame declaration.");
   return { valid: errors.length === 0, errors };
 }
 
