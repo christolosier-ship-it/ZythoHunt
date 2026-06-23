@@ -2,91 +2,56 @@
 import { CARD_BACK_URL, CARD_FRAME_URL } from "../utils/preload-assets.js";
 import { assetUrl } from "../utils/asset-url.js";
 
-const PLACEHOLDER_STYLE = [
-  "width:100%",
-  "height:100%",
-  "display:grid",
-  "place-items:center",
-  "border-radius:inherit",
-  "background:#120904",
-  "border:1px solid rgba(232,160,64,.28)",
-  "color:#e8a040",
-  "font-family:var(--font-serif)",
-  "font-size:clamp(2rem,12vw,5rem)",
-  "font-weight:700",
-  "line-height:1",
-  "user-select:none",
-  "pointer-events:none"
-].join(";");
+const FALLBACK_SVG = `data:image/svg+xml,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 504"><rect width="360" height="504" rx="18" fill="#120904"/><rect x="12" y="12" width="336" height="480" rx="16" fill="none" stroke="#e8a040" stroke-opacity="0.32" stroke-width="3"/><text x="180" y="270" text-anchor="middle" font-family="Georgia,serif" font-size="150" font-weight="700" fill="#e8a040">?</text></svg>`)}`;
 
-function createAssetPlaceholder(label = "Image à venir") {
-  const placeholder = document.createElement("div");
-  placeholder.className = "asset-placeholder";
-  placeholder.style.cssText = PLACEHOLDER_STYLE;
-  placeholder.setAttribute("role", "img");
-  placeholder.setAttribute("aria-label", label);
-  placeholder.textContent = "?";
-  return placeholder;
+function useFallbackImage(img) {
+  img.onerror = null;
+  img.src = FALLBACK_SVG;
+  img.classList.add("is-missing-asset");
 }
 
-function replaceWithPlaceholder(img, label) {
-  const placeholder = createAssetPlaceholder(label);
-  img.replaceWith(placeholder);
-}
-
-function bindMissingImagePlaceholder(img, label) {
-  img.addEventListener("error", () => replaceWithPlaceholder(img, label), { once: true });
-  return img;
-}
-
-export function createCardFront({ cardData, frameUrl, imagePath, framePath, imageLoading = "eager", imageFetchPriority = "auto" }) {
+export function createCardFront({ cardData, frameUrl, imagePath, imageLoading = "eager", imageFetchPriority = "auto" }) {
   const frontFace = document.createElement("div");
   frontFace.className = "card-face card-front";
   frontFace.setAttribute("aria-hidden", "true");
 
-  const illWindow = document.createElement("div");
-  illWindow.className = "illustration-window";
-  const resolvedImagePath = imagePath || cardData?.image;
-  if (resolvedImagePath) {
+  if (cardData?.image || imagePath) {
+    const illWindow = document.createElement("div");
+    illWindow.className = "illustration-window";
     const illImg = document.createElement("img");
     illImg.className = "card-illustration";
-    illImg.src = assetUrl(resolvedImagePath);
-    illImg.alt = cardData?.name || "";
+    illImg.src = assetUrl(imagePath || cardData.image);
+    illImg.alt = cardData.name || "";
     illImg.draggable = false;
     illImg.setAttribute("loading", imageLoading);
     illImg.decoding = "async";
     illImg.setAttribute("fetchpriority", imageFetchPriority);
-    bindMissingImagePlaceholder(illImg, `Image à venir : ${cardData?.name || "carte"}`);
+    illImg.onerror = () => useFallbackImage(illImg);
     illWindow.appendChild(illImg);
-  } else {
-    illWindow.appendChild(createAssetPlaceholder(`Image à venir : ${cardData?.name || "carte"}`));
+
+    const resolvedFrameUrl = frameUrl || (cardData.frame ? assetUrl(cardData.frame) : CARD_FRAME_URL);
+    const frameImg = document.createElement("img");
+    frameImg.className = "card-frame";
+    frameImg.src = resolvedFrameUrl;
+    frameImg.alt = "";
+    frameImg.draggable = false;
+    frameImg.decoding = "async";
+    frameImg.onerror = () => frameImg.remove();
+
+    const copy = document.createElement("div");
+    copy.className = "card-copy";
+    const nameEl = document.createElement("h2");
+    nameEl.className = "card-name";
+    nameEl.textContent = cardData.name || "";
+    copy.appendChild(nameEl);
+
+    const specular = document.createElement("div");
+    specular.className = "card-specular";
+    const glowBehind = document.createElement("div");
+    glowBehind.className = "card-glow-behind";
+
+    frontFace.append(illWindow, frameImg, copy, specular, glowBehind);
   }
-
-  const resolvedFrameUrl = frameUrl || (framePath ? assetUrl(framePath) : cardData?.frame ? assetUrl(cardData.frame) : CARD_FRAME_URL);
-  const frameImg = document.createElement("img");
-  frameImg.className = "card-frame";
-  frameImg.src = resolvedFrameUrl;
-  frameImg.alt = "";
-  frameImg.draggable = false;
-  frameImg.decoding = "async";
-  frameImg.addEventListener("error", () => {
-    frontFace.classList.add("has-missing-frame");
-    frameImg.remove();
-  }, { once: true });
-
-  const copy = document.createElement("div");
-  copy.className = "card-copy";
-  const nameEl = document.createElement("h2");
-  nameEl.className = "card-name";
-  nameEl.textContent = cardData?.name || "";
-  copy.appendChild(nameEl);
-
-  const specular = document.createElement("div");
-  specular.className = "card-specular";
-  const glowBehind = document.createElement("div");
-  glowBehind.className = "card-glow-behind";
-
-  frontFace.append(illWindow, frameImg, copy, specular, glowBehind);
   return frontFace;
 }
 
@@ -98,7 +63,7 @@ function createBackFace(backUrl = CARD_BACK_URL) {
   backImg.alt = "";
   backImg.draggable = false;
   backImg.decoding = "async";
-  bindMissingImagePlaceholder(backImg, "Dos de carte à venir");
+  backImg.onerror = () => useFallbackImage(backImg);
   backFace.appendChild(backImg);
   return backFace;
 }
