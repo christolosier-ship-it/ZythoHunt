@@ -16,9 +16,9 @@ export const alesAmbreesBrunesMalteesEtFortesBundle = createCollectionBundle({
     thumbPath: alesAmbreesBrunesMalteesEtFortesThumbPath
   },
   backgroundPreset: {
-      "beerT": 57,
-      "bubbleDensity": 58,
-      "foamIntensity": 54
+    beerT: 57,
+    bubbleDensity: 58,
+    foamIntensity: 54
   },
-  assetsReady: false
+  assetsReady: true
 });
