@@ -2,22 +2,31 @@
 import { CARD_BACK_URL, CARD_FRAME_URL } from "../utils/preload-assets.js";
 import { assetUrl } from "../utils/asset-url.js";
 
-export function createCardFront({ cardData, frameUrl, imageLoading = "eager", imageFetchPriority = "auto" }) {
+const FALLBACK_SVG = `data:image/svg+xml,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 504"><rect width="360" height="504" rx="18" fill="#120904"/><rect x="12" y="12" width="336" height="480" rx="16" fill="none" stroke="#e8a040" stroke-opacity="0.32" stroke-width="3"/><text x="180" y="270" text-anchor="middle" font-family="Georgia,serif" font-size="150" font-weight="700" fill="#e8a040">?</text></svg>`)}`;
+
+function useFallbackImage(img) {
+  img.onerror = null;
+  img.src = FALLBACK_SVG;
+  img.classList.add("is-missing-asset");
+}
+
+export function createCardFront({ cardData, frameUrl, imagePath, imageLoading = "eager", imageFetchPriority = "auto" }) {
   const frontFace = document.createElement("div");
   frontFace.className = "card-face card-front";
   frontFace.setAttribute("aria-hidden", "true");
 
-  if (cardData?.image) {
+  if (cardData?.image || imagePath) {
     const illWindow = document.createElement("div");
     illWindow.className = "illustration-window";
     const illImg = document.createElement("img");
     illImg.className = "card-illustration";
-    illImg.src = assetUrl(cardData.image);
+    illImg.src = assetUrl(imagePath || cardData.image);
     illImg.alt = cardData.name || "";
     illImg.draggable = false;
     illImg.setAttribute("loading", imageLoading);
     illImg.decoding = "async";
     illImg.setAttribute("fetchpriority", imageFetchPriority);
+    illImg.onerror = () => useFallbackImage(illImg);
     illWindow.appendChild(illImg);
 
     const resolvedFrameUrl = frameUrl || (cardData.frame ? assetUrl(cardData.frame) : CARD_FRAME_URL);
@@ -27,6 +36,7 @@ export function createCardFront({ cardData, frameUrl, imageLoading = "eager", im
     frameImg.alt = "";
     frameImg.draggable = false;
     frameImg.decoding = "async";
+    frameImg.onerror = () => frameImg.remove();
 
     const copy = document.createElement("div");
     copy.className = "card-copy";
@@ -53,6 +63,7 @@ function createBackFace(backUrl = CARD_BACK_URL) {
   backImg.alt = "";
   backImg.draggable = false;
   backImg.decoding = "async";
+  backImg.onerror = () => useFallbackImage(backImg);
   backFace.appendChild(backImg);
   return backFace;
 }
@@ -115,6 +126,7 @@ export function createCard({ index = 0, cardData, revealable, discovered = false
   const frontFace = createCardFront({
     cardData,
     frameUrl,
+    imagePath: cardData?.thumbImage || cardData?.image,
     imageLoading: discovered ? "eager" : "lazy",
     imageFetchPriority: discovered ? "high" : "auto"
   });
@@ -137,7 +149,13 @@ export function cloneCardForReveal(cardEl, rect, cardData) {
   const frameUrl = cardData?.frame ? assetUrl(cardData.frame) : CARD_FRAME_URL;
   clone.className = "beer-card beer-card--clone";
   clone.style.cssText = `position:fixed;left:${rect.left}px;top:${rect.top}px;width:${rect.width}px;height:${rect.height}px;z-index:1000;pointer-events:none;`;
-  clone.append(createBackFace(), createCardFront({ cardData, frameUrl, imageLoading: "eager", imageFetchPriority: "high" }));
+  clone.append(createBackFace(), createCardFront({
+    cardData,
+    frameUrl,
+    imagePath: cardData?.fullImage || cardData?.image,
+    imageLoading: "eager",
+    imageFetchPriority: "high"
+  }));
   scheduleCardNameFit(clone);
   return clone;
 }

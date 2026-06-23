@@ -23,6 +23,13 @@ function list(items) {
   return ul;
 }
 
+function createImagePlaceholder(label) {
+  const placeholder = el("div", "asset-placeholder brassopedie-card-placeholder", "?");
+  placeholder.setAttribute("role", "img");
+  placeholder.setAttribute("aria-label", label);
+  return placeholder;
+}
+
 export function shouldOpenBrassopedie({ cardId, isDiscovered }) {
   return Boolean(cardId && isDiscovered?.(cardId));
 }
@@ -82,12 +89,15 @@ export function createBrassopediePanel({ cardsById, onOpen, onClose }) {
 
     const cardBox = el("div", "brassopedie-card-zoom");
     const img = el("img", "brassopedie-card-image");
-    img.src = assetUrl(card.image);
+    img.src = assetUrl(card.fullImage || card.image);
     img.alt = card.name;
     img.draggable = false;
     img.loading = "eager";
     img.decoding = "async";
     img.setAttribute("fetchpriority", "high");
+    img.addEventListener("error", () => {
+      img.replaceWith(createImagePlaceholder(`Image à venir : ${card.name}`));
+    }, { once: true });
     cardBox.append(img);
 
     const article = el("article", "brassopedie-panel");
