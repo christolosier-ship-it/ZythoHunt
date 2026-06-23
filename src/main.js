@@ -3,6 +3,7 @@ import "./styles.css";
 import "./card-presentation.css";
 import "./background/background-integration.css";
 import "./brassopedie/brassopedie-panel.css";
+import "./carousel/carousel-layout.css";
 import gsap from "gsap";
 import { collectionBundles } from "./data/collections.js";
 import { createCollectionManager, validateCollectionBundle } from "./data/collection-manager.js";
