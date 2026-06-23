@@ -20,5 +20,5 @@ export const paleAlesBittersEtIpaBundle = createCollectionBundle({
     bubbleDensity: 58,
     foamIntensity: 48
   },
-  assetsReady: false
+  assetsReady: true
 });
