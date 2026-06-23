@@ -16,9 +16,9 @@ export const bieresAcidesSauvagesEtSpontaneesBundle = createCollectionBundle({
     thumbPath: bieresAcidesSauvagesEtSpontaneesThumbPath
   },
   backgroundPreset: {
-      "beerT": 48,
-      "bubbleDensity": 54,
-      "foamIntensity": 50
+    beerT: 48,
+    bubbleDensity: 54,
+    foamIntensity: 50
   },
-  assetsReady: false
+  assetsReady: true
 });
