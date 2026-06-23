@@ -2,46 +2,73 @@
 import { CARD_BACK_URL, CARD_FRAME_URL } from "../utils/preload-assets.js";
 import { assetUrl } from "../utils/asset-url.js";
 
-export function createCardFront({ cardData, frameUrl, imageLoading = "eager", imageFetchPriority = "auto" }) {
+function createAssetPlaceholder(label = "Image à venir") {
+  const placeholder = document.createElement("div");
+  placeholder.className = "asset-placeholder";
+  placeholder.setAttribute("role", "img");
+  placeholder.setAttribute("aria-label", label);
+  placeholder.textContent = "?";
+  return placeholder;
+}
+
+function replaceWithPlaceholder(img, label) {
+  const placeholder = createAssetPlaceholder(label);
+  img.replaceWith(placeholder);
+}
+
+function bindMissingImagePlaceholder(img, label) {
+  img.addEventListener("error", () => replaceWithPlaceholder(img, label), { once: true });
+  return img;
+}
+
+export function createCardFront({ cardData, frameUrl, imagePath, framePath, imageLoading = "eager", imageFetchPriority = "auto" }) {
   const frontFace = document.createElement("div");
   frontFace.className = "card-face card-front";
   frontFace.setAttribute("aria-hidden", "true");
 
-  if (cardData?.image) {
-    const illWindow = document.createElement("div");
-    illWindow.className = "illustration-window";
+  const illWindow = document.createElement("div");
+  illWindow.className = "illustration-window";
+  const resolvedImagePath = imagePath || cardData?.image;
+  if (resolvedImagePath) {
     const illImg = document.createElement("img");
     illImg.className = "card-illustration";
-    illImg.src = assetUrl(cardData.image);
-    illImg.alt = cardData.name || "";
+    illImg.src = assetUrl(resolvedImagePath);
+    illImg.alt = cardData?.name || "";
     illImg.draggable = false;
     illImg.setAttribute("loading", imageLoading);
     illImg.decoding = "async";
     illImg.setAttribute("fetchpriority", imageFetchPriority);
+    bindMissingImagePlaceholder(illImg, `Image à venir : ${cardData?.name || "carte"}`);
     illWindow.appendChild(illImg);
-
-    const resolvedFrameUrl = frameUrl || (cardData.frame ? assetUrl(cardData.frame) : CARD_FRAME_URL);
-    const frameImg = document.createElement("img");
-    frameImg.className = "card-frame";
-    frameImg.src = resolvedFrameUrl;
-    frameImg.alt = "";
-    frameImg.draggable = false;
-    frameImg.decoding = "async";
-
-    const copy = document.createElement("div");
-    copy.className = "card-copy";
-    const nameEl = document.createElement("h2");
-    nameEl.className = "card-name";
-    nameEl.textContent = cardData.name || "";
-    copy.appendChild(nameEl);
-
-    const specular = document.createElement("div");
-    specular.className = "card-specular";
-    const glowBehind = document.createElement("div");
-    glowBehind.className = "card-glow-behind";
-
-    frontFace.append(illWindow, frameImg, copy, specular, glowBehind);
+  } else {
+    illWindow.appendChild(createAssetPlaceholder(`Image à venir : ${cardData?.name || "carte"}`));
   }
+
+  const resolvedFrameUrl = frameUrl || (framePath ? assetUrl(framePath) : cardData?.frame ? assetUrl(cardData.frame) : CARD_FRAME_URL);
+  const frameImg = document.createElement("img");
+  frameImg.className = "card-frame";
+  frameImg.src = resolvedFrameUrl;
+  frameImg.alt = "";
+  frameImg.draggable = false;
+  frameImg.decoding = "async";
+  frameImg.addEventListener("error", () => {
+    frontFace.classList.add("has-missing-frame");
+    frameImg.remove();
+  }, { once: true });
+
+  const copy = document.createElement("div");
+  copy.className = "card-copy";
+  const nameEl = document.createElement("h2");
+  nameEl.className = "card-name";
+  nameEl.textContent = cardData?.name || "";
+  copy.appendChild(nameEl);
+
+  const specular = document.createElement("div");
+  specular.className = "card-specular";
+  const glowBehind = document.createElement("div");
+  glowBehind.className = "card-glow-behind";
+
+  frontFace.append(illWindow, frameImg, copy, specular, glowBehind);
   return frontFace;
 }
 
@@ -53,6 +80,7 @@ function createBackFace(backUrl = CARD_BACK_URL) {
   backImg.alt = "";
   backImg.draggable = false;
   backImg.decoding = "async";
+  bindMissingImagePlaceholder(backImg, "Dos de carte à venir");
   backFace.appendChild(backImg);
   return backFace;
 }
@@ -115,6 +143,7 @@ export function createCard({ index = 0, cardData, revealable, discovered = false
   const frontFace = createCardFront({
     cardData,
     frameUrl,
+    imagePath: cardData?.thumbImage || cardData?.image,
     imageLoading: discovered ? "eager" : "lazy",
     imageFetchPriority: discovered ? "high" : "auto"
   });
@@ -137,7 +166,13 @@ export function cloneCardForReveal(cardEl, rect, cardData) {
   const frameUrl = cardData?.frame ? assetUrl(cardData.frame) : CARD_FRAME_URL;
   clone.className = "beer-card beer-card--clone";
   clone.style.cssText = `position:fixed;left:${rect.left}px;top:${rect.top}px;width:${rect.width}px;height:${rect.height}px;z-index:1000;pointer-events:none;`;
-  clone.append(createBackFace(), createCardFront({ cardData, frameUrl, imageLoading: "eager", imageFetchPriority: "high" }));
+  clone.append(createBackFace(), createCardFront({
+    cardData,
+    frameUrl,
+    imagePath: cardData?.fullImage || cardData?.image,
+    imageLoading: "eager",
+    imageFetchPriority: "high"
+  }));
   scheduleCardNameFit(clone);
   return clone;
 }
