@@ -1,0 +1,4128 @@
+{
+  "schemaVersion": "1.0.0",
+  "taxonomyVersion": "1.0.0",
+  "collection": {
+    "id": 1,
+    "slug": "lagers-et-fermentations-basses",
+    "nom": "Lagers et fermentations basses"
+  },
+  "cartes": [
+    {
+      "id": "lager",
+      "nom": "Lager",
+      "collectionId": 1,
+      "nature": "F",
+      "parentPrincipalId": null,
+      "aliases": [],
+      "paysOrigine": [
+        "International"
+      ],
+      "origine": {
+        "libelle": "Europe centrale puis diffusion mondiale",
+        "ville": null,
+        "region": null,
+        "bassinBrassicole": null
+      },
+      "alcool": {
+        "min": null,
+        "max": null,
+        "unite": "%",
+        "statut": "variable"
+      },
+      "amertume": {
+        "min": null,
+        "max": null,
+        "unite": "IBU",
+        "statut": "variable"
+      },
+      "couleur": {
+        "min": null,
+        "max": null,
+        "unite": "EBC",
+        "statut": "variable"
+      },
+      "fermentation": {
+        "type": "basse",
+        "details": "Fermentation basse à température fraîche, généralement suivie d’une maturation à froid."
+      },
+      "service": {
+        "temperatureMin": null,
+        "temperatureMax": null,
+        "uniteTemperature": "°C",
+        "verresRecommandes": [
+          "Verre adapté au sous-style"
+        ]
+      },
+      "description": "La Lager est moins un goût unique qu’une méthode devenue empire : fermentation basse, maturation froide, profil net, bulles propres et grande lisibilité. Elle peut être pâle, ambrée, noire, légère ou forte, mais son fil rouge reste cette impression de bière tenue au cordeau, où les défauts n’ont nulle part où se cacher.",
+      "histoireEtOrigines": "Le mot vient de l’idée de stockage à froid : des bières gardées en caves, longtemps, pour s’arrondir et se clarifier. Partie d’Europe centrale, la fermentation basse a fini par redessiner la carte mondiale de la bière, jusqu’à devenir la famille dominante des grandes brasseries industrielles comme des pilsners artisanales les plus précises.",
+      "recette": {
+        "profilUnique": false,
+        "explicationProfil": "« Lager » désigne une famille regroupant plusieurs styles dont la force, la couleur, l’amertume, les ingrédients et les procédés peuvent diverger. Aucun profil de recette unique ne serait représentatif de l’ensemble de la famille.",
+        "maltsEtCereales": [
+          "malt Pilsner ou lager très pâle",
+          "riz ou maïs selon la tradition"
+        ],
+        "houblons": [
+          "houblons doux et peu envahissants"
+        ],
+        "levuresEtMicroorganismes": [
+          "levure lager neutre"
+        ],
+        "ingredientsComplementaires": [],
+        "profilEau": "douce à modérément minérale",
+        "empatage": "empâtage favorisant une forte fermentescibilité",
+        "ebullitionEtHoublonnage": "houblonnage précoce modéré, peu ou pas de houblon tardif",
+        "fermentation": "fermentation basse propre et fraîche",
+        "maturation": "lagering court à moyen",
+        "profilRecherche": "une bière de fermentation basse propre, nette et maîtrisée, dont l’identité dépend du sous-style mais jamais du hasard"
+      },
+      "sources": [
+        {
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2021",
+          "reference": "Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "World Beer Cup",
+          "edition": "2026",
+          "reference": "Lager — Beverage Styles",
+          "type": "guide_de_style"
+        }
+      ]
+    },
+    {
+      "id": "pilsner",
+      "nom": "Pilsner",
+      "collectionId": 1,
+      "nature": "F",
+      "parentPrincipalId": "lager",
+      "aliases": [
+        "Pils"
+      ],
+      "paysOrigine": [
+        "Tchéquie",
+        "Allemagne",
+        "International"
+      ],
+      "origine": {
+        "libelle": "Plzeň puis Europe et monde",
+        "ville": "Plzeň",
+        "region": null,
+        "bassinBrassicole": null
+      },
+      "alcool": {
+        "min": null,
+        "max": null,
+        "unite": "%",
+        "statut": "variable"
+      },
+      "amertume": {
+        "min": null,
+        "max": null,
+        "unite": "IBU",
+        "statut": "variable"
+      },
+      "couleur": {
+        "min": null,
+        "max": null,
+        "unite": "EBC",
+        "statut": "variable"
+      },
+      "fermentation": {
+        "type": "basse",
+        "details": "Fermentation basse à température fraîche, généralement suivie d’une maturation à froid."
+      },
+      "service": {
+        "temperatureMin": null,
+        "temperatureMax": null,
+        "uniteTemperature": "°C",
+        "verresRecommandes": [
+          "Verre adapté au sous-style"
+        ]
+      },
+      "description": "La Pilsner est la lame claire de la lager : robe dorée, mousse blanche, malt céréale net et amertume qui tranche proprement. Elle paraît simple, mais c’est une bière de précision : le moindre défaut se voit comme une rayure sur du cristal.",
+      "histoireEtOrigines": "Née à Plzeň en 1842 autour du brassage de Josef Groll, elle a transformé une révolution locale en modèle mondial. Eau douce, malt pâle, houblon Saaz et fermentation basse ont donné une bière claire si brillante qu’elle a changé la façon de regarder la bière autant que de la boire.",
+      "recette": {
+        "profilUnique": false,
+        "explicationProfil": "« Pilsner » désigne une famille regroupant plusieurs styles dont la force, la couleur, l’amertume, les ingrédients et les procédés peuvent diverger. Aucun profil de recette unique ne serait représentatif de l’ensemble de la famille.",
+        "maltsEtCereales": [
+          "malt Pilsner"
+        ],
+        "houblons": [
+          "houblons nobles européens ou variétés modernes apparentées"
+        ],
+        "levuresEtMicroorganismes": [
+          "levure lager propre"
+        ],
+        "ingredientsComplementaires": [],
+        "profilEau": "douce à modérément sulfatée selon l’école",
+        "empatage": "empâtage clair, parfois par décoction",
+        "ebullitionEtHoublonnage": "amertume structurante et houblon aromatique mesuré",
+        "fermentation": "fermentation basse fraîche",
+        "maturation": "lagering prolongé",
+        "profilRecherche": "une lager claire, sèche et brillante, portée par un équilibre net entre céréale pâle, houblon noble et finale précise"
+      },
+      "sources": [
+        {
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "Pilsner — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2021",
+          "reference": "Pilsner — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "World Beer Cup",
+          "edition": "2026",
+          "reference": "Pilsner — Beverage Styles",
+          "type": "guide_de_style"
+        }
+      ]
+    },
+    {
+      "id": "hoppy-lager",
+      "nom": "Hoppy Lager",
+      "collectionId": 1,
+      "nature": "F",
+      "parentPrincipalId": "lager",
+      "aliases": [],
+      "paysOrigine": [
+        "International"
+      ],
+      "origine": {
+        "libelle": "Mouvement craft international",
+        "ville": null,
+        "region": null,
+        "bassinBrassicole": null
+      },
+      "alcool": {
+        "min": null,
+        "max": null,
+        "unite": "%",
+        "statut": "variable"
+      },
+      "amertume": {
+        "min": null,
+        "max": null,
+        "unite": "IBU",
+        "statut": "variable"
+      },
+      "couleur": {
+        "min": null,
+        "max": null,
+        "unite": "EBC",
+        "statut": "variable"
+      },
+      "fermentation": {
+        "type": "basse",
+        "details": "Fermentation basse à température fraîche, généralement suivie d’une maturation à froid."
+      },
+      "service": {
+        "temperatureMin": null,
+        "temperatureMax": null,
+        "uniteTemperature": "°C",
+        "verresRecommandes": [
+          "Verre adapté au sous-style"
+        ]
+      },
+      "description": "La Hoppy Lager prend la propreté d’une lager et y accroche un bouquet de houblons modernes : agrumes, herbes, fruits blancs, résine ou fleurs fraîches. Elle doit rester nerveuse et sèche ; si elle devient lourde ou floue, elle perd son avantage face à une IPA.",
+      "histoireEtOrigines": "Cette famille vient de la scène craft, quand les brasseurs ont commencé à appliquer les techniques de houblonnage aromatique aux fermentations basses. Elle ne cherche pas à remplacer la pilsner classique, mais à créer un terrain hybride : précision froide dessous, houblon expressif dessus.",
+      "recette": {
+        "profilUnique": false,
+        "explicationProfil": "« Hoppy Lager » désigne une famille regroupant plusieurs styles dont la force, la couleur, l’amertume, les ingrédients et les procédés peuvent diverger. Aucun profil de recette unique ne serait représentatif de l’ensemble de la famille.",
+        "maltsEtCereales": [
+          "malt pâle ou Pilsner",
+          "faible proportion de malt de spécialité"
+        ],
+        "houblons": [
+          "houblons aromatiques modernes",
+          "houblonnage à cru fréquent"
+        ],
+        "levuresEtMicroorganismes": [
+          "levure propre, ale ou lager selon le style"
+        ],
+        "ingredientsComplementaires": [],
+        "profilEau": "profil favorisant la netteté et l’expression du houblon",
+        "empatage": "empâtage visant une bonne atténuation",
+        "ebullitionEtHoublonnage": "ajouts tardifs abondants et houblonnage à cru",
+        "fermentation": "fermentation contrôlée limitant les défauts",
+        "maturation": "maturation courte pour préserver les huiles de houblon",
+        "profilRecherche": "une lager aromatique et sèche, où le houblon parle clairement sans brouiller la netteté de fermentation"
+      },
+      "sources": [
+        {
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "Hoppy Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2021",
+          "reference": "Hoppy Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "World Beer Cup",
+          "edition": "2026",
+          "reference": "Hoppy Lager — Beverage Styles",
+          "type": "guide_de_style"
+        }
+      ]
+    },
+    {
+      "id": "bock",
+      "nom": "Bock",
+      "collectionId": 1,
+      "nature": "F",
+      "parentPrincipalId": "lager",
+      "aliases": [],
+      "paysOrigine": [
+        "Allemagne"
+      ],
+      "origine": {
+        "libelle": "Einbeck et Bavière",
+        "ville": null,
+        "region": "Bavière",
+        "bassinBrassicole": null
+      },
+      "alcool": {
+        "min": null,
+        "max": null,
+        "unite": "%",
+        "statut": "variable"
+      },
+      "amertume": {
+        "min": null,
+        "max": null,
+        "unite": "IBU",
+        "statut": "variable"
+      },
+      "couleur": {
+        "min": null,
+        "max": null,
+        "unite": "EBC",
+        "statut": "variable"
+      },
+      "fermentation": {
+        "type": "basse",
+        "details": "Fermentation basse à température fraîche, généralement suivie d’une maturation à froid."
+      },
+      "service": {
+        "temperatureMin": null,
+        "temperatureMax": null,
+        "uniteTemperature": "°C",
+        "verresRecommandes": [
+          "Verre adapté au sous-style"
+        ]
+      },
+      "description": "Le Bock est une lager de muscle et de malt : pain brun, croûte, miel sombre, parfois fruits secs, avec une chaleur d’alcool qui doit rester polie. Ce n’est pas une bière sucrée par paresse, mais une bière forte où le malt avance en manteau épais.",
+      "histoireEtOrigines": "Le nom renvoie à Einbeck, puis à la Bavière, où la prononciation locale aurait transformé le nom de la ville en “Bock”, le bouc devenu emblème. La famille rassemble des lagers fortes, de saison ou de tradition, souvent liées aux périodes froides, aux fêtes et aux brassins de patience.",
+      "recette": {
+        "profilUnique": false,
+        "explicationProfil": "« Bock » désigne une famille regroupant plusieurs styles dont la force, la couleur, l’amertume, les ingrédients et les procédés peuvent diverger. Aucun profil de recette unique ne serait représentatif de l’ensemble de la famille.",
+        "maltsEtCereales": [
+          "malts Munich et Vienna",
+          "malt Pilsner selon la version"
+        ],
+        "houblons": [
+          "houblons allemands sobres"
+        ],
+        "levuresEtMicroorganismes": [
+          "levure lager à forte atténuation"
+        ],
+        "ingredientsComplementaires": [],
+        "profilEau": "modérément minérale",
+        "empatage": "décoction traditionnelle possible pour renforcer la profondeur maltée",
+        "ebullitionEtHoublonnage": "houblonnage d’équilibre sans domination aromatique",
+        "fermentation": "fermentation basse lente",
+        "maturation": "lagering long",
+        "profilRecherche": "une lager forte et maltée, ample sans lourdeur collante, où l’alcool réchauffe sans brûler"
+      },
+      "sources": [
+        {
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "Bock — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2021",
+          "reference": "Bock — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "World Beer Cup",
+          "edition": "2026",
+          "reference": "Bock — Beverage Styles",
+          "type": "guide_de_style"
+        }
+      ]
+    },
+    {
+      "id": "international-light-lager",
+      "nom": "International Light Lager",
+      "collectionId": 1,
+      "nature": "S",
+      "parentPrincipalId": "lager",
+      "aliases": [],
+      "paysOrigine": [
+        "International"
+      ],
+      "origine": {
+        "libelle": "International",
+        "ville": null,
+        "region": null,
+        "bassinBrassicole": null
+      },
+      "alcool": {
+        "min": 2.5,
+        "max": 4.2,
+        "unite": "%",
+        "statut": "defini"
+      },
+      "amertume": {
+        "min": 5,
+        "max": 15,
+        "unite": "IBU",
+        "statut": "defini"
+      },
+      "couleur": {
+        "min": 3,
+        "max": 8,
+        "unite": "EBC",
+        "statut": "defini"
+      },
+      "fermentation": {
+        "type": "basse",
+        "details": "Fermentation basse à température fraîche, généralement suivie d’une maturation à froid."
+      },
+      "service": {
+        "temperatureMin": 3,
+        "temperatureMax": 6,
+        "uniteTemperature": "°C",
+        "verresRecommandes": [
+          "Pilsner",
+          "Chope légère"
+        ]
+      },
+      "description": "L’International Light Lager est la bière du quasi-effacement : très pâle, très froide, très carbonatée, pensée pour disparaître avec élégance plutôt que laisser une trace. Son talent n’est pas la complexité, mais la neutralité propre, sans défaut évident.",
+      "histoireEtOrigines": "Elle appartient à l’ère mondiale des grandes lagers standardisées, adaptées aux marchés larges, aux climats chauds et à la consommation très fraîche. C’est une bière d’industrie au sens technique du terme : régularité, stabilité, faible intensité, buvabilité maximale.",
+      "recette": {
+        "profilUnique": true,
+        "explicationProfil": "",
+        "maltsEtCereales": [
+          "malt Pilsner ou lager très pâle",
+          "riz ou maïs selon la tradition"
+        ],
+        "houblons": [
+          "houblons doux et peu envahissants"
+        ],
+        "levuresEtMicroorganismes": [
+          "levure lager neutre"
+        ],
+        "ingredientsComplementaires": [],
+        "profilEau": "douce à modérément minérale",
+        "empatage": "empâtage favorisant une forte fermentescibilité",
+        "ebullitionEtHoublonnage": "houblonnage précoce modéré, peu ou pas de houblon tardif",
+        "fermentation": "fermentation basse propre et fraîche",
+        "maturation": "lagering court à moyen",
+        "profilRecherche": "une lager ultra-légère, limpide et désaltérante, où la propreté compte plus que l’expression aromatique"
+      },
+      "sources": [
+        {
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "International Light Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2021",
+          "reference": "International Light Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "World Beer Cup",
+          "edition": "2026",
+          "reference": "International Light Lager — Beverage Styles",
+          "type": "guide_de_style"
+        }
+      ]
+    },
+    {
+      "id": "german-leichtbier",
+      "nom": "German Leichtbier",
+      "collectionId": 1,
+      "nature": "S",
+      "parentPrincipalId": "lager",
+      "aliases": [],
+      "paysOrigine": [
+        "Allemagne"
+      ],
+      "origine": {
+        "libelle": "Allemagne",
+        "ville": null,
+        "region": null,
+        "bassinBrassicole": null
+      },
+      "alcool": {
+        "min": 2.4,
+        "max": 3.6,
+        "unite": "%",
+        "statut": "defini"
+      },
+      "amertume": {
+        "min": 15,
+        "max": 28,
+        "unite": "IBU",
+        "statut": "defini"
+      },
+      "couleur": {
+        "min": 4,
+        "max": 12,
+        "unite": "EBC",
+        "statut": "defini"
+      },
+      "fermentation": {
+        "type": "basse",
+        "details": "Fermentation basse à température fraîche, généralement suivie d’une maturation à froid."
+      },
+      "service": {
+        "temperatureMin": 4,
+        "temperatureMax": 7,
+        "uniteTemperature": "°C",
+        "verresRecommandes": [
+          "Pokal",
+          "Seidel"
+        ]
+      },
+      "description": "La German Leichtbier est légère, mais pas vide : corps réduit, alcool discret, malt pâle propre et amertume plus présente qu’une light lager internationale. Elle marche sur un fil : donner une vraie sensation de bière avec peu de matière.",
+      "histoireEtOrigines": "“Leicht” signifie léger, mais l’approche allemande reste plus structurée que la logique américaine du “less filling”. Le style conserve une colonne malt-houblon lisible, dans l’esprit des lagers allemandes de table, sobres mais brassées avec discipline.",
+      "recette": {
+        "profilUnique": true,
+        "explicationProfil": "",
+        "maltsEtCereales": [
+          "malt Pilsner ou lager très pâle",
+          "riz ou maïs selon la tradition"
+        ],
+        "houblons": [
+          "houblons doux et peu envahissants"
+        ],
+        "levuresEtMicroorganismes": [
+          "levure lager neutre"
+        ],
+        "ingredientsComplementaires": [],
+        "profilEau": "douce à modérément minérale",
+        "empatage": "empâtage favorisant une forte fermentescibilité",
+        "ebullitionEtHoublonnage": "houblonnage précoce modéré, peu ou pas de houblon tardif",
+        "fermentation": "fermentation basse propre et fraîche",
+        "maturation": "lagering court à moyen",
+        "profilRecherche": "une lager allemande légère mais définie, sèche, nette, avec assez de houblon pour éviter l’eau maltée"
+      },
+      "sources": [
+        {
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "German Leichtbier — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2021",
+          "reference": "German Leichtbier — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "World Beer Cup",
+          "edition": "2026",
+          "reference": "German Leichtbier — Beverage Styles",
+          "type": "guide_de_style"
+        }
+      ]
+    },
+    {
+      "id": "american-light-lager",
+      "nom": "American Light Lager",
+      "collectionId": 1,
+      "nature": "S",
+      "parentPrincipalId": "lager",
+      "aliases": [],
+      "paysOrigine": [
+        "États-Unis"
+      ],
+      "origine": {
+        "libelle": "États-Unis",
+        "ville": null,
+        "region": null,
+        "bassinBrassicole": null
+      },
+      "alcool": {
+        "min": 2.8,
+        "max": 4.4,
+        "unite": "%",
+        "statut": "defini"
+      },
+      "amertume": {
+        "min": 5,
+        "max": 15,
+        "unite": "IBU",
+        "statut": "defini"
+      },
+      "couleur": {
+        "min": 3,
+        "max": 8,
+        "unite": "EBC",
+        "statut": "defini"
+      },
+      "fermentation": {
+        "type": "basse",
+        "details": "Fermentation basse à température fraîche, généralement suivie d’une maturation à froid."
+      },
+      "service": {
+        "temperatureMin": 2,
+        "temperatureMax": 5,
+        "uniteTemperature": "°C",
+        "verresRecommandes": [
+          "Shaker",
+          "Chope"
+        ]
+      },
+      "description": "L’American Light Lager est conçue pour la fraîcheur immédiate : très pâle, très pétillante, corps minimal, grain discret et amertume presque fantôme. C’est une bière où l’absence de défaut devient la principale qualité, comme une page blanche glacée.",
+      "histoireEtOrigines": "Les versions modernes explosent aux États-Unis dans les années 1970, portées par le marketing du “tastes great, less filling”. Elles transforment la lager américaine en produit de masse allégé, calibré pour le sport, le froid, la répétition et le verre qui se vide vite.",
+      "recette": {
+        "profilUnique": true,
+        "explicationProfil": "",
+        "maltsEtCereales": [
+          "malt Pilsner ou lager très pâle",
+          "riz ou maïs selon la tradition"
+        ],
+        "houblons": [
+          "houblons doux et peu envahissants"
+        ],
+        "levuresEtMicroorganismes": [
+          "levure lager neutre"
+        ],
+        "ingredientsComplementaires": [],
+        "profilEau": "douce à modérément minérale",
+        "empatage": "empâtage favorisant une forte fermentescibilité",
+        "ebullitionEtHoublonnage": "houblonnage précoce modéré, peu ou pas de houblon tardif",
+        "fermentation": "fermentation basse propre et fraîche",
+        "maturation": "lagering court à moyen",
+        "profilRecherche": "une lager américaine très légère, très froide, très carbonatée, quasiment neutre mais irréprochablement propre"
+      },
+      "sources": [
+        {
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "American Light Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2021",
+          "reference": "American Light Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "World Beer Cup",
+          "edition": "2026",
+          "reference": "American Light Lager — Beverage Styles",
+          "type": "guide_de_style"
+        }
+      ]
+    },
+    {
+      "id": "contemporary-american-light-lager",
+      "nom": "Contemporary American Light Lager",
+      "collectionId": 1,
+      "nature": "S",
+      "parentPrincipalId": "lager",
+      "aliases": [],
+      "paysOrigine": [
+        "États-Unis"
+      ],
+      "origine": {
+        "libelle": "États-Unis",
+        "ville": null,
+        "region": null,
+        "bassinBrassicole": null
+      },
+      "alcool": {
+        "min": 2.8,
+        "max": 4.4,
+        "unite": "%",
+        "statut": "defini"
+      },
+      "amertume": {
+        "min": 5,
+        "max": 15,
+        "unite": "IBU",
+        "statut": "defini"
+      },
+      "couleur": {
+        "min": 3,
+        "max": 8,
+        "unite": "EBC",
+        "statut": "defini"
+      },
+      "fermentation": {
+        "type": "basse",
+        "details": "Fermentation basse à température fraîche, généralement suivie d’une maturation à froid."
+      },
+      "service": {
+        "temperatureMin": 2,
+        "temperatureMax": 5,
+        "uniteTemperature": "°C",
+        "verresRecommandes": [
+          "Shaker",
+          "Chope"
+        ]
+      },
+      "description": "La Contemporary American Light Lager reprend le squelette de l’American Light Lager avec un regard plus actuel : toujours légère, toujours nette, mais parfois un peu plus précise, moins caricaturale. Elle reste un exercice de retenue extrême.",
+      "histoireEtOrigines": "Cette carte sert à distinguer les versions modernes qui assument la légèreté sans forcément tomber dans le produit anonyme. La scène récente a réhabilité certaines lagers très simples, à condition qu’elles soient brassées avec soin plutôt qu’effacées par automatisme.",
+      "recette": {
+        "profilUnique": true,
+        "explicationProfil": "",
+        "maltsEtCereales": [
+          "malt Pilsner ou lager très pâle",
+          "riz ou maïs selon la tradition"
+        ],
+        "houblons": [
+          "houblons doux et peu envahissants"
+        ],
+        "levuresEtMicroorganismes": [
+          "levure lager neutre"
+        ],
+        "ingredientsComplementaires": [],
+        "profilEau": "douce à modérément minérale",
+        "empatage": "empâtage favorisant une forte fermentescibilité",
+        "ebullitionEtHoublonnage": "houblonnage précoce modéré, peu ou pas de houblon tardif",
+        "fermentation": "fermentation basse propre et fraîche",
+        "maturation": "lagering court à moyen",
+        "profilRecherche": "une light lager moderne, sèche et limpide, très facile à boire mais assez soignée pour ne pas sembler creuse"
+      },
+      "sources": [
+        {
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "Contemporary American Light Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2021",
+          "reference": "Contemporary American Light Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "World Beer Cup",
+          "edition": "2026",
+          "reference": "Contemporary American Light Lager — Beverage Styles",
+          "type": "guide_de_style"
+        }
+      ]
+    },
+    {
+      "id": "mexican-light-lager",
+      "nom": "Mexican Light Lager",
+      "collectionId": 1,
+      "nature": "S",
+      "parentPrincipalId": "lager",
+      "aliases": [],
+      "paysOrigine": [
+        "Mexique"
+      ],
+      "origine": {
+        "libelle": "Mexique",
+        "ville": null,
+        "region": null,
+        "bassinBrassicole": null
+      },
+      "alcool": {
+        "min": 3.0,
+        "max": 4.5,
+        "unite": "%",
+        "statut": "defini"
+      },
+      "amertume": {
+        "min": 5,
+        "max": 18,
+        "unite": "IBU",
+        "statut": "defini"
+      },
+      "couleur": {
+        "min": 3,
+        "max": 10,
+        "unite": "EBC",
+        "statut": "defini"
+      },
+      "fermentation": {
+        "type": "basse",
+        "details": "Fermentation basse à température fraîche, généralement suivie d’une maturation à froid."
+      },
+      "service": {
+        "temperatureMin": 3,
+        "temperatureMax": 6,
+        "uniteTemperature": "°C",
+        "verresRecommandes": [
+          "Pilsner",
+          "Chope"
+        ]
+      },
+      "description": "La Mexican Light Lager est une lager de soleil : pâle, vive, peu amère, souvent servie très froide, avec une finale sèche et parfois une impression céréalière légère. Elle doit rafraîchir avant de raconter, mais elle ne doit pas devenir transparente.",
+      "histoireEtOrigines": "Le Mexique a hérité d’influences brassicoles européennes, notamment allemandes et autrichiennes, avant de développer ses propres grandes lagers nationales. Les versions light prolongent cette tradition en l’adaptant au climat, au service très frais et à une buvabilité de plage ou de terrasse.",
+      "recette": {
+        "profilUnique": true,
+        "explicationProfil": "",
+        "maltsEtCereales": [
+          "malt Pilsner ou lager très pâle",
+          "riz ou maïs selon la tradition"
+        ],
+        "houblons": [
+          "houblons doux et peu envahissants"
+        ],
+        "levuresEtMicroorganismes": [
+          "levure lager neutre"
+        ],
+        "ingredientsComplementaires": [],
+        "profilEau": "douce à modérément minérale",
+        "empatage": "empâtage favorisant une forte fermentescibilité",
+        "ebullitionEtHoublonnage": "houblonnage précoce modéré, peu ou pas de houblon tardif",
+        "fermentation": "fermentation basse propre et fraîche",
+        "maturation": "lagering court à moyen",
+        "profilRecherche": "une lager mexicaine légère, sèche et solaire, très rafraîchissante sans perdre toute texture céréalière"
+      },
+      "sources": [
+        {
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "Mexican Light Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2021",
+          "reference": "Mexican Light Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "World Beer Cup",
+          "edition": "2026",
+          "reference": "Mexican Light Lager — Beverage Styles",
+          "type": "guide_de_style"
+        }
+      ]
+    },
+    {
+      "id": "international-pale-lager",
+      "nom": "International Pale Lager",
+      "collectionId": 1,
+      "nature": "S",
+      "parentPrincipalId": "lager",
+      "aliases": [],
+      "paysOrigine": [
+        "International"
+      ],
+      "origine": {
+        "libelle": "International",
+        "ville": null,
+        "region": null,
+        "bassinBrassicole": null
+      },
+      "alcool": {
+        "min": 4.2,
+        "max": 5.6,
+        "unite": "%",
+        "statut": "defini"
+      },
+      "amertume": {
+        "min": 8,
+        "max": 25,
+        "unite": "IBU",
+        "statut": "defini"
+      },
+      "couleur": {
+        "min": 4,
+        "max": 12,
+        "unite": "EBC",
+        "statut": "defini"
+      },
+      "fermentation": {
+        "type": "basse",
+        "details": "Fermentation basse à température fraîche, généralement suivie d’une maturation à froid."
+      },
+      "service": {
+        "temperatureMin": 3,
+        "temperatureMax": 7,
+        "uniteTemperature": "°C",
+        "verresRecommandes": [
+          "Pilsner",
+          "Chope"
+        ]
+      },
+      "description": "L’International Pale Lager est la lager mondiale par excellence : dorée, claire, propre, moyennement légère, avec un malt discret et un houblon qui garde les mains dans les poches. Elle ne cherche pas à être mémorable, mais à être immédiatement compréhensible.",
+      "histoireEtOrigines": "Elle vient de la diffusion planétaire des lagers pâles inspirées des pilsners, mais adaptées aux goûts, matières premières et contraintes industrielles locales. Selon le pays, elle peut tirer vers le maïs, le riz, le malt plus rond ou une amertume un peu plus franche.",
+      "recette": {
+        "profilUnique": true,
+        "explicationProfil": "",
+        "maltsEtCereales": [
+          "malt Pilsner ou lager très pâle",
+          "riz ou maïs selon la tradition"
+        ],
+        "houblons": [
+          "houblons doux et peu envahissants"
+        ],
+        "levuresEtMicroorganismes": [
+          "levure lager neutre"
+        ],
+        "ingredientsComplementaires": [],
+        "profilEau": "douce à modérément minérale",
+        "empatage": "empâtage favorisant une forte fermentescibilité",
+        "ebullitionEtHoublonnage": "houblonnage précoce modéré, peu ou pas de houblon tardif",
+        "fermentation": "fermentation basse propre et fraîche",
+        "maturation": "lagering court à moyen",
+        "profilRecherche": "une lager pâle internationale, nette et accessible, plus expressive qu’une light lager mais toujours très mesurée"
+      },
+      "sources": [
+        {
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "International Pale Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2021",
+          "reference": "International Pale Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "World Beer Cup",
+          "edition": "2026",
+          "reference": "International Pale Lager — Beverage Styles",
+          "type": "guide_de_style"
+        }
+      ]
+    },
+    {
+      "id": "international-pilsner",
+      "nom": "International Pilsner",
+      "collectionId": 1,
+      "nature": "S",
+      "parentPrincipalId": "pilsner",
+      "aliases": [],
+      "paysOrigine": [
+        "International"
+      ],
+      "origine": {
+        "libelle": "International",
+        "ville": null,
+        "region": null,
+        "bassinBrassicole": null
+      },
+      "alcool": {
+        "min": 4.2,
+        "max": 5.8,
+        "unite": "%",
+        "statut": "defini"
+      },
+      "amertume": {
+        "min": 20,
+        "max": 40,
+        "unite": "IBU",
+        "statut": "defini"
+      },
+      "couleur": {
+        "min": 4,
+        "max": 14,
+        "unite": "EBC",
+        "statut": "defini"
+      },
+      "fermentation": {
+        "type": "basse",
+        "details": "Fermentation basse à température fraîche, généralement suivie d’une maturation à froid."
+      },
+      "service": {
+        "temperatureMin": 4,
+        "temperatureMax": 7,
+        "uniteTemperature": "°C",
+        "verresRecommandes": [
+          "Pilsner",
+          "Pokal"
+        ]
+      },
+      "description": "L’International Pilsner emprunte le costume de la pilsner sans toujours en garder le tranchant bohémien ou allemand. Elle est claire, sèche, modérément houblonnée, plus affirmée qu’une pale lager générique mais souvent moins typée qu’une Czech ou German Pils.",
+      "histoireEtOrigines": "C’est la conséquence logique du succès mondial de Plzeň : partout, des brasseries ont repris l’idée de la lager blonde amère et brillante, puis l’ont adaptée à leur eau, leurs houblons, leurs malts et leurs marchés. Le résultat est une pilsner de traduction, pas toujours d’origine.",
+      "recette": {
+        "profilUnique": true,
+        "explicationProfil": "",
+        "maltsEtCereales": [
+          "malt Pilsner"
+        ],
+        "houblons": [
+          "houblons nobles européens ou variétés modernes apparentées"
+        ],
+        "levuresEtMicroorganismes": [
+          "levure lager propre"
+        ],
+        "ingredientsComplementaires": [],
+        "profilEau": "douce à modérément sulfatée selon l’école",
+        "empatage": "empâtage clair, parfois par décoction",
+        "ebullitionEtHoublonnage": "amertume structurante et houblon aromatique mesuré",
+        "fermentation": "fermentation basse fraîche",
+        "maturation": "lagering prolongé",
+        "profilRecherche": "une pilsner internationale claire et sèche, avec une amertume lisible mais un caractère régional volontairement modéré"
+      },
+      "sources": [
+        {
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "International Pilsner — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2021",
+          "reference": "International Pilsner — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "World Beer Cup",
+          "edition": "2026",
+          "reference": "International Pilsner — Beverage Styles",
+          "type": "guide_de_style"
+        }
+      ]
+    },
+    {
+      "id": "german-pilsner",
+      "nom": "German Pilsner",
+      "collectionId": 1,
+      "nature": "S",
+      "parentPrincipalId": "pilsner",
+      "aliases": [
+        "German Pils"
+      ],
+      "paysOrigine": [
+        "Allemagne"
+      ],
+      "origine": {
+        "libelle": "Allemagne, notamment nord et centre",
+        "ville": null,
+        "region": null,
+        "bassinBrassicole": null
+      },
+      "alcool": {
+        "min": 4.4,
+        "max": 5.2,
+        "unite": "%",
+        "statut": "defini"
+      },
+      "amertume": {
+        "min": 22,
+        "max": 40,
+        "unite": "IBU",
+        "statut": "defini"
+      },
+      "couleur": {
+        "min": 4,
+        "max": 10,
+        "unite": "EBC",
+        "statut": "defini"
+      },
+      "fermentation": {
+        "type": "basse",
+        "details": "Fermentation basse à température fraîche, généralement suivie d’une maturation à froid."
+      },
+      "service": {
+        "temperatureMin": 5,
+        "temperatureMax": 8,
+        "uniteTemperature": "°C",
+        "verresRecommandes": [
+          "Pokal",
+          "Flûte Pilsner"
+        ]
+      },
+      "description": "La German Pilsner est plus sèche, plus fine et souvent plus mordante que sa cousine tchèque. Malt Pilsner net, houblon floral ou herbacé, amertume droite et finale ciselée : elle ne caresse pas longtemps, elle nettoie.",
+      "histoireEtOrigines": "L’Allemagne adopte l’idée de la pilsner en la disciplinant à sa manière : fermentation basse propre, houblons nobles, finale sèche, accent parfois plus minéral selon les régions. Les versions du nord peuvent paraître plus dures, celles du sud plus rondes, mais l’axe reste la netteté.",
+      "recette": {
+        "profilUnique": true,
+        "explicationProfil": "",
+        "maltsEtCereales": [
+          "malt Pilsner"
+        ],
+        "houblons": [
+          "houblons nobles européens ou variétés modernes apparentées"
+        ],
+        "levuresEtMicroorganismes": [
+          "levure lager propre"
+        ],
+        "ingredientsComplementaires": [],
+        "profilEau": "douce à modérément sulfatée selon l’école",
+        "empatage": "empâtage clair, parfois par décoction",
+        "ebullitionEtHoublonnage": "amertume structurante et houblon aromatique mesuré",
+        "fermentation": "fermentation basse fraîche",
+        "maturation": "lagering prolongé",
+        "profilRecherche": "une pils allemande sèche et tendue, avec malt pâle discret, houblon noble précis et amertume élégamment ferme"
+      },
+      "sources": [
+        {
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "German Pilsner — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2021",
+          "reference": "German Pilsner — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "World Beer Cup",
+          "edition": "2026",
+          "reference": "German Pilsner — Beverage Styles",
+          "type": "guide_de_style"
+        }
+      ]
+    },
+    {
+      "id": "italian-pilsner",
+      "nom": "Italian Pilsner",
+      "collectionId": 1,
+      "nature": "S",
+      "parentPrincipalId": "pilsner",
+      "aliases": [],
+      "paysOrigine": [
+        "Italie"
+      ],
+      "origine": {
+        "libelle": "Italie du Nord, diffusion internationale",
+        "ville": null,
+        "region": null,
+        "bassinBrassicole": null
+      },
+      "alcool": {
+        "min": 4.5,
+        "max": 5.5,
+        "unite": "%",
+        "statut": "defini"
+      },
+      "amertume": {
+        "min": 25,
+        "max": 45,
+        "unite": "IBU",
+        "statut": "defini"
+      },
+      "couleur": {
+        "min": 5,
+        "max": 12,
+        "unite": "EBC",
+        "statut": "defini"
+      },
+      "fermentation": {
+        "type": "basse",
+        "details": "Fermentation basse à température fraîche, généralement suivie d’une maturation à froid."
+      },
+      "service": {
+        "temperatureMin": 5,
+        "temperatureMax": 8,
+        "uniteTemperature": "°C",
+        "verresRecommandes": [
+          "Pokal",
+          "Flûte Pilsner"
+        ]
+      },
+      "description": "L’Italian Pilsner prend une pils sèche et lui ajoute un parfum de houblon frais : floral, herbacé, citronné, parfois légèrement épicé. Elle ne doit pas devenir une IPA en costume clair ; son charme vient de ce houblonnage aérien posé sur une base très nette.",
+      "histoireEtOrigines": "Le style moderne est associé à l’influence de Tipopils et à la redécouverte des pilsners dry-hoppées par la scène craft. L’Italie y apporte une idée élégante : intensifier l’arôme sans sacrifier la finesse, comme si la pilsner classique passait par un jardin d’herbes fraîches.",
+      "recette": {
+        "profilUnique": true,
+        "explicationProfil": "",
+        "maltsEtCereales": [
+          "malt Pilsner"
+        ],
+        "houblons": [
+          "houblons nobles européens ou variétés modernes apparentées"
+        ],
+        "levuresEtMicroorganismes": [
+          "levure lager propre"
+        ],
+        "ingredientsComplementaires": [],
+        "profilEau": "douce à modérément sulfatée selon l’école",
+        "empatage": "empâtage clair, parfois par décoction",
+        "ebullitionEtHoublonnage": "amertume structurante et houblon aromatique mesuré",
+        "fermentation": "fermentation basse fraîche",
+        "maturation": "lagering prolongé",
+        "profilRecherche": "une pilsner sèche, florale et parfumée, où le houblonnage à cru reste fin, lumineux et jamais gras"
+      },
+      "sources": [
+        {
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "Italian Pilsner — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2021",
+          "reference": "Italian Pilsner — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "World Beer Cup",
+          "edition": "2026",
+          "reference": "Italian Pilsner — Beverage Styles",
+          "type": "guide_de_style"
+        }
+      ]
+    },
+    {
+      "id": "czech-pale-lager",
+      "nom": "Czech Pale Lager",
+      "collectionId": 1,
+      "nature": "S",
+      "parentPrincipalId": "lager",
+      "aliases": [],
+      "paysOrigine": [
+        "Tchéquie"
+      ],
+      "origine": {
+        "libelle": "Bohême et Moravie",
+        "ville": null,
+        "region": "Bohême",
+        "bassinBrassicole": null
+      },
+      "alcool": {
+        "min": 3.0,
+        "max": 4.1,
+        "unite": "%",
+        "statut": "defini"
+      },
+      "amertume": {
+        "min": 20,
+        "max": 35,
+        "unite": "IBU",
+        "statut": "defini"
+      },
+      "couleur": {
+        "min": 5,
+        "max": 12,
+        "unite": "EBC",
+        "statut": "defini"
+      },
+      "fermentation": {
+        "type": "basse",
+        "details": "Fermentation basse à température fraîche, généralement suivie d’une maturation à froid."
+      },
+      "service": {
+        "temperatureMin": 5,
+        "temperatureMax": 8,
+        "uniteTemperature": "°C",
+        "verresRecommandes": [
+          "Mug tchèque",
+          "Pokal"
+        ]
+      },
+      "description": "La Czech Pale Lager est la petite sœur quotidienne de la grande pils tchèque : plus légère, moins intense, mais toujours riche en malt tendre et houblon épicé. Elle a ce goût de pain frais, de Saaz discret et de mousse crémeuse qui donne envie d’une deuxième pinte avant la fin de la première.",
+      "histoireEtOrigines": "En Tchéquie, les catégories de force comptent autant que les couleurs. Cette version pâle et plus basse en alcool correspond à une bière de consommation courante, nourrie par la même culture que les ležák plus puissants : eau douce, malt tchèque, houblon traditionnel et service généreux.",
+      "recette": {
+        "profilUnique": true,
+        "explicationProfil": "",
+        "maltsEtCereales": [
+          "malt Pilsner"
+        ],
+        "houblons": [
+          "houblons nobles européens ou variétés modernes apparentées"
+        ],
+        "levuresEtMicroorganismes": [
+          "levure lager propre"
+        ],
+        "ingredientsComplementaires": [],
+        "profilEau": "douce à modérément sulfatée selon l’école",
+        "empatage": "empâtage clair, parfois par décoction",
+        "ebullitionEtHoublonnage": "amertume structurante et houblon aromatique mesuré",
+        "fermentation": "fermentation basse fraîche",
+        "maturation": "lagering prolongé",
+        "profilRecherche": "une lager tchèque pâle, légère mais savoureuse, avec malt rond, houblon épicé et amertume douce jamais dure"
+      },
+      "sources": [
+        {
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "Czech Pale Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2021",
+          "reference": "Czech Pale Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "World Beer Cup",
+          "edition": "2026",
+          "reference": "Czech Pale Lager — Beverage Styles",
+          "type": "guide_de_style"
+        }
+      ]
+    },
+    {
+      "id": "czech-premium-pale-lager",
+      "nom": "Czech Premium Pale Lager",
+      "collectionId": 1,
+      "nature": "S",
+      "parentPrincipalId": "pilsner",
+      "aliases": [
+        "Bohemian Pilsner",
+        "Czech Pilsner"
+      ],
+      "paysOrigine": [
+        "Tchéquie"
+      ],
+      "origine": {
+        "libelle": "Bohême, région de Plzeň",
+        "ville": "Plzeň",
+        "region": "Bohême",
+        "bassinBrassicole": null
+      },
+      "alcool": {
+        "min": 4.2,
+        "max": 5.8,
+        "unite": "%",
+        "statut": "defini"
+      },
+      "amertume": {
+        "min": 30,
+        "max": 45,
+        "unite": "IBU",
+        "statut": "defini"
+      },
+      "couleur": {
+        "min": 6,
+        "max": 14,
+        "unite": "EBC",
+        "statut": "defini"
+      },
+      "fermentation": {
+        "type": "basse",
+        "details": "Fermentation basse à température fraîche, généralement suivie d’une maturation à froid."
+      },
+      "service": {
+        "temperatureMin": 5,
+        "temperatureMax": 8,
+        "uniteTemperature": "°C",
+        "verresRecommandes": [
+          "Mug tchèque",
+          "Pokal"
+        ]
+      },
+      "description": "La Czech Premium Pale Lager est la grande pils bohémienne : dorée, ronde, houblonnée, amère mais douce dans ses contours. Là où la German Pils coupe net, elle enveloppe davantage : pain clair, herbe épicée, mousse dense et longue finale noble.",
+      "histoireEtOrigines": "Elle descend directement du coup de tonnerre de Plzeň en 1842. Le mariage de l’eau douce, du malt pâle, du houblon Saaz et de la fermentation basse a donné un modèle si puissant qu’il a été copié partout, souvent plus sèchement, rarement avec la même rondeur.",
+      "recette": {
+        "profilUnique": true,
+        "explicationProfil": "",
+        "maltsEtCereales": [
+          "malt Pilsner"
+        ],
+        "houblons": [
+          "houblons nobles européens ou variétés modernes apparentées"
+        ],
+        "levuresEtMicroorganismes": [
+          "levure lager propre"
+        ],
+        "ingredientsComplementaires": [],
+        "profilEau": "douce à modérément sulfatée selon l’école",
+        "empatage": "empâtage clair, parfois par décoction",
+        "ebullitionEtHoublonnage": "amertume structurante et houblon aromatique mesuré",
+        "fermentation": "fermentation basse fraîche",
+        "maturation": "lagering prolongé",
+        "profilRecherche": "une pils tchèque premium, dorée et expressive, avec houblon Saaz, malt rond, amertume élégante et mousse généreuse"
+      },
+      "sources": [
+        {
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "Czech Premium Pale Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2021",
+          "reference": "Czech Premium Pale Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "World Beer Cup",
+          "edition": "2026",
+          "reference": "Czech Premium Pale Lager — Beverage Styles",
+          "type": "guide_de_style"
+        }
+      ]
+    },
+    {
+      "id": "american-pilsner",
+      "nom": "American Pilsner",
+      "collectionId": 1,
+      "nature": "S",
+      "parentPrincipalId": "pilsner",
+      "aliases": [],
+      "paysOrigine": [
+        "États-Unis"
+      ],
+      "origine": {
+        "libelle": "États-Unis, tradition pré-Prohibition",
+        "ville": null,
+        "region": null,
+        "bassinBrassicole": null
+      },
+      "alcool": {
+        "min": 4.5,
+        "max": 6.0,
+        "unite": "%",
+        "statut": "defini"
+      },
+      "amertume": {
+        "min": 25,
+        "max": 40,
+        "unite": "IBU",
+        "statut": "defini"
+      },
+      "couleur": {
+        "min": 5,
+        "max": 14,
+        "unite": "EBC",
+        "statut": "defini"
+      },
+      "fermentation": {
+        "type": "basse",
+        "details": "Fermentation basse à température fraîche, généralement suivie d’une maturation à froid."
+      },
+      "service": {
+        "temperatureMin": 4,
+        "temperatureMax": 7,
+        "uniteTemperature": "°C",
+        "verresRecommandes": [
+          "Pilsner",
+          "Shaker"
+        ]
+      },
+      "description": "L’American Pilsner historique est plus rustique qu’une pils européenne : malt pâle, maïs possible, amertume franche et caractère céréale plus marqué. Elle n’est pas une light lager ; c’est une tentative américaine ancienne de faire une pilsner robuste avec les ingrédients du pays.",
+      "histoireEtOrigines": "Avant la Prohibition, les brasseurs immigrés adaptent les lagers européennes aux céréales américaines, notamment le maïs, qui allège le corps sans effacer la bière. Cette carte regarde vers cette tradition pré-Prohibition, plus savoureuse et plus amère que l’image moderne des grandes lagers américaines.",
+      "recette": {
+        "profilUnique": true,
+        "explicationProfil": "",
+        "maltsEtCereales": [
+          "malt Pilsner"
+        ],
+        "houblons": [
+          "houblons nobles européens ou variétés modernes apparentées"
+        ],
+        "levuresEtMicroorganismes": [
+          "levure lager propre"
+        ],
+        "ingredientsComplementaires": [],
+        "profilEau": "douce à modérément sulfatée selon l’école",
+        "empatage": "empâtage clair, parfois par décoction",
+        "ebullitionEtHoublonnage": "amertume structurante et houblon aromatique mesuré",
+        "fermentation": "fermentation basse fraîche",
+        "maturation": "lagering prolongé",
+        "profilRecherche": "une pilsner américaine ancienne, sèche et céréalière, avec amertume nette et maïs intégré plutôt que diluant"
+      },
+      "sources": [
+        {
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "American Pilsner — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2021",
+          "reference": "American Pilsner — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "World Beer Cup",
+          "edition": "2026",
+          "reference": "American Pilsner — Beverage Styles",
+          "type": "guide_de_style"
+        }
+      ]
+    },
+    {
+      "id": "contemporary-american-pilsner",
+      "nom": "Contemporary American Pilsner",
+      "collectionId": 1,
+      "nature": "S",
+      "parentPrincipalId": "pilsner",
+      "aliases": [],
+      "paysOrigine": [
+        "États-Unis"
+      ],
+      "origine": {
+        "libelle": "États-Unis contemporain",
+        "ville": null,
+        "region": null,
+        "bassinBrassicole": null
+      },
+      "alcool": {
+        "min": 4.5,
+        "max": 6.2,
+        "unite": "%",
+        "statut": "large"
+      },
+      "amertume": {
+        "min": 25,
+        "max": 50,
+        "unite": "IBU",
+        "statut": "large"
+      },
+      "couleur": {
+        "min": 4,
+        "max": 14,
+        "unite": "EBC",
+        "statut": "large"
+      },
+      "fermentation": {
+        "type": "basse",
+        "details": "Fermentation basse à température fraîche, généralement suivie d’une maturation à froid."
+      },
+      "service": {
+        "temperatureMin": 4,
+        "temperatureMax": 7,
+        "uniteTemperature": "°C",
+        "verresRecommandes": [
+          "Pilsner",
+          "Pokal"
+        ]
+      },
+      "description": "La Contemporary American Pilsner est une pils craft américaine : claire, sèche, précise, mais plus libre sur le houblon. Elle peut sentir le citron, les fleurs, les herbes ou les fruits blancs, tout en gardant la colonne vertébrale d’une lager nette.",
+      "histoireEtOrigines": "Elle vient du retour des brasseries artisanales américaines vers les lagers exigeantes. Après des années dominées par l’IPA, la pilsner devient un terrain de démonstration technique : moins spectaculaire, mais souvent plus impitoyable.",
+      "recette": {
+        "profilUnique": true,
+        "explicationProfil": "",
+        "maltsEtCereales": [
+          "malt Pilsner"
+        ],
+        "houblons": [
+          "houblons nobles européens ou variétés modernes apparentées"
+        ],
+        "levuresEtMicroorganismes": [
+          "levure lager propre"
+        ],
+        "ingredientsComplementaires": [],
+        "profilEau": "douce à modérément sulfatée selon l’école",
+        "empatage": "empâtage clair, parfois par décoction",
+        "ebullitionEtHoublonnage": "amertume structurante et houblon aromatique mesuré",
+        "fermentation": "fermentation basse fraîche",
+        "maturation": "lagering prolongé",
+        "profilRecherche": "une pils américaine moderne, sèche et propre, assez houblonnée pour signer la scène craft sans perdre sa structure lager"
+      },
+      "sources": [
+        {
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "Contemporary American Pilsner — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2021",
+          "reference": "Contemporary American Pilsner — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "World Beer Cup",
+          "edition": "2026",
+          "reference": "Contemporary American Pilsner — Beverage Styles",
+          "type": "guide_de_style"
+        }
+      ]
+    },
+    {
+      "id": "west-coast-pilsner",
+      "nom": "West Coast Pilsner",
+      "collectionId": 1,
+      "nature": "SS",
+      "parentPrincipalId": "pilsner",
+      "aliases": [],
+      "paysOrigine": [
+        "États-Unis"
+      ],
+      "origine": {
+        "libelle": "Côte Ouest des États-Unis",
+        "ville": null,
+        "region": null,
+        "bassinBrassicole": null
+      },
+      "alcool": {
+        "min": 4.5,
+        "max": 6.5,
+        "unite": "%",
+        "statut": "large"
+      },
+      "amertume": {
+        "min": 30,
+        "max": 60,
+        "unite": "IBU",
+        "statut": "large"
+      },
+      "couleur": {
+        "min": 4,
+        "max": 12,
+        "unite": "EBC",
+        "statut": "large"
+      },
+      "fermentation": {
+        "type": "basse",
+        "details": "Fermentation basse à température fraîche, généralement suivie d’une maturation à froid."
+      },
+      "service": {
+        "temperatureMin": 5,
+        "temperatureMax": 8,
+        "uniteTemperature": "°C",
+        "verresRecommandes": [
+          "Pilsner",
+          "Teku"
+        ]
+      },
+      "description": "La West Coast Pilsner est une créature de laboratoire en lunettes de soleil : base de pils sèche, houblons expressifs, agrumes, pin, fruits tropicaux, finale nerveuse. Elle flirte avec l’IPA, mais doit garder le claquant froid d’une lager.",
+      "histoireEtOrigines": "Née dans le vocabulaire craft récent de la côte Ouest américaine, elle transpose l’énergie des West Coast IPA dans une fermentation basse. C’est un style de frontière : trop houblonné pour les puristes, trop sec pour les amateurs de haze, parfait pour ceux qui veulent une lame de houblon glacée.",
+      "recette": {
+        "profilUnique": true,
+        "explicationProfil": "",
+        "maltsEtCereales": [
+          "malt pâle ou Pilsner",
+          "faible proportion de malt de spécialité"
+        ],
+        "houblons": [
+          "houblons aromatiques modernes",
+          "houblonnage à cru fréquent"
+        ],
+        "levuresEtMicroorganismes": [
+          "levure propre, ale ou lager selon le style"
+        ],
+        "ingredientsComplementaires": [],
+        "profilEau": "profil favorisant la netteté et l’expression du houblon",
+        "empatage": "empâtage visant une bonne atténuation",
+        "ebullitionEtHoublonnage": "ajouts tardifs abondants et houblonnage à cru",
+        "fermentation": "fermentation contrôlée limitant les défauts",
+        "maturation": "maturation courte pour préserver les huiles de houblon",
+        "profilRecherche": "une pilsner sèche et très houblonnée, claire comme une lager mais aromatique comme un coup de vent de côte Ouest"
+      },
+      "sources": [
+        {
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "West Coast Pilsner — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2021",
+          "reference": "West Coast Pilsner — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "World Beer Cup",
+          "edition": "2026",
+          "reference": "West Coast Pilsner — Beverage Styles",
+          "type": "guide_de_style"
+        }
+      ]
+    },
+    {
+      "id": "rice-lager",
+      "nom": "Rice Lager",
+      "collectionId": 1,
+      "nature": "S",
+      "parentPrincipalId": "lager",
+      "aliases": [],
+      "paysOrigine": [
+        "International"
+      ],
+      "origine": {
+        "libelle": "Asie et brassage international",
+        "ville": null,
+        "region": null,
+        "bassinBrassicole": null
+      },
+      "alcool": {
+        "min": 3.5,
+        "max": 5.5,
+        "unite": "%",
+        "statut": "large"
+      },
+      "amertume": {
+        "min": 5,
+        "max": 25,
+        "unite": "IBU",
+        "statut": "large"
+      },
+      "couleur": {
+        "min": 3,
+        "max": 10,
+        "unite": "EBC",
+        "statut": "large"
+      },
+      "fermentation": {
+        "type": "basse",
+        "details": "Fermentation basse à température fraîche, généralement suivie d’une maturation à froid."
+      },
+      "service": {
+        "temperatureMin": 3,
+        "temperatureMax": 6,
+        "uniteTemperature": "°C",
+        "verresRecommandes": [
+          "Pilsner",
+          "Chope"
+        ]
+      },
+      "description": "La Rice Lager utilise le riz comme instrument de légèreté : robe pâle, corps sec, finale nette, texture allégée et parfois une délicate note céréalière. Le riz ne doit pas rendre la bière vide ; il doit la rendre plus fine, comme du papier de soie brassicole.",
+      "histoireEtOrigines": "Le riz apparaît dans de nombreuses traditions de lagers asiatiques et internationales, souvent pour éclaircir le corps et améliorer la buvabilité. Dans les meilleures versions, il ne remplace pas le malt : il affine la structure et donne une sécheresse très propre.",
+      "recette": {
+        "profilUnique": true,
+        "explicationProfil": "",
+        "maltsEtCereales": [
+          "malt Pilsner ou lager très pâle",
+          "riz ou maïs selon la tradition"
+        ],
+        "houblons": [
+          "houblons doux et peu envahissants"
+        ],
+        "levuresEtMicroorganismes": [
+          "levure lager neutre"
+        ],
+        "ingredientsComplementaires": [],
+        "profilEau": "douce à modérément minérale",
+        "empatage": "empâtage favorisant une forte fermentescibilité",
+        "ebullitionEtHoublonnage": "houblonnage précoce modéré, peu ou pas de houblon tardif",
+        "fermentation": "fermentation basse propre et fraîche",
+        "maturation": "lagering court à moyen",
+        "profilRecherche": "une lager au riz très nette, légère et sèche, avec une buvabilité cristalline mais une vraie tenue de céréale"
+      },
+      "sources": [
+        {
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "Rice Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2021",
+          "reference": "Rice Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "World Beer Cup",
+          "edition": "2026",
+          "reference": "Rice Lager — Beverage Styles",
+          "type": "guide_de_style"
+        }
+      ]
+    },
+    {
+      "id": "india-pale-lager",
+      "nom": "India Pale Lager",
+      "collectionId": 1,
+      "nature": "S",
+      "parentPrincipalId": "hoppy-lager",
+      "aliases": [
+        "IPL"
+      ],
+      "paysOrigine": [
+        "International"
+      ],
+      "origine": {
+        "libelle": "Mouvement craft international",
+        "ville": null,
+        "region": null,
+        "bassinBrassicole": null
+      },
+      "alcool": {
+        "min": 5.0,
+        "max": 7.5,
+        "unite": "%",
+        "statut": "large"
+      },
+      "amertume": {
+        "min": 35,
+        "max": 70,
+        "unite": "IBU",
+        "statut": "large"
+      },
+      "couleur": {
+        "min": 5,
+        "max": 18,
+        "unite": "EBC",
+        "statut": "large"
+      },
+      "fermentation": {
+        "type": "basse",
+        "details": "Fermentation basse à température fraîche, généralement suivie d’une maturation à froid."
+      },
+      "service": {
+        "temperatureMin": 5,
+        "temperatureMax": 8,
+        "uniteTemperature": "°C",
+        "verresRecommandes": [
+          "IPA glass",
+          "Pokal"
+        ]
+      },
+      "description": "L’India Pale Lager prend l’intensité houblonnée d’une IPA et lui retire la chaleur de fermentation ale : agrumes, résine, fruits tropicaux, finale sèche, amertume franche. C’est une IPA passée par une chambre froide, avec moins d’esters et plus de précision.",
+      "histoireEtOrigines": "Elle appartient à la vague craft des styles hybrides, quand les brasseurs ont cherché à combiner houblonnage moderne et fermentation basse. Le nom joue volontairement avec l’IPA, mais le résultat doit rester lager : propre, atténué, tendu, sans lourdeur fruitée de levure.",
+      "recette": {
+        "profilUnique": true,
+        "explicationProfil": "",
+        "maltsEtCereales": [
+          "malt pâle ou Pilsner",
+          "faible proportion de malt de spécialité"
+        ],
+        "houblons": [
+          "houblons aromatiques modernes",
+          "houblonnage à cru fréquent"
+        ],
+        "levuresEtMicroorganismes": [
+          "levure propre, ale ou lager selon le style"
+        ],
+        "ingredientsComplementaires": [],
+        "profilEau": "profil favorisant la netteté et l’expression du houblon",
+        "empatage": "empâtage visant une bonne atténuation",
+        "ebullitionEtHoublonnage": "ajouts tardifs abondants et houblonnage à cru",
+        "fermentation": "fermentation contrôlée limitant les défauts",
+        "maturation": "maturation courte pour préserver les huiles de houblon",
+        "profilRecherche": "une lager très houblonnée et sèche, avec l’intensité aromatique d’une IPA mais la netteté froide d’une fermentation basse"
+      },
+      "sources": [
+        {
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "India Pale Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2021",
+          "reference": "India Pale Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "World Beer Cup",
+          "edition": "2026",
+          "reference": "India Pale Lager — Beverage Styles",
+          "type": "guide_de_style"
+        }
+      ]
+    },
+    {
+      "id": "munich-helles",
+      "nom": "Munich Helles",
+      "collectionId": 1,
+      "nature": "S",
+      "parentPrincipalId": "lager",
+      "aliases": [
+        "Helles"
+      ],
+      "paysOrigine": [
+        "Allemagne"
+      ],
+      "origine": {
+        "libelle": "Munich, Bavière",
+        "ville": "Munich",
+        "region": "Bavière",
+        "bassinBrassicole": null
+      },
+      "alcool": {
+        "min": 4.7,
+        "max": 5.4,
+        "unite": "%",
+        "statut": "defini"
+      },
+      "amertume": {
+        "min": 16,
+        "max": 22,
+        "unite": "IBU",
+        "statut": "defini"
+      },
+      "couleur": {
+        "min": 6,
+        "max": 12,
+        "unite": "EBC",
+        "statut": "defini"
+      },
+      "fermentation": {
+        "type": "basse",
+        "details": "Fermentation basse à température fraîche, généralement suivie d’une maturation à froid."
+      },
+      "service": {
+        "temperatureMin": 5,
+        "temperatureMax": 8,
+        "uniteTemperature": "°C",
+        "verresRecommandes": [
+          "Seidel",
+          "Pokal"
+        ]
+      },
+      "description": "La Munich Helles est la lager dorée de la douceur bavaroise : malt clair, pain frais, miel léger, amertume basse et finale propre. Elle ne cherche pas le tranchant d’une pilsner, mais une rondeur lumineuse qui glisse sans devenir sucrée.",
+      "histoireEtOrigines": "Créée à Munich comme réponse bavaroise aux pilsners plus amères, elle garde l’obsession locale du malt tout en adoptant la clarté moderne. C’est une bière de précision douce : moins spectaculaire qu’une Pils, mais redoutable quand elle est bien brassée.",
+      "recette": {
+        "profilUnique": true,
+        "explicationProfil": "",
+        "maltsEtCereales": [
+          "malt Pilsner ou lager très pâle",
+          "riz ou maïs selon la tradition"
+        ],
+        "houblons": [
+          "houblons doux et peu envahissants"
+        ],
+        "levuresEtMicroorganismes": [
+          "levure lager neutre"
+        ],
+        "ingredientsComplementaires": [],
+        "profilEau": "douce à modérément minérale",
+        "empatage": "empâtage favorisant une forte fermentescibilité",
+        "ebullitionEtHoublonnage": "houblonnage précoce modéré, peu ou pas de houblon tardif",
+        "fermentation": "fermentation basse propre et fraîche",
+        "maturation": "lagering court à moyen",
+        "profilRecherche": "une lager blonde munichoise douce et nette, centrée sur le malt clair, le pain frais et une buvabilité profonde"
+      },
+      "sources": [
+        {
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "Munich Helles — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2021",
+          "reference": "Munich Helles — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "World Beer Cup",
+          "edition": "2026",
+          "reference": "Munich Helles — Beverage Styles",
+          "type": "guide_de_style"
+        }
+      ]
+    },
+    {
+      "id": "dortmunder-european-export",
+      "nom": "Dortmunder / European Export",
+      "collectionId": 1,
+      "nature": "S",
+      "parentPrincipalId": "lager",
+      "aliases": [
+        "Dortmunder Export",
+        "Helles Exportbier"
+      ],
+      "paysOrigine": [
+        "Allemagne"
+      ],
+      "origine": {
+        "libelle": "Dortmund, Rhénanie-du-Nord-Westphalie",
+        "ville": "Dortmund",
+        "region": "Rhénanie-du-Nord-Westphalie",
+        "bassinBrassicole": null
+      },
+      "alcool": {
+        "min": 4.8,
+        "max": 6.0,
+        "unite": "%",
+        "statut": "defini"
+      },
+      "amertume": {
+        "min": 20,
+        "max": 30,
+        "unite": "IBU",
+        "statut": "defini"
+      },
+      "couleur": {
+        "min": 8,
+        "max": 16,
+        "unite": "EBC",
+        "statut": "defini"
+      },
+      "fermentation": {
+        "type": "basse",
+        "details": "Fermentation basse à température fraîche, généralement suivie d’une maturation à froid."
+      },
+      "service": {
+        "temperatureMin": 5,
+        "temperatureMax": 8,
+        "uniteTemperature": "°C",
+        "verresRecommandes": [
+          "Pokal",
+          "Seidel"
+        ]
+      },
+      "description": "La Dortmunder Export est une lager dorée plus charpentée qu’une Helles, plus ronde qu’une German Pils, souvent avec une impression minérale et une amertume équilibrante. Elle a le sérieux d’une bière de ville industrielle : propre, solide, carrée.",
+      "histoireEtOrigines": "Associée à Dortmund et à ses eaux plus minérales, l’Export allemande s’est développée comme lager pâle de force supérieure, robuste sans devenir forte. Elle occupe une zone médiane élégante entre Munich, Plzeň et le monde ouvrier de la Ruhr.",
+      "recette": {
+        "profilUnique": true,
+        "explicationProfil": "",
+        "maltsEtCereales": [
+          "malt Pilsner"
+        ],
+        "houblons": [
+          "houblons nobles européens ou variétés modernes apparentées"
+        ],
+        "levuresEtMicroorganismes": [
+          "levure lager propre"
+        ],
+        "ingredientsComplementaires": [],
+        "profilEau": "douce à modérément sulfatée selon l’école",
+        "empatage": "empâtage clair, parfois par décoction",
+        "ebullitionEtHoublonnage": "amertume structurante et houblon aromatique mesuré",
+        "fermentation": "fermentation basse fraîche",
+        "maturation": "lagering prolongé",
+        "profilRecherche": "une lager export dorée, minérale et équilibrée, avec malt clair solide, amertume propre et finale sèche mais pas maigre"
+      },
+      "sources": [
+        {
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "Dortmunder / European Export — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2021",
+          "reference": "Dortmunder / European Export — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "World Beer Cup",
+          "edition": "2026",
+          "reference": "Dortmunder / European Export — Beverage Styles",
+          "type": "guide_de_style"
+        }
+      ]
+    },
+    {
+      "id": "festbier-german-oktoberfest",
+      "nom": "Festbier / German Oktoberfest",
+      "collectionId": 1,
+      "nature": "S",
+      "parentPrincipalId": "lager",
+      "aliases": [
+        "Festbier"
+      ],
+      "paysOrigine": [
+        "Allemagne"
+      ],
+      "origine": {
+        "libelle": "Munich, Bavière",
+        "ville": "Munich",
+        "region": "Bavière",
+        "bassinBrassicole": null
+      },
+      "alcool": {
+        "min": 5.8,
+        "max": 6.3,
+        "unite": "%",
+        "statut": "defini"
+      },
+      "amertume": {
+        "min": 18,
+        "max": 25,
+        "unite": "IBU",
+        "statut": "defini"
+      },
+      "couleur": {
+        "min": 8,
+        "max": 14,
+        "unite": "EBC",
+        "statut": "defini"
+      },
+      "fermentation": {
+        "type": "basse",
+        "details": "Fermentation basse à température fraîche, généralement suivie d’une maturation à froid."
+      },
+      "service": {
+        "temperatureMin": 6,
+        "temperatureMax": 9,
+        "uniteTemperature": "°C",
+        "verresRecommandes": [
+          "Mass",
+          "Seidel"
+        ]
+      },
+      "description": "La Festbier moderne est l’Oktoberfest en version dorée : malt doux, pain clair, touche toastée, corps souple et grande buvabilité malgré la force. Elle doit donner envie de lever la chope, pas de faire une sieste sous la table.",
+      "histoireEtOrigines": "Depuis 1990, la bière majoritairement servie à l’Oktoberfest de Munich est plutôt ce style blond et fluide que l’ancien Märzen ambré. Le changement répond à une logique simple : garder la richesse maltée, mais alléger la couleur et la satiété pour les grandes fêtes.",
+      "recette": {
+        "profilUnique": true,
+        "explicationProfil": "",
+        "maltsEtCereales": [
+          "malts Munich et Vienna",
+          "malt Pilsner selon la version"
+        ],
+        "houblons": [
+          "houblons allemands sobres"
+        ],
+        "levuresEtMicroorganismes": [
+          "levure lager à forte atténuation"
+        ],
+        "ingredientsComplementaires": [],
+        "profilEau": "modérément minérale",
+        "empatage": "décoction traditionnelle possible pour renforcer la profondeur maltée",
+        "ebullitionEtHoublonnage": "houblonnage d’équilibre sans domination aromatique",
+        "fermentation": "fermentation basse lente",
+        "maturation": "lagering long",
+        "profilRecherche": "une lager de fête dorée, maltée et souple, assez forte pour exister mais assez légère pour remplir une grande chope"
+      },
+      "sources": [
+        {
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "Festbier / German Oktoberfest — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2021",
+          "reference": "Festbier / German Oktoberfest — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "World Beer Cup",
+          "edition": "2026",
+          "reference": "Festbier / German Oktoberfest — Beverage Styles",
+          "type": "guide_de_style"
+        }
+      ]
+    },
+    {
+      "id": "vienna-lager",
+      "nom": "Vienna Lager",
+      "collectionId": 1,
+      "nature": "S",
+      "parentPrincipalId": "lager",
+      "aliases": [],
+      "paysOrigine": [
+        "Autriche"
+      ],
+      "origine": {
+        "libelle": "Vienne",
+        "ville": "Vienne",
+        "region": null,
+        "bassinBrassicole": null
+      },
+      "alcool": {
+        "min": 4.7,
+        "max": 5.5,
+        "unite": "%",
+        "statut": "defini"
+      },
+      "amertume": {
+        "min": 18,
+        "max": 30,
+        "unite": "IBU",
+        "statut": "defini"
+      },
+      "couleur": {
+        "min": 18,
+        "max": 30,
+        "unite": "EBC",
+        "statut": "defini"
+      },
+      "fermentation": {
+        "type": "basse",
+        "details": "Fermentation basse à température fraîche, généralement suivie d’une maturation à froid."
+      },
+      "service": {
+        "temperatureMin": 6,
+        "temperatureMax": 9,
+        "uniteTemperature": "°C",
+        "verresRecommandes": [
+          "Seidel",
+          "Pokal"
+        ]
+      },
+      "description": "La Vienna Lager est une ambre élégante : malt toasté, noisette, croûte de pain, caramel très léger, finale sèche et propre. Elle n’est ni sucrée ni lourde ; son charme est dans cette couleur cuivre qui promet plus de chaleur qu’elle n’en donne vraiment.",
+      "histoireEtOrigines": "Créée dans le sillage des innovations de maltage et de fermentation du XIXe siècle, elle est associée à Anton Dreher et à Vienne. Tombée en retrait en Europe, elle a trouvé une seconde vie inattendue dans les Amériques, notamment au Mexique, où l’héritage autrichien a laissé des lagers ambrées célèbres.",
+      "recette": {
+        "profilUnique": true,
+        "explicationProfil": "",
+        "maltsEtCereales": [
+          "malts Munich et Vienna",
+          "malts torréfiés désamérisés en faible quantité"
+        ],
+        "houblons": [
+          "houblons nobles discrets"
+        ],
+        "levuresEtMicroorganismes": [
+          "levure lager propre"
+        ],
+        "ingredientsComplementaires": [],
+        "profilEau": "modérément carbonatée",
+        "empatage": "empâtage ou décoction favorisant les notes de pain",
+        "ebullitionEtHoublonnage": "houblonnage équilibrant",
+        "fermentation": "fermentation basse",
+        "maturation": "lagering moyen à long",
+        "profilRecherche": "une lager ambrée sèche et toastée, avec élégance de malt Vienna, faible caramel et finale nette"
+      },
+      "sources": [
+        {
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "Vienna Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2021",
+          "reference": "Vienna Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "World Beer Cup",
+          "edition": "2026",
+          "reference": "Vienna Lager — Beverage Styles",
+          "type": "guide_de_style"
+        }
+      ]
+    },
+    {
+      "id": "marzen",
+      "nom": "Märzen",
+      "collectionId": 1,
+      "nature": "S",
+      "parentPrincipalId": "lager",
+      "aliases": [
+        "Maerzen"
+      ],
+      "paysOrigine": [
+        "Allemagne"
+      ],
+      "origine": {
+        "libelle": "Bavière",
+        "ville": null,
+        "region": "Bavière",
+        "bassinBrassicole": null
+      },
+      "alcool": {
+        "min": 5.6,
+        "max": 6.3,
+        "unite": "%",
+        "statut": "defini"
+      },
+      "amertume": {
+        "min": 18,
+        "max": 24,
+        "unite": "IBU",
+        "statut": "defini"
+      },
+      "couleur": {
+        "min": 16,
+        "max": 34,
+        "unite": "EBC",
+        "statut": "defini"
+      },
+      "fermentation": {
+        "type": "basse",
+        "details": "Fermentation basse à température fraîche, généralement suivie d’une maturation à froid."
+      },
+      "service": {
+        "temperatureMin": 6,
+        "temperatureMax": 9,
+        "uniteTemperature": "°C",
+        "verresRecommandes": [
+          "Mass",
+          "Seidel"
+        ]
+      },
+      "description": "La Märzen est une lager ambrée de garde : pain grillé, malt riche, croûte, douceur initiale puis finale sèche. Elle doit sembler généreuse sans coller au palais, comme un manteau d’automne bien coupé.",
+      "histoireEtOrigines": "Son nom renvoie au mois de mars, quand on brassait des bières plus fortes destinées à être conservées au frais pendant l’été. L’image moderne de la Märzen est liée à l’Oktoberfest historique, avant que les grandes chopes munichoises ne se remplissent surtout de Festbier blond.",
+      "recette": {
+        "profilUnique": true,
+        "explicationProfil": "",
+        "maltsEtCereales": [
+          "malts Munich et Vienna",
+          "malts torréfiés désamérisés en faible quantité"
+        ],
+        "houblons": [
+          "houblons nobles discrets"
+        ],
+        "levuresEtMicroorganismes": [
+          "levure lager propre"
+        ],
+        "ingredientsComplementaires": [],
+        "profilEau": "modérément carbonatée",
+        "empatage": "empâtage ou décoction favorisant les notes de pain",
+        "ebullitionEtHoublonnage": "houblonnage équilibrant",
+        "fermentation": "fermentation basse",
+        "maturation": "lagering moyen à long",
+        "profilRecherche": "une lager ambrée maltée et élégante, riche en pain grillé mais sèche en finale, jamais lourde ni caramélisée à l’excès"
+      },
+      "sources": [
+        {
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "Märzen — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2021",
+          "reference": "Märzen — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "World Beer Cup",
+          "edition": "2026",
+          "reference": "Märzen — Beverage Styles",
+          "type": "guide_de_style"
+        }
+      ]
+    },
+    {
+      "id": "franconian-rotbier",
+      "nom": "Franconian Rotbier",
+      "collectionId": 1,
+      "nature": "S",
+      "parentPrincipalId": "lager",
+      "aliases": [
+        "Rotbier"
+      ],
+      "paysOrigine": [
+        "Allemagne"
+      ],
+      "origine": {
+        "libelle": "Franconie, notamment Nuremberg",
+        "ville": null,
+        "region": "Franconie",
+        "bassinBrassicole": null
+      },
+      "alcool": {
+        "min": 4.5,
+        "max": 5.5,
+        "unite": "%",
+        "statut": "large"
+      },
+      "amertume": {
+        "min": 18,
+        "max": 35,
+        "unite": "IBU",
+        "statut": "large"
+      },
+      "couleur": {
+        "min": 20,
+        "max": 36,
+        "unite": "EBC",
+        "statut": "large"
+      },
+      "fermentation": {
+        "type": "basse",
+        "details": "Fermentation basse à température fraîche, généralement suivie d’une maturation à froid."
+      },
+      "service": {
+        "temperatureMin": 6,
+        "temperatureMax": 9,
+        "uniteTemperature": "°C",
+        "verresRecommandes": [
+          "Seidel",
+          "Willi Becher"
+        ]
+      },
+      "description": "La Franconian Rotbier joue sur le rouge : malt toasté, croûte de pain, légère noisette, couleur cuivre-rubis et finale propre. Elle doit rester une lager de précision, pas une ambrée sucrée maquillée en tradition.",
+      "histoireEtOrigines": "Associée à la Franconie, cette famille évoque des lagers rouges régionales, souvent moins connues que Märzen ou Vienna mais très liées à la culture locale des petites brasseries. Dans ZythoHunt, elle mérite sa carte parce qu’elle donne une couleur et une identité distinctes à l’univers des lagers maltées.",
+      "recette": {
+        "profilUnique": true,
+        "explicationProfil": "",
+        "maltsEtCereales": [
+          "malts Munich et Vienna",
+          "malts torréfiés désamérisés en faible quantité"
+        ],
+        "houblons": [
+          "houblons nobles discrets"
+        ],
+        "levuresEtMicroorganismes": [
+          "levure lager propre"
+        ],
+        "ingredientsComplementaires": [],
+        "profilEau": "modérément carbonatée",
+        "empatage": "empâtage ou décoction favorisant les notes de pain",
+        "ebullitionEtHoublonnage": "houblonnage équilibrant",
+        "fermentation": "fermentation basse",
+        "maturation": "lagering moyen à long",
+        "profilRecherche": "une lager rouge franconienne, toastée et nette, avec malt profond, reflets rubis et finale sèche"
+      },
+      "sources": [
+        {
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "Franconian Rotbier — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2021",
+          "reference": "Franconian Rotbier — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "World Beer Cup",
+          "edition": "2026",
+          "reference": "Franconian Rotbier — Beverage Styles",
+          "type": "guide_de_style"
+        }
+      ]
+    },
+    {
+      "id": "international-amber-lager",
+      "nom": "International Amber Lager",
+      "collectionId": 1,
+      "nature": "S",
+      "parentPrincipalId": "lager",
+      "aliases": [],
+      "paysOrigine": [
+        "International"
+      ],
+      "origine": {
+        "libelle": "International",
+        "ville": null,
+        "region": null,
+        "bassinBrassicole": null
+      },
+      "alcool": {
+        "min": 4.5,
+        "max": 6.0,
+        "unite": "%",
+        "statut": "large"
+      },
+      "amertume": {
+        "min": 15,
+        "max": 35,
+        "unite": "IBU",
+        "statut": "large"
+      },
+      "couleur": {
+        "min": 18,
+        "max": 40,
+        "unite": "EBC",
+        "statut": "large"
+      },
+      "fermentation": {
+        "type": "basse",
+        "details": "Fermentation basse à température fraîche, généralement suivie d’une maturation à froid."
+      },
+      "service": {
+        "temperatureMin": 5,
+        "temperatureMax": 9,
+        "uniteTemperature": "°C",
+        "verresRecommandes": [
+          "Pokal",
+          "Chope"
+        ]
+      },
+      "description": "L’International Amber Lager est une lager ambrée de compromis : malt caramel léger, pain toasté, corps moyen, amertume sage et profil très accessible. Elle reprend la couleur des grandes lagers maltées sans forcément leur profondeur historique.",
+      "histoireEtOrigines": "Elle apparaît dans le monde entier comme version plus colorée et plus maltée des lagers pâles internationales. Selon les pays, elle peut évoquer Vienna, Märzen ou simplement une lager commerciale plus douce et plus ambrée.",
+      "recette": {
+        "profilUnique": true,
+        "explicationProfil": "",
+        "maltsEtCereales": [
+          "malts Munich et Vienna",
+          "malts torréfiés désamérisés en faible quantité"
+        ],
+        "houblons": [
+          "houblons nobles discrets"
+        ],
+        "levuresEtMicroorganismes": [
+          "levure lager propre"
+        ],
+        "ingredientsComplementaires": [],
+        "profilEau": "modérément carbonatée",
+        "empatage": "empâtage ou décoction favorisant les notes de pain",
+        "ebullitionEtHoublonnage": "houblonnage équilibrant",
+        "fermentation": "fermentation basse",
+        "maturation": "lagering moyen à long",
+        "profilRecherche": "une lager ambrée internationale, douce et accessible, avec malt toasté léger et équilibre sans aspérités"
+      },
+      "sources": [
+        {
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "International Amber Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2021",
+          "reference": "International Amber Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "World Beer Cup",
+          "edition": "2026",
+          "reference": "International Amber Lager — Beverage Styles",
+          "type": "guide_de_style"
+        }
+      ]
+    },
+    {
+      "id": "czech-amber-lager",
+      "nom": "Czech Amber Lager",
+      "collectionId": 1,
+      "nature": "S",
+      "parentPrincipalId": "lager",
+      "aliases": [],
+      "paysOrigine": [
+        "Tchéquie"
+      ],
+      "origine": {
+        "libelle": "Bohême et Moravie",
+        "ville": null,
+        "region": "Bohême",
+        "bassinBrassicole": null
+      },
+      "alcool": {
+        "min": 4.4,
+        "max": 5.8,
+        "unite": "%",
+        "statut": "defini"
+      },
+      "amertume": {
+        "min": 20,
+        "max": 35,
+        "unite": "IBU",
+        "statut": "defini"
+      },
+      "couleur": {
+        "min": 20,
+        "max": 32,
+        "unite": "EBC",
+        "statut": "defini"
+      },
+      "fermentation": {
+        "type": "basse",
+        "details": "Fermentation basse à température fraîche, généralement suivie d’une maturation à froid."
+      },
+      "service": {
+        "temperatureMin": 6,
+        "temperatureMax": 9,
+        "uniteTemperature": "°C",
+        "verresRecommandes": [
+          "Mug tchèque",
+          "Pokal"
+        ]
+      },
+      "description": "La Czech Amber Lager est une ambre tchèque pleine de nuances : pain grillé, caramel sec, houblon épicé, rondeur maltée et amertume souple. Elle peut tirer vers le malt ou vers le houblon, mais elle doit garder ce moelleux tchèque qui arrondit les angles.",
+      "histoireEtOrigines": "En Tchéquie, les lagers ambrées occupent un espace plus large que les simples copies de Märzen. Elles s’inscrivent dans une culture de degrés Plato, de service local et de houblons traditionnels, où la couleur ne dicte pas toute l’identité.",
+      "recette": {
+        "profilUnique": true,
+        "explicationProfil": "",
+        "maltsEtCereales": [
+          "malts Munich et Vienna",
+          "malts torréfiés désamérisés en faible quantité"
+        ],
+        "houblons": [
+          "houblons nobles discrets"
+        ],
+        "levuresEtMicroorganismes": [
+          "levure lager propre"
+        ],
+        "ingredientsComplementaires": [],
+        "profilEau": "modérément carbonatée",
+        "empatage": "empâtage ou décoction favorisant les notes de pain",
+        "ebullitionEtHoublonnage": "houblonnage équilibrant",
+        "fermentation": "fermentation basse",
+        "maturation": "lagering moyen à long",
+        "profilRecherche": "une lager ambrée tchèque, maltée et épicée, avec caramel sec, houblon noble et finale ronde mais jamais lourde"
+      },
+      "sources": [
+        {
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "Czech Amber Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2021",
+          "reference": "Czech Amber Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "World Beer Cup",
+          "edition": "2026",
+          "reference": "Czech Amber Lager — Beverage Styles",
+          "type": "guide_de_style"
+        }
+      ]
+    },
+    {
+      "id": "american-amber-lager",
+      "nom": "American Amber Lager",
+      "collectionId": 1,
+      "nature": "S",
+      "parentPrincipalId": "lager",
+      "aliases": [],
+      "paysOrigine": [
+        "États-Unis"
+      ],
+      "origine": {
+        "libelle": "États-Unis",
+        "ville": null,
+        "region": null,
+        "bassinBrassicole": null
+      },
+      "alcool": {
+        "min": 4.5,
+        "max": 6.2,
+        "unite": "%",
+        "statut": "large"
+      },
+      "amertume": {
+        "min": 18,
+        "max": 40,
+        "unite": "IBU",
+        "statut": "large"
+      },
+      "couleur": {
+        "min": 16,
+        "max": 36,
+        "unite": "EBC",
+        "statut": "large"
+      },
+      "fermentation": {
+        "type": "basse",
+        "details": "Fermentation basse à température fraîche, généralement suivie d’une maturation à froid."
+      },
+      "service": {
+        "temperatureMin": 5,
+        "temperatureMax": 8,
+        "uniteTemperature": "°C",
+        "verresRecommandes": [
+          "Pint américain",
+          "Pokal"
+        ]
+      },
+      "description": "L’American Amber Lager est une lager ambrée propre, plus maltée que la blonde standard, mais rarement radicale : caramel léger, pain toasté, douceur modérée, amertume contenue. Elle est souvent plus confortable que profonde, mais une bonne version garde une vraie colonne sèche.",
+      "histoireEtOrigines": "Elle descend de la tradition américaine des lagers accessibles, colorées pour offrir plus de malt sans perdre la buvabilité. C’est une bière de pont : entre le monde industriel et la culture craft, entre la pale lager et les ambitions maltées plus affirmées.",
+      "recette": {
+        "profilUnique": true,
+        "explicationProfil": "",
+        "maltsEtCereales": [
+          "malts Munich et Vienna",
+          "malts torréfiés désamérisés en faible quantité"
+        ],
+        "houblons": [
+          "houblons nobles discrets"
+        ],
+        "levuresEtMicroorganismes": [
+          "levure lager propre"
+        ],
+        "ingredientsComplementaires": [],
+        "profilEau": "modérément carbonatée",
+        "empatage": "empâtage ou décoction favorisant les notes de pain",
+        "ebullitionEtHoublonnage": "houblonnage équilibrant",
+        "fermentation": "fermentation basse",
+        "maturation": "lagering moyen à long",
+        "profilRecherche": "une lager ambrée américaine, propre et toastée, avec caramel discret, corps moyen et finale facile"
+      },
+      "sources": [
+        {
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "American Amber Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2021",
+          "reference": "American Amber Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "World Beer Cup",
+          "edition": "2026",
+          "reference": "American Amber Lager — Beverage Styles",
+          "type": "guide_de_style"
+        }
+      ]
+    },
+    {
+      "id": "american-marzen-oktoberfest",
+      "nom": "American Märzen / Oktoberfest",
+      "collectionId": 1,
+      "nature": "S",
+      "parentPrincipalId": "lager",
+      "aliases": [
+        "American Oktoberfest"
+      ],
+      "paysOrigine": [
+        "États-Unis"
+      ],
+      "origine": {
+        "libelle": "États-Unis",
+        "ville": null,
+        "region": null,
+        "bassinBrassicole": null
+      },
+      "alcool": {
+        "min": 5.0,
+        "max": 6.5,
+        "unite": "%",
+        "statut": "large"
+      },
+      "amertume": {
+        "min": 18,
+        "max": 30,
+        "unite": "IBU",
+        "statut": "large"
+      },
+      "couleur": {
+        "min": 18,
+        "max": 40,
+        "unite": "EBC",
+        "statut": "large"
+      },
+      "fermentation": {
+        "type": "basse",
+        "details": "Fermentation basse à température fraîche, généralement suivie d’une maturation à froid."
+      },
+      "service": {
+        "temperatureMin": 6,
+        "temperatureMax": 9,
+        "uniteTemperature": "°C",
+        "verresRecommandes": [
+          "Mass",
+          "Pint américain"
+        ]
+      },
+      "description": "L’American Märzen / Oktoberfest reprend l’imaginaire bavarois en version craft ou export : robe ambrée, malt toasté, caramel léger, corps rond et finale assez propre. Elle doit éviter le piège du sirop d’automne : une Märzen n’est pas une bière au caramel déguisée en folklore.",
+      "histoireEtOrigines": "Aux États-Unis, “Oktoberfest” a longtemps désigné des lagers ambrées inspirées de la Märzen, même lorsque Munich servait déjà majoritairement des Festbier dorées. Cette carte garde ce décalage culturel très utile : l’Oktoberfest américain est souvent plus orange que son cousin munichois moderne.",
+      "recette": {
+        "profilUnique": true,
+        "explicationProfil": "",
+        "maltsEtCereales": [
+          "malts Munich et Vienna",
+          "malts torréfiés désamérisés en faible quantité"
+        ],
+        "houblons": [
+          "houblons nobles discrets"
+        ],
+        "levuresEtMicroorganismes": [
+          "levure lager propre"
+        ],
+        "ingredientsComplementaires": [],
+        "profilEau": "modérément carbonatée",
+        "empatage": "empâtage ou décoction favorisant les notes de pain",
+        "ebullitionEtHoublonnage": "houblonnage équilibrant",
+        "fermentation": "fermentation basse",
+        "maturation": "lagering moyen à long",
+        "profilRecherche": "une Oktoberfest américaine ambrée, maltée et festive, avec pain grillé, rondeur modérée et finale propre"
+      },
+      "sources": [
+        {
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "American Märzen / Oktoberfest — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2021",
+          "reference": "American Märzen / Oktoberfest — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "World Beer Cup",
+          "edition": "2026",
+          "reference": "American Märzen / Oktoberfest — Beverage Styles",
+          "type": "guide_de_style"
+        }
+      ]
+    },
+    {
+      "id": "mexican-amber-lager",
+      "nom": "Mexican Amber Lager",
+      "collectionId": 1,
+      "nature": "S",
+      "parentPrincipalId": "lager",
+      "aliases": [],
+      "paysOrigine": [
+        "Mexique"
+      ],
+      "origine": {
+        "libelle": "Mexique",
+        "ville": null,
+        "region": null,
+        "bassinBrassicole": null
+      },
+      "alcool": {
+        "min": 4.0,
+        "max": 5.5,
+        "unite": "%",
+        "statut": "large"
+      },
+      "amertume": {
+        "min": 10,
+        "max": 25,
+        "unite": "IBU",
+        "statut": "large"
+      },
+      "couleur": {
+        "min": 18,
+        "max": 38,
+        "unite": "EBC",
+        "statut": "large"
+      },
+      "fermentation": {
+        "type": "basse",
+        "details": "Fermentation basse à température fraîche, généralement suivie d’une maturation à froid."
+      },
+      "service": {
+        "temperatureMin": 4,
+        "temperatureMax": 7,
+        "uniteTemperature": "°C",
+        "verresRecommandes": [
+          "Pilsner",
+          "Chope"
+        ]
+      },
+      "description": "La Mexican Amber Lager est une ambre solaire : malt toasté, caramel léger, corps moyen, finale sèche et buvabilité de terrasse. Elle peut rappeler Vienna Lager, mais avec une approche souvent plus douce, plus lisse, plus tournée vers le verre frais.",
+      "histoireEtOrigines": "Le Mexique a conservé une affinité particulière avec les lagers ambrées d’inspiration viennoise, héritage des influences européennes du XIXe siècle. Des marques comme Victoria ou Negra Modelo ont entretenu cette mémoire maltée là où le style avait reculé en Europe.",
+      "recette": {
+        "profilUnique": true,
+        "explicationProfil": "",
+        "maltsEtCereales": [
+          "malts Munich et Vienna",
+          "malts torréfiés désamérisés en faible quantité"
+        ],
+        "houblons": [
+          "houblons nobles discrets"
+        ],
+        "levuresEtMicroorganismes": [
+          "levure lager propre"
+        ],
+        "ingredientsComplementaires": [],
+        "profilEau": "modérément carbonatée",
+        "empatage": "empâtage ou décoction favorisant les notes de pain",
+        "ebullitionEtHoublonnage": "houblonnage équilibrant",
+        "fermentation": "fermentation basse",
+        "maturation": "lagering moyen à long",
+        "profilRecherche": "une lager mexicaine ambrée, toastée et souple, avec chaleur maltée mais finale assez sèche pour rester rafraîchissante"
+      },
+      "sources": [
+        {
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "Mexican Amber Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2021",
+          "reference": "Mexican Amber Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "World Beer Cup",
+          "edition": "2026",
+          "reference": "Mexican Amber Lager — Beverage Styles",
+          "type": "guide_de_style"
+        }
+      ]
+    },
+    {
+      "id": "munich-dunkel",
+      "nom": "Munich Dunkel",
+      "collectionId": 1,
+      "nature": "S",
+      "parentPrincipalId": "lager",
+      "aliases": [
+        "Dunkel"
+      ],
+      "paysOrigine": [
+        "Allemagne"
+      ],
+      "origine": {
+        "libelle": "Munich, Bavière",
+        "ville": "Munich",
+        "region": "Bavière",
+        "bassinBrassicole": null
+      },
+      "alcool": {
+        "min": 4.5,
+        "max": 5.6,
+        "unite": "%",
+        "statut": "defini"
+      },
+      "amertume": {
+        "min": 18,
+        "max": 28,
+        "unite": "IBU",
+        "statut": "defini"
+      },
+      "couleur": {
+        "min": 28,
+        "max": 56,
+        "unite": "EBC",
+        "statut": "defini"
+      },
+      "fermentation": {
+        "type": "basse",
+        "details": "Fermentation basse à température fraîche, généralement suivie d’une maturation à froid."
+      },
+      "service": {
+        "temperatureMin": 7,
+        "temperatureMax": 10,
+        "uniteTemperature": "°C",
+        "verresRecommandes": [
+          "Seidel",
+          "Willi Becher"
+        ]
+      },
+      "description": "La Munich Dunkel est sombre sans être noire de colère : pain brun, croûte, noisette, chocolat très doux, malt Munich profond et finale propre. Elle ne doit pas goûter la torréfaction de stout ; son noir est celui du pain, pas du café brûlé.",
+      "histoireEtOrigines": "Avant la domination des lagers blondes, les bières bavaroises étaient souvent plus sombres, liées aux malts disponibles et aux méthodes de touraillage. La Dunkel garde cette mémoire munichoise : une lager de malt brun, douce et profonde, mais toujours nette.",
+      "recette": {
+        "profilUnique": true,
+        "explicationProfil": "",
+        "maltsEtCereales": [
+          "malts Munich et Vienna",
+          "malts torréfiés désamérisés en faible quantité"
+        ],
+        "houblons": [
+          "houblons nobles discrets"
+        ],
+        "levuresEtMicroorganismes": [
+          "levure lager propre"
+        ],
+        "ingredientsComplementaires": [],
+        "profilEau": "modérément carbonatée",
+        "empatage": "empâtage ou décoction favorisant les notes de pain",
+        "ebullitionEtHoublonnage": "houblonnage équilibrant",
+        "fermentation": "fermentation basse",
+        "maturation": "lagering moyen à long",
+        "profilRecherche": "une lager brune munichoise, riche en malt Munich, pain noir et noisette, sans brûlé ni lourdeur sucrée"
+      },
+      "sources": [
+        {
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "Munich Dunkel — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2021",
+          "reference": "Munich Dunkel — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "World Beer Cup",
+          "edition": "2026",
+          "reference": "Munich Dunkel — Beverage Styles",
+          "type": "guide_de_style"
+        }
+      ]
+    },
+    {
+      "id": "schwarzbier",
+      "nom": "Schwarzbier",
+      "collectionId": 1,
+      "nature": "S",
+      "parentPrincipalId": "lager",
+      "aliases": [],
+      "paysOrigine": [
+        "Allemagne"
+      ],
+      "origine": {
+        "libelle": "Thuringe et Saxe",
+        "ville": null,
+        "region": null,
+        "bassinBrassicole": null
+      },
+      "alcool": {
+        "min": 4.4,
+        "max": 5.4,
+        "unite": "%",
+        "statut": "defini"
+      },
+      "amertume": {
+        "min": 20,
+        "max": 35,
+        "unite": "IBU",
+        "statut": "defini"
+      },
+      "couleur": {
+        "min": 34,
+        "max": 60,
+        "unite": "EBC",
+        "statut": "defini"
+      },
+      "fermentation": {
+        "type": "basse",
+        "details": "Fermentation basse à température fraîche, généralement suivie d’une maturation à froid."
+      },
+      "service": {
+        "temperatureMin": 6,
+        "temperatureMax": 9,
+        "uniteTemperature": "°C",
+        "verresRecommandes": [
+          "Pokal",
+          "Seidel"
+        ]
+      },
+      "description": "La Schwarzbier est noire mais légère sur ses pieds : cacao sec, pain sombre, touche de café doux, finale nette et amertume délicate. Elle ressemble parfois à une stout de loin, mais au goût elle reste lager : propre, fine, sèche, sans épaisseur rôtie.",
+      "histoireEtOrigines": "Associée notamment à la Thuringe et à la Saxe, elle représente la tradition allemande de la bière noire basse fermentation. Son nom dit “bière noire”, mais son équilibre est subtil : plus sombre qu’une Dunkel, moins massive qu’un Bock, plus sèche qu’un dessert malté.",
+      "recette": {
+        "profilUnique": true,
+        "explicationProfil": "",
+        "maltsEtCereales": [
+          "malts Munich et Vienna",
+          "malts torréfiés désamérisés en faible quantité"
+        ],
+        "houblons": [
+          "houblons nobles discrets"
+        ],
+        "levuresEtMicroorganismes": [
+          "levure lager propre"
+        ],
+        "ingredientsComplementaires": [],
+        "profilEau": "modérément carbonatée",
+        "empatage": "empâtage ou décoction favorisant les notes de pain",
+        "ebullitionEtHoublonnage": "houblonnage équilibrant",
+        "fermentation": "fermentation basse",
+        "maturation": "lagering moyen à long",
+        "profilRecherche": "une lager noire sèche et élégante, avec cacao léger, malt sombre net et torréfaction contenue"
+      },
+      "sources": [
+        {
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "Schwarzbier — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2021",
+          "reference": "Schwarzbier — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "World Beer Cup",
+          "edition": "2026",
+          "reference": "Schwarzbier — Beverage Styles",
+          "type": "guide_de_style"
+        }
+      ]
+    },
+    {
+      "id": "international-dark-lager",
+      "nom": "International Dark Lager",
+      "collectionId": 1,
+      "nature": "S",
+      "parentPrincipalId": "lager",
+      "aliases": [],
+      "paysOrigine": [
+        "International"
+      ],
+      "origine": {
+        "libelle": "International",
+        "ville": null,
+        "region": null,
+        "bassinBrassicole": null
+      },
+      "alcool": {
+        "min": 4.2,
+        "max": 6.2,
+        "unite": "%",
+        "statut": "large"
+      },
+      "amertume": {
+        "min": 10,
+        "max": 35,
+        "unite": "IBU",
+        "statut": "large"
+      },
+      "couleur": {
+        "min": 30,
+        "max": 70,
+        "unite": "EBC",
+        "statut": "large"
+      },
+      "fermentation": {
+        "type": "basse",
+        "details": "Fermentation basse à température fraîche, généralement suivie d’une maturation à froid."
+      },
+      "service": {
+        "temperatureMin": 5,
+        "temperatureMax": 9,
+        "uniteTemperature": "°C",
+        "verresRecommandes": [
+          "Pokal",
+          "Chope"
+        ]
+      },
+      "description": "L’International Dark Lager est une sombre accessible : couleur brune à noire, malt doux, caramel léger, parfois chocolat discret, mais peu d’amertume et peu de torréfaction. Elle veut rassurer plus qu’impressionner.",
+      "histoireEtOrigines": "Partout où les lagers pâles dominent, des versions sombres commerciales existent pour offrir une alternative maltée sans changer complètement les habitudes de consommation. Cette famille est plus une logique de marché qu’une tradition unique.",
+      "recette": {
+        "profilUnique": true,
+        "explicationProfil": "",
+        "maltsEtCereales": [
+          "malts Munich et Vienna",
+          "malts torréfiés désamérisés en faible quantité"
+        ],
+        "houblons": [
+          "houblons nobles discrets"
+        ],
+        "levuresEtMicroorganismes": [
+          "levure lager propre"
+        ],
+        "ingredientsComplementaires": [],
+        "profilEau": "modérément carbonatée",
+        "empatage": "empâtage ou décoction favorisant les notes de pain",
+        "ebullitionEtHoublonnage": "houblonnage équilibrant",
+        "fermentation": "fermentation basse",
+        "maturation": "lagering moyen à long",
+        "profilRecherche": "une dark lager internationale douce et accessible, avec malt sombre modéré, faible amertume et finale propre"
+      },
+      "sources": [
+        {
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "International Dark Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2021",
+          "reference": "International Dark Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "World Beer Cup",
+          "edition": "2026",
+          "reference": "International Dark Lager — Beverage Styles",
+          "type": "guide_de_style"
+        }
+      ]
+    },
+    {
+      "id": "european-dark-lager",
+      "nom": "European Dark Lager",
+      "collectionId": 1,
+      "nature": "S",
+      "parentPrincipalId": "lager",
+      "aliases": [],
+      "paysOrigine": [
+        "Europe"
+      ],
+      "origine": {
+        "libelle": "International",
+        "ville": null,
+        "region": null,
+        "bassinBrassicole": null
+      },
+      "alcool": {
+        "min": 4.2,
+        "max": 6.2,
+        "unite": "%",
+        "statut": "large"
+      },
+      "amertume": {
+        "min": 10,
+        "max": 35,
+        "unite": "IBU",
+        "statut": "large"
+      },
+      "couleur": {
+        "min": 30,
+        "max": 70,
+        "unite": "EBC",
+        "statut": "large"
+      },
+      "fermentation": {
+        "type": "basse",
+        "details": "Fermentation basse à température fraîche, généralement suivie d’une maturation à froid."
+      },
+      "service": {
+        "temperatureMin": 5,
+        "temperatureMax": 9,
+        "uniteTemperature": "°C",
+        "verresRecommandes": [
+          "Pokal",
+          "Chope"
+        ]
+      },
+      "description": "L’European Dark Lager couvre les lagers sombres européennes qui ne rentrent pas parfaitement dans Munich Dunkel ou Schwarzbier : malt brun, pain noir, caramel sec, parfois chocolat doux. Elle doit rester propre et basse fermentation, avec une noirceur civilisée.",
+      "histoireEtOrigines": "L’Europe centrale a longtemps brassé des lagers plus sombres avant la vague blonde. Cette carte sert de territoire de transition pour les interprétations régionales : moins strictement munichoises, moins noires que Schwarzbier, mais toujours enracinées dans le malt sombre.",
+      "recette": {
+        "profilUnique": true,
+        "explicationProfil": "",
+        "maltsEtCereales": [
+          "malts Munich et Vienna",
+          "malts torréfiés désamérisés en faible quantité"
+        ],
+        "houblons": [
+          "houblons nobles discrets"
+        ],
+        "levuresEtMicroorganismes": [
+          "levure lager propre"
+        ],
+        "ingredientsComplementaires": [],
+        "profilEau": "modérément carbonatée",
+        "empatage": "empâtage ou décoction favorisant les notes de pain",
+        "ebullitionEtHoublonnage": "houblonnage équilibrant",
+        "fermentation": "fermentation basse",
+        "maturation": "lagering moyen à long",
+        "profilRecherche": "une lager sombre européenne, maltée et nette, entre pain brun, caramel sec et chocolat discret"
+      },
+      "sources": [
+        {
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "European Dark Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2021",
+          "reference": "European Dark Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "World Beer Cup",
+          "edition": "2026",
+          "reference": "European Dark Lager — Beverage Styles",
+          "type": "guide_de_style"
+        }
+      ]
+    },
+    {
+      "id": "czech-dark-lager",
+      "nom": "Czech Dark Lager",
+      "collectionId": 1,
+      "nature": "S",
+      "parentPrincipalId": "lager",
+      "aliases": [],
+      "paysOrigine": [
+        "Tchéquie"
+      ],
+      "origine": {
+        "libelle": "Bohême et Moravie",
+        "ville": null,
+        "region": "Bohême",
+        "bassinBrassicole": null
+      },
+      "alcool": {
+        "min": 4.4,
+        "max": 5.8,
+        "unite": "%",
+        "statut": "defini"
+      },
+      "amertume": {
+        "min": 18,
+        "max": 34,
+        "unite": "IBU",
+        "statut": "defini"
+      },
+      "couleur": {
+        "min": 28,
+        "max": 70,
+        "unite": "EBC",
+        "statut": "defini"
+      },
+      "fermentation": {
+        "type": "basse",
+        "details": "Fermentation basse à température fraîche, généralement suivie d’une maturation à froid."
+      },
+      "service": {
+        "temperatureMin": 7,
+        "temperatureMax": 10,
+        "uniteTemperature": "°C",
+        "verresRecommandes": [
+          "Mug tchèque",
+          "Pokal"
+        ]
+      },
+      "description": "La Czech Dark Lager est sombre, ronde et étonnamment buvable : pain noir, caramel, cacao doux, houblon épicé et parfois une pointe de douceur moelleuse. Elle peut sembler riche, mais elle doit garder la souplesse d’une lager tchèque bien tirée.",
+      "histoireEtOrigines": "En Tchéquie, les tmavé et černé lagers vivent à côté des grandes blondes, avec la même culture de service, de mousse dense et d’équilibre malt-houblon. Elles ne cherchent pas la torréfaction britannique : leur noirceur reste plus pain, cacao et douceur que café brûlé.",
+      "recette": {
+        "profilUnique": true,
+        "explicationProfil": "",
+        "maltsEtCereales": [
+          "malts Munich et Vienna",
+          "malts torréfiés désamérisés en faible quantité"
+        ],
+        "houblons": [
+          "houblons nobles discrets"
+        ],
+        "levuresEtMicroorganismes": [
+          "levure lager propre"
+        ],
+        "ingredientsComplementaires": [],
+        "profilEau": "modérément carbonatée",
+        "empatage": "empâtage ou décoction favorisant les notes de pain",
+        "ebullitionEtHoublonnage": "houblonnage équilibrant",
+        "fermentation": "fermentation basse",
+        "maturation": "lagering moyen à long",
+        "profilRecherche": "une lager tchèque sombre, ronde et maltée, avec pain noir, cacao doux, houblon épicé et finale souple"
+      },
+      "sources": [
+        {
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "Czech Dark Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2021",
+          "reference": "Czech Dark Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "World Beer Cup",
+          "edition": "2026",
+          "reference": "Czech Dark Lager — Beverage Styles",
+          "type": "guide_de_style"
+        }
+      ]
+    },
+    {
+      "id": "american-dark-lager",
+      "nom": "American Dark Lager",
+      "collectionId": 1,
+      "nature": "S",
+      "parentPrincipalId": "lager",
+      "aliases": [],
+      "paysOrigine": [
+        "États-Unis"
+      ],
+      "origine": {
+        "libelle": "International",
+        "ville": null,
+        "region": null,
+        "bassinBrassicole": null
+      },
+      "alcool": {
+        "min": 4.2,
+        "max": 6.2,
+        "unite": "%",
+        "statut": "large"
+      },
+      "amertume": {
+        "min": 10,
+        "max": 35,
+        "unite": "IBU",
+        "statut": "large"
+      },
+      "couleur": {
+        "min": 30,
+        "max": 70,
+        "unite": "EBC",
+        "statut": "large"
+      },
+      "fermentation": {
+        "type": "basse",
+        "details": "Fermentation basse à température fraîche, généralement suivie d’une maturation à froid."
+      },
+      "service": {
+        "temperatureMin": 5,
+        "temperatureMax": 9,
+        "uniteTemperature": "°C",
+        "verresRecommandes": [
+          "Pokal",
+          "Chope"
+        ]
+      },
+      "description": "L’American Dark Lager est une sombre domestiquée : brune, propre, malt légèrement grillé, corps moyen-léger et finale douce. Elle peut évoquer une dark lager internationale avec un peu plus de couleur, mais rarement un vrai caractère de torréfaction.",
+      "histoireEtOrigines": "Elle appartient à la tradition américaine des lagers faciles à boire, avec une variante plus colorée pour les amateurs de malt discret. Dans ZythoHunt, son intérêt est de ne pas la confondre avec une Schwarzbier ou une Dunkel : elle est plus simple, plus commerciale, plus lisse.",
+      "recette": {
+        "profilUnique": true,
+        "explicationProfil": "",
+        "maltsEtCereales": [
+          "malts Munich et Vienna",
+          "malts torréfiés désamérisés en faible quantité"
+        ],
+        "houblons": [
+          "houblons nobles discrets"
+        ],
+        "levuresEtMicroorganismes": [
+          "levure lager propre"
+        ],
+        "ingredientsComplementaires": [],
+        "profilEau": "modérément carbonatée",
+        "empatage": "empâtage ou décoction favorisant les notes de pain",
+        "ebullitionEtHoublonnage": "houblonnage équilibrant",
+        "fermentation": "fermentation basse",
+        "maturation": "lagering moyen à long",
+        "profilRecherche": "une lager sombre américaine, douce et propre, avec malt grillé léger et buvabilité très directe"
+      },
+      "sources": [
+        {
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "American Dark Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2021",
+          "reference": "American Dark Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "World Beer Cup",
+          "edition": "2026",
+          "reference": "American Dark Lager — Beverage Styles",
+          "type": "guide_de_style"
+        }
+      ]
+    },
+    {
+      "id": "mexican-dark-lager",
+      "nom": "Mexican Dark Lager",
+      "collectionId": 1,
+      "nature": "S",
+      "parentPrincipalId": "lager",
+      "aliases": [],
+      "paysOrigine": [
+        "Mexique"
+      ],
+      "origine": {
+        "libelle": "International",
+        "ville": null,
+        "region": null,
+        "bassinBrassicole": null
+      },
+      "alcool": {
+        "min": 4.2,
+        "max": 6.2,
+        "unite": "%",
+        "statut": "large"
+      },
+      "amertume": {
+        "min": 10,
+        "max": 35,
+        "unite": "IBU",
+        "statut": "large"
+      },
+      "couleur": {
+        "min": 30,
+        "max": 70,
+        "unite": "EBC",
+        "statut": "large"
+      },
+      "fermentation": {
+        "type": "basse",
+        "details": "Fermentation basse à température fraîche, généralement suivie d’une maturation à froid."
+      },
+      "service": {
+        "temperatureMin": 5,
+        "temperatureMax": 9,
+        "uniteTemperature": "°C",
+        "verresRecommandes": [
+          "Pokal",
+          "Chope"
+        ]
+      },
+      "description": "La Mexican Dark Lager est une lager sombre de chaleur : brune, douce, maltée, avec caramel, pain brun, parfois chocolat léger, mais une finale assez lisse pour rester désaltérante. Elle ne doit pas être lourde ; son sombre doit rester convivial.",
+      "histoireEtOrigines": "Le Mexique a développé plusieurs lagers sombres et ambrées influencées par les traditions viennoises, munichoises et allemandes. Certaines marques historiques ont gardé ce profil plus malté, devenu presque une spécialité locale face aux lagers blondes d’exportation.",
+      "recette": {
+        "profilUnique": true,
+        "explicationProfil": "",
+        "maltsEtCereales": [
+          "malts Munich et Vienna",
+          "malts torréfiés désamérisés en faible quantité"
+        ],
+        "houblons": [
+          "houblons nobles discrets"
+        ],
+        "levuresEtMicroorganismes": [
+          "levure lager propre"
+        ],
+        "ingredientsComplementaires": [],
+        "profilEau": "modérément carbonatée",
+        "empatage": "empâtage ou décoction favorisant les notes de pain",
+        "ebullitionEtHoublonnage": "houblonnage équilibrant",
+        "fermentation": "fermentation basse",
+        "maturation": "lagering moyen à long",
+        "profilRecherche": "une dark lager mexicaine, maltée et douce, avec caramel brun, pain toasté et finale propre de climat chaud"
+      },
+      "sources": [
+        {
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "Mexican Dark Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2021",
+          "reference": "Mexican Dark Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "World Beer Cup",
+          "edition": "2026",
+          "reference": "Mexican Dark Lager — Beverage Styles",
+          "type": "guide_de_style"
+        }
+      ]
+    },
+    {
+      "id": "traditional-bock-dunkles-bock",
+      "nom": "Traditional Bock / Dunkles Bock",
+      "collectionId": 1,
+      "nature": "S",
+      "parentPrincipalId": "bock",
+      "aliases": [
+        "Traditional Bock",
+        "Dunkles Bock"
+      ],
+      "paysOrigine": [
+        "Allemagne"
+      ],
+      "origine": {
+        "libelle": "Einbeck et Bavière",
+        "ville": null,
+        "region": "Bavière",
+        "bassinBrassicole": null
+      },
+      "alcool": {
+        "min": 6.3,
+        "max": 7.5,
+        "unite": "%",
+        "statut": "defini"
+      },
+      "amertume": {
+        "min": 20,
+        "max": 30,
+        "unite": "IBU",
+        "statut": "defini"
+      },
+      "couleur": {
+        "min": 28,
+        "max": 60,
+        "unite": "EBC",
+        "statut": "defini"
+      },
+      "fermentation": {
+        "type": "basse",
+        "details": "Fermentation basse à température fraîche, généralement suivie d’une maturation à froid."
+      },
+      "service": {
+        "temperatureMin": 8,
+        "temperatureMax": 11,
+        "uniteTemperature": "°C",
+        "verresRecommandes": [
+          "Pokal",
+          "Seidel"
+        ]
+      },
+      "description": "Le Traditional Bock est le bock brun classique : malt riche, croûte, caramel sombre, pain grillé, fruits secs légers et chaleur maîtrisée. Le houblon reste en retrait ; ici, c’est le malt qui porte le sceptre.",
+      "histoireEtOrigines": "Héritier d’Einbeck puis de la Bavière, le Dunkles Bock représente la version sombre et traditionnelle de la famille. Il a le sérieux des bières fortes de saison : assez dense pour marquer l’hiver, assez propre pour rester lager.",
+      "recette": {
+        "profilUnique": true,
+        "explicationProfil": "",
+        "maltsEtCereales": [
+          "malts Munich et Vienna",
+          "malt Pilsner selon la version"
+        ],
+        "houblons": [
+          "houblons allemands sobres"
+        ],
+        "levuresEtMicroorganismes": [
+          "levure lager à forte atténuation"
+        ],
+        "ingredientsComplementaires": [],
+        "profilEau": "modérément minérale",
+        "empatage": "décoction traditionnelle possible pour renforcer la profondeur maltée",
+        "ebullitionEtHoublonnage": "houblonnage d’équilibre sans domination aromatique",
+        "fermentation": "fermentation basse lente",
+        "maturation": "lagering long",
+        "profilRecherche": "un bock brun traditionnel, riche et malté, avec chaleur douce, profondeur de pain grillé et finale jamais collante"
+      },
+      "sources": [
+        {
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "Traditional Bock / Dunkles Bock — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2021",
+          "reference": "Traditional Bock / Dunkles Bock — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "World Beer Cup",
+          "edition": "2026",
+          "reference": "Traditional Bock / Dunkles Bock — Beverage Styles",
+          "type": "guide_de_style"
+        }
+      ]
+    },
+    {
+      "id": "helles-bock-maibock",
+      "nom": "Helles Bock / Maibock",
+      "collectionId": 1,
+      "nature": "S",
+      "parentPrincipalId": "bock",
+      "aliases": [
+        "Helles Bock",
+        "Maibock"
+      ],
+      "paysOrigine": [
+        "Allemagne"
+      ],
+      "origine": {
+        "libelle": "Bavière",
+        "ville": null,
+        "region": "Bavière",
+        "bassinBrassicole": null
+      },
+      "alcool": {
+        "min": 6.3,
+        "max": 7.5,
+        "unite": "%",
+        "statut": "defini"
+      },
+      "amertume": {
+        "min": 23,
+        "max": 35,
+        "unite": "IBU",
+        "statut": "defini"
+      },
+      "couleur": {
+        "min": 12,
+        "max": 24,
+        "unite": "EBC",
+        "statut": "defini"
+      },
+      "fermentation": {
+        "type": "basse",
+        "details": "Fermentation basse à température fraîche, généralement suivie d’une maturation à froid."
+      },
+      "service": {
+        "temperatureMin": 7,
+        "temperatureMax": 10,
+        "uniteTemperature": "°C",
+        "verresRecommandes": [
+          "Pokal",
+          "Seidel"
+        ]
+      },
+      "description": "Le Helles Bock est un bock de printemps : fort mais blond, malté mais plus lumineux, avec pain clair, miel léger, fleurs de houblon et alcool bien intégré. Il a la force du bock sans son manteau sombre.",
+      "histoireEtOrigines": "Souvent associé au mois de mai, le Maibock transpose la puissance du bock dans une robe plus claire et une expression plus fraîche. C’est la version qui sort de la cave quand l’hiver lâche prise : encore robuste, déjà tournée vers la lumière.",
+      "recette": {
+        "profilUnique": true,
+        "explicationProfil": "",
+        "maltsEtCereales": [
+          "malts Munich et Vienna",
+          "malt Pilsner selon la version"
+        ],
+        "houblons": [
+          "houblons allemands sobres"
+        ],
+        "levuresEtMicroorganismes": [
+          "levure lager à forte atténuation"
+        ],
+        "ingredientsComplementaires": [],
+        "profilEau": "modérément minérale",
+        "empatage": "décoction traditionnelle possible pour renforcer la profondeur maltée",
+        "ebullitionEtHoublonnage": "houblonnage d’équilibre sans domination aromatique",
+        "fermentation": "fermentation basse lente",
+        "maturation": "lagering long",
+        "profilRecherche": "un bock blond et printanier, fort mais lumineux, avec malt clair riche, houblon noble discret et chaleur propre"
+      },
+      "sources": [
+        {
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "Helles Bock / Maibock — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2021",
+          "reference": "Helles Bock / Maibock — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "World Beer Cup",
+          "edition": "2026",
+          "reference": "Helles Bock / Maibock — Beverage Styles",
+          "type": "guide_de_style"
+        }
+      ]
+    },
+    {
+      "id": "doppelbock",
+      "nom": "Doppelbock",
+      "collectionId": 1,
+      "nature": "S",
+      "parentPrincipalId": "bock",
+      "aliases": [],
+      "paysOrigine": [
+        "Allemagne"
+      ],
+      "origine": {
+        "libelle": "Munich, Bavière",
+        "ville": "Munich",
+        "region": "Bavière",
+        "bassinBrassicole": null
+      },
+      "alcool": {
+        "min": 7.0,
+        "max": 10.0,
+        "unite": "%",
+        "statut": "defini"
+      },
+      "amertume": {
+        "min": 16,
+        "max": 26,
+        "unite": "IBU",
+        "statut": "defini"
+      },
+      "couleur": {
+        "min": 12,
+        "max": 70,
+        "unite": "EBC",
+        "statut": "defini"
+      },
+      "fermentation": {
+        "type": "basse",
+        "details": "Fermentation basse à température fraîche, généralement suivie d’une maturation à froid."
+      },
+      "service": {
+        "temperatureMin": 9,
+        "temperatureMax": 13,
+        "uniteTemperature": "°C",
+        "verresRecommandes": [
+          "Pokal",
+          "Snifter"
+        ]
+      },
+      "description": "Le Doppelbock est le pain liquide devenu légende : malt dense, croûte, caramel profond, fruits secs, parfois chocolat doux, avec une chaleur alcoolisée large mais lisse. Il doit nourrir l’imaginaire sans devenir sirop.",
+      "histoireEtOrigines": "Associé aux moines munichois et à la tradition des bières fortes, le Doppelbock a donné naissance à l’imagerie du “liquid bread”. Les noms en “-ator” perpétuent le clin d’œil à Salvator, l’un des exemples historiques les plus célèbres.",
+      "recette": {
+        "profilUnique": true,
+        "explicationProfil": "",
+        "maltsEtCereales": [
+          "malts Munich et Vienna",
+          "malt Pilsner selon la version"
+        ],
+        "houblons": [
+          "houblons allemands sobres"
+        ],
+        "levuresEtMicroorganismes": [
+          "levure lager à forte atténuation"
+        ],
+        "ingredientsComplementaires": [],
+        "profilEau": "modérément minérale",
+        "empatage": "décoction traditionnelle possible pour renforcer la profondeur maltée",
+        "ebullitionEtHoublonnage": "houblonnage d’équilibre sans domination aromatique",
+        "fermentation": "fermentation basse lente",
+        "maturation": "lagering long",
+        "profilRecherche": "une lager très maltée et forte, riche en pain, caramel et fruits secs, avec alcool fondu et finale propre"
+      },
+      "sources": [
+        {
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "Doppelbock — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2021",
+          "reference": "Doppelbock — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "World Beer Cup",
+          "edition": "2026",
+          "reference": "Doppelbock — Beverage Styles",
+          "type": "guide_de_style"
+        }
+      ]
+    },
+    {
+      "id": "eisbock",
+      "nom": "Eisbock",
+      "collectionId": 1,
+      "nature": "S",
+      "parentPrincipalId": "bock",
+      "aliases": [],
+      "paysOrigine": [
+        "Allemagne"
+      ],
+      "origine": {
+        "libelle": "Kulmbach, Franconie",
+        "ville": null,
+        "region": "Franconie",
+        "bassinBrassicole": null
+      },
+      "alcool": {
+        "min": 9.0,
+        "max": 14.0,
+        "unite": "%",
+        "statut": "defini"
+      },
+      "amertume": {
+        "min": 25,
+        "max": 35,
+        "unite": "IBU",
+        "statut": "defini"
+      },
+      "couleur": {
+        "min": 36,
+        "max": 70,
+        "unite": "EBC",
+        "statut": "defini"
+      },
+      "fermentation": {
+        "type": "basse",
+        "details": "Fermentation basse à température fraîche, généralement suivie d’une maturation à froid."
+      },
+      "service": {
+        "temperatureMin": 10,
+        "temperatureMax": 14,
+        "uniteTemperature": "°C",
+        "verresRecommandes": [
+          "Snifter",
+          "Pokal"
+        ]
+      },
+      "description": "L’Eisbock est un Doppelbock passé par la glace : plus concentré, plus dense, plus alcoolisé, avec malt intense, fruits noirs, caramel sombre et chaleur profonde. Il doit être massif mais lisse, jamais brûlant ni solvanté.",
+      "histoireEtOrigines": "Originaire de Franconie, souvent rattaché à Kulmbach, le style repose sur la concentration par le froid : on gèle une bière de type Doppelbock puis on retire une partie de l’eau sous forme de glace. La légende parle d’un accident ; la réalité moderne demande surtout beaucoup de maîtrise.",
+      "recette": {
+        "profilUnique": true,
+        "explicationProfil": "",
+        "maltsEtCereales": [
+          "malts Munich et Vienna",
+          "malt Pilsner selon la version"
+        ],
+        "houblons": [
+          "houblons allemands sobres"
+        ],
+        "levuresEtMicroorganismes": [
+          "levure lager à forte atténuation"
+        ],
+        "ingredientsComplementaires": [],
+        "profilEau": "modérément minérale",
+        "empatage": "décoction traditionnelle possible pour renforcer la profondeur maltée",
+        "ebullitionEtHoublonnage": "houblonnage d’équilibre sans domination aromatique",
+        "fermentation": "fermentation basse lente",
+        "maturation": "lagering long",
+        "profilRecherche": "une lager concentrée par le froid, intense et soyeuse, avec malt profond, fruits noirs et alcool puissant mais poli"
+      },
+      "sources": [
+        {
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "Eisbock — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2021",
+          "reference": "Eisbock — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "World Beer Cup",
+          "edition": "2026",
+          "reference": "Eisbock — Beverage Styles",
+          "type": "guide_de_style"
+        }
+      ]
+    },
+    {
+      "id": "american-lager",
+      "nom": "American Lager",
+      "collectionId": 1,
+      "nature": "S",
+      "parentPrincipalId": "lager",
+      "aliases": [],
+      "paysOrigine": [
+        "États-Unis"
+      ],
+      "origine": {
+        "libelle": "États-Unis",
+        "ville": null,
+        "region": null,
+        "bassinBrassicole": null
+      },
+      "alcool": {
+        "min": 4.0,
+        "max": 5.5,
+        "unite": "%",
+        "statut": "large"
+      },
+      "amertume": {
+        "min": 5,
+        "max": 25,
+        "unite": "IBU",
+        "statut": "large"
+      },
+      "couleur": {
+        "min": 3,
+        "max": 14,
+        "unite": "EBC",
+        "statut": "large"
+      },
+      "fermentation": {
+        "type": "basse",
+        "details": "Fermentation basse à température fraîche, généralement suivie d’une maturation à froid."
+      },
+      "service": {
+        "temperatureMin": 3,
+        "temperatureMax": 6,
+        "uniteTemperature": "°C",
+        "verresRecommandes": [
+          "Shaker",
+          "Pilsner"
+        ]
+      },
+      "description": "L’American Lager est plus pleine qu’une light, mais reste construite pour la limpidité : pâle, nette, légèrement céréalière, très carbonatée, avec une amertume basse. Elle est simple, mais pas forcément négligée ; une bonne version a la propreté d’une machine bien réglée.",
+      "histoireEtOrigines": "Développée par les brasseurs immigrés puis transformée par l’industrie américaine, elle utilise souvent riz ou maïs pour alléger le corps. Elle est devenue l’un des modèles les plus influents du XXe siècle : moins une tradition régionale qu’un standard de consommation national.",
+      "recette": {
+        "profilUnique": true,
+        "explicationProfil": "",
+        "maltsEtCereales": [
+          "malt Pilsner ou lager très pâle",
+          "riz ou maïs selon la tradition"
+        ],
+        "houblons": [
+          "houblons doux et peu envahissants"
+        ],
+        "levuresEtMicroorganismes": [
+          "levure lager neutre"
+        ],
+        "ingredientsComplementaires": [],
+        "profilEau": "douce à modérément minérale",
+        "empatage": "empâtage favorisant une forte fermentescibilité",
+        "ebullitionEtHoublonnage": "houblonnage précoce modéré, peu ou pas de houblon tardif",
+        "fermentation": "fermentation basse propre et fraîche",
+        "maturation": "lagering court à moyen",
+        "profilRecherche": "une lager américaine pâle, propre et très buvable, avec céréale légère, corps sec et finale sans aspérité"
+      },
+      "sources": [
+        {
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "American Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2021",
+          "reference": "American Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "World Beer Cup",
+          "edition": "2026",
+          "reference": "American Lager — Beverage Styles",
+          "type": "guide_de_style"
+        }
+      ]
+    },
+    {
+      "id": "contemporary-american-lager",
+      "nom": "Contemporary American Lager",
+      "collectionId": 1,
+      "nature": "S",
+      "parentPrincipalId": "lager",
+      "aliases": [],
+      "paysOrigine": [
+        "États-Unis"
+      ],
+      "origine": {
+        "libelle": "États-Unis",
+        "ville": null,
+        "region": null,
+        "bassinBrassicole": null
+      },
+      "alcool": {
+        "min": 4.0,
+        "max": 5.5,
+        "unite": "%",
+        "statut": "large"
+      },
+      "amertume": {
+        "min": 5,
+        "max": 25,
+        "unite": "IBU",
+        "statut": "large"
+      },
+      "couleur": {
+        "min": 3,
+        "max": 14,
+        "unite": "EBC",
+        "statut": "large"
+      },
+      "fermentation": {
+        "type": "basse",
+        "details": "Fermentation basse à température fraîche, généralement suivie d’une maturation à froid."
+      },
+      "service": {
+        "temperatureMin": 3,
+        "temperatureMax": 6,
+        "uniteTemperature": "°C",
+        "verresRecommandes": [
+          "Shaker",
+          "Pilsner"
+        ]
+      },
+      "description": "La Contemporary American Lager reprend le standard américain en version plus moderne : toujours claire et facile, mais parfois plus maltée, plus houblonnée ou plus artisanale. Elle garde le format “lager accessible”, avec une exécution moins anonyme.",
+      "histoireEtOrigines": "Elle reflète le retour récent de la scène craft vers les styles simples, où la difficulté n’est plus d’ajouter des ingrédients mais de brasser propre. Après les excès houblonnés, une lager claire réussie devient presque une preuve de maturité technique.",
+      "recette": {
+        "profilUnique": true,
+        "explicationProfil": "",
+        "maltsEtCereales": [
+          "malt Pilsner ou lager très pâle",
+          "riz ou maïs selon la tradition"
+        ],
+        "houblons": [
+          "houblons doux et peu envahissants"
+        ],
+        "levuresEtMicroorganismes": [
+          "levure lager neutre"
+        ],
+        "ingredientsComplementaires": [],
+        "profilEau": "douce à modérément minérale",
+        "empatage": "empâtage favorisant une forte fermentescibilité",
+        "ebullitionEtHoublonnage": "houblonnage précoce modéré, peu ou pas de houblon tardif",
+        "fermentation": "fermentation basse propre et fraîche",
+        "maturation": "lagering court à moyen",
+        "profilRecherche": "une lager américaine moderne, nette et facile, avec assez de caractère pour se distinguer sans perdre son accessibilité"
+      },
+      "sources": [
+        {
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "Contemporary American Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2021",
+          "reference": "Contemporary American Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "World Beer Cup",
+          "edition": "2026",
+          "reference": "Contemporary American Lager — Beverage Styles",
+          "type": "guide_de_style"
+        }
+      ]
+    },
+    {
+      "id": "mexican-pale-lager",
+      "nom": "Mexican Pale Lager",
+      "collectionId": 1,
+      "nature": "S",
+      "parentPrincipalId": "lager",
+      "aliases": [],
+      "paysOrigine": [
+        "Mexique"
+      ],
+      "origine": {
+        "libelle": "Mexique",
+        "ville": null,
+        "region": null,
+        "bassinBrassicole": null
+      },
+      "alcool": {
+        "min": 4.0,
+        "max": 5.5,
+        "unite": "%",
+        "statut": "large"
+      },
+      "amertume": {
+        "min": 8,
+        "max": 25,
+        "unite": "IBU",
+        "statut": "large"
+      },
+      "couleur": {
+        "min": 4,
+        "max": 14,
+        "unite": "EBC",
+        "statut": "large"
+      },
+      "fermentation": {
+        "type": "basse",
+        "details": "Fermentation basse à température fraîche, généralement suivie d’une maturation à froid."
+      },
+      "service": {
+        "temperatureMin": 3,
+        "temperatureMax": 6,
+        "uniteTemperature": "°C",
+        "verresRecommandes": [
+          "Pilsner",
+          "Chope"
+        ]
+      },
+      "description": "La Mexican Pale Lager est une blonde de climat chaud : pâle, sèche, légèrement céréalière, peu amère, très rafraîchissante. Elle peut évoquer le maïs, le malt doux ou une touche herbacée, mais sa mission première reste la soif.",
+      "histoireEtOrigines": "Les grandes lagers mexicaines mêlent influences européennes, adaptation industrielle et culture du service très frais. Elles sont devenues des bières d’exportation mondiales, souvent associées à la bouteille claire, au citron vert et à une image solaire qui dépasse largement leur recette.",
+      "recette": {
+        "profilUnique": true,
+        "explicationProfil": "",
+        "maltsEtCereales": [
+          "malt Pilsner ou lager très pâle",
+          "riz ou maïs selon la tradition"
+        ],
+        "houblons": [
+          "houblons doux et peu envahissants"
+        ],
+        "levuresEtMicroorganismes": [
+          "levure lager neutre"
+        ],
+        "ingredientsComplementaires": [],
+        "profilEau": "douce à modérément minérale",
+        "empatage": "empâtage favorisant une forte fermentescibilité",
+        "ebullitionEtHoublonnage": "houblonnage précoce modéré, peu ou pas de houblon tardif",
+        "fermentation": "fermentation basse propre et fraîche",
+        "maturation": "lagering court à moyen",
+        "profilRecherche": "une lager mexicaine pâle, sèche et solaire, très désaltérante, avec malt discret et finale nette"
+      },
+      "sources": [
+        {
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "Mexican Pale Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2021",
+          "reference": "Mexican Pale Lager — Beer Style Guidelines",
+          "type": "guide_de_style"
+        },
+        {
+          "organisme": "World Beer Cup",
+          "edition": "2026",
+          "reference": "Mexican Pale Lager — Beverage Styles",
+          "type": "guide_de_style"
+        }
+      ]
+    }
+  ]
+}
