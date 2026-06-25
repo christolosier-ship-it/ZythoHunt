@@ -1,8 +1,8 @@
-import collectionJson from "../../docs/active/collection-05-bieres-de-ble-et-de-seigle.json" with { type: "json" };
+import collectionJson from "./brassopedie/collection-05-bieres-de-ble-et-de-seigle.json" with { type: "json" };
 import { createCollectionBundle } from "./create-collection-bundle.js";
 import { bieresDeBleEtDeSeigleAssets, bieresDeBleEtDeSeigleAssetPath, bieresDeBleEtDeSeigleCardImages, bieresDeBleEtDeSeigleThumbPath } from "./card-assets/bieres-de-ble-et-de-seigle-assets.js";
 
-export const bieresDeBleEtDeSeigleBundle = createCollectionBundle({
+const bieresDeBleEtDeSeigleBundleSource = createCollectionBundle({
   collectionJson,
   collectionId: "bieres-de-ble-et-de-seigle",
   slug: "bieres-de-ble-et-de-seigle",
@@ -22,3 +22,22 @@ export const bieresDeBleEtDeSeigleBundle = createCollectionBundle({
   },
   assetsReady: true
 });
+
+function validateBieresDeBleEtDeSeigleBundle() {
+  const validation = bieresDeBleEtDeSeigleBundleSource.validate();
+  const errors = [...validation.errors];
+  if (bieresDeBleEtDeSeigleBundleSource.cards.length !== 13) {
+    errors.push(`Expected 13 cards, got ${bieresDeBleEtDeSeigleBundleSource.cards.length}.`);
+  }
+  return { valid: errors.length === 0, errors };
+}
+
+export const bieresDeBleEtDeSeigleCollection = bieresDeBleEtDeSeigleBundleSource.collection;
+export const bieresDeBleEtDeSeigleCards = bieresDeBleEtDeSeigleBundleSource.cards;
+export const bieresDeBleEtDeSeigleCardsById = bieresDeBleEtDeSeigleBundleSource.cardsById;
+export const revealableBieresDeBleEtDeSeigleCards = bieresDeBleEtDeSeigleBundleSource.revealableCards;
+export const validateBieresDeBleEtDeSeigleCollection = validateBieresDeBleEtDeSeigleBundle;
+export const bieresDeBleEtDeSeigleBundle = {
+  ...bieresDeBleEtDeSeigleBundleSource,
+  validate: validateBieresDeBleEtDeSeigleCollection
+};
