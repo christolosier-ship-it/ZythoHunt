@@ -26,6 +26,7 @@ import { createRevealStatsStore } from "./badges/badge-stats-storage.js";
 import { createBadgeEngine } from "./badges/badge-engine.js";
 import { createBadgesView } from "./badges/badges-view.js";
 import { notifyBadgesUnlocked, showBadgeToast } from "./badges/badge-notifications.js";
+import { getCollectionAvailabilityLabel } from "./utils/asset-status.js";
 
 const $ = (id) => document.getElementById(id);
 
@@ -39,13 +40,13 @@ function renderCollectionSelector(manager, activeCollectionId, onSelect) {
     button.type = "button";
     button.className = "collection-selector-item";
     button.setAttribute("aria-pressed", collection.id === activeCollectionId ? "true" : "false");
-    if (!collection.assetsReady) button.title = "Collection jouable avec placeholders en attendant les assets";
+    const availabilityLabel = getCollectionAvailabilityLabel(collection);
+    if (availabilityLabel !== "Disponible") button.title = availabilityLabel;
 
     const name = document.createElement("span");
     name.className = "collection-selector-name";
     name.textContent = collection.name || collection.nom || collection.id;
 
-    const availabilityLabel = collection.assetsReady ? "Disponible" : "Images à compléter";
     button.setAttribute("aria-label", `${name.textContent} — ${availabilityLabel}`);
 
     button.append(name);

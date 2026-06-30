@@ -3,7 +3,11 @@ import assert from "node:assert/strict";
 import { normalizeBeerName } from "./normalize-text.js";
 import { createBeerResolver } from "./beer-resolver.js";
 import { createDiscoveryStore } from "./discovery-store.js";
-import { prototypeCards } from "../data/prototype-carousel.js";
+const prototypeCards = [
+  { id: "stout", name: "Stout", aliases: [], revealable: true },
+  { id: "imperial-stout", name: "Imperial Stout", aliases: ["stout impérial"], revealable: true },
+  { id: "baltic-porter", name: "Baltic Porter", aliases: ["porter baltique"], revealable: true }
+];
 
 test("normalizes beer names and aliases", () => {
   assert.equal(normalizeBeerName("Imperial Stout"), "imperial stout");

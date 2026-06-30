@@ -1,6 +1,7 @@
 /** @typedef {any} Any */
 import { assetUrl } from "./asset-url.js";
 import { shouldAttemptImageLoad } from "./missing-assets.js";
+import { getCollectionAssetStatus } from "./asset-status.js";
 
 /**
  * @param {Any} card
@@ -79,7 +80,7 @@ export function createAssetPreloadQueue({ cards = [], collection = null, radius 
     preloadAround(activeIndex, options = {}) {
       const nextRadius = options.radius ?? radius;
       const purpose = options.purpose || "thumb";
-      if (!collection?.assetsReady) return Promise.resolve([]);
+      if (!getCollectionAssetStatus(collection).cardsReady) return Promise.resolve([]);
       return preloadUrls(getPreloadWindowUrls(cards, activeIndex, nextRadius, purpose));
     },
     preloadCard(cardId, options = {}) {

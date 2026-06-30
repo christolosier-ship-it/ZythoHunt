@@ -20,7 +20,8 @@ const lagersEtFermentationsBassesBundleSource = createCollectionBundle({
     bubbleDensity: 68,
     foamIntensity: 40
   },
-  assetsReady: true
+  assetStatus: { shellReady: true, cardsReady: true },
+  expectedCardCount: 32
 });
 
 export const lagersEtFermentationsBassesCollection = lagersEtFermentationsBassesBundleSource.collection;

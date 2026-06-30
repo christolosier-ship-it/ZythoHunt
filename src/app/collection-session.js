@@ -1,5 +1,5 @@
 import gsap from "gsap";
-import { preloadAssets } from "../utils/preload-assets.js";
+import { getInitialCarouselIndex, preloadAssets } from "../utils/preload-assets.js";
 import { createAssetPreloadQueue } from "../utils/asset-preload-queue.js";
 import { carouselTokens } from "../carousel/carousel-tokens.js";
 import { createCarousel } from "../carousel/carousel-controller.js";
@@ -13,6 +13,8 @@ import { createBrassopediePanel, shouldOpenBrassopedie } from "../brassopedie/br
 export async function mountCollectionSession({ bundle, elements, background, collectionBundles, onExternalMatch, pendingReveal, beforeValidReveal, onUnknownReveal, onAlreadyDiscoveredReveal, onNewDiscoveryReveal, onExternalCollectionReveal }) {
   const { collection, cards, cardsById } = bundle;
   const assetQueue = createAssetPreloadQueue({ collection, cards });
+  const initialCarouselIndex = getInitialCarouselIndex(cards.length);
+  elements.carouselContainer?.setAttribute("aria-label", `Carrousel de la collection ${collection.name || collection.nom}`);
 
   await preloadAssets((progress) => gsap.to(elements.loadingBar, {
     width: `${progress * 100}%`,
@@ -39,7 +41,7 @@ export async function mountCollectionSession({ bundle, elements, background, col
     }
   });
   carousel.mount();
-  void assetQueue.preloadAround(4, { purpose: "thumb" });
+  void assetQueue.preloadAround(initialCarouselIndex, { purpose: "thumb" });
 
   const revealEngine = createRevealEngine({
     stageEl: elements.revealStage,

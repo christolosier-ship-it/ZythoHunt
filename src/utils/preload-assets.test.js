@@ -1,10 +1,10 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { getInitialPreloadUrls } from "./preload-assets.js";
+import { getInitialCarouselIndex, getInitialPreloadUrls } from "./preload-assets.js";
 
 const cards = Array.from({ length: 10 }, (_, index) => ({ image: `assets/card-${index}.webp` }));
 const collection = {
-  assetsReady: true,
+  assetStatus: { shellReady: true, cardsReady: true },
   cardBack: "assets/back.webp",
   cardBackThumb: "assets/thumb/back.webp",
   cardFrame: "assets/frame.webp",
@@ -26,7 +26,7 @@ test("preloads only active collection assets and the initial carousel window", (
 
 test("falls back to HD collection assets when carousel thumbnails are unavailable", () => {
   const urls = getInitialPreloadUrls({
-    collection: { assetsReady: true, cardBack: "assets/back.webp", cardFrame: "assets/frame.webp" },
+    collection: { assetStatus: { shellReady: true, cardsReady: true }, cardBack: "assets/back.webp", cardFrame: "assets/frame.webp" },
     cards: [],
     activeIndex: 4,
     radius: 2
@@ -38,6 +38,13 @@ test("falls back to HD collection assets when carousel thumbnails are unavailabl
 });
 
 test("skips card image preloads for incomplete collections", () => {
-  const urls = getInitialPreloadUrls({ collection: { ...collection, assetsReady: false }, cards, activeIndex: 4, radius: 2 });
-  assert.deepEqual(urls, []);
+  const urls = getInitialPreloadUrls({ collection: { ...collection, assetStatus: { shellReady: true, cardsReady: false } }, cards, activeIndex: 4, radius: 2 });
+  assert.equal(urls.length, 2);
+  assert.ok(urls.every((url) => !url.includes("card-")));
+});
+
+test("clamps the preferred initial carousel index to available cards", () => {
+  assert.equal(getInitialCarouselIndex(10), 4);
+  assert.equal(getInitialCarouselIndex(3), 2);
+  assert.equal(getInitialCarouselIndex(0), 0);
 });

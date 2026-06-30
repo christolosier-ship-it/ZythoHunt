@@ -23,7 +23,8 @@ export const porterStoutBundle = createCollectionBundle({
     bubbleDensity: 50,
     foamIntensity: 55
   },
-  assetsReady: true
+  assetStatus: { shellReady: true, cardsReady: true },
+  expectedCardCount: 22
 });
 
 export const porterStoutCollection = porterStoutBundle.collection;

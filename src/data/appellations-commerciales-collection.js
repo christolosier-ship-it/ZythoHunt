@@ -20,7 +20,8 @@ export const appellationsCommercialesBundle = createCollectionBundle({
     bubbleDensity: 66,
     foamIntensity: 62
   },
-  assetsReady: true
+  assetStatus: { shellReady: true, cardsReady: false },
+  expectedCardCount: 30
 });
 
 export const appellationsCommercialesCollection = appellationsCommercialesBundle.collection;

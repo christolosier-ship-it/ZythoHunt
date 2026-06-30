@@ -20,5 +20,5 @@ export const collectionBundles = [
   appellationsCommercialesBundle
 ];
 export const collections = collectionBundles.map((bundle) => bundle.collection);
-export const readyCollectionBundles = collectionBundles.filter((bundle) => bundle.collection.assetsReady);
-export const pendingCollectionBundles = collectionBundles.filter((bundle) => !bundle.collection.assetsReady);
+export const readyCollectionBundles = collectionBundles.filter((bundle) => bundle.collection.assetStatus?.shellReady && bundle.collection.assetStatus?.cardsReady);
+export const pendingCollectionBundles = collectionBundles.filter((bundle) => !bundle.collection.assetStatus?.shellReady || !bundle.collection.assetStatus?.cardsReady);

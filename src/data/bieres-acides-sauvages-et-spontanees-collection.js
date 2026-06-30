@@ -20,7 +20,8 @@ export const bieresAcidesSauvagesEtSpontaneesBundle = createCollectionBundle({
     bubbleDensity: 54,
     foamIntensity: 50
   },
-  assetsReady: true
+  assetStatus: { shellReady: true, cardsReady: false },
+  expectedCardCount: 22
 });
 
 export const bieresAcidesSauvagesEtSpontaneesCollection = bieresAcidesSauvagesEtSpontaneesBundle.collection;

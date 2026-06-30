@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { Draggable } from "gsap/Draggable";
 import { createCard, fitVisibleCardNames, resetCardNameFit } from "../components/create-card.js";
 import { motionTokens } from "../animation/motion-tokens.js";
+import { getInitialCarouselIndex } from "../utils/preload-assets.js";
 
 gsap.registerPlugin(Draggable);
 const DRAG_CLICK_THRESHOLD = 8;
@@ -18,7 +19,7 @@ export function setCarouselCardRenderClasses(cardEl, { visible = false, active =
 }
 
 export function createCarousel(/** @type {any} */ { containerEl, cards, collection, tokens, store, onActiveChange, onInspect }) {
-  let activeIndex = 4;
+  let activeIndex = getInitialCarouselIndex(cards?.length ?? 0);
   let draggableInstance = null;
   let cardEls = [];
   let proxyEl = null;

@@ -20,7 +20,8 @@ const bieresDeBleEtDeSeigleBundleSource = createCollectionBundle({
     bubbleDensity: 66,
     foamIntensity: 72
   },
-  assetsReady: true
+  assetStatus: { shellReady: true, cardsReady: true },
+  expectedCardCount: 13
 });
 
 function validateBieresDeBleEtDeSeigleBundle() {

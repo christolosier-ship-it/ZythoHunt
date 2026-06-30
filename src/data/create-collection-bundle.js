@@ -19,12 +19,18 @@ export function createCollectionBundle({
   discoveryKey,
   assets,
   backgroundPreset,
-  assetsReady
+  assetsReady,
+  assetStatus,
+  expectedCardCount
 }) {
   const sourceCollection = collectionJson.collection || {};
   const normalizedSlug = slug || sourceCollection.slug || slugifyCollectionId(sourceCollection.nom);
   const cardBack = assets.assetPath(assets.collectionAssets.cardBack);
   const collectionFace = assets.assetPath(assets.collectionAssets.collectionFace);
+  const normalizedAssetStatus = {
+    shellReady: Boolean(assetStatus?.shellReady ?? assetsReady),
+    cardsReady: Boolean(assetStatus?.cardsReady ?? assetsReady)
+  };
   const collection = {
     ...sourceCollection,
     id: collectionId || normalizedSlug,
@@ -33,7 +39,8 @@ export function createCollectionBundle({
     subtitle,
     order,
     discoveryKey,
-    assetsReady: Boolean(assetsReady),
+    assetStatus: normalizedAssetStatus,
+    assetsReady: normalizedAssetStatus.shellReady && normalizedAssetStatus.cardsReady,
     cardBack,
     cardFrame: collectionFace,
     collectionFace,
@@ -68,6 +75,7 @@ export function createCollectionBundle({
   function validate() {
     const errors = [];
     const ids = cards.map((card) => card.id);
+    if (typeof expectedCardCount === "number" && cards.length !== expectedCardCount) errors.push(`Expected ${expectedCardCount} cards, got ${cards.length}.`);
     if (new Set(ids).size !== ids.length) errors.push(`Duplicate card IDs detected in ${collection.id}.`);
     cards.forEach((card) => {
       if (!card.image) errors.push(`Missing image for ${card.id}.`);
@@ -78,6 +86,11 @@ export function createCollectionBundle({
       if (!cardsById[id]) errors.push(`Image mapping references unknown ID ${id}.`);
     });
     if (!collection.discoveryKey) errors.push(`Missing discovery key for ${collection.id}.`);
+    if (!assets.collectionAssets.cardBack) errors.push(`Missing collection card back declaration for ${collection.id}.`);
+    if (!assets.collectionAssets.collectionFace) errors.push(`Missing collection face declaration for ${collection.id}.`);
+    if (!collection.cardFrame) errors.push(`Missing collection card frame declaration for ${collection.id}.`);
+    if (!collection.cardBackThumb) errors.push(`Missing collection card back thumbnail declaration for ${collection.id}.`);
+    if (!collection.collectionFaceThumb) errors.push(`Missing collection face thumbnail declaration for ${collection.id}.`);
     if (!collection.backgroundPreset) errors.push(`Missing background preset for ${collection.id}.`);
     return { valid: errors.length === 0, errors };
   }

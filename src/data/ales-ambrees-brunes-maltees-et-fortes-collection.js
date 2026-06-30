@@ -20,7 +20,8 @@ const bundle = createCollectionBundle({
     bubbleDensity: 58,
     foamIntensity: 54
   },
-  assetsReady: true
+  assetStatus: { shellReady: true, cardsReady: false },
+  expectedCardCount: 27
 });
 
 export const alesAmbreesBrunesMalteesEtFortesBundle = bundle;
