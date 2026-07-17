@@ -1,4 +1,4 @@
-const CACHE_VERSION = "zythohunt-v1";
+const CACHE_VERSION = "zythohunt-v2";
 const ASSET_CACHE = `${CACHE_VERSION}-assets`;
 
 self.addEventListener("install", () => {
