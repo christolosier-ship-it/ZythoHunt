@@ -1,6 +1,6 @@
-# ZythoHunt Reveal Lab
+# ZythoHunt
 
-Prototype autonome du carrousel de collection et de l’animation de révélation de cartes de ZythoHunt.
+Application autonome de collection et de révélation de cartes consacrées aux styles de bières.
 
 ## Stack
 
@@ -23,7 +23,6 @@ pnpm dev
 pnpm check
 ```
 
-
 Cette commande exécute le typecheck JavaScript, les tests et le build Vite.
 
 ## Structure
@@ -33,10 +32,10 @@ src/
   animation/   timeline de révélation
   carousel/    navigation et interactions du carrousel
   components/  construction des cartes et panneau de réglages
-  data/        cartes et collection de démonstration
+  data/        cartes et collections
   discovery/   résolution des styles et progression
   reveal/      orchestration de la révélation
   utils/       assets et géométrie
 ```
 
-Le laboratoire contient neuf emplacements, dont trois styles révélables : Stout, Imperial Stout et Baltic Porter.
+ZythoHunt propose plusieurs collections de styles à découvrir et à archiver dans la Brassopédie.
