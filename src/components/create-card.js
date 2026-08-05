@@ -48,16 +48,33 @@ export function createCardFront({ cardData, frameUrl, imagePath, imageLoading = 
   return frontFace;
 }
 
-function createBackFace(backUrl = null, collection = null) {
+function setNeutralBack(backFace, backImg = null) {
+  backImg?.remove();
+  backFace.classList.add("card-back--neutral");
+}
+
+function createBackFace(backUrl = null, collection = null, { allowFallback = true } = {}) {
   const backFace = document.createElement("div");
   backFace.className = "card-face card-back";
   const backImg = document.createElement("img");
-  backImg.src = shouldAttemptImageLoad(collection, null, "back") && backUrl ? backUrl : FALLBACK_SVG;
-  if (!shouldAttemptImageLoad(collection, null, "back") || !backUrl) backImg.classList.add("is-missing-asset");
+  const canLoadBack = shouldAttemptImageLoad(collection, null, "back") && Boolean(backUrl);
+
+  if (canLoadBack) {
+    backImg.src = backUrl;
+  } else if (allowFallback) {
+    backImg.src = FALLBACK_SVG;
+    backImg.classList.add("is-missing-asset");
+  } else {
+    setNeutralBack(backFace);
+    return backFace;
+  }
+
   backImg.alt = "";
   backImg.draggable = false;
   backImg.decoding = "async";
-  backImg.onerror = () => useFallbackImage(backImg);
+  backImg.onerror = allowFallback
+    ? () => useFallbackImage(backImg)
+    : () => setNeutralBack(backFace, backImg);
   backFace.appendChild(backImg);
   return backFace;
 }
@@ -83,6 +100,12 @@ export function resolveCardBackPath(/** @type {any} */ options = {}) {
   const isCarousel = as === "carousel";
   if (isCarousel) return collection?.cardBackThumb || collection?.cardBack || null;
   return collection?.cardBack || null;
+}
+
+export function resolveRevealBackSource(cardEl) {
+  const backImg = cardEl?.querySelector?.(".card-back img");
+  if (!backImg || backImg.classList?.contains?.("is-missing-asset")) return null;
+  return backImg.currentSrc || backImg.src || null;
 }
 
 export function fitCardName(nameEl, containerEl = nameEl?.parentElement) {
@@ -187,9 +210,10 @@ export function createCard({ index = 0, cardData, revealable, discovered = false
 export function cloneCardForReveal(cardEl, rect, cardData) {
   const clone = document.createElement("div");
   const frameUrl = cardData?.frame ? assetUrl(cardData.frame) : null;
+  const backUrl = resolveRevealBackSource(cardEl);
   clone.className = "beer-card beer-card--clone";
   clone.style.cssText = `position:fixed;left:${rect.left}px;top:${rect.top}px;width:${rect.width}px;height:${rect.height}px;z-index:1000;pointer-events:none;`;
-  clone.append(createBackFace(null, null), createCardFront({
+  clone.append(createBackFace(backUrl, { assetsReady: Boolean(backUrl) }, { allowFallback: false }), createCardFront({
     cardData,
     frameUrl,
     imagePath: cardData?.fullImage || cardData?.image,
