@@ -25,6 +25,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Install asset tooling
+        run: python -m pip install -r scripts/requirements-assets.txt
+
+      - name: Validate carousel thumbnails
+        run: python scripts/generate-thumbnails.py --check
+
       - name: Enable pnpm
         run: |
           corepack enable
