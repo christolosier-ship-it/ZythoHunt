@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -19,6 +19,33 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  normalize-thumbnails:
+    if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout pull request branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Install asset tooling
+        run: python -m pip install -r scripts/requirements-assets.txt
+
+      - name: Generate normalized carousel thumbnails
+        run: python scripts/generate-thumbnails.py
+
+      - name: Commit normalized thumbnails
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/assets/collections/*/thumb/*.webp
+          if git diff --cached --quiet; then
+            echo "All carousel thumbnails are already normalized."
+          else
+            git commit -m "build(assets): normalize all carousel thumbnails"
+            git push origin HEAD:${{ github.head_ref }}
+          fi
+
   build:
     runs-on: ubuntu-latest
     steps:
