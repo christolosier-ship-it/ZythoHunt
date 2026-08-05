@@ -13,6 +13,8 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parents[1]
 COLLECTIONS_ROOT = ROOT / "public" / "assets" / "collections"
 TARGET_SIZE = (360, 504)
+TARGET_RATIO = TARGET_SIZE[0] / TARGET_SIZE[1]
+MAX_RATIO_DRIFT = 0.01
 WEBP_QUALITY = 75
 WEBP_METHOD = 6
 
@@ -29,9 +31,11 @@ def iter_assets():
 def render_thumbnail(source: Path) -> bytes:
     with Image.open(source) as image:
         width, height = image.size
-        if width * 7 != height * 5:
+        ratio_drift = abs((width / height) - TARGET_RATIO) / TARGET_RATIO
+        if ratio_drift > MAX_RATIO_DRIFT:
             raise ValueError(
-                f"{source.relative_to(ROOT)} has ratio {width}:{height}; expected 5:7"
+                f"{source.relative_to(ROOT)} has ratio {width}:{height}; "
+                f"drift exceeds {MAX_RATIO_DRIFT:.0%} from 5:7"
             )
         thumbnail = image.convert("RGBA").resize(TARGET_SIZE, Image.Resampling.LANCZOS)
         output = io.BytesIO()
