@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate every carousel thumbnail from its full-size WebP source."""
+"""Generate deterministic carousel thumbnails from every full-size WebP source."""
 
 from __future__ import annotations
 
