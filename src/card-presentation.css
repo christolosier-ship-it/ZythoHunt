@@ -1,4 +1,8 @@
 /* Final presentation overrides validated on tablet. */
+.illustration-window {
+  height: 62%;
+}
+
 .card-copy {
   left: 15%;
   right: 15%;
