@@ -1,19 +1,21 @@
 import collectionJson from "./brassopedie/collection-09-appellations-commerciales.json" with { type: "json" };
 import { createCollectionBundle } from "./create-collection-bundle.js";
-import { appellationsCommercialesAssets, appellationsCommercialesAssetPath, appellationsCommercialesCardImages, appellationsCommercialesThumbPath } from "./card-assets/appellations-commerciales-assets.js";
+import {
+  appellationsCommercialesAssets,
+  appellationsCommercialesCardImages
+} from "./card-assets/appellations-commerciales-assets.js";
 
-export const appellationsCommercialesBundle = createCollectionBundle({
+const bundle = createCollectionBundle({
   collectionJson,
   collectionId: "appellations-commerciales",
   slug: "appellations-commerciales",
   subtitle: "30 cartes Brassopédie à illustrer",
   order: 90,
+  expectedCardCount: 30,
   discoveryKey: "zythohunt.discovery.appellations-commerciales.v1",
   assets: {
-    cardImages: appellationsCommercialesCardImages,
-    collectionAssets: appellationsCommercialesAssets,
-    assetPath: appellationsCommercialesAssetPath,
-    thumbPath: appellationsCommercialesThumbPath
+    collection: appellationsCommercialesAssets,
+    cards: appellationsCommercialesCardImages
   },
   backgroundPreset: {
     beerT: 75,
@@ -23,8 +25,9 @@ export const appellationsCommercialesBundle = createCollectionBundle({
   assetsReady: true
 });
 
-export const appellationsCommercialesCollection = appellationsCommercialesBundle.collection;
-export const appellationsCommercialesCards = appellationsCommercialesBundle.cards;
-export const appellationsCommercialesCardsById = appellationsCommercialesBundle.cardsById;
-export const revealableAppellationsCommercialesCards = appellationsCommercialesBundle.revealableCards;
-export const validateAppellationsCommercialesCollection = appellationsCommercialesBundle.validate;
+export const appellationsCommercialesBundle = bundle;
+export const appellationsCommercialesCollection = bundle.collection;
+export const appellationsCommercialesCards = bundle.cards;
+export const appellationsCommercialesCardsById = bundle.cardsById;
+export const revealableAppellationsCommercialesCards = bundle.revealableCards;
+export const validateAppellationsCommercialesCollection = bundle.validate;
