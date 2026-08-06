@@ -1,6 +1,11 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { fitCardNameOnce, resolveCardBackPath, resolveCardFramePath } from "./create-card.js";
+import {
+  fitCardNameOnce,
+  resolveCardBackPath,
+  resolveCardFramePath,
+  resolveRevealBackSource
+} from "./create-card.js";
 
 const collection = {
   cardBack: "assets/back-hd.webp",
@@ -31,6 +36,49 @@ test("carousel cards fall back to existing HD assets when thumbnails are absent"
   assert.equal(resolveCardFramePath({ cardData, collection: hdOnlyCollection, as: "carousel" }), collection.cardFrame);
 });
 
+test("resolveRevealBackSource prefers the loaded card back", () => {
+  const cardEl = {
+    querySelector(selector) {
+      assert.equal(selector, ".card-back img");
+      return {
+        currentSrc: "https://example.test/dos-charge.webp",
+        src: "https://example.test/dos-declare.webp",
+        classList: { contains: () => false }
+      };
+    }
+  };
+
+  assert.equal(resolveRevealBackSource(cardEl), "https://example.test/dos-charge.webp");
+});
+
+test("resolveRevealBackSource falls back to src", () => {
+  const cardEl = {
+    querySelector() {
+      return {
+        currentSrc: "",
+        src: "/assets/collections/test/thumb/dos-test.webp",
+        classList: { contains: () => false }
+      };
+    }
+  };
+
+  assert.equal(resolveRevealBackSource(cardEl), "/assets/collections/test/thumb/dos-test.webp");
+});
+
+test("resolveRevealBackSource rejects question-mark fallback assets", () => {
+  const cardEl = {
+    querySelector() {
+      return {
+        currentSrc: "data:image/svg+xml,%3Csvg%3E%3F%3C/svg%3E",
+        src: "data:image/svg+xml,%3Csvg%3E%3F%3C/svg%3E",
+        classList: { contains: (name) => name === "is-missing-asset" }
+      };
+    }
+  };
+
+  assert.equal(resolveRevealBackSource(cardEl), null);
+  assert.equal(resolveRevealBackSource(null), null);
+});
 
 test("fitCardNameOnce skips repeated fitting while dimensions are unchanged", () => {
   let measurements = 0;
