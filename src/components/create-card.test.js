@@ -4,7 +4,8 @@ import {
   fitCardNameOnce,
   resolveCardBackPath,
   resolveCardFramePath,
-  resolveRevealBackSource
+  resolveRevealBackSource,
+  resolveRevealFrontSource
 } from "./create-card.js";
 
 const collection = {
@@ -78,6 +79,38 @@ test("resolveRevealBackSource rejects question-mark fallback assets", () => {
 
   assert.equal(resolveRevealBackSource(cardEl), null);
   assert.equal(resolveRevealBackSource(null), null);
+});
+
+test("resolveRevealFrontSource reuses the illustration already displayed by the carousel", () => {
+  const cardEl = {
+    querySelector(selector) {
+      assert.equal(selector, ".card-illustration");
+      return {
+        currentSrc: "https://example.test/thumb/stout.webp",
+        src: "https://example.test/thumb-declared/stout.webp",
+        hidden: false,
+        classList: { contains: () => false }
+      };
+    }
+  };
+
+  assert.equal(resolveRevealFrontSource(cardEl), "https://example.test/thumb/stout.webp");
+});
+
+test("resolveRevealFrontSource rejects missing illustrations", () => {
+  const cardEl = {
+    querySelector() {
+      return {
+        currentSrc: "data:image/svg+xml,%3Csvg%3E%3F%3C/svg%3E",
+        src: "data:image/svg+xml,%3Csvg%3E%3F%3C/svg%3E",
+        hidden: false,
+        classList: { contains: (name) => name === "is-missing-asset" }
+      };
+    }
+  };
+
+  assert.equal(resolveRevealFrontSource(cardEl), null);
+  assert.equal(resolveRevealFrontSource(null), null);
 });
 
 test("fitCardNameOnce skips repeated fitting while dimensions are unchanged", () => {
