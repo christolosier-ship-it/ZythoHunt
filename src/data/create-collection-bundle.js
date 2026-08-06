@@ -1,3 +1,5 @@
+import { createCollectionAssetPaths } from "./create-collection-asset-paths.js";
+
 export function slugifyCollectionId(value) {
   return String(value || "")
     .normalize("NFD")
@@ -16,6 +18,7 @@ export function createCollectionBundle({
   slug,
   subtitle,
   order,
+  expectedCardCount = null,
   discoveryKey,
   assets,
   backgroundPreset,
@@ -23,8 +26,12 @@ export function createCollectionBundle({
 }) {
   const sourceCollection = collectionJson.collection || {};
   const normalizedSlug = slug || sourceCollection.slug || slugifyCollectionId(sourceCollection.nom);
-  const cardBack = assets.assetPath(assets.collectionAssets.cardBack);
-  const collectionFace = assets.assetPath(assets.collectionAssets.collectionFace);
+  const collectionAssets = assets.collection || {};
+  const cardImages = assets.cards || {};
+  const { assetPath, thumbPath } = createCollectionAssetPaths(collectionAssets.basePath);
+  const cardBack = assetPath(collectionAssets.cardBack);
+  const collectionFace = assetPath(collectionAssets.collectionFace);
+
   const collection = {
     ...sourceCollection,
     id: collectionId || normalizedSlug,
@@ -37,15 +44,15 @@ export function createCollectionBundle({
     cardBack,
     cardFrame: collectionFace,
     collectionFace,
-    cardBackThumb: assets.thumbPath(assets.collectionAssets.cardBack),
-    collectionFaceThumb: assets.thumbPath(assets.collectionAssets.collectionFace),
+    cardBackThumb: thumbPath(collectionAssets.cardBack),
+    collectionFaceThumb: thumbPath(collectionAssets.collectionFace),
     backgroundPreset,
     cardIds: collectionJson.cartes.map((entry) => entry.id)
   };
 
   const cards = collectionJson.cartes.map((entry) => {
-    const fileName = assets.cardImages[entry.id];
-    const image = assets.assetPath(fileName);
+    const fileName = cardImages[entry.id];
+    const image = assetPath(fileName);
     return {
       id: entry.id,
       name: entry.nom,
@@ -53,7 +60,7 @@ export function createCollectionBundle({
       path: entry.parentPrincipalId ? `${entry.parentPrincipalId} › ${entry.nom}` : entry.nom,
       tagline: entry.description,
       image,
-      thumbImage: assets.thumbPath(fileName),
+      thumbImage: thumbPath(fileName),
       fullImage: image,
       frame: collection.cardFrame,
       revealable: true,
@@ -68,17 +75,33 @@ export function createCollectionBundle({
   function validate() {
     const errors = [];
     const ids = cards.map((card) => card.id);
-    if (new Set(ids).size !== ids.length) errors.push(`Duplicate card IDs detected in ${collection.id}.`);
+
+    if (expectedCardCount !== null && cards.length !== expectedCardCount) {
+      errors.push(`Expected ${expectedCardCount} cards, got ${cards.length}.`);
+    }
+    if (new Set(ids).size !== ids.length) {
+      errors.push(`Duplicate card IDs detected in ${collection.id}.`);
+    }
+    if (!collectionAssets.cardBack) {
+      errors.push(`Missing collection card back declaration for ${collection.id}.`);
+    }
+    if (!collectionAssets.collectionFace) {
+      errors.push(`Missing collection face declaration for ${collection.id}.`);
+    }
+
     cards.forEach((card) => {
+      if (!cardImages[card.id]) errors.push(`Missing image mapping for ${card.id}.`);
       if (!card.image) errors.push(`Missing image for ${card.id}.`);
       if (!card.thumbImage) errors.push(`Missing thumb image for ${card.id}.`);
       if (!card.fullImage) errors.push(`Missing full image for ${card.id}.`);
     });
-    Object.keys(assets.cardImages).forEach((id) => {
+
+    Object.keys(cardImages).forEach((id) => {
       if (!cardsById[id]) errors.push(`Image mapping references unknown ID ${id}.`);
     });
     if (!collection.discoveryKey) errors.push(`Missing discovery key for ${collection.id}.`);
     if (!collection.backgroundPreset) errors.push(`Missing background preset for ${collection.id}.`);
+
     return { valid: errors.length === 0, errors };
   }
 
