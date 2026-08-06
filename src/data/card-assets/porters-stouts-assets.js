@@ -28,5 +28,3 @@ export const porterStoutCollectionAssets = {
   cardBack: "dos-porters-et-stouts.webp",
   collectionFace: "face-porters-et-stouts.webp"
 };
-
-export const porterStoutAssetPath = (fileName) => `${porterStoutCollectionAssets.basePath}/${fileName}`;

@@ -36,9 +36,3 @@ export const appellationsCommercialesAssets = {
   cardBack: "dos-appellations-commerciales.webp",
   collectionFace: "face-appellations-commerciales.webp"
 };
-
-export const appellationsCommercialesAssetPath = (fileName) =>
-  `${appellationsCommercialesAssets.basePath}/${fileName}`;
-
-export const appellationsCommercialesThumbPath = (fileName) =>
-  `${appellationsCommercialesAssets.basePath}/thumb/${fileName}`;

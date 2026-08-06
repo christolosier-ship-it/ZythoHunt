@@ -33,9 +33,3 @@ export const alesAmbreesBrunesMalteesEtFortesAssets = {
   cardBack: "dos-ales-ambrees-brunes-maltees-et-fortes.webp",
   collectionFace: "face-ales-ambrees-brunes-maltees-et-fortes.webp"
 };
-
-export const alesAmbreesBrunesMalteesEtFortesAssetPath = (fileName) =>
-  `${alesAmbreesBrunesMalteesEtFortesAssets.basePath}/${fileName}`;
-
-export const alesAmbreesBrunesMalteesEtFortesThumbPath = (fileName) =>
-  `${alesAmbreesBrunesMalteesEtFortesAssets.basePath}/thumb/${fileName}`;

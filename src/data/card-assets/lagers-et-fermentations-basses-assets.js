@@ -51,9 +51,3 @@ export const lagersEtFermentationsBassesAssets = {
   cardBack: "dos-lagers-et-fermentations-basses.webp",
   collectionFace: "face-lagers-et-fermentations-basses.webp"
 };
-
-export const lagersEtFermentationsBassesAssetPath = (fileName) =>
-  `${lagersEtFermentationsBassesAssets.basePath}/${fileName}`;
-
-export const lagersEtFermentationsBassesThumbPath = (fileName) =>
-  `${lagersEtFermentationsBassesAssets.basePath}/thumb/${fileName}`;

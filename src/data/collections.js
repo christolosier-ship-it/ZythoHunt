@@ -19,6 +19,16 @@ export const collectionBundles = [
   stylesSinguliersHistoriquesEtHybridesBundle,
   appellationsCommercialesBundle
 ];
+
 export const collections = collectionBundles.map((bundle) => bundle.collection);
 export const readyCollectionBundles = collectionBundles.filter((bundle) => bundle.collection.assetsReady);
 export const pendingCollectionBundles = collectionBundles.filter((bundle) => !bundle.collection.assetsReady);
+
+if (import.meta.env?.DEV) {
+  collectionBundles.forEach((bundle) => {
+    const validation = bundle.validate();
+    if (!validation.valid) {
+      console.error(`Invalid ${bundle.collection.name} collection`, validation.errors);
+    }
+  });
+}

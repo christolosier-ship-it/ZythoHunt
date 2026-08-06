@@ -19,9 +19,3 @@ export const bieresDeBleEtDeSeigleAssets = {
   cardBack: "dos-bieres-de-ble-et-de-seigle.webp",
   collectionFace: "face-bieres-de-ble-et-de-seigle.webp"
 };
-
-export const bieresDeBleEtDeSeigleAssetPath = (fileName) =>
-  `${bieresDeBleEtDeSeigleAssets.basePath}/${fileName}`;
-
-export const bieresDeBleEtDeSeigleThumbPath = (fileName) =>
-  `${bieresDeBleEtDeSeigleAssets.basePath}/thumb/${fileName}`;

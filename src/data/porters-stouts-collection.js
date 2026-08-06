@@ -1,22 +1,21 @@
 import collectionJson from "./brassopedie/collection-03-porters-et-stouts.json" with { type: "json" };
 import { createCollectionBundle } from "./create-collection-bundle.js";
-import { porterStoutAssetPath, porterStoutCardImages, porterStoutCollectionAssets } from "./card-assets/porters-stouts-assets.js";
+import {
+  porterStoutCardImages,
+  porterStoutCollectionAssets
+} from "./card-assets/porters-stouts-assets.js";
 
-const porterStoutThumbPath = (fileName) =>
-  `${porterStoutCollectionAssets.basePath}/thumb/${fileName}`;
-
-export const porterStoutBundle = createCollectionBundle({
+const bundle = createCollectionBundle({
   collectionJson,
   collectionId: "porters-stouts",
   slug: "porters-et-stouts",
   subtitle: "Noirs, torréfiés et profonds",
   order: 30,
+  expectedCardCount: 22,
   discoveryKey: "zythohunt.discovery.porters-et-stouts.v1",
   assets: {
-    cardImages: porterStoutCardImages,
-    collectionAssets: porterStoutCollectionAssets,
-    assetPath: porterStoutAssetPath,
-    thumbPath: porterStoutThumbPath
+    collection: porterStoutCollectionAssets,
+    cards: porterStoutCardImages
   },
   backgroundPreset: {
     beerT: 0,
@@ -26,13 +25,9 @@ export const porterStoutBundle = createCollectionBundle({
   assetsReady: true
 });
 
-export const porterStoutCollection = porterStoutBundle.collection;
-export const porterStoutCards = porterStoutBundle.cards;
-export const porterStoutCardsById = porterStoutBundle.cardsById;
-export const revealablePorterStoutCards = porterStoutBundle.revealableCards;
-export const validatePorterStoutCollection = porterStoutBundle.validate;
-
-const validation = validatePorterStoutCollection();
-if (!validation.valid && import.meta.env?.DEV) {
-  console.error("Invalid Porters & Stouts collection", validation.errors);
-}
+export const porterStoutBundle = bundle;
+export const porterStoutCollection = bundle.collection;
+export const porterStoutCards = bundle.cards;
+export const porterStoutCardsById = bundle.cardsById;
+export const revealablePorterStoutCards = bundle.revealableCards;
+export const validatePorterStoutCollection = bundle.validate;

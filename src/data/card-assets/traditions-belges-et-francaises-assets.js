@@ -23,9 +23,3 @@ export const traditionsBelgesEtFrancaisesAssets = {
   cardBack: "dos-traditions-belges-et-francaises.webp",
   collectionFace: "face-traditions-belges-et-francaises.webp"
 };
-
-export const traditionsBelgesEtFrancaisesAssetPath = (fileName) =>
-  `${traditionsBelgesEtFrancaisesAssets.basePath}/${fileName}`;
-
-export const traditionsBelgesEtFrancaisesThumbPath = (fileName) =>
-  `${traditionsBelgesEtFrancaisesAssets.basePath}/thumb/${fileName}`;

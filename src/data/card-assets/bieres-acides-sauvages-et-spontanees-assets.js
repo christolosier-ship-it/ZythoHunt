@@ -27,9 +27,3 @@ export const bieresAcidesSauvagesEtSpontaneesAssets = {
   cardBack: "dos-bieres-acides-sauvages-et-spontanees.webp",
   collectionFace: "face-bieres-acides-sauvages-et-spontanees.webp"
 };
-
-export const bieresAcidesSauvagesEtSpontaneesAssetPath = (fileName) =>
-  `${bieresAcidesSauvagesEtSpontaneesAssets.basePath}/${fileName}`;
-
-export const bieresAcidesSauvagesEtSpontaneesThumbPath = (fileName) =>
-  `${bieresAcidesSauvagesEtSpontaneesAssets.basePath}/thumb/${fileName}`;
