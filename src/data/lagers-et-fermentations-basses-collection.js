@@ -1,19 +1,21 @@
 import collectionJson from "./brassopedie/collection-01-lagers-et-fermentations-basses.json" with { type: "json" };
 import { createCollectionBundle } from "./create-collection-bundle.js";
-import { lagersEtFermentationsBassesAssets, lagersEtFermentationsBassesAssetPath, lagersEtFermentationsBassesCardImages, lagersEtFermentationsBassesThumbPath } from "./card-assets/lagers-et-fermentations-basses-assets.js";
+import {
+  lagersEtFermentationsBassesAssets,
+  lagersEtFermentationsBassesCardImages
+} from "./card-assets/lagers-et-fermentations-basses-assets.js";
 
-const lagersEtFermentationsBassesBundleSource = createCollectionBundle({
+const bundle = createCollectionBundle({
   collectionJson,
   collectionId: "lagers-et-fermentations-basses",
   slug: "lagers-et-fermentations-basses",
   subtitle: "45 cartes Brassopédie à illustrer",
   order: 10,
+  expectedCardCount: 45,
   discoveryKey: "zythohunt.discovery.lagers-et-fermentations-basses.v1",
   assets: {
-    cardImages: lagersEtFermentationsBassesCardImages,
-    collectionAssets: lagersEtFermentationsBassesAssets,
-    assetPath: lagersEtFermentationsBassesAssetPath,
-    thumbPath: lagersEtFermentationsBassesThumbPath
+    collection: lagersEtFermentationsBassesAssets,
+    cards: lagersEtFermentationsBassesCardImages
   },
   backgroundPreset: {
     beerT: 88,
@@ -23,9 +25,9 @@ const lagersEtFermentationsBassesBundleSource = createCollectionBundle({
   assetsReady: true
 });
 
-export const lagersEtFermentationsBassesCollection = lagersEtFermentationsBassesBundleSource.collection;
-export const lagersEtFermentationsBassesCards = lagersEtFermentationsBassesBundleSource.cards;
-export const lagersEtFermentationsBassesCardsById = lagersEtFermentationsBassesBundleSource.cardsById;
-export const revealableLagersEtFermentationsBassesCards = lagersEtFermentationsBassesBundleSource.revealableCards;
-export const validateLagersEtFermentationsBassesCollection = lagersEtFermentationsBassesBundleSource.validate;
-export const lagersEtFermentationsBassesBundle = lagersEtFermentationsBassesBundleSource;
+export const lagersEtFermentationsBassesBundle = bundle;
+export const lagersEtFermentationsBassesCollection = bundle.collection;
+export const lagersEtFermentationsBassesCards = bundle.cards;
+export const lagersEtFermentationsBassesCardsById = bundle.cardsById;
+export const revealableLagersEtFermentationsBassesCards = bundle.revealableCards;
+export const validateLagersEtFermentationsBassesCollection = bundle.validate;
