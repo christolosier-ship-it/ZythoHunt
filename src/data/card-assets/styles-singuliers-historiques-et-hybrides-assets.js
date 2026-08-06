@@ -46,9 +46,3 @@ export const stylesSinguliersHistoriquesEtHybridesAssets = {
   cardBack: "dos-styles-singuliers-historiques-et-hybrides.webp",
   collectionFace: "face-styles-singuliers-historiques-et-hybrides.webp"
 };
-
-export const stylesSinguliersHistoriquesEtHybridesAssetPath = (fileName) =>
-  `${stylesSinguliersHistoriquesEtHybridesAssets.basePath}/${fileName}`;
-
-export const stylesSinguliersHistoriquesEtHybridesThumbPath = (fileName) =>
-  `${stylesSinguliersHistoriquesEtHybridesAssets.basePath}/thumb/${fileName}`;
