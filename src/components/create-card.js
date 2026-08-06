@@ -12,8 +12,8 @@ function setNeutralIllustration(img) {
 export function createCardFront({
   cardData,
   frameUrl,
-  imagePath,
-  imageUrl,
+  imagePath = null,
+  imageUrl = undefined,
   imageLoading = "eager",
   imageFetchPriority = "auto",
   collection = null,
