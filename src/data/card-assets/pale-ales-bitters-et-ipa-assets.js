@@ -42,9 +42,3 @@ export const paleAlesBittersEtIpaAssets = {
   cardBack: "dos-pale-ales-bitters-et-ipa.webp",
   collectionFace: "face-pale-ales-bitters-et-ipa.webp"
 };
-
-export const paleAlesBittersEtIpaAssetPath = (fileName) =>
-  `${paleAlesBittersEtIpaAssets.basePath}/${fileName}`;
-
-export const paleAlesBittersEtIpaThumbPath = (fileName) =>
-  `${paleAlesBittersEtIpaAssets.basePath}/thumb/${fileName}`;
