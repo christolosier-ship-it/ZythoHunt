@@ -1,19 +1,21 @@
 import collectionJson from "./brassopedie/collection-06-bieres-acides-sauvages-et-spontanees.json" with { type: "json" };
 import { createCollectionBundle } from "./create-collection-bundle.js";
-import { bieresAcidesSauvagesEtSpontaneesAssets, bieresAcidesSauvagesEtSpontaneesAssetPath, bieresAcidesSauvagesEtSpontaneesCardImages, bieresAcidesSauvagesEtSpontaneesThumbPath } from "./card-assets/bieres-acides-sauvages-et-spontanees-assets.js";
+import {
+  bieresAcidesSauvagesEtSpontaneesAssets,
+  bieresAcidesSauvagesEtSpontaneesCardImages
+} from "./card-assets/bieres-acides-sauvages-et-spontanees-assets.js";
 
-export const bieresAcidesSauvagesEtSpontaneesBundle = createCollectionBundle({
+const bundle = createCollectionBundle({
   collectionJson,
   collectionId: "bieres-acides-sauvages-et-spontanees",
   slug: "bieres-acides-sauvages-et-spontanees",
   subtitle: "21 cartes Brassopédie à illustrer",
   order: 60,
+  expectedCardCount: 21,
   discoveryKey: "zythohunt.discovery.bieres-acides-sauvages-et-spontanees.v1",
   assets: {
-    cardImages: bieresAcidesSauvagesEtSpontaneesCardImages,
-    collectionAssets: bieresAcidesSauvagesEtSpontaneesAssets,
-    assetPath: bieresAcidesSauvagesEtSpontaneesAssetPath,
-    thumbPath: bieresAcidesSauvagesEtSpontaneesThumbPath
+    collection: bieresAcidesSauvagesEtSpontaneesAssets,
+    cards: bieresAcidesSauvagesEtSpontaneesCardImages
   },
   backgroundPreset: {
     beerT: 48,
@@ -23,8 +25,9 @@ export const bieresAcidesSauvagesEtSpontaneesBundle = createCollectionBundle({
   assetsReady: true
 });
 
-export const bieresAcidesSauvagesEtSpontaneesCollection = bieresAcidesSauvagesEtSpontaneesBundle.collection;
-export const bieresAcidesSauvagesEtSpontaneesCards = bieresAcidesSauvagesEtSpontaneesBundle.cards;
-export const bieresAcidesSauvagesEtSpontaneesCardsById = bieresAcidesSauvagesEtSpontaneesBundle.cardsById;
-export const revealableBieresAcidesSauvagesEtSpontaneesCards = bieresAcidesSauvagesEtSpontaneesBundle.revealableCards;
-export const validateBieresAcidesSauvagesEtSpontaneesCollection = bieresAcidesSauvagesEtSpontaneesBundle.validate;
+export const bieresAcidesSauvagesEtSpontaneesBundle = bundle;
+export const bieresAcidesSauvagesEtSpontaneesCollection = bundle.collection;
+export const bieresAcidesSauvagesEtSpontaneesCards = bundle.cards;
+export const bieresAcidesSauvagesEtSpontaneesCardsById = bundle.cardsById;
+export const revealableBieresAcidesSauvagesEtSpontaneesCards = bundle.revealableCards;
+export const validateBieresAcidesSauvagesEtSpontaneesCollection = bundle.validate;
