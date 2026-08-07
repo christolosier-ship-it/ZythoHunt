@@ -18,8 +18,15 @@ export function createCollectionManager(collectionBundles, { initialCollectionId
     return bundle;
   }
 
+  function getBundle(collectionId) {
+    return bundlesById.get(collectionId) || null;
+  }
+
   return {
-    listCollections: () => orderedBundles.map((bundle) => bundle.collection),
+    listCollections: ({ includeHidden = false } = {}) => orderedBundles
+      .map((bundle) => bundle.collection)
+      .filter((collection) => includeHidden || collection.hiddenFromNavigation !== true),
+    getBundle,
     getActiveCollectionId: () => activeCollectionId,
     getActiveBundle,
     getActiveCollection: () => getActiveBundle().collection,

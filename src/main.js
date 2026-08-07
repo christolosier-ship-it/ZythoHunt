@@ -6,6 +6,7 @@ import "./brassopedie/brassopedie-panel.css";
 import "./brassopedie/brassopedie-library.css";
 import "./badges/badges.css";
 import "./carousel/carousel-layout.css";
+import "./app/app-shell.css";
 import gsap from "gsap";
 import { collectionBundles } from "./data/collections.js";
 import { createCollectionManager, validateCollectionBundle } from "./data/collection-manager.js";
@@ -14,9 +15,10 @@ import { backgroundSettings } from "./background/background-settings.js";
 import { getCollectionBackgroundSettings } from "./background/background-presets.js";
 import { getEditorialBackgroundPreset } from "./background/editorial-background-presets.js";
 import { getStoredActiveCollectionId, setStoredActiveCollectionId } from "./app/active-collection-storage.js";
-import { setPendingReveal, takePendingReveal } from "./app/pending-reveal-storage.js";
+import { takePendingReveal } from "./app/pending-reveal-storage.js";
 import { mountCollectionSession } from "./app/collection-session.js";
 import { createAppNavigation, resolveMenuView } from "./app/app-navigation.js";
+import { preloadAssets } from "./utils/preload-assets.js";
 import { registerServiceWorker } from "./pwa/register-service-worker.js";
 import { createDiscoveryRegistry } from "./discovery/discovery-registry.js";
 import { createBrassopedieLibraryView } from "./brassopedie/brassopedie-library-view.js";
@@ -28,16 +30,20 @@ import { createBadgesView } from "./badges/badges-view.js";
 import { notifyBadgesUnlocked, showBadgeToast } from "./badges/badge-notifications.js";
 
 const $ = (id) => document.getElementById(id);
+const BACKGROUND_KEYS = ["beerT", "bubbleDensity", "foamIntensity"];
 
-function renderCollectionSelector(manager, activeCollectionId, onSelect) {
+function renderCollectionSelector(manager, activeCollectionId, onSelect, { switching = false } = {}) {
   const listEl = $("collection-selector-list");
   if (!listEl) return;
   listEl.replaceChildren();
+  const selector = /** @type {HTMLElement | null} */ (listEl.closest(".collection-selector"));
+  if (selector) selector.dataset.switching = switching ? "true" : "false";
 
   manager.listCollections().forEach((collection) => {
     const button = document.createElement("button");
     button.type = "button";
     button.className = "collection-selector-item";
+    button.disabled = switching;
     button.setAttribute("aria-pressed", collection.id === activeCollectionId ? "true" : "false");
     if (!collection.assetsReady) button.title = "Collection jouable avec placeholders en attendant les assets";
 
@@ -86,6 +92,49 @@ function applyCollectionBackground(background, collection) {
   return nextSettings;
 }
 
+function createBackgroundTransition(background, initialSettings) {
+  let tween = null;
+  let currentSettings = Object.fromEntries(BACKGROUND_KEYS.map((key) => [key, Number(initialSettings[key] ?? backgroundSettings[key] ?? 0)]));
+
+  function transitionTo(collection) {
+    const nextSettings = getCollectionBackgroundSettings(backgroundSettings, getEditorialBackgroundPreset(collection));
+    const target = Object.fromEntries(BACKGROUND_KEYS.map((key) => [key, Number(nextSettings[key] ?? currentSettings[key] ?? 0)]));
+    tween?.kill();
+
+    if (!background.isAvailable || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      currentSettings = target;
+      background.update(nextSettings);
+      return Promise.resolve(nextSettings);
+    }
+
+    const state = { ...currentSettings };
+    return new Promise((resolve) => {
+      tween = gsap.to(state, {
+        ...target,
+        duration: 0.9,
+        ease: "power2.inOut",
+        overwrite: true,
+        onUpdate: () => {
+          currentSettings = { ...state };
+          background.update(state);
+        },
+        onComplete: () => {
+          currentSettings = target;
+          background.update(nextSettings);
+          tween = null;
+          resolve(nextSettings);
+        },
+        onInterrupt: () => {
+          currentSettings = { ...state };
+          resolve({ ...backgroundSettings, ...currentSettings });
+        }
+      });
+    });
+  }
+
+  return { transitionTo };
+}
+
 function getNavigationViews() {
   return {
     zythosphere: $("zythosphere-view"),
@@ -114,26 +163,37 @@ function getSessionElements() {
   };
 }
 
+function syncCollectionChrome(bundle) {
+  const collection = bundle?.collection;
+  if (!collection) return;
+  const name = collection.name || collection.nom || collection.id;
+  const activeCollectionLabel = $("active-collection-label");
+  const carouselContainer = $("carousel-container");
+  if (activeCollectionLabel) activeCollectionLabel.textContent = `Collection ${name}`;
+  if (carouselContainer) carouselContainer.setAttribute("aria-label", `Carrousel de la collection ${name}`);
+}
+
+function setCollectionSwitchBusy(value) {
+  const input = /** @type {HTMLInputElement | null} */ ($("reveal-search-input"));
+  const submit = /** @type {HTMLButtonElement | null} */ ($("reveal-search-submit"));
+  if (input) input.disabled = value;
+  if (submit) submit.disabled = value;
+}
+
 async function boot(navigation) {
   const loadingScreen = $("loading-screen");
   const pendingReveal = takePendingReveal();
   const collectionManager = createCollectionManager(collectionBundles, { initialCollectionId: getStoredActiveCollectionId() });
-  const activeBundle = collectionManager.getActiveBundle();
-  const { collection } = activeBundle;
+  const initialBundle = collectionManager.getActiveBundle();
   const background = mountBackground();
-  applyCollectionBackground(background, collection);
+  const initialBackgroundSettings = applyCollectionBackground(background, initialBundle.collection);
+  const backgroundTransition = createBackgroundTransition(background, initialBackgroundSettings);
+  const sessionElements = getSessionElements();
 
-  const activeCollectionLabel = $("active-collection-label");
-  if (activeCollectionLabel) activeCollectionLabel.textContent = `Collection ${collection.name || collection.nom}`;
-  renderCollectionSelector(collectionManager, collection.id, (collectionId) => {
-    const result = collectionManager.setActiveCollection(collectionId);
-    if (result.status !== "active") return;
-    setStoredActiveCollectionId(collectionId);
-    if (collectionId !== collection.id) window.location.reload();
-  });
+  syncCollectionChrome(initialBundle);
 
-  const validation = validateCollectionBundle(activeBundle);
-  if (!validation.valid) console.error(`Collection ${collection.name} invalide`, validation.errors);
+  const validation = validateCollectionBundle(initialBundle);
+  if (!validation.valid) console.error(`Collection ${initialBundle.collection.name} invalide`, validation.errors);
 
   gsap.set(loadingScreen, { opacity: 1 });
   const discoveryRegistry = createDiscoveryRegistry(collectionBundles);
@@ -151,6 +211,7 @@ async function boot(navigation) {
   if (archivedBadges.length) showBadgeToast(archivedBadges, `Archives mises à jour : ${archivedBadges.length} badges retrouvés.`);
   const pendingBadgeQueue = badgeStore.takeQueue().map((item) => ({ ...item, badge: BADGE_DEFINITIONS.find((badge) => badge.id === item.badgeId) })).filter((item) => item.badge);
   if (pendingBadgeQueue.length) void notifyBadgesUnlocked(pendingBadgeQueue);
+
   const brassopedieRoot = $("brassopedie-view");
   let brassopedieLibrary = null;
   if (brassopedieRoot) {
@@ -158,7 +219,7 @@ async function boot(navigation) {
       root: brassopedieRoot,
       collectionBundles,
       registry: discoveryRegistry,
-      initialCollectionId: collection.id,
+      initialCollectionId: initialBundle.collection.id,
       onOpen: () => background.pause(),
       onClose: () => background.resume()
     });
@@ -168,12 +229,16 @@ async function boot(navigation) {
     if (viewId === "badges") badgesView?.refresh();
   });
 
-  await mountCollectionSession({
-    bundle: activeBundle,
-    elements: getSessionElements(),
+  let activeSession = null;
+  let switchSequence = 0;
+
+  const mountSession = (bundle, { pendingReveal: reveal = null, skipInitialPreload = false } = {}) => mountCollectionSession({
+    bundle,
+    elements: sessionElements,
     background,
     collectionBundles,
-    pendingReveal,
+    pendingReveal: reveal,
+    skipInitialPreload,
     beforeValidReveal: () => {
       discoveryRegistry.refresh();
       brassopedieLibrary?.refresh();
@@ -202,24 +267,112 @@ async function boot(navigation) {
       if (items.length) badgeStore.enqueue(items);
     },
     onExternalMatch: (match) => {
-      navigation?.showView("zythosphere");
-      setStoredActiveCollectionId(match.collectionId);
-      setPendingReveal(match);
-      window.location.reload();
+      void switchCollection(match.collectionId, { revealMatch: match });
     }
   });
+
+  async function switchCollection(collectionId, { revealMatch = null } = {}) {
+    const targetBundle = collectionManager.getBundle(collectionId);
+    if (!targetBundle) return { status: "missing", collectionId };
+
+    const previousBundle = collectionManager.getActiveBundle();
+    if (previousBundle.collection.id === collectionId) {
+      if (revealMatch?.cardId && activeSession) {
+        navigation?.showView("zythosphere");
+        return activeSession.discovery.revealCard(revealMatch.cardId, { focusInput: false });
+      }
+      return { status: "already-active", collectionId };
+    }
+
+    if (activeSession?.revealEngine?.isBusy?.()) return { status: "busy", collectionId };
+
+    const sequence = ++switchSequence;
+    const carouselContainer = sessionElements.carouselContainer;
+    setCollectionSwitchBusy(true);
+    syncCollectionChrome(targetBundle);
+    renderCollectionSelector(collectionManager, collectionId, (id) => { void switchCollection(id); }, { switching: true });
+
+    const backgroundPromise = backgroundTransition.transitionTo(targetBundle.collection);
+    let previousDestroyed = false;
+
+    try {
+      await preloadAssets(null, { collection: targetBundle.collection, cards: targetBundle.cards });
+      if (sequence !== switchSequence) return { status: "superseded", collectionId };
+
+      if (carouselContainer) {
+        await gsap.to(carouselContainer, { opacity: 0, duration: 0.18, ease: "power1.out", overwrite: true });
+      }
+      if (sequence !== switchSequence) return { status: "superseded", collectionId };
+
+      activeSession?.destroy?.();
+      activeSession = null;
+      previousDestroyed = true;
+      carouselContainer?.replaceChildren();
+
+      const nextSession = await mountSession(targetBundle, { skipInitialPreload: true });
+      if (sequence !== switchSequence) {
+        nextSession.destroy?.();
+        return { status: "superseded", collectionId };
+      }
+
+      activeSession = nextSession;
+      collectionManager.setActiveCollection(collectionId);
+      setStoredActiveCollectionId(collectionId);
+      syncCollectionChrome(targetBundle);
+      brassopedieLibrary?.selectCollection?.(collectionId);
+      renderCollectionSelector(collectionManager, collectionId, (id) => { void switchCollection(id); });
+
+      if (carouselContainer) {
+        await gsap.fromTo(carouselContainer, { opacity: 0 }, { opacity: 1, duration: 0.28, ease: "power2.out", overwrite: true });
+      }
+
+      if (revealMatch?.cardId) {
+        await backgroundPromise;
+        if (sequence === switchSequence && activeSession) {
+          await activeSession.discovery.revealCard(revealMatch.cardId, { focusInput: false });
+        }
+      }
+
+      return { status: "active", collectionId };
+    } catch (error) {
+      console.error(`Impossible de charger la collection ${targetBundle.collection.name || collectionId}`, error);
+      void backgroundTransition.transitionTo(previousBundle.collection);
+      syncCollectionChrome(previousBundle);
+
+      if (previousDestroyed) {
+        try {
+          carouselContainer?.replaceChildren();
+          activeSession = await mountSession(previousBundle, { skipInitialPreload: true });
+          if (carouselContainer) gsap.set(carouselContainer, { opacity: 1 });
+        } catch (restoreError) {
+          console.error("La session précédente n'a pas pu être restaurée.", restoreError);
+        }
+      }
+
+      renderCollectionSelector(collectionManager, previousBundle.collection.id, (id) => { void switchCollection(id); });
+      const feedback = sessionElements.revealSearchFeedback;
+      if (feedback) {
+        feedback.textContent = "La collection n'a pas pu être chargée. Réessaie.";
+        feedback.classList.add("is-error");
+      }
+      return { status: "failed", collectionId, error };
+    } finally {
+      if (sequence === switchSequence) setCollectionSwitchBusy(false);
+    }
+  }
+
+  renderCollectionSelector(collectionManager, initialBundle.collection.id, (collectionId) => { void switchCollection(collectionId); });
+  activeSession = await mountSession(initialBundle, { pendingReveal });
 
   await gsap.to(loadingScreen, { opacity: 0, duration: 0.5, ease: "power2.out" }).then();
   loadingScreen.style.display = "none";
   gsap.fromTo("#app", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.out" });
 }
 
-function mountAppMenu(navigation) {
-  const toggle = $("app-menu-toggle");
-  const menu = $("app-menu");
-  if (!toggle || !menu) return;
-
-  const menuButtons = Array.from(menu.querySelectorAll("[data-menu-view]"));
+function mountSidebarNavigation(navigation) {
+  const sidebar = $("app-sidebar");
+  if (!sidebar) return;
+  const menuButtons = Array.from(sidebar.querySelectorAll("[data-menu-view]"));
 
   const syncCurrent = (viewId) => {
     menuButtons.forEach((button) => {
@@ -230,34 +383,12 @@ function mountAppMenu(navigation) {
     });
   };
 
-  const closeMenu = () => {
-    toggle.setAttribute("aria-expanded", "false");
-    menu.hidden = true;
-  };
-
-  const toggleMenu = () => {
-    const isOpen = toggle.getAttribute("aria-expanded") === "true";
-    toggle.setAttribute("aria-expanded", isOpen ? "false" : "true");
-    menu.hidden = isOpen;
-  };
-
-  toggle.addEventListener("click", (event) => {
-    event.stopPropagation();
-    toggleMenu();
-  });
-
-  menu.addEventListener("click", (event) => {
-    event.stopPropagation();
+  sidebar.addEventListener("click", (event) => {
     const target = /** @type {Element | null} */ (event.target instanceof Element ? event.target : null);
     const button = /** @type {HTMLElement | null} */ (target?.closest("[data-menu-view]") || null);
     if (!button) return;
     const viewId = resolveMenuView(button.dataset.menuView);
-    if (viewId && navigation?.showView(viewId)) syncCurrent(viewId);
-    closeMenu();
-  });
-  document.addEventListener("click", closeMenu);
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") closeMenu();
+    if (viewId) navigation?.showView(viewId);
   });
 
   navigation?.onViewChange(syncCurrent);
@@ -272,7 +403,7 @@ function showStartupError(error) {
 
 document.addEventListener("DOMContentLoaded", () => {
   const navigation = createAppNavigation({ views: getNavigationViews(), initialView: "zythosphere" });
-  mountAppMenu(navigation);
+  mountSidebarNavigation(navigation);
   void registerServiceWorker().catch((error) => console.warn("Service worker registration failed", error));
   void boot(navigation).catch(showStartupError);
 });

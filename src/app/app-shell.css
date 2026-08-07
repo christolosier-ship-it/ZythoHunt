@@ -1,0 +1,220 @@
+:root {
+  --sidebar-w: 190px;
+  --chrome-bg: #130d08;
+  --chrome-bg-raised: #1a120b;
+  --chrome-border: rgba(206, 137, 57, 0.2);
+}
+
+/* Persistent shell: the sidebar and header belong to the application chrome,
+   while the animated beer scene is restricted to the content viewport. */
+#app {
+  flex-direction: row;
+}
+
+#app-shell-main {
+  position: relative;
+  z-index: 10;
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: transparent;
+}
+
+#app-sidebar {
+  position: relative;
+  z-index: 80;
+  flex: 0 0 var(--sidebar-w);
+  width: var(--sidebar-w);
+  min-width: var(--sidebar-w);
+  height: 100%;
+  padding: max(18px, env(safe-area-inset-top)) 12px max(16px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  background: linear-gradient(180deg, #171009 0%, #100a06 100%);
+  border-right: 1px solid var(--chrome-border);
+  box-shadow: 12px 0 32px rgba(0, 0, 0, 0.18);
+}
+
+.app-sidebar-brand {
+  padding: 4px 8px 14px;
+  border-bottom: 1px solid rgba(206, 137, 57, 0.14);
+}
+
+.app-sidebar-title {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--amber-light);
+}
+
+.app-sidebar-subtitle {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.72rem;
+  line-height: 1.25;
+  color: var(--text-dim);
+}
+
+.app-sidebar-nav {
+  display: grid;
+  gap: 7px;
+}
+
+.app-sidebar-nav button {
+  position: relative;
+  width: 100%;
+  min-height: 42px;
+  padding: 9px 10px 9px 13px;
+  border: 1px solid transparent;
+  border-radius: 11px;
+  background: transparent;
+  color: var(--text-dim);
+  text-align: left;
+  font: 600 0.9rem/1.15 var(--font-body);
+  cursor: pointer;
+  transition: color 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+
+.app-sidebar-nav button::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  bottom: 9px;
+  width: 2px;
+  border-radius: 999px;
+  background: transparent;
+}
+
+.app-sidebar-nav button:hover,
+.app-sidebar-nav button:focus-visible {
+  color: var(--text);
+  background: rgba(206, 137, 57, 0.07);
+  border-color: rgba(206, 137, 57, 0.12);
+  outline: none;
+}
+
+.app-sidebar-nav button.is-active,
+.app-sidebar-nav button[aria-current="page"] {
+  color: var(--amber-light);
+  background: rgba(206, 137, 57, 0.11);
+  border-color: rgba(206, 137, 57, 0.18);
+}
+
+.app-sidebar-nav button.is-active::before,
+.app-sidebar-nav button[aria-current="page"]::before {
+  background: var(--amber-light);
+}
+
+#app-header {
+  position: relative;
+  z-index: 70;
+  flex: 0 0 var(--head-h);
+  min-height: var(--head-h);
+  background: linear-gradient(180deg, #181009 0%, #110b07 100%) !important;
+  border-bottom: 1px solid var(--chrome-border);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+#app-header .reveal-search-form {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+#beer-background-root {
+  inset: var(--head-h) 0 0 var(--sidebar-w) !important;
+}
+
+#scene-overlay {
+  inset: var(--head-h) 0 0 var(--sidebar-w) !important;
+}
+
+.scene-glow {
+  left: calc(var(--sidebar-w) + (100vw - var(--sidebar-w)) / 2);
+  top: calc(var(--head-h) + 30%);
+}
+
+#app-view-root {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.collection-selector-list {
+  max-width: min(1180px, calc(100vw - var(--sidebar-w) - 28px));
+}
+
+.collection-selector[data-switching="true"] {
+  opacity: 0.78;
+}
+
+.collection-selector-item:disabled {
+  cursor: wait;
+}
+
+@media (max-width: 760px) {
+  :root {
+    --sidebar-w: 84px;
+  }
+
+  #app-sidebar {
+    padding-inline: 8px;
+  }
+
+  .app-sidebar-brand {
+    padding-inline: 3px;
+    text-align: center;
+  }
+
+  .app-sidebar-title {
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+  }
+
+  .app-sidebar-subtitle {
+    display: none;
+  }
+
+  .app-sidebar-nav button {
+    min-height: 48px;
+    padding: 8px 4px;
+    font-size: 0.7rem;
+    line-height: 1.1;
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
+
+  .app-sidebar-nav button::before {
+    top: 8px;
+    bottom: 8px;
+  }
+}
+
+@media (max-width: 520px) {
+  :root {
+    --sidebar-w: 72px;
+  }
+
+  #app-header {
+    padding-inline: 8px;
+  }
+
+  .reveal-search-form {
+    width: min(100%, 430px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-sidebar-nav button {
+    transition: none;
+  }
+}
