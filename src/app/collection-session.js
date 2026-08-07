@@ -10,15 +10,25 @@ import { createRevealEngine } from "../reveal/reveal-engine.js";
 import { motionTokens } from "../animation/motion-tokens.js";
 import { createBrassopediePanel, shouldOpenBrassopedie } from "../brassopedie/brassopedie-panel.js";
 
-export async function mountCollectionSession({ bundle, elements, background, collectionBundles, onExternalMatch, pendingReveal, beforeValidReveal, onUnknownReveal, onAlreadyDiscoveredReveal, onNewDiscoveryReveal, onExternalCollectionReveal }) {
+export async function mountCollectionSession({ bundle, elements, background, collectionBundles, onExternalMatch, pendingReveal, beforeValidReveal, onUnknownReveal, onAlreadyDiscoveredReveal, onNewDiscoveryReveal, onExternalCollectionReveal, skipInitialPreload = false }) {
   const { collection, cards, cardsById } = bundle;
   const assetQueue = createAssetPreloadQueue({ collection, cards });
 
-  await preloadAssets((progress) => gsap.to(elements.loadingBar, {
-    width: `${progress * 100}%`,
-    duration: 0.3,
-    ease: "power2.out"
-  }), { collection, cards });
+  if (!skipInitialPreload) {
+    await preloadAssets((progress) => {
+      if (!elements.loadingBar) return;
+      gsap.to(elements.loadingBar, {
+        width: `${progress * 100}%`,
+        duration: 0.3,
+        ease: "power2.out"
+      });
+    }, { collection, cards });
+  }
+
+  if (elements.revealSearchFeedback) {
+    elements.revealSearchFeedback.textContent = "";
+    elements.revealSearchFeedback.classList.remove("is-error");
+  }
 
   const store = createDiscoveryStore({ key: collection.discoveryKey });
   const brassopediePanel = createBrassopediePanel({
@@ -87,6 +97,8 @@ export async function mountCollectionSession({ bundle, elements, background, col
     brassopediePanel,
     assetQueue,
     destroy() {
+      discovery.destroy?.();
+      revealEngine.destroy?.();
       carousel.destroy?.();
       brassopediePanel.close?.();
     }
