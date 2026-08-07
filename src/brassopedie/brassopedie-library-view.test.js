@@ -8,7 +8,8 @@ const bundles = [
 ];
 const registry = {
   getCollectionProgress: (id) => id === "a" ? { discovered: 1, total: 1, ratio: 1 } : { discovered: 0, total: 1, ratio: 0 },
-  isDiscovered: (collectionId, cardId) => collectionId === "a" && cardId === "one"
+  isDiscovered: (collectionId, cardId) => collectionId === "a" && cardId === "one",
+  refresh() {}
 };
 
 test("visible labels hide unknown styles and show discovered names", () => {
@@ -21,14 +22,15 @@ test("only discovered Brassopédie entries can open", () => {
   assert.equal(canOpenBrassopedieEntry({ discovered: true, card: { brassopedie: {} } }), true);
 });
 
-test("library model changes styles when collection changes", () => {
+test("library model changes styles and progress when collection changes", () => {
   const first = buildBrassopedieLibraryModel({ collectionBundles: bundles, registry, selectedCollectionId: "a" });
   const second = buildBrassopedieLibraryModel({ collectionBundles: bundles, registry, selectedCollectionId: "b" });
   assert.equal(first.styles[0].label, "Pilsner");
+  assert.deepEqual(first.selectedProgress, { discovered: 1, total: 1, ratio: 1 });
   assert.equal(second.styles[0].label, "???");
   assert.equal(second.styles[0].canOpen, false);
+  assert.deepEqual(second.selectedProgress, { discovered: 0, total: 1, ratio: 0 });
 });
-
 
 test("library panel card resolver returns the card and collection cardsById", () => {
   const resolved = resolveLibraryPanelCard({ collectionBundles: bundles, collectionId: "a", cardId: "one" });
