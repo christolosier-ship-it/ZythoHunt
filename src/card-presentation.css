@@ -92,19 +92,11 @@
   will-change: opacity, transform;
 }
 
-/* Safari fallback first, then the dynamic viewport value. */
+/* The collection selector now lives in the sidebar, so the carousel owns the
+   complete ZythoSphère content height below the persistent header. */
 #carousel-container {
-  height: calc(100vh - var(--head-h) - 112px);
-  height: calc(100dvh - var(--head-h) - 112px);
-}
-
-
-
-@media (max-width: 640px) {
-  #carousel-container {
-    height: calc(100vh - var(--head-h) - 138px);
-    height: calc(100dvh - var(--head-h) - 138px);
-  }
+  height: 100%;
+  min-height: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {
