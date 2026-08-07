@@ -17,7 +17,8 @@ import { getEditorialBackgroundPreset } from "./background/editorial-background-
 import { getStoredActiveCollectionId, setStoredActiveCollectionId } from "./app/active-collection-storage.js";
 import { takePendingReveal } from "./app/pending-reveal-storage.js";
 import { mountCollectionSession } from "./app/collection-session.js";
-import { createAppNavigation, resolveMenuView } from "./app/app-navigation.js";
+import { createAppNavigation } from "./app/app-navigation.js";
+import { createSidebarNavigation } from "./app/sidebar-navigation.js";
 import { preloadAssets } from "./utils/preload-assets.js";
 import { registerServiceWorker } from "./pwa/register-service-worker.js";
 import { createDiscoveryRegistry } from "./discovery/discovery-registry.js";
@@ -31,34 +32,6 @@ import { notifyBadgesUnlocked, showBadgeToast } from "./badges/badge-notificatio
 
 const $ = (id) => document.getElementById(id);
 const BACKGROUND_KEYS = ["beerT", "bubbleDensity", "foamIntensity"];
-
-function renderCollectionSelector(manager, activeCollectionId, onSelect, { switching = false } = {}) {
-  const listEl = $("collection-selector-list");
-  if (!listEl) return;
-  listEl.replaceChildren();
-  const selector = /** @type {HTMLElement | null} */ (listEl.closest(".collection-selector"));
-  if (selector) selector.dataset.switching = switching ? "true" : "false";
-
-  manager.listCollections().forEach((collection) => {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "collection-selector-item";
-    button.disabled = switching;
-    button.setAttribute("aria-pressed", collection.id === activeCollectionId ? "true" : "false");
-    if (!collection.assetsReady) button.title = "Collection jouable avec placeholders en attendant les assets";
-
-    const name = document.createElement("span");
-    name.className = "collection-selector-name";
-    name.textContent = collection.name || collection.nom || collection.id;
-
-    const availabilityLabel = collection.assetsReady ? "Disponible" : "Images à compléter";
-    button.setAttribute("aria-label", `${name.textContent} — ${availabilityLabel}`);
-
-    button.append(name);
-    button.addEventListener("click", () => onSelect(collection.id));
-    listEl.appendChild(button);
-  });
-}
 
 function createBackgroundFallback(hostEl, error) {
   console.error("Le fond animé n'a pas pu démarrer. L'application continue avec un fond statique.", error);
@@ -173,11 +146,12 @@ function syncCollectionChrome(bundle) {
   if (carouselContainer) carouselContainer.setAttribute("aria-label", `Carrousel de la collection ${name}`);
 }
 
-function setCollectionSwitchBusy(value) {
+function setCollectionSwitchBusy(value, sidebarNavigation) {
   const input = /** @type {HTMLInputElement | null} */ ($("reveal-search-input"));
   const submit = /** @type {HTMLButtonElement | null} */ ($("reveal-search-submit"));
   if (input) input.disabled = value;
   if (submit) submit.disabled = value;
+  sidebarNavigation?.setCollectionBusy?.("zythosphere", value);
 }
 
 async function boot(navigation) {
@@ -214,12 +188,13 @@ async function boot(navigation) {
 
   const brassopedieRoot = $("brassopedie-view");
   let brassopedieLibrary = null;
+  let brassopedieCollectionId = initialBundle.collection.id;
   if (brassopedieRoot) {
     brassopedieLibrary = createBrassopedieLibraryView({
       root: brassopedieRoot,
       collectionBundles,
       registry: discoveryRegistry,
-      initialCollectionId: initialBundle.collection.id,
+      initialCollectionId: brassopedieCollectionId,
       onOpen: () => background.pause(),
       onClose: () => background.resume()
     });
@@ -231,6 +206,7 @@ async function boot(navigation) {
 
   let activeSession = null;
   let switchSequence = 0;
+  let sidebarNavigation = null;
 
   const mountSession = (bundle, { pendingReveal: reveal = null, skipInitialPreload = false } = {}) => mountCollectionSession({
     bundle,
@@ -277,6 +253,7 @@ async function boot(navigation) {
 
     const previousBundle = collectionManager.getActiveBundle();
     if (previousBundle.collection.id === collectionId) {
+      sidebarNavigation?.setActiveCollection?.("zythosphere", collectionId);
       if (revealMatch?.cardId && activeSession) {
         navigation?.showView("zythosphere");
         return activeSession.discovery.revealCard(revealMatch.cardId, { focusInput: false });
@@ -288,9 +265,8 @@ async function boot(navigation) {
 
     const sequence = ++switchSequence;
     const carouselContainer = sessionElements.carouselContainer;
-    setCollectionSwitchBusy(true);
+    setCollectionSwitchBusy(true, sidebarNavigation);
     syncCollectionChrome(targetBundle);
-    renderCollectionSelector(collectionManager, collectionId, (id) => { void switchCollection(id); }, { switching: true });
 
     const backgroundPromise = backgroundTransition.transitionTo(targetBundle.collection);
     let previousDestroyed = false;
@@ -319,8 +295,7 @@ async function boot(navigation) {
       collectionManager.setActiveCollection(collectionId);
       setStoredActiveCollectionId(collectionId);
       syncCollectionChrome(targetBundle);
-      brassopedieLibrary?.selectCollection?.(collectionId);
-      renderCollectionSelector(collectionManager, collectionId, (id) => { void switchCollection(id); });
+      sidebarNavigation?.setActiveCollection?.("zythosphere", collectionId);
 
       if (carouselContainer) {
         await gsap.fromTo(carouselContainer, { opacity: 0 }, { opacity: 1, duration: 0.28, ease: "power2.out", overwrite: true });
@@ -338,6 +313,7 @@ async function boot(navigation) {
       console.error(`Impossible de charger la collection ${targetBundle.collection.name || collectionId}`, error);
       void backgroundTransition.transitionTo(previousBundle.collection);
       syncCollectionChrome(previousBundle);
+      sidebarNavigation?.setActiveCollection?.("zythosphere", previousBundle.collection.id);
 
       if (previousDestroyed) {
         try {
@@ -349,7 +325,6 @@ async function boot(navigation) {
         }
       }
 
-      renderCollectionSelector(collectionManager, previousBundle.collection.id, (id) => { void switchCollection(id); });
       const feedback = sessionElements.revealSearchFeedback;
       if (feedback) {
         feedback.textContent = "La collection n'a pas pu être chargée. Réessaie.";
@@ -357,42 +332,28 @@ async function boot(navigation) {
       }
       return { status: "failed", collectionId, error };
     } finally {
-      if (sequence === switchSequence) setCollectionSwitchBusy(false);
+      if (sequence === switchSequence) setCollectionSwitchBusy(false, sidebarNavigation);
     }
   }
 
-  renderCollectionSelector(collectionManager, initialBundle.collection.id, (collectionId) => { void switchCollection(collectionId); });
+  sidebarNavigation = createSidebarNavigation({
+    root: /** @type {HTMLElement | null} */ ($("app-sidebar")),
+    navigation,
+    collections: collectionManager.listCollections(),
+    initialZythosphereCollectionId: initialBundle.collection.id,
+    initialBrassopedieCollectionId: brassopedieCollectionId,
+    onSelectZythosphereCollection: (collectionId) => switchCollection(collectionId),
+    onSelectBrassopedieCollection: (collectionId) => {
+      brassopedieCollectionId = brassopedieLibrary?.selectCollection?.(collectionId) || collectionId;
+      return { status: "active", collectionId: brassopedieCollectionId };
+    }
+  });
+
   activeSession = await mountSession(initialBundle, { pendingReveal });
 
   await gsap.to(loadingScreen, { opacity: 0, duration: 0.5, ease: "power2.out" }).then();
   loadingScreen.style.display = "none";
   gsap.fromTo("#app", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.out" });
-}
-
-function mountSidebarNavigation(navigation) {
-  const sidebar = $("app-sidebar");
-  if (!sidebar) return;
-  const menuButtons = Array.from(sidebar.querySelectorAll("[data-menu-view]"));
-
-  const syncCurrent = (viewId) => {
-    menuButtons.forEach((button) => {
-      const isCurrent = resolveMenuView(/** @type {HTMLElement} */ (button).dataset.menuView) === viewId;
-      button.classList.toggle("is-active", isCurrent);
-      if (isCurrent) button.setAttribute("aria-current", "page");
-      else button.removeAttribute("aria-current");
-    });
-  };
-
-  sidebar.addEventListener("click", (event) => {
-    const target = /** @type {Element | null} */ (event.target instanceof Element ? event.target : null);
-    const button = /** @type {HTMLElement | null} */ (target?.closest("[data-menu-view]") || null);
-    if (!button) return;
-    const viewId = resolveMenuView(button.dataset.menuView);
-    if (viewId) navigation?.showView(viewId);
-  });
-
-  navigation?.onViewChange(syncCurrent);
-  syncCurrent(navigation?.getActiveView?.() || "zythosphere");
 }
 
 function showStartupError(error) {
@@ -403,7 +364,6 @@ function showStartupError(error) {
 
 document.addEventListener("DOMContentLoaded", () => {
   const navigation = createAppNavigation({ views: getNavigationViews(), initialView: "zythosphere" });
-  mountSidebarNavigation(navigation);
   void registerServiceWorker().catch((error) => console.warn("Service worker registration failed", error));
   void boot(navigation).catch(showStartupError);
 });

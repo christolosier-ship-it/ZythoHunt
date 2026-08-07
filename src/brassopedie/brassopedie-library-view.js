@@ -20,6 +20,7 @@ export function buildBrassopedieLibraryModel({ collectionBundles = [], registry,
   const selectedBundle = collectionBundles.find((bundle) => bundle.collection.id === selectedCollectionId) || collectionBundles[0] || null;
   return {
     selectedCollectionId: selectedBundle?.collection.id || null,
+    selectedCollectionName: selectedBundle?.collection.name || selectedBundle?.collection.nom || selectedBundle?.collection.id || "Styles de bière",
     collections: collectionBundles.map((bundle) => ({
       id: bundle.collection.id,
       name: bundle.collection.name || bundle.collection.nom || bundle.collection.id,
@@ -50,27 +51,9 @@ export function createBrassopedieLibraryView({ root, collectionBundles, registry
     root.replaceChildren();
 
     const shell = el("div", "brassopedie-library");
-    const layout = el("div", "brassopedie-library-layout");
-    const collections = el("nav", "brassopedie-library-collections");
-    collections.setAttribute("aria-label", "Collections Brassopédie");
-
-    model.collections.forEach((collection) => {
-      const btn = el("button", "brassopedie-library-collection", null);
-      btn.type = "button";
-      const active = collection.id === selectedCollectionId;
-      btn.classList.toggle("is-active", active);
-      btn.setAttribute("aria-current", active ? "true" : "false");
-      const name = el("span", "", collection.name);
-      const progress = el("small", "", `${collection.progress.discovered} / ${collection.progress.total} révélés`);
-      const meter = el("i", "", null);
-      meter.style.setProperty("--progress", `${Math.round(collection.progress.ratio * 100)}%`);
-      btn.append(name, progress, meter);
-      btn.addEventListener("click", () => { selectedCollectionId = collection.id; render(); });
-      collections.append(btn);
-    });
-
     const main = el("div", "brassopedie-library-main");
     const grid = el("div", "brassopedie-library-grid");
+
     model.styles.forEach((style) => {
       const btn = el("button", `brassopedie-library-card ${style.discovered ? "is-revealed" : "is-locked"}`, null);
       btn.type = "button";
@@ -85,13 +68,25 @@ export function createBrassopedieLibraryView({ root, collectionBundles, registry
       }
       grid.append(btn);
     });
+
     const scroll = el("div", "brassopedie-library-styles-scroll");
     scroll.append(grid);
-    main.append(el("h2", "brassopedie-library-subtitle", "Styles de bière"), scroll);
-    layout.append(collections, main);
-    shell.append(layout);
+    main.append(el("h2", "brassopedie-library-subtitle", model.selectedCollectionName), scroll);
+    shell.append(main);
     root.append(shell);
   }
+
   render();
-  return { refresh: render, selectCollection(id) { selectedCollectionId = id; render(); }, closePanel: brassopediePanel.close };
+  return {
+    refresh: render,
+    selectCollection(id) {
+      selectedCollectionId = id;
+      render();
+      return selectedCollectionId;
+    },
+    getSelectedCollectionId() {
+      return selectedCollectionId;
+    },
+    closePanel: brassopediePanel.close
+  };
 }
