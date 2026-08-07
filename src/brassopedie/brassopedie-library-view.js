@@ -221,7 +221,9 @@ function createDetailView({ card, cardsById, onBack }) {
   return { article, back };
 }
 
-export function createBrassopedieLibraryView({ root, collectionBundles, registry, initialCollectionId }) {
+export function createBrassopedieLibraryView({ root, collectionBundles, registry, initialCollectionId, onOpen, onClose }) {
+  void onOpen;
+  void onClose;
   let selectedCollectionId = initialCollectionId;
   let selectedCardId = null;
   let gridScrollTop = 0;
