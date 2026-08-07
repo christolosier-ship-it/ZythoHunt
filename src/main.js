@@ -36,7 +36,7 @@ function renderCollectionSelector(manager, activeCollectionId, onSelect, { switc
   const listEl = $("collection-selector-list");
   if (!listEl) return;
   listEl.replaceChildren();
-  const selector = listEl.closest(".collection-selector");
+  const selector = /** @type {HTMLElement | null} */ (listEl.closest(".collection-selector"));
   if (selector) selector.dataset.switching = switching ? "true" : "false";
 
   manager.listCollections().forEach((collection) => {
@@ -174,8 +174,8 @@ function syncCollectionChrome(bundle) {
 }
 
 function setCollectionSwitchBusy(value) {
-  const input = $("reveal-search-input");
-  const submit = $("reveal-search-submit");
+  const input = /** @type {HTMLInputElement | null} */ ($("reveal-search-input"));
+  const submit = /** @type {HTMLButtonElement | null} */ ($("reveal-search-submit"));
   if (input) input.disabled = value;
   if (submit) submit.disabled = value;
 }
