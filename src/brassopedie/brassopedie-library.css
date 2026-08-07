@@ -15,7 +15,7 @@
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
   color: #f7ead2;
-  padding: clamp(22px, 3vw, 42px) clamp(18px, 3.4vw, 54px) calc(42px + env(safe-area-inset-bottom));
+  padding: clamp(18px, 2.5vw, 32px) clamp(18px, 3.4vw, 54px) calc(42px + env(safe-area-inset-bottom));
 }
 
 .brassopedie-atlas {
@@ -23,46 +23,17 @@
   margin: 0 auto;
 }
 
-.brassopedie-atlas-header {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 28px;
-  margin: 0 0 clamp(24px, 3vw, 38px);
-  padding-bottom: 18px;
-  border-bottom: 1px solid rgba(226, 160, 73, .24);
-}
-
-.brassopedie-atlas-kicker,
-.brassopedie-detail-kicker {
-  margin: 0 0 7px;
-  color: #dba85e;
-  font-family: var(--font-body);
-  font-size: .76rem;
-  font-weight: 700;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-}
-
-.brassopedie-atlas-title {
-  margin: 0;
-  color: #fff0d1;
-  font-family: var(--font-serif);
-  font-size: clamp(1.65rem, 3.1vw, 3rem);
-  font-weight: 600;
-  line-height: 1.02;
-  letter-spacing: .035em;
-}
-
+/* The sidebar already carries the collection identity. Keep only quiet progress here. */
 .brassopedie-atlas-progress {
-  flex: 0 0 min(320px, 34%);
+  width: min(320px, 38%);
+  margin: 0 0 clamp(16px, 2vw, 24px) auto;
   display: grid;
-  gap: 8px;
+  gap: 7px;
 }
 
 .brassopedie-atlas-progress-label {
-  color: #d8bd93;
-  font-size: .86rem;
+  color: rgba(230, 207, 170, .72);
+  font-size: .82rem;
   text-align: right;
 }
 
@@ -71,7 +42,7 @@
   display: block;
   height: 2px;
   overflow: hidden;
-  background: rgba(255, 255, 255, .12);
+  background: rgba(255, 255, 255, .1);
 }
 
 .brassopedie-atlas-progress-track::after {
@@ -80,12 +51,13 @@
   inset: 0 auto 0 0;
   width: var(--progress, 0%);
   background: linear-gradient(90deg, #bd6f2d, #efb460);
+  box-shadow: 0 0 10px rgba(239, 180, 96, .28);
 }
 
 .brassopedie-atlas-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-  gap: clamp(12px, 1.5vw, 20px);
+  gap: clamp(13px, 1.5vw, 20px);
 }
 
 .brassopedie-atlas-card {
@@ -93,19 +65,28 @@
   min-width: 0;
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  border: 0;
-  border-radius: 15px;
+  border: 1px solid rgba(231, 168, 84, .16);
+  border-radius: 16px;
   padding: 0;
-  background: #160d07;
+  background: linear-gradient(160deg, #1d1109, #0f0905);
   color: #fff0d1;
   text-align: left;
-  box-shadow: 0 8px 22px rgba(0, 0, 0, .22);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, .22), inset 0 1px 0 rgba(255, 226, 180, .035);
   cursor: pointer;
   isolation: isolate;
   -webkit-tap-highlight-color: transparent;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
 }
 
-.brassopedie-atlas-card-media,
+.brassopedie-atlas-card-media {
+  position: absolute;
+  inset: 0 0 62px;
+  overflow: hidden;
+  background: #160d07;
+}
+
+.brassopedie-atlas-card-photo,
+.brassopedie-atlas-card-backdrop,
 .brassopedie-atlas-card-image {
   position: absolute;
   inset: 0;
@@ -113,63 +94,89 @@
   height: 100%;
 }
 
-.brassopedie-atlas-card-image {
+.brassopedie-atlas-card-photo {
+  overflow: hidden;
+  background: #160d07;
+}
+
+.brassopedie-atlas-card-backdrop {
+  inset: -8%;
+  width: 116%;
+  height: 116%;
   object-fit: cover;
-  object-position: center 42%;
-  transform: scale(1.01);
+  filter: blur(15px) saturate(.8) brightness(.6);
+  opacity: .76;
+  transform: scale(1.05);
+}
+
+.brassopedie-atlas-card-photo::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 44%, transparent 38%, rgba(8, 5, 3, .15) 100%),
+    linear-gradient(180deg, rgba(7, 4, 2, .02), rgba(7, 4, 2, .18));
+  pointer-events: none;
+}
+
+.brassopedie-atlas-card-image {
+  z-index: 2;
+  inset: 6px;
+  width: calc(100% - 12px);
+  height: calc(100% - 12px);
+  object-fit: contain;
+  object-position: center;
+  filter: drop-shadow(0 5px 12px rgba(0, 0, 0, .38));
+  transform: scale(.985);
   transition: transform 220ms ease, filter 220ms ease;
 }
 
 .brassopedie-atlas-card-caption {
   position: absolute;
-  z-index: 3;
+  z-index: 4;
   inset: auto 0 0;
+  min-height: 62px;
   display: grid;
+  align-content: center;
   gap: 3px;
-  padding: 34px 14px 13px;
-  background: linear-gradient(180deg, transparent, rgba(7, 4, 2, .88) 58%, rgba(7, 4, 2, .96));
+  padding: 8px 13px 9px;
+  border-top: 1px solid rgba(231, 168, 84, .12);
+  background: linear-gradient(180deg, rgba(21, 12, 7, .96), rgba(10, 6, 3, .985));
 }
 
 .brassopedie-atlas-card-title {
+  display: -webkit-box;
   overflow: hidden;
   color: #fff2d8;
   font-family: var(--font-serif);
-  font-size: clamp(.88rem, 1.4vw, 1.08rem);
-  line-height: 1.05;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  font-size: clamp(.84rem, 1.25vw, 1rem);
+  line-height: 1.04;
+  white-space: normal;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .brassopedie-atlas-card-meta {
   overflow: hidden;
-  color: rgba(241, 213, 172, .76);
-  font-size: .72rem;
-  line-height: 1.2;
+  color: rgba(241, 213, 172, .7);
+  font-size: .7rem;
+  line-height: 1.15;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.brassopedie-atlas-card.is-revealed::after {
-  content: "";
-  position: absolute;
-  z-index: 4;
-  inset: 0;
-  border: 1px solid rgba(231, 168, 84, .16);
-  border-radius: inherit;
-  pointer-events: none;
-  transition: border-color 180ms ease, box-shadow 180ms ease;
+.brassopedie-atlas-card.is-revealed:hover,
+.brassopedie-atlas-card.is-revealed:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(240, 177, 91, .62);
+  box-shadow: 0 13px 30px rgba(0, 0, 0, .3), 0 0 0 1px rgba(240, 177, 91, .08);
 }
 
 .brassopedie-atlas-card.is-revealed:hover .brassopedie-atlas-card-image,
 .brassopedie-atlas-card.is-revealed:focus-visible .brassopedie-atlas-card-image {
-  transform: scale(1.045);
-  filter: saturate(1.05) brightness(1.04);
-}
-
-.brassopedie-atlas-card.is-revealed:hover::after,
-.brassopedie-atlas-card.is-revealed:focus-visible::after {
-  border-color: rgba(240, 177, 91, .72);
-  box-shadow: inset 0 0 0 1px rgba(240, 177, 91, .12);
+  transform: scale(1.01);
+  filter: drop-shadow(0 7px 15px rgba(0, 0, 0, .42)) saturate(1.04) brightness(1.03);
 }
 
 .brassopedie-atlas-card:focus-visible {
@@ -179,15 +186,16 @@
 
 .brassopedie-atlas-card.is-locked {
   cursor: default;
-  box-shadow: none;
-  opacity: .72;
+  border-color: rgba(210, 154, 84, .08);
+  box-shadow: inset 0 1px 0 rgba(255, 226, 180, .02);
+  opacity: .7;
 }
 
 .brassopedie-atlas-card.is-locked .brassopedie-atlas-card-media {
   display: grid;
   place-items: center;
   background:
-    radial-gradient(circle at 50% 42%, rgba(225, 158, 78, .11), transparent 26%),
+    radial-gradient(circle at 50% 42%, rgba(225, 158, 78, .1), transparent 27%),
     linear-gradient(145deg, rgba(45, 27, 17, .72), rgba(10, 7, 5, .94));
 }
 
@@ -196,14 +204,14 @@
   position: absolute;
   inset: 18% 28%;
   border-radius: 48% 48% 36% 36%;
-  background: rgba(0, 0, 0, .24);
+  background: rgba(0, 0, 0, .22);
   filter: blur(9px);
 }
 
 .brassopedie-atlas-card-lock {
   position: relative;
   z-index: 2;
-  color: rgba(242, 190, 119, .48);
+  color: rgba(242, 190, 119, .46);
   font-family: var(--font-serif);
   font-size: clamp(2.4rem, 5vw, 4.8rem);
   font-weight: 400;
@@ -219,7 +227,7 @@
   font-size: 2rem;
 }
 
-/* Integrated style detail: no modal, no nested card shell. */
+/* Integrated style detail: keep the page flat and let only the back control float. */
 .brassopedie-atlas--detail {
   max-width: 1320px;
 }
@@ -228,46 +236,36 @@
   width: 100%;
 }
 
-.brassopedie-detail-topbar {
-  position: sticky;
-  top: 0;
-  z-index: 8;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  margin: -10px 0 24px;
-  padding: 10px 0 13px;
-  border-bottom: 1px solid rgba(226, 160, 73, .18);
-  background: linear-gradient(180deg, rgba(16, 10, 6, .96) 68%, rgba(16, 10, 6, .76) 86%, transparent);
-}
-
 .brassopedie-detail-back {
-  border: 0;
-  padding: 7px 0;
-  background: transparent;
+  position: sticky;
+  top: 10px;
+  z-index: 8;
+  width: max-content;
+  margin: 0 0 12px;
+  border: 1px solid rgba(233, 174, 89, .28);
+  border-radius: 999px;
+  padding: 8px 13px 8px 11px;
+  background: rgba(18, 11, 6, .78);
   color: #f0b66d;
-  font: 700 .82rem/1 var(--font-body);
-  letter-spacing: .03em;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .18);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font: 700 .8rem/1 var(--font-body);
+  letter-spacing: .02em;
   cursor: pointer;
+  transition: color 160ms ease, border-color 160ms ease, background 160ms ease;
 }
 
 .brassopedie-detail-back:hover,
 .brassopedie-detail-back:focus-visible {
   color: #ffe0ad;
+  border-color: rgba(240, 177, 91, .58);
+  background: rgba(27, 16, 8, .9);
 }
 
 .brassopedie-detail-back:focus-visible {
   outline: 1px solid #f0b15b;
-  outline-offset: 5px;
-}
-
-.brassopedie-detail-breadcrumb {
-  overflow: hidden;
-  color: rgba(225, 198, 158, .58);
-  font-size: .74rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  outline-offset: 4px;
 }
 
 .brassopedie-detail-hero {
@@ -275,7 +273,7 @@
   grid-template-columns: minmax(260px, .72fr) minmax(340px, 1.28fr);
   align-items: center;
   gap: clamp(30px, 5vw, 72px);
-  padding: 8px 0 clamp(32px, 5vw, 64px);
+  padding: 0 0 clamp(32px, 5vw, 64px);
 }
 
 .brassopedie-detail-media {
@@ -287,13 +285,23 @@
   display: block;
   width: 100%;
   aspect-ratio: 1060 / 1484;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 18px;
   box-shadow: 0 24px 72px rgba(0, 0, 0, .48), 0 0 34px rgba(189, 103, 37, .14);
 }
 
 .brassopedie-detail-intro {
   max-width: 760px;
+}
+
+.brassopedie-detail-kicker {
+  margin: 0 0 7px;
+  color: #dba85e;
+  font-family: var(--font-body);
+  font-size: .76rem;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
 }
 
 .brassopedie-detail-title {
@@ -338,11 +346,42 @@
 
 .brassopedie-detail-metric {
   min-width: 0;
-  padding: 17px clamp(10px, 2vw, 22px);
+  padding: 16px clamp(10px, 2vw, 22px) 17px;
 }
 
 .brassopedie-detail-metric + .brassopedie-detail-metric {
   border-left: 1px solid rgba(226, 160, 73, .14);
+}
+
+.brassopedie-detail-metric-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 7px;
+}
+
+.brassopedie-detail-metric-icon {
+  flex: 0 0 20px;
+  width: 20px;
+  height: 20px;
+  color: #d99548;
+  filter: drop-shadow(0 0 6px rgba(217, 149, 72, .14));
+}
+
+.brassopedie-detail-metric-icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.45;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.brassopedie-detail-metric-icon .metric-icon-fill {
+  fill: currentColor;
+  fill-opacity: .2;
 }
 
 .brassopedie-detail-metric-label,
@@ -351,11 +390,10 @@
 }
 
 .brassopedie-detail-metric-label {
-  margin-bottom: 6px;
-  color: rgba(216, 189, 147, .66);
-  font-size: .68rem;
+  color: rgba(216, 189, 147, .68);
+  font-size: .66rem;
   font-weight: 700;
-  letter-spacing: .11em;
+  letter-spacing: .1em;
   text-transform: uppercase;
 }
 
@@ -483,19 +521,8 @@
     padding-inline: clamp(14px, 3vw, 28px);
   }
 
-  .brassopedie-atlas-header {
-    align-items: start;
-    flex-direction: column;
-    gap: 14px;
-  }
-
   .brassopedie-atlas-progress {
-    width: 100%;
-    flex-basis: auto;
-  }
-
-  .brassopedie-atlas-progress-label {
-    text-align: left;
+    width: min(320px, 58%);
   }
 
   .brassopedie-detail-hero {
@@ -518,6 +545,14 @@
 }
 
 @media (max-width: 620px) {
+  .brassopedie-atlas-progress {
+    width: 100%;
+  }
+
+  .brassopedie-atlas-progress-label {
+    text-align: left;
+  }
+
   .brassopedie-atlas-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
@@ -527,22 +562,21 @@
     border-radius: 12px;
   }
 
+  .brassopedie-atlas-card-media {
+    inset-bottom: 58px;
+  }
+
   .brassopedie-atlas-card-caption {
-    padding: 28px 10px 10px;
+    min-height: 58px;
+    padding: 7px 9px 8px;
   }
 
   .brassopedie-atlas-card-title {
-    font-size: .82rem;
+    font-size: .8rem;
   }
 
   .brassopedie-atlas-card-meta {
-    font-size: .66rem;
-  }
-
-  .brassopedie-detail-topbar {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 4px;
+    font-size: .64rem;
   }
 
   .brassopedie-detail-metrics {
@@ -564,7 +598,9 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .brassopedie-atlas-card-image {
+  .brassopedie-atlas-card,
+  .brassopedie-atlas-card-image,
+  .brassopedie-detail-back {
     transition: none;
   }
 }
