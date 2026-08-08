@@ -1,4 +1,4 @@
-import collectionJson from "./brassopedie/collection-07-ales-ambrees-brunes-maltees-et-fortes.json" with { type: "json" };
+import collectionJson from "./brassopedie/collection-07-ales-ambrees-brunes-maltees-et-fortes.js";
 import { createCollectionBundle } from "./create-collection-bundle.js";
 import {
   alesAmbreesBrunesMalteesEtFortesAssets,
