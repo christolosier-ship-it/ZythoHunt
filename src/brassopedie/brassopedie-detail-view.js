@@ -90,8 +90,14 @@ function createRecipe(recipe = {}) {
 /**
  * Shared style sheet renderer used by both the inline Brassopédie and the
  * ZythoSphère overlay. The surrounding view only supplies its navigation action.
+ * @param {{
+ *   card: any,
+ *   cardsById?: Record<string, any>,
+ *   action?: { label?: string, ariaLabel?: string, className?: string, onClick?: () => void } | null,
+ *   variant?: string
+ * }} options
  */
-export function createBrassopedieDetailView({ card, cardsById = {}, action = null, variant = "inline" } = {}) {
+export function createBrassopedieDetailView({ card, cardsById = {}, action = null, variant = "inline" }) {
   if (!card?.brassopedie) return { article: null, actionButton: null };
 
   const entry = card.brassopedie;
