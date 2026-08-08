@@ -1,12 +1,16 @@
 import collectionJson from "./brassopedie/collection-01-lagers-et-fermentations-basses.json" with { type: "json" };
+import { applyEncyclopedicEnrichment } from "./brassopedie/apply-encyclopedic-enrichment.js";
+import { lagersEncyclopedicEnrichment } from "./brassopedie/enrichment/collection-01-lagers-enrichment.js";
 import { createCollectionBundle } from "./create-collection-bundle.js";
 import {
   lagersEtFermentationsBassesAssets,
   lagersEtFermentationsBassesCardImages
 } from "./card-assets/lagers-et-fermentations-basses-assets.js";
 
+const enrichedCollectionJson = applyEncyclopedicEnrichment(collectionJson, lagersEncyclopedicEnrichment);
+
 const bundle = createCollectionBundle({
-  collectionJson,
+  collectionJson: enrichedCollectionJson,
   collectionId: "lagers-et-fermentations-basses",
   slug: "lagers-et-fermentations-basses",
   subtitle: "45 cartes Brassopédie à illustrer",
