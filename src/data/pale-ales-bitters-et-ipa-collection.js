@@ -1,4 +1,4 @@
-import collectionJson from "./brassopedie/collection-02-pale-ales-bitters-et-ipa.json" with { type: "json" };
+import collectionJson from "./brassopedie/collection-02-pale-ales-bitters-et-ipa.js";
 import { createCollectionBundle } from "./create-collection-bundle.js";
 import {
   paleAlesBittersEtIpaAssets,
