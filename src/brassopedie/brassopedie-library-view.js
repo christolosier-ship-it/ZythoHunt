@@ -115,6 +115,7 @@ function createCollectionProgress(model) {
 function createStyleTile(style, onOpen) {
   const button = el("button", `brassopedie-atlas-card ${style.discovered ? "is-revealed" : "is-locked"}`);
   button.type = "button";
+  button.style.aspectRatio = "1 / 1";
   button.dataset.cardId = style.id;
   button.disabled = !style.canOpen;
   button.setAttribute("aria-label", style.canOpen ? `Ouvrir la fiche ${style.label}` : "Style non révélé");
