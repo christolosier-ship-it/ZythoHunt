@@ -1,26 +1,77 @@
-const DEFAULT_KEY = "zythohunt.discovery.porters-et-stouts.v1";
-const LEGACY_KEY = "zythohunt_revealed";
+import { readJson, toPersistenceStatus, writeJson } from "../storage/safe-storage.js";
+
+export const DEFAULT_DISCOVERY_KEY = "zythohunt.discovery.porters-et-stouts.v1";
+export const LEGACY_DISCOVERY_KEY = "zythohunt_revealed";
 const LEGACY_MAP = { 0: "stout", 4: "imperial-stout", 8: "baltic-porter" };
 
-export function createDiscoveryStore({ key = DEFAULT_KEY } = {}) {
+/**
+ * @param {{
+ *   key?: string,
+ *   storage?: Storage | any,
+ *   onPersistenceError?: ((detail: { scope: string, key: string, error: unknown }) => void) | null
+ * }} [options]
+ */
+export function createDiscoveryStore({
+  key = DEFAULT_DISCOVERY_KEY,
+  storage = globalThis.localStorage,
+  onPersistenceError = null
+} = {}) {
   let discovered = read();
-  function read() {
-    try {
-      const raw = localStorage.getItem(key);
-      const data = raw && JSON.parse(raw);
-      if (data?.schemaVersion === 2 && data.discovered && typeof data.discovered === "object") return data.discovered;
-      const legacy = JSON.parse(localStorage.getItem(LEGACY_KEY) || "null");
-      const next = {};
-      if (Array.isArray(legacy)) legacy.forEach((i) => { if (LEGACY_MAP[i]) next[LEGACY_MAP[i]] = { discoveredAt: new Date().toISOString() }; });
-      write(next);
-      return next;
-    } catch { return {}; }
+
+  function reportPersistenceError(error) {
+    onPersistenceError?.({ scope: "discovery", key, error });
   }
-  function write(value) { try { localStorage.setItem(key, JSON.stringify({ schemaVersion: 2, discovered: value })); } catch {} }
+
+  function persist(value) {
+    const result = writeJson(storage, key, { schemaVersion: 2, discovered: value });
+    if (!result.ok) reportPersistenceError(result.error);
+    return toPersistenceStatus(result);
+  }
+
+  function read() {
+    const current = readJson(storage, key, () => null);
+    const data = current.value;
+    if (data?.schemaVersion === 2 && data.discovered && typeof data.discovered === "object") {
+      return data.discovered;
+    }
+
+    // L'ancien tableau zythohunt_revealed ne concernait que la collection
+    // historique Porters & Stouts. Il ne doit jamais contaminer les autres stores.
+    if (key !== DEFAULT_DISCOVERY_KEY) return {};
+
+    const legacyResult = readJson(storage, LEGACY_DISCOVERY_KEY, () => null);
+    const legacy = legacyResult.value;
+    const next = {};
+    if (Array.isArray(legacy)) {
+      legacy.forEach((index) => {
+        const id = LEGACY_MAP[index];
+        if (id) next[id] = { discoveredAt: new Date().toISOString() };
+      });
+    }
+
+    if (Object.keys(next).length) persist(next);
+    return next;
+  }
+
   return {
     isDiscovered: (id) => Boolean(discovered[id]),
-    markDiscovered(id) { discovered[id] = { discoveredAt: new Date().toISOString() }; write(discovered); },
-    reset() { discovered = {}; write(discovered); },
+    markDiscovered(id) {
+      const next = {
+        ...discovered,
+        [id]: { discoveredAt: new Date().toISOString() }
+      };
+      const persistence = persist(next);
+      // La session reste cohérente visuellement même si le navigateur refuse
+      // l'écriture. Le statut retourné permet d'éviter d'annoncer un succès durable.
+      discovered = next;
+      return { ...persistence, id };
+    },
+    reset() {
+      const next = {};
+      const persistence = persist(next);
+      discovered = next;
+      return persistence;
+    },
     getDiscoveredIds: () => Object.keys(discovered)
   };
 }
