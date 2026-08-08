@@ -23,7 +23,8 @@ test("lager encyclopedic pilot covers every collection card", () => {
 });
 
 test("every lager pilot entry carries developed history, recipe structure and traceable sources", () => {
-  Object.entries(lagersEncyclopedicEnrichment.cards).forEach(([id, patch]) => {
+  Object.entries(lagersEncyclopedicEnrichment.cards).forEach(([id, patchValue]) => {
+    const patch = /** @type {any} */ (patchValue);
     assert.ok(String(patch.histoireEtOrigines || "").trim(), `${id}: missing history`);
     assert.ok(String(patch.histoireEtOrigines).includes("\n\n"), `${id}: history should be structured in paragraphs`);
     assert.ok(patch.recette, `${id}: missing recipe`);
