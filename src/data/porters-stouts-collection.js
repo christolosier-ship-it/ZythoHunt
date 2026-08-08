@@ -1,4 +1,4 @@
-import collectionJson from "./brassopedie/collection-03-porters-et-stouts.json" with { type: "json" };
+import collectionJson from "./brassopedie/collection-03-porters-et-stouts.js";
 import { createCollectionBundle } from "./create-collection-bundle.js";
 import {
   porterStoutCardImages,
