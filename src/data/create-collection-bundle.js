@@ -40,7 +40,9 @@ export function createCollectionBundle({
 }) {
   const sourceCollection = collectionJson.collection || {};
   const normalizedSlug = slug || sourceCollection.slug || slugifyCollectionId(sourceCollection.nom);
-  const collectionAssets = assets.collection || {};
+  /** @type {{ basePath: string, cardBack?: string, collectionFace?: string }} */
+  const collectionAssets = assets.collection;
+  /** @type {Record<string, string>} */
   const cardImages = assets.cards || {};
   const { assetPath, thumbPath } = createCollectionAssetPaths(collectionAssets.basePath);
   const cardBack = assetPath(collectionAssets.cardBack);
