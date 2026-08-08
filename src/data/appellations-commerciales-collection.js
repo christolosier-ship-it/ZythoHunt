@@ -1,10 +1,11 @@
-import collectionJson from "./brassopedie/collection-09-appellations-commerciales.json" with { type: "json" };
+import collectionJson from "./brassopedie/collection-09-appellations-commerciales.js";
 import { createCollectionBundle } from "./create-collection-bundle.js";
 import {
   appellationsCommercialesAssets,
   appellationsCommercialesCardImages
 } from "./card-assets/appellations-commerciales-assets.js";
 
+// La collection 09 est désormais fournie comme source canonique complète de 30 fiches.
 const bundle = createCollectionBundle({
   collectionJson,
   collectionId: "appellations-commerciales",
