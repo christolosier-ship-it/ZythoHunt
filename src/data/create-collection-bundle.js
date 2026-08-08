@@ -24,8 +24,7 @@ export function createCollectionBundle({
   backgroundPreset,
   assetsReady
 }) {
-  const sourceJson = collectionJson;
-  const sourceCollection = sourceJson.collection || {};
+  const sourceCollection = collectionJson.collection || {};
   const normalizedSlug = slug || sourceCollection.slug || slugifyCollectionId(sourceCollection.nom);
   const collectionAssets = assets.collection || {};
   const cardImages = assets.cards || {};
@@ -48,10 +47,10 @@ export function createCollectionBundle({
     cardBackThumb: thumbPath(collectionAssets.cardBack),
     collectionFaceThumb: thumbPath(collectionAssets.collectionFace),
     backgroundPreset,
-    cardIds: sourceJson.cartes.map((entry) => entry.id)
+    cardIds: collectionJson.cartes.map((entry) => entry.id)
   };
 
-  const cards = sourceJson.cartes.map((entry) => {
+  const cards = collectionJson.cartes.map((entry) => {
     const fileName = cardImages[entry.id];
     const image = assetPath(fileName);
     return {
