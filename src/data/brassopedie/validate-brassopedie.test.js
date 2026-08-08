@@ -4,6 +4,7 @@ import lagers from "./collection-01-lagers-et-fermentations-basses.js";
 import paleAles from "./collection-02-pale-ales-bitters-et-ipa.js";
 import portersStouts from "./collection-03-porters-et-stouts.js";
 import belgianFrench from "./collection-04-traditions-belges-et-francaises.js";
+import wheatRye from "./collection-05-bieres-de-ble-et-de-seigle.js";
 import { collectionBundles } from "../collections.js";
 
 const recipeKeys = [
@@ -22,7 +23,8 @@ const canonicalCollections = [
   { label: "lagers", data: lagers, expected: 45 },
   { label: "pale-ales-bitters-et-ipa", data: paleAles, expected: 36 },
   { label: "porters-et-stouts", data: portersStouts, expected: 22 },
-  { label: "traditions-belges-et-francaises", data: belgianFrench, expected: 17 }
+  { label: "traditions-belges-et-francaises", data: belgianFrench, expected: 17 },
+  { label: "bieres-de-ble-et-de-seigle", data: wheatRye, expected: 13 }
 ];
 
 test("all collection bundles pass their structural validator", () => {

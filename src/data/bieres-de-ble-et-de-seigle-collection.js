@@ -1,4 +1,4 @@
-import collectionJson from "./brassopedie/collection-05-bieres-de-ble-et-de-seigle.json" with { type: "json" };
+import collectionJson from "./brassopedie/collection-05-bieres-de-ble-et-de-seigle.js";
 import { createCollectionBundle } from "./create-collection-bundle.js";
 import {
   bieresDeBleEtDeSeigleAssets,
