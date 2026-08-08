@@ -9,6 +9,11 @@ const el = (tag, className, text) => {
 };
 
 const paragraph = (text, className = "brassopedie-detail-text") => text ? el("p", className, text) : null;
+const paragraphs = (text, className = "brassopedie-detail-text") => String(text || "")
+  .split(/\n\s*\n/)
+  .map((item) => item.trim())
+  .filter(Boolean)
+  .map((item) => el("p", className, item));
 
 const METRIC_ICONS = Object.freeze({
   alcohol: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2s5 6.1 5 10.2a5 5 0 0 1-10 0c0-4.1 5-10.2 5-10.2Z"/><path d="M9.7 15.1c.6 1.1 1.5 1.7 2.8 1.8"/></svg>',
@@ -75,7 +80,7 @@ function createRecipe(recipe = {}) {
   if (recipe.profilUnique === false) {
     content.appendChild(paragraph("Profil variable selon le sous-style ou l’interprétation.", "brassopedie-detail-note"));
   }
-  if (recipe.explicationProfil) content.appendChild(paragraph(recipe.explicationProfil));
+  paragraphs(recipe.explicationProfil).forEach((item) => content.appendChild(item));
 
   const groups = el("div", "brassopedie-detail-recipe-groups");
   recipeSections(recipe).forEach(({ title, items }) => {
@@ -85,6 +90,23 @@ function createRecipe(recipe = {}) {
   });
   if (groups.childElementCount) content.append(groups);
   return content;
+}
+
+function createSource(source) {
+  const text = [source.organisme, source.edition, source.reference, source.type].filter(Boolean).join(" · ");
+  if (!text) return null;
+
+  const item = el("p", "brassopedie-detail-text brassopedie-detail-source");
+  if (source.url) {
+    const link = el("a", "", text);
+    link.href = source.url;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    item.appendChild(link);
+  } else {
+    item.textContent = text;
+  }
+  return item;
 }
 
 /**
@@ -140,7 +162,8 @@ export function createBrassopedieDetailView({ card, cardsById = {}, action = nul
   ].forEach(([kind, label, value]) => metrics.appendChild(createMetric(kind, label, value)));
 
   const story = el("div", "brassopedie-detail-story");
-  if (entry.histoireEtOrigines) story.appendChild(createDetailSection("Histoire & origines", [paragraph(entry.histoireEtOrigines)]));
+  const historyParagraphs = paragraphs(entry.histoireEtOrigines);
+  if (historyParagraphs.length) story.appendChild(createDetailSection("Histoire & origines", historyParagraphs));
   const serviceChildren = [paragraph(`Température : ${service.temperature}`)];
   if (service.glasses.length) serviceChildren.push(list(service.glasses));
   story.appendChild(createDetailSection("Service", serviceChildren));
@@ -149,10 +172,7 @@ export function createBrassopedieDetailView({ card, cardsById = {}, action = nul
 
   const sources = el("details", "brassopedie-detail-sources");
   sources.appendChild(el("summary", "", "Sources"));
-  (entry.sources || []).forEach((source) => {
-    const text = [source.organisme, source.edition, source.reference, source.type].filter(Boolean).join(" · ");
-    if (text) sources.appendChild(paragraph(text));
-  });
+  (entry.sources || []).map(createSource).filter(Boolean).forEach((item) => sources.appendChild(item));
 
   article.append(hero, metrics, story, recipeSection, sources);
   return { article, actionButton };
