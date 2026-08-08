@@ -1,3 +1,4 @@
+import "./brassopedie-encyclopedic.css";
 import { assetUrl } from "../utils/asset-url.js";
 import { formatRange, formatService, natureLabel, parentName, recipeSections } from "./brassopedie-formatters.js";
 
