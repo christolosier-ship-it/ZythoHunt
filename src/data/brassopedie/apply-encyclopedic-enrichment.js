@@ -1,3 +1,8 @@
+/**
+ * Overlay richer editorial content on a collection without mutating its base taxonomy.
+ * @param {any} collectionJson
+ * @param {any} [enrichment]
+ */
 export function applyEncyclopedicEnrichment(collectionJson, enrichment = {}) {
   const patches = enrichment.cards || {};
   const cards = (collectionJson.cartes || []).map((entry) => {
