@@ -5,6 +5,7 @@ import {
   appellationsCommercialesCardImages
 } from "./card-assets/appellations-commerciales-assets.js";
 
+// La collection 09 est désormais fournie comme source canonique complète de 30 fiches.
 const bundle = createCollectionBundle({
   collectionJson,
   collectionId: "appellations-commerciales",
