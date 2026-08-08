@@ -2,7 +2,12 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { runRevealCycle } from "./reveal-cycle.js";
 
-function createHarness({ discovered = false, revealStatus = "completed", revealError = null } = {}) {
+function createHarness({
+  discovered = false,
+  revealStatus = "completed",
+  revealError = null,
+  persistence = { ok: true, persisted: true, error: null }
+} = {}) {
   const calls = [];
   const card = { id: "stout", name: "Stout" };
   const store = {
@@ -12,6 +17,7 @@ function createHarness({ discovered = false, revealStatus = "completed", revealE
     },
     markDiscovered(id) {
       calls.push(`mark:${id}`);
+      return persistence;
     }
   };
   const carousel = {
@@ -47,7 +53,7 @@ function createHarness({ discovered = false, revealStatus = "completed", revealE
     },
     async returnToSource({ beforeSourceRestore }) {
       calls.push("return");
-      beforeSourceRestore();
+      await beforeSourceRestore();
       calls.push("restored");
     }
   };
@@ -66,7 +72,10 @@ test("runs the complete reveal cycle in a deterministic order", async () => {
     onDiscovered: () => harness.calls.push("discovered")
   });
 
-  assert.deepEqual(result, { status: "completed" });
+  assert.deepEqual(result, {
+    status: "completed",
+    persistence: { ok: true, persisted: true, error: null }
+  });
   assert.deepEqual(harness.calls, [
     "prepare",
     "focus:stout",
@@ -84,6 +93,24 @@ test("runs the complete reveal cycle in a deterministic order", async () => {
     "after",
     "unlock"
   ]);
+});
+
+test("returns completed-unsaved and reports a persistence failure without blocking cleanup", async () => {
+  const error = new Error("quota");
+  const harness = createHarness({ persistence: { ok: false, persisted: false, error } });
+
+  const result = await runRevealCycle({
+    ...harness,
+    afterReveal: async () => harness.calls.push("after"),
+    onDiscovered: () => harness.calls.push("discovered"),
+    onPersistenceFailure: () => harness.calls.push("persistence-failure")
+  });
+
+  assert.equal(result.status, "completed-unsaved");
+  assert.equal(result.persistence.ok, false);
+  assert.equal(result.persistence.error, error);
+  assert.equal(harness.calls.includes("discovered"), false);
+  assert.deepEqual(harness.calls.slice(-4), ["persistence-failure", "restored", "after", "unlock"]);
 });
 
 test("stops before the animation when the card is already discovered", async () => {
