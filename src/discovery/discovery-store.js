@@ -22,15 +22,17 @@ export function createDiscoveryStore({
     onPersistenceError?.({ scope: "discovery", key, error });
   }
 
+  /** @param {Record<string, { discoveredAt: string }>} value */
   function persist(value) {
     const result = writeJson(storage, key, { schemaVersion: 2, discovered: value });
     if (!result.ok) reportPersistenceError(result.error);
     return toPersistenceStatus(result);
   }
 
+  /** @returns {Record<string, { discoveredAt: string }>} */
   function read() {
     const current = readJson(storage, key, () => null);
-    const data = current.value;
+    const data = /** @type {{ schemaVersion?: number, discovered?: Record<string, { discoveredAt: string }> } | null} */ (current.value);
     if (data?.schemaVersion === 2 && data.discovered && typeof data.discovered === "object") {
       return data.discovered;
     }
@@ -40,7 +42,8 @@ export function createDiscoveryStore({
     if (key !== DEFAULT_DISCOVERY_KEY) return {};
 
     const legacyResult = readJson(storage, LEGACY_DISCOVERY_KEY, () => null);
-    const legacy = legacyResult.value;
+    const legacy = /** @type {unknown} */ (legacyResult.value);
+    /** @type {Record<string, { discoveredAt: string }>} */
     const next = {};
     if (Array.isArray(legacy)) {
       legacy.forEach((index) => {
