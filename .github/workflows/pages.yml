@@ -44,16 +44,8 @@ jobs:
           cache: pnpm
           cache-dependency-path: pnpm-lock.yaml
 
-      - name: Resolve dependencies for lockfile refresh
-        run: pnpm install --no-frozen-lockfile
-
-      - name: Export refreshed lockfile
-        if: github.event_name == 'pull_request'
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
-        with:
-          name: refreshed-pnpm-lock
-          path: pnpm-lock.yaml
-          retention-days: 1
+      - name: Install frozen dependencies
+        run: pnpm install --frozen-lockfile
 
       - name: Check application
         run: pnpm check
@@ -92,8 +84,8 @@ jobs:
           cache: pnpm
           cache-dependency-path: pnpm-lock.yaml
 
-      - name: Resolve dependencies for browser tests
-        run: pnpm install --no-frozen-lockfile
+      - name: Install frozen dependencies
+        run: pnpm install --frozen-lockfile
 
       - name: Install Chromium
         run: pnpm exec playwright install --with-deps chromium
