@@ -10,7 +10,22 @@ import { createRevealEngine } from "../reveal/reveal-engine.js";
 import { motionTokens } from "../animation/motion-tokens.js";
 import { createBrassopediePanel, shouldOpenBrassopedie } from "../brassopedie/brassopedie-panel.js";
 
-export async function mountCollectionSession({ bundle, elements, background, collectionBundles, onExternalMatch, pendingReveal, beforeValidReveal, onUnknownReveal, onAlreadyDiscoveredReveal, onNewDiscoveryReveal, onExternalCollectionReveal, skipInitialPreload = false }) {
+export async function mountCollectionSession({
+  bundle,
+  elements,
+  background,
+  collectionCatalog,
+  loadCollectionBundle,
+  onExternalMatch,
+  beforeValidReveal,
+  onUnknownReveal,
+  onAlreadyDiscoveredReveal,
+  onNewDiscoveryReveal,
+  onExternalCollectionReveal,
+  onPersistenceFailure,
+  onPersistenceError,
+  skipInitialPreload = false
+}) {
   const { collection, cards, cardsById } = bundle;
   const assetQueue = createAssetPreloadQueue({ collection, cards });
 
@@ -30,7 +45,10 @@ export async function mountCollectionSession({ bundle, elements, background, col
     elements.revealSearchFeedback.classList.remove("is-error");
   }
 
-  const store = createDiscoveryStore({ key: collection.discoveryKey });
+  const store = createDiscoveryStore({
+    key: collection.discoveryKey,
+    onPersistenceError
+  });
   const brassopediePanel = createBrassopediePanel({
     cardsById,
     onOpen: () => background.pause(),
@@ -61,6 +79,13 @@ export async function mountCollectionSession({ bundle, elements, background, col
     motionTokens
   });
 
+  const resolver = createGlobalBeerResolver({
+    preferredBundle: bundle,
+    preferredCollectionId: collection.id,
+    collectionCatalog,
+    loadCollectionBundle
+  });
+
   const discovery = createDiscoveryController({
     formEl: elements.revealSearchForm,
     inputEl: elements.revealSearchInput,
@@ -69,7 +94,7 @@ export async function mountCollectionSession({ bundle, elements, background, col
     carousel,
     revealEngine,
     store,
-    resolver: createGlobalBeerResolver(collectionBundles, collection.id),
+    resolver,
     cards,
     progressEl: elements.progressDisplay,
     closeSettings: () => {},
@@ -81,13 +106,10 @@ export async function mountCollectionSession({ bundle, elements, background, col
     onUnknownReveal,
     onAlreadyDiscoveredReveal,
     onNewDiscoveryReveal,
-    onExternalCollectionReveal
+    onExternalCollectionReveal,
+    onPersistenceFailure
   });
   discovery.mount();
-
-  if (pendingReveal?.collectionId === collection.id) {
-    requestAnimationFrame(() => { void discovery.revealCard(pendingReveal.cardId, { focusInput: false }); });
-  }
 
   return {
     collection,
