@@ -70,6 +70,7 @@ export function createDiscoveryStore({
       return { ...persistence, id };
     },
     reset() {
+      /** @type {Record<string, { discoveredAt: string }>} */
       const next = {};
       const persistence = persist(next);
       discovered = next;
