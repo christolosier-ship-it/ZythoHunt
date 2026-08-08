@@ -438,6 +438,11 @@
   margin: 0;
 }
 
+.brassopedie-detail-section > .brassopedie-detail-text + .brassopedie-detail-text,
+.brassopedie-detail-recipe > .brassopedie-detail-text + .brassopedie-detail-text {
+  margin-top: 1.05em;
+}
+
 .brassopedie-detail-list {
   margin: 8px 0 0 18px;
   padding: 0;
@@ -491,6 +496,24 @@
 .brassopedie-detail-sources .brassopedie-detail-text {
   margin-top: 10px;
   font-size: .85rem;
+}
+
+.brassopedie-detail-source-link {
+  color: inherit;
+  text-decoration-color: rgba(219, 168, 94, .42);
+  text-underline-offset: 3px;
+}
+
+.brassopedie-detail-source-link:hover,
+.brassopedie-detail-source-link:focus-visible {
+  color: #f1c981;
+  text-decoration-color: currentColor;
+}
+
+.brassopedie-detail-source-link:focus-visible {
+  outline: 1px solid rgba(240, 177, 91, .7);
+  outline-offset: 3px;
+  border-radius: 3px;
 }
 
 @media (max-width: 1100px) {

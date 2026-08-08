@@ -13,11 +13,7 @@ const paragraphs = (text, className = "brassopedie-detail-text") => String(text 
   .split(/\n\s*\n/)
   .map((item) => item.trim())
   .filter(Boolean)
-  .map((item, index) => {
-    const node = el("p", className, item);
-    if (index > 0) node.style.marginTop = "1.05em";
-    return node;
-  });
+  .map((item) => el("p", className, item));
 
 const METRIC_ICONS = Object.freeze({
   alcohol: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2s5 6.1 5 10.2a5 5 0 0 1-10 0c0-4.1 5-10.2 5-10.2Z"/><path d="M9.7 15.1c.6 1.1 1.5 1.7 2.8 1.8"/></svg>',
@@ -102,12 +98,10 @@ function createSource(source) {
 
   const item = el("p", "brassopedie-detail-text brassopedie-detail-source");
   if (source.url) {
-    const link = el("a", "", text);
+    const link = el("a", "brassopedie-detail-source-link", text);
     link.href = source.url;
     link.target = "_blank";
     link.rel = "noopener noreferrer";
-    link.style.color = "inherit";
-    link.style.textUnderlineOffset = "3px";
     item.appendChild(link);
   } else {
     item.textContent = text;
