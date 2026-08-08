@@ -1,4 +1,3 @@
-/** @typedef {any} Any */
 import gsap from "gsap";
 import { createQuickReveal, createRevealTimeline } from "../animation/reveal-timeline.js";
 
@@ -11,7 +10,10 @@ const STATES = {
   DESTROYED: "destroyed"
 };
 
-export function createRevealEngine(/** @type {any} */ {
+const BACKGROUND_SELECTORS = ["#app-sidebar", "#app-shell-main"];
+const FOCUSABLE_SELECTOR = "button, [href], input, select, textarea, [tabindex]:not([tabindex='-1'])";
+
+export function createRevealEngine({
   stageEl,
   overlayEl,
   revealOverlay,
@@ -27,8 +29,8 @@ export function createRevealEngine(/** @type {any} */ {
   let currentCardData = null;
   let currentSceneContext = null;
   let previousFocus = null;
-  const inertSelectors = ["#app-header", "#reveal-search-form", "#carousel-container"];
   let cleanupModal = null;
+  const previousInertState = new Map();
 
   function isBusy() {
     return [STATES.PREPARING, STATES.REVEALING, STATES.COMPLETE, STATES.RETURNING].includes(state);
@@ -39,36 +41,100 @@ export function createRevealEngine(/** @type {any} */ {
   }
 
   function setBackgroundInert(value) {
-    inertSelectors.forEach((selector) => {
-      const el = document.querySelector(selector);
-      if (el && el !== revealOverlay) (/** @type {any} */ (el)).inert = value;
+    if (value) {
+      BACKGROUND_SELECTORS.forEach((selector) => {
+        const element = document.querySelector(selector);
+        if (!(element instanceof HTMLElement) || element === revealOverlay) return;
+        if (!previousInertState.has(element)) previousInertState.set(element, Boolean(element.inert));
+        element.inert = true;
+      });
+      return;
+    }
+
+    previousInertState.forEach((wasInert, element) => {
+      element.inert = wasInert;
     });
+    previousInertState.clear();
+  }
+
+  function getFocusableElements() {
+    return Array.from(revealOverlay?.querySelectorAll(FOCUSABLE_SELECTOR) || [])
+      .filter((element) => element instanceof HTMLElement && !element.hasAttribute("disabled") && element.offsetParent !== null);
+  }
+
+  function focusInsideModal() {
+    const [first] = getFocusableElements();
+    if (first instanceof HTMLElement) {
+      first.focus({ preventScroll: true });
+      return;
+    }
+    if (revealOverlay instanceof HTMLElement) {
+      revealOverlay.tabIndex = -1;
+      revealOverlay.focus({ preventScroll: true });
+    }
   }
 
   function activateModal() {
     previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
     setBackgroundInert(true);
+
+    const onFocusIn = (event) => {
+      if (!revealOverlay || revealOverlay.hidden) return;
+      const target = event.target;
+      if (target instanceof Node && revealOverlay.contains(target)) return;
+      focusInsideModal();
+    };
+
     const onKeyDown = (event) => {
       if (event.key !== "Escape" && event.key !== "Tab") return;
+
       if (event.key === "Escape") {
-        if (state === STATES.COMPLETE) { event.preventDefault(); btnContinue?.click(); }
-        else event.preventDefault();
+        event.preventDefault();
+        if (state === STATES.COMPLETE) btnContinue?.click();
         return;
       }
-      const focusables = Array.from(revealOverlay?.querySelectorAll("button, [href], input, select, textarea, [tabindex]:not([tabindex='-1'])") || []).filter((el) => !el.disabled && el.offsetParent !== null);
-      if (!focusables.length) return;
-      const first = focusables[0], last = focusables[focusables.length - 1];
-      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
-      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+
+      const focusables = getFocusableElements();
+      if (!focusables.length) {
+        event.preventDefault();
+        focusInsideModal();
+        return;
+      }
+
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      const active = document.activeElement;
+      if (!revealOverlay?.contains(active)) {
+        event.preventDefault();
+        (event.shiftKey ? last : first).focus();
+      } else if (event.shiftKey && active === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && active === last) {
+        event.preventDefault();
+        first.focus();
+      }
     };
+
     document.addEventListener("keydown", onKeyDown);
-    cleanupModal = () => { document.removeEventListener("keydown", onKeyDown); setBackgroundInert(false); previousFocus?.focus?.(); cleanupModal = null; previousFocus = null; };
+    document.addEventListener("focusin", onFocusIn);
+    focusInsideModal();
+
+    cleanupModal = () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.removeEventListener("focusin", onFocusIn);
+      setBackgroundInert(false);
+      const focusTarget = previousFocus;
+      cleanupModal = null;
+      previousFocus = null;
+      focusTarget?.focus?.({ preventScroll: true });
+    };
   }
 
   function waitForContinue() {
     if (revealHeadline) revealHeadline.textContent = "Nouvelle carte révélée";
     if (revealActions) revealActions.hidden = false;
-    btnContinue?.focus();
+    btnContinue?.focus({ preventScroll: true });
     return new Promise((resolve) => {
       const done = () => resolve();
       btnContinue?.addEventListener("click", done, { once: true });
@@ -91,9 +157,29 @@ export function createRevealEngine(/** @type {any} */ {
   }
 
   async function restoreContext() {
-    if (currentSceneContext?.restore) {
-      await currentSceneContext.restore();
+    if (currentSceneContext?.restore) await currentSceneContext.restore();
+  }
+
+  function clearCurrentScene() {
+    currentTimeline = null;
+    currentClone = null;
+    currentSourceEl = null;
+    currentCardData = null;
+    currentSceneContext = null;
+  }
+
+  async function finalizeReturn() {
+    restoreSource();
+    currentClone?.remove();
+    resetSceneVisuals();
+    cleanupModal?.();
+    try {
+      await restoreContext();
+    } catch (error) {
+      console.error("Le contexte de révélation n'a pas pu être restauré.", error);
     }
+    clearCurrentScene();
+    state = STATES.IDLE;
   }
 
   async function reveal({ cardEl, cardData, sceneContext, mode = "full" }) {
@@ -127,59 +213,57 @@ export function createRevealEngine(/** @type {any} */ {
     }
   }
 
-  async function returnToSource(/** @type {any} */ { beforeSourceRestore } = {}) {
+  async function returnToSource({ beforeSourceRestore } = {}) {
     if (state === STATES.DESTROYED) return { status: "destroyed" };
-    if (!currentClone || !currentSourceEl) {
-      resetSceneVisuals();
-      cleanupModal?.();
-      await restoreContext();
-      state = STATES.IDLE;
-      return { status: "idle" };
-    }
 
-    state = STATES.RETURNING;
-    currentTimeline?.kill();
     const sourceEl = currentSourceEl;
     const cardData = currentCardData;
     const cloneEl = currentClone;
-    const originalRect = sourceEl.getBoundingClientRect();
+    let deferredError = null;
 
-    await gsap.to(cloneEl, {
-      left: originalRect.left,
-      top: originalRect.top,
-      width: originalRect.width,
-      height: originalRect.height,
-      rotateY: 0,
-      rotateX: 0,
-      rotateZ: 0,
-      boxShadow: "0 4px 16px rgba(0,0,0,0.4)",
-      duration: 0.45,
-      ease: "power3.inOut"
-    });
+    state = STATES.RETURNING;
+    currentTimeline?.kill();
 
-    if (beforeSourceRestore) beforeSourceRestore({ cardEl: sourceEl, cardData });
-    restoreSource();
-    cloneEl.remove();
-    currentClone = null;
-    currentTimeline = null;
-    resetSceneVisuals();
-    cleanupModal?.();
-    await restoreContext();
-    currentSourceEl = null;
-    currentCardData = null;
-    currentSceneContext = null;
-    state = STATES.IDLE;
-    return { status: "returned", cardData };
+    try {
+      if (cloneEl && sourceEl) {
+        const originalRect = sourceEl.getBoundingClientRect();
+        await gsap.to(cloneEl, {
+          left: originalRect.left,
+          top: originalRect.top,
+          width: originalRect.width,
+          height: originalRect.height,
+          rotateY: 0,
+          rotateX: 0,
+          rotateZ: 0,
+          boxShadow: "0 4px 16px rgba(0,0,0,0.4)",
+          duration: 0.45,
+          ease: "power3.inOut"
+        });
+      }
+
+      if (beforeSourceRestore) await beforeSourceRestore({ cardEl: sourceEl, cardData });
+    } catch (error) {
+      deferredError = error;
+    } finally {
+      await finalizeReturn();
+    }
+
+    if (deferredError) throw deferredError;
+    return { status: cloneEl && sourceEl ? "returned" : "idle", cardData };
   }
 
   async function cleanupAfterError() {
     currentTimeline?.kill();
     currentClone?.remove();
-    currentClone = null;
     restoreSource();
     resetSceneVisuals();
     cleanupModal?.();
-    await restoreContext();
+    try {
+      await restoreContext();
+    } catch (error) {
+      console.error("Le contexte n'a pas pu être restauré après une erreur de révélation.", error);
+    }
+    clearCurrentScene();
     state = STATES.IDLE;
   }
 
@@ -190,12 +274,12 @@ export function createRevealEngine(/** @type {any} */ {
     restoreSource();
     resetSceneVisuals();
     cleanupModal?.();
-    if (currentSceneContext?.restore) currentSceneContext.restore();
-    currentTimeline = null;
-    currentClone = null;
-    currentSourceEl = null;
-    currentCardData = null;
-    currentSceneContext = null;
+    if (currentSceneContext?.restore) {
+      Promise.resolve(currentSceneContext.restore()).catch((error) => {
+        console.error("Le contexte n'a pas pu être restauré pendant la destruction.", error);
+      });
+    }
+    clearCurrentScene();
     state = STATES.DESTROYED;
   }
 
