@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -17,6 +17,34 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  canonicalize-collection-08:
+    if: github.event_name == 'pull_request' && github.head_ref == 'content/collection-08-singular-historical-hybrid-encyclopedia'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v4
+        with:
+          ref: content/collection-08-singular-historical-hybrid-encyclopedia
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Generate canonical collection 08
+        run: node scripts/one-off-canonicalize-collection-08.mjs
+
+      - name: Restore normal CI and commit final cleanup
+        run: |
+          git show origin/main:.github/workflows/pages.yml > .github/workflows/pages.yml
+          rm -f scripts/trigger-collection-08.txt
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "content: canonicalise et enrichit les styles singuliers historiques et hybrides [canonical-collection-08]"
+          git push origin HEAD:content/collection-08-singular-historical-hybrid-encyclopedia
+
   build:
     runs-on: ubuntu-latest
     steps:
