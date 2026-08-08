@@ -27,7 +27,9 @@ function persistentDefaults() {
 }
 
 function read(storage) {
-  const stored = readJson(storage, REVEAL_STATS_KEY, persistentDefaults).value || {};
+  const stored = /** @type {Record<string, any>} */ (
+    readJson(storage, REVEAL_STATS_KEY, persistentDefaults).value || {}
+  );
   // Les anciennes versions ont pu persister sessionCollectionIds. On l'ignore
   // explicitement afin qu'une nouvelle ouverture reparte toujours d'une session vide.
   const { sessionCollectionIds: _legacySessionCollectionIds, ...persistent } = stored;
