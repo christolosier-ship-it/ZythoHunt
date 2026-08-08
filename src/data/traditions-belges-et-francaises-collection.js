@@ -1,4 +1,4 @@
-import collectionJson from "./brassopedie/collection-04-traditions-belges-et-francaises.json" with { type: "json" };
+import collectionJson from "./brassopedie/collection-04-traditions-belges-et-francaises.js";
 import { createCollectionBundle } from "./create-collection-bundle.js";
 import {
   traditionsBelgesEtFrancaisesAssets,
