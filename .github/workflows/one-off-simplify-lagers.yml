@@ -1,0 +1,40 @@
+name: One-off simplify Lager encyclopedia
+
+on:
+  push:
+    branches:
+      - refactor/encyclopedia-antispaghetti
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    if: ${{ !contains(github.event.head_commit.message, '[canonical-migration]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: refactor/encyclopedia-antispaghetti
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Generate canonical Lager collection
+        run: node scripts/one-off-simplify-lagers-encyclopedia.mjs
+
+      - name: Commit generated simplification
+        run: |
+          if git diff --quiet && git diff --cached --quiet; then
+            echo "No migration changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "refactor: collapse Lager encyclopedia into one canonical collection [canonical-migration]"
+          git push origin HEAD:refactor/encyclopedia-antispaghetti
