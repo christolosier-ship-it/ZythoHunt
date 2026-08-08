@@ -1,5 +1,4 @@
-import collectionJson from "./brassopedie/collection-01-lagers-et-fermentations-basses.json" with { type: "json" };
-import { lagersEncyclopedicEnrichment } from "./brassopedie/encyclopedia/collections/lagers/index.js";
+import collectionJson from "./brassopedie/collection-01-lagers-et-fermentations-basses.js";
 import { createCollectionBundle } from "./create-collection-bundle.js";
 import {
   lagersEtFermentationsBassesAssets,
@@ -8,7 +7,6 @@ import {
 
 const bundle = createCollectionBundle({
   collectionJson,
-  encyclopedia: lagersEncyclopedicEnrichment,
   collectionId: "lagers-et-fermentations-basses",
   slug: "lagers-et-fermentations-basses",
   subtitle: "45 cartes Brassopédie à illustrer",

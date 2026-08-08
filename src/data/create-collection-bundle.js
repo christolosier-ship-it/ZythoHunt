@@ -1,5 +1,4 @@
 import { createCollectionAssetPaths } from "./create-collection-asset-paths.js";
-import { applyEncyclopedicEnrichment } from "./brassopedie/encyclopedia/apply-encyclopedic-enrichment.js";
 
 export function slugifyCollectionId(value) {
   return String(value || "")
@@ -15,7 +14,6 @@ export function slugifyCollectionId(value) {
 
 export function createCollectionBundle({
   collectionJson,
-  encyclopedia = null,
   collectionId,
   slug,
   subtitle,
@@ -26,9 +24,7 @@ export function createCollectionBundle({
   backgroundPreset,
   assetsReady
 }) {
-  const sourceJson = encyclopedia
-    ? applyEncyclopedicEnrichment(collectionJson, encyclopedia)
-    : collectionJson;
+  const sourceJson = collectionJson;
   const sourceCollection = sourceJson.collection || {};
   const normalizedSlug = slug || sourceCollection.slug || slugifyCollectionId(sourceCollection.nom);
   const collectionAssets = assets.collection || {};
