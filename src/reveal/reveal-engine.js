@@ -213,6 +213,9 @@ export function createRevealEngine({
     }
   }
 
+  /**
+   * @param {{ beforeSourceRestore?: ((detail: { cardEl: HTMLElement | null, cardData: any }) => void | Promise<void>) | null }} [options]
+   */
   async function returnToSource({ beforeSourceRestore } = {}) {
     if (state === STATES.DESTROYED) return { status: "destroyed" };
 
