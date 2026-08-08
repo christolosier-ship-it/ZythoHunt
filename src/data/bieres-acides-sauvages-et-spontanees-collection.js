@@ -1,4 +1,4 @@
-import collectionJson from "./brassopedie/collection-06-bieres-acides-sauvages-et-spontanees.json" with { type: "json" };
+import collectionJson from "./brassopedie/collection-06-bieres-acides-sauvages-et-spontanees.js";
 import { createCollectionBundle } from "./create-collection-bundle.js";
 import {
   bieresAcidesSauvagesEtSpontaneesAssets,
