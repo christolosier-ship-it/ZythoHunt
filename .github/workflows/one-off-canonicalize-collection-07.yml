@@ -1,0 +1,36 @@
+name: One-off canonicalize collection 07
+
+on:
+  push:
+    branches:
+      - content/collection-07-amber-brown-strong-ales-encyclopedia
+
+permissions:
+  contents: write
+
+jobs:
+  canonicalize:
+    if: ${{ !contains(github.event.head_commit.message, '[canonical-collection-07]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: content/collection-07-amber-brown-strong-ales-encyclopedia
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Generate canonical collection
+        run: node scripts/one-off-canonicalize-collection-07.mjs
+
+      - name: Commit canonical collection and cleanup
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "content: canonicalise et enrichit les ales ambrées brunes maltées et fortes [canonical-collection-07]"
+          git push origin HEAD:content/collection-07-amber-brown-strong-ales-encyclopedia
