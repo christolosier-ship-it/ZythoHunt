@@ -1,4 +1,5 @@
 import { createCollectionAssetPaths } from "./create-collection-asset-paths.js";
+import { applyEncyclopedicEnrichment } from "./brassopedie/encyclopedia/apply-encyclopedic-enrichment.js";
 
 export function slugifyCollectionId(value) {
   return String(value || "")
@@ -14,6 +15,7 @@ export function slugifyCollectionId(value) {
 
 export function createCollectionBundle({
   collectionJson,
+  encyclopedia = null,
   collectionId,
   slug,
   subtitle,
@@ -24,7 +26,10 @@ export function createCollectionBundle({
   backgroundPreset,
   assetsReady
 }) {
-  const sourceCollection = collectionJson.collection || {};
+  const sourceJson = encyclopedia
+    ? applyEncyclopedicEnrichment(collectionJson, encyclopedia)
+    : collectionJson;
+  const sourceCollection = sourceJson.collection || {};
   const normalizedSlug = slug || sourceCollection.slug || slugifyCollectionId(sourceCollection.nom);
   const collectionAssets = assets.collection || {};
   const cardImages = assets.cards || {};
@@ -47,10 +52,10 @@ export function createCollectionBundle({
     cardBackThumb: thumbPath(collectionAssets.cardBack),
     collectionFaceThumb: thumbPath(collectionAssets.collectionFace),
     backgroundPreset,
-    cardIds: collectionJson.cartes.map((entry) => entry.id)
+    cardIds: sourceJson.cartes.map((entry) => entry.id)
   };
 
-  const cards = collectionJson.cartes.map((entry) => {
+  const cards = sourceJson.cartes.map((entry) => {
     const fileName = cardImages[entry.id];
     const image = assetPath(fileName);
     return {
