@@ -1,0 +1,40 @@
+name: One-off canonicalize collection 02
+
+on:
+  push:
+    branches:
+      - content/collection-02-pale-ales-encyclopedia
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    if: ${{ !contains(github.event.head_commit.message, '[collection02-canonical]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: content/collection-02-pale-ales-encyclopedia
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Generate canonical collection 02
+        run: node scripts/one-off-canonicalize-collection-02.mjs
+
+      - name: Commit canonical collection
+        run: |
+          if git diff --quiet && git diff --cached --quiet; then
+            echo "No migration changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "content: canonicalize collection 02 encyclopedia [collection02-canonical]"
+          git push origin HEAD:content/collection-02-pale-ales-encyclopedia
