@@ -2,8 +2,16 @@ import { createDiscoveryStore } from "./discovery-store.js";
 
 const collectionOf = (entry) => entry?.collection || entry || {};
 
+/**
+ * @param {any[]} [collectionEntries]
+ * @param {{
+ *   getBundle?: (collectionId: string) => any,
+ *   storage?: Storage | any,
+ *   onPersistenceError?: ((detail: { scope: string, key: string, error: unknown }) => void) | null
+ * }} [options]
+ */
 export function createDiscoveryRegistry(collectionEntries = [], {
-  getBundle = () => null,
+  getBundle = (_collectionId) => null,
   storage = globalThis.localStorage,
   onPersistenceError = null
 } = {}) {
