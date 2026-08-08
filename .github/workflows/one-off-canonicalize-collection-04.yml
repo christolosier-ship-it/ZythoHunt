@@ -1,0 +1,29 @@
+name: One-off canonicalize collection 04
+
+on:
+  push:
+    branches:
+      - content/collection-04-belgian-french-encyclopedia
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    if: ${{ !contains(github.event.head_commit.message, '[canonical-04]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: content/collection-04-belgian-french-encyclopedia
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: node scripts/one-off-canonicalize-collection-04.mjs
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "content: canonicalise la collection 4 [canonical-04]"
+          git push origin HEAD:content/collection-04-belgian-french-encyclopedia
