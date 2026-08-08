@@ -8,6 +8,7 @@ import wheatRye from "./collection-05-bieres-de-ble-et-de-seigle.js";
 import sourWild from "./collection-06-bieres-acides-sauvages-et-spontanees.js";
 import amberBrownStrong from "./collection-07-ales-ambrees-brunes-maltees-et-fortes.js";
 import singularHistoricalHybrid from "./collection-08-styles-singuliers-historiques-et-hybrides.js";
+import commercialDesignations from "./collection-09-appellations-commerciales.js";
 import { collectionBundles } from "../collections.js";
 
 const recipeKeys = [
@@ -30,7 +31,8 @@ const canonicalCollections = [
   { label: "bieres-de-ble-et-de-seigle", data: wheatRye, expected: 13 },
   { label: "bieres-acides-sauvages-et-spontanees", data: sourWild, expected: 21 },
   { label: "ales-ambrees-brunes-maltees-et-fortes", data: amberBrownStrong, expected: 27 },
-  { label: "styles-singuliers-historiques-et-hybrides", data: singularHistoricalHybrid, expected: 40 }
+  { label: "styles-singuliers-historiques-et-hybrides", data: singularHistoricalHybrid, expected: 40 },
+  { label: "appellations-commerciales", data: commercialDesignations, expected: 30 }
 ];
 
 test("all collection bundles pass their structural validator", () => {

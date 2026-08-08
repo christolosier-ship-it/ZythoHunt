@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
@@ -17,35 +17,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  canonicalize-collection-09:
-    if: github.event_name == 'pull_request' && github.head_ref == 'content/collection-09-commercial-designations-encyclopedia'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout PR branch
-        uses: actions/checkout@v4
-        with:
-          ref: content/collection-09-commercial-designations-encyclopedia
-          fetch-depth: 0
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 24
-
-      - name: Canonicalize collection 09 and clean temporary files
-        run: |
-          if [ ! -f scripts/one-off-canonicalize-collection-09.mjs ]; then
-            echo "Collection 09 is already canonicalized."
-            exit 0
-          fi
-          node scripts/one-off-canonicalize-collection-09.mjs
-          git show origin/main:.github/workflows/pages.yml > .github/workflows/pages.yml
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
-          git commit -m "content: canonicalise et enrichit les appellations commerciales [canonical-collection-09]"
-          git push origin HEAD:content/collection-09-commercial-designations-encyclopedia
-
   build:
     runs-on: ubuntu-latest
     steps:

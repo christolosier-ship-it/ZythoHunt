@@ -1,4 +1,4 @@
-import collectionJson from "./brassopedie/collection-09-appellations-commerciales.json" with { type: "json" };
+import collectionJson from "./brassopedie/collection-09-appellations-commerciales.js";
 import { createCollectionBundle } from "./create-collection-bundle.js";
 import {
   appellationsCommercialesAssets,
