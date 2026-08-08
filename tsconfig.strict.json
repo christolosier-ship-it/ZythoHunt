@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "src/data/collection-manager.js",
+    "src/data/collection-catalog.js",
+    "src/discovery/discovery-store.js"
+  ],
+  "exclude": ["node_modules", "dist"],
+  "compilerOptions": {
+    "strictNullChecks": true,
+    "noImplicitAny": false
+  }
+}
