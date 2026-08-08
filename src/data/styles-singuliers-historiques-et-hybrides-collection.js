@@ -1,4 +1,4 @@
-import collectionJson from "./brassopedie/collection-08-styles-singuliers-historiques-et-hybrides.json" with { type: "json" };
+import collectionJson from "./brassopedie/collection-08-styles-singuliers-historiques-et-hybrides.js";
 import { createCollectionBundle } from "./create-collection-bundle.js";
 import {
   stylesSinguliersHistoriquesEtHybridesAssets,
