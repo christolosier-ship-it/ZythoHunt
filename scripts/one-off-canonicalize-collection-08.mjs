@@ -18,21 +18,13 @@ const tempFiles = [
   p("scripts/collection-08-part-4.mjs")
 ];
 
-// Corrige les coquilles de ponctuation du fichier temporaire avant import.
+// Nettoie les coquilles de ponctuation du fichier temporaire avant import.
 const part4Path = tempFiles[4];
 let part4Text = fs.readFileSync(part4Path, "utf8");
-for (const [from, to] of [
-  ['boil: "Houblonnage discret ; fumée issue du malt."],', 'boil: "Houblonnage discret ; fumée issue du malt.",'],
-  ['mash: "Décoction ou empâtage multi-palier possible pour renforcer profondeur maltée."],', 'mash: "Décoction ou empâtage multi-palier possible pour renforcer profondeur maltée.",'],
-  ['boil: "Ébullition complète, houblonnage discret à modéré."],', 'boil: "Ébullition complète, houblonnage discret à modéré.",'],
-  ['fermentation: "Fermentation basse propre."],', 'fermentation: "Fermentation basse propre.",'],
-  ['maturation: "Lagering de plusieurs semaines pour fondre malt et fumée."],', 'maturation: "Lagering de plusieurs semaines pour fondre malt et fumée.",'],
-  ['mash: "Empâtage riche, décoction possible ; maintenir assez de fermentescibilité pour éviter lourdeur."],', 'mash: "Empâtage riche, décoction possible ; maintenir assez de fermentescibilité pour éviter lourdeur.",'],
-  ['boil: "Ébullition soutenue, houblonnage discret."],', 'boil: "Ébullition soutenue, houblonnage discret.",'],
-  ['fermentation: "Fermentation basse avec pitch important et température maîtrisée."],', 'fermentation: "Fermentation basse avec pitch important et température maîtrisée.",']
-]) {
-  part4Text = part4Text.replace(from, to);
-}
+part4Text = part4Text.replace(
+  /^(\s+(?:water|mash|boil|fermentation|maturation): "[^"\n]*")\],$/gm,
+  "$1,"
+);
 const fixedPart4Path = p("scripts/collection-08-part-4-fixed.mjs");
 fs.writeFileSync(fixedPart4Path, part4Text, "utf8");
 
