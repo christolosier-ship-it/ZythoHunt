@@ -21,7 +21,14 @@ function sanitizeTemporarySource(text) {
 }
 
 for (let i = 0; i < partPaths.length; i += 1) {
-  fs.writeFileSync(fixedPaths[i], sanitizeTemporarySource(fs.readFileSync(partPaths[i], "utf8")), "utf8");
+  let text = fs.readFileSync(partPaths[i], "utf8");
+  if (i === 0) {
+    text = text.replace(
+      "  TRAPPIST_FAQ,\n  BRASSEURS_FRANCE,",
+      "  TRAPPIST_FAQ,\n  WESTMALLE,\n  BRASSEURS_FRANCE,"
+    );
+  }
+  fs.writeFileSync(fixedPaths[i], sanitizeTemporarySource(text), "utf8");
 }
 
 const modules = [];
