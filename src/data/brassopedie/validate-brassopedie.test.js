@@ -6,6 +6,7 @@ import portersStouts from "./collection-03-porters-et-stouts.js";
 import belgianFrench from "./collection-04-traditions-belges-et-francaises.js";
 import wheatRye from "./collection-05-bieres-de-ble-et-de-seigle.js";
 import sourWild from "./collection-06-bieres-acides-sauvages-et-spontanees.js";
+import amberBrownStrong from "./collection-07-ales-ambrees-brunes-maltees-et-fortes.js";
 import { collectionBundles } from "../collections.js";
 
 const recipeKeys = [
@@ -26,7 +27,8 @@ const canonicalCollections = [
   { label: "porters-et-stouts", data: portersStouts, expected: 22 },
   { label: "traditions-belges-et-francaises", data: belgianFrench, expected: 17 },
   { label: "bieres-de-ble-et-de-seigle", data: wheatRye, expected: 13 },
-  { label: "bieres-acides-sauvages-et-spontanees", data: sourWild, expected: 21 }
+  { label: "bieres-acides-sauvages-et-spontanees", data: sourWild, expected: 21 },
+  { label: "ales-ambrees-brunes-maltees-et-fortes", data: amberBrownStrong, expected: 27 }
 ];
 
 test("all collection bundles pass their structural validator", () => {
