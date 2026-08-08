@@ -1,6 +1,15 @@
 import { BADGE_DEFINITIONS } from "./badge-definitions.js";
 
-function collectionIds(ctx) { return ctx.collectionBundles?.map(({ collection }) => collection.id) || []; }
+function collectionEntries(ctx) {
+  return ctx.collectionCatalog || ctx.collectionBundles || [];
+}
+
+function collectionIds(ctx) {
+  return collectionEntries(ctx)
+    .map((entry) => entry?.collection?.id || entry?.id)
+    .filter(Boolean);
+}
+
 function progress(ctx, id) { return ctx.discoveryRegistry?.getCollectionProgress(id) || { discovered: 0, total: 0, ratio: 0 }; }
 function total(ctx) { return ctx.discoveryRegistry?.getTotalProgress() || { discovered: 0, total: 0, ratio: 0 }; }
 function stats(ctx) { return ctx.revealStatsStore?.getState?.() || ctx.revealStats || {}; }
@@ -48,13 +57,18 @@ export function getBadgeProgress(badge, ctx) {
 }
 
 /** @param {{[key: string]: any}} [options] */
-export function createBadgeEngine({ badgeStore, discoveryRegistry, revealStatsStore, collectionBundles, definitions = BADGE_DEFINITIONS, now } = {}) {
-  const base = () => ({ discoveryRegistry, revealStatsStore, collectionBundles, now });
-  return { evaluate({ silent = false, previousRevealStats = null } = {}) {
+export function createBadgeEngine({ badgeStore, discoveryRegistry, revealStatsStore, collectionBundles, collectionCatalog, definitions = BADGE_DEFINITIONS, now } = {}) {
+  const base = () => ({ discoveryRegistry, revealStatsStore, collectionBundles, collectionCatalog, now });
+  return {
+    evaluate({ silent = false, previousRevealStats = null } = {}) {
       const unlocked = [];
-      for (const badge of definitions) if (!badgeStore.isUnlocked(badge.id) && isBadgeConditionMet(badge, { ...base(), previousRevealStats })) {
-        const item = badgeStore.unlock(badge, (now ? now() : new Date()).toISOString()); if (item) unlocked.push(item);
+      for (const badge of definitions) {
+        if (badgeStore.isUnlocked(badge.id) || !isBadgeConditionMet(badge, { ...base(), previousRevealStats })) continue;
+        const result = badgeStore.unlock(badge, (now ? now() : new Date()).toISOString());
+        if (result?.item) unlocked.push(result.item);
       }
       return silent ? [] : unlocked;
-    }, getProgress: (badge) => getBadgeProgress(badge, base()) };
+    },
+    getProgress: (badge) => getBadgeProgress(badge, base())
+  };
 }

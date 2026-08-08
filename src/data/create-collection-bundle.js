@@ -12,6 +12,20 @@ export function slugifyCollectionId(value) {
     .replace(/^-|-$/g, "");
 }
 
+/**
+ * @param {{
+ *   collectionJson: { collection?: Record<string, any>, cartes: any[] },
+ *   collectionId?: string,
+ *   slug?: string,
+ *   subtitle?: string,
+ *   order?: number,
+ *   expectedCardCount?: number | null,
+ *   discoveryKey: string,
+ *   assets: { collection: { basePath: string, cardBack: string, collectionFace: string }, cards: Record<string, string> },
+ *   backgroundPreset?: Record<string, number>,
+ *   assetsReady?: boolean
+ * }} options
+ */
 export function createCollectionBundle({
   collectionJson,
   collectionId,
@@ -26,8 +40,8 @@ export function createCollectionBundle({
 }) {
   const sourceCollection = collectionJson.collection || {};
   const normalizedSlug = slug || sourceCollection.slug || slugifyCollectionId(sourceCollection.nom);
-  const collectionAssets = assets.collection || {};
-  const cardImages = assets.cards || {};
+  const collectionAssets = assets.collection;
+  const cardImages = assets.cards;
   const { assetPath, thumbPath } = createCollectionAssetPaths(collectionAssets.basePath);
   const cardBack = assetPath(collectionAssets.cardBack);
   const collectionFace = assetPath(collectionAssets.collectionFace);

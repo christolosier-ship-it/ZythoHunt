@@ -7,10 +7,12 @@ export async function runRevealCycle({
   beforeReveal,
   afterReveal,
   onAlreadyDiscovered,
-  onDiscovered
+  onDiscovered,
+  onPersistenceFailure
 }) {
   let prepared = false;
   let revealStarted = false;
+  let persistence = { ok: true, persisted: true, error: null };
 
   try {
     await carousel.prepareForReveal();
@@ -39,14 +41,22 @@ export async function runRevealCycle({
     }
 
     await revealEngine.returnToSource({
-      beforeSourceRestore: () => {
-        store.markDiscovered(card.id);
+      beforeSourceRestore: async () => {
+        persistence = store.markDiscovered(card.id);
         carousel.setDiscovered(card.id, true);
-        if (onDiscovered) onDiscovered();
+
+        if (persistence.ok) {
+          if (onDiscovered) await onDiscovered();
+        } else if (onPersistenceFailure) {
+          await onPersistenceFailure(persistence);
+        }
       }
     });
 
-    return { status: "completed" };
+    return {
+      status: persistence.ok ? "completed" : "completed-unsaved",
+      persistence
+    };
   } finally {
     if (revealStarted && afterReveal) await afterReveal();
     if (prepared) carousel.unlock();

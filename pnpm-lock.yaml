@@ -5,13 +5,25 @@ settings:
 importers:
   .:
     dependencies:
+      '@fontsource/cinzel':
+        specifier: 5.3.0
+        version: 5.3.0
+      '@fontsource/crimson-text':
+        specifier: 5.3.0
+        version: 5.3.0
       gsap:
         specifier: 3.15.0
         version: 3.15.0
     devDependencies:
+      '@playwright/test':
+        specifier: 1.61.1
+        version: 1.61.1
       '@types/node':
         specifier: 25.6.2
         version: 25.6.2
+      axe-core:
+        specifier: 4.12.1
+        version: 4.12.1
       typescript:
         specifier: 5.9.3
         version: 5.9.3
@@ -28,6 +40,18 @@ packages:
     - x64
     os:
     - linux
+  '@fontsource/cinzel@5.3.0':
+    resolution:
+      integrity: sha512-KEOYTsrRppW0uRIPWBDPrQgunCS6f8u4nzZxYRBfo9SCknKojLYjK7B0ZoVmJhyVLefz271ZQRF9EOpHZlfhRw==
+  '@fontsource/crimson-text@5.3.0':
+    resolution:
+      integrity: sha512-W1kLgOlsCD/8DhUNECgYvyx86+t3wAvA0w09juD3XtmwAtV6vuSEwijN4q8fnQ1LgQWV377jQiL8dpSYwLnoAw==
+  '@playwright/test@1.61.1':
+    resolution:
+      integrity: sha512-8nKv6+0RJSL9FE4jYOEGXnPeM/Hg12qZpmqzZjRh3qM0Y7c3z1mrOTfFLids72RDQYVh9WpLEfR5WdpNX4fkig==
+    engines:
+      node: '>=18'
+    hasBin: true
   '@rollup/rollup-linux-x64-gnu@4.62.2':
     resolution:
       integrity: sha512-5BqxR/pshjey51iliyzTD5Xi3EN0aLmQ2lZ3lvefVV9c82BvrLo2/6OT55iifpWBufs6kdwWbuOKS841DrmK9A==
@@ -41,6 +65,11 @@ packages:
   '@types/node@25.6.2':
     resolution:
       integrity: sha512-sokuT28dxf9JT5Kady1fsXOvI4HVpjZa95NKT5y9PNTIrs2AsobR4GFAA90ZG8M+nxVRLysCXsVj6eGC7Vbrlw==
+  axe-core@4.12.1:
+    resolution:
+      integrity: sha512-s7iGf5GaVMxEG0ENN9x+xTr7GFZCb1ZP/1uATUpCEK2X78nDB3RwbtFCo9pGAf9ru+VwoQ464DkaLEeRM08wJA==
+    engines:
+      node: '>=4'
   esbuild@0.27.7:
     resolution:
       integrity: sha512-IxpibTjyVnmrIQo5aqNpCgoACA/dTKLTlhMHihVHhdkxKyPO1uBBthumT0rdHmcsk9uMonIWS0m4FljWzILh3w==
@@ -57,6 +86,13 @@ packages:
     peerDependenciesMeta:
       picomatch:
         optional: true
+  fsevents@2.3.2:
+    resolution:
+      integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==
+    engines:
+      node: ^8.16.0 || ^10.6.0 || '>=11.0.0'
+    os:
+    - darwin
   gsap@3.15.0:
     resolution:
       integrity: sha512-dMW4CWBTUK1AEEDeZc1g4xpPGIrSf9fJF960qbTZmN/QwZIWY5wgliS6JWl9/25fpTGJrMRtSjGtOmPnfjZB+A==
@@ -64,7 +100,7 @@ packages:
     resolution:
       integrity: sha512-sPdqC6ByMVVGvF1ynvvMo0/o+oD1VX7DaHhijt1bFgjvBkHBib4t49GoNDhf2NDta4oeUNlaGbSt5K7qjZ955Q==
     engines:
-      node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1
+      node: ^10 || ^12 || ^13.7 || ^14 || '>=15.0.1'
     hasBin: true
   picocolors@1.1.1:
     resolution:
@@ -74,11 +110,23 @@ packages:
       integrity: sha512-QP88BAKvMam/3NxH6vj2o21R6MjxZUAd6nlwAS/pnGvN9IVLocLHxGYIzFhg6fUQ+5th6P4dv4eW9jX3DSIj7A==
     engines:
       node: '>=12'
+  playwright-core@1.61.1:
+    resolution:
+      integrity: sha512-h7Qlt6m4REp25qvIdvbDtVmD4LqVXfpRxhORv9L0jzETM05p4fuPJ3dKyuSXQxDSbXnmS79HAgi9589lGSpLkg==
+    engines:
+      node: '>=18'
+    hasBin: true
+  playwright@1.61.1:
+    resolution:
+      integrity: sha512-DWnY5o3YbLWK4GovuAVwpqL+1VwGNdUGrRr++8j8PtQQzvAVZUIMjKQ90fY689sEJZJBbZVw1rXaOKSTitkzPQ==
+    engines:
+      node: '>=18'
+    hasBin: true
   postcss@8.5.15:
     resolution:
       integrity: sha512-FfR8sjd4em2T6fb3I2MwAJU7HWVMr9zba+enmQeeWFfCbm+UOC/0X4DS8XtpUTMwWMGbjKYP7xjfNekzyGmB3A==
     engines:
-      node: ^10 || ^12 || >=14
+      node: ^10 || ^12 || '>=14'
   rollup@4.62.2:
     resolution:
       integrity: sha512-RFnrW4lhXA3s3eqHDZvN654g8OTjzRfqpIRJYczCGB6HzphckVAi/Qh4tbPUbRuDi7s1Llv8g/NspLkttY3gTA==
@@ -109,10 +157,10 @@ packages:
     resolution:
       integrity: sha512-/4XH147Ui7OGTjg3HbdWe5arnZQSbfuRzdr9Ec7TQi5I7R+ir0Rlc9GIvD4v0XZurELqA035KVXJXpR61xhiTA==
     engines:
-      node: ^20.19.0 || >=22.12.0
+      node: ^20.19.0 || '>=22.12.0'
     hasBin: true
     peerDependencies:
-      '@types/node': ^20.19.0 || >=22.12.0
+      '@types/node': ^20.19.0 || '>=22.12.0'
       jiti: '>=1.21.0'
       less: ^4.0.0
       lightningcss: ^1.21.0
@@ -149,22 +197,36 @@ packages:
 snapshots:
   '@esbuild/linux-x64@0.27.7':
     optional: true
+  '@fontsource/cinzel@5.3.0': {}
+  '@fontsource/crimson-text@5.3.0': {}
+  '@playwright/test@1.61.1':
+    dependencies:
+      playwright: 1.61.1
   '@rollup/rollup-linux-x64-gnu@4.62.2':
     optional: true
   '@types/estree@1.0.9': {}
   '@types/node@25.6.2':
     dependencies:
       undici-types: 7.19.2
+  axe-core@4.12.1: {}
   esbuild@0.27.7:
     optionalDependencies:
       '@esbuild/linux-x64': 0.27.7
   fdir@6.5.0(picomatch@4.0.4):
     optionalDependencies:
       picomatch: 4.0.4
+  fsevents@2.3.2:
+    optional: true
   gsap@3.15.0: {}
   nanoid@3.3.13: {}
   picocolors@1.1.1: {}
   picomatch@4.0.4: {}
+  playwright-core@1.61.1: {}
+  playwright@1.61.1:
+    dependencies:
+      playwright-core: 1.61.1
+    optionalDependencies:
+      fsevents: 2.3.2
   postcss@8.5.15:
     dependencies:
       nanoid: 3.3.13

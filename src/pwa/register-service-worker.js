@@ -1,30 +1,16 @@
 const SW_UPDATE_MESSAGE = { type: "SKIP_WAITING" };
 
-let refreshing = false;
-
-function requestSkipWaiting(worker) {
-  if (!worker) return;
-  worker.postMessage(SW_UPDATE_MESSAGE);
-}
-
-function watchInstallingWorker(registration) {
-  const worker = registration.installing;
-  if (!worker) return;
-
-  worker.addEventListener("statechange", () => {
-    if (worker.state === "installed" && navigator.serviceWorker.controller) {
-      requestSkipWaiting(worker);
-    }
-  });
-}
-
-export async function registerServiceWorker() {
+/**
+ * @param {{ onUpdateReady?: ((detail: { registration: ServiceWorkerRegistration, applyUpdate: () => void }) => void) | null }} [options]
+ */
+export async function registerServiceWorker({ onUpdateReady = null } = {}) {
   if (!("serviceWorker" in navigator)) return null;
 
-  const hadController = Boolean(navigator.serviceWorker.controller);
+  let refreshing = false;
+  let updateAccepted = false;
 
   navigator.serviceWorker.addEventListener("controllerchange", () => {
-    if (!hadController || refreshing) return;
+    if (!updateAccepted || refreshing) return;
     refreshing = true;
     window.location.reload();
   });
@@ -33,10 +19,28 @@ export async function registerServiceWorker() {
     scope: import.meta.env.BASE_URL
   });
 
-  registration.addEventListener("updatefound", () => watchInstallingWorker(registration));
+  const announceUpdate = (worker) => {
+    if (!worker || !navigator.serviceWorker.controller) return;
+    const applyUpdate = () => {
+      updateAccepted = true;
+      worker.postMessage(SW_UPDATE_MESSAGE);
+    };
+    if (onUpdateReady) onUpdateReady({ registration, applyUpdate });
+    else console.info("Une mise à jour ZythoHunt est prête à être appliquée.");
+  };
 
-  if (registration.waiting) requestSkipWaiting(registration.waiting);
+  const watchInstallingWorker = () => {
+    const worker = registration.installing;
+    if (!worker) return;
+    worker.addEventListener("statechange", () => {
+      if (worker.state === "installed") announceUpdate(worker);
+    });
+  };
+
+  registration.addEventListener("updatefound", watchInstallingWorker);
+  if (registration.waiting) announceUpdate(registration.waiting);
+
+  // Vérifie les mises à jour sans les activer de force pendant une interaction.
   await registration.update();
-
   return registration;
 }

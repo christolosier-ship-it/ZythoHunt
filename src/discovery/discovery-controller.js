@@ -20,7 +20,8 @@ export function createDiscoveryController({
   onUnknownReveal,
   onAlreadyDiscoveredReveal,
   onNewDiscoveryReveal,
-  onExternalCollectionReveal
+  onExternalCollectionReveal,
+  onPersistenceFailure
 }) {
   let busy = false;
   const realCards = cards.filter((card) => card.revealable);
@@ -79,6 +80,11 @@ export function createDiscoveryController({
           setFeedback("Nouvelle carte révélée");
           updateProgress();
           onNewDiscoveryReveal?.({ card, collectionId: currentCollectionId });
+        },
+        onPersistenceFailure: (persistence) => {
+          setFeedback("Carte révélée, mais la progression n'a pas pu être enregistrée sur cet appareil.", true);
+          updateProgress();
+          onPersistenceFailure?.({ card, collectionId: currentCollectionId, persistence });
         }
       });
       return result;
@@ -96,19 +102,32 @@ export function createDiscoveryController({
     event.preventDefault();
     if (busy || revealEngine.isBusy()) return;
 
-    const result = resolver.resolve(inputEl.value);
+    setBusy(true);
+    let result;
+    try {
+      result = await resolver.resolve(inputEl.value);
+    } catch (error) {
+      console.error("La recherche inter-collections a échoué.", error);
+      setFeedback("La recherche n'a pas pu charger toutes les collections. Réessaie.", true);
+      setBusy(false);
+      return;
+    }
+    setBusy(false);
+
     if (!inputEl.value.trim() || result.status === "unknown") {
       setFeedback("Aucun style reconnu.", true);
       onUnknownReveal?.({ input: inputEl.value });
-      inputEl.animate?.(
-        [
-          { transform: "translateX(0)" },
-          { transform: "translateX(-5px)" },
-          { transform: "translateX(5px)" },
-          { transform: "translateX(0)" }
-        ],
-        { duration: 180 }
-      );
+      if (!window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) {
+        inputEl.animate?.(
+          [
+            { transform: "translateX(0)" },
+            { transform: "translateX(-5px)" },
+            { transform: "translateX(5px)" },
+            { transform: "translateX(0)" }
+          ],
+          { duration: 180 }
+        );
+      }
       return;
     }
 

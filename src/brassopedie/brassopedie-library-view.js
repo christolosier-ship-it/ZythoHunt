@@ -121,11 +121,8 @@ function createStyleTile(style, onOpen) {
   button.setAttribute("aria-label", style.canOpen ? `Ouvrir la fiche ${style.label}` : "Style non révélé");
 
   const media = el("span", "brassopedie-atlas-card-media");
-  if (style.discovered) {
-    media.appendChild(createAtlasStyleMedia(style.card));
-  } else {
-    media.appendChild(el("span", "brassopedie-atlas-card-lock", "?"));
-  }
+  if (style.discovered) media.appendChild(createAtlasStyleMedia(style.card));
+  else media.appendChild(el("span", "brassopedie-atlas-card-lock", "?"));
 
   const caption = el("span", "brassopedie-atlas-card-caption");
   const title = el("strong", "brassopedie-atlas-card-title", style.label);
@@ -140,98 +137,166 @@ function createStyleTile(style, onOpen) {
   return button;
 }
 
-export function createBrassopedieLibraryView({ root, collectionBundles, registry, initialCollectionId, onOpen, onClose }) {
+function showLoading(root) {
+  const status = el("div", "brassopedie-library brassopedie-atlas brassopedie-atlas--loading");
+  status.setAttribute("role", "status");
+  status.textContent = "Chargement de la collection…";
+  root.replaceChildren(status);
+}
+
+function showLoadError(root, retry) {
+  const box = el("div", "brassopedie-library brassopedie-atlas brassopedie-atlas--loading");
+  box.setAttribute("role", "alert");
+  box.append(el("p", "", "Cette collection Brassopédie n'a pas pu être chargée."));
+  const button = el("button", "brassopedie-detail-back", "Réessayer");
+  button.type = "button";
+  button.addEventListener("click", () => void retry());
+  box.append(button);
+  root.replaceChildren(box);
+}
+
+export function createBrassopedieLibraryView({
+  root,
+  collectionBundles = null,
+  collectionCatalog = null,
+  registry,
+  initialCollectionId,
+  loadCollectionBundle = null,
+  onOpen,
+  onClose
+}) {
   void onOpen;
   void onClose;
   let selectedCollectionId = initialCollectionId;
   let selectedCardId = null;
+  let selectedBundle = null;
   let gridScrollTop = 0;
   let lastTriggerCardId = null;
+  let renderSequence = 0;
 
-  function renderGrid({ restoreFocus = false } = {}) {
-    registry.refresh();
-    const model = buildBrassopedieLibraryModel({ collectionBundles, registry, selectedCollectionId });
-    selectedCollectionId = model.selectedCollectionId;
-    selectedCardId = null;
-    root.replaceChildren();
+  const eagerBundles = Array.isArray(collectionBundles) ? collectionBundles : [];
 
-    const shell = el("div", "brassopedie-library brassopedie-atlas");
-    shell.appendChild(createCollectionProgress(model));
-
-    const grid = el("div", "brassopedie-atlas-grid");
-    model.styles.forEach((style) => {
-      grid.appendChild(createStyleTile(style, (cardId) => {
-        gridScrollTop = shell.scrollTop;
-        lastTriggerCardId = cardId;
-        selectedCardId = cardId;
-        renderDetail();
-      }));
-    });
-    shell.appendChild(grid);
-    root.appendChild(shell);
-
-    if (gridScrollTop) shell.scrollTop = gridScrollTop;
-    if (restoreFocus && lastTriggerCardId) {
-      requestAnimationFrame(() => shell.querySelector(`[data-card-id="${CSS.escape(lastTriggerCardId)}"]`)?.focus());
-    }
+  async function getBundle(collectionId) {
+    const eager = eagerBundles.find((bundle) => bundle.collection.id === collectionId);
+    if (eager) return eager;
+    if (!loadCollectionBundle) return null;
+    return loadCollectionBundle(collectionId);
   }
 
-  function renderDetail() {
-    if (!selectedCardId) {
-      renderGrid();
-      return;
-    }
-
-    registry.refresh();
-    const resolved = resolveLibraryPanelCard({ collectionBundles, collectionId: selectedCollectionId, cardId: selectedCardId });
-    if (!resolved || !registry.isDiscovered(selectedCollectionId, selectedCardId)) {
+  async function renderGrid({ restoreFocus = false } = {}) {
+    const sequence = ++renderSequence;
+    showLoading(root);
+    try {
+      const bundle = await getBundle(selectedCollectionId);
+      if (sequence !== renderSequence) return;
+      if (!bundle) throw new Error(`Collection introuvable : ${selectedCollectionId}`);
+      selectedBundle = bundle;
+      registry.refresh();
+      const model = buildBrassopedieLibraryModel({ collectionBundles: [bundle], registry, selectedCollectionId });
+      selectedCollectionId = model.selectedCollectionId;
       selectedCardId = null;
-      renderGrid();
-      return;
-    }
+      root.replaceChildren();
 
-    root.replaceChildren();
-    const shell = el("div", "brassopedie-library brassopedie-atlas brassopedie-atlas--detail");
-    const { article, actionButton } = createBrassopedieDetailView({
-      card: resolved.card,
-      cardsById: resolved.cardsById,
-      variant: "inline",
-      action: {
-        label: "← Retour",
-        ariaLabel: "Retour aux styles",
-        className: "brassopedie-detail-back",
-        onClick: () => {
-          selectedCardId = null;
-          renderGrid({ restoreFocus: true });
-        }
+      const shell = el("div", "brassopedie-library brassopedie-atlas");
+      shell.appendChild(createCollectionProgress(model));
+
+      const grid = el("div", "brassopedie-atlas-grid");
+      model.styles.forEach((style) => {
+        grid.appendChild(createStyleTile(style, (cardId) => {
+          gridScrollTop = shell.scrollTop;
+          lastTriggerCardId = cardId;
+          selectedCardId = cardId;
+          void renderDetail();
+        }));
+      });
+      shell.appendChild(grid);
+      root.appendChild(shell);
+
+      if (gridScrollTop) shell.scrollTop = gridScrollTop;
+      if (restoreFocus && lastTriggerCardId) {
+        requestAnimationFrame(() => shell.querySelector(`[data-card-id="${CSS.escape(lastTriggerCardId)}"]`)?.focus());
       }
-    });
-    if (!article) {
-      selectedCardId = null;
-      renderGrid();
+    } catch (error) {
+      console.error("Chargement Brassopédie impossible", error);
+      if (sequence === renderSequence) showLoadError(root, () => renderGrid({ restoreFocus }));
+    }
+  }
+
+  async function renderDetail() {
+    if (!selectedCardId) {
+      await renderGrid();
       return;
     }
 
-    shell.appendChild(article);
-    root.appendChild(shell);
-    shell.scrollTop = 0;
-    requestAnimationFrame(() => actionButton?.focus());
+    const sequence = ++renderSequence;
+    try {
+      const bundle = selectedBundle?.collection.id === selectedCollectionId
+        ? selectedBundle
+        : await getBundle(selectedCollectionId);
+      if (sequence !== renderSequence) return;
+      if (!bundle) throw new Error(`Collection introuvable : ${selectedCollectionId}`);
+      selectedBundle = bundle;
+      registry.refresh();
+      const resolved = resolveLibraryPanelCard({ collectionBundles: [bundle], collectionId: selectedCollectionId, cardId: selectedCardId });
+      if (!resolved || !registry.isDiscovered(selectedCollectionId, selectedCardId)) {
+        selectedCardId = null;
+        await renderGrid();
+        return;
+      }
+
+      root.replaceChildren();
+      const shell = el("div", "brassopedie-library brassopedie-atlas brassopedie-atlas--detail");
+      const { article, actionButton } = createBrassopedieDetailView({
+        card: resolved.card,
+        cardsById: resolved.cardsById,
+        variant: "inline",
+        action: {
+          label: "← Retour",
+          ariaLabel: "Retour aux styles",
+          className: "brassopedie-detail-back",
+          onClick: () => {
+            selectedCardId = null;
+            void renderGrid({ restoreFocus: true });
+          }
+        }
+      });
+      if (!article) {
+        selectedCardId = null;
+        await renderGrid();
+        return;
+      }
+
+      shell.appendChild(article);
+      root.appendChild(shell);
+      shell.scrollTop = 0;
+      requestAnimationFrame(() => actionButton?.focus());
+    } catch (error) {
+      console.error("Affichage de la fiche Brassopédie impossible", error);
+      if (sequence === renderSequence) showLoadError(root, renderDetail);
+    }
   }
 
-  function render() {
-    if (selectedCardId) renderDetail();
-    else renderGrid();
+  async function render() {
+    if (selectedCardId) await renderDetail();
+    else await renderGrid();
   }
 
-  render();
+  // Le catalogue n'est utilisé ici que pour valider la sélection initiale sans
+  // importer les encyclopédies. Le rendu charge ensuite uniquement la sélection.
+  if (collectionCatalog?.length && !collectionCatalog.some((entry) => entry.collection.id === selectedCollectionId)) {
+    selectedCollectionId = collectionCatalog[0].collection.id;
+  }
+  void render();
+
   return {
     refresh: render,
-    selectCollection(id) {
+    async selectCollection(id) {
       selectedCollectionId = id;
       selectedCardId = null;
+      selectedBundle = null;
       gridScrollTop = 0;
       lastTriggerCardId = null;
-      renderGrid();
+      await renderGrid();
       return selectedCollectionId;
     },
     getSelectedCollectionId() {
@@ -240,7 +305,7 @@ export function createBrassopedieLibraryView({ root, collectionBundles, registry
     closePanel() {
       if (!selectedCardId) return;
       selectedCardId = null;
-      renderGrid({ restoreFocus: true });
+      void renderGrid({ restoreFocus: true });
     }
   };
 }

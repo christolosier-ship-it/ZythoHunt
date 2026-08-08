@@ -229,9 +229,11 @@ function scheduleCardNameFit(root) {
 }
 
 export function createCard({ index = 0, cardData, revealable, discovered = false, as = "slot", collection = null }) {
-  const wrapper = document.createElement(as === "carousel" ? "div" : "li");
-  wrapper.className = as === "carousel" ? "csl-card card-slot" : "card-slot";
-  wrapper.setAttribute("role", "listitem");
+  const isCarousel = as === "carousel";
+  const wrapper = document.createElement(isCarousel ? "div" : "li");
+  wrapper.className = isCarousel ? "csl-card card-slot" : "card-slot";
+  wrapper.setAttribute("role", isCarousel ? "group" : "listitem");
+  if (isCarousel) wrapper.setAttribute("aria-roledescription", "carte du carrousel");
   wrapper.dataset.index = String(index);
   wrapper.dataset.cardId = cardData?.id || `placeholder-${String(index + 1).padStart(2, "0")}`;
 
@@ -261,7 +263,7 @@ export function createCard({ index = 0, cardData, revealable, discovered = false
     card.style.transform = "rotateY(180deg)";
   }
 
-  if (as === "carousel") wrapper.append(card, createClickGlow());
+  if (isCarousel) wrapper.append(card, createClickGlow());
   else wrapper.appendChild(card);
 
   scheduleCardNameFit(wrapper);
