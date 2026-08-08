@@ -2,6 +2,9 @@ import { test, expect } from "@playwright/test";
 import axeCore from "axe-core";
 
 async function waitForApp(page) {
+  // Les scripts d'initialisation Playwright sont installés avant le document et
+  // permettent d'exécuter axe sans ajouter unsafe-inline à la CSP de production.
+  await page.addInitScript({ content: axeCore.source });
   await page.goto("/");
   await expect(page.locator("#loading-screen")).toBeHidden({ timeout: 20_000 });
   await expect(page.locator("#reveal-search-input")).toBeEnabled();
@@ -15,7 +18,6 @@ async function revealLager(page) {
 }
 
 async function assertNoSeriousA11yViolations(page) {
-  await page.addScriptTag({ content: axeCore.source });
   const violations = await page.evaluate(async () => {
     const result = await globalThis.axe.run(document, {
       runOnly: { type: "tag", values: ["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"] }
