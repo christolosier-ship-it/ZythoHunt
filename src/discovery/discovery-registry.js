@@ -1,21 +1,48 @@
 import { createDiscoveryStore } from "./discovery-store.js";
 
-export function createDiscoveryRegistry(collectionBundles = []) {
+const collectionOf = (entry) => entry?.collection || entry || {};
+
+export function createDiscoveryRegistry(collectionEntries = [], {
+  getBundle = () => null,
+  storage = globalThis.localStorage,
+  onPersistenceError = null
+} = {}) {
   let stores = new Map();
 
   function buildStores() {
-    stores = new Map(collectionBundles.map(({ collection }) => [
-      collection.id,
-      createDiscoveryStore({ key: collection.discoveryKey })
-    ]));
+    stores = new Map(collectionEntries.map((entry) => {
+      const collection = collectionOf(entry);
+      return [
+        collection.id,
+        createDiscoveryStore({
+          key: collection.discoveryKey,
+          storage,
+          onPersistenceError
+        })
+      ];
+    }));
+  }
+
+  function findEntry(collectionId) {
+    return collectionEntries.find((entry) => collectionOf(entry).id === collectionId) || null;
   }
 
   function findBundle(collectionId) {
-    return collectionBundles.find((bundle) => bundle.collection.id === collectionId);
+    const loaded = getBundle?.(collectionId);
+    if (loaded) return loaded;
+    const entry = findEntry(collectionId);
+    return Array.isArray(entry?.revealableCards) ? entry : null;
   }
 
   function getStore(collectionId) {
     return stores.get(collectionId);
+  }
+
+  function getExpectedTotal(collectionId) {
+    const bundle = findBundle(collectionId);
+    if (bundle?.revealableCards) return bundle.revealableCards.length;
+    const collection = collectionOf(findEntry(collectionId));
+    return Number(collection.expectedCardCount || 0);
   }
 
   buildStores();
@@ -29,16 +56,20 @@ export function createDiscoveryRegistry(collectionBundles = []) {
       return Boolean(getStore(collectionId)?.isDiscovered(cardId));
     },
     getDiscoveredIds(collectionId) {
-      const revealableIds = new Set((findBundle(collectionId)?.revealableCards || []).map((card) => card.id));
-      return (getStore(collectionId)?.getDiscoveredIds() || []).filter((id) => revealableIds.has(id));
+      const ids = getStore(collectionId)?.getDiscoveredIds() || [];
+      const bundle = findBundle(collectionId);
+      if (!bundle?.revealableCards) return ids;
+      const revealableIds = new Set(bundle.revealableCards.map((card) => card.id));
+      return ids.filter((id) => revealableIds.has(id));
     },
     getCollectionProgress(collectionId) {
-      const total = findBundle(collectionId)?.revealableCards?.length || 0;
+      const total = getExpectedTotal(collectionId);
       const discovered = this.getDiscoveredIds(collectionId).length;
       return { discovered, total, ratio: total ? discovered / total : 0 };
     },
     getTotalProgress() {
-      return collectionBundles.reduce((acc, { collection }) => {
+      return collectionEntries.reduce((acc, entry) => {
+        const collection = collectionOf(entry);
         const progress = this.getCollectionProgress(collection.id);
         acc.discovered += progress.discovered;
         acc.total += progress.total;
