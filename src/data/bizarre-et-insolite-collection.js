@@ -5,6 +5,8 @@ import {
   bizarreEtInsoliteCardImages
 } from "./card-assets/bizarre-et-insolite-assets.js";
 
+// Les IDs c10-xxx restent ceux de la collection déjà publiée afin de préserver
+// la progression locale ; seuls les noms provisoires sont remplacés par les vrais dossiers.
 const bundle = createCollectionBundle({
   collectionJson,
   collectionId: "bizarre-et-insolite",
