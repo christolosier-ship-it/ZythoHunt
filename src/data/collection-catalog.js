@@ -128,6 +128,28 @@ export const collectionCatalog = [
       backgroundPreset: { beerT: 75, bubbleDensity: 66, foamIntensity: 62 }
     },
     load: () => import("./appellations-commerciales-collection.js").then((module) => module.appellationsCommercialesBundle)
+  },
+  {
+    collection: {
+      id: "bizarre-et-insolite",
+      slug: "bizarre-et-insolite",
+      name: "Bizarre et insolite",
+      subtitle: "Collection secrète",
+      order: 100,
+      expectedCardCount: 42,
+      discoveryKey: "zythohunt.discovery.bizarre-et-insolite.v1",
+      assetsReady: true,
+      searchable: false,
+      secret: {
+        enabled: true,
+        lockedLabel: "????",
+        unlockRatio: 0.5,
+        unlockScope: "classic-collections",
+        revealMode: "click-after-unlock"
+      },
+      backgroundPreset: { beerT: 18, bubbleDensity: 42, foamIntensity: 38 }
+    },
+    load: () => import("./bizarre-et-insolite-collection.js").then((module) => module.bizarreEtInsoliteBundle)
   }
 ];
 
