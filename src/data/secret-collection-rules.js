@@ -13,6 +13,14 @@ export function getClassicCollectionEntries(collectionCatalog = []) {
   return collectionCatalog.filter((entry) => !isSecretCollection(entry));
 }
 
+/**
+ * @param {{
+ *   collectionCatalog?: any[],
+ *   registry?: {
+ *     getCollectionProgress?: (collectionId: string) => { discovered?: number, total?: number, ratio?: number } | null
+ *   } | null
+ * }} [options]
+ */
 export function getClassicCollectionsProgress({ collectionCatalog = [], registry } = {}) {
   const entries = getClassicCollectionEntries(collectionCatalog);
   const progress = entries.reduce((acc, entry) => {
@@ -27,6 +35,14 @@ export function getClassicCollectionsProgress({ collectionCatalog = [], registry
   return progress;
 }
 
+/**
+ * @param {{
+ *   collectionCatalog?: any[],
+ *   registry?: {
+ *     getCollectionProgress?: (collectionId: string) => { discovered?: number, total?: number, ratio?: number } | null
+ *   } | null
+ * }} [options]
+ */
 export function getSecretCollectionState({ collectionCatalog = [], registry } = {}) {
   const secretEntry = collectionCatalog.find((entry) => isSecretCollection(entry));
   const secretCollection = collectionOf(secretEntry);
