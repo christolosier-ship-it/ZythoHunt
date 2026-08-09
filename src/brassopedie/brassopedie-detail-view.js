@@ -77,9 +77,9 @@ function createDetailSection(title, children, className = "") {
 
 function createRecipe(recipe = {}) {
   const content = el("div", "brassopedie-detail-recipe");
-  if (recipe.profilUnique === false) {
-    content.appendChild(paragraph("Profil variable selon le sous-style ou l’interprétation.", "brassopedie-detail-note"));
-  }
+  const note = String(recipe.noteProfil || "").trim()
+    || (recipe.profilUnique === false ? "Profil variable selon le sous-style ou l’interprétation." : "");
+  if (note) content.appendChild(paragraph(note, "brassopedie-detail-note"));
   paragraphs(recipe.explicationProfil).forEach((item) => content.appendChild(item));
 
   const groups = el("div", "brassopedie-detail-recipe-groups");
@@ -155,8 +155,8 @@ export function createBrassopedieDetailView({ card, cardsById = {}, action = nul
   const metrics = el("div", "brassopedie-detail-metrics");
   [
     ["alcohol", "Alcool", formatRange(entry.alcool, "%")],
-    ["bitterness", "Amertume", `${formatRange(entry.amertume, "")} IBU`.replace("Variable IBU", "Variable")],
-    ["color", "Couleur", `${formatRange(entry.couleur, "")} EBC`.replace("Variable EBC", "Variable")],
+    ["bitterness", "Amertume", formatRange(entry.amertume, entry.amertume?.unite || "IBU")],
+    ["color", "Couleur", formatRange(entry.couleur, entry.couleur?.unite || "EBC")],
     ["fermentation", "Fermentation", entry.fermentation?.type || "Variable"],
     ["service", "Service", service.temperature]
   ].forEach(([kind, label, value]) => metrics.appendChild(createMetric(kind, label, value)));
@@ -164,11 +164,17 @@ export function createBrassopedieDetailView({ card, cardsById = {}, action = nul
   const story = el("div", "brassopedie-detail-story");
   const historyParagraphs = paragraphs(entry.histoireEtOrigines);
   if (historyParagraphs.length) story.appendChild(createDetailSection("Histoire & origines", historyParagraphs));
+  (entry.chapitres || []).forEach((chapter) => {
+    const chapterParagraphs = paragraphs(chapter?.texte ?? chapter?.contenu);
+    if (chapter?.titre && chapterParagraphs.length) {
+      story.appendChild(createDetailSection(chapter.titre, chapterParagraphs));
+    }
+  });
   const serviceChildren = [paragraph(`Température : ${service.temperature}`)];
   if (service.glasses.length) serviceChildren.push(list(service.glasses));
   story.appendChild(createDetailSection("Service", serviceChildren));
 
-  const recipeSection = createDetailSection("Recette typique", [createRecipe(recipe)], "brassopedie-detail-section--wide");
+  const recipeSection = createDetailSection(recipe.titre || "Recette typique", [createRecipe(recipe)], "brassopedie-detail-section--wide");
 
   const sources = el("details", "brassopedie-detail-sources");
   sources.appendChild(el("summary", "", "Sources"));
