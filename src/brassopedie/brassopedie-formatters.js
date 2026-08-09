@@ -24,7 +24,9 @@ export function formatRange(range, label = range?.unite || "") {
 }
 
 export function formatTemperature(service) {
-  if (!service || service.temperatureMin == null || service.temperatureMax == null) return "Variable";
+  if (!service) return "Variable";
+  if (String(service.libelle || "").trim()) return String(service.libelle).trim();
+  if (service.temperatureMin == null || service.temperatureMax == null) return "Variable";
   if (service.temperatureMin === service.temperatureMax) {
     return `${service.temperatureMin} ${service.uniteTemperature || "°C"}`;
   }
