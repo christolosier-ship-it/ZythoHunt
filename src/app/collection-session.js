@@ -9,6 +9,12 @@ import { createGlobalBeerResolver } from "../discovery/global-beer-resolver.js";
 import { createRevealEngine } from "../reveal/reveal-engine.js";
 import { motionTokens } from "../animation/motion-tokens.js";
 import { createBrassopediePanel, shouldOpenBrassopedie } from "../brassopedie/brassopedie-panel.js";
+import { isCollectionSearchable } from "../data/secret-collection-rules.js";
+
+function getClickedCardId(event) {
+  const target = event.target instanceof Element ? event.target.closest("[data-card-id]") : null;
+  return target instanceof HTMLElement ? target.dataset.cardId || null : null;
+}
 
 export async function mountCollectionSession({
   bundle,
@@ -24,6 +30,7 @@ export async function mountCollectionSession({
   onExternalCollectionReveal,
   onPersistenceFailure,
   onPersistenceError,
+  canRevealCardByClick,
   skipInitialPreload = false
 }) {
   const { collection, cards, cardsById } = bundle;
@@ -79,10 +86,12 @@ export async function mountCollectionSession({
     motionTokens
   });
 
+  const searchableCatalog = collectionCatalog.filter((entry) => isCollectionSearchable(entry));
+  const collectionSearchable = isCollectionSearchable(collection);
   const resolver = createGlobalBeerResolver({
-    preferredBundle: bundle,
-    preferredCollectionId: collection.id,
-    collectionCatalog,
+    preferredBundle: collectionSearchable ? bundle : null,
+    preferredCollectionId: collectionSearchable ? collection.id : null,
+    collectionCatalog: searchableCatalog,
     loadCollectionBundle
   });
 
@@ -111,6 +120,20 @@ export async function mountCollectionSession({
   });
   discovery.mount();
 
+  const cardClickRevealAbort = new AbortController();
+  elements.carouselContainer?.addEventListener("click", (event) => {
+    if (revealEngine.isBusy?.()) return;
+    if (!collection.secret || !canRevealCardByClick?.(collection)) return;
+
+    const cardId = getClickedCardId(event);
+    if (!cardId || !cardsById[cardId]?.revealable || store.isDiscovered(cardId)) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+    event.stopImmediatePropagation?.();
+    void discovery.revealCard(cardId, { focusInput: false });
+  }, { capture: true, signal: cardClickRevealAbort.signal });
+
   return {
     collection,
     carousel,
@@ -119,6 +142,7 @@ export async function mountCollectionSession({
     brassopediePanel,
     assetQueue,
     destroy() {
+      cardClickRevealAbort.abort();
       discovery.destroy?.();
       revealEngine.destroy?.();
       carousel.destroy?.();
