@@ -12,13 +12,22 @@ export function natureLabel(nature) {
 }
 
 export function formatRange(range, label = range?.unite || "") {
-  if (!range || range.statut === "variable" || range.min == null || range.max == null) return "Variable";
-  const value = `${range.min}–${range.max}${label === "%" ? " %" : label ? ` ${label}` : ""}`;
+  if (!range) return "Variable";
+  if (String(range.libelle || "").trim()) return String(range.libelle).trim();
+  if (range.statut === "variable" || range.min == null || range.max == null) return "Variable";
+
+  const suffix = label === "%" ? " %" : label ? ` ${label}` : "";
+  const value = range.min === range.max
+    ? `${range.min}${suffix}`
+    : `${range.min}–${range.max}${suffix}`;
   return range.statut === "large" ? `${value} · plage large` : value;
 }
 
 export function formatTemperature(service) {
   if (!service || service.temperatureMin == null || service.temperatureMax == null) return "Variable";
+  if (service.temperatureMin === service.temperatureMax) {
+    return `${service.temperatureMin} ${service.uniteTemperature || "°C"}`;
+  }
   return `${service.temperatureMin}–${service.temperatureMax} ${service.uniteTemperature || "°C"}`;
 }
 
