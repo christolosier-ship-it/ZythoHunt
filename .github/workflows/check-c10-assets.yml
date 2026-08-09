@@ -1,0 +1,33 @@
+name: Check C10 asset fingerprints
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  fingerprint:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+      - run: python -m pip install Pillow==11.3.0 numpy
+      - name: Print dimensions and dHash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          import numpy as np
+
+          root = Path('public/assets/collections/bizarre-et-insolite')
+          for name in ('face-bizarre-insolite.webp', 'dos-bizarre-insolite.webp'):
+              path = root / name
+              with Image.open(path) as image:
+                  gray = image.convert('L').resize((17, 16))
+                  a = np.array(gray)
+                  bits = (a[:, 1:] > a[:, :-1]).flatten()
+                  h = ''.join(f'{int("".join("1" if x else "0" for x in bits[i:i+4]), 2):x}' for i in range(0, len(bits), 4))
+                  print(f'{name}: size={image.size} mode={image.mode} dhash={h}')
+          PY
