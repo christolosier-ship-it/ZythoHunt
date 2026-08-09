@@ -7,6 +7,13 @@ import { createSidebarNavigation } from "./sidebar-navigation.js";
 import { showAppNotice } from "./app-notice.js";
 import { preloadAssets } from "../utils/preload-assets.js";
 import { createDiscoveryRegistry } from "../discovery/discovery-registry.js";
+import { createDiscoveryStore } from "../discovery/discovery-store.js";
+import {
+  canRevealSecretCollectionByClick,
+  getClassicCollectionEntries,
+  getSecretCollectionState,
+  resolveCollectionDisplayName
+} from "../data/secret-collection-rules.js";
 import { createBrassopedieLibraryView } from "../brassopedie/brassopedie-library-view.js";
 import { BADGE_DEFINITIONS } from "../badges/badge-definitions.js";
 import { createBadgeStore } from "../badges/badge-storage.js";
@@ -36,14 +43,68 @@ function getSessionElements() {
   };
 }
 
-function syncCollectionChrome(bundleOrCollection) {
+function syncCollectionChrome(bundleOrCollection, secretState = null) {
   const collection = bundleOrCollection?.collection || bundleOrCollection;
   if (!collection) return;
-  const name = collection.name || collection.nom || collection.id;
+  const name = resolveCollectionDisplayName(collection, secretState);
   const label = $("active-collection-label");
   const carousel = $("carousel-container");
   if (label) label.textContent = `Collection ${name}`;
   if (carousel) carousel.setAttribute("aria-label", `Carrousel de la collection ${name}`);
+}
+
+function syncSidebarCollectionLabels(collectionManager, secretState = null) {
+  document.querySelectorAll("[data-sidebar-collection-view][data-collection-id]").forEach((button) => {
+    if (!(button instanceof HTMLElement)) return;
+    const collectionId = button.dataset.collectionId;
+    const viewId = button.dataset.sidebarCollectionView;
+    const entry = collectionManager.getEntry(collectionId);
+    const collection = entry?.collection;
+    if (!collection || !viewId) return;
+
+    const name = resolveCollectionDisplayName(collection, secretState);
+    button.textContent = name;
+    button.setAttribute("aria-label", `${name} — ${viewId === "zythosphere" ? "ZythoSphère" : "Brassopédie"}`);
+  });
+}
+
+function mountSettingsDebugPanel({ root, onRevealClassicCollections }) {
+  const inner = root?.querySelector?.(".app-view-panel-inner") || root;
+  if (!inner || inner.querySelector?.("[data-settings-reveal-classic]")) return;
+
+  const section = document.createElement("section");
+  section.className = "settings-debug-panel";
+  section.setAttribute("aria-label", "Outils de contrôle");
+
+  const title = document.createElement("h2");
+  title.textContent = "Outils de contrôle";
+
+  const description = document.createElement("p");
+  description.textContent = "Révèle toutes les cartes des 9 collections classiques sur cet appareil pour tester le déblocage de la collection secrète.";
+
+  const button = document.createElement("button");
+  button.type = "button";
+  button.dataset.settingsRevealClassic = "true";
+  button.textContent = "Révéler les 9 collections classiques";
+
+  button.addEventListener("click", async () => {
+    const confirmed = window.confirm("Cette action révélera toutes les cartes des 9 collections classiques sur cet appareil. La collection secrète restera à révéler carte par carte. Continuer ?");
+    if (!confirmed) return;
+
+    button.disabled = true;
+    const previousLabel = button.textContent;
+    button.textContent = "Révélation en cours…";
+
+    try {
+      await onRevealClassicCollections();
+    } finally {
+      button.disabled = false;
+      button.textContent = previousLabel;
+    }
+  });
+
+  section.append(title, description, button);
+  inner.append(section);
 }
 
 function reportPersistenceError(detail) {
@@ -94,8 +155,17 @@ export async function bootApp(navigation) {
   });
   badgesView.mount();
 
+  const getSecretState = () => getSecretCollectionState({ collectionCatalog, registry: discoveryRegistry });
+  const refreshSecretUi = () => {
+    const secretState = getSecretState();
+    syncSidebarCollectionLabels(collectionManager, secretState);
+    syncCollectionChrome(collectionManager.getActiveCollection(), secretState);
+    return secretState;
+  };
+
   const notifyNewBadges = (items) => {
     discoveryRegistry.refresh();
+    refreshSecretUi();
     badgesView?.refresh();
     if (items.length) void notifyBadgesUnlocked(items);
   };
@@ -142,8 +212,10 @@ export async function bootApp(navigation) {
     skipInitialPreload,
     onPersistenceError: reportPersistenceError,
     onPersistenceFailure: () => reportPersistenceError(new Error("Progression non enregistrée")),
+    canRevealCardByClick: (collection) => canRevealSecretCollectionByClick(collection, getSecretState()),
     beforeValidReveal: () => {
       discoveryRegistry.refresh();
+      refreshSecretUi();
       void brassopedieLibrary?.refresh();
       navigation?.showView("zythosphere");
     },
@@ -161,6 +233,7 @@ export async function bootApp(navigation) {
       const previousRevealStats = revealStatsStore.getState();
       revealStatsStore.recordNewDiscovery(payload);
       discoveryRegistry.refresh();
+      refreshSecretUi();
       notifyNewBadges(badgeEngine.evaluate({ previousRevealStats }));
     },
     onExternalCollectionReveal: (result) => {
@@ -174,6 +247,44 @@ export async function bootApp(navigation) {
     }
   });
 
+  async function revealClassicCollectionsForDebug() {
+    const entries = getClassicCollectionEntries(collectionCatalog);
+    const previousRevealStats = revealStatsStore.getState();
+    let total = 0;
+    let persistenceFailed = false;
+
+    for (const entry of entries) {
+      const bundle = await collectionManager.loadBundle(entry.collection.id);
+      const ids = bundle.revealableCards.map((card) => card.id);
+      total += ids.length;
+
+      const store = createDiscoveryStore({
+        key: bundle.collection.discoveryKey,
+        onPersistenceError: reportPersistenceError
+      });
+      const result = store.markAllDiscovered(ids);
+      if (!result.ok) persistenceFailed = true;
+
+      if (activeSession?.collection?.id === bundle.collection.id) {
+        ids.forEach((id) => activeSession?.carousel?.setDiscovered?.(id, true));
+        activeSession?.discovery?.updateProgress?.();
+      }
+    }
+
+    discoveryRegistry.refresh();
+    refreshSecretUi();
+    void brassopedieLibrary?.refresh();
+    notifyNewBadges(badgeEngine.evaluate({ previousRevealStats }));
+
+    showAppNotice({
+      message: persistenceFailed
+        ? `${total} cartes classiques révélées pour cette session, mais la sauvegarde locale a signalé une erreur.`
+        : `${total} cartes classiques révélées. La collection secrète peut maintenant être testée.`,
+      tone: persistenceFailed ? "warning" : "success",
+      duration: 9000
+    });
+  }
+
   async function switchCollection(collectionId, { revealMatch = null } = {}) {
     const targetEntry = collectionManager.getEntry(collectionId);
     if (!targetEntry) return { status: "missing", collectionId };
@@ -181,6 +292,7 @@ export async function bootApp(navigation) {
     const previousBundle = await collectionManager.getActiveBundle();
     if (previousBundle.collection.id === collectionId) {
       sidebarNavigation?.setActiveCollection?.("zythosphere", collectionId);
+      refreshSecretUi();
       if (revealMatch?.cardId && activeSession) {
         navigation?.showView("zythosphere");
         return activeSession.discovery.revealCard(revealMatch.cardId, { focusInput: false });
@@ -193,7 +305,7 @@ export async function bootApp(navigation) {
     const carouselContainer = sessionElements.carouselContainer;
     const targetCollection = targetEntry.collection;
     setCollectionSwitchBusy(true, sidebarNavigation);
-    syncCollectionChrome(targetCollection);
+    syncCollectionChrome(targetCollection, getSecretState());
     const backgroundPromise = backgroundTransition.transitionTo(targetCollection);
     let previousDestroyed = false;
 
@@ -222,8 +334,9 @@ export async function bootApp(navigation) {
       activeSession = nextSession;
       collectionManager.setActiveCollection(collectionId);
       setStoredActiveCollectionId(collectionId);
-      syncCollectionChrome(targetBundle);
+      syncCollectionChrome(targetBundle, getSecretState());
       sidebarNavigation?.setActiveCollection?.("zythosphere", collectionId);
+      refreshSecretUi();
 
       if (carouselContainer) {
         await gsap.fromTo(carouselContainer, { opacity: 0 }, { opacity: 1, duration: 0.28, ease: "power2.out", overwrite: true });
@@ -239,8 +352,9 @@ export async function bootApp(navigation) {
     } catch (error) {
       console.error(`Impossible de charger la collection ${targetCollection.name || collectionId}`, error);
       void backgroundTransition.transitionTo(previousBundle.collection);
-      syncCollectionChrome(previousBundle);
+      syncCollectionChrome(previousBundle, getSecretState());
       sidebarNavigation?.setActiveCollection?.("zythosphere", previousBundle.collection.id);
+      refreshSecretUi();
 
       if (previousDestroyed) {
         try {
@@ -279,11 +393,19 @@ export async function bootApp(navigation) {
     onSelectZythosphereCollection: (collectionId) => switchCollection(collectionId),
     onSelectBrassopedieCollection: async (collectionId) => {
       brassopedieCollectionId = await brassopedieLibrary?.selectCollection?.(collectionId) || collectionId;
+      refreshSecretUi();
       return { status: "active", collectionId: brassopedieCollectionId };
     }
   });
+  refreshSecretUi();
+
+  mountSettingsDebugPanel({
+    root: $("reglages-view"),
+    onRevealClassicCollections: revealClassicCollectionsForDebug
+  });
 
   activeSession = await mountSession(initialBundle);
+  refreshSecretUi();
 
   await gsap.to(loadingScreen, { opacity: 0, duration: 0.5, ease: "power2.out" }).then();
   if (loadingScreen) loadingScreen.style.display = "none";

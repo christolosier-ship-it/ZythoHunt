@@ -69,6 +69,19 @@ export function createDiscoveryStore({
       discovered = next;
       return { ...persistence, id };
     },
+    markAllDiscovered(ids = []) {
+      const discoveredAt = new Date().toISOString();
+      const next = { ...discovered };
+      const cleanIds = ids.filter(Boolean);
+
+      cleanIds.forEach((id) => {
+        next[id] = next[id] || { discoveredAt };
+      });
+
+      const persistence = persist(next);
+      discovered = next;
+      return { ...persistence, ids: cleanIds };
+    },
     reset() {
       /** @type {Record<string, { discoveredAt: string }>} */
       const next = {};
