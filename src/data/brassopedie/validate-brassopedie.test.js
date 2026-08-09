@@ -9,6 +9,8 @@ import sourWild from "./collection-06-bieres-acides-sauvages-et-spontanees.js";
 import amberBrownStrong from "./collection-07-ales-ambrees-brunes-maltees-et-fortes.js";
 import singularHistoricalHybrid from "./collection-08-styles-singuliers-historiques-et-hybrides.js";
 import commercialDesignations from "./collection-09-appellations-commerciales.js";
+import bizarreUnusual from "./collection-10-bizarre-et-insolite.js";
+import { bizarreEtInsoliteBundle } from "../bizarre-et-insolite-collection.js";
 import { collectionBundles } from "../collections.js";
 
 const recipeKeys = [
@@ -32,17 +34,18 @@ const canonicalCollections = [
   { label: "bieres-acides-sauvages-et-spontanees", data: sourWild, expected: 21 },
   { label: "ales-ambrees-brunes-maltees-et-fortes", data: amberBrownStrong, expected: 27 },
   { label: "styles-singuliers-historiques-et-hybrides", data: singularHistoricalHybrid, expected: 40 },
-  { label: "appellations-commerciales", data: commercialDesignations, expected: 30 }
+  { label: "appellations-commerciales", data: commercialDesignations, expected: 30 },
+  { label: "bizarre-et-insolite", data: bizarreUnusual, expected: 42 }
 ];
 
 test("all collection bundles pass their structural validator", () => {
-  collectionBundles.forEach((bundle) => {
+  [...collectionBundles, bizarreEtInsoliteBundle].forEach((bundle) => {
     const validation = bundle.validate();
     assert.equal(validation.valid, true, `${bundle.collection.id}: ${validation.errors.join(" | ")}`);
   });
 });
 
-test("canonical Brassopedie collections contain one complete definition per style", () => {
+test("canonical Brassopedie collections contain one complete definition per entry", () => {
   canonicalCollections.forEach(({ label, data, expected }) => {
     assert.equal(data.cartes.length, expected, `${label}: expected ${expected} cards`);
     const ids = data.cartes.map((card) => card.id);
@@ -56,6 +59,11 @@ test("canonical Brassopedie collections contain one complete definition per styl
         const present = Array.isArray(value) ? value.length > 0 : String(value ?? "").trim().length > 0;
         assert.ok(present, `${card.id}: missing recipe.${key}`);
       });
+
+      if (label === "bizarre-et-insolite") {
+        assert.ok(Array.isArray(card.chapitres) && card.chapitres.length >= 2, `${card.id}: missing singular chapters`);
+        assert.ok(String(card.recette.titre || "").trim(), `${card.id}: missing singular recipe title`);
+      }
 
       assert.ok(Array.isArray(card.sources) && card.sources.length > 0, `${card.id}: missing sources`);
       card.sources.forEach((source) => {
