@@ -1,6 +1,3 @@
-// Source canonique de la collection : taxonomie + contenu encyclopédique.
-// Une fiche n'existe qu'ici ; aucune couche de patch ou d'enrichment parallèle.
-
 const collection = {
   "schemaVersion": "1.0.0",
   "taxonomyVersion": "1.0.0",
@@ -57,15 +54,31 @@ const collection = {
           "Verre adapté au sous-style"
         ]
       },
-      "description": "La Pale Ale est une famille de clarté et de houblon : dorée à ambrée, fermentée en ale, assez sèche pour rester vive, assez maltée pour ne pas flotter dans le vide. Selon l’école, elle peut parler biscuit anglais, agrumes américains ou fruits du Nouveau Monde.",
-      "histoireEtOrigines": `« Pale Ale » est d’abord un terme relatif : il désigne une ale plus claire que les bières brunes et noires qui dominaient longtemps la production britannique. À mesure que les techniques de touraillage permettent de sécher le malt avec davantage de contrôle et moins de fumée, les brasseurs obtiennent des malts plus pâles et plus réguliers. Aux XVIIe et XVIIIe siècles, ces malts restent coûteux et leurs bières ne constituent pas encore une famille homogène au sens moderne, mais ils ouvrent progressivement la voie aux pale ales de stock, aux bitters et aux futures India Pale Ales.
+      "description": "La Pale Ale est la grande famille où la bière britannique change de lumière. Du biscuit et des fleurs d’une pinte anglaise aux zestes éclatants d’une version américaine, elle garde un même ressort : un malt clair qui tient la scène sans étouffer le houblon. Sa couleur raconte une révolution de malterie ; ses descendants, plusieurs siècles de voyages et de réinventions.",
+      "histoireEtOrigines": `Avant d’être un style, « pale ale » est une comparaison. Dans la Grande-Bretagne des XVIIe et XVIIIe siècles, une bière dite pale est plus claire que les productions faites avec des malts bruns, fumés ou fortement chauffés. Le progrès ne tient pas à un inventeur levant soudain un rideau de fumée : coke peu fumant, foyers indirects et meilleure conduite des tourailles rendent peu à peu le malt pâle plus régulier et plus économique. Des pale ales au malt séché au coke sont attestées dans le nord de l’Angleterre à la fin du XVIIe siècle ; Burton n’en possède donc ni l’invention ni le monopole.
 
-Au XIXe siècle, Burton upon Trent devient l’un des centres majeurs de la pale ale britannique. Son eau naturellement riche en sulfates favorise une perception sèche et tranchante du houblon, et le développement du chemin de fer facilite la diffusion nationale des bières de Burton. Dans le même temps, les mots « pale ale », « bitter » et « India pale ale » se chevauchent selon les brasseries, les marchés et le conditionnement. La taxonomie actuelle est donc plus nette que le vocabulaire historique : une Pale Ale victorienne ne se superpose pas automatiquement à une catégorie de concours moderne.
+Burton upon Trent devient néanmoins le décor décisif du XIXe siècle. Sous la ville, les aquifères traversent des terrains gypseux et chargent l’eau en calcium et en sulfates. Cette composition favorise la clarification, la fermentation et une perception plus nette de l’amertume : elle ne crée pas le houblon, mais lui donne une diction particulièrement ferme. Les brasseries Allsopp, Bass, Worthington et leurs concurrentes combinent cette ressource avec le canal, puis le rail, des capacités industrielles considérables et un marché impérial. La Pale Ale de Burton devient un produit de masse exportable autant qu’un goût local.
 
-Au XXe siècle, les versions britanniques perdent souvent en densité et en alcool tandis que la culture du cask et du pub maintient les bitters. À partir des années 1970 et surtout 1980, les brasseurs américains reprennent le principe d’une ale claire et houblonnée mais remplacent une partie du vocabulaire aromatique anglais par Cascade puis par une multitude de houblons américains et du Nouveau Monde. La Pale Ale devient alors une famille mondiale : English Pale Ale, American Pale Ale, Australian Pale Ale, New Zealand Pale Ale, versions golden ou hazy n’ont pas une recette commune, mais partagent l’idée d’une ale relativement claire où le houblon est lisible sans nécessairement atteindre l’intensité d’une IPA moderne.`,
+Les mots restent plus mobiles que nos arbres de styles. Au comptoir, une pale ale servie en fût peut être commandée comme « bitter » ; sur une bouteille ou dans un registre de brasserie, le même voisinage de bière conserve le nom pale ale. Les versions destinées au marché indien forment une autre branche, elle aussi nommée tardivement et de façon irrégulière. Attribuer rétrospectivement aux brasseurs victoriens les cases Ordinary, Best, English IPA ou American Pale Ale reviendrait à leur prêter un formulaire qu’ils n’avaient pas reçu.
+
+Au XXe siècle, guerres, fiscalité, concentration industrielle et succès des lagers réduisent ou déplacent une partie du paysage britannique. Puis, à partir des années 1970, la pale ale traverse une seconde révolution. Les petits brasseurs américains reprennent son architecture et donnent le premier rôle à des houblons cultivés dans le Nord-Ouest des États-Unis. L’Australie et la Nouvelle-Zélande développent à leur tour des langues locales. La famille n’a donc pas une recette unique : elle est l’arbre dont Bitter et IPA sont deux grandes branches, puis dont le brassage craft a multiplié les rameaux.`,
+      "chapitres": [
+        {
+          "titre": "La révolution est dans la touraille",
+          "texte": `Un malt pâle suppose de sécher l’orge germée sans la brûler ni l’enfumer. Le coke a compté parce qu’il fournit une chaleur plus propre que le charbon brut, mais les historiens soulignent aussi le rôle des foyers indirects et du contrôle de la touraille. La bonne formule n’est donc pas « un combustible invente la Pale Ale » : plusieurs améliorations rendent enfin reproductible une couleur autrefois coûteuse.
+
+Cette nuance explique la progression plutôt qu’une date magique. Le malt pâle offre un meilleur rendement que certains malts plus sombres et laisse apparaître la couleur ainsi que l’amertume du houblon. Une innovation de malterie finit ainsi par modifier le paysage du verre, du comptoir et de l’industrie.`
+        },
+        {
+          "titre": "Burton : de l’eau, mais aussi des rails",
+          "texte": `L’eau sulfatée de Burton convient remarquablement aux ales pâles et houblonnées. Elle n’est pourtant qu’un avantage parmi d’autres. Les maisons de Burton disposent de capitaux, agrandissent leurs brasseries, organisent leurs fermentations et profitent d’abord des voies navigables, puis du chemin de fer. Une géologie heureuse sans tonneaux, wagons ni agents commerciaux serait restée une curiosité minérale.
+
+Lorsque les chimistes comprennent mieux cette eau, d’autres brasseries la reproduisent par ajout de sels : la « burtonisation » transforme un avantage géographique en procédé. Burton perd alors une partie de son secret, ce qui est le destin habituel d’un secret dès qu’un laboratoire lui attribue une formule.`
+        }
+      ],
       "recette": {
         "profilUnique": false,
-        "explicationProfil": "Pale Ale désigne une famille historique et contemporaine. La recette dépend fortement de l’école britannique, américaine, australienne, néo-zélandaise ou moderne ; les principes ci-dessous décrivent un socle plutôt qu’un canon.",
+        "explicationProfil": "La Pale Ale est une famille, pas une recette mère à agrandir ou réduire. Maltage, eau, levure, houblons et conditionnement prennent des formes différentes dans les branches britannique, américaine et océanienne.",
         "maltsEtCereales": [
           "Un malt pale ale constitue généralement la base : pale britannique plus biscuité, two-row américain plus neutre, ou malts locaux selon l’école.",
           "Les malts crystal/caramel peuvent apporter couleur, corps et notes de biscuit ou de caramel, mais leur proportion est faible dans les versions modernes les plus sèches et peut être nulle dans les golden ou hazy pale ales.",
@@ -80,11 +93,11 @@ Au XXe siècle, les versions britanniques perdent souvent en densité et en alco
           "Les variantes hazy peuvent rechercher une souche fruitée capable de compléter les arômes de houblon."
         ],
         "ingredientsComplementaires": [],
-        "profilEau": "Très variable. Les profils britanniques peuvent être franchement sulfatés pour renforcer la sécheresse et l’amertume ; les pale ales modernes peuvent employer davantage de chlorures pour arrondir la bouche. Le pH et l’alcalinité doivent rester adaptés à une bière claire.",
+        "profilEau": "L’eau doit être adaptée au sous-style et au malt. Les sulfates peuvent affermir la perception de sécheresse et d’amertume ; les chlorures peuvent soutenir la rondeur. Leur effet dépend aussi du pH, de l’alcalinité, de la levure et de la recette : aucun ratio universel ne transforme à lui seul une eau en Pale Ale.",
         "empatage": "Infusion simple très fréquente. Une température favorisant une atténuation moyenne à élevée permet de conserver la buvabilité ; les versions plus rondes peuvent viser davantage de dextrines.",
-        "ebullitionEtHoublonnage": "Amertume en chaudière puis ajouts tardifs selon le style. Le dry-hopping est historique dans certaines pale ales de stock et omniprésent dans de nombreuses interprétations craft, mais son intensité va de discrète à massive.",
+        "ebullitionEtHoublonnage": "Une amertume de chaudière reste fréquente, mais l’équilibre entre ajouts précoces, fin d’ébullition, whirlpool et dry-hop appartient au sous-style. Les IBU mesurent imparfaitement la perception et ne comptabilisent pas à eux seuls la saturation aromatique.",
         "fermentation": "Fermentation haute propre à modérément fruitée. Le caractère de levure doit soutenir le style choisi sans produire de solvants ni de phénols non recherchés.",
-        "maturation": "Courte pour les pale ales modernes orientées fraîcheur ; historiquement, certaines pale ales fortes et de stock pouvaient être gardées bien plus longtemps. Les versions houblonnées sont aujourd’hui protégées de l’oxygène et servies fraîches.",
+        "maturation": "Les pale ales modernes orientées vers le parfum se protègent rigoureusement de l’oxygène et se consomment fraîches. Les pale ales de stock historiques pouvaient au contraire mûrir longtemps : confondre les deux époques ferait de la fraîcheur une règle rétroactive.",
         "profilRecherche": "Une ale claire à ambrée dont le malt fournit une charpente lisible et dont le houblon apporte fraîcheur, amertume et identité sans lourdeur."
       },
       "sources": [
@@ -94,7 +107,7 @@ Au XXe siècle, les versions britanniques perdent souvent en densité et en alco
           "reference": "Pale Ale families — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "BJCP",
@@ -102,7 +115,7 @@ Au XXe siècle, les versions britanniques perdent souvent en densité et en alco
           "reference": "Pale American Ale — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/18/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Sierra Nevada Brewing Co.",
@@ -110,7 +123,7 @@ Au XXe siècle, les versions britanniques perdent souvent en densité et en alco
           "reference": "Pale Ale — Cascade, malt two-row et caramel, repère de l’American Pale Ale",
           "type": "source_primaire_technique",
           "url": "https://sierranevada.com/brews/pale-ale",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "CAMRA / Pete Brown",
@@ -118,7 +131,31 @@ Au XXe siècle, les versions britanniques perdent souvent en densité et en alco
           "reference": "India Pale Ale: A History — mythes, commerce vers l’Inde et réinvention américaine",
           "type": "histoire_brassicole",
           "url": "https://learn.camra.org.uk/courses/india-pale-ale-a-history",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Martyn Cornell — Zythophile",
+          "edition": null,
+          "reference": "Burton: NOT the first place in the world to brew pale beers — coke, touraillage et antériorités documentaires",
+          "type": "histoire_brassicole",
+          "url": "https://zythophile.wordpress.com/2009/11/26/burton-not-the-first-place-in-the-world-to-brew-pale-beers/",
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Mercian Geologist / Aberystwyth University",
+          "edition": "2019",
+          "reference": "The role of geology in the fall and rise of local brewing — aquifères gypseux et eau de Burton",
+          "type": "publication_scientifique",
+          "url": "https://www.emgs.org.uk/uploads/1/4/9/1/149143154/mg19_4_2019_265_maltman_role_of_geology_in_fall___rise_of_local_brewing_1.pdf",
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Chartered Institute of Brewers and Distillers",
+          "edition": null,
+          "reference": "Our History — essor industriel des pale ales de Burton",
+          "type": "organisation_professionnelle",
+          "url": "https://www.cibd.org.uk/about-cibd/our-history/",
+          "consultation": "2026-08-10"
         }
       ]
     },
@@ -168,15 +205,31 @@ Au XXe siècle, les versions britanniques perdent souvent en densité et en alco
           "Verre adapté au sous-style"
         ]
       },
-      "description": "La Bitter est la pinte anglaise par excellence : moins spectaculaire qu’une IPA, plus nerveuse qu’une simple ale maltée. Biscuit, caramel léger, esters fruités, houblon floral ou terreux, finale sèche : son génie tient dans la nuance et la répétition du verre.",
-      "histoireEtOrigines": `La Bitter n’est pas née un jour précis derrière la porte d’une seule brasserie. Le mot s’enracine dans le langage des pubs britanniques du XIXe siècle, lorsque les consommateurs et débitants distinguent les pale ales plus houblonnées et plus sèches des mild ales, généralement plus jeunes et moins amères. « Bitter » devient ainsi un nom d’usage avant d’être une famille de styles codifiée. Les brasseries pouvaient employer « Pale Ale » sur leurs registres ou leurs bouteilles tandis que le même univers de bière était demandé comme « bitter » au comptoir.
+      "description": "La Bitter est moins une graduation d’amertume qu’une manière britannique d’habiter le pub. Dans une pinte peu gazeuse, le biscuit, le fruit discret de la levure et le houblon floral avancent à pas mesurés ; aucun ne cherche l’affiche. Sa force est souvent modeste, mais son équilibre supporte l’épreuve la plus sévère : donner envie de reprendre exactement la même chose.",
+      "histoireEtOrigines": `La Bitter se nomme d’abord au comptoir. Dans la seconde moitié du XIXe siècle, les clients britanniques emploient « bitter » pour distinguer les pale ales sèches et bien houblonnées des mild ales plus jeunes, plus rondes et généralement moins amères. Les livres de brassage et les étiquettes peuvent continuer à parler de Pale Ale tandis que le pub sert une bitter : la différence est autant commerciale et sociale que strictement brassicole.
 
-La révolution industrielle, le chemin de fer, les malts pâles plus réguliers et l’influence de Burton favorisent la diffusion des ales claires et houblonnées. Mais la Bitter évolue surtout comme bière de pub : gravité modérée, fermentation haute, faible carbonatation en cask, service rapide et capacité à donner beaucoup de goût dans une pinte relativement légère. Les guerres, la fiscalité sur la densité et les changements de consommation du XXe siècle contribuent à abaisser la force moyenne de nombreuses ales britanniques, ce qui renforce le caractère « session » des Bitters.
+Cette bière se construit avec son lieu de service. En cask, elle poursuit une légère fermentation dans le fût, se clarifie, se conditionne et arrive au verre par gravité ou pompe manuelle. Une carbonatation modérée laisse paraître la texture, les esters de la levure anglaise et la précision d’une amertume qui serait plus tranchante sous beaucoup de gaz. Le cellérier du pub participe donc au résultat final ; la brasserie ne livre pas seulement un liquide, elle confie une dernière responsabilité.
 
-Les catégories Ordinary, Best/Special et Strong Bitter utilisées aujourd’hui servent surtout à ordonner cette famille par force et intensité. Elles se chevauchent davantage dans la réalité commerciale qu’un tableau de concours ne le suggère. La qualité d’une Bitter tient rarement à la puissance brute : elle repose sur la combinaison d’un malt pale ale biscuité, d’une amertume ferme, d’un fruité de fermentation mesuré, d’un houblon anglais ou apparenté et, lorsqu’elle est servie en cask, d’une carbonatation basse qui fait ressortir la texture et la buvabilité.`,
+La modération alcoolique n’est pas un trait éternel gravé dans le cuivre. En 1880, le Royaume-Uni remplace la taxe sur le malt par un droit sur la bière calculé à partir de la densité ; guerres, rationnements et fortes hausses fiscales poussent ensuite les brasseurs vers des moûts moins denses. Au XXe siècle, la Bitter devient la grande bière de consommation courante de nombreux pubs. Elle apprend à produire du relief avec peu de matière fermentescible : une économie de moyens qui relève davantage de l’horlogerie que de la privation.
+
+Ordinary, Best/Special et Strong/ESB sont des repères modernes commodes, pas trois lois historiques. Les brasseries britanniques ont longtemps classé leurs propres gammes avec des mots tels que ordinary, best, special ou premium, sans frontières nationales uniformes. L’histoire commune porte donc le pub, le cask et la fiscalité ; chaque niveau raconte ensuite comment il résout différemment le problème de l’équilibre.`,
+      "chapitres": [
+        {
+          "titre": "Le pub termine la bière",
+          "texte": `Dans une real ale conditionnée en cask, la levure encore active crée une carbonatation naturelle. Le fût doit être mis en perce, ventilé, laissé au repos et servi dans une fenêtre de fraîcheur. Température de cave, tirage et rotation du débit influencent la pinte autant que le choix d’un verre.
+
+Ce service explique une partie du style sensoriel : peu de gaz, une bouche souple, des arômes accessibles à température moins froide qu’une lager industrielle. Il explique aussi pourquoi une Bitter négligée au cellier raconte une histoire injuste sur la brasserie. Le pub est coéditeur du texte, avec possibilité de faute de frappe.`
+        },
+        {
+          "titre": "Une famille de noms locaux",
+          "texte": `« Best » ne garantit pas partout la même densité ; « ordinary » n’apparaît pas sur chaque pompe ; « special » peut être un rang interne ou un pur nom de marque. Les catégories de concours ont ordonné ce vocabulaire afin de comparer les bières, mais elles n’ont pas créé les gammes de pubs dont elles s’inspirent.
+
+Lire une Bitter demande donc deux cartes : celle du profil moderne et celle de la brasserie. Une Best d’un comté peut frôler la force d’une Ordinary d’un autre. La seule chose vraiment uniforme dans la nomenclature britannique est son talent pour résister à l’uniformité.`
+        }
+      ],
       "recette": {
         "profilUnique": false,
-        "explicationProfil": "Bitter couvre plusieurs niveaux de force. Une Ordinary ne doit pas être simplement une Best diluée : le rapport entre densité, amertume, malt, esters et conditionnement doit rester cohérent à chaque niveau.",
+        "explicationProfil": "La recette doit être pensée avec le service. En cask, faible carbonatation, fermentation secondaire et température de cave rendent plus visibles le malt, la levure et l’amertume qu’un simple tableau de densités.",
         "maltsEtCereales": [
           "Malt pale ale britannique comme base traditionnelle, souvent de caractère biscuité ou légèrement toasté.",
           "Crystal malt en proportion modérée selon la brasserie ; certains exemples restent presque entièrement pale malt.",
@@ -194,8 +247,8 @@ Les catégories Ordinary, Best/Special et Strong Bitter utilisées aujourd’hui
         "profilEau": "Un profil riche en calcium et souvent en sulfate est classique dans de nombreuses traditions britanniques ; il accentue la finale sèche et la netteté de l’amertume. Il faut toutefois éviter une minéralité dure ou crayeuse.",
         "empatage": "Infusion simple, souvent orientée vers une bonne fermentescibilité. Le corps doit rester assez léger pour permettre plusieurs pintes tout en conservant un centre malté.",
         "ebullitionEtHoublonnage": "Amertume principale en début d’ébullition, complétée par des ajouts plus tardifs selon la brasserie. Le houblonnage n’a pas vocation à produire la saturation aromatique d’une IPA moderne.",
-        "fermentation": "Fermentation haute avec gestion attentive des esters, du diacétyle et de la floculation. Les souches britanniques peuvent fermenter rapidement et clarifier efficacement.",
-        "maturation": "Maturation courte. En cask, une seconde fermentation légère, la clarification et le conditionnement au pub font partie de l’expérience traditionnelle ; les versions bouteille ou keg sont généralement plus carbonatées.",
+        "fermentation": "Fermentation haute avec une souche britannique choisie pour son fruité, son atténuation et sa floculation. Une gestion correcte du diacétyle est nécessaire ; sa présence légère dans certains exemples ne le rend ni obligatoire ni souhaitable partout.",
+        "maturation": "Pour le cask, la bière est transférée avec assez de levure et de fermentescibles pour se conditionner, puis clarifiée et gérée au pub. Une Bitter en bouteille ou en keg peut être plus gazeuse : le contenant modifie la sensation sans changer automatiquement la catégorie.",
         "profilRecherche": "Une pinte sèche, expressive et immédiatement buvable, où biscuit, fruit discret et amertume se répondent sans qu’aucun élément ne domine lourdement."
       },
       "sources": [
@@ -205,7 +258,7 @@ Les catégories Ordinary, Best/Special et Strong Bitter utilisées aujourd’hui
           "reference": "English-Style Bitter family — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "BJCP",
@@ -213,7 +266,7 @@ Les catégories Ordinary, Best/Special et Strong Bitter utilisées aujourd’hui
           "reference": "British Bitter — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/11/british-bitter/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Fuller’s",
@@ -221,7 +274,7 @@ Les catégories Ordinary, Best/Special et Strong Bitter utilisées aujourd’hui
           "reference": "History and Heritage — tradition londonienne des Bitters, London Pride et ESB",
           "type": "source_primaire_historique",
           "url": "https://www.fullers.co.uk/corporate/about-us/history-and-heritage",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Fermentis",
@@ -229,7 +282,31 @@ Les catégories Ordinary, Best/Special et Strong Bitter utilisées aujourd’hui
           "reference": "SafAle S-04 — levure d’ale anglaise, profil fruité/floral et forte floculation",
           "type": "fiche_technique",
           "url": "https://fermentis.com/fr/produit/safale-s-04/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "CAMRA",
+          "edition": null,
+          "reference": "A brief history of cask beer — émergence du mot bitter et culture du cask",
+          "type": "histoire_brassicole",
+          "url": "https://wb.camra.org.uk/2023/02/02/a-brief-history-of-cask-beer/",
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "UK Parliament — Hansard",
+          "edition": "1880",
+          "reference": "Customs and Inland Revenue Bill, 1880 — remplacement du malt duty par un droit fondé sur la densité",
+          "type": "archive_parlementaire",
+          "url": "https://hansard.parliament.uk/commons/1880-07-20/debates/c6e50dd0-8206-4149-a5c3-df1ff6ac461f/OrdersOfTheDay",
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "CAMRA",
+          "edition": null,
+          "reference": "Bitter, Session — rôle de la Bitter au pub et usages de Bitter / Best Bitter",
+          "type": "referentiel_contemporain",
+          "url": "https://learn.camra.org.uk/beer-styles/bitter-session",
+          "consultation": "2026-08-10"
         }
       ]
     },
@@ -283,25 +360,47 @@ Les catégories Ordinary, Best/Special et Strong Bitter utilisées aujourd’hui
           "Verre adapté au sous-style"
         ]
       },
-      "description": "L’IPA est devenue la grande bête houblonnée de la bière moderne : amertume, arômes floraux, résineux, agrumés, tropicaux ou épicés selon les écoles. Sa vraie colonne vertébrale n’est pas seulement “plus de houblon”, mais une finale assez sèche pour que ce houblon ne patauge pas.",
-      "histoireEtOrigines": `L’histoire de l’India Pale Ale est célèbre parce qu’elle a longtemps été racontée sous forme de légende simple : un brasseur londonien aurait inventé une bière extraordinairement forte et houblonnée afin qu’elle survive au voyage vers l’Inde. Les travaux historiques modernes montrent une réalité plus progressive. Des bières pâles et bien houblonnées existaient déjà, le porter voyageait lui aussi vers l’Inde, et George Hodgson n’a pas « inventé » à lui seul une recette de conservation. Sa Bow Brewery bénéficie surtout de sa proximité avec les quais de l’East India Company et devient un fournisseur important du marché indien à la fin du XVIIIe et au début du XIXe siècle.
+      "description": "L’IPA est une Pale Ale dont l’histoire a beaucoup voyagé — parfois plus vite que ses archives. Née d’un commerce britannique vers l’Inde, elle associe malt clair, fermentation haute et houblon affirmé ; ses descendants vont de la pinte anglaise aux versions américaines sèches, troubles, noires ou presque effervescentes. Son vrai récit n’a pas un inventeur : il a des marchés, des concurrents et d’excellents malentendus.",
+      "histoireEtOrigines": `L’IPA n’apparaît pas dans un éclair de génie destiné à sauver une bière condamnée par l’océan. Des pale ales et des porters voyagent vers l’Inde au moins dès les années 1780, et des conseils d’époque recommandent déjà de houblonner davantage les bières destinées aux climats chauds. La brasserie d’Abbott and Hodgson, à Bow près des quais londoniens de l’East India Company, se place avantageusement sur ce marché. George Hodgson n’invente pourtant ni la pale ale, ni le houblon conservateur, ni le commerce avec l’Inde ; ses conditions de crédit et sa proximité des armateurs expliquent une influence plus commerciale que prométhéenne.
 
-L’expression « East India Pale Ale » puis « India Pale Ale » se fixe progressivement au XIXe siècle. Lorsque les relations commerciales avec Hodgson se dégradent, des négociants se tournent vers Burton upon Trent. Des brasseries comme Allsopp et Bass disposent d’une eau sulfatée particulièrement favorable aux pale ales sèches et houblonnées. Le modèle de Burton devient alors central : bière pâle de stock, fortement atténuée, amertume nette, houblonnage généreux et parfois garde prolongée. Le voyage maritime a pu modifier favorablement certaines bières, mais l’IPA n’est pas simplement un produit inventé pour résister à la chaleur des cales.
+Le nom arrive après la pratique. Une annonce de 1801 associe Hodgson à une pale ale pour l’Inde ; les formulations « pale ale prepared for the India market » ou « East India pale ale » se répandent dans la presse britannique au cours des années 1820 et 1830. Cette chronologie interdit un baptême net. On expédie d’abord une catégorie de pale ale bien atténuée et houblonnée ; le marché, les publicités et les concurrents stabilisent ensuite le vocabulaire.
 
-Au Royaume-Uni, le nom IPA finit par couvrir au XXe siècle des bières parfois beaucoup plus faibles que leurs ancêtres victoriens. La grande rupture suivante vient des États-Unis. Anchor Liberty Ale en 1975, puis la Pale Ale de Sierra Nevada et la scène craft des années 1980-1990 remettent au premier plan les houblons américains. L’IPA devient progressivement la grande plateforme d’innovation du brassage craft : American IPA, Double IPA, Black IPA, Belgian IPA, NEIPA/Hazy IPA, Session IPA, Brut IPA et de nombreuses variantes utilisent le sigle « IPA » davantage comme promesse d’un équilibre centré sur le houblon que comme reconstruction de la bière exportée vers l’Inde.
+En 1822, après un conflit entre les Hodgson et des marchands, Samuel Allsopp est sollicité pour produire à Burton une pale ale destinée à l’Inde. Allsopp, Bass et d’autres maisons de Burton entrent dans le commerce. Leur eau riche en sulfates donne aux ales pâles un profil sec et une amertume distincte, mais leur réussite dépend aussi de l’échelle industrielle, du réseau commercial et des transports. Aucune brasserie ne possède seule la parenté : Bow ouvre une voie, Burton l’élargit et plusieurs concurrents la transforment.
 
-Cette évolution explique pourquoi « IPA » est aujourd’hui à la fois un héritage britannique et une famille mondiale en mouvement. Une English IPA, une West Coast IPA et une Hazy IPA peuvent sembler presque opposées en bouche ; elles appartiennent pourtant à une même généalogie où le houblon, la sécheresse et la volonté de dépasser la pale ale ordinaire restent des fils conducteurs.`,
+Les bières n’étaient pas systématiquement des forteresses alcooliques. Les analyses et recettes historiques montrent des forces variables, souvent comparables à d’autres pale ales de l’époque. Le houblonnage, l’atténuation, le soin du conditionnement et la qualité de la bière comptaient davantage qu’un supplément d’alcool mythique. Le voyage modifiait certainement le produit — chaleur, mouvement et vieillissement ne sont pas neutres — mais il n’avait pas pour fonction romantique de « cuire » volontairement un goût d’IPA.
+
+Au Royaume-Uni, fiscalité, guerres et changements du marché affaiblissent beaucoup d’IPA au XXe siècle ; certaines ne gardent du nom qu’une bière légère. Aux États-Unis, la révolution craft reprend la branche à partir des années 1970 et 1980, puis l’étire vers l’American, la Double, la West Coast et la Hazy IPA. L’IPA moderne n’est donc pas la survivance intacte d’une recette coloniale. C’est une famille historique dont chaque époque a négocié à nouveau la force, la clarté, l’amertume et jusqu’au sens des trois lettres.`,
+      "chapitres": [
+        {
+          "titre": "Hodgson : avantage commercial, pas brevet",
+          "texte": `Bow se trouve près des quais d’où partent les navires de l’East India Company. Hodgson consent aux capitaines et marchands des conditions de crédit attractives, ce qui aide sa pale ale à dominer un temps le commerce. Cette position est bien documentée ; l’idée d’une recette inventée ex nihilo pour résister au voyage ne l’est pas.
+
+La nuance rend l’histoire plus intéressante. Hodgson devient central parce qu’il comprend un circuit de distribution, puis perd cet avantage lorsqu’il tente d’en modifier les règles. L’IPA naît moins dans un chaudron solitaire que dans une chaîne de crédit, de cargaisons et de rivalités — un milieu où même le houblon doit lire les petites lignes.`
+        },
+        {
+          "titre": "Ce que faisait réellement le voyage",
+          "texte": `Une traversée vers l’Inde dure des mois et expose les fûts à la chaleur ainsi qu’au mouvement. Des expériences modernes de reconstitution montrent que ces conditions peuvent accélérer certaines transformations du vieillissement, mais elles ne prouvent pas une intention historique de produire un goût par roulis.
+
+Les brasseurs cherchaient d’abord une bière stable et vendable à l’arrivée. Une forte atténuation laissait moins de sucres fermentescibles ; le houblon contribuait à la stabilité et à l’amertume ; de bons fûts et un conditionnement soigné limitaient les accidents. Le navire était un obstacle géré, non un ingrédient certifié par l’Amirauté.`
+        },
+        {
+          "titre": "Trois lettres, plusieurs renaissances",
+          "texte": `Après son recul britannique, l’IPA devient aux États-Unis un terrain d’expérimentation. Liberty Ale, les pale ales au Cascade, puis les IPA de brewpubs montrent que les houblons américains peuvent écrire un vocabulaire propre. Le Great American Beer Festival introduit une catégorie IPA en 1989 : il ne crée pas la bière, mais rend visible une identité commerciale en cours de stabilisation.
+
+La suite se ramifie. Une branche californienne recherche sécheresse et amertume ; une branche du Vermont privilégie texture et parfum ; d’autres ajoutent seigle, levure belge, malt sombre ou enzyme. L’histoire commune s’arrête ici : chaque branche explique désormais sa divergence au lieu de refaire la traversée de l’océan.`
+        }
+      ],
       "recette": {
         "profilUnique": false,
-        "explicationProfil": "IPA est devenue une vaste famille. Les ingrédients, le trouble, l’amertume, la levure et même la couleur changent selon l’école ; il faut donc raisonner en équilibre houblonné plutôt qu’en recette universelle.",
+        "explicationProfil": "IPA couvre des lignées historiques et modernes incompatibles avec une formule unique. Une reconstitution d’East India Pale Ale, une English IPA de pub, une West Coast et une NEIPA n’emploient ni la même eau ni le même calendrier de houblonnage.",
         "maltsEtCereales": [
           "Base de malt pale ou Pilsner selon l’école ; pale ale britannique pour les versions anglaises, two-row ou malt très clair pour de nombreuses versions américaines.",
           "Crystal/caramel historiquement fréquent dans certaines IPA américaines classiques mais nettement moins présent dans de nombreuses interprétations contemporaines sèches.",
           "Avoine et blé sont courants dans les Hazy IPA ; seigle, malts sombres ou céréales de blé définissent certaines Specialty IPA."
         ],
         "houblons": [
-          "Houblons britanniques classiques pour l’English IPA ; Cascade, Centennial, Chinook, Simcoe et autres variétés américaines dans l’école historique craft ; Citra, Mosaic, Galaxy, Nelson Sauvin, Motueka et nombreuses variétés modernes dans les versions contemporaines.",
-          "L’architecture de houblonnage peut aller d’une forte amertume en chaudière à une construction presque entièrement tardive et à cru dans les styles hazy."
+          "Dans les versions historiques britanniques, houblons anglais et dry-hopping participent à la conservation et au profil. La variété, la récolte, le stockage et le conditionnement comptent autant que la masse ajoutée.",
+          "Les versions modernes répartissent l’amertume et l’arôme entre chaudière, whirlpool, hop stand et dry-hop. Davantage de houblon peut accroître parfum, polyphénols ou pertes de rendement sans augmenter proportionnellement l’amertume mesurée."
         ],
         "levuresEtMicroorganismes": [
           "Souche anglaise fruitée dans l’English IPA, souche américaine neutre dans de nombreuses American/West Coast IPA, souches fruitées dans les Hazy IPA, levures belges pour la Belgian IPA.",
@@ -310,11 +409,11 @@ Cette évolution explique pourquoi « IPA » est aujourd’hui à la fois un hé
         "ingredientsComplementaires": [
           "Certains sous-styles emploient enzymes, épices ou céréales particulières ; aucun ingrédient complémentaire n’est commun à toute la famille."
         ],
-        "profilEau": "Souvent orienté vers une eau pauvre en alcalinité. Les IPA sèches et amères utilisent fréquemment davantage de sulfate ; les Hazy IPA privilégient souvent un rapport plus riche en chlorures pour adoucir la bouche. Ce sont des tendances, pas des obligations.",
+        "profilEau": "Burton offre historiquement une eau riche en sulfates, favorable à une finale sèche et à une amertume nette. La reproduire exactement n’est pas une obligation et peut devenir dure avec une recette moderne. Sulfates, chlorures, calcium, alcalinité et pH s’ajustent au résultat visé, non à un ratio fétiche.",
         "empatage": "Généralement orienté vers une bonne atténuation. Les versions hazy ou très souples peuvent conserver davantage de corps ; les Brut IPA poussent au contraire la fermentescibilité à l’extrême.",
         "ebullitionEtHoublonnage": "Le houblonnage définit le sous-style : forte charge amérisante et aromatique dans l’école classique, whirlpool et dry-hop massifs dans les IPA modernes, amertume plus douce dans les hazy, limitation de l’amertume dans la Brut IPA.",
         "fermentation": "Fermentation haute soigneusement contrôlée. La gestion de l’oxygène après fermentation est cruciale pour éviter le brunissement, la perte d’arômes de houblon et l’apparition de notes de carton ou de fruits trop mûrs.",
-        "maturation": "Garde généralement courte dans les IPA modernes. La fraîcheur est un ingrédient de fait : les composés aromatiques du houblon évoluent vite et l’oxygène accélère fortement leur dégradation.",
+        "maturation": "Une IPA historique d’export et une IPA moderne aromatique n’ont pas le même rapport au temps. La première pouvait subir une longue maturation et un voyage ; la seconde perd rapidement des composés de houblon et exige un conditionnement pauvre en oxygène.",
         "profilRecherche": "Une bière où le houblon structure l’arôme, la saveur et/ou l’amertume, soutenu par une base suffisamment sèche et nette pour rester buvable malgré l’intensité."
       },
       "sources": [
@@ -324,7 +423,7 @@ Cette évolution explique pourquoi « IPA » est aujourd’hui à la fois un hé
           "reference": "India Pale Ale families — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "BJCP",
@@ -332,7 +431,7 @@ Cette évolution explique pourquoi « IPA » est aujourd’hui à la fois un hé
           "reference": "IPA — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/21/ipa/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "CAMRA / Pete Brown",
@@ -340,7 +439,7 @@ Cette évolution explique pourquoi « IPA » est aujourd’hui à la fois un hé
           "reference": "India Pale Ale: A History — mythes, commerce vers l’Inde et réinvention américaine",
           "type": "histoire_brassicole",
           "url": "https://learn.camra.org.uk/courses/india-pale-ale-a-history",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Smithsonian National Museum of American History",
@@ -348,7 +447,23 @@ Cette évolution explique pourquoi « IPA » est aujourd’hui à la fois un hé
           "reference": "Anchor Liberty Ale — Cascade, 1975 et préfiguration de l’IPA américaine",
           "type": "source_museale_historique",
           "url": "https://americanhistory.si.edu/collections/object/nmah_2033255",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Martyn Cornell — Zythophile",
+          "edition": null,
+          "reference": "IPA: the executive summary — chronologie des annonces, Hodgson et mythes de l’invention",
+          "type": "histoire_brassicole",
+          "url": "https://zythophile.wordpress.com/2010/03/31/ipa-the-executive-summary/",
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "British History Online",
+          "edition": null,
+          "reference": "Burton-upon-Trent: Economic history — industrie brassicole, transport et expansion",
+          "type": "archive_historique",
+          "url": "https://www.british-history.ac.uk/vch/staffs/vol9/pp53-84",
+          "consultation": "2026-08-10"
         }
       ]
     },
@@ -399,15 +514,15 @@ Cette évolution explique pourquoi « IPA » est aujourd’hui à la fois un hé
           "Tulipe"
         ]
       },
-      "description": "L’Ordinary Bitter est petite en alcool mais pas en caractère : cuivre clair, biscuit, fruit léger, houblon anglais et amertume franche. Elle doit se boire à grandes gorgées sans devenir aqueuse, comme une conversation de pub qui sait rester vive.",
-      "histoireEtOrigines": `L’Ordinary Bitter représente l’extrémité légère de la famille des Bitters. Elle s’inscrit dans la culture britannique de la bière de session : une pinte conçue pour être bue fraîche, souvent en cask, avec beaucoup plus de relief que sa faible teneur en alcool ne le laisserait penser. Cette faiblesse n’est pas un héritage d’une « bière pauvre » immuable ; elle résulte aussi des effets combinés de la fiscalité sur la densité, des restrictions de guerre et de l’évolution du marché britannique au XXe siècle.
+      "description": "L’Ordinary Bitter fait tenir une conversation entière dans une petite densité. Biscuit léger, fruit de levure, amertume nette et gaz discret s’organisent autour d’un alcool modeste ; rien n’est miniature pour autant. C’est la pinte de cask qui prouve qu’une bière peut manquer de carburant sans manquer de relief.",
+      "histoireEtOrigines": `« Ordinary » n’est pas une catégorie victorienne aux frontières mesurées : c’est un rang pratique dans certaines gammes britanniques, devenu ensuite une case de guides. Son histoire appartient à la Bitter de pub, mais sa divergence est précise : maintenir une bière expressive quand la densité et l’alcool sont bas.
 
-Le mot « Ordinary » est surtout un outil de classification moderne. Dans les pubs et chez les brasseurs, les noms commerciaux ne suivent pas toujours les catégories BJCP. Une bière à 3,5 % peut être vendue comme Bitter, Best Bitter ou sous un nom de marque sans mention de niveau. Ce qui définit l’Ordinary dans les guides actuels est davantage sa combinaison de faible densité, de faible carbonatation possible, d’amertume franche et de très forte buvabilité.
+Cette aptitude prend une importance particulière au XXe siècle. Les droits fondés sur la densité, puis les restrictions et hausses fiscales des deux guerres mondiales encouragent des bières plus légères. La fermentation anglaise, un malt pale ale savoureux, une touche éventuelle de crystal, une eau favorable et une amertume soigneusement proportionnée permettent de conserver une impression complète. Le cask ajoute texture et continuité aromatique sans recourir à une forte carbonatation.
 
-Le défi brassicole est précisément de ne pas la rendre aqueuse. Une base de malt britannique expressive, une levure apportant quelques esters, une eau souvent sulfatée et une amertume nette permettent d’obtenir une bière complète avec peu d’alcool. Servie au handpump autour de la température de cave, elle illustre une philosophie très britannique : la complexité vient de l’équilibre et du conditionnement, pas de la puissance.`,
+La difficulté est moins de retirer du malt que d’éviter le vide. Trop de crystal donne une petite bière collante ; trop d’amertume transforme la finale en papier de verre ; une atténuation mal conduite laisse soit de l’eau, soit du sucre. L’Ordinary Bitter réussie est donc une architecture de charge légère. Les concours lui ont donné des bornes ; les pubs lui avaient déjà donné sa raison d’exister.`,
       "recette": {
         "profilUnique": true,
-        "explicationProfil": "La faible densité impose de construire du goût sans ajouter de lourdeur. Chaque composant doit être précis car il y a peu d’alcool ou de sucre résiduel pour masquer les défauts.",
+        "explicationProfil": "La faible densité est le problème central : chaque choix doit fournir du goût et de la texture sans sucre collant, amertume rêche ni sensation aqueuse.",
         "maltsEtCereales": [
           "Malt pale ale britannique dominant, choisi pour son caractère de pain, biscuit ou noisette légère.",
           "Petite proportion de crystal possible pour apporter couleur et profondeur, mais un excès rendrait la bière douce et fatigante.",
@@ -422,11 +537,11 @@ Le défi brassicole est précisément de ne pas la rendre aqueuse. Une base de m
         ],
         "ingredientsComplementaires": [],
         "profilEau": "Calcium suffisant pour la fermentation et la clarification ; sulfate souvent notable afin de tendre la finale et de donner de la précision à l’amertume.",
-        "empatage": "Infusion simple. Une température modérée évite à la fois une finale pâteuse et une atténuation si forte que la bière deviendrait maigre.",
+        "empatage": "Une infusion simple peut préserver assez de dextrines pour la bouche, mais une température élevée n’est pas une solution automatique : composition du malt, atténuation de la levure et carbonatation déterminent ensemble la texture.",
         "ebullitionEtHoublonnage": "Amertume principale en chaudière, avec une petite charge aromatique tardive. Le ratio amertume/densité compte davantage que la quantité absolue de houblon.",
         "fermentation": "Fermentation haute autour de la plage propre à la souche, en conservant des esters discrets. Gestion du diacétyle avant conditionnement.",
         "maturation": "Très courte ; conditionnement en cask ou maturation brève en cuve. Une carbonatation basse à modérée renforce la buvabilité.",
-        "profilRecherche": "Une bière légère mais jamais vide : biscuit, fruit discret, houblon britannique et finale amère propre dans une pinte de grande buvabilité."
+        "profilRecherche": "Une pinte légère mais complète, dont la seconde gorgée paraît aussi construite que la première et dont la modestie alcoolique ne devient jamais une excuse sensorielle."
       },
       "sources": [
         {
@@ -435,7 +550,7 @@ Le défi brassicole est précisément de ne pas la rendre aqueuse. Une base de m
           "reference": "11A Ordinary Bitter — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/11/british-bitter/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Brewers Association",
@@ -443,7 +558,7 @@ Le défi brassicole est précisément de ne pas la rendre aqueuse. Une base de m
           "reference": "English-Style Ordinary Bitter — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Fermentis",
@@ -451,7 +566,23 @@ Le défi brassicole est précisément de ne pas la rendre aqueuse. Une base de m
           "reference": "SafAle S-04 — levure d’ale anglaise, profil fruité/floral et forte floculation",
           "type": "fiche_technique",
           "url": "https://fermentis.com/fr/produit/safale-s-04/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "CAMRA",
+          "edition": null,
+          "reference": "Bitter, Session — faibles densités, pub et buvabilité",
+          "type": "referentiel_contemporain",
+          "url": "https://learn.camra.org.uk/beer-styles/bitter-session",
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "UK Parliament — Hansard",
+          "edition": "1930",
+          "reference": "Death Duties, 1930 — rétrospective officielle de la fiscalité sur la bière et la densité",
+          "type": "archive_parlementaire",
+          "url": "https://hansard.parliament.uk/Commons/1930-04-30/debates/8c5ebf3a-6869-4d00-8cc6-3ec2719223a6/DeathDuties",
+          "consultation": "2026-08-10"
         }
       ]
     },
@@ -505,12 +636,12 @@ Le défi brassicole est précisément de ne pas la rendre aqueuse. Une base de m
           "Tulipe"
         ]
       },
-      "description": "La Best Bitter gagne un peu d’épaule sans quitter le comptoir : malt plus présent, biscuit, caramel léger, esters fruités et amertume toujours nette. Elle reste une bière de session, mais avec la sensation d’avoir choisi la pinte du patron.",
-      "histoireEtOrigines": `Best Bitter ou Special Bitter désigne historiquement moins une recette unique qu’un rang supérieur dans la gamme d’une brasserie. Par rapport à une Bitter plus légère, la bière reçoit généralement davantage de malt et parfois davantage de houblon, tout en restant une bière de pub et non une ale forte de dégustation. Les mots « Best », « Special », « Premium » ou simplement le nom de marque se sont chevauchés selon les maisons, ce qui explique pourquoi les guides modernes parlent d’une plage de style plutôt que d’une identité légale.
+      "description": "La Best Bitter occupe le milieu très britannique où « meilleure » ne signifie pas tapageuse. Plus ample qu’une Ordinary, elle garde la souplesse du cask : pain grillé, marmelade discrète, esters fruités et houblon anglais se relaient sans solo prolongé. C’est souvent la bière qui porte le nom de la maison, donc celle qui n’a pas le droit de fatiguer les habitués.",
+      "histoireEtOrigines": `Dans un pub britannique, « Best » est longtemps un rang de gamme avant d’être une mesure universelle. Une brasserie distingue sa Bitter courante d’une version plus riche ou plus soignée ; une autre emploie « Special », « Premium » ou simplement un nom de marque. Les seuils modernes facilitent les concours, mais ils ne doivent pas être renvoyés par télégramme aux brasseurs du XIXe siècle.
 
-Le développement des Best Bitters accompagne la consolidation de la culture du cask au XXe siècle. Des bières comme London Pride, Timothy Taylor Landlord ou de nombreuses ales régionales montrent à quel point le style peut varier : plus malté ou plus houblonné, plus fruité ou plus net, avec des profils d’eau et des levures propres à chaque brasserie. Le point commun est la capacité à offrir davantage de structure qu’une Ordinary sans sacrifier la répétition de la pinte.
+La Best Bitter a souvent le rôle commercial le plus délicat : assez de densité pour offrir davantage de malt, de fruit et de longueur, assez de retenue pour rester une pinte de répétition. Le malt pale ale porte des notes de pain et de biscuit ; le crystal peut donner une teinte cuivrée et un accent de caramel, sans obligation ni lourdeur. Une souche anglaise expressive et floculante donne le fruité, puis le service en cask rapproche la texture du comptoir.
 
-Aujourd’hui, la catégorie reste un repère utile pour les concours et les brasseurs, mais il faut éviter de la traiter comme une formule industrielle figée. La condition du cask, la fraîcheur du houblon, la température de service et la gestion de la levure influencent autant l’expérience qu’une différence de quelques points de densité.`,
+Les variations régionales et les recettes de maison comptent davantage qu’une échelle droite. Une Best claire et sèche du Yorkshire ne raconte pas exactement la même chose qu’une version londonienne plus cuivrée. Le mot promet une place dans la gamme, pas une recette nationale sous scellés. Cette ambiguïté n’est pas un défaut : c’est le souvenir d’un marché de pubs antérieur aux tableaux de styles.`,
       "recette": {
         "profilUnique": true,
         "explicationProfil": "Best/Special Bitter conserve la logique de session d’une Bitter mais avec davantage de matière et de marge aromatique qu’une Ordinary.",
@@ -541,7 +672,7 @@ Aujourd’hui, la catégorie reste un repère utile pour les concours et les bra
           "reference": "11B Best Bitter — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/11/british-bitter/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Brewers Association",
@@ -549,7 +680,7 @@ Aujourd’hui, la catégorie reste un repère utile pour les concours et les bra
           "reference": "English-Style Special Bitter — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Fuller’s",
@@ -557,7 +688,7 @@ Aujourd’hui, la catégorie reste un repère utile pour les concours et les bra
           "reference": "History and Heritage — tradition londonienne des Bitters, London Pride et ESB",
           "type": "source_primaire_historique",
           "url": "https://www.fullers.co.uk/corporate/about-us/history-and-heritage",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Fermentis",
@@ -565,7 +696,23 @@ Aujourd’hui, la catégorie reste un repère utile pour les concours et les bra
           "reference": "SafAle S-04 — levure d’ale anglaise, profil fruité/floral et forte floculation",
           "type": "fiche_technique",
           "url": "https://fermentis.com/fr/produit/safale-s-04/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "CAMRA",
+          "edition": null,
+          "reference": "Bitter, Session — usage commercial de Best Bitter",
+          "type": "referentiel_contemporain",
+          "url": "https://learn.camra.org.uk/beer-styles/bitter-session",
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "CAMRA",
+          "edition": null,
+          "reference": "A beginner’s guide to cask carbonation — fermentation secondaire et conditionnement",
+          "type": "source_technique",
+          "url": "https://learn.camra.org.uk/courses/a-beginner-s-guide-to-cask-carbonation",
+          "consultation": "2026-08-10"
         }
       ]
     },
@@ -618,15 +765,23 @@ Aujourd’hui, la catégorie reste un repère utile pour les concours et les bra
           "Tulipe"
         ]
       },
-      "description": "L’ESB est la bitter qui hausse la voix : cuivre profond, malt biscuité, toffee léger, fruit de levure, houblon floral-terreux et amertume ferme. Elle peut paraître mal nommée, car son intérêt n’est pas d’être extrême, mais d’être anglaise avec plus de coffre.",
-      "histoireEtOrigines": `La catégorie « Extra Special Bitter » est intimement liée à Fuller’s. La brasserie de Chiswick lance sa bière ESB en 1971 ; son succès et ses récompenses contribuent ensuite à faire de l’expression un repère international pour les bitters britanniques les plus fortes. Dans la classification BJCP moderne, cette zone est appelée Strong Bitter afin d’éviter de réduire toute la famille à un seul nom commercial, mais « ESB » reste profondément ancré dans le vocabulaire des brasseurs et des consommateurs.
+      "description": "L’ESB est une Strong Bitter avec un casier judiciaire terminologique. Fuller’s lança sa bière ESB en 1971 ; les trois lettres, devenues célèbres, furent ensuite lues ailleurs comme le nom d’un style. Dans le verre : une ale cuivrée, ample mais sèche, où biscuit, fruits mûrs et houblon épicé soutiennent une force qui reste celle du pub, pas d’un barley wine.",
+      "histoireEtOrigines": `L’histoire commence à Chiswick, pas dans un glossaire. Fuller’s brasse en 1969 une Winter Beer issue de la lignée de son Old Burton Extra, puis lance en 1971 la bière permanente ESB. La maison possède déjà une Bitter ordinaire, Chiswick Bitter, et une Special, London Pride : « Extra Special Bitter » prolonge logiquement cette hiérarchie commerciale. Il s’agit d’abord d’un nom de produit, pas d’une subdivision dont tous les brasseurs britanniques auraient attendu la révélation.
 
-Historiquement, les brasseries britanniques produisaient déjà des pale ales et bitters de différentes forces bien avant 1971. L’innovation de Fuller’s n’est donc pas l’invention de la strong pale ale anglaise ; elle tient plutôt à la création d’une référence commerciale devenue si influente qu’elle a fini par donner son nom, surtout hors du Royaume-Uni, à une catégorie entière. Fuller’s situe également Chiswick Bitter dans les années 1930 et London Pride dans les années 1950, ce qui montre l’ESB comme le sommet d’une gamme de cask ales de forces différentes.
+Le succès de Fuller’s ESB change la portée des initiales. Ses récompenses CAMRA et son exportation vers les États-Unis à partir de 1979 en font un modèle influent pour les premiers brasseurs craft américains. Les guides de styles reprennent ensuite ESB comme désignation commode de la branche forte des Bitters. La transformation est réelle, mais il faut distinguer ses étapes : Fuller’s crée et popularise une marque ; le marché et les concours généralisent le terme ; les brasseurs du XIXe siècle, qui n’ont rien demandé, restent en dehors de cette rétroactivité.
 
-Une bonne ESB moderne n’est pas une IPA anglaise plus sucrée. Le malt y prend davantage de place : pain grillé, biscuit, noix, caramel ou toffee léger, soutenus par des esters de fruits et une amertume suffisamment ferme pour garder la finale fraîche. Le cask reste un service emblématique, mais la bière existe aussi en bouteille et en keg avec davantage de carbonatation.`,
+Techniquement, une ESB ne gagne pas en identité par le seul alcool. Une base pale ale, un crystal mesuré, parfois des céréales ou sucres de tradition britannique, des esters expressifs et une amertume ferme composent une bière plus longue et plus charpentée. La version en cask peut être moins forte que la bouteille de la même marque. « Strong Bitter » décrit donc mieux la famille ; « ESB » raconte l’étrange réussite d’un nom propre devenu nom commun — au moins hors du Royaume-Uni, où la marque n’a jamais totalement quitté la pièce.`,
+      "chapitres": [
+        {
+          "titre": "Une marque entre dans le dictionnaire",
+          "texte": `Fuller’s utilise ESB depuis 1971 et enregistre la marque au Royaume-Uni avec effet en 1988. Ailleurs, surtout en Amérique du Nord, les lettres circulent comme une catégorie générique. Les deux réalités coexistent : une bière historique précise et une étiquette de concours plus large.
+
+Cette trajectoire oblige à séparer invention, popularisation et codification. Fuller’s n’a pas inventé la strong bitter ; la brasserie a donné à l’une de ses expressions un nom si efficace que les taxonomistes l’ont adopté. Trois lettres peuvent donc accomplir ce qu’un traité entier échoue parfois à faire : traverser l’Atlantique sans perdre leurs bagages.`
+        }
+      ],
       "recette": {
         "profilUnique": true,
-        "explicationProfil": "La Strong/Extra Special Bitter pousse la structure maltée et la force alcoolique plus loin qu’une Best Bitter tout en conservant une finale sèche et une vraie buvabilité.",
+        "explicationProfil": "Strong Bitter est la famille ; ESB rappelle le modèle de Fuller’s. La force supplémentaire doit allonger malt, fruit et houblon sans faire basculer la bière vers la douceur d’une old ale ou d’un barley wine.",
         "maltsEtCereales": [
           "Pale ale malt britannique comme base, souvent choisi pour une expression de biscuit, pain et noisette.",
           "Crystal malt en quantité mesurée pour toffee, fruits secs légers et couleur cuivre ; un excès ferait basculer la bière vers une douceur lourde.",
@@ -645,7 +800,7 @@ Une bonne ESB moderne n’est pas une IPA anglaise plus sucrée. Le malt y prend
         "ebullitionEtHoublonnage": "Amertume de chaudière robuste puis additions tardives anglaises. Un dry-hop discret est possible dans certaines interprétations.",
         "fermentation": "Fermentation haute avec fruité anglais contrôlé ; repos suffisant pour maîtriser diacétyle et composés soufrés selon la souche.",
         "maturation": "Courte à moyenne. Le cask permet une évolution douce des arômes ; la bouteille et le keg donnent généralement une mousse et une carbonatation plus franches.",
-        "profilRecherche": "Une ale cuivre, maltée et fruitée, plus forte qu’une Bitter ordinaire mais sèche, houblonnée et suffisamment équilibrée pour rester une bière de pub."
+        "profilRecherche": "Une strong bitter cuivrée et sèche, plus ample qu’une Best mais toujours conçue pour le débit du pub ; la complexité vient de l’intégration, pas du poids alcoolique seul."
       },
       "sources": [
         {
@@ -654,7 +809,7 @@ Une bonne ESB moderne n’est pas une IPA anglaise plus sucrée. Le malt y prend
           "reference": "11C Strong Bitter — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/11/british-bitter/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Brewers Association",
@@ -662,7 +817,7 @@ Une bonne ESB moderne n’est pas une IPA anglaise plus sucrée. Le malt y prend
           "reference": "English-Style Extra Special Bitter — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Fuller’s",
@@ -670,7 +825,7 @@ Une bonne ESB moderne n’est pas une IPA anglaise plus sucrée. Le malt y prend
           "reference": "History and Heritage — tradition londonienne des Bitters, London Pride et ESB",
           "type": "source_primaire_historique",
           "url": "https://www.fullers.co.uk/corporate/about-us/history-and-heritage",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Fermentis",
@@ -678,7 +833,31 @@ Une bonne ESB moderne n’est pas une IPA anglaise plus sucrée. Le malt y prend
           "reference": "SafAle S-04 — levure d’ale anglaise, profil fruité/floral et forte floculation",
           "type": "fiche_technique",
           "url": "https://fermentis.com/fr/produit/safale-s-04/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Fuller’s Brewery",
+          "edition": null,
+          "reference": "Our Story — lancement d’ESB en 1971 et export américain en 1979",
+          "type": "source_primaire_historique",
+          "url": "https://www.fullersbrewery.co.uk/pages/our-story",
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Roger Protz",
+          "edition": null,
+          "reference": "ESB at 50: rolling back the years — Winter Beer, lancement et évolution",
+          "type": "histoire_brassicole",
+          "url": "https://protzonbeer.co.uk/features/2021/12/19/esb-at-50-rolling-back-the-years",
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Osborne Clarke",
+          "edition": null,
+          "reference": "Bitter victory for Fullers — usage et enregistrement de la marque ESB",
+          "type": "analyse_juridique",
+          "url": "https://marketinglaw.osborneclarke.com/media-and-ip/bitter-victory-for-fullers/",
+          "consultation": "2026-08-10"
         }
       ]
     },
@@ -729,12 +908,12 @@ Une bonne ESB moderne n’est pas une IPA anglaise plus sucrée. Le malt y prend
           "Tulipe"
         ]
       },
-      "description": "L’English Summer Ale est une bitter qui ouvre les fenêtres : robe claire, corps léger, houblon floral ou citronné, finale sèche et service frais. Elle garde l’esprit anglais, mais retire le manteau de malt pour viser la terrasse.",
-      "histoireEtOrigines": `L’English Summer Ale est une création moderne de la scène britannique plutôt qu’un style ancien. À partir des années 1980, plusieurs petites brasseries cherchent à proposer des cask ales plus pâles, plus vives et plus adaptées à l’été que les bitters ambrées traditionnelles. Cette évolution accompagne l’arrivée ou le retour de houblons aromatiques plus démonstratifs, ainsi que le désir de séduire des consommateurs attirés par des bières blondes mais souhaitant conserver le caractère d’une ale de fermentation haute.
+      "description": "L’English Summer Ale transforme la pinte en éclaircie : robe paille, malt très léger, houblon floral ou citronné, fermentation anglaise propre et finale vive. Ce n’est pas nécessairement une bière saisonnière ni une Golden Ale sous un parasol ; c’est une désignation commerciale souple, construite pour la fraîcheur du pub sans abandonner le caractère d’une ale.",
+      "histoireEtOrigines": `La Summer Ale anglaise n’a ni acte de naissance unique ni définition historique rigide. Elle apparaît surtout dans le renouveau des petites brasseries britanniques de la fin du XXe siècle, lorsque des producteurs cherchent des ales plus claires, sèches et parfumées capables de séduire au-delà de la Bitter ambrée. Le mot « summer » indique d’abord une promesse de fraîcheur, parfois une saison de vente, parfois seulement une humeur météorologique — ce qui, en Angleterre, exige déjà un certain optimisme.
 
-La frontière avec British Golden Ale est poreuse. Dans la pratique, « Summer Ale » est souvent un nom commercial saisonnier tandis que « Golden Ale » est devenu un terme stylistique plus stable. Hop Back Summer Lightning, brassée à partir de 1988, est l’un des repères majeurs de cette révolution : une bière très pâle, sèche et houblonnée qui remporte de nombreuses récompenses et contribue à populariser une nouvelle esthétique de cask ale britannique.
+Hop Back illustre bien cette souplesse. Fondée en 1986, la brasserie produit à partir de 1988 Summer Lightning, une ale dorée très houblonnée qui contribue puissamment à populariser la Golden Ale moderne. Elle commercialise aussi Summer Ale toute l’année. La naissance stylistique appartient à la British Golden Ale ; la Summer Ale retient plutôt le travail du nom : une bière de pub claire, légère à modérée, dont l’étiquette saisonnière a pu devenir permanente.
 
-Le style n’exige pas d’imiter une lager. Il conserve une fermentation haute, une carbonatation souvent modérée lorsqu’il est servi en cask et une base maltée légère. Sa réussite tient à la fraîcheur : céréale pâle, houblon floral ou agrumé, amertume propre et finale sèche. Il constitue ainsi un pont historique important entre la Bitter britannique et les golden ales craft qui se développeront ensuite.`,
+La construction technique vise la netteté plus que la nouveauté radicale : malt pâle, faible charge de crystal, houblons anglais tardifs ou variétés plus modernes, fermentation assez propre et cask possible. Lorsque l’histoire autonome manque, mieux vaut le dire. « Summer Ale » reste une famille commerciale aux contours poreux, utile pour décrire une intention de service, pas un décret émis par le soleil.`,
       "recette": {
         "profilUnique": true,
         "explicationProfil": "Une Summer Ale anglaise vise d’abord la légèreté visuelle et la fraîcheur, avec une fermentation d’ale et un houblon plus lumineux que dans de nombreuses bitters traditionnelles.",
@@ -764,7 +943,7 @@ Le style n’exige pas d’imiter une lager. Il conserve une fermentation haute,
           "reference": "English-Style Summer Ale — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Hop Back Brewery",
@@ -772,7 +951,7 @@ Le style n’exige pas d’imiter une lager. Il conserve une fermentation haute,
           "reference": "Our Story — Summer Lightning, brassée depuis 1988, et essor de la golden ale britannique moderne",
           "type": "source_primaire_historique",
           "url": "https://www.hopback.co.uk/our-story/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Fermentis",
@@ -780,7 +959,15 @@ Le style n’exige pas d’imiter une lager. Il conserve une fermentation haute,
           "reference": "SafAle S-04 — levure d’ale anglaise, profil fruité/floral et forte floculation",
           "type": "fiche_technique",
           "url": "https://fermentis.com/fr/produit/safale-s-04/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Hop Back Brewery",
+          "edition": null,
+          "reference": "Our Beers — Summer Ale et Summer Lightning",
+          "type": "source_primaire_commerciale",
+          "url": "https://www.hopback.co.uk/our-beers/",
+          "consultation": "2026-08-10"
         }
       ]
     },
@@ -833,12 +1020,12 @@ Le style n’exige pas d’imiter une lager. Il conserve une fermentation haute,
           "Tulipe"
         ]
       },
-      "description": "La Classic English Pale Ale est la cousine embouteillée et plus noble de la bitter : ambrée claire, malt biscuité, marmelade légère, houblon floral ou terreux, finale sèche. Elle porte une élégance ancienne, moins explosive que les pale ales modernes.",
-      "histoireEtOrigines": `La Classic English Pale Ale représente la continuité moderne des pale ales britanniques hors des catégories de Bitter les plus légères et des IPA plus puissantes. Le terme rappelle qu’avant la spécialisation contemporaine, « pale ale » pouvait couvrir un vaste ensemble de bières anglaises claires à cuivrées, servies en cask ou en bouteille, avec un équilibre variable entre malt, esters et houblon.
+      "description": "La Classic English Pale Ale conserve la conversation entre un malt de biscuit, une levure fruitée et un houblon d’herbes, de fleurs ou de marmelade. Plus contemplative qu’une Bitter de faible densité, moins chargée qu’une IPA moderne, elle ressemble à une bibliothèque de brasserie : on y reconnaît des volumes anciens, mais le classement sur l’étagère est récent.",
+      "histoireEtOrigines": `« Classic English Pale Ale » est surtout une catégorie contemporaine de continuité. Elle rassemble des ales britanniques plus soutenues que beaucoup de bitters de session, nourries par l’héritage des pale ales de Burton et des pale ales embouteillées, sans prétendre reproduire une recette victorienne unique. Le qualificatif classic décrit une grammaire sensorielle ; il ne prouve pas que ce nom figurait sur les registres d’une brasserie du XIXe siècle.
 
-Au XIXe siècle, Burton est le grand centre de la pale ale, mais Londres, Yorkshire et de nombreuses régions développent leurs propres traditions. La diffusion du malt pale, l’emploi de houblons anglais et les profils d’eau locaux donnent des bières reconnaissables sans imposer une recette nationale unique. Au XXe siècle, certaines pale ales embouteillées conservent davantage de force et de carbonatation que les bitters de pub, tandis que les noms commerciaux brouillent encore la frontière entre Pale Ale, Best Bitter et Strong Bitter.
+Cette grammaire repose sur trois voix. Un malt pale ale britannique fournit le pain, la noisette ou le biscuit ; une souche anglaise ajoute des esters de poire, d’orange ou de fruits rouges ; les houblons locaux apportent fleurs, terre, thé ou épices. Crystal, sucres de brasserie, fermentation ouverte et conditionnement en cask ou en bouteille varient selon les maisons. L’eau de Burton peut inspirer le profil sans devoir être copiée comme une formule sacrée.
 
-Les guides de compétition actuels utilisent « Classic English-Style Pale Ale » pour décrire une ale dorée à cuivre, maltée de façon modérée, houblonnée avec des caractères floraux, herbacés, terreux ou fruités, et fermentée avec une expression d’esters typiquement britannique. C’est une catégorie utile pour comprendre l’école anglaise sans la réduire à une seule force de Bitter.`,
+La catégorie existe parce que le marché moderne a séparé ce que l’histoire mêlait : Bitter, Pale Ale et IPA. Elle offre une place aux bières qui mettent la tradition malt-levure-houblon au premier plan sans se réduire à un rang de pub ni entrer dans l’intensité IPA. Sa mémoire-cible est donc une prudence : « classique » signifie héritière, non fossile parfaitement daté.`,
       "recette": {
         "profilUnique": true,
         "explicationProfil": "La Classic English Pale Ale recherche un équilibre traditionnel : davantage de structure qu’une golden ale, mais moins d’intensité houblonnée qu’une IPA moderne.",
@@ -868,7 +1055,7 @@ Les guides de compétition actuels utilisent « Classic English-Style Pale Ale �
           "reference": "Classic English-Style Pale Ale — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "BJCP",
@@ -876,7 +1063,7 @@ Les guides de compétition actuels utilisent « Classic English-Style Pale Ale �
           "reference": "British Bitter and Pale Ale context — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/11/british-bitter/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Fuller’s",
@@ -884,7 +1071,7 @@ Les guides de compétition actuels utilisent « Classic English-Style Pale Ale �
           "reference": "History and Heritage — tradition londonienne des Bitters, London Pride et ESB",
           "type": "source_primaire_historique",
           "url": "https://www.fullers.co.uk/corporate/about-us/history-and-heritage",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Fermentis",
@@ -892,7 +1079,23 @@ Les guides de compétition actuels utilisent « Classic English-Style Pale Ale �
           "reference": "SafAle S-04 — levure d’ale anglaise, profil fruité/floral et forte floculation",
           "type": "fiche_technique",
           "url": "https://fermentis.com/fr/produit/safale-s-04/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Chartered Institute of Brewers and Distillers",
+          "edition": null,
+          "reference": "Our History — remplacement progressif des porters par les pale ales de Burton",
+          "type": "organisation_professionnelle",
+          "url": "https://www.cibd.org.uk/about-cibd/our-history/",
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Mercian Geologist / Aberystwyth University",
+          "edition": "2019",
+          "reference": "The role of geology in the fall and rise of local brewing",
+          "type": "publication_scientifique",
+          "url": "https://www.emgs.org.uk/uploads/1/4/9/1/149143154/mg19_4_2019_265_maltman_role_of_geology_in_fall___rise_of_local_brewing_1.pdf",
+          "consultation": "2026-08-10"
         }
       ]
     },
@@ -943,12 +1146,20 @@ Les guides de compétition actuels utilisent « Classic English-Style Pale Ale �
           "Tulipe"
         ]
       },
-      "description": "La British Golden Ale est claire, sèche, houblonnée et pensée pour rafraîchir : malt très discret, couleur paille à dorée, amertume nette, houblon floral, herbacé ou citronné. Elle ressemble à une bitter qui aurait troqué son gilet brun contre une chemise d’été.",
-      "histoireEtOrigines": `La British Golden Ale est l’un des meilleurs exemples d’un style relativement récent devenu si familier qu’il paraît plus ancien qu’il ne l’est. Elle se développe dans les années 1980 au sein du renouveau des petites brasseries britanniques et du cask ale. L’objectif est clair : proposer une ale très pâle, sèche et rafraîchissante, capable d’attirer les buveurs de lager tout en offrant le houblon, la fermentation haute et le service traditionnel chers aux amateurs d’ale.
+      "description": "La British Golden Ale est une riposte de pub en robe claire : moins biscuitée qu’une Bitter ambrée, plus houblonnée qu’une blonde internationale, sèche et souvent servie en cask. Elle peut sentir la fleur anglaise ou le citron du Nouveau Monde, mais son intention reste stable : offrir aux amateurs de lager une porte d’entrée qui mène bien à une ale.",
+      "histoireEtOrigines": `En 1986, Exmoor Ales lance Exmoor Gold. La brasserie la présente comme la première Golden Ale moderne britannique ; cette primauté commerciale est corroborée par l’histoire de la catégorie, même si des bières pâles ont évidemment existé bien avant elle. Le geste décisif n’est pas d’inventer la couleur or, mais de bâtir une ale de pub claire, sèche et accessible au moment où les lagers attirent une large part du public.
 
-Hop Back Summer Lightning, brassée pour la première fois en 1988 selon la brasserie, joue un rôle emblématique. Son succès dans les festivals et les pubs contribue à montrer qu’une cask ale peut être dorée, vivement houblonnée et dépourvue du caramel souvent associé à la Bitter. D’autres brasseries suivent, et la Golden Ale devient une catégorie à part entière. Les houblons anglais restent fréquents, mais les variétés américaines agrumées gagnent rapidement du terrain, ce qui fait du style un laboratoire précoce du goût international dans la bière britannique.
+Deux ans plus tard, Hop Back brasse Summer Lightning. Son succès dans les festivals et ses récompenses au début des années 1990 contribuent à rendre la formule visible : malt très pâle, corps élancé, houblon expressif et service en cask. D’autres brasseries britanniques suivent. La Golden Ale devient ainsi une réponse de marché issue du renouveau des microbrasseries et de la real ale, pas un chapitre oublié de l’époque impériale.
 
-Le BJCP insiste sur la buvabilité et le caractère rafraîchissant, héritage direct de son positionnement estival. La différence avec une Blonde Ale américaine tient généralement à une amertume plus marquée et à un houblon plus expressif ; la différence avec une IPA tient à la force et à l’intensité globale. La Golden Ale reste une bière de pinte, souvent en cask, où la pâleur du malt sert d’écran clair à l’aromatique du houblon.`,
+Son évolution accueille ensuite des houblons américains, australiens ou néo-zélandais, mais sans devenir automatiquement une American Pale Ale. L’équilibre demeure plus léger, la fermentation britannique peut laisser un fruité discret et la buvabilité du pub reste centrale. Exmoor Gold fournit un jalon de lancement ; Summer Lightning joue un rôle de popularisation ; les guides et concours stabilisent plus tard la catégorie. Trois opérations, trois acteurs — et aucune raison de les fondre dans une seule légende dorée.`,
+      "chapitres": [
+        {
+          "titre": "1986 puis 1988 : le bon ordre des éclairs",
+          "texte": `Exmoor Gold apparaît en 1986. Summer Lightning est brassée pour la première fois en 1988. La seconde bière a tellement marqué le public qu’elle est parfois traitée comme l’origine du style ; elle en est surtout l’un des grands accélérateurs.
+
+Cette distinction compte parce qu’elle montre comment naît un style moderne. Un premier produit formule une solution, un autre la rend spectaculaire, puis les concurrents et les buveurs reconnaissent une famille. L’histoire brassicole préfère souvent un héros unique ; la chronologie, d’un naturel moins coopératif, en propose au moins deux.`
+        }
+      ],
       "recette": {
         "profilUnique": true,
         "explicationProfil": "La Golden Ale britannique doit rester très pâle, sèche et désaltérante ; le houblon est plus visible que dans une simple blonde mais l’ensemble reste de force modérée.",
@@ -978,7 +1189,7 @@ Le BJCP insiste sur la buvabilité et le caractère rafraîchissant, héritage d
           "reference": "12A British Golden Ale — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/12/pale-commonwealth-beer/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Brewers Association",
@@ -986,7 +1197,7 @@ Le BJCP insiste sur la buvabilité et le caractère rafraîchissant, héritage d
           "reference": "Golden or Blonde Ale — British context — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Hop Back Brewery",
@@ -994,7 +1205,7 @@ Le BJCP insiste sur la buvabilité et le caractère rafraîchissant, héritage d
           "reference": "Our Story — Summer Lightning, brassée depuis 1988, et essor de la golden ale britannique moderne",
           "type": "source_primaire_historique",
           "url": "https://www.hopback.co.uk/our-story/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Fermentis",
@@ -1002,7 +1213,23 @@ Le BJCP insiste sur la buvabilité et le caractère rafraîchissant, héritage d
           "reference": "SafAle S-04 — levure d’ale anglaise, profil fruité/floral et forte floculation",
           "type": "fiche_technique",
           "url": "https://fermentis.com/fr/produit/safale-s-04/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Exmoor Ales",
+          "edition": null,
+          "reference": "Exmoor Gold — lancement en 1986 et revendication de première Golden Ale moderne",
+          "type": "source_primaire_historique",
+          "url": "https://www.exmoorales.co.uk/exmoor-gold/",
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Exmoor Ales",
+          "edition": null,
+          "reference": "History — contexte de création d’Exmoor Gold",
+          "type": "source_primaire_historique",
+          "url": "https://www.exmoorales.co.uk/history/",
+          "consultation": "2026-08-10"
         }
       ]
     },
@@ -1056,12 +1283,12 @@ Le BJCP insiste sur la buvabilité et le caractère rafraîchissant, héritage d
           "Tulipe"
         ]
       },
-      "description": "La Golden / Blonde Ale est une porte d’entrée : claire, douce, propre, peu amère, avec un malt léger et parfois un fruit ou houblon discret. Sa difficulté est de rester simple sans devenir vide, agréable sans se dissoudre dans l’anonymat.",
-      "histoireEtOrigines": `Golden Ale et Blonde Ale sont des termes de marché autant que des catégories techniques. Ils désignent généralement des ales claires, accessibles et modérément alcoolisées, mais leur sens varie selon les pays. En Grande-Bretagne, la Golden Ale moderne s’est développée dans les années 1980 comme une cask ale pâle et houblonnée ; aux États-Unis, Blonde Ale décrit plus volontiers une bière craft douce, équilibrée et moins amère que l’American Pale Ale. Dans d’autres marchés, « golden » ou « blonde » peut simplement signaler la couleur et la facilité d’accès.
+      "description": "Golden / Blonde Ale est la zone diplomatique de la collection : une ale claire, douce à modérément amère, faite pour être comprise dès la première gorgée. Le malt évoque le pain frais, la levure reste polie et le houblon éclaire sans éblouir. Derrière cette simplicité se cache une fonction commerciale mondiale : accueillir sans intimider.",
+      "histoireEtOrigines": `Golden Ale et Blonde Ale sont des noms employés dans de nombreux pays pour des bières claires et accessibles. Ils ne descendent pas tous d’une même brasserie ni d’une tradition nationale continue. Le mot « blonde » emprunte aussi au vocabulaire belge et continental ; « golden » peut évoquer la renaissance britannique des années 1980 ou servir simplement de description de couleur. La catégorie internationale stabilise donc un voisinage de marché plus qu’une généalogie unique.
 
-Cette diversité explique pourquoi il serait trompeur de chercher une recette fondatrice. Le mouvement général apparaît avec la démocratisation des malts pâles, puis s’accélère lorsque les petites brasseries veulent offrir une alternative de fermentation haute aux lagers blondes industrielles. Les Golden/Blonde Ales deviennent souvent la porte d’entrée d’une gamme : couleur claire, alcool contenu, amertume mesurée et profil suffisamment propre pour être immédiatement lisible.
+Sa raison d’exister est pratique. À mesure que les petites brasseries cherchent un public habitué aux lagers pâles, elles proposent une ale peu caramélisée, relativement neutre, facile à servir en fût, en bouteille ou en canette. La fermentation haute raccourcit souvent la production par rapport à une longue garde lager, tandis qu’une levure propre, un malt clair et une amertume mesurée maintiennent la bière familière.
 
-Le style contemporain peut donc aller d’une Blonde Ale américaine presque maltée à une Golden Ale britannique franchement houblonnée. Ce qui les rapproche est moins une liste d’ingrédients qu’une intention sensorielle : bière claire, nette, rafraîchissante, sans caramel lourd ni fermentation envahissante.`,
+Ce profil n’est pas un brouillon sans personnalité : réussir la discrétion exige d’éviter douceur pâteuse, esters envahissants et amertume vide. Mais son histoire autonome reste courte et diffuse. Les guides ont donné des bornes à une promesse déjà répandue sur les étiquettes : une bière dorée, aimable et lisible. Pour une fois, le marketing disait presque exactement ce qu’il y avait dans le verre.`,
       "recette": {
         "profilUnique": false,
         "explicationProfil": "Golden/Blonde Ale est une famille transversale. La version britannique est généralement plus houblonnée et sèche ; la version américaine plus douce et équilibrée.",
@@ -1091,7 +1318,7 @@ Le style contemporain peut donc aller d’une Blonde Ale américaine presque mal
           "reference": "Golden or Blonde Ale — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "BJCP",
@@ -1099,7 +1326,7 @@ Le style contemporain peut donc aller d’une Blonde Ale américaine presque mal
           "reference": "18A Blonde Ale — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/18/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "BJCP",
@@ -1107,7 +1334,15 @@ Le style contemporain peut donc aller d’une Blonde Ale américaine presque mal
           "reference": "12A British Golden Ale — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/12/pale-commonwealth-beer/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "CAMRA",
+          "edition": null,
+          "reference": "Beer styles — Session and Premium Pale, Blond and Golden Ales",
+          "type": "referentiel_contemporain",
+          "url": "https://nottingham.camra.org.uk/beer-brewers/beer-styles/",
+          "consultation": "2026-08-10"
         }
       ]
     },
@@ -1158,15 +1393,23 @@ Le style contemporain peut donc aller d’une Blonde Ale américaine presque mal
           "Pint"
         ]
       },
-      "description": "L’Australian Sparkling Ale pétille comme son nom : dorée, très carbonatée, sèche, fruitée de poire ou pomme, avec un houblon herbacé parfois métallique. Elle doit être vive, mousseuse, presque nerveuse, mais jamais plate ni lourde.",
-      "histoireEtOrigines": `L’Australian Sparkling Ale est l’un des rares styles australiens à disposer d’une continuité historique très identifiable. Coopers situe la première production de sa Sparkling Ale en 1862, lorsque Thomas Cooper développe à Adélaïde une bière de fermentation haute naturellement conditionnée. La maison a conservé une levure propre et une pratique de refermentation qui font aujourd’hui encore partie de l’identité du produit.
+      "description": "L’Australian Sparkling Ale pétille, mais ne se comporte pas comme une lager. Sa robe dorée peut garder un voile de levure ; son malt, ses esters fruités, son amertume ferme et sa carbonatation vive composent une ale sèche, robuste et étonnamment désaltérante. Elle porte moins le goût d’un continent entier que la longue continuité d’une maison : Coopers.",
+      "histoireEtOrigines": `Le 13 mai 1862, Thomas Cooper consigne son premier brassin à Adélaïde : malt anglais, houblon du Kent et eau entrent dans une production familiale destinée d’abord à son épouse malade. La brasserie se développe ensuite autour de méthodes de fermentation haute et de conditionnement naturel. L’Australian Sparkling Ale moderne est indissociable de cette continuité Coopers ; mieux vaut parler d’un style-maison devenu repère national que d’une recette commune à toutes les brasseries australiennes.
 
-Le nom « sparkling » renvoie à une effervescence plus vive que celle de nombreuses ales britanniques traditionnelles. Dans le climat australien, cette forte carbonatation, une atténuation élevée et une amertume nette donnent une bière rafraîchissante malgré une force alcoolique respectable. Le profil associe typiquement malt doux, esters de pomme ou de poire, houblon herbacé/épicé et finale sèche. Le fameux sédiment de levure peut être laissé au fond ou remis en suspension, ce qui modifie fortement l’apparence sans changer la nature du style.
+Le mot sparkling insiste sur le conditionnement. La fermentation secondaire en bouteille ou en fût produit une carbonatation vive et laisse un dépôt de levure, que le service peut remettre en suspension. Cette levure contribue aux esters fruités et à une texture particulière, tandis qu’une forte atténuation et une amertume soutenue empêchent la bière de paraître lourde malgré une force supérieure à celle de nombreuses pale ales de session.
 
-Le BJCP classe l’Australian Sparkling Ale parmi les Pale Commonwealth Beers. Il souligne également le rôle historique de variétés de houblon australiennes comme Pride of Ringwood, tout en rappelant que le style n’est pas une American Pale Ale tropicale avant l’heure. Sa personnalité vient de l’interaction entre fermentation expressive, atténuation, carbonatation et amertume plutôt que d’un dry-hop massif.`,
+Le climat australien est parfois invoqué comme explication totale ; il ne suffit pas. Importations de malt et de houblon, contraintes de transport, évolution du matériel et surtout conservation d’une culture de levure jouent un rôle plus direct. La catégorie de concours a ensuite abstrait un profil autour de l’exemple Coopers. Elle décrit une tradition réelle, mais étroite : ici, une brasserie n’est pas seulement un exemple du style, elle en est presque l’archive vivante.`,
+      "chapitres": [
+        {
+          "titre": "Le dépôt n’est pas un accident",
+          "texte": `Une Sparkling Ale conditionnée naturellement contient encore de la levure. Le dépôt en bouteille signale une refermentation et non un défaut d’hygiène ; le buveur peut verser clair ou remettre doucement la levure en suspension selon l’expérience recherchée.
+
+Cette pratique lie procédé et sensation : gaz vif, fruité de fermentation, sécheresse et légère impression levurée. La limpidité absolue n’est donc pas un examen moral. Dans cette bière, le fond de la bouteille a un emploi déclaré.`
+        }
+      ],
       "recette": {
         "profilUnique": true,
-        "explicationProfil": "Le modèle historique est étroitement associé à Coopers : ale pâle, très atténuée, vive, fruitée, amère et naturellement conditionnée.",
+        "explicationProfil": "La signature vient de la fermentation haute et du conditionnement naturel : une recette claire et amère doit laisser la levure, la sécheresse et l’effervescence construire le relief.",
         "maltsEtCereales": [
           "Malt pale ou ale australien comme base, avec un profil de céréale et de pain léger.",
           "Les recettes historiques australiennes ont pu employer sucres ou adjuncts, mais une version moderne peut rester majoritairement ou totalement maltée."
@@ -1183,8 +1426,8 @@ Le BJCP classe l’Australian Sparkling Ale parmi les Pale Commonwealth Beers. I
         "profilEau": "Profil minéral modéré ; assez de calcium pour fermentation et clarification, sans dureté qui accentuerait excessivement l’amertume.",
         "empatage": "Empâtage orienté vers une forte fermentescibilité afin d’obtenir une finale sèche malgré une densité initiale non négligeable.",
         "ebullitionEtHoublonnage": "Amertume moyenne à ferme, houblonnage aromatique contenu.",
-        "fermentation": "Fermentation haute relativement chaude selon la souche, en recherchant un fruité net sans solvants ni phénols indésirables.",
-        "maturation": "Conditionnement naturel en bouteille, canette ou keg possible ; la seconde fermentation produit une carbonatation élevée et peut laisser un dépôt de levure.",
+        "fermentation": "Souche d’ale australienne expressive, conduite pour obtenir des esters fruités sans chaleur de solvant. L’atténuation élevée aide la bière à rester vive malgré sa force.",
+        "maturation": "Refermentation en bouteille ou en fût avec levure résiduelle. Le dépôt est normal ; la stabilité exige que la fermentation principale soit achevée et que la prise de mousse soit maîtrisée.",
         "profilRecherche": "Une ale australienne dorée, fortement pétillante, fruitée et sèche, avec une amertume nette et un caractère de levure immédiatement reconnaissable."
       },
       "sources": [
@@ -1194,7 +1437,7 @@ Le BJCP classe l’Australian Sparkling Ale parmi les Pale Commonwealth Beers. I
           "reference": "12B Australian Sparkling Ale — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/12/pale-commonwealth-beer/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Brewers Association",
@@ -1202,7 +1445,7 @@ Le BJCP classe l’Australian Sparkling Ale parmi les Pale Commonwealth Beers. I
           "reference": "Australian-Style Pale Ale / Sparkling context — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Coopers Brewery",
@@ -1210,7 +1453,31 @@ Le BJCP classe l’Australian Sparkling Ale parmi les Pale Commonwealth Beers. I
           "reference": "Sparkling Ale — première production en 1862, refermentation naturelle et profil actuel",
           "type": "source_primaire_historique_technique",
           "url": "https://coopers.com.au/products/sparkling-ale",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Coopers Brewery",
+          "edition": null,
+          "reference": "Thomas Cooper — premier brassin consigné le 13 mai 1862",
+          "type": "source_primaire_historique",
+          "url": "https://coopers.com.au/pages/thomas-cooper",
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Coopers Brewery",
+          "edition": null,
+          "reference": "The Coopers Story — continuité familiale et conditionnement naturel",
+          "type": "source_primaire_historique",
+          "url": "https://coopers.com.au/pages/the-coopers-story",
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Good Beer Hunting",
+          "edition": null,
+          "reference": "Australia’s Native Beer — histoire documentée de la survie de la Sparkling Ale",
+          "type": "presse_specialisee",
+          "url": "https://www.goodbeerhunting.com/blog/2023/8/10/australia-native-beer-how-sparkling-ale-survived",
+          "consultation": "2026-08-10"
         }
       ]
     },
@@ -1261,12 +1528,12 @@ Le BJCP classe l’Australian Sparkling Ale parmi les Pale Commonwealth Beers. I
           "Pint"
         ]
       },
-      "description": "La Classic Australian Pale Ale est une pale ale à l’ancienne australienne : dorée, fruitée, sèche, très carbonatée, avec une levure expressive et un houblon local modéré. Elle ne cherche pas la vague tropicale moderne, mais une fraîcheur droite, presque rustique.",
-      "histoireEtOrigines": `La Classic Australian Pale Ale désigne l’école australienne issue de la tradition de fermentation haute locale plutôt que la simple transplantation de l’American Pale Ale. Coopers constitue la référence la plus évidente : sa culture de levure, le conditionnement naturel et un équilibre entre fruité, malt, amertume et carbonatation ont maintenu une identité d’ale australienne alors que le marché national était largement dominé par les lagers.
+      "description": "La Classic Australian Pale Ale est une pale ale de levure avant d’être une vitrine de houblon. Dorée, sèche, modérément amère et naturellement conditionnée, elle mêle fruité de fermentation, pain léger et effervescence souple. Le voile éventuel n’annonce pas la future Hazy IPA : il raconte la bouteille, le dépôt et la persistance de Coopers dans un marché longtemps dominé par la lager.",
+      "histoireEtOrigines": `La catégorie « Classic Australian Pale Ale » a été séparée de l’Australian Pale Ale moderne par la Brewers Association en 2018, après consultation du secteur brassicole australien. Cette décision de concours reconnaît deux lignées commerciales déjà visibles : d’un côté, la tradition conditionnée en bouteille et centrée sur la levure ; de l’autre, les pale ales craft plus pâles et davantage orientées vers les houblons aromatiques.
 
-L’expression « classic » permet de distinguer cette lignée des pale ales craft australiennes plus récentes, souvent bâties autour de Cascade, Galaxy, Vic Secret ou d’autres houblons modernes. Dans une pale ale australienne classique, les esters de fermentation et la texture issue de la refermentation peuvent être aussi importants que le houblon. Le trouble léger provoqué par la levure n’est pas celui d’une Hazy Pale Ale moderne : il vient d’un conditionnement vivant et peut varier selon la façon de verser.
+Coopers Original Pale Ale fournit le principal repère de la branche classique. Elle transpose à une force plus légère la culture de fermentation et de conditionnement naturel entretenue par la brasserie d’Adélaïde. Le malt reste simple, l’amertume équilibrée et la levure fournit une part essentielle du fruité. Le dépôt peut troubler le verre, mais l’intention diffère radicalement de celle d’une Hazy Pale Ale saturée en houblon.
 
-Coopers Original Pale Ale illustre aujourd’hui cette logique avec une bière tout malt, naturellement conditionnée, où fruité et floral de fermentation s’équilibrent avec une amertume croquante. Le style doit donc être compris comme un patrimoine brassicole vivant, pas comme une recette figée du XIXe siècle.`,
+Le mot classic ne doit pas fabriquer une tradition continentale uniforme. Il désigne surtout la continuité d’un modèle industriel familial devenu emblématique, puis isolé par les guides afin de ne pas le juger selon les critères des pale ales craft contemporaines. La codification est tardive ; la pratique, elle, précède la case.`,
       "recette": {
         "profilUnique": true,
         "explicationProfil": "L’école classique australienne met davantage l’accent sur la levure, la refermentation et l’équilibre que sur la démonstration de houblons modernes.",
@@ -1297,7 +1564,7 @@ Coopers Original Pale Ale illustre aujourd’hui cette logique avec une bière t
           "reference": "Classic Australian-Style Pale Ale — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Coopers Brewery",
@@ -1305,7 +1572,7 @@ Coopers Original Pale Ale illustre aujourd’hui cette logique avec une bière t
           "reference": "Original Pale Ale — conditionnement naturel et référence de la pale ale australienne",
           "type": "source_primaire_technique",
           "url": "https://coopers.com.au/products/original-pale-ale",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Coopers Brewery",
@@ -1313,7 +1580,15 @@ Coopers Original Pale Ale illustre aujourd’hui cette logique avec une bière t
           "reference": "Sparkling Ale — première production en 1862, refermentation naturelle et profil actuel",
           "type": "source_primaire_historique_technique",
           "url": "https://coopers.com.au/products/sparkling-ale",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Brewers Association / Brewbound",
+          "edition": "2018",
+          "reference": "2018 Beer Style Guidelines — séparation Classic Australian / Australian Pale Ale",
+          "type": "organisation_professionnelle",
+          "url": "https://www.brewbound.com/news/brewers-association-acknowledges-haze-craze-creation-new-style-categories/",
+          "consultation": "2026-08-10"
         }
       ]
     },
@@ -1364,12 +1639,20 @@ Coopers Original Pale Ale illustre aujourd’hui cette logique avec une bière t
           "Pint"
         ]
       },
-      "description": "L’Australian Pale Ale moderne est plus lumineuse et plus houblonnée : fruits tropicaux, agrumes, raisin blanc ou herbes selon les variétés australiennes. Elle garde une base claire et sèche, mais laisse le houblon local envoyer des cartes postales aromatiques.",
-      "histoireEtOrigines": `L’Australian Pale Ale moderne se construit à la rencontre de deux histoires. La première est locale : Coopers et d’autres traditions d’ale australiennes maintiennent fermentation haute, fruité et conditionnement naturel. La seconde est l’explosion craft des années 1990 et 2000, qui adopte le langage des American Pale Ales tout en profitant d’un programme de sélection de houblons australiens de plus en plus distinctifs.
+      "description": "L’Australian Pale Ale moderne regarde moins vers la cave à bouteilles que vers les houblonnières. Claire, sèche et lumineuse, elle laisse les variétés australiennes dérouler pêche, agrume, fruits tropicaux ou herbes sur une base de malt discrète. Sa personnalité ne vient pas d’un passeport collé sur une American Pale Ale : elle naît d’une scène craft locale et d’un programme de sélection devenu langage.",
+      "histoireEtOrigines": `Lorsque Little Creatures ouvre ses portes à Fremantle à la fin de 2000, la brasserie s’organise autour d’une Pale Ale inspirée par les ales américaines et brassée avec des houblons des États-Unis. La bière devient un pivot de la scène craft australienne : elle montre qu’une pale ale aromatique peut construire une identité de brasserie dans un marché largement habitué aux lagers. Ce point de départ n’est pas encore une école strictement « australienne » par ses matières premières, mais il crée l’espace commercial où elle peut apparaître.
 
-Des variétés comme Galaxy, puis Vic Secret, Enigma et d’autres houblons australiens offrent des profils de fruit de la passion, agrumes, pêche ou résine qui donnent progressivement une signature nationale aux pale ales contemporaines. L’Australian Pale Ale peut donc être plus tropicale et sèche que le modèle classique, avec un houblonnage tardif ou à cru plus appuyé. Coopers illustre lui-même cette évolution avec Pacific Pale Ale, lancé initialement en 2017 et dry-hoppé avec Galaxy, Vic Secret et Melba.
+Le second moteur pousse dans les champs. Le programme australien de sélection du houblon, engagé dans les années 1950 pour les besoins agronomiques et l’amertume, se réoriente avec l’essor craft vers la saveur et l’arôme. Galaxy, puis d’autres variétés de Hop Products Australia, donnent aux brasseurs des signatures locales suffisamment fortes pour ne plus seulement imiter Cascade. Le houblon devient ici une infrastructure de recherche agricole avant de devenir un adjectif sur une canette.
 
-La catégorie reste large : certaines bières se rapprochent d’une American Pale Ale fabriquée avec des ingrédients australiens, d’autres recherchent un équilibre plus doux et plus « pacifique », et d’autres encore empruntent aux hazy pale ales. Il faut donc décrire une école contemporaine plutôt qu’une recette canonique.`,
+La Brewers Association sépare en 2018 l’Australian-Style Pale Ale de sa branche Classic afin de reconnaître ce changement. La version moderne privilégie une couleur plus pâle, un houblonnage tardif et à cru plus visible, et souvent une fermentation plus neutre. Coopers participe elle-même à ce mouvement avec une première bière dry-hoppée lancée en 2017 sous le nom Session Ale, devenue Pacific Pale Ale. La catégorie raconte donc une transition : l’Australie passe d’un grand modèle historique centré sur la levure à plusieurs expressions craft où ses propres houblons prennent la parole.`,
+      "chapitres": [
+        {
+          "titre": "Quand la sélection variétale change le verre",
+          "texte": `Le programme de Hop Products Australia ne naît pas pour produire un bouquet tropical à photographier. Ses premiers objectifs concernent rendement, adaptation et acides alpha. L’essor des petites brasseries déplace ensuite la demande vers l’arôme ; les critères sensoriels entrent au premier plan.
+
+Cette chronologie évite le catalogue botanique. Galaxy n’est important ici ni parce que son nom est céleste ni parce qu’un argumentaire commercial aligne des descripteurs : il donne aux pale ales australiennes une matière première locale capable de structurer une école moderne.`
+        }
+      ],
       "recette": {
         "profilUnique": false,
         "explicationProfil": "Australian Pale Ale moderne couvre plusieurs interprétations, généralement claires à légèrement troubles, sèches et portées par des houblons australiens ou du Pacifique.",
@@ -1399,7 +1682,7 @@ La catégorie reste large : certaines bières se rapprochent d’une American Pa
           "reference": "Australian-Style Pale Ale — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Coopers Brewery",
@@ -1407,7 +1690,7 @@ La catégorie reste large : certaines bières se rapprochent d’une American Pa
           "reference": "Original Pale Ale — conditionnement naturel et référence de la pale ale australienne",
           "type": "source_primaire_technique",
           "url": "https://coopers.com.au/products/original-pale-ale",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Coopers Brewery",
@@ -1415,7 +1698,23 @@ La catégorie reste large : certaines bières se rapprochent d’une American Pa
           "reference": "Pacific Pale Ale — interprétation australienne moderne, dry-hop Galaxy, Vic Secret et Melba",
           "type": "source_primaire_technique",
           "url": "https://coopers.com.au/products/pacific-pale-ale",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Little Creatures",
+          "edition": null,
+          "reference": "Our Story — ouverture en 2000 et brasserie construite autour de Pale Ale",
+          "type": "source_primaire_historique",
+          "url": "https://www.littlecreatures.com.au/our-story/",
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Hop Products Australia",
+          "edition": null,
+          "reference": "Hop Breeding Program — passage de la sélection alpha à la saveur et à l’arôme",
+          "type": "organisme_agricole",
+          "url": "https://hops.com.au/hop-breeding-program/",
+          "consultation": "2026-08-10"
         }
       ]
     },
@@ -1466,12 +1765,12 @@ La catégorie reste large : certaines bières se rapprochent d’une American Pa
           "Tulipe"
         ]
       },
-      "description": "L’International Pale Ale est la version traduite du style : assez claire, assez houblonnée, assez sèche, mais sans accent national dominant. Elle peut emprunter à l’Angleterre, aux États-Unis ou au Nouveau Monde, tout en restant dans une zone équilibrée.",
-      "histoireEtOrigines": `International Pale Ale est moins un style historique qu’une catégorie de convergence. À mesure que le mouvement craft s’est diffusé hors du Royaume-Uni et des États-Unis, des brasseurs d’Europe, d’Asie, d’Amérique latine et du Pacifique ont repris l’architecture de la pale ale — malt clair, fermentation haute, houblon lisible — en utilisant leurs propres ingrédients, leurs contraintes locales et une culture du houblon devenue mondiale.
+      "description": "L’International Pale Ale est un carrefour plutôt qu’une patrie. Malt clair, fermentation haute et houblon lisible y composent une bière nette, modérément forte et exportable, sans exiger l’accent anglais, américain ou océanien d’une école précise. Son élégance tient à la traduction : garder une pale ale identifiable lorsque les ingrédients, l’eau et le public changent de pays.",
+      "histoireEtOrigines": `L’International Pale Ale ne possède pas de fondateur, de ville ni de première bouteille convaincante. Elle naît de la diffusion mondiale du brassage craft et de la nécessité des guides de classer des pale ales qui n’imitent pas fidèlement une tradition britannique, américaine, australienne ou néo-zélandaise. Son histoire est donc celle d’un marché convergent, puis d’une catégorie.
 
-Cette internationalisation est particulièrement visible depuis les années 1990-2000. Les variétés américaines sont exportées partout, tandis que les programmes de sélection de Nouvelle-Zélande, d’Australie, d’Allemagne ou de France créent de nouveaux profils. Une pale ale peut alors associer malt européen, levure britannique et houblons néo-zélandais sans appartenir complètement à une école nationale. « International » sert à reconnaître cette réalité plutôt qu’à imposer une origine artificielle.
+Les brasseurs emploient des malts locaux ou importés, des levures plus ou moins neutres et un mélange de houblons disponibles. Les chaînes frigorifiques, les pellets et le commerce mondial des variétés aromatiques rendent possible une expression relativement cohérente à des milliers de kilomètres des régions de culture. Pourtant, une variété identique n’efface ni l’eau, ni la fermentation, ni les habitudes de consommation.
 
-La catégorie doit rester définie par l’équilibre : plus houblonnée qu’une simple blonde dans beaucoup d’exemples, moins intense qu’une IPA, avec une base maltée claire et une fermentation propre. Son histoire est donc celle de la mondialisation du craft et des matières premières plus que celle d’une ville ou d’une brasserie fondatrice.`,
+La catégorie assume sa modestie historique. L’International Pale Ale décrit une intention médiane : plus de présence houblonnée qu’une blonde générique, moins d’intensité et de force qu’une IPA, aucun passeport sensoriel obligatoire. Les concours n’ont pas inventé ces bières ; ils leur ont construit un guichet.`,
       "recette": {
         "profilUnique": false,
         "explicationProfil": "Catégorie volontairement large : la recette doit être cohérente comme Pale Ale mais peut combiner ingrédients et techniques de plusieurs traditions nationales.",
@@ -1501,7 +1800,7 @@ La catégorie doit rester définie par l’équilibre : plus houblonnée qu’un
           "reference": "International-Style Pale Ale — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "BJCP",
@@ -1509,7 +1808,7 @@ La catégorie doit rester définie par l’équilibre : plus houblonnée qu’un
           "reference": "18B American Pale Ale — comparative reference — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/18/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "New Zealand Hops",
@@ -1517,7 +1816,7 @@ La catégorie doit rester définie par l’équilibre : plus houblonnée qu’un
           "reference": "Motueka™ — origine génétique, profil citron vert et usage brassicole",
           "type": "source_technique_houblon",
           "url": "https://nzhops.co.nz/products/motueka",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         }
       ]
     },
@@ -1568,12 +1867,12 @@ La catégorie doit rester définie par l’équilibre : plus houblonnée qu’un
           "Tulipe"
         ]
       },
-      "description": "La New Zealand Pale Ale sent le fruit vert et le Pacifique : raisin blanc, groseille, citron vert, fruit de la passion, herbe fraîche ou pin léger. Elle doit rester sèche et claire, avec un houblon très expressif mais rarement lourd.",
-      "histoireEtOrigines": `La New Zealand Pale Ale est un style contemporain né de la rencontre entre le modèle de la pale ale craft et l’identité aromatique spectaculaire des houblons néo-zélandais. La Nouvelle-Zélande possède une longue histoire de culture du houblon, mais la reconnaissance internationale actuelle repose largement sur des programmes de sélection modernes qui ont produit des variétés capables d’évoquer agrumes, fruits tropicaux, raisin blanc, groseille, fruits à noyau ou herbes fraîches.
+      "description": "La New Zealand Pale Ale fait d’un petit pays producteur de houblon un grand paysage aromatique. Sur un malt clair et une fermentation nette, les variétés locales peuvent évoquer citron vert, fruits à noyau, herbes fraîches ou raisin blanc sans former une liste obligatoire. Le style est surtout une rencontre : une pale ale craft internationale traduite par des décennies de sélection néo-zélandaise.",
+      "histoireEtOrigines": `La Nouvelle-Zélande ne représente qu’une faible part de la production mondiale de houblon, mais ses variétés ont acquis une influence disproportionnée. Les programmes de recherche commencent dans les années 1950 en réponse aux maladies et aux besoins de l’agriculture locale. La sélection produit d’abord des cultivars résistants et adaptés ; elle s’oriente ensuite vers des profils aromatiques distinctifs destinés à un marché craft mondial.
 
-Nelson Sauvin devient l’un des symboles de cette nouvelle identité au début du XXIe siècle, bientôt rejoint par Motueka, Riwaka et de nombreuses autres variétés. New Zealand Hops décrit par exemple Motueka comme un croisement incluant une lignée Saazer, avec un profil marqué de citron vert frais, zestes et fruits tropicaux. Ces houblons permettent de construire des pale ales immédiatement distinctes des classiques américaines centrées sur Cascade, Centennial ou Simcoe.
+Motueka illustre cette construction par la recherche plutôt qu’un folklore spontané : le cultivar est issu du programme néo-zélandais et associe ascendance Saaz et sélection locale. Nelson Sauvin devient un autre repère, étudié pour son caractère rappelant certains vins blancs. Ces noms expliquent l’émergence du style lorsqu’ils décrivent une innovation agricole ; ils ne constituent pas une recette à cocher.
 
-La Brewers Association reconnaît explicitement les styles New Zealand Pale Ale et New Zealand IPA depuis 2021. L’enjeu n’est pas seulement d’utiliser un houblon cultivé en Nouvelle-Zélande : il faut faire de ce profil aromatique le cœur de la bière, sur une base claire, sèche et suffisamment discrète pour que les huiles de houblon restent précises.`,
+La New Zealand Pale Ale apparaît lorsque des brasseurs locaux et étrangers utilisent cette matière première dans l’architecture modérée d’une pale ale : malt sobre, fermentation assez neutre, houblonnage tardif expressif et amertume équilibrée. Elle partage son moteur avec la New Zealand IPA, mais pas sa force ni sa saturation. La Pale Ale porte l’histoire du programme de sélection ; la branche IPA raconte ce que l’intensité en fait.`,
       "recette": {
         "profilUnique": true,
         "explicationProfil": "La signature vient d’un houblonnage néo-zélandais expressif sur une base de pale ale claire et buvable.",
@@ -1603,7 +1902,7 @@ La Brewers Association reconnaît explicitement les styles New Zealand Pale Ale 
           "reference": "New Zealand-Style Pale Ale — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "New Zealand Hops",
@@ -1611,7 +1910,7 @@ La Brewers Association reconnaît explicitement les styles New Zealand Pale Ale 
           "reference": "Motueka™ — origine génétique, profil citron vert et usage brassicole",
           "type": "source_technique_houblon",
           "url": "https://nzhops.co.nz/products/motueka",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "BJCP",
@@ -1619,7 +1918,31 @@ La Brewers Association reconnaît explicitement les styles New Zealand Pale Ale 
           "reference": "Pale Commonwealth and American Pale Ale — comparative context — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/18/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Bioeconomy Science Institute New Zealand",
+          "edition": null,
+          "reference": "Hops with global appeal — programme de sélection depuis les années 1950",
+          "type": "organisme_scientifique_public",
+          "url": "https://www.bioeconomyscience.co.nz/about-us/100-years/hops-with-global-appeal",
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Plant & Food Research",
+          "edition": null,
+          "reference": "NZ hops capturing the world’s attention — recherche et cultivars locaux",
+          "type": "organisme_scientifique_public",
+          "url": "https://www.plantandfood.com/en-nz/article/nz-hops-capturing-the-worlds-attention",
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Journal of the American Society of Brewing Chemists",
+          "edition": "2021",
+          "reference": "Distinctive chemical signatures of New Zealand hop cultivars",
+          "type": "publication_scientifique",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7917646/",
+          "consultation": "2026-08-10"
         }
       ]
     },
@@ -1672,12 +1995,28 @@ La Brewers Association reconnaît explicitement les styles New Zealand Pale Ale 
           "IPA glass"
         ]
       },
-      "description": "L’American Pale Ale est l’étincelle craft classique : malt pâle propre, caramel retenu, houblon Cascade ou Nouveau Monde, agrumes, pin, fleurs, finale sèche. Elle est plus équilibrée qu’une IPA, mais clairement tournée vers le houblon.",
-      "histoireEtOrigines": `L’American Pale Ale est l’un des styles fondateurs du mouvement craft américain moderne. Sa généalogie remonte aux pale ales britanniques, mais son identité se cristallise lorsque les petits brasseurs américains commencent à considérer les nouveaux houblons locaux non plus comme de simples amérisants, mais comme une signature aromatique. Anchor Liberty Ale, brassée dès 1975 avec Cascade, préfigure cette révolution houblonnée.
+      "description": "L’American Pale Ale est le moment où le houblon des États-Unis cesse d’être un remplaçant et devient un personnage. Une trame de malt clair, parfois légèrement caramélisée, soutient une amertume vive et un parfum d’agrumes, de pin ou de fleurs. Entre Liberty Ale et Sierra Nevada Pale Ale, la tradition anglaise n’est pas copiée : elle reçoit un nouvel accent et une nouvelle scène.",
+      "histoireEtOrigines": `En 1972, le programme public de sélection mené par l’USDA avec Oregon State University libère Cascade. Le cultivar avait été choisi notamment pour répondre aux besoins agronomiques et remplacer des houblons aromatiques importés ; son caractère d’agrume et de fleur ne correspond pas exactement aux attentes de la grande industrie. Les petites brasseries y voient au contraire une signature. Une matière première conçue comme solution agricole devient le vocabulaire d’un mouvement.
 
-Sierra Nevada Pale Ale devient ensuite le grand repère. Ken Grossman fonde Sierra Nevada en 1980 et bâtit sa Pale Ale autour de houblon Cascade en cônes entiers, d’un malt two-row et d’une touche caramélisée. La brasserie rappelle qu’au début la bière semblait excessivement amère à de nombreux consommateurs ; elle devient pourtant l’une des icônes du craft et contribue à populariser les caractères d’agrumes, de pin et de résine qui seront associés pendant des décennies à la bière américaine artisanale.
+Anchor brasse Liberty Ale le 18 avril 1975 pour le bicentenaire de la chevauchée de Paul Revere. Houblonnée au Cascade et dry-hoppée, cette bière est un jalon majeur des ales américaines modernes et un ancêtre direct de nombreuses IPA. Elle ne suffit pourtant pas à stabiliser seule l’American Pale Ale. En 1980, à Chico, Ken Grossman brasse douze essais avant de fixer Sierra Nevada Pale Ale ; la première production date du 15 novembre. Mise en bouteille au début de 1981, elle installe durablement l’alliance entre malt américain, fermentation nette et Cascade entier.
 
-L’American Pale Ale des années 1980-2000 est souvent ambrée, avec davantage de crystal malt que beaucoup de versions actuelles. L’évolution des houblons et du goût l’a progressivement rendue plus claire, plus sèche et parfois plus aromatique. Elle reste cependant distincte de l’American IPA par son intensité et sa force : le malt doit encore jouer un rôle visible, l’amertume rester maîtrisée et la bière conserver une grande buvabilité.`,
+La différence entre les deux pivots importe. Liberty Ale montre très tôt la puissance d’un houblon unique et du houblonnage à cru ; Sierra Nevada Pale Ale diffuse et popularise un modèle reproductible qui devient un repère national. Dans le contexte du homebrewing légalisé au niveau fédéral en 1978, des premiers brewpubs et de la multiplication des microbrasseries, cette pale ale fournit une grammaire que des centaines de producteurs adaptent.
+
+Centennial, Chinook, Columbus, puis Simcoe, Citra ou Mosaic élargissent plus tard le lexique. Ils ne remplacent pas le récit par un herbier : chaque génération permet de déplacer le style vers davantage de résine, d’agrumes ou de fruit. L’American IPA naît dans le prolongement de cette révolution, en augmentant intensité et sécheresse. L’APA demeure son point d’équilibre historique : assez houblonnée pour annoncer une rupture, assez mesurée pour laisser encore le malt répondre.`,
+      "chapitres": [
+        {
+          "titre": "Cascade : un programme public, un goût imprévu",
+          "texte": `Sélectionné dans les années 1950 et libéré en 1972, Cascade sort d’un programme commun à l’USDA et à Oregon State University. La variété répond à des enjeux de culture et d’approvisionnement ; sa destinée craft n’était pas inscrite dans le cahier des charges comme une prophétie.
+
+Le retournement est fécond : ce qui paraît trop expressif à certains grands brasseurs devient une marque d’indépendance sensorielle. L’American Pale Ale naît aussi de cette capacité des petites structures à transformer un écart industriel en désir du public.`
+        },
+        {
+          "titre": "Deux bières, deux rôles",
+          "texte": `Liberty Ale précède Sierra Nevada Pale Ale et sert de préfiguration influente : Cascade, amertume franche, dry-hopping. Sierra Nevada Pale Ale arrive cinq ans plus tard et impose durablement le modèle au-delà d’un brassin commémoratif.
+
+Les qualifier correctement évite le podium artificiel. Anchor fournit un jalon précoce et une influence technique ; Sierra Nevada assure une popularisation et une continuité commerciale exceptionnelles. Une histoire peut parfaitement avoir plusieurs premiers rôles sans organiser de duel à l’aube.`
+        }
+      ],
       "recette": {
         "profilUnique": true,
         "explicationProfil": "Le modèle américain classique marie une base maltée claire à un houblon américain ou du Nouveau Monde nettement perceptible, sans atteindre la puissance d’une IPA.",
@@ -1686,8 +2025,8 @@ L’American Pale Ale des années 1980-2000 est souvent ambrée, avec davantage 
           "Crystal/caramel faible à modéré dans l’école classique ; beaucoup de versions modernes réduisent fortement cette proportion pour une couleur plus pâle et une finale plus sèche."
         ],
         "houblons": [
-          "Cascade est historique ; Centennial, Chinook, Simcoe, Amarillo, Citra, Mosaic et de nombreuses variétés modernes sont aujourd’hui courantes.",
-          "Amertume moyenne à soutenue, ajouts tardifs importants et dry-hop fréquent mais moins massif qu’une IPA moderne."
+          "Cascade est le pivot historique, non une obligation contemporaine. Centennial, Chinook, Columbus et les générations plus récentes élargissent le vocabulaire lorsqu’elles servent une intention précise.",
+          "Amertume lisible, ajouts tardifs et dry-hop modéré à soutenu. L’APA doit garder un échange avec le malt plutôt que devenir une American IPA simplement rangée dans la mauvaise case."
         ],
         "levuresEtMicroorganismes": [
           "Souche d’ale américaine propre, fortement atténuante, avec esters faibles."
@@ -1697,7 +2036,7 @@ L’American Pale Ale des années 1980-2000 est souvent ambrée, avec davantage 
         "empatage": "Infusion simple donnant un corps moyen-léger et une finale sèche sans devenir aqueuse.",
         "ebullitionEtHoublonnage": "Amertume en chaudière, puis couches d’arôme en fin d’ébullition, whirlpool et éventuellement dry-hop.",
         "fermentation": "Fermentation haute propre, généralement autour de la plage neutre de la souche choisie.",
-        "maturation": "Courte ; protéger strictement de l’oxygène et servir fraîche pour conserver le houblon.",
+        "maturation": "Maturation courte, clarification selon le modèle, puis conditionnement avec très peu d’oxygène. La fraîcheur protège les huiles de houblon ; le froid ralentit leur dégradation sans rendre la bière immortelle.",
         "profilRecherche": "Une pale ale américaine équilibrée : malt assez présent pour soutenir la pinte, houblon assez expressif pour la définir, finale propre et sèche."
       },
       "sources": [
@@ -1707,7 +2046,7 @@ L’American Pale Ale des années 1980-2000 est souvent ambrée, avec davantage 
           "reference": "18B American Pale Ale — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/18/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Brewers Association",
@@ -1715,7 +2054,7 @@ L’American Pale Ale des années 1980-2000 est souvent ambrée, avec davantage 
           "reference": "American-Style Pale Ale — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Sierra Nevada Brewing Co.",
@@ -1723,7 +2062,7 @@ L’American Pale Ale des années 1980-2000 est souvent ambrée, avec davantage 
           "reference": "Our Story — fondation en 1980 et rôle de Pale Ale dans l’essor du craft américain",
           "type": "source_primaire_historique",
           "url": "https://sierranevada.com/about-us",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Sierra Nevada Brewing Co.",
@@ -1731,7 +2070,7 @@ L’American Pale Ale des années 1980-2000 est souvent ambrée, avec davantage 
           "reference": "Pale Ale — Cascade, malt two-row et caramel, repère de l’American Pale Ale",
           "type": "source_primaire_technique",
           "url": "https://sierranevada.com/brews/pale-ale",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Smithsonian National Museum of American History",
@@ -1739,7 +2078,31 @@ L’American Pale Ale des années 1980-2000 est souvent ambrée, avec davantage 
           "reference": "Sierra Nevada Pale Ale — objet et contexte historique du craft américain",
           "type": "source_museale_historique",
           "url": "https://americanhistory.si.edu/collections/object/nmah_1854865",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "National Museum of American History — Smithsonian",
+          "edition": null,
+          "reference": "Liberty Ale banner — brassage du 18 avril 1975 et rôle précurseur de Cascade",
+          "type": "archive_museale",
+          "url": "https://americanhistory.si.edu/collections/object/nmah_2033255",
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Oregon State University Libraries",
+          "edition": null,
+          "reference": "Hops Research Reports, 1931–1995 — Cascade sélectionné et libéré en 1972",
+          "type": "archive_universitaire",
+          "url": "https://archiveswest.orbiscascade.org/ark%3A80444/xv71075",
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "American Homebrewers Association",
+          "edition": null,
+          "reference": "How Homebrewing Led to Sierra Nevada Pale Ale — premier brassin du 15 novembre 1980",
+          "type": "histoire_brassicole",
+          "url": "https://homebrewersassociation.org/zymurgy-live/how-homebrewing-led-to-sierra-nevada-pale-ale/",
+          "consultation": "2026-08-10"
         }
       ]
     },
@@ -1790,12 +2153,12 @@ L’American Pale Ale des années 1980-2000 est souvent ambrée, avec davantage 
           "Tulipe"
         ]
       },
-      "description": "L’American ESB prend la charpente d’une strong bitter et la pousse vers les habitudes craft : malt ambré, caramel sec, houblon plus franc, finale nette. Elle garde le pub dans le rétroviseur, mais roule sur une route américaine.",
-      "histoireEtOrigines": `L’American Extra Special Bitter est un exemple de traduction plutôt que de tradition autonome. Lorsque les microbrasseries américaines des années 1980 et 1990 s’inspirent des Bitters britanniques, elles disposent de malts, de levures et surtout de houblons locaux beaucoup plus expressifs. Certaines conservent une base maltée et une force proches d’une Strong Bitter/ESB tout en augmentant l’aromatique d’agrumes, de pin ou de résine.
+      "description": "L’American ESB traduit une strong bitter avec un dictionnaire américain : malt toasté, caramel mesuré et levure fruitée restent lisibles, tandis que le houblon peut prendre un accent d’agrume ou de résine. Ce n’est ni une IPA brune ni une antiquité anglaise expatriée ; c’est l’un des premiers dialectes du brewpub, formé quand les brasseurs américains apprenaient encore leurs classiques au comptoir britannique.",
+      "histoireEtOrigines": `À la fin des années 1970 et dans les années 1980, les pionniers du craft américain regardent vers les ales britanniques pour échapper à l’uniformité des lagers industrielles. Fuller’s ESB, exportée vers les États-Unis à partir de 1979, devient un modèle particulièrement visible. Les homebrewers, brewpubs et premiers guides adoptent ses initiales comme nom de famille, alors qu’au Royaume-Uni elles restent attachées à une marque et que « strong bitter » décrit mieux l’ensemble.
 
-Le nom est donc paradoxal : « ESB » renvoie fortement à la référence britannique de Fuller’s et à la logique d’une Strong Bitter, tandis que l’adjectif American signale un déplacement vers les ingrédients du Nouveau Monde. Les guides de la Brewers Association ont d’ailleurs longtemps laissé aux concours la possibilité de distinguer les caractères de houblons anglais et américains dans les Extra Special Bitters.
+La traduction modifie rapidement l’accent. Les malts américains peuvent être plus neutres, la carbonatation plus vive et le service plus souvent en keg ; Cascade, Centennial ou d’autres variétés locales remplacent parfois tout ou partie des houblons anglais. Le résultat garde une assise de malt plus prononcée qu’une American Pale Ale classique, mais son fruit et son amertume peuvent regarder vers le Pacifique.
 
-Ce style se situe historiquement avant l’hégémonie de l’IPA moderne, à une époque où une bière ambrée, maltée et assez houblonnée pouvait être présentée comme une adaptation américaine d’une ale anglaise plutôt que comme une IPA. Il reste intéressant parce qu’il conserve un centre malté plus riche et des esters possibles tout en permettant un houblon américain nettement lisible.`,
+L’American ESB est donc moins une invention ponctuelle qu’un genre de transition. Elle documente le moment où la scène craft américaine apprend avec des modèles britanniques avant de créer ses propres catégories. Sa place actuelle est plus discrète, prise entre APA, amber ale et IPA ; son intérêt historique tient précisément à cette position de pont.`,
       "recette": {
         "profilUnique": true,
         "explicationProfil": "Base de Strong Bitter/ESB, mais avec une expression de houblon américain plus nette et parfois une fermentation plus propre.",
@@ -1825,7 +2188,7 @@ Ce style se situe historiquement avant l’hégémonie de l’IPA moderne, à un
           "reference": "English-Style Extra Special Bitter — English/American hop character note — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Fuller’s",
@@ -1833,7 +2196,7 @@ Ce style se situe historiquement avant l’hégémonie de l’IPA moderne, à un
           "reference": "History and Heritage — tradition londonienne des Bitters, London Pride et ESB",
           "type": "source_primaire_historique",
           "url": "https://www.fullers.co.uk/corporate/about-us/history-and-heritage",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Sierra Nevada Brewing Co.",
@@ -1841,7 +2204,23 @@ Ce style se situe historiquement avant l’hégémonie de l’IPA moderne, à un
           "reference": "Pale Ale — Cascade, malt two-row et caramel, repère de l’American Pale Ale",
           "type": "source_primaire_technique",
           "url": "https://sierranevada.com/brews/pale-ale",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Fuller’s Brewery",
+          "edition": null,
+          "reference": "Our Story — ESB lancée en 1971 et exportée aux États-Unis en 1979",
+          "type": "source_primaire_historique",
+          "url": "https://www.fullersbrewery.co.uk/pages/our-story",
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "CraftBeer.com / Brewers Association",
+          "edition": null,
+          "reference": "Beer History — homebrewing, brewpubs et naissance du craft américain",
+          "type": "histoire_brassicole",
+          "url": "https://www.craftbeer.com/beer/beer-history",
+          "consultation": "2026-08-10"
         }
       ]
     },
@@ -1895,12 +2274,12 @@ Ce style se situe historiquement avant l’hégémonie de l’IPA moderne, à un
           "Teku"
         ]
       },
-      "description": "La Juicy / Hazy Pale Ale est la version plus légère du nuage houblonné : robe voilée, bouche douce, amertume arrondie, fruits tropicaux, agrumes mûrs, pêche ou mangue. Elle doit sentir le jus, pas la purée de houblon oxydée.",
-      "histoireEtOrigines": `La Juicy or Hazy Pale Ale est l’un des produits directs de la révolution des IPA troubles du Nord-Est américain. Lorsque des bières comme Heady Topper deviennent cultes dans les années 2000 puis 2010, de nombreux brasseurs développent une nouvelle esthétique houblonnée : arômes massifs de fruits, amertume perçue plus douce, texture souple, trouble stable et interaction plus visible entre levure, protéines de céréales et houblon.
+      "description": "La Juicy / Hazy Pale Ale garde le toucher velouté, le parfum de houblon et le trouble assumé de l’école Hazy, mais ramène la force au territoire de la pale ale. Le fruit semble mûr, l’amertume moins anguleuse et le malt presque tactile. Ce n’est pas une NEIPA coupée à l’eau : c’est un exercice d’échelle où texture et fraîcheur doivent survivre à une densité plus basse.",
+      "histoireEtOrigines": `Cette catégorie ne précède pas la New England IPA ; elle en descend. Lorsque les IPA troubles et fruitées du Vermont puis du Massachusetts rencontrent un public national, les brasseries déclinent leur langage à plusieurs niveaux de force. La pale ale permet de conserver une forte présence aromatique avec moins d’alcool, de coût et de fatigue au verre.
 
-La logique descend rapidement vers des bières moins fortes que l’IPA. La Hazy Pale Ale conserve la texture et le bouquet d’une NEIPA mais vise une force plus proche d’une pale ale. La Brewers Association reconnaît désormais une catégorie Juicy or Hazy Pale Ale avec houblon moyen-fort à très fort, amertume perçue basse à moyenne et possibilité d’utiliser avoine ou blé pour favoriser texture et trouble.
+En 2018, la Brewers Association reconnaît simultanément Juicy or Hazy Pale Ale, IPA et Double IPA. Ce triptyque révèle une codification par intensité d’un mouvement déjà installé, non trois inventions séparées. Heady Topper, Tree House, Trillium et la rupture sensorielle appartiennent à l’histoire de la NEIPA ; la Hazy Pale Ale raconte le redimensionnement.
 
-Le trouble ne doit pas être confondu avec un défaut de procédé. Une bonne version n’est ni farineuse, ni chargée de particules, ni oxydée. La stabilité colloïdale, l’usage de houblons tardifs, la gestion des polyphénols et des protéines et surtout la maîtrise de l’oxygène après fermentation sont essentielles. Le style est donc technologiquement exigeant malgré son apparence volontairement opaque.`,
+Le défi technique ressemble à celui d’une Session IPA, mais avec une autre cible. Blé ou avoine, protéines du malt, levure expressive et composés du houblon construisent la texture et le trouble ; une amertume moins dure préserve l’impression juteuse. À faible densité, trop de céréales peut donner une bouche farineuse, trop de dry-hop une astringence végétale, et l’oxygène ternit rapidement couleur et parfum. Réduire l’alcool ne réduit donc pas le nombre de pièges.`,
       "recette": {
         "profilUnique": true,
         "explicationProfil": "Version pale ale de l’école hazy : fruit intense, amertume douce, texture souple et alcool modéré.",
@@ -1932,7 +2311,7 @@ Le trouble ne doit pas être confondu avec un défaut de procédé. Une bonne ve
           "reference": "Juicy or Hazy Pale Ale — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "BJCP",
@@ -1940,7 +2319,7 @@ Le trouble ne doit pas être confondu avec un défaut de procédé. Une bonne ve
           "reference": "21C Hazy IPA — technical lineage — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/21/ipa/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "The Alchemist Brewery",
@@ -1948,7 +2327,7 @@ Le trouble ne doit pas être confondu avec un défaut de procédé. Une bonne ve
           "reference": "Our Story — Heady Topper, Waterbury et diffusion de l’école houblonnée du Vermont",
           "type": "source_primaire_historique",
           "url": "https://alchemistbeer.com/story/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Lallemand Brewing",
@@ -1956,7 +2335,23 @@ Le trouble ne doit pas être confondu avec un défaut de procédé. Une bonne ve
           "reference": "LalBrew Verdant IPA — souche fruitée pour Pale Ale, Bitter, IPA anglaise et NEIPA",
           "type": "fiche_technique",
           "url": "https://www.lallemandbrewing.com/fr/global/produits/lalbrew-verdant-ipa/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Brewers Association / Brewbound",
+          "edition": "2018",
+          "reference": "2018 Beer Style Guidelines — création du triptyque Juicy or Hazy",
+          "type": "organisation_professionnelle",
+          "url": "https://www.brewbound.com/news/brewers-association-acknowledges-haze-craze-creation-new-style-categories/",
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Fermentation",
+          "edition": "2021",
+          "reference": "Dry-Hop Creep Potential of Various Saccharomyces Yeast Species and Strains",
+          "type": "publication_scientifique",
+          "url": "https://www.mdpi.com/2311-5637/7/2/66",
+          "consultation": "2026-08-10"
         }
       ]
     },
@@ -2007,12 +2402,12 @@ Le trouble ne doit pas être confondu avec un défaut de procédé. Une bonne ve
           "Tulipe"
         ]
       },
-      "description": "L’American Strong Pale Ale est une pale ale qui a forcé la porte : plus d’alcool, plus de houblon, plus d’amertume, mais pas encore la densité assumée d’une IPA forte. Elle doit rester sèche et tranchante, pas devenir une soupe de caramel et de résine.",
-      "histoireEtOrigines": `L’American Strong Pale Ale apparaît comme une zone intermédiaire du craft américain : plus forte et plus amère qu’une American Pale Ale, mais pas nécessairement construite ou commercialisée comme une IPA. Cette distinction a du sens surtout dans l’histoire des années 1980-2000, lorsque les brasseries multiplient les ales houblonnées sans que le sigle IPA soit encore devenu l’étiquette dominante de presque toute bière fortement aromatique.
+      "description": "L’American Strong Pale Ale habite l’étage entre APA et IPA. Elle conserve un malt perceptible et une silhouette de pale ale, mais porte davantage d’alcool, d’amertume et de houblon tardif. Son intérêt est moins une légende fondatrice qu’un problème de classement : que faire des bières trop musclées pour la première case, pas assez nettement IPA pour la suivante ?",
+      "histoireEtOrigines": `Les brasseries américaines des années 1990 et 2000 poussent volontiers leurs pale ales au-delà des frontières initiales : densité plus haute, davantage de malt et houblonnage plus intense. Les noms commerciaux — extra pale, strong pale, imperial pale — ne décrivent pas une tradition homogène. La catégorie American Strong Pale Ale apparaît dans les guides de la Brewers Association pour loger ce continuum.
 
-La Brewers Association maintient une catégorie American-Style Strong Pale Ale, signe que l’équilibre reste différent de l’American IPA. Le malt peut être plus visible, la couleur aller du pâle au cuivre et l’amertume atteindre un niveau élevé, tout en conservant une force et une structure où la bière reste pensée comme une pale ale amplifiée. Des exemples historiques peuvent se rapprocher de ce que d’autres marchés appelleraient aujourd’hui Extra Pale Ale, Strong Pale Ale ou même IPA légère.
+La distinction avec l’American IPA dépend de l’équilibre, pas d’un interrupteur. Une Strong Pale Ale peut garder plus de caramel, de pain et de rondeur, avec une amertume moins dominante ; une IPA cherche généralement une finale plus sèche et un centre de gravité franchement houblonné. Les paramètres se chevauchent, ce qui est justement la raison d’être — et la faiblesse — de la case.
 
-Le style est donc utile pour documenter la continuité plutôt que de tracer une frontière absolue. Il montre comment le craft américain a progressivement augmenté houblon et densité avant que l’IPA ne devienne la catégorie reine.`,
+Cette catégorie reste volontairement concise. Issue de l’escalade craft, elle ne constitue pas une école autonome avec un inventeur. Son intérêt est de montrer que la taxonomie dessine parfois des frontières là où le marché avait peint un dégradé.`,
       "recette": {
         "profilUnique": true,
         "explicationProfil": "Pale ale américaine amplifiée : davantage de densité, de houblon et d’amertume, mais avec une charpente maltée encore clairement lisible.",
@@ -2042,7 +2437,7 @@ Le style est donc utile pour documenter la continuité plutôt que de tracer une
           "reference": "American-Style Strong Pale Ale — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Sierra Nevada Brewing Co.",
@@ -2050,7 +2445,7 @@ Le style est donc utile pour documenter la continuité plutôt que de tracer une
           "reference": "Pale Ale — Cascade, malt two-row et caramel, repère de l’American Pale Ale",
           "type": "source_primaire_technique",
           "url": "https://sierranevada.com/brews/pale-ale",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Smithsonian National Museum of American History",
@@ -2058,7 +2453,15 @@ Le style est donc utile pour documenter la continuité plutôt que de tracer une
           "reference": "Sierra Nevada Pale Ale — objet et contexte historique du craft américain",
           "type": "source_museale_historique",
           "url": "https://americanhistory.si.edu/collections/object/nmah_1854865",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Brewers Association",
+          "edition": "2015",
+          "reference": "2015 Beer Style Guidelines — American-Style Strong Pale Ale",
+          "type": "guide_de_style",
+          "url": "https://cdn.brewersassociation.org/wp-content/uploads/2017/04/2015-brewers-association-beer-style-guidelines.pdf",
+          "consultation": "2026-08-10"
         }
       ]
     },
@@ -2109,12 +2512,12 @@ Le style est donc utile pour documenter la continuité plutôt que de tracer une
           "Teku"
         ]
       },
-      "description": "La Juicy / Hazy Strong Pale Ale garde la douceur du haze mais monte le volume : fruits tropicaux, bouche ronde, voile dense, alcool modéré à sensible. Elle doit rester dangereusement buvable, pas basculer dans le smoothie alcoolisé.",
-      "histoireEtOrigines": `La Juicy or Hazy Strong Pale Ale est une catégorie de transition née de l’expansion rapide du langage « hazy ». Lorsque les techniques et profils aromatiques associés aux New England IPA se diffusent dans les années 2010, les brasseurs ne les appliquent pas uniquement aux IPA : ils déclinent également des pale ales plus légères et des strong pale ales dont la force se situe entre la pale ale ordinaire et l’IPA ou la Double IPA.
+      "description": "La Juicy / Hazy Strong Pale Ale est une frontière en suspension : plus charpentée qu’une Hazy Pale Ale, pas forcément assez intense pour devenir Hazy IPA. Houblon fruité, trouble stable, bouche ronde et amertume souple y prennent un peu de hauteur alcoolique. Sa personnalité est réelle dans le verre ; son histoire, elle, appartient surtout aux tables de catégories.",
+      "histoireEtOrigines": `Le marché hazy s’est développé comme un continuum de forces, et les concours ont dû lui donner plusieurs couloirs. La Brewers Association distingue la pale ale, l’IPA et la double IPA troubles dès 2018, puis maintient des paramètres capables d’accueillir les zones intermédiaires. « Strong Pale Ale » décrit ici une position de gamme davantage qu’une lignée régionale.
 
-La Brewers Association distingue aujourd’hui plusieurs niveaux de force au sein des bières « juicy or hazy », ce qui reflète davantage la pratique commerciale qu’une lignée historique indépendante. Le principe reste le même : houblon très aromatique, amertume perçue douce, texture généreuse, trouble souvent important et fruité de fermentation compatible avec les huiles de houblon. La version « strong pale » ajoute de la densité et de l’alcool sans rechercher l’amertume tranchante d’une IPA américaine classique.
+Le travail brassicole consiste à augmenter la densité sans laisser le sucre ou l’alcool couvrir le parfum. Une base pâle, des céréales riches en protéines selon la cible de texture, une levure fruitée et un houblonnage tardif généreux construisent le profil. Atténuation, astringence et oxygène réclament une surveillance proportionnelle : une bière trouble peut être intentionnelle tout en étant techniquement nette.
 
-Comme pour toutes les bières hazy, la stabilité du trouble et la fraîcheur aromatique dépendent d’un ensemble complexe de protéines, polyphénols, levure, composition de l’eau et gestion de l’oxygène. Une bière simplement mal clarifiée n’est pas une Hazy Strong Pale Ale réussie.`,
+Il serait artificiel de lui inventer un fondateur. La catégorie documente la manière dont une esthétique née avec la NEIPA est devenue un langage modulaire. Quand un mouvement remplit assez de rayons, le concours finit par installer des étagères.`,
       "recette": {
         "profilUnique": true,
         "explicationProfil": "Même architecture qu’une Hazy Pale Ale, mais avec davantage de densité, de corps et d’alcool, sans basculer nécessairement dans l’intensité d’une Hazy IPA.",
@@ -2146,7 +2549,7 @@ Comme pour toutes les bières hazy, la stabilité du trouble et la fraîcheur ar
           "reference": "Juicy or Hazy Strong Pale Ale — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Lallemand Brewing",
@@ -2154,7 +2557,7 @@ Comme pour toutes les bières hazy, la stabilité du trouble et la fraîcheur ar
           "reference": "LalBrew Verdant IPA — souche fruitée pour Pale Ale, Bitter, IPA anglaise et NEIPA",
           "type": "fiche_technique",
           "url": "https://www.lallemandbrewing.com/fr/global/produits/lalbrew-verdant-ipa/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "The Alchemist Brewery",
@@ -2162,7 +2565,15 @@ Comme pour toutes les bières hazy, la stabilité du trouble et la fraîcheur ar
           "reference": "Our Story — Heady Topper, Waterbury et diffusion de l’école houblonnée du Vermont",
           "type": "source_primaire_historique",
           "url": "https://alchemistbeer.com/story/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Brewers Association / Brewbound",
+          "edition": "2018",
+          "reference": "2018 Beer Style Guidelines — segmentation des ales Juicy or Hazy par force",
+          "type": "organisation_professionnelle",
+          "url": "https://www.brewbound.com/news/brewers-association-acknowledges-haze-craze-creation-new-style-categories/",
+          "consultation": "2026-08-10"
         }
       ]
     },
@@ -2214,15 +2625,31 @@ Comme pour toutes les bières hazy, la stabilité du trouble et la fraîcheur ar
           "Stange"
         ]
       },
-      "description": "La Kölsch est une ale qui se comporte presque comme une lager : pâle, claire, délicate, légèrement fruitée, avec malt grainé, houblon discret et finale sèche. Sa beauté tient au murmure : trop d’arôme, et le charme casse.",
-      "histoireEtOrigines": `Kölsch est à la fois un style de bière et une appellation géographique intimement liée à Cologne. La ville possède une tradition brassicole médiévale ancienne, mais la Kölsch telle qu’on la comprend aujourd’hui est bien plus récente : elle se développe lorsque les brasseurs colognais de fermentation haute doivent répondre, aux XIXe et XXe siècles, à la concurrence croissante des lagers pâles. Ils conservent une levure d’ale mais recherchent une bière très claire, sèche, délicate et souvent maturée à froid.
+      "description": "La Kölsch est une ale qui a appris les manières d’une lager sans renier Cologne. Fermentée avec une levure haute puis mûrie au froid, elle offre grain pâle, fruit à peine esquissé, houblon fin et finale très nette. Dans une Stange de 20 centilitres, le Köbes remplace le verre vide avant la demande : pour arrêter le courant, il faut poser le sous-bock dessus.",
+      "histoireEtOrigines": `Cologne défend longtemps la fermentation haute face à l’expansion des bières de fermentation basse. Au début du XXe siècle, la brasserie Sünner produit une ale pâle et claire issue de la tradition locale de Wieß ; le mot Kölsch commence à désigner ce type de bière autour de 1918. Le style moderne se consolide surtout après la Seconde Guerre mondiale, lorsque les brasseries reconstruites proposent une réponse locale, nette et dorée au succès de la Pils.
 
-Le German Brewers’ Association rappelle l’importance historique de la corporation des brasseurs de Cologne et la protection juridique de l’appellation. La Kölsch-Konvention, conclue en 1985 entre producteurs, formalise notamment l’usage du nom pour une bière claire de fermentation haute brassée dans la région autorisée ; la dénomination bénéficie également d’une protection géographique européenne. Il existe quelques situations historiques bénéficiant d’une antériorité, mais le principe reste celui d’un lien territorial fort.
+Le procédé est un compromis précis : fermentation haute, souvent dans une plage fraîche, puis maturation froide. La levure peut laisser un fruité très discret avant que la garde n’affine la bière. Malt pâle, forte atténuation, clarté et houblon délicat composent un profil qui boit comme une lager tout en restant biologiquement une ale. Le rapprochement est sensoriel, pas une conversion administrative de la levure.
 
-La culture de service est presque aussi importante que la recette. La Kölsch est traditionnellement servie dans une Stange, verre cylindrique étroit d’environ 20 cl, par les Köbes des brasseries et tavernes de Cologne. Les petits verres sont renouvelés rapidement afin que la bière reste fraîche et pétillante. Cette combinaison d’ale fermentée relativement fraîche, de garde froide et de service local explique pourquoi Kölsch semble parfois située entre ale et lager sans être une fermentation basse.`,
+En 1986, vingt-quatre brasseries signent la Kölsch-Konvention, qui encadre le nom et les caractéristiques. Depuis 1997, Kölsch bénéficie d’une indication géographique protégée dans l’Union européenne. La protection couvre Cologne et des lieux historiquement admis dans les environs ; hors de cette juridiction, de nombreuses brasseries utilisent le terme comme nom de style. Une « Kölsch » américaine peut donc être ressemblante sans être une Kölsch au sens européen — la géographie, ici, figure dans la recette juridique.
+
+Le service achève l’identité. Le Köbes circule avec un Kranz de petites Stangen, remplace les verres et marque chaque tournée sur le sous-bock. Le petit volume maintient fraîcheur, mousse et conversation. Poser le sous-bock sur le verre arrête les renouvellements : rare système où la paperasserie constitue une mesure de sobriété.`,
+      "chapitres": [
+        {
+          "titre": "Une ale contre la marée lager",
+          "texte": `La Kölsch moderne ne représente pas un vestige inchangé du Moyen Âge. Elle se forme lorsque les brasseurs de Cologne adaptent leur fermentation haute au désir de bières pâles, claires et nettes. La maturation froide devient un outil de concurrence autant qu’un geste technique.
+
+Cette réponse explique mieux le style que la formule « ale-lager hybride ». La levure travaille en fermentation haute ; le froid affine ensuite le produit. Cologne ne change pas de camp : elle apprend à gagner avec les armes sensorielles de l’adversaire.`
+        },
+        {
+          "titre": "Le nom appartient aussi au lieu",
+          "texte": `La convention de 1986 puis la protection européenne de 1997 transforment Kölsch en indication d’origine encadrée. Les critères sensoriels et techniques ne suffisent pas : la production doit appartenir à la zone reconnue.
+
+Cette règle crée deux usages mondiaux du mot. Dans l’Union européenne, il désigne un produit géographique protégé ; dans de nombreux pays, il sert de modèle de recette. Les deux verres peuvent se ressembler, mais un seul a dû présenter ses papiers à Cologne.`
+        }
+      ],
       "recette": {
         "profilUnique": true,
-        "explicationProfil": "Ale allemande très pâle et subtile : fermentation haute propre, atténuation élevée et maturation froide pour une précision presque lager-like.",
+        "explicationProfil": "Dans l’Union européenne, le nom est lié à l’origine en plus du profil. Techniquement, la bière combine fermentation haute et maturation froide ; ce n’est pas une fermentation basse accélérée.",
         "maltsEtCereales": [
           "Malt Pilsner très pâle dominant.",
           "Petite proportion de blé possible dans certaines recettes pour mousse et texture, mais non indispensable.",
@@ -2240,9 +2667,9 @@ La culture de service est presque aussi importante que la recette. La Kölsch es
         "profilEau": "Eau relativement douce à modérément minérale et faible en alcalinité afin de préserver la pâleur et la délicatesse.",
         "empatage": "Infusion simple ou paliers légers, orientés vers une bonne atténuation et un corps léger.",
         "ebullitionEtHoublonnage": "Houblonnage sobre, principalement pour équilibrer la céréale et apporter une touche florale ou herbacée.",
-        "fermentation": "Fermentation haute dans la zone fraîche de la souche, puis fin de fermentation complète avant refroidissement.",
-        "maturation": "Garde froide de plusieurs semaines fréquente afin d’affiner le profil, clarifier la bière et réduire les notes fermentaires.",
-        "profilRecherche": "Une bière colonaise très pâle, brillante, sèche et délicate, où céréale, fermentation et houblon restent subtils mais présents."
+        "fermentation": "Levure de fermentation haute assez neutre, conduite fraîche selon la souche afin de produire un fruité très discret. La fermentation doit être complète avant la maturation froide.",
+        "maturation": "Garde froide destinée à clarifier, affiner les composés soufrés ou fruités et stabiliser la bière. Sa durée dépend du procédé ; aucune période symbolique ne remplace les mesures de fermentation et de stabilité.",
+        "profilRecherche": "Une ale pâle, brillante, très atténuée et délicatement houblonnée, servie fraîche dans une petite Stange ; la subtilité ne laisse aucune place aux défauts."
       },
       "sources": [
         {
@@ -2251,7 +2678,7 @@ La culture de service est presque aussi importante que la recette. La Kölsch es
           "reference": "5B Kölsch — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/5/pale-bitter-european-beer/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Brewers Association",
@@ -2259,7 +2686,7 @@ La culture de service est presque aussi importante que la recette. La Kölsch es
           "reference": "German-Style Koelsch — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "German Brewers’ Association",
@@ -2267,7 +2694,31 @@ La culture de service est presque aussi importante que la recette. La Kölsch es
           "reference": "Kölsch — fermentation haute, tradition colonaise, service et protection géographique",
           "type": "source_institutionnelle",
           "url": "https://germanbrewers.com/en/german-beer-variety/koelsch/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Commission européenne — eAmbrosia",
+          "edition": "1997",
+          "reference": "Kölsch — registre officiel de l’indication géographique protégée",
+          "type": "registre_officiel",
+          "url": "https://ec.europa.eu/agriculture/eambrosia/geographical-indications-register/details/EUGI00000013042",
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Kölner Brauerei-Verband",
+          "edition": null,
+          "reference": "Kölsch-Konvention — critères et protection du nom",
+          "type": "organisation_professionnelle",
+          "url": "https://koelschverbindet.de/koelsch/",
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Office du tourisme de Cologne",
+          "edition": null,
+          "reference": "Brewery culture in Cologne — brauhaüser, Köbes, Stange et Kranz",
+          "type": "source_culturelle_officielle",
+          "url": "https://www.cologne-tourism.com/food-drink/breweries",
+          "consultation": "2026-08-10"
         }
       ]
     },
@@ -2318,33 +2769,50 @@ La culture de service est presque aussi importante que la recette. La Kölsch es
           "American pint"
         ]
       },
-      "description": "La Session IPA veut garder le parfum d’une IPA avec le poids d’une bière de soif : agrumes, pin, fruits, amertume nette, mais alcool bas et corps léger. L’exercice est cruel : trop mince, elle devient thé au houblon ; trop lourde, elle rate le mot session.",
-      "histoireEtOrigines": `La Session IPA apparaît au début du XXIe siècle comme une réponse à l’escalade de force des IPA américaines. Alors que Double et Imperial IPA poussent alcool et houblon vers le haut, certains brasseurs souhaitent conserver l’arôme, la sécheresse et l’amertume d’une IPA dans une bière capable d’être bue en plusieurs pintes. Le terme « session » vient d’une culture britannique de consommation en séance, mais son association explicite avec l’IPA est principalement une construction craft moderne.
+      "description": "La Session IPA tente de garder le feu d’artifice aromatique en retirant une partie du carburant. Faible en alcool mais franchement houblonnée, elle doit offrir parfum, finale sèche et corps suffisant sans devenir aqueuse ni rêche. Son nom réemploie l’idéal de la « session beer » ; sa difficulté est moderne : faire beaucoup avec une densité qui pardonne très peu.",
+      "histoireEtOrigines": `La légende relie parfois « session beer » aux courtes plages d’ouverture imposées aux pubs britanniques pendant la Première Guerre mondiale. Les historiens de la bière n’ont pas trouvé de preuve convaincante que l’expression soit née ainsi. Le mot session décrit plus sûrement une bière que l’on peut boire au cours d’une longue rencontre ; sa définition chiffrée varie selon les pays, les auteurs et les guides.
 
-La catégorie reste délicate car une IPA moins forte peut facilement devenir une American Pale Ale simplement plus amère. La Brewers Association fixe aujourd’hui une limite de 5,0 % vol. pour ses compétitions et demande d’identifier le style d’IPA sous-jacent. Le BJCP traite également la Session IPA comme une Specialty IPA de force réduite. Le défi est donc de conserver une intensité houblonnée de type IPA sans corps maigre, verdeur ou amertume disproportionnée.
+Aux États-Unis, le journaliste Lew Bryson lance en 2007 le Session Beer Project et propose, pour sa campagne, un plafond de 4,5 % accompagné d’exigences de goût, d’équilibre et de prix. Ce mouvement répond à l’escalade alcoolique du craft. Les brasseries appliquent bientôt l’idée à la catégorie la plus demandée : l’IPA. Founders commence en 2009 le développement d’All Day IPA, cherchant une bière légère mais aussi aromatique qu’une IPA plus forte ; le produit devient l’un des grands popularisateurs commerciaux du terme.
 
-Une bonne Session IPA travaille autant la texture que la quantité de houblon : malts suffisamment expressifs, eau ajustée, empâtage évitant une attenuation excessive et dry-hop propre permettent de maintenir la sensation de bière complète malgré une densité réduite.`,
+La Brewers Association ajoute Session India Pale Ale à ses guides en 2015. Elle n’invente ni la bière légère ni les premiers essais commerciaux : elle stabilise un marché déjà visible. Les seuils restent discutés et ont évolué ; une Session IPA n’est donc pas définie par un nombre universel gravé sur la pompe.
+
+Le défi de recette donne au style sa vraie autonomie. Moins de malt signifie moins de corps, moins d’alcool pour porter les arômes et une amertume plus facile à rendre dure. Les brasseurs jouent sur le choix du malt, l’empâtage, une levure adaptée, les ajouts tardifs et une amertume calculée en perception plutôt qu’en concours d’IBU. Trop de dry-hop peut ajouter polyphénols et astringence sans restaurer la bouche. L’exercice ne consiste pas à diluer une IPA : il consiste à redessiner ses proportions.`,
+      "chapitres": [
+        {
+          "titre": "Une étymologie moins commode que la légende",
+          "texte": `Le récit des ouvriers britanniques buvant pendant des « sessions » légales raccourcies par la guerre est séduisant, mais sa chaîne documentaire est faible. Des bières de faible force et des habitudes de longues consommations existaient bien ; cela ne suffit pas à prouver l’origine du terme.
+
+La prudence est plus utile : « session beer » devient surtout, dans le discours moderne, un idéal de bière goûteuse, équilibrée et répétable. Le plafond change selon celui qui tient la règle — ce qui est une façon très session de prolonger la discussion.`
+        },
+        {
+          "titre": "Le corps manquant",
+          "texte": `À densité basse, chaque gramme de houblon paraît plus agressif et chaque défaut de texture plus visible. Augmenter simplement le dry-hop peut donner une bière végétale ou astringente, tandis qu’un excès de malt caramélisé fabrique une douceur incompatible avec la finale recherchée.
+
+La solution vient d’un ensemble : malts apportant saveur et mousse, empâtage ajusté, atténuation contrôlée, amertume de chaudière retenue, houblonnage tardif précis et très bonne protection contre l’oxygène. La Session IPA est une réduction d’orchestre, pas un concert diffusé moins fort.`
+        }
+      ],
       "recette": {
         "profilUnique": true,
-        "explicationProfil": "IPA de force réduite, généralement sous 5 % vol., qui doit conserver le langage aromatique et l’équilibre houblonné de son style de base.",
+        "explicationProfil": "Il faut reconstruire l’IPA à faible densité, pas diluer une recette forte. Corps, amertume perçue et arôme doivent être recalibrés ensemble.",
         "maltsEtCereales": [
-          "Malt pale ou Pilsner comme base, parfois complété de Vienna, Munich léger, blé ou avoine pour éviter un corps trop mince.",
-          "Crystal faible ou absent dans les versions sèches modernes."
+          "Base pale ou two-row choisie pour sa saveur, parfois complétée par un malt plus riche en protéines ou une petite part de blé pour la mousse.",
+          "Crystal et dextrine malt peuvent aider la bouche en très faible quantité, mais un excès donne une douceur lourde qui rend l’amertume plus fatigante.",
+          "Le réglage du corps dépend aussi de l’empâtage et de la levure ; aucun ingrédient unique ne remplace une architecture complète."
         ],
         "houblons": [
-          "Même famille de houblons que l’IPA sous-jacente, mais dosage et amertume ajustés à la faible densité.",
-          "Whirlpool et dry-hop importants pour maximiser l’arôme sans devoir augmenter brutalement les IBU."
+          "Amertume de chaudière contenue afin d’éviter une perception dure dans un moût peu dense.",
+          "Whirlpool, hop stand et dry-hop apportent le parfum, mais les doses élevées peuvent donner astringence, matière végétale et hop creep sans restaurer le corps."
         ],
         "levuresEtMicroorganismes": [
           "Souche propre et atténuante, américaine ou anglaise selon le profil ; une fermentation trop sèche peut accentuer la maigreur."
         ],
         "ingredientsComplementaires": [],
-        "profilEau": "Sulfate et chlorure équilibrés selon l’école, avec assez de chlorure pour préserver la texture et assez de sulfate pour une finale nette.",
+        "profilEau": "Un apport de sulfates peut soutenir la finale, tandis que les chlorures peuvent aider la texture. La faible densité amplifie la minéralité : les ajustements restent modérés et guidés par le pH ainsi que la dégustation.",
         "empatage": "Souvent légèrement plus chaud qu’une IPA standard afin de conserver du corps, sans produire une douceur collante.",
         "ebullitionEtHoublonnage": "Amertume soigneusement calibrée par rapport à la densité ; priorité aux ajouts tardifs et au dry-hop pour conserver l’impact aromatique.",
         "fermentation": "Fermentation haute propre et rapide, avec contrôle de l’oxygène après fermentation.",
         "maturation": "Très courte ; conditionnement frais pour éviter la perte d’arôme.",
-        "profilRecherche": "Une IPA authentiquement houblonnée et sèche, mais légère en alcool et suffisamment équilibrée pour rester une bière de session."
+        "profilRecherche": "Une IPA pleinement aromatique que l’on peut boire longuement, avec une finale vive, un corps léger mais présent et aucune sensation de recette amputée."
       },
       "sources": [
         {
@@ -2353,7 +2821,7 @@ Une bonne Session IPA travaille autant la texture que la quantité de houblon : 
           "reference": "Session India Pale Ale — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "BJCP",
@@ -2361,7 +2829,7 @@ Une bonne Session IPA travaille autant la texture que la quantité de houblon : 
           "reference": "21B Specialty IPA — Session strength — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/21/21B/specialty-ipa/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Sierra Nevada Brewing Co.",
@@ -2369,7 +2837,31 @@ Une bonne Session IPA travaille autant la texture que la quantité de houblon : 
           "reference": "Pale Ale — Cascade, malt two-row et caramel, repère de l’American Pale Ale",
           "type": "source_primaire_technique",
           "url": "https://sierranevada.com/brews/pale-ale",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Martyn Cornell — Zythophile",
+          "edition": null,
+          "reference": "How old is the term ‘session beer’? — critique de l’étymologie liée aux horaires de guerre",
+          "type": "histoire_brassicole",
+          "url": "https://zythophile.wordpress.com/2011/05/20/how-old-is-the-term-session-beer/",
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Founders Brewing Co.",
+          "edition": null,
+          "reference": "A Brief History of All Day IPA — développement commencé en 2009",
+          "type": "source_primaire_historique",
+          "url": "https://foundersbrewing.com/latest-news/2018/brief-history-day-ipa/",
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Brewers Association",
+          "edition": "2015",
+          "reference": "2015 Beer Style Guidelines — ajout de Session India Pale Ale",
+          "type": "guide_de_style",
+          "url": "https://cdn.brewersassociation.org/wp-content/uploads/2017/04/2015-brewers-association-beer-style-guidelines.pdf",
+          "consultation": "2026-08-10"
         }
       ]
     },
@@ -2420,12 +2912,14 @@ Une bonne Session IPA travaille autant la texture que la quantité de houblon : 
           "Tulipe"
         ]
       },
-      "description": "L’English IPA est sèche, amère, dorée à ambrée, avec houblon floral, épicé ou orangé, malt biscuité et parfois une note minérale. Elle n’a pas besoin de sentir la mangue : son charme vient de la retenue et d’une amertume qui dure.",
-      "histoireEtOrigines": `L’English IPA est la descendante la plus directe des pale ales de stock expédiées vers l’Inde britannique au XIXe siècle. Son histoire ne commence pourtant pas par une invention soudaine. Des pale ales bien houblonnées étaient déjà envoyées en Inde avant que le nom IPA ne se fixe, et George Hodgson doit surtout son importance à sa position commerciale près des docks de l’East India Company. Le récit selon lequel il aurait créé une bière exceptionnellement forte uniquement pour survivre au voyage est aujourd’hui considéré comme trop simplificateur.
+      "description": "L’English IPA moderne garde un air de famille avec les pale ales d’export sans prétendre sortir intacte d’un fût de 1830. Malt pâle biscuité, fermentation fruitée, houblons floraux ou épicés et finale sèche composent une bière plus équilibrée que nombre de ses descendantes américaines. Elle porte une mémoire britannique reconstruite, pas un certificat d’authenticité coloniale.",
+      "histoireEtOrigines": `Hodgson, Burton, l’Inde et les mythes du voyage appartiennent à l’histoire commune de l’IPA. L’English IPA raconte ce qui arrive ensuite à la branche britannique. Au XIXe siècle, les pale ales destinées à l’Inde coexistent avec des versions vendues au Royaume-Uni ; noms, densités et recettes varient selon les maisons. « IPA » n’est jamais un cahier des charges national parfaitement stable.
 
-Dans les années 1820, Burton upon Trent devient un centre majeur de l’IPA. Des brasseries comme Allsopp et Bass utilisent une eau naturellement riche en sulfates, qui accentue la sécheresse et la netteté de l’amertume. Les bières destinées au marché indien sont pâles, fortement atténuées et généreusement houblonnées, souvent avec des houblons anglais. Leur succès finit aussi par nourrir un marché britannique domestique.
+Au XXe siècle, la force de nombreuses bières britanniques diminue sous l’effet des guerres, de la fiscalité et des transformations du marché. Certaines IPA deviennent des ales de pub très légères dont le nom conserve davantage de prestige historique que de ressemblance avec les export pales victoriennes. D’autres pale ales embouteillées et fortement houblonnées maintiennent une continuité partielle. Il n’existe donc pas une ligne droite reliant 1820 à une plage moderne de concours.
 
-Le style décline et se transforme au XXe siècle : de nombreuses « IPA » britanniques deviennent plus faibles, parfois proches d’une Bitter. La renaissance craft remet ensuite en circulation des versions plus fortes et plus sèches, mais celles-ci doivent être distinguées des American IPA. Une English IPA moderne privilégie encore les malts et houblons britanniques, des esters modérés, une amertume franche et un équilibre plus terreux, floral ou marmelade que tropical.`,
+La renaissance craft oblige les brasseries britanniques à choisir entre reconstitution, continuité locale et influence américaine. L’English IPA contemporaine privilégie généralement malt pale ale, esters anglais et houblons floraux, terreux ou épicés, avec une amertume ferme mais moins saturée d’arôme que les versions américaines. Des variétés du Nouveau Monde peuvent entrer sans effacer la levure ni le malt.
+
+Le style est ainsi une reconstruction consciente de son héritage. Il ne reproduit pas automatiquement la force, le vieillissement ou le dry-hopping d’une East India Pale Ale historique ; il sélectionne des traits lisibles pour le pub et le marché actuels. La tradition n’est pas congelée : elle fermente encore, ce qui est plus convenable pour une ale.`,
       "recette": {
         "profilUnique": true,
         "explicationProfil": "IPA britannique sèche, bien atténuée et houblonnée, avec ingrédients et fermentation typiquement anglais plutôt qu’un profil américain tropical.",
@@ -2456,7 +2950,7 @@ Le style décline et se transforme au XXe siècle : de nombreuses « IPA » brit
           "reference": "12C English IPA — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/12/pale-commonwealth-beer/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Brewers Association",
@@ -2464,7 +2958,7 @@ Le style décline et se transforme au XXe siècle : de nombreuses « IPA » brit
           "reference": "English-Style India Pale Ale — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "CAMRA / Pete Brown",
@@ -2472,7 +2966,7 @@ Le style décline et se transforme au XXe siècle : de nombreuses « IPA » brit
           "reference": "India Pale Ale: A History — mythes, commerce vers l’Inde et réinvention américaine",
           "type": "histoire_brassicole",
           "url": "https://learn.camra.org.uk/courses/india-pale-ale-a-history",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Fermentis",
@@ -2480,7 +2974,15 @@ Le style décline et se transforme au XXe siècle : de nombreuses « IPA » brit
           "reference": "SafAle S-04 — levure d’ale anglaise, profil fruité/floral et forte floculation",
           "type": "fiche_technique",
           "url": "https://fermentis.com/fr/produit/safale-s-04/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Martyn Cornell — Zythophile",
+          "edition": null,
+          "reference": "IPA: the executive summary — terminologie et forces historiques",
+          "type": "histoire_brassicole",
+          "url": "https://zythophile.wordpress.com/2010/03/31/ipa-the-executive-summary/",
+          "consultation": "2026-08-10"
         }
       ]
     },
@@ -2531,15 +3033,31 @@ Le style décline et se transforme au XXe siècle : de nombreuses « IPA » brit
           "American pint"
         ]
       },
-      "description": "L’American IPA est le grand coup de projecteur sur le houblon : agrumes, pin, résine, fruits tropicaux, melon ou fruits à noyau, sur un malt clair et sec. Elle doit être amère et aromatique, mais jamais râpeuse comme une poignée d’aiguilles de pin.",
-      "histoireEtOrigines": `L’American IPA est l’une des créations emblématiques du craft américain, mais elle ne naît pas immédiatement sous ce nom. Anchor Liberty Ale, brassée en 1975 avec Cascade, montre tôt le potentiel aromatique des houblons américains dans une ale pâle. Sierra Nevada Pale Ale, à partir de 1980-1981, élargit encore le public de ces caractères d’agrumes et de pin. Pendant les années 1980 et 1990, les brasseurs poussent progressivement densité, amertume et houblonnage au-delà de la Pale Ale.
+      "description": "L’American IPA prend la pale ale américaine et déplace son centre de gravité : moins de caramel, davantage de sécheresse, un houblon qui gouverne l’arôme comme l’amertume. Agrume, pin, fruit ou résine varient avec les générations de cultivars ; l’intention reste une bière nette et expressive. Elle n’est pas la copie musclée de l’Angleterre, mais le grand laboratoire du craft américain.",
+      "histoireEtOrigines": `L’American IPA ne recommence pas le voyage vers l’Inde. Elle sort de la renaissance américaine décrite par l’American Pale Ale : Anchor montre en 1975 ce que Cascade et le dry-hopping peuvent faire avec Liberty Ale ; Sierra Nevada installe en 1980-1981 une pale ale fortement aromatique dans la durée. À mesure que les microbrasseries et brewpubs se multiplient, certains poussent la sécheresse, l’amertume et les ajouts tardifs au-delà du nouvel équilibre APA.
 
-La redécouverte des IPA britanniques historiques fournit un vocabulaire, mais les États-Unis réinventent profondément le style. Cascade, Centennial, Chinook, Columbus, Simcoe et plus tard Amarillo, Citra, Mosaic ou d’autres variétés imposent des profils inconnus des IPA anglaises classiques. L’American IPA devient dorée à ambrée, sèche, amère, propre en fermentation et massivement aromatique. Les années 1990-2000 voient le style devenir un étendard de la côte Ouest avant qu’il se diversifie à l’échelle nationale.
+La catégorie devient assez reconnaissable pour entrer au Great American Beer Festival en 1989, où Rubicon IPA obtient l’or et Liberty Ale l’argent. Ce concours ne signe pas un acte de naissance : il photographie une identité en train de se stabiliser. Dans les années 1990, Centennial, Chinook et Columbus épaississent le vocabulaire résineux et agrumé ; Simcoe, Citra et Mosaic élargissent ensuite la gamme fruitée. L’enjeu n’est pas d’empiler les noms, mais de constater que la sélection variétale offre à chaque décennie de nouveaux outils.
 
-L’American IPA moderne est aujourd’hui une catégorie centrale dont dérivent Double IPA, Session IPA et de nombreuses Specialty IPA. Le BJCP la distingue de la Hazy IPA : elle doit rester plus sèche, plus nette dans l’amertume, avec une fermentation généralement plus neutre et un malt de soutien. Les versions récentes ont souvent réduit crystal malt et couleur par rapport aux exemples classiques du début du craft.`,
+La technique évolue avec ces matières. Les brasseurs réduisent souvent les malts crystal pour obtenir une bière plus claire et plus sèche ; ils déplacent une part du houblon vers la fin de l’ébullition, le whirlpool et le dry-hop afin de séparer davantage parfum et amertume. Plus de houblon ne signifie pas mécaniquement plus d’IBU : température, temps, forme du produit, composition du moût et perception modifient le résultat. À forte dose, les polyphénols peuvent aussi donner âpreté et brûlure.
+
+L’American IPA devient une plateforme, puis engendre des divergences nettes. La Double IPA augmente la charge et l’alcool ; la West Coast affine sécheresse et clarté comme école régionale ; la NEIPA renverse l’idéal sensoriel vers le trouble et la texture. La révolution américaine demeure leur tronc commun. Les branches suivantes n’ont donc pas besoin de rappeler Cascade à chaque paragraphe : elles expliquent ce qu’elles ont changé après lui.`,
+      "chapitres": [
+        {
+          "titre": "1989 : le concours reconnaît le marché",
+          "texte": `Lorsque le Great American Beer Festival introduit IPA comme catégorie en 1989, il réunit sous un nom des bières déjà brassées. Rubicon gagne l’or ; Liberty Ale, antérieure de quatorze ans, reçoit l’argent. Le palmarès montre précisément la différence entre existence et codification.
+
+À partir de là, les concours offrent une langue commune aux brasseurs, juges et buveurs. Cette langue stabilise le style tout en encourageant l’escalade : une grille de notation peut devenir, involontairement, une rampe de lancement.`
+        },
+        {
+          "titre": "Du chaudron au whirlpool",
+          "texte": `Le houblonnage américain se déplace progressivement vers les ajouts tardifs. En chaudière, les acides alpha isomérisés construisent l’amertume ; au whirlpool ou en hop stand, une température plus basse conserve davantage de composés volatils ; à cru, l’extraction se poursuit sans ébullition mais apporte aussi polyphénols, enzymes et oxygène potentiel.
+
+Ces étapes ne possèdent pas de températures universelles ni de dose magique. Le matériel, le pH, le cultivar, la durée et le contact avec la levure changent l’expression. Une American IPA technique n’est pas celle qui récite un ratio : c’est celle qui sait quel résultat chaque opération cherche dans le verre.`
+        }
+      ],
       "recette": {
         "profilUnique": true,
-        "explicationProfil": "IPA américaine standard : houblon intense, amertume franche, fermentation propre et finale sèche, avec un malt de soutien plutôt que dominant.",
+        "explicationProfil": "Le centre de gravité doit rester le houblon sur une base sèche. La recette se distingue de l’APA par l’intensité globale et de la Double IPA par la force, sans frontière fondée sur un seul chiffre.",
         "maltsEtCereales": [
           "Malt two-row ou pale américain dominant.",
           "Crystal/caramel historiquement courant mais aujourd’hui souvent réduit ou supprimé ; Vienna ou Munich léger possibles en faible proportion.",
@@ -2555,9 +3073,9 @@ L’American IPA moderne est aujourd’hui une catégorie centrale dont dériven
         "ingredientsComplementaires": [],
         "profilEau": "Faible alcalinité ; sulfate souvent élevé par rapport au chlorure pour une finale sèche et une amertume nette, avec adaptation aux houblons modernes pour éviter la dureté.",
         "empatage": "Infusion simple relativement basse à modérée pour favoriser une forte atténuation.",
-        "ebullitionEtHoublonnage": "Amertume de chaudière ou extraits de houblon propres, puis plusieurs couches tardives et dry-hop. Les versions modernes déplacent davantage de matière vers le whirlpool et le froid.",
+        "ebullitionEtHoublonnage": "Amertume de chaudière puis charge croissante en fin d’ébullition, whirlpool et dry-hop selon l’école. Température et durée du hop stand changent extraction et volatilité ; un dry-hop massif peut accroître astringence et hop creep. Les IBU ne résument donc ni la méthode ni le verre.",
         "fermentation": "Fermentation haute propre, gestion stricte des températures et de l’oxygène.",
-        "maturation": "Courte ; cold crash et conditionnement sous faible oxygène. La fraîcheur est essentielle.",
+        "maturation": "Après fermentation et éventuel dry-hop, limiter fortement l’oxygène lors des transferts et du conditionnement. Le temps chaud et l’oxygène réduisent les notes fraîches de houblon ; une canette récente peut avoir plus de pertinence qu’un long pedigree.",
         "profilRecherche": "Une IPA sèche et tranchante, intensément aromatique et amère, où le malt soutient le houblon sans créer de douceur lourde."
       },
       "sources": [
@@ -2567,7 +3085,7 @@ L’American IPA moderne est aujourd’hui une catégorie centrale dont dériven
           "reference": "21A American IPA — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/21/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Brewers Association",
@@ -2575,7 +3093,7 @@ L’American IPA moderne est aujourd’hui une catégorie centrale dont dériven
           "reference": "American-Style India Pale Ale — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Smithsonian National Museum of American History",
@@ -2583,7 +3101,7 @@ L’American IPA moderne est aujourd’hui une catégorie centrale dont dériven
           "reference": "Anchor Liberty Ale — Cascade, 1975 et préfiguration de l’IPA américaine",
           "type": "source_museale_historique",
           "url": "https://americanhistory.si.edu/collections/object/nmah_2033255",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Sierra Nevada Brewing Co.",
@@ -2591,7 +3109,7 @@ L’American IPA moderne est aujourd’hui une catégorie centrale dont dériven
           "reference": "Pale Ale — Cascade, malt two-row et caramel, repère de l’American Pale Ale",
           "type": "source_primaire_technique",
           "url": "https://sierranevada.com/brews/pale-ale",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Sierra Nevada Brewing Co.",
@@ -2599,7 +3117,23 @@ L’American IPA moderne est aujourd’hui une catégorie centrale dont dériven
           "reference": "Our Story — fondation en 1980 et rôle de Pale Ale dans l’essor du craft américain",
           "type": "source_primaire_historique",
           "url": "https://sierranevada.com/about-us",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "CraftBeer.com / Brewers Association",
+          "edition": null,
+          "reference": "Beer History — catégorie IPA au GABF en 1989 et chronologie craft",
+          "type": "histoire_brassicole",
+          "url": "https://www.craftbeer.com/beer/beer-history",
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Hop Breeding Company",
+          "edition": null,
+          "reference": "Citra and Mosaic — dates de libération et profils de cultivars",
+          "type": "source_primaire_agricole",
+          "url": "https://www.hopbreeding.com/",
+          "consultation": "2026-08-10"
         }
       ]
     },
@@ -2650,12 +3184,12 @@ L’American IPA moderne est aujourd’hui une catégorie centrale dont dériven
           "Teku"
         ]
       },
-      "description": "La New Zealand IPA remplace le pin américain par une salve de fruit vert : sauvignon blanc, groseille, citron vert, fruit de la passion, herbes fraîches. Elle doit rester sèche et IPA dans l’équilibre, mais porter une signature de houblons néo-zélandais évidente.",
-      "histoireEtOrigines": `La New Zealand IPA est une spécialisation récente de l’IPA moderne, construite autour des houblons néo-zélandais. Elle prend forme lorsque des variétés comme Nelson Sauvin, Motueka, Riwaka et plus récemment Nectaron acquièrent une réputation internationale pour leurs caractères de raisin blanc, citron vert, fruits tropicaux, agrumes et fruits à noyau. Les brasseurs découvrent qu’elles peuvent donner une IPA très expressive sans reproduire exactement les profils résineux ou agrumés de la côte Ouest américaine.
+      "description": "La New Zealand IPA pousse les houblons néo-zélandais jusqu’au premier plan : citron vert, fruit à noyau, herbe, baies ou raisin blanc peuvent surgir sur une base sèche et claire. Plus intense que la Pale Ale sœur, elle garde une amertume structurante sans imposer un bouquet officiel. Sa géographie vient des cultivars et de leur sélection, non d’une couleur de passeport.",
+      "histoireEtOrigines": `La New Zealand Pale Ale porte l’histoire du programme de sélection commencé dans les années 1950. La branche IPA apparaît lorsque ces variétés rencontrent l’intensité et les techniques du craft international : densité plus élevée, houblonnage tardif et à cru plus important, finale sèche capable de soutenir des arômes puissants.
 
-La Brewers Association a reconnu les styles New Zealand Pale Ale et New Zealand IPA dans ses guidelines à partir de 2021, signe que cette école est devenue suffisamment identifiable pour être jugée séparément. Elle n’est toutefois pas une tradition nationale ancienne : c’est une catégorie craft fondée sur la provenance et le profil aromatique des houblons.
+Nelson Sauvin, Motueka, Riwaka ou Nectaron peuvent servir d’outils, mais aucun n’est obligatoire et leurs profils changent selon récolte, lot et procédé. Leur succès mondial donne aux brasseries néo-zélandaises un avantage de proximité et une identité exportable ; il permet aussi à des producteurs étrangers de brasser des « New Zealand IPA ». Le style désigne donc une matière première géographique plus sûrement qu’une école de fermentation unique.
 
-Une New Zealand IPA peut être claire ou légèrement voilée, très sèche ou plus souple selon la brasserie. L’élément déterminant est que les caractères des variétés néo-zélandaises restent au premier plan et que l’intensité corresponde à une IPA, pas simplement à une pale ale enrichie.`,
+Les guides de la Brewers Association reconnaissent une catégorie dédiée, signe d’une stabilisation commerciale. La frontière avec une American IPA brassée au Nelson Sauvin reste poreuse : origine du houblon, intention aromatique et équilibre global comptent davantage que le domicile de la cuve. Cette incertitude est constitutive, pas une lacune à masquer.`,
       "recette": {
         "profilUnique": true,
         "explicationProfil": "IPA moderne centrée sur les houblons néo-zélandais et leurs profils distinctifs de citron vert, raisin, fruits tropicaux et fruits à noyau.",
@@ -2685,7 +3219,7 @@ Une New Zealand IPA peut être claire ou légèrement voilée, très sèche ou p
           "reference": "New Zealand-Style India Pale Ale — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "New Zealand Hops",
@@ -2693,7 +3227,7 @@ Une New Zealand IPA peut être claire ou légèrement voilée, très sèche ou p
           "reference": "Motueka™ — origine génétique, profil citron vert et usage brassicole",
           "type": "source_technique_houblon",
           "url": "https://nzhops.co.nz/products/motueka",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "BJCP",
@@ -2701,7 +3235,23 @@ Une New Zealand IPA peut être claire ou légèrement voilée, très sèche ou p
           "reference": "21A American IPA — structural comparison — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/21/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Bioeconomy Science Institute New Zealand",
+          "edition": null,
+          "reference": "Hops with global appeal — sélection et export des houblons néo-zélandais",
+          "type": "organisme_scientifique_public",
+          "url": "https://www.bioeconomyscience.co.nz/about-us/100-years/hops-with-global-appeal",
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Journal of the American Society of Brewing Chemists",
+          "edition": "2021",
+          "reference": "Distinctive chemical signatures of New Zealand hop cultivars",
+          "type": "publication_scientifique",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7917646/",
+          "consultation": "2026-08-10"
         }
       ]
     },
@@ -2752,18 +3302,34 @@ Une New Zealand IPA peut être claire ou légèrement voilée, très sèche ou p
           "American pint"
         ]
       },
-      "description": "La West Coast IPA est l’IPA au couteau : claire, sèche, amère, résineuse, citronnée, parfois tropicale mais jamais moelleuse. Elle laisse une finale nette et longue, comme si le houblon avait signé le verre au marqueur indélébile.",
-      "histoireEtOrigines": `West Coast IPA désigne l’école qui a façonné l’image de l’IPA américaine classique sur la côte Pacifique. Elle ne possède pas un acte de naissance unique, mais une généalogie claire : Anchor Liberty Ale en 1975 montre la force aromatique de Cascade ; Sierra Nevada Pale Ale popularise un houblon américain très expressif au début des années 1980 ; puis les brasseries de Californie, de l’Oregon et de Washington augmentent progressivement l’amertume, la sécheresse et le dry-hop.
+      "description": "La West Coast IPA avance en pleine lumière : claire, très atténuée, sèche, avec une amertume ferme et un houblon qui découpe agrumes, pin, résine ou fruit sans coussin sucré. Née d’un réseau de brasseries du littoral pacifique plutôt que d’un seul chaudron, elle a connu plusieurs âges — caramel et puissance, puis pâleur et précision — avant que les concours ne fixent tardivement son nom.",
+      "histoireEtOrigines": `« West Coast IPA » ne désigne pas une invention unique née au bord d’une plage. Elle se forme dans l’écosystème brassicole de Californie, d’Oregon et de Washington à partir des années 1990 : accès aux houblons du Nord-Ouest, culture des brewpubs, échanges entre brasseurs et goût du public pour des ales de plus en plus sèches et amères. San Diego devient un foyer particulièrement visible avec Pizza Port, Stone, AleSmith et Ballast Point, tandis que la baie de San Francisco et le Nord californien apportent leurs propres pivots.
 
-Dans les années 1990 et 2000, la côte Ouest devient synonyme de bières très claires à ambrées, résineuses, agrumées et fortement amères. San Diego pousse particulièrement loin cette esthétique de sécheresse et d’intensité. L’essor des Double IPA, avec les premiers essais de Vinnie Cilurzo puis Pliny the Elder, appartient au même mouvement de surenchère maîtrisée du houblon.
+La première génération n’est pas toujours pâle ni minimaliste. Les IPA américaines des années 1990 et 2000 peuvent employer un malt crystal marqué et rechercher des chiffres d’amertume spectaculaires. Pliny the Elder, lancé par Russian River à la charnière de 1999-2000, montre qu’une forte charge de houblon peut aussi rester sèche, claire et précisément aromatique. Des bières comme Stone IPA ou, plus tard, Firestone Walker Union Jack diffusent différentes versions de l’école.
 
-Le style évolue ensuite face au succès des Hazy IPA. Les West Coast IPA contemporaines sont souvent plus pâles et encore plus sèches que leurs ancêtres, avec moins de crystal malt, une amertume parfois moins massive mais plus propre, et des houblons modernes pouvant apporter des fruits tropicaux en plus du pin et des agrumes. Ce qui persiste est la clarté de la fermentation, la sécheresse et une amertume explicitement présente.`,
+Face au succès des Hazy IPA, le terme West Coast devient plus explicite et le profil se resserre. Les versions contemporaines tendent vers une couleur paille, une atténuation élevée, peu ou pas de caramel, une amertume nette mais mieux intégrée et des houblons ajoutés pour le parfum autant que pour la morsure. La tradition se révise donc elle-même : « classique » et « moderne » West Coast ne sont pas exactement le même verre.
+
+La Brewers Association décrit déjà une West Coast-Style IPA dans ses guides de 2023 et la maintient ensuite comme catégorie distincte. Cette codification tardive ne crée pas l’école ; elle reconnaît qu’un adjectif régional est devenu un contrat sensoriel international. Une West Coast peut désormais être brassée à Paris ou Tokyo. La côte est devenue une méthode — destin curieux pour une géographie.`,
+      "chapitres": [
+        {
+          "titre": "San Diego, réseau plutôt que capitale autoproclamée",
+          "texte": `Les brewpubs de Pizza Port servent de terrain d’apprentissage à plusieurs brasseurs, tandis que Stone et d’autres maisons donnent à la région une visibilité nationale. Compétitions, festivals, distribution et circulation des personnes font émerger une réputation collective.
+
+Dire que San Diego « invente » la West Coast IPA simplifierait trop : Anchor, Sierra Nevada et Russian River ont des rôles essentiels plus au nord, et le Pacific Northwest possède sa propre scène. San Diego montre plutôt comment un réseau local peut intensifier, comparer et commercialiser une esthétique jusqu’à la rendre régionale.`
+        },
+        {
+          "titre": "La clarté après l’escalade",
+          "texte": `La West Coast contemporaine ne cherche plus nécessairement le plus grand nombre d’IBU. Elle privilégie un moût très fermentescible, une base pâle, une eau qui soutient la sécheresse sans dureté et un houblonnage tardif capable de rester défini.
+
+Cette évolution répond autant aux Hazy IPA qu’à elles-mêmes : pour se distinguer, les brasseurs accentuent clarté, netteté et finale vive. La rivalité régionale devient ainsi une technique de mise au point.`
+        }
+      ],
       "recette": {
         "profilUnique": true,
-        "explicationProfil": "IPA claire, sèche et tranchante, où l’amertume reste assumée et le houblon s’exprime avec netteté plutôt qu’avec la douceur d’une Hazy IPA.",
+        "explicationProfil": "La version contemporaine recherche pâleur, forte atténuation, clarté et netteté du houblon. Les versions historiques plus ambrées et caramélisées restent des jalons, pas une obligation de recette.",
         "maltsEtCereales": [
-          "Malt pale ou Pilsner comme base ; les versions historiques pouvaient employer davantage de crystal, les versions modernes tendent à l’éviter.",
-          "Petite proportion de Vienna ou Munich clair possible pour le soutien malté sans sucrosité."
+          "Base pale ou Pilsner très claire, avec assez de caractère pour soutenir la fermentation mais peu ou pas de crystal.",
+          "Une fraction de sucre simple peut augmenter l’atténuation dans les versions fortes ; elle sert la sécheresse, non une économie cachée."
         ],
         "houblons": [
           "Cascade, Centennial, Chinook, Columbus et Simcoe pour le registre classique ; Citra, Mosaic, Strata, Idaho 7 et autres variétés modernes peuvent compléter le profil.",
@@ -2773,12 +3339,12 @@ Le style évolue ensuite face au succès des Hazy IPA. Les West Coast IPA contem
           "Souche américaine très propre et fortement atténuante."
         ],
         "ingredientsComplementaires": [],
-        "profilEau": "Sulfate souvent nettement supérieur au chlorure pour accentuer la sécheresse et la précision de l’amertume ; éviter toutefois les niveaux qui produisent une dureté minérale.",
+        "profilEau": "Les sulfates sont souvent privilégiés pour la finale sèche et la précision de l’amertume, mais une concentration excessive devient minérale ou rêche. Le rapport aux chlorures dépend de l’eau de départ, du pH et de la recette ; il n’existe pas de nombre californien obligatoire.",
         "empatage": "Infusion plutôt basse ou modérée pour une forte fermentescibilité et une finale sèche.",
         "ebullitionEtHoublonnage": "Amertume construite proprement, puis couches aromatiques tardives et dry-hop. Les techniques modernes cherchent à maximiser l’arôme tout en limitant polyphénols et oxygène.",
         "fermentation": "Fermentation haute très nette ; contrôle précis de température et atténuation complète.",
         "maturation": "Courte, avec clarification et conditionnement sous CO₂. La bière doit être servie très fraîche.",
-        "profilRecherche": "Une IPA limpide à légèrement voilée, sèche et mordante, avec un houblon intense, précis et une amertume qui structure durablement la finale."
+        "profilRecherche": "Une IPA claire et très sèche dont le houblon est défini plutôt que confus, l’amertume ferme plutôt que brutale et le malt réduit à une charpente active."
       },
       "sources": [
         {
@@ -2787,7 +3353,7 @@ Le style évolue ensuite face au succès des Hazy IPA. Les West Coast IPA contem
           "reference": "West Coast-Style India Pale Ale — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Smithsonian National Museum of American History",
@@ -2795,7 +3361,7 @@ Le style évolue ensuite face au succès des Hazy IPA. Les West Coast IPA contem
           "reference": "Anchor Liberty Ale — Cascade, 1975 et préfiguration de l’IPA américaine",
           "type": "source_museale_historique",
           "url": "https://americanhistory.si.edu/collections/object/nmah_2033255",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Sierra Nevada Brewing Co.",
@@ -2803,7 +3369,7 @@ Le style évolue ensuite face au succès des Hazy IPA. Les West Coast IPA contem
           "reference": "Pale Ale — Cascade, malt two-row et caramel, repère de l’American Pale Ale",
           "type": "source_primaire_technique",
           "url": "https://sierranevada.com/brews/pale-ale",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Russian River Brewing Company",
@@ -2811,7 +3377,39 @@ Le style évolue ensuite face au succès des Hazy IPA. Les West Coast IPA contem
           "reference": "Pliny the Elder — Double IPA, festival de Hayward 2000 et antécédent de Blind Pig en 1994",
           "type": "source_primaire_historique",
           "url": "https://www.russianriverbrewing.com/brew/pliny-the-elder/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Brewers Association",
+          "edition": "2023",
+          "reference": "2023 Beer Style Guidelines — West Coast-Style India Pale Ale",
+          "type": "guide_de_style",
+          "url": "https://cdn.brewersassociation.org/wp-content/uploads/2023/07/10124402/2023_BA_Beer_Style_Guidelines-updated.pdf",
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Russian River Brewing Company",
+          "edition": null,
+          "reference": "About Us — Pliny the Elder brassée à partir de 1999",
+          "type": "source_primaire_historique",
+          "url": "https://www.russianriverbrewing.com/about-us/",
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Pizza Port Brewing Co.",
+          "edition": null,
+          "reference": "About — premiers brassins en 1992 et développement du réseau de brewpubs de San Diego",
+          "type": "source_primaire_historique",
+          "url": "https://www.pizzaport.com/about/",
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Stone Brewing",
+          "edition": null,
+          "reference": "Stone IPA — lancement pour le premier anniversaire de la brasserie en 1997",
+          "type": "source_primaire_historique",
+          "url": "https://www.stonebrewing.com/beer/year-round-releases/stone-ipa",
+          "consultation": "2026-08-10"
         }
       ]
     },
@@ -2867,34 +3465,59 @@ Le style évolue ensuite face au succès des Hazy IPA. Les West Coast IPA contem
           "Teku"
         ]
       },
-      "description": "La NEIPA est un nuage de houblon fruité : robe opaque, bouche douce, fruits tropicaux, pêche, agrumes mûrs, amertume perçue plus basse. Elle doit être juteuse et soyeuse, pas farineuse, sucrée ou boueuse.",
-      "histoireEtOrigines": `La New England IPA, aujourd’hui souvent appelée Hazy IPA ou Juicy IPA, se développe dans le Nord-Est des États-Unis au tournant des années 2000. Heady Topper, brassée par John Kimmich à The Alchemist à Waterbury, devient une référence majeure de cette nouvelle approche. La bière privilégie une énorme intensité aromatique de houblon et une amertume perçue moins dure que les West Coast IPA de l’époque. The Alchemist ouvre son brewpub en 2003 puis une petite brasserie de production en 2011, période durant laquelle la réputation de Heady Topper explose.
+      "description": "La NEIPA change la question posée à une IPA. Au lieu de demander jusqu’où pousser clarté et amertume, elle cherche une bouche souple, un parfum de fruit mûr et un trouble assumé. Le houblon semble juteux plutôt que tranchant ; la levure et les céréales participent à la texture. Ce verre opaque n’est pas une filtration oubliée : c’est une rupture régionale devenue mondiale.",
+      "histoireEtOrigines": `Au Vermont, Greg Noonan forme et influence une génération de brasseurs au Vermont Pub & Brewery. John Kimmich y travaille avant d’ouvrir avec Jen Kimmich The Alchemist à Waterbury en 2003. Heady Topper, brassée au pub dès 2003-2004 puis conditionnée en canette à partir de 2011, devient le pivot le plus visible d’une IPA intensément aromatique, non filtrée et moins agressive dans sa perception que les extrêmes de la côte Ouest. Il est plus juste de la dire pionnière et popularisatrice que d’en faire l’unique invention.
 
-Le phénomène dépasse rapidement le Vermont. D’autres brasseries du Nord-Est développent des IPA troubles, riches en fruits tropicaux et agrumes, utilisant souvent des souches anglaises fruitées, des céréales riches en protéines et de très gros houblonnages tardifs. Dans les années 2010, « NEIPA » devient un mouvement mondial. Le BJCP emploie aujourd’hui Hazy IPA, considérant que le style a dépassé son origine géographique.
+Autour d’elle, une scène régionale construit le langage. Hill Farmstead ouvre en 2010 dans le nord du Vermont ; Tree House, fondée dans le Massachusetts en 2011, développe Julius autour d’un houblon fruité et d’un assemblage de levures ; Trillium participe à la diffusion de l’esthétique dans la région de Boston. Vente locale, growlers, canettes fraîches et files d’attente transforment la rareté en réseau de circulation. La « Vermont IPA » devient « New England IPA » à mesure que l’école franchit les frontières de l’État.
 
-Le trouble est un résultat volontaire de la formulation et du procédé, mais il ne suffit pas à définir le style. Une Hazy IPA réussie doit être fruitée, souple et massivement houblonnée sans être sucrée, farineuse ou chargée de particules. L’oxydation est son ennemi principal : une exposition à l’air peut brunir la bière et transformer rapidement les arômes frais en notes ternes ou confites.`,
+Le trouble n’est pas simplement de la levure laissée par négligence. Protéines du malt, blé ou avoine, polyphénols du houblon, calendrier du dry-hop et choix de levure contribuent à l’apparence et à la texture. Une partie des composés aromatiques peut être transformée pendant la fermentation, mais la « biotransformation » regroupe plusieurs mécanismes dont l’ampleur dépend fortement de la souche et des précurseurs ; la science ne valide pas une recette universelle consistant à jeter le houblon un jour précis.
+
+L’eau est souvent orientée vers davantage de chlorures que dans une West Coast afin de soutenir la rondeur, mais un ratio sulfate/chlorure n’est ni une identité de style ni une loi sensorielle. Atténuation, pH, alcool, protéines et carbonatation comptent ensemble. Surtout, ces bières très houblonnées sont vulnérables à l’oxygène : le vieillissement et l’oxygène dissous réduisent les notes tropicales et agrumées, assombrissent le verre et font apparaître des caractères maltés ou cartonnés.
+
+En 2018, la Brewers Association crée trois catégories Juicy or Hazy — Pale Ale, IPA et Double IPA. Dès leur première année au Great American Beer Festival, la catégorie Hazy/Juicy IPA dépasse l’American IPA en nombre d’inscriptions. Le concours arrive après la rupture sensorielle et commerciale, mais il accélère sa normalisation. La NEIPA cesse alors d’être une bizarrerie régionale : elle devient une seconde grande école mondiale de l’IPA.`,
+      "chapitres": [
+        {
+          "titre": "Waterbury : la canette change l’échelle",
+          "texte": `The Alchemist sert d’abord Heady Topper au brewpub. La petite unité de production ouverte en 2011 permet de la mettre en canette ; après la fermeture du pub provoquée par la tempête Irene, cette production devient le centre de l’activité. Les files de clients et la distribution très locale font du contenant un vecteur de réputation.
+
+La canette protège de la lumière, voyage et porte une consigne célèbre de consommation directement au contenant. Elle n’invente pas le profil, mais elle l’expédie hors du comptoir sans prétendre en faire un produit de longue garde. Dans cette histoire, le conditionnement compte autant que le trouble.`
+        },
+        {
+          "titre": "Le trouble est une construction",
+          "texte": `Les interactions entre protéines et polyphénols peuvent former une brume stable ; certaines levures restent aussi plus longtemps en suspension. Le choix des céréales, la charge de houblon et le procédé déterminent si le voile paraît lumineux et intégré ou s’il devient boueux et astringent.
+
+Une NEIPA réussie n’est donc pas dispensée de précision par son opacité. Le trouble peut être voulu sans que toute particule le soit. La bière a simplement cessé de confondre transparence optique et honnêteté morale.`
+        },
+        {
+          "titre": "Biotransformation : verbe utile, explication incomplète",
+          "texte": `Les levures peuvent convertir certains terpènes et libérer des thiols à partir de précurseurs, selon leurs activités enzymatiques. Mais les cultivars, la souche, le moût, le moment du houblonnage et les pertes par fermentation modifient le résultat ; plusieurs voies restent activement étudiées.
+
+Parler de biotransformation aide à décrire une interaction entre levure et houblon. En faire une formule parfaitement comprise ou une dose obligatoire transforme une recherche en argument de vente. Le point d’interrogation reste donc posé à côté du verre.`
+        }
+      ],
       "recette": {
         "profilUnique": true,
-        "explicationProfil": "IPA trouble et très aromatique, à amertume perçue plus douce, bouche souple et interaction forte entre céréales, levure et houblon.",
+        "explicationProfil": "Trouble, texture et parfum se construisent ensemble. Ni l’avoine, ni une souche « London », ni un ratio d’eau, ni un dry-hop pendant la fermentation ne suffit isolément à produire le style.",
         "maltsEtCereales": [
-          "Malt pale ou Pilsner comme base claire.",
-          "Avoine et blé fréquents pour protéines, texture et stabilité du trouble ; malt dextrinique possible avec retenue.",
-          "Crystal généralement absent afin d’éviter caramel et couleur sombre."
+          "Base pale ou Pilsner, complétée selon le profil par blé, avoine maltée ou floconnée et malts riches en protéines.",
+          "Les protéines contribuent à la mousse, à la texture et aux interactions de trouble, mais une charge excessive peut donner une bouche farineuse ou compliquer la filtration.",
+          "Le crystal foncé est généralement absent ou très faible afin de préserver pâleur et fraîcheur."
         ],
         "houblons": [
-          "Citra, Mosaic, Galaxy, El Dorado, Nelson Sauvin, Motueka et autres variétés fortement fruitées.",
-          "Amertume classique limitée à modérée ; très fortes additions au whirlpool et en dry-hop."
+          "Houblons choisis pour une expression fruitée, utilisés surtout en fin d’ébullition, au whirlpool et à cru ; aucune variété ne définit seule la NEIPA.",
+          "Un ajout pendant fermentation peut modifier certains composés via la levure, mais la biotransformation dépend de la souche et des précurseurs et ne justifie pas un calendrier universel.",
+          "De fortes doses augmentent aussi polyphénols, astringence, pertes de bière et risque de hop creep."
         ],
         "levuresEtMicroorganismes": [
           "Souches anglaises ou apparentées, fruitées et relativement peu floculantes à moyennement floculantes, capables de produire une bouche souple.",
           "Verdant IPA illustre une souche moderne offrant abricot, fruits tropicaux et agrumes avec atténuation moyenne à élevée."
         ],
         "ingredientsComplementaires": [],
-        "profilEau": "Chlorure généralement dominant pour adoucir la bouche, sulfate modéré pour conserver de la définition ; faible alcalinité.",
+        "profilEau": "Des chlorures relativement présents peuvent soutenir la rondeur et les sulfates maintenir la finale, mais le ratio entre eux n’est qu’une partie du système. pH, calcium, alcalinité, céréales, atténuation et carbonatation façonnent également la sensation.",
         "empatage": "Infusion visant un corps moyen sans finir sucré. La texture vient autant des protéines et de l’eau que d’un haut niveau de sucres résiduels.",
         "ebullitionEtHoublonnage": "Peu de houblon amérisant classique, gros whirlpool à température contrôlée, puis un ou plusieurs dry-hops. La prévention du hop burn et de l’oxydation est centrale.",
         "fermentation": "Fermentation haute fruitée. Le moment du dry-hop peut varier ; certains ajouts pendant fermentation favorisent certaines transformations aromatiques, mais ils ne sont pas obligatoires.",
-        "maturation": "Très courte, transferts fermés et conditionnement sous CO₂. Pas de vieillissement prolongé.",
+        "maturation": "Courte et protégée de l’oxygène. Purges, transferts fermés et conditionnement précis limitent brunissement et perte des arômes tropicaux. Le trouble voulu ne protège pas contre l’oxydation.",
         "profilRecherche": "Une IPA opaque mais lumineuse, saturée d’arômes de fruits frais, souple en bouche, peu agressive dans l’amertume et extrêmement fraîche."
       },
       "sources": [
@@ -2904,7 +3527,7 @@ Le trouble est un résultat volontaire de la formulation et du procédé, mais i
           "reference": "21C Hazy IPA — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/21/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Brewers Association",
@@ -2912,7 +3535,7 @@ Le trouble est un résultat volontaire de la formulation et du procédé, mais i
           "reference": "Juicy or Hazy India Pale Ale — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "The Alchemist Brewery",
@@ -2920,7 +3543,7 @@ Le trouble est un résultat volontaire de la formulation et du procédé, mais i
           "reference": "Our Story — Heady Topper, Waterbury et diffusion de l’école houblonnée du Vermont",
           "type": "source_primaire_historique",
           "url": "https://alchemistbeer.com/story/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Lallemand Brewing",
@@ -2928,7 +3551,39 @@ Le trouble est un résultat volontaire de la formulation et du procédé, mais i
           "reference": "LalBrew Verdant IPA — souche fruitée pour Pale Ale, Bitter, IPA anglaise et NEIPA",
           "type": "fiche_technique",
           "url": "https://www.lallemandbrewing.com/fr/global/produits/lalbrew-verdant-ipa/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Tree House Brewing Company",
+          "edition": null,
+          "reference": "Julius — origine, levure et évolution du modèle Tree House",
+          "type": "source_primaire_historique",
+          "url": "https://treehousebrew.com/julius-ipa",
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Brewers Association / Brewbound",
+          "edition": "2018",
+          "reference": "2018 Beer Style Guidelines — reconnaissance des styles Juicy or Hazy",
+          "type": "organisation_professionnelle",
+          "url": "https://www.brewbound.com/news/brewers-association-acknowledges-haze-craze-creation-new-style-categories/",
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "FEMS Yeast Research",
+          "edition": "2022",
+          "reference": "Fruits of their labour — revue des biotransformations aromatiques par les levures",
+          "type": "publication_scientifique",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9329171/",
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Foods",
+          "edition": "2023",
+          "reference": "Effects of Dry-Hopping on Beer Chemistry and Sensory Properties — revue scientifique",
+          "type": "publication_scientifique",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10534726/",
+          "consultation": "2026-08-10"
         }
       ]
     },
@@ -2983,19 +3638,34 @@ Le trouble est un résultat volontaire de la formulation et du procédé, mais i
           "Snifter"
         ]
       },
-      "description": "La Double IPA augmente tout : houblon, alcool, amertume, arôme, intensité. Mais sa réussite dépend de ce qu’elle retire : pas trop de caramel, pas trop de lourdeur, pas de brûlure. C’est une arme lourde qui doit rester maniable.",
-      "histoireEtOrigines": `La Double ou Imperial IPA est une création américaine des années 1990. Vinnie Cilurzo, alors à Blind Pig Brewing, est souvent crédité d’un des premiers exemples en 1994. L’idée est simple mais techniquement exigeante : augmenter densité et houblon tout en évitant qu’une IPA plus forte devienne sirupeuse, brûlante ou simplement excessivement amère.
+      "description": "La Double / Imperial IPA ne se contente pas d’ajouter de l’alcool : elle agrandit l’IPA sans laisser le malt devenir sirupeux ni le houblon devenir une punition. Force, atténuation, amertume et parfum doivent tenir dans la même charpente. Son histoire appartient à la Californie craft des années 1990, quand l’excès devient un terrain de maîtrise plutôt qu’un simple concours de chiffres.",
+      "histoireEtOrigines": `Le 23 juin 1994, Vinnie Cilurzo brasse Inaugural Ale pour l’ouverture de Blind Pig à Temecula. Il manque d’expérience professionnelle et utilise bien plus de houblon qu’une recette normale afin de masquer d’éventuels défauts ; la bière devient l’un des premiers exemples documentés de ce que l’on appellera Double IPA. Il est prudent de parler de jalon majeur plutôt que de première absolue : des ales américaines très fortes et très houblonnées existaient, mais Inaugural Ale relie clairement l’intention, la date et la future catégorie.
 
-Russian River documente une étape importante en 2000. Pour le premier Double IPA Festival organisé par le Bistro à Hayward, plusieurs brasseries sont invitées à produire une bière adaptée à cette catégorie encore neuve. Cilurzo brasse alors Pliny the Elder chez Russian River, après son expérience de Blind Pig. Le festival contribue à donner une visibilité et un langage commun à ce qui devient rapidement un style central du craft américain.
+À Russian River, alors propriété de Korbel, Cilurzo brasse Pliny the Elder en 1999 pour un festival organisé au Bistro de Hayward, lancé en 2000 autour des Double IPA. Pliny combine une forte charge de houblon avec une base relativement sèche et une attention particulière à l’arôme ; elle devient un modèle d’équilibre dans une époque fascinée par l’escalade. Pliny the Younger, brassée à partir de 2005 comme version triple et saisonnière, transforme ensuite la sortie rare en pèlerinage, mais appartient davantage à la culture de l’extrême qu’à l’origine de la Double IPA.
 
-La Double IPA classique associe une forte charge de houblon, un alcool élevé et une finale sèche. Contrairement à l’image d’une simple « IPA x2 », elle doit contrôler le malt résiduel et la chaleur alcoolique. Le BJCP la place aujourd’hui dans les Strong American Ale plutôt que dans les Specialty IPA, signe que le style s’est stabilisé.`,
+« Double IPA » et « Imperial IPA » circulent parallèlement. Double décrit l’augmentation de la recette sans signifier un doublement mathématique ; Imperial emprunte au vocabulaire des bières fortes et sert souvent de marqueur commercial. Les guides les réunissent, et l’usage ne trace pas une frontière historique nette entre les deux.
+
+La technique fait la différence entre ampleur et sirop. Une forte densité exige une levure saine, une bonne oxygénation initiale et une fermentation capable d’aller loin. Des sucres simples peuvent alléger le corps ; le crystal est généralement mesuré ; l’amertume doit soutenir l’alcool sans devenir abrasive. Les énormes charges à cru apportent aussi pertes de rendement, astringence, oxygène et risque de hop creep. La Double IPA naît d’une escalade, mais survit grâce à ceux qui apprennent à freiner.`,
+      "chapitres": [
+        {
+          "titre": "Blind Pig, 1994 : le houblon comme assurance",
+          "texte": `Cilurzo raconte avoir surchargé Inaugural Ale en houblon afin de couvrir les défauts possibles d’un premier brassin professionnel. La stratégie ressemble moins à une révélation stylistique qu’à une police d’assurance très odorante.
+
+Le résultat compte néanmoins parce qu’il produit une lignée : anniversaires de Blind Pig, puis travail à Russian River et Pliny the Elder. Une origine peut être à la fois improvisée dans son motif et décisive dans ses conséquences.`
+        },
+        {
+          "titre": "Pliny et le festival qui donne un public",
+          "texte": `Le Bistro de Hayward organise en 2000 un festival consacré aux Double IPA. Pliny the Elder y apparaît et le rendez-vous met en relation des brasseurs californiens qui expérimentent la même montée en intensité.
+
+Le festival n’invente pas toutes les bières présentes ; il transforme des essais dispersés en scène identifiable. La compétition joue ici un rôle de chambre d’écho avant que les guides ne terminent la nomenclature.`
+        }
+      ],
       "recette": {
         "profilUnique": true,
-        "explicationProfil": "IPA américaine forte, très houblonnée et fortement atténuée : puissance sans lourdeur ni chaleur alcoolique agressive.",
+        "explicationProfil": "Augmenter alcool et houblon exige de préserver l’atténuation. Le malt doit porter la fermentation sans laisser une douceur sirupeuse qui transforme l’amertume en poids supplémentaire.",
         "maltsEtCereales": [
-          "Malt pale ou two-row dominant, avec peu de malts caramélisés.",
-          "Sucre simple fréquent pour augmenter la densité initiale tout en maintenant une finale sèche.",
-          "Vienna ou Munich clair possibles en faible proportion pour soutenir la structure."
+          "Base pale majoritaire, crystal faible ou nul selon l’école.",
+          "Sucres simples possibles pour augmenter la densité initiale tout en abaissant le corps final ; ils exigent une fermentation saine, pas seulement une addition en chaudière."
         ],
         "houblons": [
           "Très forte charge de houblons américains ou du Nouveau Monde, avec combinaison d’amertume, whirlpool et dry-hop.",
@@ -3010,9 +3680,9 @@ La Double IPA classique associe une forte charge de houblon, un alcool élevé e
         "profilEau": "Faible alcalinité, sulfate souvent élevé pour une finale nette, avec chlorure suffisant pour éviter une impression mince ou abrasive.",
         "empatage": "Empâtage orienté vers une forte fermentescibilité ; l’objectif est d’éviter un résiduel sucré malgré la forte densité initiale.",
         "ebullitionEtHoublonnage": "Amertume significative mais propre, puis énormes charges tardives et à cru. L’extraction doit être gérée pour éviter astringence et hop burn.",
-        "fermentation": "Ensemencement généreux, oxygénation suffisante et contrôle thermique strict afin de limiter alcools supérieurs et fermentation incomplète.",
-        "maturation": "Courte à moyenne pour finir proprement la fermentation, mais consommation rapide ensuite afin de préserver le houblon.",
-        "profilRecherche": "Une IPA puissante, sèche et explosive en houblon, où l’alcool renforce l’intensité sans produire de lourdeur ou de chaleur dominante."
+        "fermentation": "Ensemencement suffisant, oxygénation initiale adaptée, nutriments si nécessaires et contrôle thermique. Une levure neutre et atténuante doit finir le travail malgré l’alcool ; une fermentation arrêtée laisse une bière sucrée et instable.",
+        "maturation": "Le dry-hop et la force n’immunisent pas contre l’oxygène. Laisser finir toute refermentation liée au hop creep, contrôler la densité, puis conditionner avec un apport d’oxygène minimal.",
+        "profilRecherche": "Une IPA puissante où alcool, amertume et parfum paraissent plus grands mais restent articulés ; la force doit allonger le goût, non l’épaissir."
       },
       "sources": [
         {
@@ -3021,7 +3691,7 @@ La Double IPA classique associe une forte charge de houblon, un alcool élevé e
           "reference": "22A Double IPA — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/22/strong-american-ale/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Brewers Association",
@@ -3029,7 +3699,7 @@ La Double IPA classique associe une forte charge de houblon, un alcool élevé e
           "reference": "Imperial or Double India Pale Ale — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Russian River Brewing Company",
@@ -3037,7 +3707,31 @@ La Double IPA classique associe une forte charge de houblon, un alcool élevé e
           "reference": "Pliny the Elder — Double IPA, festival de Hayward 2000 et antécédent de Blind Pig en 1994",
           "type": "source_primaire_historique",
           "url": "https://www.russianriverbrewing.com/brew/pliny-the-elder/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "American Homebrewers Association / Vinnie Cilurzo",
+          "edition": null,
+          "reference": "Brew a Double IPA — Inaugural Ale brassée le 23 juin 1994",
+          "type": "temoignage_primaire",
+          "url": "https://homebrewersassociation.org/zymurgy-article/brew-a-double-ipa/",
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Russian River Brewing Company",
+          "edition": null,
+          "reference": "About Us — Pliny the Elder, Korbel et chronologie de la brasserie",
+          "type": "source_primaire_historique",
+          "url": "https://www.russianriverbrewing.com/about-us/",
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Appellation Beer",
+          "edition": null,
+          "reference": "Which Blind Pig beer was one of the first Double IPAs? — distinction Inaugural Ale / Blind Pig IPA",
+          "type": "histoire_brassicole",
+          "url": "https://appellationbeer.com/blog/hold-it-which-blind-pig-beer-was-one-of-the-first-double-ipas/",
+          "consultation": "2026-08-10"
         }
       ]
     },
@@ -3091,15 +3785,17 @@ La Double IPA classique associe une forte charge de houblon, un alcool élevé e
           "Teku"
         ]
       },
-      "description": "La Juicy-Hazy Double IPA est le fruit tropical sous haute tension : voile dense, bouche ronde, houblon massif, alcool élevé mais masqué. Elle doit rester une bière, pas un nectar épais ; le danger, c’est la douceur qui englue tout.",
-      "histoireEtOrigines": `La Juicy or Hazy Double/Imperial IPA est l’aboutissement logique de deux mouvements craft américains : l’escalade de puissance de la Double IPA, née dans les années 1990, et l’esthétique plus douce, trouble et fruitée des Hazy IPA qui explose dans les années 2010. Au lieu d’augmenter simplement l’amertume d’une NEIPA, les brasseurs cherchent à augmenter densité, alcool et quantité de houblon tout en conservant une bouche souple et une amertume perçue relativement modérée.
+      "description": "La Juicy / Hazy Double IPA réunit deux escalades qui pourraient mal tourner : force alcoolique et saturation aromatique. Elle cherche pourtant la douceur, le fruit mûr et une texture ample plutôt qu’une morsure accrue. Le trouble masque peu de choses : sucre résiduel, chaleur, astringence ou oxydation apparaissent vite. Sa réussite tient à l’intégration, pas au poids du sac de houblon.",
+      "histoireEtOrigines": `Cette branche naît après la NEIPA, lorsque l’esthétique trouble et fruitée est appliquée à la force des Double IPA. Heady Topper elle-même se situe à 8 % et montre dès le début du mouvement qu’une IPA du Vermont peut être à la fois puissante, non filtrée et moins abrasive que les modèles d’escalade occidentaux. Tree House et d’autres brasseries de Nouvelle-Angleterre développent ensuite des versions explicitement Double.
 
-La Brewers Association distingue aujourd’hui explicitement les Juicy or Hazy Imperial or Double India Pale Ale. Cette reconnaissance montre que le style est devenu plus qu’une simple « NEIPA forte ». Le défi est technique : une forte densité favorise chaleur alcoolique et sucrosité, tandis qu’un dry-hop massif augmente le risque de hop burn, d’oxydation, de refermentation tardive et de perte de stabilité.
+En 2018, la Brewers Association crée Juicy or Hazy Double IPA avec les catégories Pale Ale et IPA du même mouvement. La codification reconnaît une variation de force déjà commerciale ; elle ne fournit pas un inventeur distinct. Waterbury et les files de canettes appartiennent à l’histoire commune ; la Hazy Double s’intéresse au rapprochement de deux architectures.
 
-Une version réussie doit donc donner une impression de fruits concentrés et d’onctuosité sans devenir sirupeuse. L’alcool peut être élevé, mais il doit rester intégré ; le trouble doit être stable et uniforme ; la finale doit conserver assez de sécheresse pour que la bière ne s’effondre pas sous son propre poids.`,
+Une densité élevée peut donner rondeur et alcool, tandis que blé, avoine, levure et houblon renforcent la texture. Mais trop de sucre résiduel rend le fruit confit ; trop de matière végétale ajoute brûlure et astringence ; une fermentation incomplète laisse une bière instable. Le dry-hop peut aussi déclencher un hop creep en libérant des sucres fermentescibles, phénomène dont l’intensité dépend du procédé et de la levure.
+
+La Hazy Double est ainsi moins une « NEIPA plus forte » qu’un exercice de compensation. Elle ne doit cacher ni son alcool ni sa technique, mais les intégrer jusqu’à faire croire que l’équilibre était facile. Le verre, lui, n’a pas vu les pertes de rendement.`,
       "recette": {
         "profilUnique": true,
-        "explicationProfil": "Double IPA de l’école hazy : alcool élevé, houblon très intense, amertume douce et texture souple, avec une attention extrême à l’atténuation et à l’oxygène.",
+        "explicationProfil": "La recette combine le moteur hazy et une forte densité. Le sucre résiduel, l’alcool, les protéines et les polyphénols doivent produire de la douceur perçue sans lourdeur ni brûlure.",
         "maltsEtCereales": [
           "Malt pale ou Pilsner dominant.",
           "Avoine et blé fréquents pour texture et trouble ; malt dextrinique possible avec modération.",
@@ -3119,8 +3815,8 @@ Une version réussie doit donc donner une impression de fruits concentrés et d�
         "profilEau": "Chlorure souvent dominant pour la douceur de bouche, sulfate présent en quantité suffisante pour éviter une finale molle.",
         "empatage": "Infusion visant davantage de fermentescibilité qu’une Hazy IPA standard afin de compenser la forte densité initiale.",
         "ebullitionEtHoublonnage": "Faible à moyenne charge amérisante classique, puis houblonnage massif tardif et à cru. Gestion du hop creep, du hop burn et de l’oxygène indispensable.",
-        "fermentation": "Ensemencement sain et contrôle thermique strict. Les dry-hops doivent être planifiés pour éviter refermentation incontrôlée ou surpression après conditionnement.",
-        "maturation": "Courte, avec transferts fermés et conditionnement rapide. Le style vieillit très mal malgré sa force alcoolique.",
+        "fermentation": "Souche fruitée mais capable d’achever une fermentation forte. Surveiller densité, température et activité après dry-hop : les enzymes du houblon peuvent libérer de nouveaux sucres et relancer la levure.",
+        "maturation": "Courte, froide après fermentation complète et extrêmement pauvre en oxygène. Une bière forte n’est pas nécessairement une bière de garde lorsque son identité dépend d’arômes de houblon fragiles.",
         "profilRecherche": "Une bière très forte mais étonnamment douce et fruitée, saturée de houblon frais, sans chaleur alcoolique agressive ni sucrosité collante."
       },
       "sources": [
@@ -3130,7 +3826,7 @@ Une version réussie doit donc donner une impression de fruits concentrés et d�
           "reference": "Juicy or Hazy Imperial or Double India Pale Ale — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "BJCP",
@@ -3138,7 +3834,7 @@ Une version réussie doit donc donner une impression de fruits concentrés et d�
           "reference": "21C Hazy IPA — lineage — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/21/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Lallemand Brewing",
@@ -3146,7 +3842,7 @@ Une version réussie doit donc donner une impression de fruits concentrés et d�
           "reference": "LalBrew Verdant IPA — souche fruitée pour Pale Ale, Bitter, IPA anglaise et NEIPA",
           "type": "fiche_technique",
           "url": "https://www.lallemandbrewing.com/fr/global/produits/lalbrew-verdant-ipa/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Russian River Brewing Company",
@@ -3154,7 +3850,23 @@ Une version réussie doit donc donner une impression de fruits concentrés et d�
           "reference": "Pliny the Elder — Double IPA, festival de Hayward 2000 et antécédent de Blind Pig en 1994",
           "type": "source_primaire_historique",
           "url": "https://www.russianriverbrewing.com/brew/pliny-the-elder/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Brewers Association / Brewbound",
+          "edition": "2018",
+          "reference": "2018 Beer Style Guidelines — Juicy or Hazy Double IPA",
+          "type": "organisation_professionnelle",
+          "url": "https://www.brewbound.com/news/brewers-association-acknowledges-haze-craze-creation-new-style-categories/",
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Journal of the American Society of Brewing Chemists",
+          "edition": "2024",
+          "reference": "Effect of Dry Hopping Conditions on the Hop Creep Potential of Beer",
+          "type": "publication_scientifique",
+          "url": "https://www.tandfonline.com/doi/abs/10.1080/03610470.2024.2388430",
+          "consultation": "2026-08-10"
         }
       ]
     },
@@ -3206,15 +3918,17 @@ Une version réussie doit donc donner une impression de fruits concentrés et d�
           "IPA glass"
         ]
       },
-      "description": "La Belgian IPA mélange deux feux : houblon d’IPA et levure belge. Agrumes, fruits tropicaux ou fleurs rencontrent poivre, clou de girofle, poire, pomme ou banane légère. Si levure et houblon se battent, le style tombe dans le carnaval de solvants.",
-      "histoireEtOrigines": `La Belgian IPA est un hybride craft, non un style monastique ancien. Elle apparaît lorsque les brasseurs belges et américains commencent à croiser, à la fin du XXe siècle et au début du XXIe, le houblonnage des IPA modernes avec des levures belges très expressives. Le résultat n’est ni une Tripel simplement plus amère, ni une American IPA fermentée au hasard avec n’importe quelle souche belge : le style fonctionne lorsque les esters, les phénols épicés, la sécheresse et le houblon se renforcent mutuellement.
+      "description": "La Belgian IPA met deux parfumeries dans la même pièce : esters et épices de levure belge d’un côté, houblon franc de l’autre. Pâle, sèche et souvent forte, elle peut rappeler une tripel devenue plus amère ou une IPA fermentée avec une souche expressive. Son identité vient de cette tension, pas d’un simple remplacement de levure sur une recette américaine.",
+      "histoireEtOrigines": `La Belgique possède une longue histoire de bières amères et houblonnées, mais « Belgian IPA » est une catégorie de convergence récente. En 1996, De Ranke brasse XX Bitter, pale ale belge très amère qui contribue au renouveau du houblon dans un paysage alors souvent associé aux ales fortes, sucrées ou épicées. Elle n’est pas nécessairement nommée IPA ; elle prépare cependant le terrain sensoriel.
 
-Le mouvement s’inscrit dans une période de forte circulation des idées entre les scènes craft américaine et belge. Les brasseurs américains s’inspirent des fermentations très atténuées et des levures épicées de Belgique, tandis que plusieurs brasseries belges adoptent davantage de houblons américains ou néo-zélandais. Le BJCP codifie aujourd’hui Belgian IPA parmi les Specialty IPA, ce qui reflète cette nature hybride.
+En 2006, la Brasserie d’Achouffe lance Houblon Chouffe, devenue Chouffe IPA en 2025, et la présente comme sa première Belgian IPA. La bière marie la force et le fruité d’une ale belge à une amertume renforcée. Sa diffusion internationale rend lisible l’étiquette et offre un pivot commercial, sans effacer les antécédents ni les interprétations de brasseurs américains employant des levures belges.
 
-La difficulté est l’accumulation aromatique : une souche donnant banane, girofle, poivre et alcools supérieurs combinée à un houblon tropical intense peut devenir confuse. Les meilleures versions privilégient souvent une fermentation sèche, un malt clair et une sélection de houblons capable de dialoguer avec le fruité et l’épice de la levure.`,
+La catégorie se stabilise donc par deux routes : des brasseries belges réaccentuent le houblon, tandis que le craft américain applique des souches belges à l’architecture IPA. Les résultats vont de la saison sèche et poivrée à la tripel houblonnée. Cette largeur explique pourquoi la levure, l’atténuation et l’équilibre importent plus qu’une variété obligatoire.
+
+La difficulté vient des superpositions. Esters, phénols, alcool et houblon peuvent s’amplifier ou se brouiller. Une fermentation trop chaude ne produit pas davantage d’authenticité, seulement davantage de solvants possibles. La Belgian IPA réussie organise un dialogue ; elle ne pose pas deux enceintes l’une contre l’autre en espérant que le volume fasse la musique.`,
       "recette": {
         "profilUnique": true,
-        "explicationProfil": "IPA sèche et houblonnée dont la fermentation belge apporte fruité et épices sans masquer le houblon.",
+        "explicationProfil": "Le profil doit décider si la charpente vient plutôt d’une ale belge sèche ou d’une IPA fermentée avec une souche belge. Dans les deux cas, levure et houblon doivent se compléter au lieu d’empiler leurs notes les plus fortes.",
         "maltsEtCereales": [
           "Malt Pilsner ou pale très clair dominant.",
           "Petite proportion de Munich/Vienna possible ; caramel généralement faible.",
@@ -3234,9 +3948,9 @@ La difficulté est l’accumulation aromatique : une souche donnant banane, giro
         "profilEau": "Faible alcalinité, sulfate modéré à élevé pour la sécheresse, chlorure contenu afin d’éviter une bouche trop ronde.",
         "empatage": "Empâtage favorisant une forte fermentescibilité ; sucre simple souvent ajouté en chaudière ou fermentation selon la recette.",
         "ebullitionEtHoublonnage": "Amertume structurante puis ajouts tardifs et dry-hop mesurés pour éviter de surcharger un profil fermentaire déjà complexe.",
-        "fermentation": "Fermentation haute avec montée contrôlée de température afin d’obtenir fruité et épices sans solvants. Atténuation complète essentielle.",
+        "fermentation": "Souche belge choisie pour des esters et phénols compatibles avec le houblon, conduite dans sa plage plutôt que chauffée arbitrairement. Une température excessive peut produire solvants et alcool supérieur sans ajouter de caractère régional.",
         "maturation": "Courte à moyenne selon la force, mais consommation relativement fraîche pour préserver le houblon.",
-        "profilRecherche": "Une IPA sèche, lumineuse et expressive où poire, agrumes, poivre et houblon moderne forment un ensemble cohérent plutôt qu’un empilement d’arômes."
+        "profilRecherche": "Une ale sèche et houblonnée où fruit, épice, amertume et alcool forment une seule phrase ; ni tripel simplement surhoublonnée, ni American IPA parfumée au hasard."
       },
       "sources": [
         {
@@ -3245,7 +3959,7 @@ La difficulté est l’accumulation aromatique : une souche donnant banane, giro
           "reference": "21B Specialty IPA: Belgian IPA — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/21/21B/specialty-ipa/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Brewers Association",
@@ -3253,7 +3967,7 @@ La difficulté est l’accumulation aromatique : une souche donnant banane, giro
           "reference": "Belgian-Style India Pale Ale — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Lallemand Brewing",
@@ -3261,7 +3975,31 @@ La difficulté est l’accumulation aromatique : une souche donnant banane, giro
           "reference": "LalBrew Verdant IPA — souche fruitée pour Pale Ale, Bitter, IPA anglaise et NEIPA",
           "type": "fiche_technique",
           "url": "https://www.lallemandbrewing.com/fr/global/produits/lalbrew-verdant-ipa/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Brasserie d’Achouffe",
+          "edition": null,
+          "reference": "Our Story — Houblon Chouffe lancée en 2006 et renommée Chouffe IPA en 2025",
+          "type": "source_primaire_historique",
+          "url": "https://chouffe.com/en-us/about-us/our-story",
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Brouwerij De Ranke",
+          "edition": null,
+          "reference": "XX Bitter — profil, houblons et 60–65 IBU",
+          "type": "source_primaire_technique",
+          "url": "https://www.deranke.be/en/bier/xx-bitter",
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Belgian Beer Heaven",
+          "edition": null,
+          "reference": "Brouwerij De Ranke — XX Bitter brassée pour la première fois en 1996",
+          "type": "histoire_de_brasserie",
+          "url": "https://www.belgianbeerheaven.com/de/en/breweries/brouwerij-de-ranke",
+          "consultation": "2026-08-10"
         }
       ]
     },
@@ -3314,19 +4052,37 @@ La difficulté est l’accumulation aromatique : une souche donnant banane, giro
           "American pint"
         ]
       },
-      "description": "La Black IPA ressemble à une contradiction assumée : noire comme une stout, sèche et houblonnée comme une IPA. Le malt noir doit apporter cacao léger, toast ou café discret, jamais cendre, afin de laisser le houblon garder la main.",
-      "histoireEtOrigines": `La Black IPA naît de la volonté craft de conserver l’équilibre d’une IPA tout en introduisant une couleur sombre et une touche de malt torréfié. Des précurseurs apparaissent aux États-Unis dans les années 1990 et 2000, particulièrement dans le Nord-Ouest Pacifique, où certains brasseurs préfèrent l’appellation « Cascadian Dark Ale ». Le nom « Black IPA », volontairement contradictoire puisque le P signifie Pale, s’impose pourtant largement sur le marché.
+      "description": "La Black IPA est noire sans vouloir goûter comme un stout, houblonnée comme une IPA sans prétendre être pâle : son nom a offert des années de travail aux amateurs de contradiction. Sous la robe sombre, le malt torréfié reste sec et retenu afin de laisser pin, agrume ou résine dominer. L’histoire hésite entre Vermont et Cascadia ; cette querelle fait partie du style.",
+      "histoireEtOrigines": `Des porters britanniques fortement houblonnés et même dry-hoppés ont voyagé au XIXe siècle, mais les relier directement à la Black IPA moderne serait une généalogie rétrospective. Le jalon américain le mieux documenté est Blackwatch IPA, brassée au Vermont Pub & Brewery par Greg Noonan et Glenn Walter en 1994. Des dates légèrement différentes ont circulé dans les récits ; les témoignages et archives de la scène du Vermont soutiennent 1994, sans autoriser à déclarer toute bière sombre houblonnée antérieure inexistante.
 
-CAMRA souligne ce paradoxe dans son histoire de l’IPA et rappelle la tentative de reclassification sous un nom régional. La catégorie se répand fortement pendant les années 2000-2010 lorsque l’IPA devient un terrain d’expérimentation permanent. Le BJCP l’intègre aujourd’hui parmi les Specialty IPA.
+Dans le Pacific Northwest, John Maier chez Rogue et Matt Phillips à Victoria développent au début des années 2000 des ales sombres et fortement houblonnées, parfois indépendamment de la lignée du Vermont. La région possède les houblons, une culture craft expérimentale et un imaginaire biogéographique puissant. Le terme « Cascadian Dark Ale » s’y impose parmi ses défenseurs pour éviter l’oxymore Black IPA et revendiquer une origine régionale.
 
-La clé stylistique est la retenue des malts sombres. Une Black IPA ne doit pas goûter comme un stout fortement houblonné : les notes de chocolat, café léger ou pain grillé restent secondaires et ne doivent pas produire de brûlé, de cendre ou de forte astringence. La sécheresse et le houblon restent ceux d’une IPA américaine.`,
+Le marché préfère largement « Black IPA ». La Brewers Association crée en 2010 une catégorie American-Style India Black Ale pour le Great American Beer Festival, puis la terminologie évolue ; le BJCP retient Black IPA dans ses Specialty IPA. La séquence distingue trois choses : des antécédents multiples, une popularisation du Pacific Northwest, puis une codification qui choisit encore un autre nom. Rarement une bière aura autant clarifié sa couleur en changeant d’étiquette.
+
+Le procédé cherche une obscurité sans domination brûlée. Malts noirs désamérisés, grains torréfiés ajoutés avec retenue ou extraction à froid peuvent apporter couleur et une pointe de cacao ; une base sèche et un houblonnage américain restent au centre. Trop de torréfaction produit un stout houblonné, trop peu une IPA maquillée. La catégorie vit précisément dans cette ligne de crête.
+
+Après un sommet de popularité au début des années 2010, la Black IPA recule face aux IPA troubles et claires, puis connaît des retours périodiques. Son nom reste contestable, son profil reste reconnaissable et ses prétendants à la primauté restent pluriels : une situation étonnamment stable pour un style fondé sur la contradiction.`,
+      "chapitres": [
+        {
+          "titre": "Vermont contre Cascadia",
+          "texte": `Le Vermont dispose d’un jalon daté avec Blackwatch IPA et Greg Noonan. Le Pacific Northwest dispose d’une scène qui multiplie les exemples, façonne une esthétique régionale et propose le nom Cascadian Dark Ale. Les deux affirmations ne portent donc pas sur la même chose.
+
+Le Vermont peut revendiquer un premier exemple moderne bien documenté ; Cascadia peut revendiquer une popularisation collective et un vocabulaire. Confondre ces rôles transforme l’enquête en match. Les distinguer permet de garder les deux équipes au bar.`
+        },
+        {
+          "titre": "Noire par la couleur, pas par la cendre",
+          "texte": `Les malts torréfiés fournissent rapidement café, brûlé et astringence. Pour conserver une logique IPA, les brasseurs utilisent des malts décortiqués ou désamérisés, limitent les quantités, retardent parfois leur contact ou travaillent une extraction séparée.
+
+Le but n’est pas d’annuler tout malt sombre : une nuance de cacao ou de pain grillé donne son relief à la rencontre. Il faut seulement que la couleur arrive avec un bagage cabine, pas avec tout le mobilier du stout.`
+        }
+      ],
       "recette": {
         "profilUnique": true,
-        "explicationProfil": "IPA américaine sombre où la torréfaction soutient le houblon sans transformer la bière en stout ou porter houblonné.",
+        "explicationProfil": "La couleur doit s’accompagner d’un caractère sombre mesuré, tandis que l’atténuation et le houblon restent ceux d’une IPA. Un stout fortement houblonné n’est pas automatiquement une Black IPA.",
         "maltsEtCereales": [
-          "Malt pale dominant.",
-          "Malts noirs désamérisés, Carafa Special ou autres malts sombres doux en faible proportion pour couleur et notes légères de cacao/café.",
-          "Crystal faible à modéré selon l’école, mais la finale doit rester sèche."
+          "Base pale majoritaire, éventuellement complétée par Munich ou crystal avec retenue.",
+          "Malts noirs décortiqués ou désamérisés en petite proportion pour la couleur et une nuance de cacao.",
+          "Ajout tardif des grains sombres ou extraction à froid possibles pour limiter brûlé et astringence ; ces méthodes sont des outils, pas des obligations."
         ],
         "houblons": [
           "Houblons américains ou du Nouveau Monde intenses, souvent résineux, agrumés, tropicaux ou à fruits à noyau.",
@@ -3336,12 +4092,12 @@ La clé stylistique est la retenue des malts sombres. Une Black IPA ne doit pas 
           "Souche américaine propre et atténuante."
         ],
         "ingredientsComplementaires": [],
-        "profilEau": "Sulfate souvent élevé pour la sécheresse ; alcalinité légèrement supérieure à une IPA pâle peut être nécessaire pour gérer les malts sombres, sans remonter au point de durcir la bière.",
+        "profilEau": "Profil compatible avec une IPA sèche, sans alcalinité excessive. Les malts noirs abaissent le pH et modifient l’extraction : leur quantité et leur moment d’ajout comptent autant que les sels.",
         "empatage": "Infusion favorisant une bonne atténuation. Les malts les plus sombres peuvent être ajoutés tard ou sous formes désamérisées pour limiter astringence et brûlé.",
         "ebullitionEtHoublonnage": "Architecture d’IPA américaine : amertume nette, whirlpool et dry-hop généreux.",
         "fermentation": "Fermentation haute propre, avec attention à l’oxydation qui ternit à la fois houblon et malt sombre.",
         "maturation": "Courte ; la fraîcheur aromatique prime sur l’intégration longue des malts noirs.",
-        "profilRecherche": "Une IPA noire mais sèche, intensément houblonnée, avec seulement une ombre de chocolat, café ou toast en soutien."
+        "profilRecherche": "Une IPA sombre dont le houblon demeure protagoniste, soutenu par cacao ou pain grillé sec et jamais englouti sous la cendre."
       },
       "sources": [
         {
@@ -3350,7 +4106,7 @@ La clé stylistique est la retenue des malts sombres. Une Black IPA ne doit pas 
           "reference": "21B Specialty IPA: Black IPA — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/21/21B/specialty-ipa/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Brewers Association",
@@ -3358,7 +4114,7 @@ La clé stylistique est la retenue des malts sombres. Une Black IPA ne doit pas 
           "reference": "American-Style Black Ale / Black IPA context — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "CAMRA / Pete Brown",
@@ -3366,7 +4122,39 @@ La clé stylistique est la retenue des malts sombres. Une Black IPA ne doit pas 
           "reference": "India Pale Ale: A History — mythes, commerce vers l’Inde et réinvention américaine",
           "type": "histoire_brassicole",
           "url": "https://learn.camra.org.uk/courses/india-pale-ale-a-history",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "CraftBeer.com / Brewers Association",
+          "edition": null,
+          "reference": "Cascadian Dark Ale: A Rose By Any Other Name — controverse de 2010 et catégorie GABF",
+          "type": "presse_professionnelle",
+          "url": "https://www.craftbeer.com/craft-beer-muses/india-black-ale-a-rose-by-any-other-name",
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Vermont Pub & Brewery",
+          "edition": null,
+          "reference": "Our Story — Greg Noonan et le premier brewpub du Vermont",
+          "type": "source_primaire_historique",
+          "url": "https://vermontbrewery.com/our-story",
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Good Beer Hunting",
+          "edition": null,
+          "reference": "Darkest Before the Dawn — Blackwatch, antécédents et lignées modernes",
+          "type": "histoire_brassicole",
+          "url": "https://www.goodbeerhunting.com/blog/2021/4/5/darkest-before-the-dawn-the-unlikely-return-of-black-ipa",
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "All About Beer",
+          "edition": null,
+          "reference": "The Quiet Resilience of the Black IPA — trajectoire et reflux du style",
+          "type": "presse_specialisee",
+          "url": "https://allaboutbeer.com/black-ipa-cascadian-dark-ale/",
+          "consultation": "2026-08-10"
         }
       ]
     },
@@ -3417,12 +4205,12 @@ La clé stylistique est la retenue des malts sombres. Une Black IPA ne doit pas 
           "American pint"
         ]
       },
-      "description": "La Brown IPA installe le houblon sur un plancher brun : noisette, pain grillé, caramel sec, parfois cacao doux, avec amertume et arômes d’IPA. Elle doit éviter deux pièges : devenir brown ale trop timide ou IPA boueuse trop maltée.",
-      "histoireEtOrigines": `La Brown IPA est une création de la diversification américaine de l’IPA, particulièrement visible lorsque le BJCP formalise les Specialty IPA. Elle combine l’intensité houblonnée et la finale sèche d’une American IPA avec une base de malt rappelant l’American Brown Ale : caramel sombre, chocolat doux, noix, biscuit, toast et parfois fruits secs.
+      "description": "La Brown IPA donne au houblon une charpente de noix, de pain grillé et de caramel sec. Plus sombre et plus maltée qu’une American IPA, elle reste pourtant atténuée et amère, sans glisser vers le dessert ni le porter. Son autonomie historique est limitée : c’est surtout une exploration craft devenue sous-type de concours.",
+      "histoireEtOrigines": `Des brown ales américaines fortement houblonnées existaient avant que le nom Brown IPA ne se fixe. La catégorie se forme lorsque les brasseurs appliquent l’intensité IPA à une base brune plus toastée et que les concours cherchent à distinguer ce profil de la Black IPA, de l’American Brown Ale et de l’American IPA.
 
-Il ne s’agit pas d’une tradition historique liée aux India Pale Ales britanniques. Le nom sert plutôt à décrire un équilibre moderne reconnu par le marché : une IPA qui n’est plus « pale » au sens littéral, mais qui conserve la structure sèche et amère associée au sigle IPA. Cette logique illustre l’évolution du mot IPA d’une origine géographique/historique vers une famille sensorielle.
+Le BJCP l’intègre en 2015 dans les Specialty IPA. Cette date marque une codification, pas une invention. Aucune bière pivot ne rassemble un consensus comparable à Pliny, Heady Topper ou la collaboration White IPA ; fabriquer un fondateur serait plus narratif que vrai.
 
-La difficulté est de maintenir la buvabilité. Une Brown IPA trop riche en crystal ou en chocolat devient une American Brown Ale forte et houblonnée ; trop maigre, elle ressemble à une Black IPA claire. Les meilleurs exemples utilisent le malt brun comme couche de complexité, pas comme centre de gravité.`,
+La modification réelle tient au malt : Munich, crystal ou malts bruns apportent noix, pain et caramel, tandis que l’atténuation et le houblon empêchent la lourdeur. Si la torréfaction devient dominante, la Black IPA reprend le dossier ; si le houblon recule, l’American Brown Ale le récupère. La Brown IPA existe dans cet intervalle administratif et sensoriel, ce qui est déjà une raison suffisante.`,
       "recette": {
         "profilUnique": true,
         "explicationProfil": "IPA américaine brune : malt plus riche qu’une Black IPA, mais finale toujours sèche et houblon clairement dominant.",
@@ -3453,7 +4241,7 @@ La difficulté est de maintenir la buvabilité. Une Brown IPA trop riche en crys
           "reference": "21B Specialty IPA: Brown IPA — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/21/21B/specialty-ipa/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Brewers Association",
@@ -3461,7 +4249,15 @@ La difficulté est de maintenir la buvabilité. Une Brown IPA trop riche en crys
           "reference": "Brown IPA / Specialty IPA context — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2015",
+          "reference": "2015 Specialty IPA — Brown IPA et première codification dans le référentiel",
+          "type": "guide_de_style",
+          "url": "https://www.bjcp.org/style/2015/21/ipa/",
+          "consultation": "2026-08-10"
         }
       ]
     },
@@ -3512,12 +4308,12 @@ La difficulté est de maintenir la buvabilité. Une Brown IPA trop riche en crys
           "American pint"
         ]
       },
-      "description": "La Red IPA marie houblon vif et malt rouge : caramel sec, croûte, légère résine, agrumes, fruits rouges ou pin selon les houblons. Elle doit rester sèche malgré la couleur, sinon elle glisse vers l’amber ale trop sucrée.",
-      "histoireEtOrigines": `La Red IPA appartient à la même vague de diversification que Black, Brown et Rye IPA. Elle ne possède pas de lignée historique autonome : elle résulte de la rencontre entre l’American IPA et les ales ambrées/rouges américaines. Le BJCP la codifie comme Specialty IPA afin de reconnaître un profil devenu suffisamment courant dans les brasseries craft.
+      "description": "La Red IPA porte une robe rubis et une base de caramel sec ou de pain grillé, puis laisse l’amertume et le houblon reprendre le gouvernail. Plus maltée qu’une American IPA, plus sèche et plus houblonnée qu’une amber ale, elle organise un contraste plutôt qu’un coloriage. Sa catégorie vient surtout du brassage craft et de sa codification.",
+      "histoireEtOrigines": `L’American Amber Ale fournit le parent malté ; l’American IPA fournit la force du houblon. Des brasseries américaines croisent naturellement ces profils sous des noms comme red ale, imperial red ou red IPA, sans qu’un premier exemple unique se détache de façon suffisamment documentée.
 
-La couleur rouge à rubis vient généralement de malts crystal, caramel ou légèrement torréfiés, qui apportent aussi toffee et fruits secs. Pourtant la bière doit rester clairement une IPA : houblon intense, amertume forte, finale sèche. Une American Amber Ale simplement très houblonnée n’atteint pas nécessairement cet équilibre si le malt reste dominant.
+Le BJCP formalise Red IPA parmi les Specialty IPA en 2015. Comme pour Brown IPA, le guide reconnaît une pratique commerciale et offre une case de concours ; il ne fait pas apparaître le style au premier coup de sifflet. La catégorie reste poreuse avec les American Amber Ales les plus houblonnées.
 
-Le style a surtout été populaire dans les années où les IPA américaines étaient plus ambrées qu’aujourd’hui. Il reste pertinent pour les brasseurs souhaitant combiner profondeur maltée et houblon moderne sans aller vers le caractère sombre d’une Brown ou Black IPA.`,
+La couleur provient généralement de crystal et de malts apportant pain grillé ou fruits secs, parfois d’une très petite quantité de malt plus sombre. L’erreur consiste à accumuler le caramel jusqu’à émousser l’amertume. Une Red IPA réussie garde une finale sèche et un houblon dominant : le rouge indique une architecture de malt, pas une autorisation de sucrer le paysage.`,
       "recette": {
         "profilUnique": true,
         "explicationProfil": "IPA rouge à charpente caramel/toast plus visible qu’une American IPA, mais toujours sèche, amère et houblonnée.",
@@ -3539,7 +4335,7 @@ Le style a surtout été populaire dans les années où les IPA américaines ét
         "ebullitionEtHoublonnage": "Amertume de chaudière puis gros ajouts tardifs et dry-hop.",
         "fermentation": "Fermentation haute propre, esters faibles à modérés.",
         "maturation": "Courte ; protection contre l’oxydation particulièrement importante car elle brunit rapidement les teintes rouges et ternit le houblon.",
-        "profilRecherche": "Une IPA rouge, sèche et amère, où caramel et toast apportent profondeur sans prendre le dessus sur le houblon."
+        "profilRecherche": "Une IPA rouge et sèche, à l’amertume ferme, où caramel et toast apportent profondeur sans prendre le dessus sur le houblon."
       },
       "sources": [
         {
@@ -3548,7 +4344,7 @@ Le style a surtout été populaire dans les années où les IPA américaines ét
           "reference": "21B Specialty IPA: Red IPA — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/21/21B/specialty-ipa/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Brewers Association",
@@ -3556,7 +4352,15 @@ Le style a surtout été populaire dans les années où les IPA américaines ét
           "reference": "Red IPA / Specialty IPA context — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2015",
+          "reference": "2015 Specialty IPA — Red IPA et première codification dans le référentiel",
+          "type": "guide_de_style",
+          "url": "https://www.bjcp.org/style/2015/21/ipa/",
+          "consultation": "2026-08-10"
         }
       ]
     },
@@ -3607,19 +4411,19 @@ Le style a surtout été populaire dans les années où les IPA américaines ét
           "American pint"
         ]
       },
-      "description": "La Rye IPA ajoute du seigle au moteur houblonné : sécheresse, poivre, grain nerveux, parfois une texture plus vive. Le seigle doit tendre la bière, pas l’épaissir ; il donne une colonne épicée aux agrumes, au pin ou aux fruits du houblon.",
-      "histoireEtOrigines": `La Rye IPA est une adaptation américaine contemporaine de l’IPA dans laquelle le seigle devient un ingrédient de caractère. Le grain apporte une sensation épicée, céréalière et poivrée ainsi qu’une texture souvent plus crémeuse. La combinaison fonctionne particulièrement bien avec les houblons américains résineux et agrumés, ce qui explique sa diffusion dans la scène craft des années 2000.
+      "description": "La Rye IPA remplace la rondeur par une tension céréalière. Le seigle ajoute pain noir, épice perçue et une texture parfois soyeuse ou presque huileuse ; le houblon apporte l’angle aromatique. Le grain ne contient pas une molécule de « poivre IPA » obligatoire : son effet dépend de la proportion, du maltage et du reste de la recette.",
+      "histoireEtOrigines": `Le seigle connaît une histoire brassicole bien antérieure au craft américain, mais la Rye IPA moderne naît du goût des petites brasseries pour les grains alternatifs. Bear Republic Hop Rod Rye, commercialisée au début des années 2000 et revendiquée par la brasserie comme première Rye IPA américaine produite, devient un exemple influent. La revendication doit rester attribuée à la source : des bières au seigle fortement houblonnées ont pu précéder l’étiquette.
 
-Le style n’est pas l’héritier direct des anciennes bières de seigle européennes. Son architecture reste celle d’une American IPA : forte expression de houblon, amertume élevée, fermentation relativement propre et finale sèche. Le seigle agit comme une signature maltée secondaire. Le BJCP le classe donc logiquement parmi les Specialty IPA.
+Le style propose une solution à l’uniformité de l’IPA sans changer seulement sa couleur. Le seigle apporte des bêta-glucanes qui modifient viscosité et filtration ; il peut suggérer pain, terre ou épice, tandis qu’une base sèche et un houblon américain évitent que le grain ne devienne pâteux. Le défi se trouve aussi dans la cuve-filtre : une proportion élevée ralentit l’écoulement, et les enveloppes de riz peuvent aider sans contribuer au goût.
 
-Brasser avec beaucoup de seigle introduit aussi des contraintes pratiques : absence d’enveloppe du grain, forte teneur en bêta-glucanes et risque d’empâtage visqueux. Les recettes utilisent généralement une proportion suffisante pour être perceptible sans rendre filtration et texture incontrôlables.`,
+Le BJCP intègre Rye IPA aux Specialty IPA en 2015, stabilisant une famille déjà commerciale. La catégorie ne prescrit ni pourcentage exact ni variété de houblon. Elle exige surtout que le seigle soit lisible et que la bière reste une IPA. Autrement, on a simplement rempli un formulaire avec beaucoup de céréales.`,
       "recette": {
         "profilUnique": true,
-        "explicationProfil": "American IPA enrichie de seigle : grain épicé et texture plus crémeuse, mais houblon et sécheresse restent centraux.",
+        "explicationProfil": "Le seigle doit être identifiable par le grain et la texture, pas par une légende de poivre automatique. Sa proportion se choisit avec la filtration, l’atténuation et le poids du houblon.",
         "maltsEtCereales": [
-          "Malt pale dominant.",
-          "Malt de seigle souvent autour d’une proportion modérée suffisante pour apporter poivre, grain et texture ; la quantité exacte dépend du procédé.",
-          "Crystal faible à modéré selon l’école."
+          "Base pale accompagnée de malt de seigle ou de seigle floconné selon la texture et le goût recherchés.",
+          "Les bêta-glucanes du seigle peuvent épaissir la filtration ; une proportion élevée demande une mouture, un palier éventuel et un lit filtrant adaptés.",
+          "Les enveloppes de riz peuvent faciliter l’écoulement sans ajouter de saveur."
         ],
         "houblons": [
           "Houblons américains ou du Nouveau Monde, les profils résineux, agrumés et épicés se mariant particulièrement bien au seigle.",
@@ -3636,7 +4440,7 @@ Brasser avec beaucoup de seigle introduit aussi des contraintes pratiques : abse
         "ebullitionEtHoublonnage": "Architecture de houblonnage d’American IPA avec amertume soutenue et gros ajouts aromatiques.",
         "fermentation": "Fermentation haute propre.",
         "maturation": "Courte et fraîche.",
-        "profilRecherche": "Une IPA sèche et très houblonnée, traversée par une note de seigle poivrée et céréalière qui ajoute de la texture sans brouiller le houblon."
+        "profilRecherche": "Une IPA sèche et aromatique traversée par le pain, la terre ou la tension céréalière du seigle, avec une texture présente mais jamais visqueuse."
       },
       "sources": [
         {
@@ -3645,7 +4449,7 @@ Brasser avec beaucoup de seigle introduit aussi des contraintes pratiques : abse
           "reference": "21B Specialty IPA: Rye IPA — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/21/21B/specialty-ipa/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Brewers Association",
@@ -3653,7 +4457,23 @@ Brasser avec beaucoup de seigle introduit aussi des contraintes pratiques : abse
           "reference": "Rye IPA / Specialty IPA context — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "CraftBeer.com / Bear Republic",
+          "edition": null,
+          "reference": "Hop Rod Rye — revendication de première Rye IPA américaine produite",
+          "type": "source_de_brasserie_attribuee",
+          "url": "https://www.craftbeer.com/news/beer-release/bear-republic-racer-x-and-hop-rod-rye",
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2015",
+          "reference": "2015 Specialty IPA — Rye IPA",
+          "type": "guide_de_style",
+          "url": "https://www.bjcp.org/style/2015/21/ipa/",
+          "consultation": "2026-08-10"
         }
       ]
     },
@@ -3704,19 +4524,28 @@ Brasser avec beaucoup de seigle introduit aussi des contraintes pratiques : abse
           "Tulipe"
         ]
       },
-      "description": "La White IPA croise IPA et witbier : robe pâle voilée, blé, agrumes, coriandre possible, levure belge, houblon fruité et finale sèche. Elle doit être rafraîchissante et épicée, pas une IPA trouble avec parfum d’assiette d’orange.",
-      "histoireEtOrigines": `La White IPA est un hybride craft américain apparu à la charnière des années 2000 et 2010. Elle combine la structure d’une IPA moderne avec des éléments empruntés à la Witbier belge : blé, couleur très pâle, trouble possible, épices et parfois une levure apportant agrumes ou phénols. Plusieurs collaborations et bières de brasseries nord-américaines ont popularisé cette idée avant que les guides de style ne la stabilisent comme Specialty IPA.
+      "description": "La White IPA est née d’une collaboration explicite : le trouble, le blé et les épices d’une witbier rencontrent l’amertume et le houblon américain d’une IPA. Pâle, vive, citronnée et parfois poivrée, elle ne se résume pas à une IPA plus claire. Son identité vient du frottement entre levure belge, céréale et houblonnage — un mariage arrangé qui a réellement eu une date.",
+      "histoireEtOrigines": `En 2011, Boulevard Brewing au Missouri et Deschutes Brewery en Oregon élaborent ensemble Collaboration No. 2 / Conflux No. 2. Les brasseurs Steven Pauwels et Larry Sidor veulent créer un style en mariant les caractéristiques d’une witbier belge et celles d’une American IPA. Les deux brasseries produisent la même recette dans leurs installations respectives, à plus de 2 500 kilomètres l’une de l’autre, puis commercialisent leurs versions la même année.
 
-Le nom « White » renvoie donc moins à une tradition précise qu’à un langage sensoriel : bière pâle, souvent voilée, sèche et vive, où le houblon rencontre des notes d’écorce d’agrume, de coriandre et parfois de poivre. Le BJCP précise que l’équilibre doit rester celui d’une IPA ; si les épices ou la levure dominent et que le houblon devient secondaire, on se rapproche davantage d’une Witbier fortement houblonnée.
+Cette collaboration constitue un pivot documenté, même si elle ne permet pas d’affirmer qu’aucune bière de blé houblonnée similaire n’avait jamais existé. Son importance tient à l’intention déclarée, au nom White IPA et à la diffusion : une invention revendiquée et immédiatement reproductible. D’autres brasseries adoptent la formule au début des années 2010 ; le BJCP l’intègre aux Specialty IPA en 2015.
 
-Le style a aujourd’hui moins de visibilité commerciale qu’au pic de sa popularité, mais il reste un exemple important de la période où l’IPA devient une plateforme d’hybridation systématique avec d’autres familles de bière.`,
+La modification est profonde. Blé et parfois avoine construisent mousse, pâleur et texture ; une levure belge peut produire esters et phénols ; coriandre ou écorce d’agrume rappellent la witbier ; houblonnage tardif et amertume restent ceux d’une IPA. La difficulté est d’éviter que l’épice, la levure et le houblon se disputent la même note citronnée jusqu’à l’épuiser.
+
+Sa popularité a ensuite diminué, mais l’histoire courte reste nette : problème créatif, collaboration, diffusion, codification. La White IPA prouve qu’une catégorie moderne peut avoir un acte de naissance assez précis sans prétendre que le monde n’avait jamais vu de blé ni de houblon avant la réunion.`,
+      "chapitres": [
+        {
+          "titre": "Une recette, deux brasseries",
+          "texte": `Boulevard apporte son expérience des ales belges ; Deschutes, celle des bières très houblonnées du Nord-Ouest. Chaque maison brasse sa version du projet commun, ce qui transforme la collaboration en expérience sur le rôle du matériel et du lieu.
+
+Le style naît ainsi d’une question explicite : que devient une witbier lorsque l’architecture IPA prend le houblon en charge ? La réponse ne se contente pas d’être blanche ; elle possède une levure, une céréale et un procédé distincts.`
+        }
+      ],
       "recette": {
         "profilUnique": true,
-        "explicationProfil": "IPA très pâle combinant houblon moderne, blé et éventuellement épices/levure de type Witbier, avec une finale sèche.",
+        "explicationProfil": "La recette doit conserver les deux parents : céréales, levure et éventuelles épices de witbier ; amertume et houblonnage tardif d’IPA. Si un seul parent parle, la collaboration a échoué.",
         "maltsEtCereales": [
-          "Malt Pilsner ou pale très clair comme base.",
-          "Froment malté ou cru en proportion significative pour pâleur, mousse et texture.",
-          "Avoine possible en petite quantité selon l’inspiration Witbier."
+          "Base Pilsner ou pale avec une part importante de blé ; avoine possible pour la texture et le trouble.",
+          "Le grain cru ou floconné demande une conversion correcte et peut affecter filtration et mousse."
         ],
         "houblons": [
           "Houblons américains ou du Nouveau Monde à agrumes et fruits, choisis pour s’accorder avec coriandre et écorces d’agrumes.",
@@ -3726,14 +4555,14 @@ Le style a aujourd’hui moins de visibilité commerciale qu’au pic de sa popu
           "Souche belge/witbier épicée ou souche plus neutre selon la version ; les phénols doivent rester intégrés au houblon."
         ],
         "ingredientsComplementaires": [
-          "Coriandre et écorces d’orange ou autres agrumes fréquemment utilisées, mais avec retenue afin de préserver l’identité IPA."
+          "Coriandre et écorces d’agrumes possibles lorsque l’intention witbier les justifie ; doses contenues afin de ne pas doubler artificiellement les notes du houblon."
         ],
         "profilEau": "Faible alcalinité, sulfate modéré pour la sécheresse et chlorure suffisant pour soutenir le blé.",
         "empatage": "Infusion adaptée à une proportion importante de blé ; bonne fermentescibilité recherchée.",
         "ebullitionEtHoublonnage": "Amertume d’IPA, ajouts tardifs et dry-hop ; épices généralement ajoutées en fin d’ébullition ou au whirlpool avec prudence.",
-        "fermentation": "Fermentation haute, éventuellement avec une souche belge produisant agrumes et poivre. Contrôler les phénols pour éviter l’effet médicinal.",
+        "fermentation": "Souche belge ou de witbier produisant esters et phénols mesurés. La conduite thermique doit éviter que girofle, solvant ou banane saturent un profil déjà chargé en houblon.",
         "maturation": "Courte ; un léger trouble est acceptable et la fraîcheur du houblon prime.",
-        "profilRecherche": "Une IPA pâle et vive, où blé, agrumes, épices et houblon s’imbriquent dans une finale sèche sans donner une bière parfumée artificiellement."
+        "profilRecherche": "Une IPA pâle et vive où blé, levure belge, épices éventuelles et houblon américain se distinguent puis se rejoignent."
       },
       "sources": [
         {
@@ -3742,7 +4571,7 @@ Le style a aujourd’hui moins de visibilité commerciale qu’au pic de sa popu
           "reference": "21B Specialty IPA: White IPA — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/21/21B/specialty-ipa/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Brewers Association",
@@ -3750,7 +4579,23 @@ Le style a aujourd’hui moins de visibilité commerciale qu’au pic de sa popu
           "reference": "White IPA / Specialty IPA context — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Boulevard Brewing Company",
+          "edition": null,
+          "reference": "Collaboration No. 2 — création déclarée d’une White IPA avec Deschutes",
+          "type": "source_primaire_historique",
+          "url": "https://www.boulevard.com/collaboration-no-2/",
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Brewbound",
+          "edition": "2011",
+          "reference": "Deschutes and Boulevard collaborate on White IPA — lancement commercial de 2011",
+          "type": "presse_professionnelle",
+          "url": "https://www.brewbound.com/news/deschutes-brewery-and-boulevard-brewing-company-collaborate-on-white-ipa/",
+          "consultation": "2026-08-10"
         }
       ]
     },
@@ -3801,15 +4646,31 @@ Le style a aujourd’hui moins de visibilité commerciale qu’au pic de sa popu
           "IPA glass"
         ]
       },
-      "description": "La Brut IPA cherche le champagne du houblon : très sèche, très claire, très pétillante, arômes modernes, amertume souvent plus basse qu’attendu. L’enzyme peut manger les sucres, mais elle ne doit pas manger l’âme : sans finesse, le style devient IPA déshydratée.",
-      "histoireEtOrigines": `La Brut IPA possède une origine inhabituellement bien documentée pour un style craft récent. Elle est généralement attribuée à Kim Sturdavant, alors brasseur au Social Kitchen & Brewery de San Francisco, vers 2017-2018. En travaillant avec des enzymes destinées à augmenter l’atténuation d’une bière forte, il explore l’idée d’utiliser l’amyloglucosidase sur une IPA de force standard. L’enzyme transforme davantage de dextrines en sucres fermentescibles, permettant une densité finale extrêmement basse.
+      "description": "La Brut IPA fut le champagne houblonné d’un moment : très pâle, effervescente, intensément aromatique et presque dépourvue de sucre résiduel. Son moteur n’est pas une couleur ni une région, mais une enzyme — l’amyloglucosidase — utilisée par Kim Sturdavant à San Francisco en 2017. Le style monta vite, traversa les continents, puis quitta l’affiche avec une élégance étonnamment appropriée.",
+      "histoireEtOrigines": `Au Social Kitchen & Brewery de San Francisco, Kim Sturdavant utilise depuis plusieurs années une amyloglucosidase pour assécher une Triple IPA. À la fin de 2017, il applique l’enzyme à une IPA de force plus normale avec un objectif radical : éliminer presque tout sucre résiduel afin d’obtenir une bière légère en bouche, très pâle, effervescente et aromatique. La première version porte le nom Hop Champagne, puis « Brut IPA » s’impose par analogie avec le vin effervescent sec.
 
-L’American Homebrewers Association décrit le style en 2019 comme une IPA très pâle, extrêmement sèche et fortement pétillante, avec une amertume réelle relativement faible mais un grand parfum de houblon. L’analogie avec le Champagne vient de la combinaison entre sécheresse, couleur claire, carbonatation élevée et mousse abondante, même si la méthode et les matières premières restent celles d’une bière.
+L’amyloglucosidase coupe des dextrines que les enzymes ordinaires de l’empâtage et la levure laisseraient autrement derrière elles. Les sucres ainsi libérés fermentent, abaissent la densité finale et augmentent l’atténuation. Le procédé n’est pas inventé pour cette bière — il est employé dans d’autres productions, notamment les bières très fortes ou allégées — mais Sturdavant en fait le principe esthétique d’un style.
 
-La mode se diffuse très vite puis recule presque aussi rapidement, en partie parce que l’extrême sécheresse rend l’équilibre difficile : une amertume normalement modérée peut devenir agressive lorsque presque aucun sucre résiduel ne subsiste. Le BJCP conserve néanmoins Brut IPA parmi les Specialty IPA, ce qui lui donne une place importante comme témoignage d’une période d’expérimentation intense autour des enzymes et du houblon.`,
+La diffusion est fulgurante. Sturdavant partage ouvertement sa méthode avec les brasseurs de la baie ; les versions se multiplient en 2018 aux États-Unis puis à l’étranger. Houblonnage tardif, faible amertume perçue et forte carbonatation cherchent à préserver le parfum sans épaissir la bouche. La réussite exige toutefois de doser l’enzyme et de laisser la fermentation s’achever : une activité résiduelle mal maîtrisée peut créer suratténuation et surcarbonatation.
+
+La mode recule presque aussi vite, prise entre la douceur tactile des Hazy IPA et le retour de profils West Coast plus familiers. La Brut IPA ne disparaît pas totalement, mais elle perd son omniprésence dès le début des années 2020. Sa brièveté n’est pas un échec encyclopédique : elle montre comment une innovation de procédé, un nom mémorable et le réseau craft peuvent fabriquer une catégorie mondiale en quelques mois — puis la rendre historique avant même que ses affiches aient jauni.`,
+      "chapitres": [
+        {
+          "titre": "Une enzyme retire le plancher",
+          "texte": `L’amyloglucosidase hydrolyse notamment les liaisons qui maintiennent des dextrines hors de portée de la levure. En rendant ces glucides fermentescibles, elle fait descendre la densité finale vers des valeurs extrêmement basses.
+
+Le résultat n’est pas seulement « sec » au sens gustatif : la structure même du corps change. L’arôme de houblon doit alors occuper un espace où malt et sucre ne fournissent presque aucun coussin. La Brut IPA est une innovation par soustraction.`
+        },
+        {
+          "titre": "Ascension, saturation, reflux",
+          "texte": `Le partage de la méthode accélère l’adoption en 2018. Festivals, presse spécialisée et collaborations font du style une expérience presque obligatoire ; cette vitesse réduit aussi la durée de la nouveauté.
+
+Lorsque le public se tourne vers d’autres textures, la Brut IPA perd son avantage distinctif. Son cycle rappelle qu’une catégorie peut être historiquement importante sans devenir permanente. Certaines étoiles filantes éclairent surtout la mécanique du ciel.`
+        }
+      ],
       "recette": {
         "profilUnique": true,
-        "explicationProfil": "IPA très pâle, extrêmement atténuée et fortement carbonatée, où l’arôme de houblon est élevé mais l’amertume est volontairement contenue.",
+        "explicationProfil": "L’amyloglucosidase est constitutive : elle rend fermentescibles des dextrines et permet une densité finale extrêmement basse. Son emploi exige contrôle de l’atténuation et de la stabilité, pas une simple dose copiée.",
         "maltsEtCereales": [
           "Malt Pilsner ou pale très clair dominant.",
           "Riz, maïs ou autres céréales légères possibles pour alléger encore la structure, mais non obligatoires.",
@@ -3823,14 +4684,15 @@ La mode se diffuse très vite puis recule presque aussi rapidement, en partie pa
           "Souche d’ale propre et très atténuante."
         ],
         "ingredientsComplementaires": [
-          "Amyloglucosidase/glucoamylase utilisée au brassage et/ou en fermentation afin de dégrader les dextrines et pousser l’atténuation très près de sa limite pratique."
+          "Amyloglucosidase ajoutée selon le produit et le procédé, à l’empâtage ou en fermentation ; suivre les spécifications du fabricant et vérifier la densité finale.",
+          "Sucres simples ou céréales très pâles possibles pour alléger encore couleur et corps, sans obligation."
         ],
         "profilEau": "Faible alcalinité ; sulfate à employer avec prudence car une bière extrêmement sèche amplifie la perception d’amertume et de dureté.",
-        "empatage": "Empâtage très fermentescible, souvent complété par enzyme afin de réduire drastiquement les dextrines résiduelles.",
+        "empatage": "Empâtage orienté vers la fermentescibilité. L’enzyme peut poursuivre l’hydrolyse au-delà du travail des amylases du malt ; température, pH et moment d’ajout modifient son activité.",
         "ebullitionEtHoublonnage": "Amertume volontairement limitée ; houblons principalement tardifs, whirlpool et dry-hop.",
-        "fermentation": "Fermentation complète jusqu’à une densité finale extrêmement basse. Vérifier la stabilité avant conditionnement car l’enzyme peut poursuivre son action.",
-        "maturation": "Courte, puis carbonatation élevée. Conditionnement sécurisé indispensable compte tenu de l’atténuation extrême et du risque de refermentation.",
-        "profilRecherche": "Une IPA presque tranchante de sécheresse, très pétillante et parfumée, évoquant un vin effervescent houblonné sans douceur résiduelle."
+        "fermentation": "Levure neutre et atténuante, conduite jusqu’à stabilité réelle de la densité. Une enzyme encore active et une mise en bouteille prématurée créent un risque de surcarbonatation.",
+        "maturation": "Très courte, avec carbonatation élevée mais calculée et protection contre l’oxygène. La sécheresse extrême ne protège ni les arômes de houblon ni la stabilité du conditionnement.",
+        "profilRecherche": "Une IPA presque sans sucre résiduel, pâle, effervescente et parfumée, dont la légèreté de bouche contraste avec l’intensité aromatique."
       },
       "sources": [
         {
@@ -3839,7 +4701,7 @@ La mode se diffuse très vite puis recule presque aussi rapidement, en partie pa
           "reference": "21B Specialty IPA: Brut IPA — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/21/21B/specialty-ipa/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "American Homebrewers Association",
@@ -3847,7 +4709,7 @@ La mode se diffuse très vite puis recule presque aussi rapidement, en partie pa
           "reference": "Brut IPA Style Description 1.0 — glucoamylase, très forte atténuation et attribution à Kim Sturdavant",
           "type": "histoire_et_technique",
           "url": "https://www.homebrewersassociation.org/how-to-brew/brut-ipa-style-description-1-0/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
         },
         {
           "organisme": "Brewers Association",
@@ -3855,7 +4717,31 @@ La mode se diffuse très vite puis recule presque aussi rapidement, en partie pa
           "reference": "Brut IPA / Specialty IPA context — Beer Style Guidelines",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "BeerAdvocate / Kim Sturdavant",
+          "edition": null,
+          "reference": "Creating the Brut IPA — enzyme, premiers essais et chronologie de 2017",
+          "type": "entretien_primaire",
+          "url": "https://www.beeradvocate.com/articles/18074/kim-sturdavant-brewmaster-at-social-kitchen-brewery-on-creating-the-brut-ipa/",
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "CraftBeer.com",
+          "edition": null,
+          "reference": "The Birth of the Brut IPA — méthode et diffusion depuis Social Kitchen",
+          "type": "presse_professionnelle",
+          "url": "https://www.craftbeer.com/featured-brewery/social-kitchen-birth-brut-ipa",
+          "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Good Beer Hunting",
+          "edition": null,
+          "reference": "EP-191 Kim Sturdavant — contexte, partage de la méthode et réception du style",
+          "type": "entretien_primaire",
+          "url": "https://www.goodbeerhunting.com/gbh-podcast/2018/10/12/ep-191-kim-sturdavant-of-social-kitchen-and-brewery",
+          "consultation": "2026-08-10"
         }
       ]
     }
