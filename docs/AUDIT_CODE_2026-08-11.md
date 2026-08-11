@@ -18,14 +18,16 @@ Objectifs de cette passe :
 
 L'architecture actuelle est nettement plus saine qu'au 8 août. L'ancien problème d'un bundle JavaScript initial d'environ 1,29 Mio a été largement corrigé par le chargement dynamique des collections.
 
-Il reste cependant deux sujets de performance à haute priorité :
+La présente passe a identifié puis corrigé deux nouvelles régressions de frontière de chargement :
 
-1. **La recherche globale traverse encore les collections en chargeant leurs bundles complets.** Or ces bundles embarquent désormais les textes complets de la Brassopédie. Une recherche sans résultat peut donc charger et parser successivement presque tout le corpus encyclopédique.
-2. **`public/logo.png` pèse 2 842 386 octets.** Ce même fichier sert de favicon, d'Apple Touch Icon, d'icône PWA et fait partie du précache du service worker. Le coût est disproportionné pour un asset d'interface récurrent.
+1. la recherche globale parcourait encore les collections en chargeant leurs bundles complets, alors que ces bundles embarquent désormais la Brassopédie complète ;
+2. les interfaces Badges et bibliothèque Brassopédie étaient encore payées au démarrage alors qu'elles sont des vues secondaires.
 
-Un troisième sujet est architectural plutôt que directement mesurable : `src/app/app-runtime.js` devient progressivement le point de convergence de trop de responsabilités. Il reste lisible, mais l'ajout prochain de fonctionnalités Badges, Réglages et Dégustation en ferait rapidement un nouveau noyau spaghetti si aucune frontière n'est posée.
+La recherche globale utilise désormais un **index léger généré automatiquement** depuis les sources canoniques. Une recherche inconnue ne charge plus les bundles encyclopédiques et une correspondance externe ne provoque le chargement de sa collection qu'au moment du changement effectif de collection.
 
-Cette branche applique immédiatement les nettoyages et optimisations à faible risque, puis documente séparément les refactors qui nécessitent une passe dédiée et des garde-fous fonctionnels.
+Le shell PWA a également été allégé : `public/logo.png`, qui pèse **2 842 386 octets**, reste l'icône applicative mais n'est plus précaché de force par le service worker. Le petit index de recherche rejoint au contraire le shell hors ligne.
+
+Le principal sujet restant est désormais architectural : `src/app/app-runtime.js` devient progressivement le point de convergence de trop de responsabilités. Il reste lisible, mais l'ajout prochain de fonctionnalités Badges, Réglages et Dégustation en ferait rapidement un nouveau noyau spaghetti si aucune frontière n'est posée.
 
 ---
 
@@ -33,13 +35,13 @@ Cette branche applique immédiatement les nettoyages et optimisations à faible 
 
 ### P0 — Aucun blocage critique détecté
 
-Aucun problème de corruption de données, boucle de chargement, rupture PWA ou dette nécessitant une intervention d'urgence n'a été identifié dans cette passe.
+Aucun problème de corruption de données, boucle de chargement ou dette nécessitant une intervention d'urgence n'a été identifié dans cette passe.
 
-### P1 — Recherche globale couplée aux bundles encyclopédiques
+### P1 corrigé — Recherche globale couplée aux bundles encyclopédiques
 
-#### Constat
+#### Constat initial
 
-`src/discovery/global-beer-resolver.js` cherche d'abord dans la collection active, puis parcourt les autres entrées du catalogue. Lorsqu'une collection n'est pas déjà chargée, le resolver appelle son `load()` afin de construire le manager et poursuivre la recherche.
+`src/discovery/global-beer-resolver.js` cherchait d'abord dans la collection active, puis parcourait les autres collections. Lorsqu'une collection n'était pas déjà chargée, le resolver chargeait son bundle complet afin de poursuivre la recherche.
 
 Parallèlement :
 
@@ -47,73 +49,61 @@ Parallèlement :
 - `createCollectionBundle()` conserve les données encyclopédiques dans le bundle ;
 - les 10 fichiers canoniques de `src/data/brassopedie/` représentent environ **2,11 Mio de source JavaScript** au total.
 
-#### Impact
+Une faute de frappe ou une bière inconnue pouvait donc entraîner le téléchargement et le parsing d'une grande partie du corpus encyclopédique simplement pour conclure à l'absence de résultat.
 
-Une recherche valide visant une autre collection peut charger plusieurs chunks avant d'atteindre la bonne collection. Une faute de frappe ou une bière inconnue peut, dans le pire cas, télécharger et parser successivement presque toutes les collections restantes uniquement pour conclure à l'absence de résultat.
+#### Correction appliquée
 
-Ce coût a fortement augmenté avec l'enrichissement complet de la Brassopédie.
+`scripts/generate-beer-search-index.mjs` génère désormais `public/beer-search-index.json` avant `dev` et `build` à partir des sources canoniques existantes.
 
-#### Recommandation
+Cet index ne conserve que les données nécessaires à la résolution :
 
-Créer un **index de résolution léger généré depuis les sources canoniques**, contenant uniquement les informations nécessaires à la recherche :
+- identifiant et nom de collection ;
+- identifiant et nom de carte ;
+- clés normalisées issues du nom et des alias.
 
-- `collectionId` ;
-- `cardId` ;
-- nom affiché ;
-- nom normalisé ;
-- alias normalisés strictement nécessaires à la résolution.
+Le fichier généré est ignoré par Git afin d'éviter une seconde vérité éditoriale versionnée.
 
-Le resolver interrogerait cet index en mémoire, puis chargerait **un seul bundle**, celui de la collection réellement correspondante.
+Au runtime :
 
-L'index doit être généré automatiquement à partir des sources existantes afin de ne pas créer une seconde vérité éditoriale manuelle.
+- la collection active est toujours résolue directement en mémoire ;
+- si elle ne correspond pas, le resolver consulte l'index léger ;
+- il ne charge plus aucun bundle de collection pour effectuer la recherche ;
+- le bundle cible n'est chargé qu'après une correspondance, lorsque l'application change réellement de collection ;
+- l'index est mis en cache par le resolver et par le navigateur ;
+- l'index rejoint le précache PWA afin que la recherche inter-collections reste disponible hors ligne.
 
-#### Critères d'acceptation
+Des tests garantissent explicitement qu'une recherche externe ou inconnue ne déclenche aucun chargement de bundle lourd et que les correspondances locales n'ont même pas besoin de lire l'index global.
 
-- une recherche inconnue ne charge aucun bundle de collection supplémentaire ;
-- une correspondance située dans une autre collection charge uniquement cette collection ;
-- les alias existants conservent exactement leur comportement ;
-- les tests couvrent correspondance exacte, alias, ambiguïté et absence de résultat ;
-- aucune donnée encyclopédique longue n'est nécessaire au resolver global.
-
-### P1 — Asset `public/logo.png` surdimensionné
+### P1 partiellement corrigé — Asset `public/logo.png` surdimensionné
 
 #### Constat
 
 `public/logo.png` pèse **2 842 386 octets**.
 
-Il est référencé comme :
+Il sert encore de :
 
 - favicon dans `index.html` ;
 - Apple Touch Icon dans `index.html` ;
-- icône 512 × 512 du manifeste PWA ;
-- ressource du précache PWA ;
-- ressource du service worker de secours.
+- icône 512 × 512 du manifeste PWA.
 
-#### Impact
+#### Correction immédiate
 
-Le même gros fichier est payé dans plusieurs contextes où une version bien plus légère suffit. Il augmente notamment la taille du shell hors ligne et le coût d'installation/mise à jour du cache.
+Le logo a été retiré du précache obligatoire du shell PWA. Cela évite de télécharger environ 2,84 Mo uniquement pour installer ou mettre à jour le cache applicatif.
 
-#### Recommandation
+Le fichier reste accessible normalement au navigateur et au manifeste.
 
-Produire des icônes optimisées dédiées aux usages réels, par exemple :
+#### Dette restante
+
+Une passe d'assets dédiée doit encore produire des icônes optimisées adaptées aux usages réels, par exemple :
 
 - favicon léger ;
 - Apple Touch Icon 180 × 180 ;
 - icône PWA 192 × 192 ;
 - icône PWA 512 × 512 optimisée.
 
-Mettre à jour le manifeste et le précache pour ne conserver que les tailles nécessaires.
-
-#### Critères d'acceptation
-
-- manifeste PWA valide et installable ;
-- icônes correctement affichées sur navigateur et écran d'accueil ;
-- réduction nette du poids cumulé des assets d'icône ;
-- fonctionnement hors ligne inchangé.
+Cette optimisation binaire n'est pas réalisée à l'aveugle dans cette PR.
 
 ### P2 — `app-runtime.js` devient un orchestrateur trop large
-
-#### Constat
 
 `src/app/app-runtime.js` orchestre actuellement :
 
@@ -127,28 +117,15 @@ Mettre à jour le manifeste et le précache pour ne conserver que les tailles n�
 - le changement de vue ;
 - les transitions de fond.
 
-Aucune de ces responsabilités n'est individuellement aberrante, mais leur accumulation crée un point de croissance unique.
+Aucune responsabilité n'est individuellement aberrante, mais leur accumulation crée un point de croissance unique.
 
-#### Risque
+Les prochaines évolutions Badges, Réglages et Dégustation devront extraire progressivement des contrôleurs de feature. Le runtime principal doit conserver la composition générale, le cycle de session et la navigation inter-feature, pas les détails internes de chaque feature.
 
-Les trois prochaines fonctionnalités prévues, Badges, Réglages et Dégustation, vont mécaniquement accroître ce fichier si elles continuent à être pilotées directement depuis le runtime.
+### P2 — Frontière données de jeu / Brassopédie
 
-#### Recommandation
+Le lazy loading des collections est correct. Un bundle de collection réunit toujours données de jeu et contenu encyclopédique complet, mais ce choix n'est plus pénalisant pour la recherche globale depuis l'introduction de l'index léger généré.
 
-Avant ou pendant ces évolutions, extraire progressivement des contrôleurs de feature, par exemple :
-
-- contrôleur Badges ;
-- contrôleur Brassopédie ;
-- contrôleur Réglages ;
-- futur contrôleur Dégustation.
-
-Le runtime principal devrait conserver la composition générale, le cycle de session et la navigation inter-feature, pas les détails internes de chaque feature.
-
-### P2 — Frontière données de jeu / Brassopédie encore perfectible
-
-Le lazy loading des collections est correct, mais un bundle de collection réunit encore données nécessaires à la ZythoSphère et contenu encyclopédique complet. Tant que le bundle n'est chargé qu'à bon escient, cela reste acceptable. Le problème apparaît dès qu'un service léger comme la recherche globale a besoin du même module.
-
-La priorité n'est donc pas de dupliquer les fichiers de collection, mais de fournir aux usages légers des index générés adaptés à leurs besoins.
+La règle à conserver est simple : lorsqu'un usage ne nécessite que quelques métadonnées, il doit consommer un index généré plutôt qu'importer un bundle encyclopédique par commodité.
 
 ### P2 — Candidats legacy à vérifier avant suppression
 
@@ -157,16 +134,16 @@ Deux zones paraissent potentiellement obsolètes, mais ne doivent pas être supp
 - l'export synchrone `createCollectionManager()` dans `src/data/collection-manager.js`, alors que l'application utilise le manager lazy ;
 - plusieurs règles historiques de grille dans `src/styles.css` (`#grid-container`, `#card-grid`, `.card-slot`, etc.) qui ne correspondent plus à la présentation principale en carrousel.
 
-La recherche de références n'a pas fourni de consommateur évident, mais une suppression CSS ou d'API sans test visuel/structurel serait une fausse économie. Ces éléments doivent faire l'objet d'une passe de suppression contrôlée avec tests.
+La recherche de références n'a pas fourni de consommateur évident, mais une suppression CSS ou d'API sans test visuel/structurel serait une fausse économie. Ces éléments doivent faire l'objet d'une passe de suppression contrôlée.
 
-### P3 — Résidus et documentation interne obsolète
+### P3 corrigé — Résidus et documentation interne obsolète
 
 Deux éléments étaient clairement morts ou trompeurs :
 
 - `.staging/fingerprints.txt`, résidu temporaire de contrôle d'assets suivi par Git ;
 - `src/data/brassopedie/index.json`, index non utilisé, limité à 9 collections et pointant vers des fichiers `.json` qui n'existent plus dans le modèle canonique actuel.
 
-Ils sont supprimés dans cette branche. `.staging/` est désormais ignoré par Git.
+Ils sont supprimés. `.staging/` est désormais ignoré par Git.
 
 Le README interne de `src/data/brassopedie/` a également été remis en phase avec l'achèvement des 10 collections.
 
@@ -192,7 +169,22 @@ Elles sont importées lors de la première ouverture de la Brassopédie ou lors 
 
 Le panneau Brassopédie utilisé pendant une révélation reste dans le chemin initial puisqu'il fait partie du fonctionnement direct de la ZythoSphère.
 
-### 4.3 Nettoyage des résidus
+### 4.3 Recherche globale légère
+
+La recherche inter-collections s'appuie sur un index généré avant `dev` et `build`.
+
+Conséquences attendues :
+
+- recherche locale : aucun chargement supplémentaire ;
+- recherche externe : lecture du petit index, puis chargement de la seule collection cible au moment du changement ;
+- recherche inconnue : lecture du petit index uniquement ;
+- aucune importation en cascade des contenus Brassopédie pour résoudre une saisie.
+
+### 4.4 Shell PWA allégé
+
+Le logo de 2,84 Mo sort du précache obligatoire. `beer-search-index.json` y entre afin de maintenir la résolution globale hors ligne.
+
+### 4.5 Nettoyage des résidus
 
 - suppression de `.staging/fingerprints.txt` ;
 - ajout de `.staging/` au `.gitignore` ;
@@ -203,24 +195,23 @@ Le panneau Brassopédie utilisé pendant une révélation reste dans le chemin i
 
 ## 5. Ce qui n'est volontairement pas modifié dans cette passe
 
-Cette PR reste concentrée sur l'audit et les corrections sans ambiguïté. Elle ne modifie pas :
+Cette PR ne modifie pas :
 
 - le README racine, réservé à l'étape 2 de la feuille de route ;
 - la logique fonctionnelle des Badges, réservée à l'étape 3 ;
 - la future feature Réglages, réservée à l'étape 4 ;
 - la future feature Dégustation, réservée à l'étape 5 ;
-- le resolver global et la frontière des bundles, qui constituent le prochain refactor structurel du point 1 ;
-- les fichiers binaires d'icône, qui nécessitent une vraie passe d'optimisation d'assets plutôt qu'une substitution approximative.
+- le visuel ou le contenu binaire de `public/logo.png` ;
+- les candidats legacy encore insuffisamment prouvés comme morts.
 
 ---
 
-## 6. Ordre de traitement recommandé pour terminer le point 1
+## 6. Suite recommandée du point 1
 
-1. **Indexer la résolution globale** et empêcher une recherche inconnue de charger les collections encyclopédiques.
-2. **Optimiser les icônes PWA/favicon**, particulièrement `public/logo.png`.
-3. **Mesurer le build après séparation** : chunks d'entrée, chunks Badges, Brassopédie et collections.
-4. **Élaguer les candidats legacy** uniquement après vérification par tests et contrôle visuel.
-5. **Extraire les contrôleurs de feature** au rythme des étapes Badges/Réglages/Dégustation afin que `app-runtime.js` cesse de grossir.
+1. **Valider la nouvelle CI** après génération de l'index et modification du précache.
+2. **Optimiser réellement les variantes d'icônes PWA/favicon** lorsque les assets binaires peuvent être retraités proprement.
+3. **Élaguer les candidats legacy** uniquement après vérification par tests et contrôle visuel.
+4. **Extraire les contrôleurs de feature** au rythme des étapes Badges/Réglages/Dégustation afin que `app-runtime.js` cesse de grossir.
 
 ---
 
@@ -228,16 +219,20 @@ Cette PR reste concentrée sur l'audit et les corrections sans ambiguïté. Elle
 
 La CI doit exécuter au minimum :
 
-- contrôle syntaxique ;
-- typecheck ;
-- tests Node ;
+- typecheck standard et strict ;
+- tests Node, y compris les garde-fous du resolver global ;
 - contrôle d'inventaire des images ;
-- contrôle des liens de documentation ;
-- build Vite et préparation PWA.
+- build Vite ;
+- génération de l'index de recherche ;
+- préparation PWA ;
+- Playwright + axe sur desktop, mobile et tablette.
 
 Contrôles manuels recommandés :
 
 - démarrage direct sur ZythoSphère ;
+- recherche locale ;
+- recherche d'un style appartenant à une autre collection ;
+- recherche inconnue ;
 - changement de collection ;
 - révélation d'une carte et notification d'un badge ;
 - première puis seconde ouverture des Badges ;
@@ -250,6 +245,6 @@ Contrôles manuels recommandés :
 
 Le dépôt n'est pas actuellement dans un état « spaghetti ». Le refactor récent a supprimé une grande partie des défauts structurels qui justifiaient l'audit du 8 août.
 
-Le risque principal est désormais plus subtil : **les frontières de chargement ne suivent plus complètement la croissance du contenu encyclopédique**. La Brassopédie est devenue volumineuse, ce qui est normal pour son rôle, mais les services légers doivent désormais pouvoir fonctionner sans l'importer par ricochet.
+Cette passe remet désormais les frontières de chargement en phase avec la croissance de la Brassopédie : les vues secondaires sont différées et la recherche globale n'importe plus le corpus encyclopédique par ricochet.
 
-La priorité de performance suivante est donc claire : rendre la recherche globale réellement légère, puis alléger les assets PWA. Côté maintenabilité, la prochaine règle doit être tout aussi simple : les nouvelles features ne doivent plus ajouter leurs détails directement dans `app-runtime.js`.
+Le risque principal devient donc organisationnel : les prochaines features ne doivent pas ajouter leurs détails directement dans `app-runtime.js`. Côté performance, la dette la plus visible restante est l'optimisation réelle des variantes d'icônes PWA/favicon.
