@@ -3,7 +3,23 @@ import assert from "node:assert/strict";
 import { normalizeBeerName } from "./normalize-text.js";
 import { createBeerResolver } from "./beer-resolver.js";
 import { createDiscoveryStore } from "./discovery-store.js";
-import { prototypeCards } from "../data/prototype-carousel.js";
+
+const resolverCards = [
+  { id: "placeholder-01", name: "Placeholder", revealable: false, aliases: [] },
+  { id: "stout", name: "Stout", revealable: true, aliases: ["stout"] },
+  {
+    id: "imperial-stout",
+    name: "Imperial Stout",
+    revealable: true,
+    aliases: ["imperial stout", "stout imperial", "stout impérial", "russian imperial stout"]
+  },
+  {
+    id: "baltic-porter",
+    name: "Baltic Porter",
+    revealable: true,
+    aliases: ["baltic porter", "porter baltique"]
+  }
+];
 
 test("normalizes beer names and aliases", () => {
   assert.equal(normalizeBeerName("Imperial Stout"), "imperial stout");
@@ -14,7 +30,7 @@ test("normalizes beer names and aliases", () => {
 });
 
 test("resolves canonical names and aliases only", () => {
-  const resolver = createBeerResolver(prototypeCards);
+  const resolver = createBeerResolver(resolverCards);
   assert.deepEqual(resolver.resolve("Stout"), { status: "matched", cardId: "stout" });
   assert.deepEqual(resolver.resolve("stout impérial"), { status: "matched", cardId: "imperial-stout" });
   assert.deepEqual(resolver.resolve("porter baltique"), { status: "matched", cardId: "baltic-porter" });
