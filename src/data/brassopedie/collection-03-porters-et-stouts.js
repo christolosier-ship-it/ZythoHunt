@@ -609,6 +609,8 @@ Lire Brown Porter demande ainsi de changer de focale. Ce n’est pas « le Porte
       "description": "Robust Porter est le nom d’une frontière que les concours ont depuis déplacée. Plus sombre, amer et ferme que l’ancien Brown Porter, il laisse chocolat noir, malt grillé et houblon américain se mesurer sans livrer la bouche au charbon. Son intérêt actuel tient autant à son goût qu’à sa biographie : une catégorie peut disparaître d’un guide et continuer à vivre sur des étiquettes et dans les mémoires de brasseurs.",
       "histoireEtOrigines": `Dans les directives BJCP de 2008, Robust Porter formait la catégorie 12B. Face au Brown Porter britannique, il regroupait des interprétations plus fortes, plus torréfiées et souvent américaines. Cette case a fourni aux brasseurs amateurs une cible claire au moment où le mouvement craft explorait des bières sombres plus musclées ; des recettes, des médailles et des noms commerciaux l’ont rendue culturellement durable.
 
+Le mot sort aussi des feuilles de notation. Des étiquettes l’emploient dès les années 1990, et Smuttynose Robust Porter devient l’un de ses premiers repères commerciaux. La catégorie n’est donc pas restée un dialecte de juges : elle a appris aux buveurs à reconnaître un Porter américain plus ferme avant que les guides ne déplacent le panneau indicateur.
+
 La révision BJCP de 2015 a choisi une autre lecture. Le terme Robust Porter disparaît au profit d’American Porter, catégorie qui reconnaît l’origine et la liberté de houblonnage plutôt qu’un simple cran d’intensité. La Brewers Association continue cependant de distinguer Robust Porter dans ses propres directives. Les deux systèmes ne racontent pas une querelle sur la vérité du XVIIIe siècle : ils découpent différemment le marché contemporain.
 
 Le nom conserve donc un usage précis. Robust Porter désigne l’ancien repère intermédiaire entre la douceur d’un Brown Porter et la torréfaction franche d’un Stout américain. Il accepte davantage de black ou chocolate malt et une amertume plus ferme, mais le malt doit encore évoquer chocolat, caramel sombre et pain grillé plutôt que cendre. L’idée essentielle n’est pas une date de fondation : c’est le caractère provisoire des frontières stylistiques.`,
@@ -665,6 +667,14 @@ Le nom conserve donc un usage précis. Robust Porter désigne l’ancien repère
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
           "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Beer et Seq / Gary Gillman",
+          "edition": null,
+          "reference": "The Origins of Robust Porter — usage du terme sur les étiquettes et exemple Smuttynose",
+          "type": "analyse_historique_brassicole",
+          "url": "https://www.beeretseq.com/the-origins-of-robust-porter/",
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -806,7 +816,7 @@ La correction ne retire rien au rôle d’Anchor ; elle le rend plus concret. Au
         "États-Unis"
       ],
       "origine": {
-        "libelle": "États-Unis, XIXe siècle",
+        "libelle": "États-Unis, fin du XVIIIe–début du XXe siècle",
         "ville": null,
         "region": null,
         "bassinBrassicole": null
@@ -830,8 +840,8 @@ La correction ne retire rien au rôle d’Anchor ; elle le rend plus concret. Au
         "statut": "large"
       },
       "fermentation": {
-        "type": "haute",
-        "details": "Fermentation haute, avec une expression de levure et une température adaptées au style."
+        "type": "variable",
+        "details": "Fermentation haute ou basse selon la lignée historique reconstituée."
       },
       "service": {
         "temperatureMin": 9,
@@ -843,7 +853,9 @@ La correction ne retire rien au rôle d’Anchor ; elle le rend plus concret. Au
         ]
       },
       "description": "Le Pre-Prohibition Porter suit une branche américaine longtemps cachée derrière les cuves de lager. Né des adaptations coloniales puis transformé dans la région de Philadelphie, il peut être fermenté haut ou bas, employer maïs, mélasse ou colorant de brassage, et rester étonnamment sec. Son verre brun raconte moins une recette perdue qu’un voisinage : tradition britannique, industrie germano-américaine et matières locales au même comptoir.",
-      "histoireEtOrigines": `Dans la jeune république américaine, le Porter britannique représente à la fois une importation et un modèle à produire localement. À Philadelphie, Robert Hare brasse un Porter réputé après la Révolution ; George Washington en commande en 1790, préférant explicitement une bière fabriquée aux États-Unis. La scène ne fonde pas un style d’un trait de plume, mais elle montre que le Porter participe très tôt au projet économique national.
+      "histoireEtOrigines": `Le Porter américain est documenté avant même l’indépendance. Le 29 septembre 1774, John Adams écrit depuis Philadelphie que Robert Hare vient d’y établir une manufacture dont le Porter rivalise, selon lui, avec celui de Londres. La lettre ne délivre aucun brevet de « premier Porter américain », mais elle place une production locale et un buveur identifiable là où les récits rapides commencent souvent après la Révolution.
+
+Quatorze ans plus tard, George Washington demande une grosse de bouteilles de Hare. En 1789, il revendique auprès de Lafayette n’employer chez lui que du Porter américain ; lorsque la brasserie brûle en 1790, il souhaite encore mettre une réserve de côté. Le Porter participe ainsi au projet économique national bien avant de devenir une catégorie historique dans un guide de concours.
 
 Au XIXe siècle, la Pennsylvanie et le Mid-Atlantic accueillent de nombreux brasseurs germanophones. Leur savoir-faire en fermentation basse et leur équipement de lager rencontrent une clientèle qui connaît déjà le Porter. Certaines maisons brassent donc des Porters avec levure lager ou conduite froide, tandis que d’autres conservent la fermentation haute. Réduire toute la branche à une « lager noire appelée Porter » effacerait la coexistence réelle des procédés.
 
@@ -882,6 +894,22 @@ Le porterine explique pourquoi la couleur ne suffit jamais à reconstruire une r
         "profilRecherche": "Un Porter américain sec à modérément malté, brun à noir, dont les céréales locales et la méthode de fermentation racontent la branche choisie."
       },
       "sources": [
+        {
+          "organisme": "Massachusetts Historical Society — Adams Family Papers",
+          "edition": null,
+          "reference": "John Adams à Abigail Adams, 29 septembre 1774 — Porter de Robert Hare à Philadelphie",
+          "type": "archive_historique_primaire",
+          "url": "https://www.masshist.org/digitaladams/archive/doc?id=L17740929ja",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "George Washington’s Mount Vernon",
+          "edition": null,
+          "reference": "George Washington and Beer — commandes de Porter de Robert Hare et incendie de 1790",
+          "type": "musee_et_site_historique",
+          "url": "https://www.mountvernon.org/the-estate-gardens/food-culture/beer",
+          "consultation": "2026-08-11"
+        },
         {
           "organisme": "BJCP",
           "edition": "2021",
@@ -1111,6 +1139,8 @@ Sa réputation moderne de « trésor brassicole polonais » souligne ce changeme
       "description": "L’American Imperial Porter agrandit le Porter sans lui faire signer automatiquement chez les Stouts. Densité, alcool et chocolat gagnent en volume, tandis que caramel sombre et houblon américain maintiennent la charpente. Sa jeunesse est son intérêt : cette catégorie de concours montre comment le craft fabrique une frontière contemporaine, celle d’une bière massive qui préfère encore le malt grillé au grain franchement brûlé.",
       "histoireEtOrigines": `American Imperial Porter ne descend pas d’un registre londonien nommé ainsi. La catégorie se forme dans le monde craft, lorsque les brasseurs américains appliquent le préfixe « imperial » à des styles devenus plus denses, plus alcoolisés et plus intensément aromatiques. Le Porter suit ce mouvement, à côté de l’Imperial IPA et de l’American Imperial Stout.
 
+À Bend, la série anniversaire Black Butte donne un visage commercial à cette catégorie abstraite. Chaque année, Deschutes transforme son Porter phare en version impériale et souvent élevée en fût. La XXXII de 2020 associait fûts de rhum colombien, café extrait à froid, muscade et vanille ; la XXXVII affichait encore 12,9 % et une composition inspirée d’une truffe à l’orange et à la tequila. Le Porter régulier devient ici une plateforme d’expérimentation annuelle, pas seulement une recette dont on aurait tourné le bouton du volume.
+
 La Brewers Association maintient une catégorie spécifique pour rendre cette divergence jugeable. Elle attend une bière forte, sombre et complexe, mais distingue son centre malté de la torréfaction plus brûlée d’un Stout. Caramel, cacao, pain grillé et fruits de fermentation peuvent dominer ; l’orge torréfiée ne doit pas imposer une sécheresse de café carbonisé. La séparation reste délicate, puisque les brasseries nomment souvent leurs produits selon la stratégie de gamme plutôt que selon un test de laboratoire.
 
 Son histoire peut donc rester courte. Elle raconte une taxonomie contemporaine et la manière dont une recette change quand on augmente sa densité : davantage de malt exige davantage d’amertume, d’oxygène, de levure et de maturation. « Imperial » ne consiste pas à multiplier chaque ingrédient par deux ; ce serait une méthode très efficace pour doubler les problèmes. La réussite garde une identité de Porter sous la force, au lieu de produire une Imperial Stout simplement rebaptisée.`,
@@ -1167,6 +1197,22 @@ Son histoire peut donc rester courte. Elle raconte une taxonomie contemporaine e
           "type": "presse_specialisee",
           "url": "https://www.beerandbrewing.com/from-pub-to-pastry-the-surprising-evolution-of-porter-and-stout",
           "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Deschutes Brewery",
+          "edition": null,
+          "reference": "Black Butte XXXVII — version anniversaire de l’Imperial Porter",
+          "type": "source_primaire_de_brasserie",
+          "url": "https://deschutesbrewery.com/products/black-butte-xxxvii",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Brewbound",
+          "edition": null,
+          "reference": "Deschutes Brewery Celebrates 32 Years with Black Butte Imperial Porter — série annuelle et XXXII",
+          "type": "presse_professionnelle_brassicole",
+          "url": "https://www.brewbound.com/news/deschutes-brewery-celebrates-32-years-with-black-butte-imperial-porter/",
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -2154,17 +2200,17 @@ Cette chaîne — historien, importateur, brasserie, public américain — illus
       "description": "L’American Stout naît dans des brasseries si petites que leurs premières cuves ont parfois été fabriquées à la main, mais elle choisit une voix ample : grain grillé ferme, amertume directe et houblons américains capables d’apporter pin ou agrume. New Albion puis Sierra Nevada en font une bière de recommencement. Elle ne se contente pas d’intensifier l’Irlande ; elle assemble malt local, homebrewing et nouvelle industrie indépendante.",
       "histoireEtOrigines": `Lorsque Jack McAuliffe ouvre New Albion Brewing à Sonoma en 1976, la petite brasserie produit seulement trois bières régulières, dont un Stout. Son installation bricolée et sa courte existence, jusqu’en 1982, en font un symbole : une entreprise minuscule peut à nouveau brasser des styles que le marché américain concentré ne juge plus prioritaires. Le Stout participe dès le départ à cette démonstration d’indépendance.
 
-À Chico, Ken Grossman utilise en 1980 un Stout pour éprouver sa salle de brassage construite à partir de matériel récupéré et adapté. Sierra Nevada Stout rejoint ensuite les premiers produits de la brasserie. Ces chronologies placent la bière sombre au cœur du lancement craft, non comme variante tardive apparue après le succès des IPA.
+À Chico, Ken Grossman brasse le 15 novembre 1980 le « Stout #1 », un lot de cinq barrels et la première bière vendue sous le nom Sierra Nevada. Trente-trois ans plus tard, l’équipe reprend une version de cette recette pour inaugurer sa nouvelle installation de Mills River, cette fois dans une cuve de 800 barrels. L’échelle change ; le Stout conserve son rôle de premier test grandeur nature. Ces chronologies placent la bière sombre au cœur du lancement craft, non comme variante tardive apparue après le succès des IPA.
 
 La formulation américaine se précise avec les ingrédients disponibles. Two-row régulier, malts noirs plus affirmés, fermentation ale propre et houblons du Nord-Ouest construisent une Stout sèche à moyenne, plus amère et parfois franchement aromatique. Le résultat n’est pas seulement « un Stout anglais avec plus de houblon » : la propreté de fermentation, la chaîne régionale du houblon et la volonté de montrer chaque ingrédient changent l’équilibre entier.
 
 Les guides modernes fixent le nom American Stout et la distinguent de l’American Porter par une torréfaction plus brûlée, ainsi que de l’American Imperial Stout par une force plus modérée. Dans le marché actuel, cette catégorie est parfois éclipsée par les bières impériales et pâtissières. Sa portée reste pourtant fondatrice : avant les barriques et les files d’attente, le Stout américain était une bière régulière qui aidait une jeune brasserie à prouver qu’elle savait brasser.`,
       "chapitres": [
         {
-          "titre": "Une bière pour tester la brasserie",
-          "texte": `Sierra Nevada raconte que son Stout fut la première bière utilisée pour éprouver la salle de brassage artisanale de 1980. Une recette sombre et houblonnée oblige à vérifier mouture, chauffe, transfert, refroidissement et fermentation : le test engage toute la chaîne.
+          "titre": "Cinq barrels, puis huit cents",
+          "texte": `Le journal de brassage de Sierra Nevada date précisément Stout #1 : samedi 15 novembre 1980, cinq barrels. En septembre 2013, la reconstitution de cette recette fournit les premiers brassins destinés à une cuve de 800 barrels afin de mettre la nouvelle brasserie de Mills River en service.
 
-L’épisode résume le craft naissant. La bière ne sert pas encore d’objet de collection ; elle sert à mettre une machine et une équipe en état de produire. Le futur géant régional commence par demander à un Stout si les tuyaux tiennent.`
+Le quatrième brassin de cette mise en route n’atteint même pas la cuve : l’échangeur de chaleur cède. Les trois précédents fermentent correctement malgré une tuyauterie inachevée et une automatisation encore inopérante. Entre cinq et huit cents barrels, le même Stout mesure donc moins une nostalgie qu’une capacité industrielle — y compris celle des machines à rappeler qu’elles ont leur mot à dire.`
         }
       ],
       "recette": {
@@ -2207,10 +2253,10 @@ L’épisode résume le craft naissant. La bière ne sert pas encore d’objet d
         {
           "organisme": "Sierra Nevada Brewing Co.",
           "edition": null,
-          "reference": "What is craft beer? — le Stout et la première salle de brassage de 1980",
+          "reference": "Scott’s Homage to Stout — Stout #1 en 1980 et mise en service de Mills River en 2013",
           "type": "source_primaire_historique",
-          "url": "https://sierranevada.com/blog/our-beer/what-is-craft-beer",
-          "consultation": "2026-08-10"
+          "url": "https://sierranevada.com/blog/our-beer/scotts-homage-to-stout",
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Craft Beer & Brewing",
@@ -2709,7 +2755,9 @@ Le désaccord n’empêche pas d’identifier le rôle de la bière dans la popu
         ]
       },
       "description": "Le Pastry Stout naît à l’époque où une bière peut annoncer tiramisu, brownie ou roulé à la cannelle et être prise au mot. Base impériale, sucre résiduel, lactose, vanille, cacao, fruits et biscuits construisent une imitation culinaire assumée. La catégorie est jeune, spectaculaire et disputée : le dessert est tombé dans la cuve, mais la fermentation doit encore trouver la sortie.",
-      "histoireEtOrigines": `Pastry Stout n’est pas le nom oublié d’une bière édouardienne. L’expression se diffuse dans la culture craft des années 2010, d’abord souvent comme une plaisanterie ou une critique envers des Imperial Stouts si sucrées et chargées d’adjuncts qu’elles évoquent davantage la pâtisserie. Son attribution à une seule personne ou à un premier brassin demeure incertaine ; la pratique précède la stabilisation du terme.
+      "histoireEtOrigines": `Pastry Stout n’est pas le nom oublié d’une bière édouardienne. La pratique précède la stabilisation du terme : la presse professionnelle place dès 2004 la série Blackwater de Southern Tier parmi les précurseurs, puis des bières comme Hunahpu’s Imperial Stout de Cigar City gagnent une large visibilité dans les années 2010. Elle situe l’apparition de l’expression vers 2014, d’abord souvent comme une plaisanterie ou une critique envers des Imperial Stouts si sucrées et chargées d’adjuncts qu’elles évoquent davantage la pâtisserie.
+
+Ces jalons ne composent pas un acte de naissance. L’attribution à une seule personne ou à un premier brassin demeure incertaine, et « précurseur » ne signifie pas que la brasserie employait déjà le nom actuel. La catégorie s’est formée dans le décalage entre une pratique commerciale, un vocabulaire satirique et son adoption ultérieure par les producteurs.
 
 La catégorie transforme une saveur en sujet. Une brasserie ne se contente plus d’ajouter du cacao ou de la vanille : elle annonce brownie, gâteau d’anniversaire, s’more ou dessert régional, puis compose les ingrédients pour rendre la référence reconnaissable. Lactose et dextrines fournissent du sucre résiduel ; vanille et cannelle signalent la pâtisserie ; cacao, fruits, noix de coco, érable ou biscuits complètent l’illusion.
 
@@ -2787,6 +2835,14 @@ Cette différence commande la recette. Le malt contribue aussi enzymes résiduel
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
           "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "BRAUWELT International",
+          "edition": "2024",
+          "reference": "Pastry stouts — précurseurs commerciaux et apparition du terme vers 2014",
+          "type": "presse_professionnelle_brassicole",
+          "url": "https://brauwelt.com/en/topics/beer-brewing-history/646855-pastry-stouts",
+          "consultation": "2026-08-11"
         }
       ]
     },
