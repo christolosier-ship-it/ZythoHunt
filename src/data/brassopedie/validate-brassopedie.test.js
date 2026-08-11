@@ -10,8 +10,7 @@ import amberBrownStrong from "./collection-07-ales-ambrees-brunes-maltees-et-for
 import singularHistoricalHybrid from "./collection-08-styles-singuliers-historiques-et-hybrides.js";
 import commercialDesignations from "./collection-09-appellations-commerciales.js";
 import bizarreUnusual from "./collection-10-bizarre-et-insolite.js";
-import { bizarreEtInsoliteBundle } from "../bizarre-et-insolite-collection.js";
-import { collectionBundles } from "../collections.js";
+import { collectionCatalog } from "../collection-catalog.js";
 
 const recipeKeys = [
   "maltsEtCereales",
@@ -38,8 +37,11 @@ const canonicalCollections = [
   { label: "bizarre-et-insolite", data: bizarreUnusual, expected: 42 }
 ];
 
+const collectionBundles = await Promise.all(collectionCatalog.map((entry) => entry.load()));
+
 test("all collection bundles pass their structural validator", () => {
-  [...collectionBundles, bizarreEtInsoliteBundle].forEach((bundle) => {
+  assert.equal(collectionBundles.length, 10);
+  collectionBundles.forEach((bundle) => {
     const validation = bundle.validate();
     assert.equal(validation.valid, true, `${bundle.collection.id}: ${validation.errors.join(" | ")}`);
   });
