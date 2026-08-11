@@ -63,7 +63,7 @@ L'ancien chemin eager a été supprimé :
 - réécriture de `collection-manager.test.js` avec de petits bundles factices ;
 - tests vérifiant que l'énumération et le changement de collection ne chargent aucun bundle avant demande explicite.
 
-Le premier passage CI a en plus débusqué un reliquat dépendant du prototype supprimé. `src/data/prototype-carousel.js` a donc été retiré avec `src/data/cards.js`.
+Les passages CI ont en plus débusqué les dernières dépendances vers le prototype supprimé. `src/data/prototype-carousel.js` a donc été retiré avec `src/data/cards.js`, puis les tests encore couplés à ces modules ont été réécrits sur le catalogue lazy ou des fixtures locales.
 
 ### P2 corrigé — Vues secondaires réellement paresseuses
 
@@ -83,6 +83,7 @@ Fichiers supprimés :
 - `src/data/cards.js` ;
 - `src/data/collections.js` ;
 - `src/data/prototype-carousel.js` ;
+- `public/assets/badges/icons/Azert`, fichier vide sans référence ;
 - `docs/ASSETS_A_AJOUTER.md` ;
 - `docs/active/README-BRASSOPEDIE-JSON.md`.
 
