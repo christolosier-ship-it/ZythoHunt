@@ -1,4 +1,4 @@
-// Source canonique de la collection 10 : chaque entrée est un objet brassicole singulier.
+// Données éditoriales : chaque entrée documente un objet brassicole singulier.
 // Les IDs internes c10-xxx sont volontairement conservés pour préserver la progression locale existante.
 
 const collection = {
@@ -69,12 +69,14 @@ const collection = {
         "verresRecommandes": [],
         "libelle": "Non documenté"
       },
-      "description": "Une sour ale polonaise dont le véritable ingrédient-spectacle n’est pas un fruit exotique mais une culture de lactobacilles revendiquée comme issue de la flore vaginale. La provocation est anatomique ; le mécanisme, lui, relève de la microbiologie et de l’acidification lactique.",
-      "histoireEtOrigines": `Bottled Instinct appartient au projet polonais The Order of Yoni, qui a choisi de placer l’intimité féminine au centre de sa narration de marque. Le discours public du projet parle de bactéries lactiques isolées, cultivées puis utilisées dans l’élaboration d’une bière acide. C’est une distinction importante : la légende facile raconterait volontiers qu’un fluide corporel est versé dans la cuve ; ce n’est pas ce que décrivent les sources.
+      "description": "Bottled Instinct transforme une culture lactique en manifeste de marque : ses lactobacilles sont présentés comme issus d’un prélèvement vaginal, isolés puis multipliés avant de rejoindre une sour ale. Aucun fluide corporel n’est décrit comme versé dans la cuve. L’étrangeté tient autant à l’origine revendiquée du micro-organisme qu’à l’érotisation très calculée de son récit.",
+      "histoireEtOrigines": `The Order of Yoni a fait connaître Bottled Instinct au milieu des années 2010 en promettant une bière portant la « féminité » d’un modèle jusque dans sa fermentation. La communication du projet polonais attribue la culture lactique de cette version à Alexandra Brendlova. Elle décrit un prélèvement vaginal confié à un laboratoire, l’isolement de bactéries lactiques, leur contrôle puis leur propagation. Ce vocabulaire est celui du producteur : aucune publication scientifique indépendante ne permet d’identifier ici une espèce ou une souche précise, ni de vérifier l’ensemble du protocole.
 
-Le projet brouille volontairement les frontières entre science, érotisme publicitaire et fermentation. Cette mise en scène explique une grande partie de sa célébrité : l’expérience n’est pas seulement dans le verre, elle est dans la réaction du lecteur avant même qu’il ait compris ce qu’est une culture microbienne.
+Le mécanisme brassicole est pourtant beaucoup moins mystérieux que le slogan. Des lactobacilles produisent de l’acide lactique à partir de sucres et peuvent contribuer à l’acidité d’une bière. La singularité ne réside donc pas dans leur fonction, familière aux fermentations alimentaires, mais dans le site humain revendiqué comme origine de l’isolat. Une culture multipliée en laboratoire descend d’un prélèvement ; elle n’équivaut pas à ajouter le prélèvement lui-même au brassin.
 
-La fiche doit donc conserver deux voix à la fois : le sourire gêné du cabinet de curiosités et la blouse blanche du microbiologiste. L’une attire l’attention ; l’autre empêche de raconter n’importe quoi.`,
+Les fiches de produit conservées donnent un portrait plus concret : moût à 14 °Blg, malts Pilsner, Munich, caramel et torréfié, houblons Cascade et Iunga, levure brassicole, lactobacilles et copeaux de chêne au cognac. Ces éléments montrent qu’une recette structurée existe derrière l’affiche. Ils ne suffisent cependant pas à authentifier la revendication de « première bière vaginale au monde », qui reste une formule promotionnelle sans recherche comparative publiée.
+
+Bottled Instinct fonctionne ainsi sur deux plans. Dans le fermenteur, elle relève de la microbiologie lactique. Dans sa publicité, elle transforme le corps d’une femme en provenance, promesse sensorielle et argument de vente. Documenter les deux évite aussi bien la fausse recette anatomique que la reprise naïve d’un discours volontairement provocateur.`,
       "chapitres": [
         {
           "titre": "Le laboratoire intime",
@@ -82,13 +84,13 @@ La fiche doit donc conserver deux voix à la fois : le sourire gêné du cabinet
         },
         {
           "titre": "Le scandale n’est pas dans la pipette",
-          "texte": "Les communications autour de la gamme mentionnent une bière de blé ou une sour ale, des levures brassicoles et une culture lactique. Certaines fiches secondaires évoquent aussi des copeaux de chêne au cognac. En revanche, la souche précise, les proportions, le protocole de laboratoire et la chronologie complète du brassage ne sont pas publiés : la Brassopédie peut documenter le principe, pas fabriquer une fausse recette secrète."
+          "texte": "Les communications autour de la gamme mentionnent une sour ale, des levures brassicoles et une culture lactique ; les fiches de produit détaillent aussi quatre malts, deux houblons et des copeaux de chêne au cognac. En revanche, la souche précise, ses proportions, le protocole du laboratoire et la chronologie complète ne sont pas publiés. La composition connue s’arrête là où commencerait une fausse recette secrète."
         }
       ],
       "recette": {
         "titre": "Anatomie documentée du brassin",
         "profilUnique": true,
-        "noteProfil": "Cette entrée décrit un objet brassicole singulier : elle ne constitue pas une recette-type à reproduire.",
+        "noteProfil": "La communication intime entoure une bière acide réelle ; elle ne documente ni ajout de fluide humain ni protocole ouvert à reproduire.",
         "explicationProfil": "Base de bière acide avec fermentation brassicole et intervention de bactéries lactiques mises en avant par le projet. Les détails industriels restent propriétaires ou non publiés.",
         "maltsEtCereales": [
           "Malt d’orge documenté dans les descriptions du projet ; certaines versions de la gamme évoquent aussi une base de bière de blé."
@@ -112,12 +114,12 @@ La fiche doit donc conserver deux voix à la fois : le sourire gêné du cabinet
       },
       "sources": [
         {
-          "organisme": "The Order of Yoni",
+          "organisme": "Order of Yoni",
           "edition": null,
-          "reference": "Présentation du concept Yoni Beer et des cultures de lactobacilles",
+          "reference": "Woman’s Essence — présentation du concept et des cultures lactiques",
           "type": "source_producteur",
-          "url": "https://theorderofyoni.com/",
-          "consultation": "2026-08-09"
+          "url": "https://orderyoni.com/womans_essence/",
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "BeerAdvocate",
@@ -125,7 +127,7 @@ La fiche doit donc conserver deux voix à la fois : le sourire gêné du cabinet
           "reference": "Bottled Instinct — fiche de référence communautaire",
           "type": "source_secondaire",
           "url": "https://www.beeradvocate.com/beer/profile/50811/316321/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Untappd",
@@ -133,7 +135,7 @@ La fiche doit donc conserver deux voix à la fois : le sourire gêné du cabinet
           "reference": "The Order of Yoni — Bottled Instinct",
           "type": "source_secondaire",
           "url": "https://untappd.com/b/the-order-of-yoni-bottled-instinct/2107354",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -189,12 +191,14 @@ La fiche doit donc conserver deux voix à la fois : le sourire gêné du cabinet
         "verresRecommandes": [],
         "libelle": "Non documenté"
       },
-      "description": "L’ale qui a transformé la barbe du maître-brasseur John Maier en territoire microbiologique. Le poil n’est pas un ingrédient de texture : il a servi de lieu de prélèvement à une levure capable de fermenter la bière.",
-      "histoireEtOrigines": `Chez Rogue Ales, l’idée est née dans un contexte de recherche de levures locales. Des follicules de la barbe de John Maier, alors maître-brasseur emblématique de la maison, ont été envoyés en laboratoire. Une culture utilisable en fermentation a été isolée, donnant à la brasserie un terroir d’une précision géographique admirable : quelques centimètres sous le nez du brasseur.
+      "description": "Neuf poils prélevés dans la barbe de John Maier ont fourni à Rogue Ales une culture capable de fermenter une ale. La bouteille ne contient donc ni barbe hachée ni secret de barbier : White Labs a isolé et propagé une levure trouvée sur les follicules. Le gag pileux devient une petite enquête sur le terroir microbien d’une brasserie.",
+      "histoireEtOrigines": `En 2012, Rogue Ales cherchait une levure locale qui compléterait les orges et houblons cultivés par la maison en Oregon. Trois prélèvements réalisés dans sa houblonnière furent envoyés à White Labs, sans produire de souche jugée adaptée au brassage. L’équipe ajouta alors, comme plaisanterie, neuf poils de la barbe de John Maier, maître-brasseur de Rogue et porteur de cette barbe depuis 1978. Cette fois, une culture fermentaire exploitable apparut.
 
-Le projet a d’abord circulé sous le nom New Crustacean avant que Beard Beer ne devienne l’évidence marketing. L’histoire fonctionne parce qu’elle paraît sale alors que le procédé est précisément l’inverse : prélèvement, isolement, culture, propagation. La barbe est le lieu de découverte ; elle n’est pas jetée dans la chaudière comme une poignée de houblon velu.
+White Labs ne s’est pas contenté de placer les poils dans un fermenteur. Le laboratoire a cultivé les micro-organismes, évalué leur aptitude à fermenter et comparé la culture avec Pacman, la levure maison de Rogue. Les comptes rendus de l’époque indiquent qu’elle n’était pas simplement Pacman retrouvée par contamination, même si les observations de comportement évoquaient un profil intermédiaire entre levure de brasserie et levure sauvage. Sans séquençage public complet, mieux vaut parler d’une culture isolée et caractérisée que d’une espèce entièrement nouvelle.
 
-Cette nuance fait de la bière un excellent cours de microbiologie sauvage déguisé en blague de barbier.`,
+Le projet porta d’abord le nom de travail New Crustacean, clin d’œil à l’Old Crustacean de Rogue, avant d’être commercialisé sous le nom beaucoup plus immédiat de Beard Beer. Sa célébrité repose sur une inversion efficace : ce qui semble hygiéniquement douteux est en réalité passé par une chaîne de sélection et de propagation précisément destinée à obtenir une culture utilisable.
+
+La barbe n’apporte donc ni fibre, ni texture, ni arôme de poil. Elle a servi de support écologique à une levure qui pouvait provenir de la peau, de l’environnement ou de décennies passées au milieu d’une brasserie riche en cellules en suspension. Beard Beer pousse le mot « local » jusqu’au visage du brasseur, mais sa vraie histoire reste celle d’un laboratoire ayant transformé un prélèvement facétieux en inoculum contrôlé.`,
       "chapitres": [
         {
           "titre": "Une barbe peut-elle avoir un terroir ?",
@@ -208,7 +212,7 @@ Cette nuance fait de la bière un excellent cours de microbiologie sauvage dégu
       "recette": {
         "titre": "Du follicule au fermenteur",
         "profilUnique": true,
-        "noteProfil": "Cette entrée décrit un objet brassicole singulier : elle ne constitue pas une recette-type à reproduire.",
+        "noteProfil": "White Labs a isolé et contrôlé la culture ; des poils de barbe bruts ne constituent jamais un inoculum sûr.",
         "explicationProfil": "Une ale de brasserie conventionnelle fermentée par une culture isolée depuis la barbe de John Maier.",
         "maltsEtCereales": [
           "Malt Pilsner, Munich et Crystal 15 rapportés dans des fiches de produit secondaires."
@@ -231,20 +235,20 @@ Cette nuance fait de la bière un excellent cours de microbiologie sauvage dégu
       },
       "sources": [
         {
-          "organisme": "Rogue Ales",
+          "organisme": "The Scientist",
           "edition": null,
-          "reference": "Histoire de la brasserie et de John Maier",
-          "type": "source_producteur",
-          "url": "https://www.rogue.com/about/",
-          "consultation": "2026-08-09"
+          "reference": "Beard Beer — enquête auprès de Rogue Ales et White Labs",
+          "type": "source_presse_scientifique",
+          "url": "https://www.the-scientist.com/beard-beer-40384",
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Appellation Beer",
           "edition": null,
-          "reference": "Rogue finds brewing yeast in John Maier’s beard",
+          "reference": "New Crustacean? A beer made with yeast from John Maier’s beard",
           "type": "source_secondaire",
-          "url": "https://appellationbeer.com/blog/rogue-finds-brewing-yeast-in-john-maiers-beard/",
-          "consultation": "2026-08-09"
+          "url": "https://appellationbeer.com/blog/new-crustacean-a-beer-made-with-yeast-from-john-maiers-beard/",
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Eater",
@@ -252,7 +256,7 @@ Cette nuance fait de la bière un excellent cours de microbiologie sauvage dégu
           "reference": "Beer made from a man’s beard yeast",
           "type": "source_secondaire",
           "url": "https://www.eater.com/2015/9/28/9409427/beer-made-from-mans-beard-yeast-rogue-ales-no-shave-november",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -307,12 +311,14 @@ Cette nuance fait de la bière un excellent cours de microbiologie sauvage dégu
         "verresRecommandes": [],
         "libelle": "Non documenté"
       },
-      "description": "Une pilsner brassée avec de l’eau usée devenue eau de haute qualité après traitement avancé. Son ingrédient insolite n’a donc plus rien d’un égout au moment d’entrer en brasserie : tout le projet consiste justement à le démontrer.",
-      "histoireEtOrigines": `PU:REST a été lancée en Suède en 2018 par Nya Carnegiebryggeriet avec l’IVL Swedish Environmental Research Institute et Carlsberg Sweden. Le projet devait rendre tangible une question généralement enfermée dans des schémas d’ingénieurs : une eau usée correctement purifiée peut-elle redevenir une ressource alimentaire sûre ? Une bière a l’avantage de poser la question devant un verre, donc sans possibilité de l’esquiver derrière un PowerPoint.
+      "description": "Dans PU:REST, l’eau usée n’est pas un arôme provocateur mais une matière première entièrement retraitée. Purifiée sur le site expérimental de Hammarby Sjöstadsverk, contrôlée en laboratoire puis livrée à Nya Carnegiebryggeriet, elle a servi à une pilsner suédoise limpide. Le verre met surtout à l’épreuve notre réflexe de confondre l’histoire d’une eau avec sa qualité présente.",
+      "histoireEtOrigines": `Le 25 mai 2018, l’IVL Swedish Environmental Research Institute, Nya Carnegiebryggeriet et Carlsberg Sweden ont lancé PU:REST comme la première bière suédoise brassée avec de l’eau recyclée. L’objectif n’était pas d’ajouter un goût d’égout à une pilsner, mais de rendre visible un enjeu d’ingénierie : une eau usée peut redevenir une ressource de qualité alimentaire si elle traverse une filière de traitement et de contrôle adaptée.
 
-La communication d’IVL insiste sur le contrôle de qualité de l’eau et sur une pilsner cristalline brassée avec malt et houblon biologiques. Le contraste psychologique est le véritable moteur de la bière : l’origine de l’eau provoque un « beurk », alors que son état après traitement n’a plus les caractéristiques que ce mot suggère.
+L’eau provenait de Hammarby Sjöstadsverk, plateforme de recherche et de démonstration consacrée au traitement des eaux à Stockholm. Elle a franchi plusieurs étapes de purification, puis des analyses de laboratoire, avant d’être transportée à la brasserie. Nya Carnegiebryggeriet l’a associée à du malt et du houblon biologiques pour produire une pilsner claire annoncée à 4,8 %. Quatre semaines après le brassage, le démonstrateur pouvait être servi : la vitesse de la recette contrastait avec les années de recherche nécessaires pour rendre la boucle crédible.
 
-PU:REST est ainsi autant une expérience de perception qu’un produit brassicole.`,
+La difficulté principale n’était pas seulement chimique. Les projets de réutilisation potable rencontrent un obstacle de perception souvent résumé par le dégoût de l’origine. Une bière est un excellent objet de médiation parce que l’eau y tient une place majeure et que le consommateur doit décider s’il juge le liquide d’après son passé ou d’après les mesures réalisées après traitement.
+
+PU:REST ne démontre pas que n’importe quelle eau usée est buvable, ni qu’un brassage domestique peut remplacer une usine de purification. Elle prouve quelque chose de plus précis : dans cette chaîne contrôlée, une eau recyclée a satisfait les vérifications du projet et a pu devenir l’ingrédient principal d’une bière conventionnelle. Le produit est donc à la fois pilsner, prototype d’économie circulaire et expérience psychologique servie fraîche.`,
       "chapitres": [
         {
           "titre": "L’égout qui n’en est plus un",
@@ -326,7 +332,7 @@ PU:REST est ainsi autant une expérience de perception qu’un produit brassicol
       "recette": {
         "titre": "Le brassin après la station de traitement",
         "profilUnique": true,
-        "noteProfil": "Cette entrée décrit un objet brassicole singulier : elle ne constitue pas une recette-type à reproduire.",
+        "noteProfil": "La Pilsner dépend d’une installation pilote, de contrôles analytiques et d’autorisations ; aucune filtration domestique n’en offre l’équivalent.",
         "explicationProfil": "Pilsner de démonstration dont la spécificité documentée est l’emploi d’eau usée purifiée et contrôlée.",
         "maltsEtCereales": [
           "Malt biologique annoncé par le projet ; variété et composition du grist non publiées."
@@ -354,7 +360,7 @@ PU:REST est ainsi autant une expérience de perception qu’un produit brassicol
           "reference": "Sweden’s first beer brewed with recycled water",
           "type": "source_institutionnelle",
           "url": "https://www.ivl.se/english/ivl/press/press-releases/2018-05-24-swedens-first-beer-brewed-with-recycled-water.html",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Brewing4EU",
@@ -362,7 +368,7 @@ PU:REST est ainsi autant une expérience de perception qu’un produit brassicol
           "reference": "PU:REST — Sweden’s first beer brewed with purified wastewater",
           "type": "source_professionnelle",
           "url": "https://brewing4.eu/sustainability-initiatives/purest-swedens-first-beer-brewed-with-purified-waste-water/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -417,12 +423,14 @@ PU:REST est ainsi autant une expérience de perception qu’un produit brassicol
         "verresRecommandes": [],
         "libelle": "Non documenté"
       },
-      "description": "La fameuse « bière au pipi » qui n’en contient pas : l’urine de festivaliers a servi d’engrais pour l’orge. Le liquide corporel s’arrête donc au champ ; ce qui entre en brasserie est une céréale cultivée dans une boucle de recyclage des nutriments.",
-      "histoireEtOrigines": `Pisner est née du programme de « beercycling » associé au Roskilde Festival. Des dizaines de milliers de litres d’urine humaine ont été collectés puis utilisés comme ressource fertilisante pour des cultures d’orge. Plus tard, cette orge a rejoint le cycle brassicole chez Nørrebro Bryghus.
+      "description": "Pisner relie les toilettes du festival de Roskilde à un champ d’orge, puis ce champ à une brasserie. Les 54 000 litres d’urine collectés en 2015 ont servi de fertilisant ; ils n’ont jamais remplacé l’eau du brassin. Ce circuit de nutriments, baptisé « beercycling », est une histoire d’agronomie circulaire cachée derrière un calembour volontairement douteux.",
+      "histoireEtOrigines": `Au festival de Roskilde 2015, le Danish Agriculture & Food Council a collecté environ 54 000 litres d’urine auprès des visiteurs. L’opération répondait à un problème très matériel : l’urine contient notamment de l’azote et du phosphore utiles aux plantes, mais ces nutriments deviennent une charge lorsqu’ils partent dans le réseau d’assainissement. Le projet proposait de les remettre dans un cycle agricole au lieu de les traiter uniquement comme un déchet.
 
-Le nom fait volontairement tout ce qu’il peut pour que l’on imagine le pire. C’est efficace, mais faux si l’on conclut que l’urine a été versée dans la bière. Le procédé relève de l’agronomie : récupérer azote et nutriments au lieu de les perdre, faire pousser une céréale, maltage, puis brassage classique.
+Au printemps 2016, la matière collectée fut utilisée comme fertilisant sur une culture d’orge. La récolte annoncée atteignit onze tonnes d’orge brassicole. Après transformation de la céréale en malt, Nørrebro Bryghus produisit Pisner en 2017, avec l’ambition annoncée de remplir environ 60 000 bouteilles. Entre les urinoirs et la capsule se trouvent donc une saison culturale, une récolte, un maltage et un brassage : la distance compte autant que la provocation du nom.
 
-Pisner est donc une anomalie de chaîne d’approvisionnement, pas une recette de liquide corporel. Et cette correction est beaucoup plus intéressante que la blague initiale.`,
+La formule « bière faite avec de l’urine » est trompeuse si elle suggère un ajout direct dans le moût. L’urine a nourri le sol et la plante ; l’ingrédient arrivé à la brasserie était de l’orge. Le procédé se rapproche, dans sa logique, d’une céréale cultivée avec un fertilisant organique, même si la provenance humaine et collective rend le récit beaucoup plus mémorable.
+
+Le mot « beercycling » donne à l’expérience sa boucle parfaite : le public boit au festival, fournit des nutriments, puis retrouve ceux-ci indirectement dans une génération ultérieure de bière. Pisner n’est pas remarquable par une saveur corporelle documentée, mais par sa chaîne d’approvisionnement. Le calembour attire l’attention ; le champ explique ce qui s’est réellement passé.`,
       "chapitres": [
         {
           "titre": "Le champ a bu avant vous",
@@ -436,7 +444,7 @@ Pisner est donc une anomalie de chaîne d’approvisionnement, pas une recette d
       "recette": {
         "titre": "La recette commence dans le champ",
         "profilUnique": true,
-        "noteProfil": "Cette entrée décrit un objet brassicole singulier : elle ne constitue pas une recette-type à reproduire.",
+        "noteProfil": "L’urine fertilise l’orge au champ puis disparaît de la chaîne alimentaire ; elle n’est jamais un ajout de brassage.",
         "explicationProfil": "Pilsner dont l’originalité documentée réside dans l’origine agronomique de l’orge, et non dans un ajout d’urine au brassage.",
         "maltsEtCereales": [
           "Malt produit à partir d’orge cultivée sur des champs fertilisés avec l’urine collectée au Roskilde Festival."
@@ -464,7 +472,7 @@ Pisner est donc une anomalie de chaîne d’approvisionnement, pas une recette d
           "reference": "Danish brewery makes Pisner beer using music festival urine",
           "type": "source_presse",
           "url": "https://pitchfork.com/news/73397-danish-brewery-makes-pisner-beer-using-music-festival-urine/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Beer Street Journal",
@@ -472,7 +480,7 @@ Pisner est donc une anomalie de chaîne d’approvisionnement, pas une recette d
           "reference": "Nørrebro Bryghus Pisner",
           "type": "source_secondaire",
           "url": "https://beerstreetjournal.com/norrebro-bryghus-pisner/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -526,12 +534,14 @@ Pisner est donc une anomalie de chaîne d’approvisionnement, pas une recette d
         "verresRecommandes": [],
         "libelle": "Non documenté"
       },
-      "description": "Une bière islandaise de Þorri construite autour de testicules de baleine fumés à la bouse de mouton séchée. Le résumé semble écrit par une saga qui aurait raté la sortie vers la cuisine moderne, mais le produit et son ingrédient ont bien été commercialisés.",
-      "histoireEtOrigines": `Hvalur 2 est associée à Steðji Brewery et aux célébrations hivernales de Þorri, période durant laquelle des aliments islandais traditionnels très marqués reviennent sur les tables. La brasserie a choisi de pousser cette logique au maximum avec un ingrédient de baleine et une méthode de fumage faisant intervenir de la bouse de mouton séchée comme combustible.
+      "description": "Pour Hvalur 2, Steðji a salé puis fumé des testicules de rorqual commun au-dessus de bouse de mouton séchée avant de les intégrer à une bière de Þorri. L’ingrédient animal est réel ; la bouse sert de combustible, non d’assaisonnement direct. Derrière le raccourci spectaculaire se rencontrent une technique de fumage islandaise, une fête hivernale et un conflit contemporain sur la chasse à la baleine.",
+      "histoireEtOrigines": `Steðji a présenté Hvalur 2 au début de 2015 pour Þorri, saison festive d’hiver durant laquelle des préparations islandaises anciennes ou fortement identitaires reviennent au premier plan. La brasserie disait travailler les testicules de rorqual commun par salage et fumage, puis en employer dans la bière. La fumée provenait de bouse de mouton séchée, combustible historiquement utile dans un pays où le bois était rare. Ce détail n’est donc pas une seconde matière animale jetée dans la cuve : il décrit la source de fumée utilisée pour traiter la première.
 
-L’histoire est inséparable de la controverse liée à l’exploitation de la baleine. Une Brassopédie sérieuse ne peut donc pas réduire la bière à « haha, des testicules » : elle doit aussi rappeler que l’ingrédient animal se situe dans un contexte culturel, réglementaire et éthique débattu.
+La curiosité culinaire ne peut toutefois être séparée de l’origine du rorqual. L’Islande pratique la chasse commerciale à la baleine en formulant une réserve au moratoire de la Commission baleinière internationale. Le gouvernement et les opérateurs l’ont présentée comme une exploitation encadrée ; des organisations de conservation et de protection animale la contestent sur les plans écologique, éthique et du bien-être lors de la mise à mort. Le statut mondial du rorqual commun est aujourd’hui « vulnérable » sur la Liste rouge de l’UICN — et non plus « en danger » comme l’indiquaient de nombreux articles de 2015 — tandis que d’autres législations nationales peuvent conserver des classements plus sévères.
 
-Le bizarre, ici, est un paysage complet : mer nord-atlantique, manque historique de bois, fumage, hiver et provocation commerciale.`,
+Hvalur 2 fut ainsi vendue comme prolongement de pratiques alimentaires nord-atlantiques, mais elle fonctionnait aussi comme objet publicitaire calculé. La référence à Þorri et au fumage traditionnel donne un contexte réel ; elle ne transforme pas automatiquement toute décision moderne de chasse en tradition incontestable.
+
+La bière exige donc trois distinctions. Le testicule est l’ingrédient annoncé. La bouse est le combustible du fumoir. La légitimité de la chasse reste un débat, même lorsque la matière a été acquise dans le cadre légal islandais revendiqué par le producteur. Le verre réunit ces plans sans les résoudre.`,
       "chapitres": [
         {
           "titre": "La fumée vient du combustible, pas d’une poignée de fumier",
@@ -545,7 +555,7 @@ Le bizarre, ici, est un paysage complet : mer nord-atlantique, manque historique
       "recette": {
         "titre": "Ce que l’Islande a réellement mis dans l’histoire",
         "profilUnique": true,
-        "noteProfil": "Cette entrée décrit un objet brassicole singulier : elle ne constitue pas une recette-type à reproduire.",
+        "noteProfil": "L’emploi de produits de baleine soulève des enjeux de conservation, de droit et d’éthique ; le documenter ne vaut pas recommandation de le reproduire.",
         "explicationProfil": "Bière saisonnière fumée à 5,4 % dont l’ingrédient emblématique est un produit de baleine fumé selon une méthode traditionnelle revendiquée.",
         "maltsEtCereales": [
           "Composition maltée non publiée dans les sources retenues."
@@ -574,7 +584,7 @@ Le bizarre, ici, est un paysage complet : mer nord-atlantique, manque historique
           "reference": "Whale testicle beer anyone?",
           "type": "source_presse",
           "url": "https://icelandmonitor.mbl.is/news/culture_and_living/2015/01/12/whale_testicle_beer_anyone/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Barnivore",
@@ -582,7 +592,15 @@ Le bizarre, ici, est un paysage complet : mer nord-atlantique, manque historique
           "reference": "Steðji Brewery Hvalur 2 Þorraöl — vérification produit",
           "type": "source_secondaire",
           "url": "https://www.barnivore.com/products/61118-steji-brewery-hvalur-2-orral-54-contains-sheep-shit-smoked-whale-testicles",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "International Whaling Commission",
+          "edition": null,
+          "reference": "Fin whale — conservation status and international context",
+          "type": "source_institutionnelle",
+          "url": "https://iwc.int/about-whales/whale-species/fin-whale",
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -635,12 +653,14 @@ Le bizarre, ici, est un paysage complet : mer nord-atlantique, manque historique
         "verresRecommandes": [],
         "libelle": "Non documenté"
       },
-      "description": "Un stout du Colorado brassé avec environ 25 livres de testicules de taureau rôtis. Tout a commencé comme un poisson d’avril ; le problème, ou le génie, est que Wynkoop a fini par réellement brasser la blague.",
-      "histoireEtOrigines": `L’expression américaine « Rocky Mountain oysters » ne désigne pas des huîtres mais des testicules de taureau préparés comme spécialité culinaire. Wynkoop Brewing Company s’en est servi pour un canular de poisson d’avril. La réaction du public a été suffisamment forte pour que la brasserie commette l’acte irréversible : produire le stout pour de vrai.
+      "description": "Wynkoop annonça d’abord Rocky Mountain Oyster Stout comme un poisson d’avril, en jouant sur le nom régional des testicules de taureau cuisinés. Le public réclama la bière imaginaire ; la brasserie du Colorado répondit par un vrai stout contenant 25 livres de testicules tranchés et rôtis. La plaisanterie dut alors apprendre à tenir debout dans un verre.",
+      "histoireEtOrigines": `Dans l’Ouest américain, les « Rocky Mountain oysters » ne viennent ni de la mer ni d’un mollusque : ce sont des testicules de taureau, généralement pelés, tranchés et frits ou rôtis. Wynkoop Brewing Company exploita ce double sens dans une vidéo de poisson d’avril en 2012. L’annonce devait rester une blague de brasserie. Les réactions enthousiastes convainquirent pourtant l’équipe de produire une première cuvée pour de bon à l’automne suivant.
 
-Les descriptions de lancement parlent d’environ 25 livres de testicules tranchés et rôtis, associés à une base de stout comprenant malts du Colorado, orge torréfiée, plusieurs malts spéciaux et du Styrian Goldings. La bière est donc plus documentée que beaucoup de curiosités de la collection.
+Le brassin initial de huit barils utilisa 25 livres de testicules frais, découpés puis rôtis. La recette publiée pour la mise en canette en 2013 décrit une base de foreign-style stout avec malts du Colorado, orge torréfiée, sept malts spéciaux et houblon Styrian Goldings. Wynkoop annonçait alors 7,5 % d’alcool et inventa même l’unité « trois BPB », pour « balls per barrel ». Sous le jeu de mots, le choix de rôtir l’ingrédient l’inscrivait dans le profil chocolaté, café et grillé d’un stout plutôt que de lui demander d’exister seul.
 
-Certaines fiches ultérieures donnent des valeurs d’alcool différentes ; la Brassopédie rattache le 7,5 % à l’édition de lancement documentée plutôt que d’en faire une constante éternelle.`,
+L’histoire illustre une trajectoire fréquente dans la bière expérimentale : une idée conçue pour attirer l’attention devient un produit que des dégustateurs jugeront sur son équilibre. Le testicule fournit le titre et une composante savoureuse revendiquée, mais les malts sombres, l’amertume et la texture doivent encore produire une bière cohérente.
+
+Les archives ne donnent pas toutes le même titre alcoométrique : la toute première présentation autour du festival de 2012 est parfois annoncée à 7 %, tandis que la version canettée documentée par CraftBeer.com l’est à 7,5 %. Il s’agit vraisemblablement d’éditions ou de mesures distinctes, non d’un chiffre universel. Ce qui reste stable est le retournement fondateur : le public a pris le canular au sérieux, et Wynkoop a fini par devoir le brasser.`,
       "chapitres": [
         {
           "titre": "Quand le poisson d’avril demande un fermenteur",
@@ -654,7 +674,7 @@ Certaines fiches ultérieures donnent des valeurs d’alcool différentes ; la B
       "recette": {
         "titre": "Du rodéo au mash tun",
         "profilUnique": true,
-        "noteProfil": "Cette entrée décrit un objet brassicole singulier : elle ne constitue pas une recette-type à reproduire.",
+        "noteProfil": "La recette de lancement documente 25 livres de testicules préparés professionnellement ; dosage, hygiène et version exacte restent indissociables du lot commercial.",
         "explicationProfil": "Stout expérimental dont la recette de lancement est partiellement documentée.",
         "maltsEtCereales": [
           "Malts du Colorado.",
@@ -684,7 +704,7 @@ Certaines fiches ultérieures donnent des valeurs d’alcool différentes ; la B
           "reference": "Wynkoop Brewing releases Rocky Mountain Oyster Stout",
           "type": "source_professionnelle",
           "url": "https://www.craftbeer.com/news/wynkoop-brewing-releases-cans-of-rocky-mountain-oyster-stout",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Guys Drinking Beer",
@@ -692,7 +712,7 @@ Certaines fiches ultérieures donnent des valeurs d’alcool différentes ; la B
           "reference": "Wynkoop Rocky Mountain Oyster Stout review",
           "type": "source_secondaire",
           "url": "https://www.guysdrinkingbeer.com/wynkoop-rocky-mountain-oyster-stout-review/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "BeerAdvocate",
@@ -700,7 +720,7 @@ Certaines fiches ultérieures donnent des valeurs d’alcool différentes ; la B
           "reference": "Rocky Mountain Oyster Stout — versions et données de produit",
           "type": "source_secondaire",
           "url": "https://www.beeradvocate.com/beer/profile/111/83843/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -755,12 +775,14 @@ Certaines fiches ultérieures donnent des valeurs d’alcool différentes ; la B
         "verresRecommandes": [],
         "libelle": "Non documenté"
       },
-      "description": "La version Dogfish Head d’une chicha andine remet au centre un geste ancestral : mâcher une partie du maïs afin que les enzymes salivaires commencent à transformer l’amidon. C’est une pratique culturelle réelle, pas un concours de grimaces de brasserie.",
-      "histoireEtOrigines": `Dogfish Head a brassé Chicha à partir de 2009 dans sa série Ancient Ales, consacrée aux boissons inspirées de pratiques historiques et traditionnelles. Pour ce brassin, plus d’une centaine de collaborateurs ont participé à la mastication de maïs violet péruvien. L’image est spectaculaire ; la biochimie l’est aussi : l’amylase salivaire commence à découper l’amidon en molécules plus accessibles à la fermentation.
+      "description": "Chez Dogfish Head, plus de cent personnes ont mâché du maïs violet péruvien pour amorcer la transformation de son amidon avant brassage. La salive intervient comme outil enzymatique, puis le moût est bouilli et stérilisé. Cette Chicha américaine n’invente pas un défi de brasserie : elle adapte, avec fraises, céréales maltées et levures sélectionnées, une famille de pratiques andines toujours vivantes.",
+      "histoireEtOrigines": `Dogfish Head a brassé sa première Chicha en 2009 dans le cadre des Ancient Ales, une série qui transpose des boissons historiques ou traditionnelles dans une brasserie américaine contemporaine. Pour les versions documentées, plus de cent salariés ont participé à la préparation du maïs violet péruvien : grain humidifié en bouche, mastiqué puis recraché avant le jour de brassage. Le geste frappe l’imagination, mais sa fonction est biochimique. Les amylases salivaires commencent à découper l’amidon du maïs en sucres plus accessibles.
 
-La brasserie documente également du maïs malté, de l’orge maltée, des fraises et un assemblage de levures. Le moût est ensuite bouilli, ce qui est un détail sanitaire essentiel et une bonne antidote aux caricatures de « bière à la salive ».
+La matière ainsi préparée rejoint du maïs malté et de l’orge maltée dans la cuve. Le moût est ensuite bouilli, étape que Dogfish Head souligne pour répondre à l’inquiétude sanitaire : les micro-organismes du prélèvement humain ne constituent pas la flore de fermentation finale. Après refroidissement, certaines versions ont reçu des fraises puis un assemblage de levures. La cuvée décrite aujourd’hui est annoncée à 3,1 %, tandis qu’une version 2014, avec maïs jaune, maïs violet, poivre rose péruvien et corossol, atteignait 5,7 %. « Chicha » désigne donc ici plusieurs brassins apparentés, pas une formule immuable.
 
-Présenter cette bière exige du respect : le procédé s’inspire de traditions andines bien antérieures à la mode craft américaine. L’étrangeté est celle de notre regard moderne, pas celle d’une pratique qui possédait sa propre logique technique et sociale.`,
+La bière américaine ne doit pas devenir le point de départ de l’histoire. Dans diverses communautés d’Amérique du Sud et d’Amérique centrale, des boissons de maïs mastiqué, fermentées dans des récipients locaux et parfois aromatisées de fruits ou d’épices, ont une histoire bien antérieure à Dogfish Head. Les pratiques, noms et techniques varient selon les lieux ; une seule recreation craft ne les résume pas.
+
+L’intérêt de ce brassin tient précisément à la rencontre entre deux chaînes techniques. La mastication fournit une saccharification partielle héritée d’un geste humain. La brasserie moderne ajoute maltage, ébullition, refroidissement et inoculation contrôlée. Le résultat n’est ni une « bière à la salive » laissée crue, ni une reproduction ethnographique parfaite : c’est une adaptation déclarée, dont la meilleure surprise est qu’un geste perçu comme étrange possède une logique enzymatique très claire.`,
       "chapitres": [
         {
           "titre": "La bouche comme outil enzymatique",
@@ -774,7 +796,7 @@ Présenter cette bière exige du respect : le procédé s’inspire de tradition
       "recette": {
         "titre": "La chicha Dogfish, sans caricature",
         "profilUnique": true,
-        "noteProfil": "Cette entrée décrit un objet brassicole singulier : elle ne constitue pas une recette-type à reproduire.",
+        "noteProfil": "La mastication collective appartient à un brassin Dogfish encadré et ensuite bouilli ; elle ne résume ni toutes les chichas andines ni une pratique domestique sûre.",
         "explicationProfil": "Interprétation moderne documentée d’une chicha de maïs, brassée à 3,1 % ABV dans la série Ancient Ales.",
         "maltsEtCereales": [
           "Maïs violet péruvien dont une partie est mâchée.",
@@ -805,7 +827,7 @@ Présenter cette bière exige du respect : le procédé s’inspire de tradition
           "reference": "Chicha — Ancient Ale",
           "type": "source_producteur",
           "url": "https://dogfishalehouse.com/beers/chicha/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Dogfish Head",
@@ -813,7 +835,7 @@ Présenter cette bière exige du respect : le procédé s’inspire de tradition
           "reference": "Chicha",
           "type": "source_producteur",
           "url": "https://www.dogfish.com/drink/beer/chicha",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -867,12 +889,14 @@ Présenter cette bière exige du respect : le procédé s’inspire de tradition
         "verresRecommandes": [],
         "libelle": "Non documenté"
       },
-      "description": "Une Belgian-style blonde poussée à 55 % ABV par concentration à froid, aromatisée notamment avec orties et baies de genévrier, puis commercialisée dans des taxidermies. À ce niveau, la bouteille a quitté le rayon bière pour entrer dans une performance d’art punk avec bouchon.",
-      "histoireEtOrigines": `The End of History apparaît en 2010 dans la période où BrewDog participe à une véritable course aux records d’alcool. La brasserie part d’une blonde belge forte, la concentre par congélation et atteint 55 % ABV. Le chiffre aurait déjà suffi à la rendre célèbre ; BrewDog ajoute une présentation devenue iconique : chaque bouteille est installée dans un petit animal taxidermisé.
+      "description": "À 55 % d’alcool, The End of History concentre une ale belge par le froid, ajoute orties et genévrier, puis place chaque bouteille dans une taxidermie. Le liquide participait à la course au record engagée par BrewDog ; l’écureuil ou l’hermine qui l’enveloppait transformait l’achat en sculpture controversée. Ici, procédé, prix et emballage rivalisent pour savoir lequel est le plus excessif.",
+      "histoireEtOrigines": `The End of History apparaît en juillet 2010, au cœur de la surenchère alcoolique qui oppose alors BrewDog à la brasserie allemande Schorschbräu. Après Tactical Nuclear Penguin à 32 % et Sink the Bismarck! à 41 %, l’entreprise écossaise revendique 55 % pour une ale de type belge concentrée à très basse température. L’eau gèle avant l’alcool ; en retirant plusieurs fois la glace, le brasseur réduit le volume et augmente la proportion d’éthanol ainsi que l’intensité des composés restants.
 
-Les communications de la brasserie évoquent des écureuils et des hermines/stoats issus de taxidermie, ainsi que des ingrédients plus discrets mais réellement brassicoles : orties des Highlands et baies de genévrier. La recette publiée ultérieurement par BrewDog précise aussi malt Extra Pale, plusieurs houblons et une levure belge.
+La recette rendue publique par BrewDog part d’Extra Pale malt, de houblons Nelson Sauvin, Centennial et Amarillo, et de levure Belgian Ardennes. Orties et baies de genévrier sont ajoutées en fin de procédé. La documentation indique une température descendant jusqu’à environ −70 °C pour la concentration. Ces données décrivent une base réellement brassée, mais le titre final place le produit à la frontière entre bière, eisbock extrême et boisson assimilable à un spiritueux selon les usages réglementaires.
 
-Le résultat est une bière où trois histoires se superposent : technique de concentration, provocation visuelle et critique ironique du luxe. Le liquide est extrême ; le contenant s’est assuré qu’on parlerait de lui même sans l’ouvrir.`,
+BrewDog ne s’est pas contenté du record. Les douze bouteilles de l’édition initiale furent installées dans des écureuils, hermines et un lièvre naturalisés, présentés comme des animaux déjà morts avant leur collecte. Ce dispositif provoqua immédiatement des critiques sur l’usage d’animaux comme emballage et donna au produit une visibilité bien supérieure à son minuscule volume. Le prix, entre 500 et 700 livres selon l’animal, complétait la performance de luxe punk.
+
+Le nom emprunte au livre de Francis Fukuyama, tandis que la mise en scène prétendait clore la course aux bières fortes. L’histoire lui a rapidement donné tort : d’autres records suivirent. La valeur documentaire de The End of History ne réside donc pas dans une couronne éternelle, mais dans la réunion très datée de trois obsessions de la scène craft de 2010 : concentration extrême, provocation visuelle et rareté transformée en spectacle.`,
       "chapitres": [
         {
           "titre": "Un écureuil n’est pas un ingrédient",
@@ -886,7 +910,7 @@ Le résultat est une bière où trois histoires se superposent : technique de co
       "recette": {
         "titre": "Sous la fourrure, une recette documentée",
         "profilUnique": true,
-        "noteProfil": "Cette entrée décrit un objet brassicole singulier : elle ne constitue pas une recette-type à reproduire.",
+        "noteProfil": "La taxidermie concerne douze contenants de 2010 ; la concentration à très basse température constitue une opération distincte, spécialisée et réglementée.",
         "explicationProfil": "BrewDog a publié une recette rétrospective permettant d’identifier l’architecture de la bière, même si l’échelle industrielle et les détails de concentration ne se résument pas à un clone domestique.",
         "maltsEtCereales": [
           "Malt Extra Pale comme base documentée."
@@ -906,7 +930,7 @@ Le résultat est une bière où trois histoires se superposent : technique de co
         ],
         "profilEau": "Profil d’eau non documenté dans les sources retenues.",
         "empatage": "La recette BrewDog publiée indique un empâtage autour de 65 °C pendant 75 minutes.",
-        "ebullitionEtHoublonnage": "Houblonnage selon la recette BrewDog ; la chronologie exacte doit être consultée dans la fiche originale pour toute reproduction.",
+        "ebullitionEtHoublonnage": "Houblonnage selon la recette BrewDog ; la chronologie exacte doit être consultée dans la publication originale pour toute reproduction.",
         "fermentation": "Fermentation haute de base belge, suivie d’un processus distinct de concentration à froid.",
         "maturation": "Concentration répétée par congélation à très basse température ; le procédé exact de l’édition commerciale n’est pas entièrement public.",
         "profilRecherche": "Une bière extrêmement concentrée où l’on sépare clairement la technique du liquide et la performance taxidermique du conditionnement."
@@ -918,7 +942,7 @@ Le résultat est une bière où trois histoires se superposent : technique de co
           "reference": "The End of History — article d’archive",
           "type": "source_producteur",
           "url": "https://www.brewdog.com/blog/the-end-of-history",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "BrewDog",
@@ -926,7 +950,7 @@ Le résultat est une bière où trois histoires se superposent : technique de co
           "reference": "DIY Dog — recette The End of History",
           "type": "source_producteur",
           "url": "https://brewdogrecipes.com/recipes/the-end-of-history",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Paste Magazine",
@@ -934,7 +958,7 @@ Le résultat est une bière où trois histoires se superposent : technique de co
           "reference": "BrewDog plans to bottle a 55% beer in taxidermy",
           "type": "source_presse",
           "url": "https://www.pastemagazine.com/drink/brewdog-plans-to-bottle-a-55-beer-in-a-taxidermy-s",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -988,12 +1012,14 @@ Le résultat est une bière où trois histoires se superposent : technique de co
         "verresRecommandes": [],
         "libelle": "Non documenté"
       },
-      "description": "La bière qui a demandé à la pizza Margherita de quitter son assiette pour participer au brassage : tomate, ail, basilic, origan et pâte de blé ont été décrits dans l’ancienne recette du producteur. Une pizzeria familiale transformée en annexe du mash tun.",
-      "histoireEtOrigines": `Mamma Mia! Pizza Beer est née dans l’Illinois chez Tom et Athena Seefurth, autour d’une idée aussi simple qu’indéfendable face à un puriste : faire entrer les saveurs d’une pizza dans une bière. Le produit a acquis une célébrité Internet durable avant de disparaître du marché, ce qui a laissé derrière lui plus de récits que de bouteilles fraîches.
+      "description": "Tom et Athena Seefurth ont construit Mamma Mia! autour des assaisonnements d’une pizza : tomate, ail, basilic et origan dans une ale légère pensée pour la table. Certaines archives mentionnent même une pizza entière dans un brassin de brewpub, mais la formule commerciale reposait surtout sur les ingrédients séparés. La légende est plus simple que l’histoire, qui commence comme un accident de homebrewing familial.",
+      "histoireEtOrigines": `Vers 2005, Tom Seefurth expérimentait dans l’Illinois avec des ales d’inspiration belge et les herbes de son jardin : basilic, origan, romarin, sauge et menthe. Une voisine trouva qu’une saison ainsi aromatisée évoquait une « pizza beer ». Le nom resta. Lors d’un week-end pluvieux de 2006, Tom, Athena et leur voisin Warren ajoutèrent à l’idée les marqueurs les plus évidents d’une pizzeria, tomates et ail compris, avec une vieille dose de levure de saison.
 
-L’ancienne description du producteur, reproduite par BeerAdvocate, est plus précise que la simple légende : une pizza Margherita composée notamment de croûte de blé, tomate, origan, basilic et ail était immergée dans le mash comme un grand sachet d’infusion, puis retirée. Le liquide filtré poursuivait son chemin vers la cuve d’ébullition avec houblons et épices.
+Le premier brassin faillit s’arrêter sur une fermentation trop lente. Seefurth raconte avoir interrompu un soutirage prématuré, ajouté du sucre candi et une levure de champagne, puis laissé la bière terminer. Le résultat accompagna si bien une pizza que le couple l’inscrivit en concours amateur. Des récompenses ouvrirent la porte d’un brassin Pro-Am chez Walter Payton’s Roundhouse, puis d’une production sous contrat chez Sprecher à partir de 2008.
 
-La prudence reste nécessaire : cette documentation est archivistique et secondaire aujourd’hui, mais elle est suffisamment détaillée pour distinguer la vraie méthode rapportée de l’image simpliste d’une part de pizza flottant éternellement dans une bouteille.`,
+La recette changea d’échelle avec difficulté : ail à hacher, matières végétales capables d’obstruer l’installation et proportions gardées comme secret commercial. Le témoignage direct du créateur établit solidement l’usage de tomate, basilic, origan et ail. Certaines descriptions archivées d’une version de brewpub ajoutent qu’une pizza Margherita entière fut immergée comme un sachet d’infusion ; ce geste ne doit pas être présenté comme la méthode constante de toutes les bouteilles.
+
+Mamma Mia! était vendue comme « culinary beer », conçue pour l’accord et la cuisine plus que comme imitation liquide d’une part de pizza. Sa petite entreprise connut des ruptures, des contrats précaires et une distribution irrégulière avant que la bière disparaisse du marché. Internet a retenu le titre et l’image impossible ; l’histoire humaine est celle de deux homebrewers qui ont passé des années à transformer une blague sensorielle en produit viable. Tom lui-même insistait sur la nuance : une bière faite avec des ingrédients de pizza n’est pas nécessairement une bière censée goûter la sauce tomate.`,
       "chapitres": [
         {
           "titre": "La Margherita en sachet de thé",
@@ -1001,13 +1027,13 @@ La prudence reste nécessaire : cette documentation est archivistique et seconda
         },
         {
           "titre": "Une bière disparue, une recette qui survit",
-          "texte": "Mamma Mia! n’est plus un produit courant. Sa place dans la collection vient aussi de cette condition de curiosité perdue : elle existe désormais surtout par des archives, des fiches de dégustation et les souvenirs d’une époque où la scène craft découvrait qu’Internet récompensait très efficacement les idées impossibles à expliquer en une phrase sobre."
+          "texte": "Mamma Mia! n’est plus un produit courant. Son intérêt tient aussi à cette condition de curiosité perdue : elle existe désormais surtout par des archives, des comptes rendus de dégustation et les souvenirs d’une époque où la scène craft découvrait qu’Internet récompensait très efficacement les idées impossibles à expliquer en une phrase sobre."
         }
       ],
       "recette": {
         "titre": "Le four à pizza rencontre la cuve",
         "profilUnique": true,
-        "noteProfil": "Cette entrée décrit un objet brassicole singulier : elle ne constitue pas une recette-type à reproduire.",
+        "noteProfil": "Les archives décrivent plusieurs itérations : la pizza entière appartient à certains essais, tandis que tomate, ail et aromates caractérisent la formule commercialisée.",
         "explicationProfil": "La méthode historique du producteur est connue par des archives reprises dans des fiches secondaires ; les dosages et paramètres complets ne sont pas disponibles.",
         "maltsEtCereales": [
           "Base de malt non documentée avec précision.",
@@ -1040,7 +1066,7 @@ La prudence reste nécessaire : cette documentation est archivistique et seconda
           "reference": "Mamma Mia! Pizza Beer — fiche et ancienne description du producteur",
           "type": "source_archive_secondaire",
           "url": "https://www.beeradvocate.com/beer/profile/16836/41127/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Punch",
@@ -1048,7 +1074,15 @@ La prudence reste nécessaire : cette documentation est archivistique et seconda
           "reference": "The rise and fall of Mamma Mia Pizza Beer",
           "type": "source_presse",
           "url": "https://punchdrink.com/articles/rise-and-fall-mamma-mia-pizza-beer-chicago/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Beer & Whiskey Brothers",
+          "edition": null,
+          "reference": "Entretien avec le créateur Tom Seefurth",
+          "type": "source_entretien",
+          "url": "https://beerandwhiskeybros.com/2012/10/04/an-interview-with-mamma-mia-pizza-beer-creator-tom-seefurth/",
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -1102,12 +1136,16 @@ La prudence reste nécessaire : cette documentation est archivistique et seconda
         "verresRecommandes": [],
         "libelle": "Non documenté"
       },
-      "description": "Une farmhouse ale du Maine brassée avec des homards vivants et du sel marin. L’accord bière-fruits de mer a cessé d’être un accord : le crustacé a obtenu un badge d’accès à la brasserie.",
-      "histoireEtOrigines": `Saison dell’Aragosta naît chez Oxbow dans le Maine en collaboration avec Birrificio del Ducato. La brasserie la décrit aujourd’hui comme une farmhouse ale vieillie en cuve inox, brassée avec du homard du Maine et du sel marin. L’identité côtière n’est donc pas un simple dessin de phare sur l’étiquette : elle entre effectivement dans le processus.
+      "description": "Saison dell’Aragosta met le littoral du Maine dans une farmhouse ale : des homards vivants et du sel marin participent au brassage, puis la bière passe par une fermentation mixte et un élevage en inox. Le crustacé attire les gros titres, mais le projet cherche moins le défi alimentaire qu’une traduction saline, acidulée et très littérale du lieu où travaille Oxbow.",
+      "histoireEtOrigines": `Oxbow Brewing Company a créé Saison dell’Aragosta avec la brasserie italienne Birrificio del Ducato au milieu des années 2010. Le titre signifie simplement « saison au homard ». Sur la ferme-brasserie de Newcastle, dans le Maine, l’idée s’inscrit dans une géographie précise : agriculture, côte atlantique et fermentation rustique se rencontrent dans une bière qui ne se contente pas d’afficher un phare sur son étiquette.
 
-La bière se situe autour de 4,5 % ABV et Oxbow la classe dans son univers de fermentations mixtes. L’idée du homard vivant attire évidemment toute la lumière, mais le sel marin est tout aussi important pour comprendre la cohérence gastronomique du projet : saline, littorale et sèche plutôt que caricaturalement « goût de crustacé ».
+Oxbow décrit le produit comme une farmhouse ale brassée avec des homards vivants du Maine et du sel marin, puis vieillie en cuve inox. Les présentations du lancement parlent d’une saison inspirée par la gose ; la page actuelle choisit le terme plus large de farmhouse ale à fermentation mixte. Les deux formulations éclairent le résultat sans être identiques : l’une désigne l’intention saline et acidulée, l’autre la famille de production dans laquelle Oxbow classe aujourd’hui la bière.
 
-C’est une curiosité qui ressemble moins à un défi que certaines cartes voisines : dans un port du Maine, le homard est extravagant dans la cuve mais parfaitement logique dans le paysage.`,
+Le homard intervient réellement, mais les sources du producteur ne publient ni quantité stable ni calendrier complet d’ajout. Il serait donc imprudent de construire une recette détaillée ou de garantir un goût de chair de crustacé. Les dégustations rapportent surtout acidité, salinité, citron et caractère fermier ; ce sont des observations de verres particuliers, pas une analyse universelle de l’effet du homard.
+
+La présence de l’animal soulève aussi une question souvent effacée par l’humour : la bière n’est ni végétarienne ni végane, et l’emploi de homards vivants appartient à un choix culinaire qui peut être contesté. Oxbow le présente comme une extension des traditions alimentaires locales.
+
+Saison dell’Aragosta fonctionne ainsi comme une bière de terroir poussée jusqu’au littéral. Le sel apporte une donnée gustative intelligible, le homard une matière côtière et un récit spectaculaire, la fermentation mixte une charpente acidulée. L’insolite ne tombe pas du ciel : il remonte du casier à homards voisin.`,
       "chapitres": [
         {
           "titre": "Le homard n’est pas une mascotte",
@@ -1115,19 +1153,19 @@ C’est une curiosité qui ressemble moins à un défi que certaines cartes vois
         },
         {
           "titre": "Farmhouse ale, mais avec marée haute",
-          "texte": "Le mot « saison » du nom est souvent utilisé pour la décrire, mais la fiche actuelle d’Oxbow parle plus largement de farmhouse ale à fermentation mixte. Cette précision est utile : la singularité de la bière n’annule pas son architecture brassicole, elle la déplace vers une lecture de terroir côtier très littérale."
+          "texte": "Le mot « saison » du nom est souvent utilisé pour la décrire, mais la page actuelle d’Oxbow parle plus largement de farmhouse ale à fermentation mixte. Cette précision est utile : la singularité de la bière n’annule pas son architecture brassicole, elle la déplace vers une lecture de terroir côtier très littérale."
         }
       ],
       "recette": {
         "titre": "Le brassin qui a pris le large",
         "profilUnique": true,
-        "noteProfil": "Cette entrée décrit un objet brassicole singulier : elle ne constitue pas une recette-type à reproduire.",
+        "noteProfil": "Le homard vivant et le sel sont documentés par Oxbow ; sécurité alimentaire, éthique animale et fermentation mixte restent propres au producteur.",
         "explicationProfil": "Farmhouse ale à fermentation mixte, 4,5 % ABV, documentée par Oxbow avec homard du Maine et sel marin.",
         "maltsEtCereales": [
-          "Céréales de base non détaillées dans la fiche publique actuelle."
+          "Céréales de base non détaillées dans la page publique actuelle."
         ],
         "houblons": [
-          "Houblons et amertume non détaillés par Oxbow dans la fiche publique retenue."
+          "Houblons et amertume non détaillés par Oxbow dans la page publique retenue."
         ],
         "levuresEtMicroorganismes": [
           "Fermentation mixte annoncée par Oxbow ; composition microbienne non publiée."
@@ -1150,7 +1188,7 @@ C’est une curiosité qui ressemble moins à un défi que certaines cartes vois
           "reference": "Saison dell’Aragosta",
           "type": "source_producteur",
           "url": "https://oxbowbeer.com/beer/saison-dellaragosta/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Atlas Obscura",
@@ -1158,7 +1196,7 @@ C’est une curiosité qui ressemble moins à un défi que certaines cartes vois
           "reference": "Lobster Beer",
           "type": "source_secondaire",
           "url": "https://www.atlasobscura.com/foods/lobster-beer",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -1209,12 +1247,14 @@ C’est une curiosité qui ressemble moins à un défi que certaines cartes vois
         "verresRecommandes": [],
         "libelle": "Non documenté"
       },
-      "description": "Un imperial oatmeal stout au cà phê Chồn vietnamien, café produit à partir de grains passés par le système digestif de civettes. Le brunch devient une dissertation sur le luxe, la fermentation et la trajectoire très personnelle d’un grain de café.",
-      "histoireEtOrigines": `Beer Geek Brunch Weasel appartient à la famille de stouts massifs qui ont rendu Mikkeller célèbre. Sa singularité vient du cà phê Chồn, café vietnamien associé au passage des grains dans le système digestif de civettes avant collecte, nettoyage, torréfaction et infusion. La bière affiche 10,9 % ABV ; les fiches de référence la placent autour de 65 IBU.
+      "description": "Beer Geek Brunch Weasel associe un imperial oatmeal stout au cà phê Chồn vietnamien, café issu de fruits passés par le système digestif de civettes. Les grains sont récupérés, nettoyés et torréfiés avant d’entrer dans la bière : l’animal reste en amont. Ce luxe fermentaire apporte aussi une question moins confortable sur la captivité et la traçabilité de la filière.",
+      "histoireEtOrigines": `Mikkeller lança Beer Geek Brunch Weasel en 2008 dans le prolongement de ses stouts au café et à l’avoine. La bière, annoncée autour de 10,9 % d’alcool, doit son nom et sa rareté au cà phê Chồn. Des civettes consomment les fruits mûrs du caféier ; les grains non digérés sont récupérés dans leurs excréments, lavés, séchés puis torréfiés. Ce sont ces grains transformés, non les déjections elles-mêmes, qui deviennent l’ingrédient brassicole.
 
-Le procédé du café de civette est souvent vendu sous le vocabulaire du rare et du précieux, mais il soulève aussi des questions éthiques lorsque les animaux sont maintenus en captivité pour produire davantage. Mikkeller a communiqué sur la recherche d’un approvisionnement plus responsable, rappelant qu’un ingrédient spectaculaire possède parfois une histoire moins photogénique que son prix au kilo.
+Une confusion fréquente assimile automatiquement le produit au kopi luwak indonésien. En 2013, Mikkeller a précisé employer une variante vietnamienne, cà phê Chồn, et non le café indonésien. La brasserie disait rechercher son caractère peu amer pour compléter le stout et travailler depuis l’origine avec un fournisseur qu’elle présentait comme respectueux des animaux. Cette déclaration établit la position du producteur ; elle ne remplace pas un audit indépendant de chaque lot ni une garantie générale sur la filière.
 
-Dans le verre, le café est un ingrédient brassicole ; la civette, elle, reste en amont de la chaîne.`,
+Le café de civette a acquis une valeur très élevée grâce à sa rareté et au récit d’une sélection naturelle des fruits. L’augmentation de la demande a toutefois été associée à des élevages en cages et à des pratiques contestées. La provenance n’est donc pas un simple détail exotique : elle détermine si l’histoire relève de la collecte traditionnelle, de la production captive ou d’un mélange difficile à tracer.
+
+Dans la bière, l’avoine, les malts noirs, l’alcool élevé et le café forment une architecture de brunch très lisible. Le passage par la civette ne crée pas une nouvelle fermentation dans la cuve ; il intervient durant la transformation du fruit de café avant torréfaction. Beer Geek Brunch Weasel est ainsi simultanément un stout, un produit de luxe et un cas d’école sur les limites d’un argument d’approvisionnement. Le grain peut être suivi jusqu’à l’animal dans le récit ; la responsabilité exige de continuer le trajet jusqu’aux conditions de production.`,
       "chapitres": [
         {
           "titre": "Le café a déjà fait un voyage",
@@ -1228,7 +1268,7 @@ Dans le verre, le café est un ingrédient brassicole ; la civette, elle, reste 
       "recette": {
         "titre": "Un brunch noir à 10,9 %",
         "profilUnique": true,
-        "noteProfil": "Cette entrée décrit un objet brassicole singulier : elle ne constitue pas une recette-type à reproduire.",
+        "noteProfil": "Mikkeller identifie le cà phê Chồn vietnamien et relaie des garanties de fournisseur ; celles-ci ne remplacent pas un audit indépendant du bien-être animal.",
         "explicationProfil": "Imperial/oatmeal stout au café vietnamien cà phê Chồn. La base précise reste partiellement propriétaire.",
         "maltsEtCereales": [
           "Base d’imperial oatmeal stout : présence d’avoine documentée par la désignation de la bière ; composition complète des malts non publiée dans les sources retenues."
@@ -1256,7 +1296,7 @@ Dans le verre, le café est un ingrédient brassicole ; la civette, elle, reste 
           "reference": "Beer Geek Brunch Weasel — histoire du café",
           "type": "source_producteur",
           "url": "https://www.mikkeller.com/news/20130919beer-geek-brunch-weasel",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Beer Galaxy",
@@ -1264,7 +1304,7 @@ Dans le verre, le café est un ingrédient brassicole ; la civette, elle, reste 
           "reference": "Mikkeller Beer Geek Brunch Weasel",
           "type": "source_secondaire",
           "url": "https://beer-galaxy.com/beers/mikkeller-beer-geek-brunch-weasel/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -1317,12 +1357,14 @@ Dans le verre, le café est un ingrédient brassicole ; la civette, elle, reste 
         "verresRecommandes": [],
         "libelle": "Non documenté"
       },
-      "description": "Le donut bacon-érable de Voodoo Doughnut transposé en bière : plusieurs malts fumés, vrai bacon fumé au pommier et érable. Un petit-déjeuner de diner américain a trouvé un fermenteur et personne ne l’a arrêté à temps.",
-      "histoireEtOrigines": `Rogue Ales a collaboré avec Voodoo Doughnut pour transformer plusieurs pâtisseries emblématiques de Portland en bières. Bacon Maple Ale est la plus immédiatement lisible : un donut sucré-salé devient le cahier des charges d’une ale à 5,6 % et 30 IBU.
+      "description": "Rogue et Voodoo Doughnut ont traduit un donut bacon-érable en ale rose fluo de l’extérieur, fumée et sucrée à l’intérieur. Trois malts fumés, du bacon fumé au pommier et un arôme d’érable composent le dispositif ; aucun donut entier n’est nécessairement documenté dans la cuve. Le petit-déjeuner sert ici de cahier des charges plutôt que d’ingrédient unique.",
+      "histoireEtOrigines": `À Portland, Voodoo Doughnut avait déjà fait du donut Bacon Maple Bar un emblème sucré-salé. Rogue Ales transforma cette combinaison en bière au début des années 2010, inaugurant une série de collaborations consacrées aux pâtisseries de l’enseigne. Le produit fut conditionné dans une bouteille peinte d’un rose immédiatement reconnaissable : avant même l’ouverture, l’emballage annonçait que la discrétion ne ferait pas partie de la recette.
 
-Les fiches détaillées de la bière sont étonnamment bavardes. Elles citent plusieurs malts fumés — merisier, hêtre et fumage maison au hickory — aux côtés de malts plus conventionnels, du bacon fumé au bois de pommier, un arôme d’érable, des houblons Rogue et la levure Pacman de la brasserie.
+La liste publiée compte treize ingrédients et permet de dépasser le simple slogan. La base réunit Great Western 2-Row, Munich, Crystal 15 et Crystal 75. Trois sources de fumée se superposent : malt Briess fumé au merisier, malt Weyermann fumé au hêtre et malt fumé maison au hickory. S’ajoutent du bacon fumé au bois de pommier, un « pure maple flavoring », des houblons Revolution et Independent cultivés par Rogue, de l’eau côtière et la levure Pacman. La page annonce 30 IBU ; les éditions sont généralement données autour de 5,6 %.
 
-Le résultat conceptuel n’est donc pas un simple sirop ajouté à une amber ale : le fumé est construit à plusieurs étages, comme un diner qui aurait embauché un malteur.`,
+Deux précisions empêchent le titre de fabriquer une fausse image. D’abord, la liste ne décrit pas un donut entier dissous dans le moût : la bière recompose ses marqueurs. Ensuite, « maple flavoring » n’autorise pas à remplacer automatiquement l’ingrédient par du sirop d’érable pur dans le récit. Le bacon, en revanche, est explicitement annoncé et rend la bière incompatible avec un régime végétarien.
+
+L’architecture sensorielle repose surtout sur la répétition du fumé. Le bacon n’a pas à porter seul l’évocation du petit-déjeuner : les malts de merisier, hêtre et hickory construisent déjà un fond de feu de bois, tandis que l’érable fournit le pôle sucré. Cette précision explique aussi pourquoi la bière divisait tant les dégustateurs : elle ne suggérait pas timidement le donut, elle en amplifiait les signaux. La curiosité n’est donc pas un dessert jeté dans une cuve, mais une opération de traduction aromatique menée avec l’insistance d’une enseigne au néon rose.`,
       "chapitres": [
         {
           "titre": "Trois fumées avant le bacon",
@@ -1336,7 +1378,7 @@ Le résultat conceptuel n’est donc pas un simple sirop ajouté à une amber al
       "recette": {
         "titre": "Le donut démonté ingrédient par ingrédient",
         "profilUnique": true,
-        "noteProfil": "Cette entrée décrit un objet brassicole singulier : elle ne constitue pas une recette-type à reproduire.",
+        "noteProfil": "Rogue publie treize composants, mais pas tous les dosages ; aucun doughnut entier n’est nécessaire pour expliquer le profil bacon–érable.",
         "explicationProfil": "Rogue a publié une composition suffisamment détaillée pour comprendre la construction de la bière sans prétendre connaître tous les dosages.",
         "maltsEtCereales": [
           "Briess Cherrywood Smoked Malt.",
@@ -1348,7 +1390,7 @@ Le résultat conceptuel n’est donc pas un simple sirop ajouté à une amber al
           "Crystal 75."
         ],
         "houblons": [
-          "Houblons Rogue Farms annoncés ; variétés/doses selon la fiche commerciale, pour environ 30 IBU."
+          "Houblons Rogue Farms annoncés ; variétés et doses selon la page commerciale, pour environ 30 IBU."
         ],
         "levuresEtMicroorganismes": [
           "Rogue Pacman Yeast."
@@ -1371,7 +1413,7 @@ Le résultat conceptuel n’est donc pas un simple sirop ajouté à une amber al
           "reference": "Voodoo Doughnut Bacon Maple Ale — composition et données",
           "type": "source_secondaire",
           "url": "https://www.beeradvocate.com/beer/profile/132/72720/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "CraftShack",
@@ -1379,7 +1421,7 @@ Le résultat conceptuel n’est donc pas un simple sirop ajouté à une amber al
           "reference": "Rogue Voodoo Doughnut Bacon Maple Ale — fiche produit",
           "type": "source_commerciale",
           "url": "https://craftshack.com/products/rogue-voodoo-doughnut-bacon-maple-ale",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -1434,12 +1476,14 @@ Le résultat conceptuel n’est donc pas un simple sirop ajouté à une amber al
         "verresRecommandes": [],
         "libelle": "Non documenté"
       },
-      "description": "Une lager claire rendue immédiatement suspecte par un piment serrano entier visible dans la bouteille. Aucun laboratoire secret : le piège est vert, long, et vous regarde avant même l’ouverture.",
-      "histoireEtOrigines": `Cave Creek Chili Beer s’est taillé une réputation durable grâce à un dispositif d’une simplicité marketing presque parfaite : placer un piment serrano entier dans chaque bouteille. Là où d’autres bières insolites ont besoin de trois paragraphes de microbiologie, celle-ci tient dans une silhouette verte derrière le verre.
+      "description": "Un piment serrano entier attend au fond de chaque bouteille de Cave Creek Chili Beer. Crazy Ed Chilleen l’avait choisi parce qu’il passait par le goulot, puis passa un an à stabiliser l’idée avant de la vendre. La lager pâle sert presque de vitrine : l’ingrédient est visible, continue d’infuser et transforme la bouteille en souvenir d’Arizona autant qu’en boisson.",
+      "histoireEtOrigines": `Ed « Crazy Ed » Chilleen ouvrit Black Mountain Brewing Company en 1989 dans le sous-sol de son restaurant Satisfied Frog, à Cave Creek. Lorsqu’un restaurateur mexicain voisin lui demanda une bière épicée, Chilleen imagina placer un piment dans la bouteille comme le ver devenu emblématique de certaines bouteilles de mezcal. Son critère de sélection fut d’abord géométrique : un jalapeño ne passait pas le goulot, un serrano oui.
 
-La base est décrite comme une lager claire d’inspiration mexicaine autour de 4,7 % ABV. Les détails de malt, de houblon et de levure sont beaucoup moins documentés que le piment, ce qui dit quelque chose de la hiérarchie du projet : le consommateur achète d’abord l’expérience du serrano.
+Le premier essai, réalisé avec le brasseur Eric Schaltz, était difficile à boire. L’équipe travailla ensuite environ un an sur la stabilité du produit et le comportement du piment avant une présentation nationale en 1992. La formule resta spectaculairement simple : une lager pâle et légère, puis un serrano entier déposé dans chaque bouteille. Le contact prolongé permet au piquant végétal d’évoluer avec le temps, ce qui explique en partie les expériences très variables rapportées selon l’âge et la conservation.
 
-Cette transparence visuelle est aussi son intérêt encyclopédique. Le bizarre n’est pas caché dans une souche ou un procédé ; il flotte littéralement dans le contenant.`,
+Le succès dépassa rapidement la capacité de la petite installation. La production et l’embouteillage furent confiés à plusieurs partenaires, d’abord aux États-Unis puis au Mexique, où l’insertion manuelle des piments constituait encore une contrainte logistique. Selon le long entretien accordé par Chilleen à Punch, la marque vendit à son apogée des centaines de milliers de caisses par an avant de décliner ; elle fut cédée en 2008 et passa ensuite dans d’autres portefeuilles. Les bases communautaires la classent aujourd’hui comme retirée.
+
+Sa réputation de « pire bière du monde » vient surtout des classements et vidéos de défi. Elle masque une intuition marketing en avance sur son époque : rendre l’ingrédient immédiatement lisible et faire de la consommation une épreuve partageable. Cave Creek Chili Beer ne dissimule ni culture rare ni recette secrète. Le serrano est dans le verre avant la bière, au sens visuel comme commercial.`,
       "chapitres": [
         {
           "titre": "Le piment comme avertissement intégré",
@@ -1453,7 +1497,7 @@ Cette transparence visuelle est aussi son intérêt encyclopédique. Le bizarre 
       "recette": {
         "titre": "Une lager, puis un serrano entier",
         "profilUnique": true,
-        "noteProfil": "Cette entrée décrit un objet brassicole singulier : elle ne constitue pas une recette-type à reproduire.",
+        "noteProfil": "Le serrano entier demande une stabilisation et un conditionnement maîtrisés ; l’archive historique ne fournit pas un protocole domestique complet.",
         "explicationProfil": "Lager claire à 4,7 % dont la spécificité la mieux documentée est le piment entier placé dans le contenant.",
         "maltsEtCereales": [
           "Base de lager claire ; céréales et proportions non publiées avec précision."
@@ -1481,7 +1525,7 @@ Cette transparence visuelle est aussi son intérêt encyclopédique. Le bizarre 
           "reference": "Brew Review: Cave Creek’s Chili Beer",
           "type": "source_presse",
           "url": "https://www.phoenixnewtimes.com/food-drink/brew-review-cave-creeks-chili-beer-6522123/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Untappd",
@@ -1489,7 +1533,7 @@ Cette transparence visuelle est aussi son intérêt encyclopédique. Le bizarre 
           "reference": "Crazy Ed’s Cave Creek Chili Beer",
           "type": "source_secondaire",
           "url": "https://untappd.com/b/black-mountain-brewing-company-crazy-ed-s-cave-creek-chili-beer/2095562",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -1543,12 +1587,14 @@ Cette transparence visuelle est aussi son intérêt encyclopédique. Le bizarre 
         "verresRecommandes": [],
         "libelle": "Non documenté"
       },
-      "description": "Une stout japonaise au Black Ivory Coffee, café dont les grains ont traversé le système digestif d’éléphants. La brasserie a transformé un poisson d’avril en vrai produit limité, avec une recette beaucoup plus sérieuse que son nom malicieusement scatologique.",
-      "histoireEtOrigines": `Sankt Gallen a lancé Un, Kono Kuro en 2013 autour du Black Ivory Coffee, café de luxe produit en Thaïlande à partir de grains consommés puis excrétés par des éléphants. La bière a été annoncée un 1er avril, mais elle existait réellement — un détail qui résume assez bien l’esprit de cette collection.
+      "description": "Le 1er avril 2013, Sankt Gallen vendit pour de vrai une bière noire au Black Ivory Coffee. Les grains de café avaient été mangés par des éléphants en Thaïlande, récupérés après digestion, lavés, séchés et torréfiés ; la bouse n’entrait pas dans le brassin. Moulus puis infusés à froid pendant la maturation, ils donnaient une recette limitée bien plus précise que son jeu de mots scatologique.",
+      "histoireEtOrigines": `La brasserie japonaise Sankt Gallen publie chaque 1er avril une annonce qui ressemble à un canular tout en proposant réellement le produit. En 2013, elle prépara 3 000 bouteilles de Un, Kono Kuro avec du Black Ivory Coffee, café thaïlandais très rare. Les fruits du caféier sont donnés à des éléphants ; les grains non digérés sont ensuite récupérés, soigneusement nettoyés, séchés puis torréfiés. Ce parcours crée la matière première et son prix, mais aucun excrément brut n’est ajouté à la bière.
 
-La documentation de la brasserie est précise : 6,5 % ABV, 28 IBU, plusieurs malts allant du Pale Ale au Roasted Barley, Chinook et Cascade, puis ajout de café Black Ivory moulu pendant la maturation dans une logique d’extraction à froid.
+La publication de lancement donne un cadre inhabituellement détaillé : 6,5 % d’alcool, malts Pale Ale, Munich, Crystal et Chocolate complétés d’orge torréfiée, houblons Chinook et Cascade, puis café. Sankt Gallen moulait le Black Ivory avant de le placer dans la cuve de garde, selon une extraction comparée à celle d’un café froid. Ce choix devait préserver arômes et saveurs sans soumettre le café à toute l’ébullition.
 
-Au Japon, l’ajout de café peut également faire basculer la classification légale du produit hors de la catégorie stricte de « beer » selon sa formulation. L’anomalie est donc à la fois digestive, brassicole et réglementaire.`,
+Le producteur expliquait avoir payé environ 10 000 yens pour 35 grammes et reprenait l’estimation selon laquelle 33 kilogrammes de fruits donnés aux éléphants ne fourniraient qu’un kilogramme de café utilisable. Ces chiffres appartiennent à sa présentation commerciale et décrivent surtout la logique de rareté. Ils ne disent rien, à eux seuls, des conditions d’élevage ou de collecte ; l’éthique de la filière doit donc rester distincte de la simple valeur marchande.
+
+La recette rencontrait enfin une bizarrerie juridique japonaise. À l’époque, le café ne figurait pas parmi les ingrédients autorisés pour l’appellation fiscale stricte « beer » : malgré une forte proportion de malt, le produit était étiqueté happōshu, avec un niveau de taxation annoncé comme équivalent à celui de la bière. Un, Kono Kuro réunit ainsi trois transformations successives : le fruit traverse l’éléphant, le grain traverse la torréfaction, puis le café fait traverser à la stout une frontière réglementaire.`,
       "chapitres": [
         {
           "titre": "L’éléphant est en amont, pas dans la cuve",
@@ -1562,7 +1608,7 @@ Au Japon, l’ajout de café peut également faire basculer la classification l�
       "recette": {
         "titre": "La blague japonaise est étonnamment précise",
         "profilUnique": true,
-        "noteProfil": "Cette entrée décrit un objet brassicole singulier : elle ne constitue pas une recette-type à reproduire.",
+        "noteProfil": "Le Black Ivory Coffee est une matière rare à la traçabilité sensible ; la fiche producteur documente la bière, pas tous les paramètres d’extraction.",
         "explicationProfil": "Stout au Black Ivory Coffee documenté à 6,5 % et 28 IBU par Sankt Gallen.",
         "maltsEtCereales": [
           "Pale Ale Malt.",
@@ -1596,8 +1642,8 @@ Au Japon, l’ajout de café peut également faire basculer la classification l�
           "edition": null,
           "reference": "Un, Kono Kuro / Black Ivory Coffee beer — communiqué et recette",
           "type": "source_producteur",
-          "url": "https://www.sanktgallenbrewery.com/unkonokuro/",
-          "consultation": "2026-08-09"
+          "url": "https://www.sanktgallenbrewery.com/about/pressrelease/20130401.html",
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Brookston Beer Bulletin",
@@ -1605,7 +1651,7 @@ Au Japon, l’ajout de café peut également faire basculer la classification l�
           "reference": "Beer brewed with elephant dung coffee",
           "type": "source_secondaire",
           "url": "https://brookstonbeerbulletin.com/beer-brewed-with-elephant-dung/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -1661,12 +1707,14 @@ Au Japon, l’ajout de café peut également faire basculer la classification l�
         "verresRecommandes": [],
         "libelle": "Non documenté"
       },
-      "description": "Une bière bâtie autour d’une souche de Saccharomyces revendiquée comme réveillée depuis de l’ambre vieux de dizaines de millions d’années. La promesse est jurassique ; la bonne encyclopédie garde cependant un astérisque scientifique solidement vissé au dinosaure.",
-      "histoireEtOrigines": `Fossil Fuels Brewing est liée aux travaux du microbiologiste Raul Cano, qui a publié dans les années 1990 des recherches sur des micro-organismes cultivés à partir d’inclusions d’ambre ancien. Des années plus tard, l’une de ces cultures de levure a été utilisée par le brasseur Peter Hackett pour produire des bières commercialisées sous l’imaginaire Fossil Fuels.
+      "description": "Fossil Fuels a fermenté des ales avec une culture que le microbiologiste Raul Cano attribuait à de l’ambre vieux de dizaines de millions d’années. La bière a bien existé ; l’âge de sa levure reste une revendication extraordinaire, difficile à distinguer d’une contamination moderne sans preuves reproductibles. Le verre appartient donc autant à l’histoire de la microbiologie controversée qu’au rêve très vendeur de Jurassic Park.",
+      "histoireEtOrigines": `Au milieu des années 1990, Raul Cano, microbiologiste à Cal Poly, publia avec Mark Borucki la culture de spores bactériennes provenant, selon leur interprétation, d’ambre dominicain âgé de 25 à 40 millions d’années. Dans d’autres échantillons, Cano conserva une culture ressemblant à Saccharomyces. Lorsque l’entreprise biomédicale créée autour de ces isolats échoua, la levure resta congelée jusqu’à ce qu’une rencontre avec le brasseur Peter Hackett relance une application beaucoup plus conviviale : la bière.
 
-Le récit est irrésistible : ouvrir l’ambre, réveiller une levure préhistorique, lui donner du malt et écouter les dinosaures réclamer une tournée. Scientifiquement, l’âge et l’authenticité de micro-organismes « ressuscités » de matériaux très anciens restent un sujet discuté, notamment à cause du risque de contamination moderne et de la difficulté à démontrer une continuité biologique aussi spectaculaire.
+À partir de 2006, Hackett adapta des recettes au comportement de la culture, notamment une fermentation plus longue et froide. Fossil Fuels Brewing Company commercialisa ensuite une pale ale et une wheat beer à la fin des années 2000. Le récit public parlait d’une levure vieille d’environ 45 millions d’années, extraite d’ambre birman, et les dégustations rapportées par Wired décrivaient des notes épicées, fruitées ou citronnées. Ces bières modernes et leur culture sont documentées ; leur acte de naissance éocène l’est beaucoup moins solidement.
 
-ZythoHunt doit donc conserver la merveille sans la certitude abusive : la levure est revendiquée comme très ancienne et associée à l’ambre ; son âge exact n’est pas un fait à graver dans la roche.`,
+La paléomicrobiologie impose des contrôles sévères parce que les micro-organismes contemporains sont omniprésents. Des travaux consacrés à l’ADN ancien ont échoué à reproduire plusieurs annonces spectaculaires concernant l’ambre et ont souligné le risque de contamination pendant l’extraction. Une culture viable peut donc avoir été isolée sans que son âge géologique soit démontré. La publication de Cano portait d’ailleurs sur des bactéries sporulées, pas sur une caractérisation complète et reproductible de la levure brassicole devenue produit.
+
+Fossil Fuels occupe ainsi une position rare : ce n’est pas une bière imaginaire, mais son argument central dépasse ce que les preuves publiques permettent d’affirmer sans réserve. La formulation la plus fidèle sépare les niveaux. Une souche conservée par Cano a fermenté la bière. Cano la disait issue d’ambre ancien. L’estimation de dizaines de millions d’années demeure contestable. Le dinosaure peut rester sur l’étiquette ; l’astérisque doit rester à côté.`,
       "chapitres": [
         {
           "titre": "Le ptérodactyle dans l’astérisque",
@@ -1708,7 +1756,7 @@ ZythoHunt doit donc conserver la merveille sans la certitude abusive : la levure
           "reference": "Fossil Fuels — beer brewed with primordial yeast",
           "type": "source_presse_scientifique",
           "url": "https://www.wired.com/2009/07/ff-primordial-yeast/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "California Sun",
@@ -1716,7 +1764,15 @@ ZythoHunt doit donc conserver la merveille sans la certitude abusive : la levure
           "reference": "The beer made from 45-million-year-old yeast",
           "type": "source_secondaire",
           "url": "https://www.californiasun.co/the-beer-made-from-45-million-year-old-yeast/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "PLOS ONE",
+          "edition": null,
+          "reference": "Ancient DNA survival in amber and the problem of reproducibility",
+          "type": "source_scientifique",
+          "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0073150",
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -1769,12 +1825,16 @@ ZythoHunt doit donc conserver la merveille sans la certitude abusive : la levure
         "verresRecommandes": [],
         "libelle": "Non documenté"
       },
-      "description": "Une ale élaborée avec une levure présentée comme isolée sur un fossile de baleine. Ici, aucun os n’est réduit en poudre dans le mash : le musée fournit un micro-organisme, pas une épice paléontologique.",
-      "histoireEtOrigines": `Bone Dusters Paleo Ale est née d’une collaboration entre Lost Rhino Brewing Company et Paleo Quest autour d’un fossile de cétacé. Les sources techniques secondaires décrivent une souche nommée Saccharomyces cerevisiae var. protocetus, isolée dans le contexte du fossile puis mise en culture pour le brassage.
+      "description": "Pour Bone Dusters, Jasper Akerboom et Jason Osborne ont écouvillonné une vingtaine de fossiles au Calvert Marine Museum. Une levure collectée sur un os de baleine a fermenté l’ale de Lost Rhino ; elle n’était pas présentée par les chercheurs comme vieille de millions d’années. Le fossile sert de lieu de prélèvement et de passerelle vers la paléontologie, jamais de poudre aromatique.",
+      "histoireEtOrigines": `Jason Osborne, cofondateur de l’association Paleo Quest, voulait réunir paléontologie, microbiologie et bière pour financer des actions d’éducation scientifique. Avec Jasper Akerboom, microbiologiste et brasseur chez Lost Rhino, il obtint l’accès à des fossiles conservés au Calvert Marine Museum, dans le Maryland. L’équipe écouvillonna environ vingt surfaces et mit les prélèvements en culture. Deux levures apparurent ; l’une d’elles pouvait fermenter un moût.
 
-La narration est évidemment spectaculaire : boire une bière « au fossile de baleine » semble annoncer une cuve remplie de vertèbres. La réalité est plus subtile et plus intéressante. Ce qui est utilisé est une culture microbienne, c’est-à-dire une descendance de cellules propagées, pas le fossile lui-même comme matière aromatique.
+Le point le plus important se trouve dans le propre compte rendu d’Akerboom : l’objectif n’était pas de ressusciter une levure ancienne. Les contrôles indiquaient que la culture ne venait pas de la brasserie et qu’elle avait bien été prélevée dans l’environnement du musée, sur un fossile de baleine. Cela ne prouve pas qu’elle avait l’âge de l’os. Une cellule moderne peut coloniser une surface paléontologique, et Akerboom lui-même déclara à la presse qu’elle n’était probablement pas aussi ancienne que le fossile.
 
-Comme pour Fossil Fuels, la datation et l’origine exacte d’une culture associée à un matériau ancien doivent être racontées avec prudence. La science gagne rarement à être servie avec un âge plus précis que ce qu’elle peut défendre.`,
+L’équipe surnomma la variante Saccharomyces cerevisiae var. protocetus d’après le cétacé associé au prélèvement. Ce nom décrit le projet ; il ne faut pas le traiter comme la publication formelle d’une nouvelle sous-espèce taxonomique. Les reportages divergent également sur l’âge du fossile, donné à 14 ou 35 millions d’années. Cette divergence est sans conséquence pour la bière dès lors que l’âge n’est pas transféré à la levure.
+
+La culture avait un comportement bien concret : caractère terreux et de saison, préférence pour une fermentation chaude au-dessus d’environ 27 °C, difficulté avec les moûts de haute densité et pause d’atténuation avant reprise. Lost Rhino conçut donc une ale de force moyenne avec des malts spéciaux pour accompagner ces traits, puis produisit environ 2 300 litres en 2014.
+
+Bone Dusters est plus intéressante lorsqu’on abandonne le faux miracle. Aucun os n’entre dans le moût et aucune levure préhistorique n’est démontrée. Une collecte environnementale inhabituelle a fourni une culture utilisable, puis la bière a servi de conversation publique sur les fossiles. Le musée n’a pas ressuscité le passé ; il a donné une adresse mémorable à un micro-organisme du présent.`,
       "chapitres": [
         {
           "titre": "Le musée passe par la boîte de Petri",
@@ -1782,16 +1842,16 @@ Comme pour Fossil Fuels, la datation et l’origine exacte d’une culture assoc
         },
         {
           "titre": "Paleo Ale, pas potion de résurrection",
-          "texte": "L’intérêt de la carte tient à la question de la provenance de la levure, pas à une promesse sensorielle préhistorique. Les malts, houblons, alcool et profil final ne sont pas assez documentés pour reconstruire la bière. En revanche, l’expérience montre jusqu’où les brasseurs peuvent pousser la notion de terroir microbien : jusque dans une collection fossile."
+          "texte": "L’intérêt du projet tient à la provenance de la levure, pas à une promesse sensorielle préhistorique. Les malts, houblons, alcool et profil final ne sont pas assez documentés pour reconstruire la bière. En revanche, l’expérience montre jusqu’où les brasseurs peuvent pousser la notion de terroir microbien : jusque dans les réserves d’un musée."
         }
       ],
       "recette": {
         "titre": "Une levure sortie du musée",
         "profilUnique": true,
-        "noteProfil": "Cette entrée décrit un objet brassicole singulier : elle ne constitue pas une recette-type à reproduire.",
+        "noteProfil": "La culture vient de l’environnement d’un fossile de musée et est probablement moderne ; aucun fragment fossile ni microbe préhistorique ne constitue la recette.",
         "explicationProfil": "Le style complet et les paramètres du brassin ne sont pas publiés de manière suffisante ; la culture microbienne constitue le fait central.",
         "maltsEtCereales": [
-          "Base d’ale non documentée avec précision."
+          "Base d’ale de densité modérée, complétée de malts spéciaux ; proportions non publiées."
         ],
         "houblons": [
           "Houblons et amertume non documentés avec précision."
@@ -1805,18 +1865,26 @@ Comme pour Fossil Fuels, la datation et l’origine exacte d’une culture assoc
         "profilEau": "Profil d’eau non documenté dans les sources retenues.",
         "empatage": "Empâtage non documenté avec assez de précision pour être reproduit fidèlement.",
         "ebullitionEtHoublonnage": "Ébullition et calendrier de houblonnage non documentés avec assez de précision pour être reproduits fidèlement.",
-        "fermentation": "Fermentation avec la culture propagée ; températures, densités et durée non publiées.",
+        "fermentation": "La culture préfère une fermentation chaude, au-dessus d’environ 27 °C, et peut marquer une pause d’atténuation avant de repartir ; les paramètres complets ne sont pas publiés.",
         "maturation": "Maturation non documentée avec assez de précision pour être reproduite fidèlement.",
         "profilRecherche": "Une ale servant de véhicule à une expérience paléomicrobiologique, sans inventer un goût de fossile ou un âge absolu non démontré."
       },
       "sources": [
+        {
+          "organisme": "Lost Rhino Brewers’ Blog",
+          "edition": null,
+          "reference": "Bone Dusters Brew Day",
+          "type": "source_producteur",
+          "url": "https://lostrhino.wordpress.com/2014/04/25/bone-dusters-brew-day/",
+          "consultation": "2026-08-11"
+        },
         {
           "organisme": "Craft Beer & Brewing",
           "edition": null,
           "reference": "Bone Dusters Paleo Ale",
           "type": "source_professionnelle",
           "url": "https://www.beerandbrewing.com/bone-dusters-paleo-ale",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Chemical & Engineering News",
@@ -1824,7 +1892,7 @@ Comme pour Fossil Fuels, la datation et l’origine exacte d’une culture assoc
           "reference": "Fossil-Infused Beer",
           "type": "source_scientifique_secondaire",
           "url": "https://cen.acs.org/articles/92/i17/Fossil-Infused-Beer-75-Million.html",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -1881,12 +1949,16 @@ Comme pour Fossil Fuels, la datation et l’origine exacte d’une culture assoc
         "verresRecommandes": [],
         "libelle": "Non documenté"
       },
-      "description": "L’étrangeté qui a fini par devenir presque respectable : certaines oyster stouts utilisent réellement coquilles, chair ou saumure d’huîtres. Au départ, stout et huîtres se fréquentaient simplement au pub ; un jour, quelqu’un a décidé que la table était trop loin de la cuve.",
-      "histoireEtOrigines": `Les huîtres et le stout partagent une longue histoire de table en Grande-Bretagne. Au XIXe siècle, les mollusques étaient un aliment populaire et leur association avec les bières sombres est bien documentée. Le nom « oyster stout » a d’abord pu évoquer cet accord ou une bière destinée à accompagner les huîtres avant que des brasseurs n’intègrent réellement des coquilles, puis parfois des huîtres entières, au processus.
+      "description": "« Oyster stout » peut désigner une bière pensée pour accompagner les huîtres, ou une stout dans laquelle coquilles, chair et jus de mollusque ont réellement participé au brassage. L’expression a glissé de la table vers la cuve au début du XXe siècle, selon une chronologie encore discutée. Aujourd’hui, chaque producteur choisit sa marée : aucune recette unique ne fixe ce que l’huître doit apporter.",
+      "histoireEtOrigines": `Avant d’être un ingrédient de bière, l’huître était un aliment populaire des tavernes britanniques. Bon marché, saline et nourrissante, elle accompagnait naturellement les porters et stouts servis dans les mêmes lieux. Des mentions d’« oyster stout » ont donc pu désigner une bière pour le repas ou pour une fête de récolte sans garantir qu’un mollusque avait approché la chaudière.
 
-Aujourd’hui, la famille est extrêmement variable. Certaines recettes emploient seulement les coquilles pour leur apport minéral, d’autres la chair, la liqueur/saumure, ou une combinaison. Il n’existe donc pas une recette universelle que l’on pourrait attribuer à toutes les Oyster Stouts.
+Le passage à l’ingrédient réel est moins net que les récits de « première » le laissent entendre. L’American Homebrewers Association rapporte que des brasseurs néo-zélandais auraient utilisé coquilles puis huîtres entières au début du XXe siècle. D’autres histoires citent une bière de Matsumoto en 1929. L’exemple londonien le mieux documenté est Hammerton, qui employa en 1938 un concentré d’huître néo-zélandais dans une stout présentée comme nourrissante. Ces jalons ne suffisent pas à couronner un inventeur unique.
 
-C’est la carte idéale pour montrer comment une anomalie peut se civiliser avec le temps : ce qui paraît absurde à première lecture est devenu une sous-tradition brassicole cohérente.`,
+Les techniques modernes divergent largement. Des coquilles peuvent être placées dans la cuve pour leur apport minéral ; d’autres brasseries utilisent chair entière, liquor d’huître ou bouillon. Certaines additions ont lieu à l’ébullition, d’autres durant le conditionnement. La chaleur atténue une partie des arômes et le résultat recherché est souvent une salinité ou une rondeur discrète plutôt qu’une soupe marine noire.
+
+Cette variabilité explique pourquoi « oyster stout » n’impose ni quantité, ni sensation, ni même présence systématique de chair. Elle entraîne aussi des conséquences pratiques : une bière utilisant réellement l’animal n’est pas végétarienne ou végane et peut concerner les personnes allergiques aux mollusques, même si l’étiquette ou la réglementation locale déterminent l’information disponible.
+
+L’histoire de la famille est donc un lent rapprochement. L’huître était d’abord à côté de la pinte ; la publicité les associa ; certains brasseurs introduisirent coquilles ou chair ; la scène contemporaine transforma l’idée en terrain d’expérimentation. Ce qui semble être une provocation récente possède une généalogie de comptoir, mais aucune recette originelle parfaitement nette.`,
       "chapitres": [
         {
           "titre": "Avant la cuve, il y avait le comptoir",
@@ -1930,7 +2002,7 @@ C’est la carte idéale pour montrer comment une anomalie peut se civiliser ave
           "reference": "Oyster Stout: tricks for brewing with mollusks",
           "type": "source_professionnelle",
           "url": "https://homebrewersassociation.org/how-to-brew/oyster-stout-tricks-brewing-mollusks/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "VinePair",
@@ -1938,7 +2010,7 @@ C’est la carte idéale pour montrer comment une anomalie peut se civiliser ave
           "reference": "What is Oyster Stout?",
           "type": "source_secondaire",
           "url": "https://vinepair.com/articles/what-is-oyster-stout/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Bon Appétit",
@@ -1946,7 +2018,7 @@ C’est la carte idéale pour montrer comment une anomalie peut se civiliser ave
           "reference": "Seafood beer and oyster stout",
           "type": "source_presse",
           "url": "https://www.bonappetit.com/drinks/beer/article/seafood-beer",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -2001,12 +2073,16 @@ C’est la carte idéale pour montrer comment une anomalie peut se civiliser ave
         "verresRecommandes": [],
         "libelle": "Non documenté"
       },
-      "description": "Un porter brassé avec de véritables têtes et os fumés de porc Mangalitsa. La fumée ne vient donc pas seulement d’un malt qui a vu un feu de loin : une partie de la charcuterie a obtenu son badge visiteur en brasserie.",
-      "histoireEtOrigines": `Mangalitsa Pig Porter est l’une des curiosités les plus célèbres de Right Brain Brewery. La brasserie a utilisé des têtes et des os fumés de porc Mangalitsa, race connue pour son pelage laineux et sa viande riche, afin de construire une dimension fumée et carnée dans un porter sombre.
+      "description": "Right Brain obtient le fumé de Mangalitsa Pig Porter avec de vraies têtes et de vrais os de porc fumés, sans malt fumé. Ce porter chocolaté à 7 % et 20 IBU a remporté l’or des Experimental Beers au Great American Beer Festival 2011. L’animal n’est donc ni une illustration ni un simple arôme : il porte la fumée d’une bière jugée au-delà de son effet de surprise.",
+      "histoireEtOrigines": `Right Brain Brewery, à Traverse City dans le Michigan, a bâti sa réputation sur des recettes qui partent d’un aliment puis cherchent une architecture brassicole capable de l’accueillir. Mangalitsa Pig Porter emploie des têtes et des os fumés de porc Mangalitsa, race porcine d’origine hongroise reconnaissable à son pelage laineux et réputée pour sa graisse. Le producteur insiste sur une précision rare : aucun malt fumé n’est utilisé. Le caractère fumé revendiqué provient directement des matières porcines.
 
-Le projet aurait pu rester une bravade de taproom ; il a au contraire reçu une médaille d’or dans la catégorie Experimental Beer au Great American Beer Festival 2011. Cette reconnaissance est intéressante parce qu’elle rappelle qu’« expérimental » n’est pas synonyme d’« aléatoire » : même avec un ingrédient qui ressemble à un inventaire de charcutier, le jury juge encore l’équilibre du produit.
+La base reste un porter sombre, annoncé à 7 % d’alcool et 20 IBU, avec des notes chocolatées. Les sources publiques ne donnent ni poids de têtes et d’os, ni timing exact de leur addition, ni composition complète des malts. Elles permettent toutefois d’écarter deux raccourcis. Ce n’est pas une « bacon beer » aromatisée à l’extrait, et le porc n’est pas seulement un objet placé à côté de la cuve pour la photographie.
 
-Les détails complets de la base maltée et du dosage animal ne sont pas publics. L’os est documenté ; la recette au gramme près ne l’est pas.`,
+En 2011, la bière reçut la médaille d’or du Great American Beer Festival dans la catégorie Experimental Beer. Cette distinction ne certifie pas chaque détail de recette, mais elle montre que le produit fut évalué comme bière : équilibre, exécution et dégustation devaient survivre à l’annonce de l’ingrédient. Right Brain la présente encore comme le produit qui a fait connaître la brasserie.
+
+Le procédé pose aussi des limites claires. La bière n’est pas végétarienne ; la matière animale peut apporter fumée, graisse et composés savoureux, mais leur contribution exacte n’a pas été mesurée publiquement. Sans protocole de laboratoire ou recette complète, attribuer une note précise à l’os serait spéculatif.
+
+Mangalitsa Pig Porter inverse finalement la logique habituelle d’une smoked beer. Au lieu de fumer le grain pour évoquer une cuisine, la brasserie introduit un produit réellement fumé de cette cuisine dans un porter non fumé par ses malts. La médaille n’efface pas l’étrangeté ; elle prouve seulement que le porter avait encore quelque chose à dire après que les têtes de porc eurent pris toute la place dans le titre.`,
       "chapitres": [
         {
           "titre": "Le fumoir a vraiment envoyé des pièces détachées",
@@ -2014,13 +2090,13 @@ Les détails complets de la base maltée et du dosage animal ne sont pas publics
         },
         {
           "titre": "Le bizarre avec une médaille autour du cou",
-          "texte": "La récompense du GABF 2011 donne à la bière un statut particulier dans la collection. Elle montre qu’une expérience spectaculaire peut être évaluée comme bière, avec des critères d’équilibre et d’exécution. Le cochon attire la caméra ; le porter doit encore tenir debout tout seul."
+          "texte": "La récompense du GABF 2011 donne à la bière un statut particulier. Elle montre qu’une expérience spectaculaire peut être évaluée comme bière, avec des critères d’équilibre et d’exécution. Le cochon attire la caméra ; le porter doit encore tenir debout tout seul."
         }
       ],
       "recette": {
         "titre": "Le porter passé par le fumoir",
         "profilUnique": true,
-        "noteProfil": "Cette entrée décrit un objet brassicole singulier : elle ne constitue pas une recette-type à reproduire.",
+        "noteProfil": "Têtes et os de porc fumés exigent une préparation alimentaire professionnelle ; la description officielle ne publie pas une formulation complète.",
         "explicationProfil": "Porter expérimental utilisant de vraies pièces fumées de porc Mangalitsa ; la recette complète n’est pas publiée.",
         "maltsEtCereales": [
           "Base de porter sombre et maltée ; composition précise non documentée dans les sources retenues."
@@ -2045,10 +2121,10 @@ Les détails complets de la base maltée et du dosage animal ne sont pas publics
         {
           "organisme": "Right Brain Brewery",
           "edition": null,
-          "reference": "Awards — Mangalitsa Pig Porter, GABF 2011",
+          "reference": "Mangalitsa Pig Porter — présentation producteur",
           "type": "source_producteur",
-          "url": "https://www.rightbrainbrewery.com/awards",
-          "consultation": "2026-08-09"
+          "url": "https://www.rightbrainbrewery.com/43/mangalitsa-pig-porter-2016",
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Brewbound",
@@ -2056,7 +2132,7 @@ Les détails complets de la base maltée et du dosage animal ne sont pas publics
           "reference": "Right Brain Brewery — Mangalitsa Pig Porter",
           "type": "source_professionnelle",
           "url": "https://www.brewbound.com/breweries/Right_Brain_Brewery/mangalitsa-pig-porter",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "BeerAdvocate",
@@ -2064,7 +2140,7 @@ Les détails complets de la base maltée et du dosage animal ne sont pas publics
           "reference": "Mangalitsa Pig Porter",
           "type": "source_secondaire",
           "url": "https://www.beeradvocate.com/beer/profile/16503/72900/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -2118,12 +2194,14 @@ Les détails complets de la base maltée et du dosage animal ne sont pas publics
         "verresRecommandes": [],
         "libelle": "Non documenté"
       },
-      "description": "Un produit écossais affiché à 67,5 % ABV et régulièrement présenté comme une « bière la plus forte du monde ». À cette hauteur, la question la plus intéressante n’est plus de savoir si elle désaltère, mais où finit la bière et où commence l’alcool fortifié.",
-      "histoireEtOrigines": `Snake Venom a été commercialisée par Brewmeister avec un titre alcoométrique de 67,5 %, valeur qui l’a propulsée dans les listes de records et les rayons de curiosités extrêmes. Les vendeurs avertissent généralement qu’elle doit être consommée en petites quantités et non comme une bière conventionnelle.
+      "description": "Avec 67,5 % vol. affichés, Snake Venom est vendue comme une bière record alors que les descriptions commerciales signalent une fortification. Son intérêt tient moins à une prétendue levure surpuissante qu’au problème de classement qu’elle pose : à partir de quel procédé une base brassée devient-elle un produit spiritueux ?",
+      "histoireEtOrigines": `Snake Venom entre en scène avec un nombre conçu pour arrêter le regard : 67,5 % vol. Brewmeister, marque écossaise ensuite associée à Keith Brewery, la présente comme une bière d’une force exceptionnelle. Les détaillants la conditionnent et la décrivent comme un alcool à servir par très petites mesures, loin de l’usage d’une pinte. Le chiffre est réel en tant que titre revendiqué ; le récit selon lequel une fermentation héroïque l’aurait produit ne l’est pas.
 
-Le record est toutefois inséparable d’une question de définition. Des sources consacrées au produit décrivent des procédés de concentration et/ou l’ajout d’alcool, ce qui signifie que les 67,5 % ne proviennent pas d’une fermentation ordinaire. Appeler cela « la bière la plus forte » est donc une revendication commerciale qui dépend de la frontière choisie entre bière, bière concentrée et produit fortifié.
+Les fiches marchandes disponibles parlent d’une base brassée puis d’une fortification. Cette distinction est décisive. La levure transforme les sucres du moût jusqu’à ce que la concentration d’alcool compromette sa propre activité ; elle ne conduit pas une bière ordinaire à 67,5 % vol. Un ajout d’alcool ou une opération de concentration change donc à la fois le liquide et la nature de la prouesse. Snake Venom n’est pas la démonstration d’une souche invincible, mais la construction d’un objet hybride à partir d’une origine brassicole.
 
-Dans ZythoHunt, cette ambiguïté n’est pas un défaut : c’est précisément la raison pour laquelle Snake Venom appartient à la collection.`,
+Le titre de « bière la plus forte du monde » doit, lui aussi, rester entre guillemets. Les classements mélangent parfois fermentation seule, retrait d’eau par le froid, distillation et fortification. Selon la règle choisie, des produits différents obtiennent la couronne ; celle-ci évolue en outre avec les lancements commerciaux. Les sources retenues documentent bien l’étiquette à 67,5 %, mais elles ne fournissent ni protocole intégral ni standard indépendant qui trancherait définitivement la catégorie.
+
+Le véritable venin est ainsi taxonomique. Le produit exploite la familiarité du mot « bière », puis franchit une limite technique qui rend ce mot discutable. C’est précisément cette tension — chiffre mesurable, procédé partiellement publié et record conditionnel — qui mérite d’être conservée, sans transformer un slogan en fait universel.`,
       "chapitres": [
         {
           "titre": "Le serpent vit dans la définition",
@@ -2131,13 +2209,13 @@ Dans ZythoHunt, cette ambiguïté n’est pas un défaut : c’est précisément
         },
         {
           "titre": "Record du monde, avec conditions générales",
-          "texte": "Les titres de « bière la plus forte » changent avec le temps et selon ce que l’on accepte dans la catégorie. Une encyclopédie doit dater ou qualifier ces records plutôt que les transformer en couronne éternelle. Snake Venom reste remarquable par son chiffre revendiqué ; son statut taxonomique, lui, mérite le point d’interrogation."
+          "texte": "Les titres de « bière la plus forte » changent avec le temps et selon ce que l’on accepte dans la catégorie. Tout record doit donc être daté et assorti de ses critères. Snake Venom reste remarquable par son chiffre revendiqué ; son statut taxonomique, lui, mérite le point d’interrogation."
         }
       ],
       "recette": {
         "titre": "Une bière qui franchit la frontière des spiritueux",
         "profilUnique": true,
-        "noteProfil": "Cette entrée décrit un objet brassicole singulier : elle ne constitue pas une recette-type à reproduire.",
+        "noteProfil": "Le chiffre de l’étiquette est documenté, pas une méthode reproductible permettant de l’atteindre comme simple bière fermentée.",
         "explicationProfil": "Le procédé complet n’est pas public et le produit est décrit comme concentré et/ou fortifié. Il ne faut pas présenter 67,5 % comme le résultat d’une fermentation classique.",
         "maltsEtCereales": [
           "Base maltée annoncée par les descriptions commerciales ; composition et densité initiale non publiées de manière fiable."
@@ -2165,7 +2243,7 @@ Dans ZythoHunt, cette ambiguïté n’est pas un défaut : c’est précisément
           "reference": "Brewmeister Snake Venom",
           "type": "source_commerciale",
           "url": "https://www.hopsandhopes.nl/en/beers/snake-venom",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Hard To Find Whisky",
@@ -2173,7 +2251,7 @@ Dans ZythoHunt, cette ambiguïté n’est pas un défaut : c’est précisément
           "reference": "Brewmeister Snake Venom — 67.5%",
           "type": "source_commerciale",
           "url": "https://www.htfw.com/brewmeister-snake-venom-world-s-strongest-beer",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Food & Wine",
@@ -2181,7 +2259,7 @@ Dans ZythoHunt, cette ambiguïté n’est pas un défaut : c’est précisément
           "reference": "Strongest beers and the question of fortification",
           "type": "source_presse",
           "url": "https://www.foodandwine.com/news/worlds-strongest-beer",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -2235,12 +2313,14 @@ Dans ZythoHunt, cette ambiguïté n’est pas un défaut : c’est précisément
         "verresRecommandes": [],
         "libelle": "Non documenté"
       },
-      "description": "Un imperial stout vieilli puis soumis à des cycles de congélation pour atteindre 32 % ABV. Le pingouin du nom n’est pas seulement une mascotte : le froid est littéralement l’outil qui pousse la bière au-delà de sa densité raisonnable.",
-      "histoireEtOrigines": `Tactical Nuclear Penguin apparaît à la fin des années 2000 pendant la course aux bières les plus fortes. BrewDog part d’un imperial stout, le fait vieillir, puis concentre l’alcool par congélation répétée. À 32 %, le produit devient un manifeste technique et marketing : une stout qui a été passée plusieurs fois au congélateur jusqu’à perdre toute envie de se comporter comme une pinte.
+      "description": "Tactical Nuclear Penguin part d’un imperial stout, puis retire une partie de son eau par congélations successives jusqu’à 32 % vol. Le froid ne crée pas l’alcool : il concentre celui que la fermentation avait déjà produit, avec les sucres, les arômes et les défauts éventuels de la bière.",
+      "histoireEtOrigines": `En 2009, la course à la bière la plus forte ressemble à une escalade menée au thermomètre. BrewDog répond aux records du moment avec Tactical Nuclear Penguin, un imperial stout porté à 32 % vol. Le nom apocalyptique et le conditionnement très limité font le travail publicitaire, mais le cœur du projet est un procédé connu : la concentration par le froid, poussée ici beaucoup plus loin qu’un Eisbock traditionnel.
 
-BrewDog a ensuite publié une recette DIY détaillée. On y trouve Extra Pale, Dark Crystal, Chocolate et Roasted Barley, des houblons Chinook, Galena et First Gold, du sucre muscovado, cranberry, jasmin, copeaux de chêne et une levure très tolérante à l’alcool.
+La recette rétrospective publiée par BrewDog révèle d’abord une bière construite pour résister à cette épreuve. Extra Pale, Dark Crystal, malt chocolat et orge torréfiée composent la base ; Chinook, Galena et First Gold assurent le houblonnage. Muscovado, cranberry, jasmin et copeaux de chêne ajoutent d’autres couches, tandis qu’une levure WLP099 adaptée aux moûts très denses mène la fermentation. Le pingouin n’est donc pas un alcool neutre maquillé en stout : sa matrice aromatique existe avant la concentration.
 
-Le détail le plus utile reste la logique du procédé : l’alcool n’est pas produit jusqu’à 32 % par la seule levure. La congélation concentre une bière déjà fermentée.`,
+Vient ensuite le froid. BrewDog décrit un traitement à très basse température, autour de −70 °C, poursuivi par étapes pendant environ trois semaines. Une partie de l’eau cristallise ; le liquide non gelé, plus riche en alcool et en composés dissous, est séparé puis de nouveau refroidi. Cette opération n’invente aucun degré alcoolique. Elle réduit le volume d’eau et amplifie tout ce que contient la base, y compris l’amertume, l’astringence ou les défauts.
+
+À son lancement, Tactical Nuclear Penguin a momentanément occupé le devant de la scène des records. D’autres produits l’ont dépassée, parfois en changeant eux aussi les règles techniques de la compétition. Son importance n’est donc pas celle d’un champion éternel. Elle tient à la transparence relative de son architecture : une vraie recette de stout, une fermentation exigeante, puis un retrait d’eau assumé. Sous le spectacle nucléaire se trouve une leçon simple de bilan matière.`,
       "chapitres": [
         {
           "titre": "Le congélateur comme alambic qui ne distille pas",
@@ -2254,7 +2334,7 @@ Le détail le plus utile reste la logique du procédé : l’alcool n’est pas 
       "recette": {
         "titre": "Le plan de vol du pingouin nucléaire",
         "profilUnique": true,
-        "noteProfil": "Cette entrée décrit un objet brassicole singulier : elle ne constitue pas une recette-type à reproduire.",
+        "noteProfil": "La recette publiée éclaire la base ; la concentration cryogénique demeure une opération spécialisée, dangereuse et juridiquement encadrée selon les pays.",
         "explicationProfil": "La recette rétrospective BrewDog documente la base et la logique de concentration, sans garantir que chaque détail industriel du lot commercial soit reproductible à domicile.",
         "maltsEtCereales": [
           "Extra Pale.",
@@ -2290,7 +2370,7 @@ Le détail le plus utile reste la logique du procédé : l’alcool n’est pas 
           "reference": "Tactical Nuclear Penguin — DIY Dog recipe",
           "type": "source_producteur",
           "url": "https://brewdogrecipes.com/recipes/tactical-nuclear-penguin",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "BeerTasting",
@@ -2298,7 +2378,7 @@ Le détail le plus utile reste la logique du procédé : l’alcool n’est pas 
           "reference": "Tactical Nuclear Penguin",
           "type": "source_secondaire",
           "url": "https://www.beertasting.com/de/beers/tactical-nuclear-penguin",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -2352,12 +2432,16 @@ Le détail le plus utile reste la logique du procédé : l’alcool n’est pas 
         "verresRecommandes": [],
         "libelle": "Non documenté"
       },
-      "description": "Beithir Fire revendique 75 % ABV à partir d’une base de barley ale et d’un assemblage avec un alcool écossais. Le dragon du nom est approprié : on n’est plus vraiment dans la bière de soif, et même la taxonomie commence à chercher un extincteur.",
-      "histoireEtOrigines": `88 Brewery commercialise Beithir Fire comme un produit extrême à 75 % ABV et l’a présenté comme candidat au titre de bière la plus forte. La description publique évoque une base de barley ale puis une intervention d’alcool écossais, avec filtration ou traitement supplémentaire selon les versions de la communication.
+      "description": "Beithir Fire commence par une ale écossaise d’orge, mûrit deux mois, puis reçoit un alcool écossais avant trois filtrations. Les 75 % vol. annoncés viennent donc d’un assemblage explicitement fortifié, pas d’une fermentation prodigieuse. Le record commercial dépend entièrement de la définition accordée au mot « bière ».",
+      "histoireEtOrigines": `Le dragon Beithir de la légende écossaise donne son nom à un liquide affichant 75 % vol. 88 Brewery le vend comme une bière extrême et met le record au premier plan. La page du producteur permet cependant de reconstituer une chaîne plus précise que le slogan : une ale forte à base d’orge écossaise est d’abord brassée, laissée environ deux mois, puis assemblée avec un alcool écossais pur avant d’être filtrée trois fois.
 
-Cette construction rend le produit fascinant pour une collection de frontières : la base est brassicole, mais le titre final ne vient évidemment pas d’une fermentation classique. Certaines couvertures de presse parlent également de distillation ou de statut fiscal proche d’un spiritueux, signe que la catégorie « bière » devient ici autant une question réglementaire que sensorielle.
+Cette chronologie règle immédiatement un malentendu. Les 75 % ne sont pas obtenus parce qu’une levure aurait continué à fermenter là où toutes les autres s’arrêtent. La fermentation fabrique la base ; le spiritueux ajouté détermine l’ordre de grandeur final. Beithir Fire appartient ainsi à la famille des produits fortifiés, même si son identité commerciale reste attachée à la bière dont elle provient.
 
-Le bon récit n’est donc pas « une levure écossaise a atteint 75 % ». Le bon récit est celui d’un objet hybride qui utilise le mot bière comme point de départ, puis le pousse jusqu’à ce que le dictionnaire fume.`,
+La filtration répétée, mentionnée par la marque, ne crée pas davantage d’alcool. Elle peut clarifier ou stabiliser l’assemblage, mais le titre vient du rapport entre les deux composants. Sans les proportions, les densités et l’analyse finale, le procédé ne peut pas être reconstruit. Il est néanmoins assez documenté pour écarter le récit d’une fermentation directe à 75 %.
+
+Reste alors la question du record. Comparer Beithir Fire à une bière obtenue uniquement par fermentation, ou même à un Eisbock concentré en retirant de l’eau, revient à aligner des techniques différentes sous un seul nom. La réglementation fiscale peut elle aussi traiter ce type d’objet comme un spiritueux ou un produit composé. Le chiffre de 75 % demeure une caractéristique publiée ; le titre de « plus forte bière » est une proposition de la marque, non une catégorie scientifique universelle.
+
+L’insolite réside donc dans le passage de frontière. Beithir Fire part bien d’une cuve brassicole, mais son identité finale est négociée entre recette, étiquette et droit. Le dictionnaire chauffe plus que le fermenteur.`,
       "chapitres": [
         {
           "titre": "Soixante-quinze degrés ne sortent pas d’un fermenteur ordinaire",
@@ -2371,7 +2455,7 @@ Le bon récit n’est donc pas « une levure écossaise a atteint 75 % ». Le bo
       "recette": {
         "titre": "Une barley ale qui a traversé la douane des spiritueux",
         "profilUnique": true,
-        "noteProfil": "Cette entrée décrit un objet brassicole singulier : elle ne constitue pas une recette-type à reproduire.",
+        "noteProfil": "La marque décrit un assemblage fortifié à 75 % ; aucune fermentation domestique ne peut reproduire ce titre ni son cadre réglementaire.",
         "explicationProfil": "Base de barley ale annoncée, ensuite fortifiée/traitée pour atteindre 75 % ABV. Les proportions et paramètres exacts ne sont pas publiés.",
         "maltsEtCereales": [
           "Base de barley ale ; malts et densités non publiés avec précision."
@@ -2399,7 +2483,7 @@ Le bon récit n’est donc pas « une levure écossaise a atteint 75 % ». Le bo
           "reference": "Beithir Fire — présentation producteur",
           "type": "source_producteur",
           "url": "https://www.88brewery.com/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "The Sun",
@@ -2407,7 +2491,7 @@ Le bon récit n’est donc pas « une levure écossaise a atteint 75 % ». Le bo
           "reference": "Beithir Fire and the strongest-beer claim",
           "type": "source_presse",
           "url": "https://www.thesun.co.uk/fabulous/30282896/worlds-strongest-beer-alcohol-taste/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -2460,12 +2544,16 @@ Le bon récit n’est donc pas « une levure écossaise a atteint 75 % ». Le bo
         "verresRecommandes": [],
         "libelle": "Non documenté"
       },
-      "description": "Une Oktoberfest à 5 % et 25 IBU dans laquelle Dogfish Head a infusé de la poussière issue de météorites lunaires certifiées. La Bavière a donc reçu un caillou du ciel, soigneusement broyé avant service.",
-      "histoireEtOrigines": `Dogfish Head a conçu Celest-jewel-ale autour de l’équinoxe d’automne, de la harvest moon et de son goût bien établi pour les expériences historiques ou improbables. Le point spectaculaire est documenté par la brasserie : de petites météorites lunaires certifiées ont été réduites en poussière puis utilisées dans une infusion comparable à un thé, ajoutée au brassin.
+      "description": "Dogfish Head a transformé des fragments de météorites lunaires certifiées en infusion pour une Oktoberfest à 5 % vol. et 25 IBU. La roche ne remplace ni malt ni houblon : elle ajoute au brassin une provenance extraterrestre, prolongée au service par des manchons confectionnés en tissu de combinaison spatiale.",
+      "histoireEtOrigines": `Celest-jewel-ale commence par un objet qui voyage beaucoup avant d’atteindre la cuve. Des impacts arrachent une roche à la Lune ; certains fragments traversent l’espace, tombent sur Terre, sont identifiés comme météorites lunaires puis entrent sur le marché des collectionneurs. Dogfish Head en obtient de petits morceaux certifiés et choisit de les faire passer du cabinet de curiosités à la brasserie.
 
-La bière reste pourtant fondamentalement une Oktoberfest maltée, annoncée à 5 % ABV et 25 IBU. La météorite n’a pas pour rôle de donner un parfum de vide intersidéral — aucune source sérieuse ne promet une note de cosmonaute — mais de transformer un objet de collection minéral en ingrédient narratif et technique.
+La méthode décrite par le producteur est plus contrôlée qu’une pierre jetée dans le fermenteur. Les météorites sont pulvérisées, puis la poussière est mise à infuser « comme un thé » avant son incorporation. Cette formulation importe : elle distingue le matériau réellement employé du décor cosmique qui l’entoure. La brasserie ne prétend pas que la roche fermente, qu’elle remplace un minéral d’eau connu ou qu’elle apporte un goût objectivement lunaire.
 
-C’est une forme rare d’insolite où l’ingrédient est extraordinaire surtout par sa provenance, pas par sa puissance aromatique.`,
+Sous cette infusion se trouve une bière très terrestre. Dogfish Head annonce une base inspirée de l’Oktoberfest, 5 % vol. et 25 IBU, créée autour de l’équinoxe d’automne et de la pleine lune des récoltes. Le malt structure donc le verre ; la poussière météoritique lui donne surtout une biographie. À la pression, le spectacle continuait avec des manchons de verre cousus dans un matériau de combinaison spatiale, autre manière de rendre la provenance visible.
+
+L’expérience ne démontre rien sur l’agriculture hors Terre et ne fait pas de la Lune un nouveau terroir au sens agronomique. Elle transforme plutôt une matière géologique rare en ingrédient de médiation. Le geste est coûteux, symbolique et probablement discret au goût, mais il est documenté par deux publications de la brasserie. Contrairement à beaucoup de « bières de l’espace », l’élément extraterrestre ne se limite donc pas au nom : une infime quantité de matière lunaire a bien suivi une procédure d’infusion.
+
+L’insolite tient ici à l’adresse d’origine. Une Oktoberfest relativement mesurée porte le récit d’un fragment qui a parcouru environ 384 000 kilomètres avant de finir dans une théière brassicole.`,
       "chapitres": [
         {
           "titre": "La lune passe par une théière",
@@ -2479,7 +2567,7 @@ C’est une forme rare d’insolite où l’ingrédient est extraordinaire surto
       "recette": {
         "titre": "Une Oktoberfest avec correspondance lunaire",
         "profilUnique": true,
-        "noteProfil": "Cette entrée décrit un objet brassicole singulier : elle ne constitue pas une recette-type à reproduire.",
+        "noteProfil": "L’infusion météoritique est un geste documenté mais non transposable : la provenance certifiée, la préparation et la sécurité du matériau sont essentielles.",
         "explicationProfil": "Base maltée de type Oktoberfest à 5 % et 25 IBU, complétée par une infusion de poussière météoritique lunaire selon Dogfish Head.",
         "maltsEtCereales": [
           "Base maltée d’Oktoberfest ; composition détaillée non publiée dans les sources retenues."
@@ -2507,7 +2595,7 @@ C’est une forme rare d’insolite où l’ingrédient est extraordinaire surto
           "reference": "Celest-jewel-ale",
           "type": "source_producteur",
           "url": "https://www.dogfish.com/drink/beer/celest-jewel-ale",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Dogfish Head",
@@ -2515,7 +2603,7 @@ C’est une forme rare d’insolite où l’ingrédient est extraordinaire surto
           "reference": "Celest-jewel-ale brewed with moon dust",
           "type": "source_producteur",
           "url": "https://www.dogfish.com/blogfish/celest-jewel-ale-brewed-moon-dust-served-space-suit-can-coolers",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -2570,12 +2658,16 @@ C’est une forme rare d’insolite où l’ingrédient est extraordinaire surto
         "verresRecommandes": [],
         "libelle": "Non documenté"
       },
-      "description": "Une bière brassée non pas avec une poignée de grains revenus directement de l’ISS, mais avec la descendance d’orge dont une génération avait passé environ cinq mois en orbite. Le pedigree est spatial ; le grain du verre, lui, a grandi sur Terre.",
-      "histoireEtOrigines": `Le projet Space Barley s’inscrit dans une recherche sur la capacité de cultures terrestres à supporter l’environnement spatial. De l’orge Haruna Nijo a séjourné environ cinq mois dans le module Zvezda de la Station spatiale internationale en 2006. Les graines revenues sur Terre ont ensuite servi à produire des générations descendantes.
+      "description": "Space Barley n’est pas brassée avec les quelques graines sorties directement de l’ISS, mais avec leur descendance cultivée au sol. Le séjour orbital appartient à la généalogie de l’orge Haruna Nijo. Sapporo a transformé cette expérience agronomique en une lager de 5,5 % vol. vendue par tirage au sort au Japon.",
+      "histoireEtOrigines": `Avant la bière, il y a un protocole de multiplication végétale. En 2006, des graines d’orge brassicole Haruna Nijo passent environ cinq mois dans le module russe Zvezda de la Station spatiale internationale. Le projet réunit Sapporo Breweries, l’université d’Okayama et des partenaires scientifiques russes afin d’observer si cette lignée conserve sa capacité à germer et à se reproduire après une exposition orbitale.
 
-Sapporo a brassé une bière expérimentale avec cette lignée, puis a organisé une vente très limitée au Japon. La formulation populaire « bière brassée avec de l’orge de l’espace » est donc vraie dans l’esprit mais mérite une précision généalogique : ce n’est pas nécessairement le grain ayant flotté en orbite qui est malté, mais sa descendance terrestre.
+Les graines revenues sur Terre ne sont pas simplement versées dans une malterie. Elles sont semées, récoltées puis multipliées. La bière est fabriquée avec une génération descendante cultivée au sol. Cette chaîne corrige la formule séduisante « brassée avec de l’orge qui a poussé dans l’espace » : l’ancêtre a séjourné dans l’ISS, tandis que les grains effectivement maltés ont grandi sur Terre. Le lien spatial est génétique et expérimental, non géographique au sens du champ.
 
-Cette nuance rend l’histoire plus intéressante : Space Barley parle autant de sélection, de reproduction et d’agriculture future que de marketing cosmique.`,
+Sapporo présente d’abord des brassins d’essai, puis ouvre en 2009 une vente exceptionnellement limitée. Deux cent cinquante personnes, sélectionnées par tirage au sort au Japon, peuvent acheter un coffret de six bouteilles pour 10 000 yens. La presse décrit une lager à 5,5 % vol. et indique que les recettes de l’opération sont destinées à des actions liées à la recherche ou à l’éducation. La rareté du lot transforme le résultat scientifique en objet public sans en faire une gamme régulière.
+
+Une bouteille ne permet évidemment pas de conclure que l’orge est prête pour une agriculture autonome hors Terre. Le brassage agit plutôt comme test de valorisation : la plante a survécu, sa descendance a fourni un grain utilisable et ce grain a pu rejoindre une chaîne alimentaire familière. Les comparaisons agronomiques détaillées restent du domaine du programme de recherche, pas de la dégustation.
+
+Space Barley raconte ainsi une lignée plus qu’un ingrédient exotique. Rien n’est « cosmique » dans la fermentation elle-même. Le vertige vient de l’arbre généalogique d’une céréale, dont une branche a fait cinq mois d’orbite avant de revenir alimenter un champ, une malterie et, finalement, une loterie brassicole.`,
       "chapitres": [
         {
           "titre": "Le grain a un grand-parent astronaute",
@@ -2589,7 +2681,7 @@ Cette nuance rend l’histoire plus intéressante : Space Barley parle autant de
       "recette": {
         "titre": "Le malt dont l’arbre généalogique passe par l’ISS",
         "profilUnique": true,
-        "noteProfil": "Cette entrée décrit un objet brassicole singulier : elle ne constitue pas une recette-type à reproduire.",
+        "noteProfil": "L’élément reproductible serait une lager ; l’élément unique est la traçabilité d’une lignée végétale passée par l’ISS.",
         "explicationProfil": "La donnée certaine est l’emploi de descendants d’une orge ayant séjourné dans l’espace ; les autres paramètres du brassin sont beaucoup moins publiés.",
         "maltsEtCereales": [
           "Orge issue de la descendance d’une lignée Haruna Nijo ayant séjourné environ cinq mois à bord de l’ISS."
@@ -2617,7 +2709,7 @@ Cette nuance rend l’histoire plus intéressante : Space Barley parle autant de
           "reference": "Sapporo Space Barley beer",
           "type": "source_presse",
           "url": "https://www.wired.com/2009/12/barley-space-space-beer",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Universe Today",
@@ -2625,7 +2717,7 @@ Cette nuance rend l’histoire plus intéressante : Space Barley parle autant de
           "reference": "Space Beer available to a limited number of buyers",
           "type": "source_presse_scientifique",
           "url": "https://www.universetoday.com/articles/space-beer-available-for-purchase-to-250-people",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -2643,7 +2735,7 @@ Cette nuance rend l’histoire plus intéressante : Space Barley parle autant de
         "Pays-Bas"
       ],
       "origine": {
-        "libelle": "Terrie Berenden / brasserie locale néerlandaise",
+        "libelle": "Gerrie Berendsen / brasserie locale néerlandaise",
         "ville": null,
         "region": null,
         "bassinBrassicole": null
@@ -2679,12 +2771,16 @@ Cette nuance rend l’histoire plus intéressante : Space Barley parle autant de
         "verresRecommandes": [],
         "libelle": "Non documenté"
       },
-      "description": "Une « bière » destinée aux chiens, élaborée à base de malt et d’extrait de bœuf, sans alcool. Le compagnon de promenade obtient son rituel de fin de journée ; il lui manque seulement l’application de notation et une opinion interminable sur la mousse.",
-      "histoireEtOrigines": `Kwispelbier a été créée aux Pays-Bas par Terrie Berenden, propriétaire d’une animalerie, avec l’idée d’offrir une boisson spéciale à ses chiens après des sorties de chasse. Le nom vient du néerlandais « kwispel », lié au mouvement de la queue, ce qui est probablement l’une des rares étymologies brassicoles que l’on peut vérifier sans dictionnaire de vieux moines.
+      "description": "Kwispelbier est une boisson néerlandaise sans alcool destinée aux chiens, formulée avec du malt et un extrait de bœuf. Elle emprunte à la bière son nom, sa bouteille et le rituel du verre partagé, mais son public et son profil relèvent de la friandise animale plutôt que d’un style brassicole humain.",
+      "histoireEtOrigines": `L’idée naît après la chasse, lorsqu’une propriétaire d’animalerie néerlandaise souhaite offrir à ses chiens une récompense qui imite le moment où les humains ouvrent une bière. Les dépêches de 2007 identifient cette entrepreneuse comme Gerrie Berendsen — et non « Terrie Berenden », graphie parfois recopiée — et situent la mise au point avec une brasserie locale. Le produit reçoit le nom de Kwispelbier, construit autour de « kwispel », la queue qui remue.
 
-Les articles de l’époque décrivent une boisson à base de malt et d’extrait de bœuf, sans alcool, conçue pour les chiens. Elle emprunte donc l’imaginaire social de la bière — bouteille, moment partagé, récompense — plus qu’elle ne cherche à reproduire une vraie bière humaine avec houblon et fermentation complète.
+La formulation publiée tient en deux repères : malt et extrait de bœuf. Le premier fournit une parenté céréalière avec la bière et le second vise l’appétence canine. Le résultat est annoncé sans alcool. Les sources ne détaillent ni empâtage, ni fermentation, ni stabilisation ; rien ne permet donc de reconstruire la fabrication ou d’affirmer la présence de houblon. Cette retenue compte, car certains ingrédients courants des boissons humaines ne doivent pas être supposés adaptés aux animaux.
 
-Sa place dans la collection repose sur ce déplacement de public : l’anomalie n’est pas ce que boit le chien, mais le fait qu’on ait choisi de l’appeler bière.`,
+Le mot « bière » travaille ici comme une mise en scène. La bouteille, l’étiquette et le service permettent au propriétaire de reproduire un rituel social avec son chien. Le liquide ne cherche pas à satisfaire les critères d’une lager désalcoolisée ni à passer un concours de styles. Il s’inscrit dans un marché de produits anthropomorphiques où l’on vend au maître une expérience de complicité autant qu’une boisson à l’animal.
+
+Les articles de l’époque ont largement repris l’anecdote, parfois avec le ton léger attendu d’une « bière pour chiens ». Leur répétition n’ajoute toutefois pas de données techniques : la composition complète, le fabricant exact et la durée de commercialisation restent peu documentés. Il faut donc distinguer le produit attesté du folklore qui l’entoure.
+
+Kwispelbier déplace finalement trois frontières en même temps : celle du consommateur, celle du rituel et celle de la catégorie. Son étrangeté ne vient pas d’un micro-organisme rare ou d’un degré record. Elle naît du choix de présenter une boisson maltée au bœuf comme la version canine d’un geste profondément humain.`,
       "chapitres": [
         {
           "titre": "Le dégustateur idéal remue la queue",
@@ -2698,7 +2794,7 @@ Sa place dans la collection repose sur ce déplacement de public : l’anomalie 
       "recette": {
         "titre": "La gamelle, pas la pinte",
         "profilUnique": true,
-        "noteProfil": "Cette entrée décrit un objet brassicole singulier : elle ne constitue pas une recette-type à reproduire.",
+        "noteProfil": "Cette boisson animale ne doit pas être extrapolée en recette domestique ; sa formulation complète et ses contrôles vétérinaires ne sont pas publics.",
         "explicationProfil": "Boisson maltée canine sans alcool ; elle ne constitue ni un style de bière humaine ni une recette à transposer pour la consommation humaine.",
         "maltsEtCereales": [
           "Malt annoncé comme base de la boisson."
@@ -2726,7 +2822,7 @@ Sa place dans la collection repose sur ce déplacement de public : l’anomalie 
           "reference": "Amsterdam pet shop owner creates beer for dogs",
           "type": "source_presse_archive",
           "url": "https://en.wikinews.org/wiki/Amsterdam_pet_shop_owner_creates_beer_for_dogs",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "KLTV / Associated Press",
@@ -2734,7 +2830,7 @@ Sa place dans la collection repose sur ce déplacement de public : l’anomalie 
           "reference": "Pet shop owner creates beer for dogs",
           "type": "source_presse",
           "url": "https://www.kltv.com/story/5977615/pet-shop-owner-creates-beer-for-dogs/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -2786,12 +2882,16 @@ Sa place dans la collection repose sur ce déplacement de public : l’anomalie 
         "verresRecommandes": [],
         "libelle": "Non documenté"
       },
-      "description": "Une witbier australienne fermentée à 100 % avec une souche de Saccharomyces dérivée d’une cellule de levure isolée dans la peluche de nombril d’un brasseur. L’anatomie fournit la souche ; le fermenteur reçoit une culture propre, pas le contenu d’un nombril.",
-      "histoireEtOrigines": `7 Cent Brewery a traité son idée absurde avec une méthode de laboratoire sérieuse. Des brasseurs volontaires ont été écouvillonnés au niveau du nombril, les prélèvements ont été cultivés sur milieu gélosé, puis les colonies ont été observées et sélectionnées. Une souche de Saccharomyces capable de fermenter a finalement été propagée.
+      "description": "Belly Button Beer est une witbier australienne à 4,5 % vol. fermentée par les descendantes d’une cellule de Saccharomyces isolée dans un prélèvement de nombril. Aucun amas corporel n’entre dans la cuve : l’anatomie fournit le lieu de collecte, puis le laboratoire sépare, contrôle et multiplie la levure retenue.",
+      "histoireEtOrigines": `Le nom promet une plaisanterie de vestiaire ; le protocole ressemble plutôt à un exercice de microbiologie. Pour un projet présenté en 2016, l’équipe de 7 Cent Brewery prélève au coton-tige le nombril de plusieurs brasseurs volontaires. Chaque échantillon est déposé sur un milieu gélosé, accompagné de contrôles, afin de faire apparaître des colonies distinctes et d’écarter ce qui ne convient pas au brassage.
 
-La bière obtenue est décrite comme une witbier autour de 4,5 % ABV, avec orge, blé, avoine et seigle, houblons Riwaka et Mosaic, ainsi que zestes d’orange et coriandre. Autrement dit, derrière le nombril se cache une recette de blanche assez structurée.
+Parmi ces cultures, une cellule de Saccharomyces est isolée puis propagée. Toute la biomasse utilisée au fermenteur descend de ce micro-organisme sélectionné. La formule « bière à la peluche de nombril » est donc trompeuse si elle suggère l’ajout direct de matière corporelle. Le lien avec le donneur est généalogique : le nombril a servi de site de prélèvement, comme une fleur, un fruit ou une paroi de cave pourrait héberger une levure sauvage.
 
-Le point pédagogique est magnifique : le projet paraît corporel, mais la technique repose justement sur l’isolement d’une cellule et sa multiplication contrôlée. Le nombril est une adresse postale pour levure, pas un ingrédient en vrac.`,
+La recette qui reçoit cette culture est loin d’être un simple support publicitaire. La bière, classée witbier et annoncée à 4,5 % vol., associe quatre céréales — orge, blé, avoine et seigle — aux houblons Riwaka et Mosaic. Zeste d’orange et coriandre rappellent les aromates classiques de nombreuses blanches. La notice de produit conservée indique que la souche isolée assure à elle seule la fermentation, ce qui distingue l’expérience d’un brassin ensemencé en complément par une culture commerciale.
+
+Le résultat ne prouve pas que tout nombril abrite une levure utile, encore moins qu’un prélèvement brut soit sûr. Il montre au contraire combien la sélection compte : cultiver, observer, isoler, tester, puis multiplier. Sans cette chaîne, l’expérience serait un risque microbiologique ; avec elle, elle devient une démonstration de bioprospection à très petite échelle.
+
+Belly Button Beer tire ainsi son humour d’une adresse anatomique, mais son intérêt vient de la distance entre l’échantillon et la cuve. Une seule cellule contrôlée suffit à maintenir le récit, tandis que le laboratoire retire tout ce qui aurait rendu le gag littéralement dégoûtant.`,
       "chapitres": [
         {
           "titre": "Une cellule, pas une poignée de peluches",
@@ -2805,7 +2905,7 @@ Le point pédagogique est magnifique : le projet paraît corporel, mais la techn
       "recette": {
         "titre": "Du coton-tige à la witbier",
         "profilUnique": true,
-        "noteProfil": "Cette entrée décrit un objet brassicole singulier : elle ne constitue pas une recette-type à reproduire.",
+        "noteProfil": "Le prélèvement humain exige isolement, contrôles et identification en laboratoire ; il ne constitue jamais un inoculum domestique sûr.",
         "explicationProfil": "Le projet a été documenté assez précisément pour identifier la logique de laboratoire et plusieurs ingrédients de la bière.",
         "maltsEtCereales": [
           "Orge.",
@@ -2838,7 +2938,7 @@ Le point pédagogique est magnifique : le projet paraît corporel, mais la techn
           "reference": "Australian brewers culture belly-button yeast",
           "type": "source_professionnelle",
           "url": "https://www.craftbrewingbusiness.com/news/todays-weird-yeast-strain-australian-belly-button-yeast/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Beer Street Journal",
@@ -2846,15 +2946,15 @@ Le point pédagogique est magnifique : le projet paraît corporel, mais la techn
           "reference": "Belly Button Beer",
           "type": "source_secondaire",
           "url": "https://beerstreetjournal.com/belly-button-beer/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Untappd",
           "edition": null,
           "reference": "7 Cent Brewery — Belly Button Beer",
           "type": "source_secondaire",
-          "url": "https://untappd.com/",
-          "consultation": "2026-08-09"
+          "url": "https://untappd.com/b/7-cent-brewery-belly-button-beer/1539122",
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -2908,16 +3008,20 @@ Le point pédagogique est magnifique : le projet paraît corporel, mais la techn
         "verresRecommandes": [],
         "libelle": "Non documenté"
       },
-      "description": "Une milk stout néo-zélandaise annoncée avec ajout de sperme de cerf, autour de 5,8 % et 35 IBU. Aucune métaphore ne peut vraiment améliorer la phrase ; la meilleure stratégie est donc d’être précis et de laisser le cerf faire le bruit.",
-      "histoireEtOrigines": `Hoihoi Tatea, souvent appelée Stag Semen Stout, a été associée au Green Man Pub de Wellington et à Choice Bros dans le cadre d’événements culinaires volontairement provocateurs. Les fiches conservées la décrivent comme une milk/sweet stout à environ 5,8 % ABV et 35 IBU avec ajout annoncé de sperme de cerf de qualité export.
+      "description": "Hoihoi Tatea, dite Stag Semen Stout, est une sweet stout néo-zélandaise annoncée à 5,8 % vol. et 35 IBU avec du sperme de cerf comme ingrédient. La bière est attestée par des comptes rendus contemporains et une fiche de produit, mais aucun protocole public complet ne permet d’auditer l’ajout extraordinaire.",
+      "histoireEtOrigines": `En 2015, le Green Man Pub de Wellington organise un défi consacré aux aliments sauvages et aux ingrédients capables de faire parler. Choice Bros brasse pour l’occasion Hoihoi Tatea, une sweet stout que les articles anglophones rebaptisent rapidement Stag Semen Stout. La présentation publique affirme qu’un produit reproductif de cerf, décrit comme de qualité export, entre réellement dans la bière.
 
-Contrairement aux bières à « levure de barbe » ou « levure de nombril », où le corps fournit seulement une souche cultivée, l’élément animal est ici présenté comme un ajout réel au produit. C’est une différence de catégorie importante : la collection ne doit pas mettre toutes les bizarreries corporelles dans le même bocal.
+La distinction avec Beard Beer ou Belly Button Beer est essentielle. Dans ces deux expériences, un prélèvement corporel sert à isoler une levure ensuite cultivée ; la matière d’origine ne devient pas un ingrédient en volume. Hoihoi Tatea est au contraire racontée comme une stout à laquelle le produit animal a été ajouté. Il ne s’agit donc pas seulement de l’adresse d’un micro-organisme, mais d’une formulation revendiquée.
 
-La recette maltée, le dosage et le moment d’ajout restent insuffisamment documentés. La donnée extraordinaire est solide ; les détails extraordinaires supplémentaires seraient de l’invention.`,
+Les données les plus stables viennent de la trace commerciale archivée : 5,8 % vol., 35 IBU, classement en sweet ou milk stout, collaboration Choice Bros–Green Man et statut aujourd’hui retiré. La bière obtient également une médaille d’argent aux Brewers Guild of New Zealand Awards 2015, élément qui montre qu’elle a été jugée comme boisson brassée et pas seulement exhibée comme cascade médiatique.
+
+La documentation s’arrête toutefois au seuil de la cuve. Ni le producteur ni une analyse indépendante accessible ne publient la quantité, la préparation sanitaire, le moment d’incorporation ou l’effet sensoriel vérifié. Même l’expression « milk stout » ne permet pas d’affirmer automatiquement la présence de lactose : elle décrit une catégorie, pas une liste d’ingrédients certifiée.
+
+La bonne méthode consiste donc à tenir ensemble deux niveaux de preuve. L’existence de la bière et l’allégation centrale sont bien contemporaines du lancement ; les détails techniques demeurent opaques et ne doivent pas être complétés par imagination. Hoihoi Tatea est une provocation attestée, mais pas une recette ouverte. L’étrangeté suffit sans lui ajouter un millilitre fictif.`,
       "chapitres": [
         {
           "titre": "Ici, ce n’est pas seulement une origine microbienne",
-          "texte": "Le sperme de cerf est présenté comme ingrédient ajouté, pas comme simple lieu de prélèvement d’une levure. Cela distingue radicalement cette bière de Belly Button Beer ou Beard Beer. La Brassopédie doit être clinique sur ce point : l’humour vient de l’existence du produit, pas de détails anatomiques inventés."
+          "texte": "Le sperme de cerf est présenté comme ingrédient ajouté, pas comme simple lieu de prélèvement d’une levure. Cela distingue radicalement cette bière de Belly Button Beer ou Beard Beer. La précision doit rester clinique : l’humour vient de l’existence du produit, pas de détails anatomiques inventés."
         },
         {
           "titre": "Le stout fait presque tout le travail de normalité",
@@ -2927,7 +3031,7 @@ La recette maltée, le dosage et le moment d’ajout restent insuffisamment docu
       "recette": {
         "titre": "La stout, puis l’ingrédient que personne n’avait demandé",
         "profilUnique": true,
-        "noteProfil": "Cette entrée décrit un objet brassicole singulier : elle ne constitue pas une recette-type à reproduire.",
+        "noteProfil": "L’allégation d’ingrédient est documentée, mais l’absence de protocole sanitaire et de dosage interdit d’en déduire une formulation reproductible.",
         "explicationProfil": "Milk stout documentée à 5,8 % et 35 IBU ; l’ingrédient animal est annoncé, mais la formulation complète demeure inconnue.",
         "maltsEtCereales": [
           "Base de milk stout sombre ; malts et proportions non publiés avec précision."
@@ -2955,8 +3059,8 @@ La recette maltée, le dosage et le moment d’ajout restent insuffisamment docu
           "edition": null,
           "reference": "Hoihoi Tatea / Stag Semen Milked Stout — données de produit",
           "type": "source_secondaire",
-          "url": "https://untappd.com/",
-          "consultation": "2026-08-09"
+          "url": "https://untappd.com/b/choice-bros-brewing-stag-semen-milked-stout-the-green-man/1183153",
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "The Drinks Business",
@@ -2964,7 +3068,7 @@ La recette maltée, le dosage et le moment d’ajout restent insuffisamment docu
           "reference": "NZ pub selling beer laced with deer semen",
           "type": "source_presse",
           "url": "https://www.thedrinksbusiness.com/2015/08/nz-pub-selling-beer-laced-with-deer-semen/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "American Craft Beer",
@@ -2972,7 +3076,7 @@ La recette maltée, le dosage et le moment d’ajout restent insuffisamment docu
           "reference": "Bad ideas in brewing: Stag Semen Stout",
           "type": "source_secondaire",
           "url": "https://www.americancraftbeer.com/bad-ideas-in-brewing-stag-semen-stout/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -3026,12 +3130,16 @@ La recette maltée, le dosage et le moment d’ajout restent insuffisamment docu
         "verresRecommandes": [],
         "libelle": "Non documenté"
       },
-      "description": "Une IPA islandaise à 6 % construite avec du malt fumé au feu de bouse de mouton. La bouse n’est pas versée dans la bière : elle joue le rôle historique du combustible qu’un pays pauvre en bois avait sous la main.",
-      "histoireEtOrigines": `Borg Brugghús a créé Fenrir Nr.26 en s’inspirant de pratiques islandaises de fumage où la bouse de mouton séchée pouvait servir de combustible lorsque le bois était rare. La brasserie applique cette fumée au malt puis l’intègre dans une IPA de type West Coast autour de 6 % ABV.
+      "description": "Fenrir Nr.26 est une IPA islandaise à 6 % vol. dont une partie du malt est fumée au-dessus d’un feu alimenté par de la bouse de mouton séchée. Celle-ci ne rejoint jamais le moût : elle sert de combustible, héritage matériel d’un territoire où le bois a longtemps été rare.",
+      "histoireEtOrigines": `Pour comprendre Fenrir Nr.26, il faut quitter la cuve et regarder ce qui brûle dessous. L’Islande historique dispose de peu de forêts exploitables, tandis que l’élevage ovin fournit chaque année une matière combustible facile à sécher. La bouse de mouton devient ainsi une ressource domestique, notamment pour fumer des aliments. Borg Brugghús reprend cette logique territoriale afin de transformer du malt.
 
-La fiche producteur évoque agrumes, pamplemousse, amertume houblonnée et fumée particulière. La singularité ne vient donc pas d’un ingrédient fécal ajouté au moût, mais du combustible utilisé pour transformer le malt. Ce n’est pas une petite nuance : elle déplace le récit de la provocation vers l’histoire matérielle d’un territoire.
+Le procédé ne consiste pas à verser un ingrédient fécal dans la bière. Des galettes séchées alimentent le feu ; leur fumée traverse le grain et y dépose des composés aromatiques. Après le fumage, le malt rejoint une chaîne de brassage normale. La séparation entre combustible et matière première est aussi nette qu’entre bois de hêtre et Rauchmalz dans une bière fumée allemande, même si le choix du combustible islandais provoque une réaction beaucoup plus vive.
 
-Fenrir est ainsi l’une des bières les plus pédagogiques de la collection. Le gag attire ; la géographie explique.`,
+Borg classe le résultat comme une IPA de type West Coast à 6 % vol. La page du producteur associe l’amertume et des évocations d’agrumes ou de pamplemousse à une fumée inhabituelle. Cette construction évite le monologue du feu : le houblonnage apporte une tension fraîche et résineuse face au malt marqué, au lieu de laisser la bière ressembler uniquement à un aliment passé au fumoir.
+
+Le nom renvoie à Fenrir, loup monstrueux de la mythologie nordique, et le numéro 26 l’inscrit dans la série expérimentale de la brasserie. Le décor mythologique est efficace, mais l’histoire la plus forte reste celle d’une contrainte énergétique. Le combustible raconte un pays de landes, de pâturages et d’adaptation à la pénurie de bois.
+
+Présenter Fenrir comme une « bière à la bouse » efface précisément ce qui la rend intelligible. Elle appartient plutôt aux bières de procédé : l’anomalie se produit avant l’empâtage, lors du traitement du malt. Le gag tient en une ligne ; la géographie du feu explique tout le reste.`,
       "chapitres": [
         {
           "titre": "Le combustible que la lande pouvait fournir",
@@ -3045,7 +3153,7 @@ Fenrir est ainsi l’une des bières les plus pédagogiques de la collection. Le
       "recette": {
         "titre": "Le feu pastoral, pas l’ingrédient pastoral",
         "profilUnique": true,
-        "noteProfil": "Cette entrée décrit un objet brassicole singulier : elle ne constitue pas une recette-type à reproduire.",
+        "noteProfil": "La bouse séchée est un combustible de fumage, jamais un ajout au moût ; la maîtrise sanitaire appartient au travail du maltier.",
         "explicationProfil": "West Coast IPA à 6 % utilisant du malt fumé par un feu alimenté à la bouse de mouton séchée.",
         "maltsEtCereales": [
           "Malt dont une partie est fumée au feu de bouse de mouton séchée ; composition complète du grist non publiée."
@@ -3073,7 +3181,7 @@ Fenrir est ainsi l’une des bières les plus pédagogiques de la collection. Le
           "reference": "Nr.26 Fenrir",
           "type": "source_producteur",
           "url": "https://www.borgbrugghus.is/thebeer/product/nr-26-fenrir",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Iceland Naturally",
@@ -3081,7 +3189,7 @@ Fenrir est ainsi l’une des bières les plus pédagogiques de la collection. Le
           "reference": "Borg Brugghús Fenrir Nr.26",
           "type": "source_secondaire",
           "url": "https://old.icelandnaturally.com/article/borg-brugghus-latest-beer-fenrir-nr-26/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -3137,27 +3245,31 @@ Fenrir est ainsi l’une des bières les plus pédagogiques de la collection. Le
         "verresRecommandes": [],
         "libelle": "Non documenté"
       },
-      "description": "Une bière de coolship longuement vieillie, associée au Rogue River Blue cheese ou à des cultures liées au fromage bleu selon les récits disponibles. La cave d’affinage et la cave de fermentation se sont regardées et ont décidé de signer un bail commun.",
-      "histoireEtOrigines": `Coolship No.6 est issue d’une collaboration entre Crux Fermentation Project et Rogue Creamery autour du Rogue River Blue, fromage bleu de l’Oregon affiné longuement et enveloppé de feuilles de vigne. Les articles consacrés au projet décrivent une bière de fermentation spontanée/coolship vieillie environ deux ans avant une expérimentation impliquant le fromage ou sa culture microbienne.
+      "description": "Pour Coolship No.6, Crux Fermentation Project a inoculé une bière de fermentation spontanée avec la flore du Rogue River Blue, puis l’a laissée évoluer près de deux ans en fût. Le fromage n’est pas un vague accord gastronomique : son écosystème microbien devient partenaire d’une bière acide déjà peuplée par l’air de l’Oregon.",
+      "histoireEtOrigines": `Deux maisons de l’Oregon commencent par comparer leurs caves. Crux Fermentation Project refroidit du moût dans un coolship, large bac ouvert où l’air et l’équipement apportent une communauté de levures et de bactéries. Rogue Creamery affine Rogue River Blue, un fromage persillé saisonnier enveloppé de feuilles de vigne imbibées de poire. Chacune travaille donc avec le temps, le bois et une flore complexe ; la collaboration consiste à faire communiquer ces écosystèmes.
 
-Les sources secondaires ne formulent pas toutes exactement de la même manière ce qui a été introduit : morceau de fromage, culture associée, ou combinaison. Cette divergence doit rester visible dans la fiche plutôt que d’être résolue artificiellement. En encyclopédie, « on ne sait pas avec certitude » est parfois la phrase la plus propre de la cave.
+Le communiqué repris par la presse professionnelle décrit une inoculation de la bière avec la flore microbienne du Rogue River Blue. Cette formulation résout le flou entretenu par certains titres résumant l’expérience en « bière brassée avec du fromage bleu ». Le fromage sert bien de source biologique au projet, mais le protocole est celui d’un ensemencement, pas nécessairement celui de morceaux fondus ou de meules jetées dans la cuve.
 
-L’idée reste techniquement cohérente : bière acide et fromage bleu reposent tous deux sur des écosystèmes microbiens complexes. Ce n’est pas du roquefort liquide ; c’est une rencontre de fermentations.`,
+La base « lambic-style » est refroidie à l’air libre, puis élevée en fûts de chêne pendant près de deux ans. Cette durée laisse la fermentation mixte transformer lentement les sucres et développer acidité, sécheresse et arômes de garde. Les micro-organismes associés au fromage rejoignent un milieu très différent du lait : alcool, houblon, pH et disponibilité des nutriments sélectionnent ce qui peut réellement s’y maintenir. Une origine commune ne garantit donc pas que chaque moisissure ou bactérie d’affinage domine la bière.
+
+Le numéro 6 situe le brassin dans la série Coolship de Crux, tandis que la sortie limitée fait de la bouteille le résultat d’une recherche plus que d’un nouveau style. La documentation publique ne livre ni inventaire des espèces, ni séquençage avant et après maturation, ni calendrier complet des inoculations. Elle suffit néanmoins à établir les éléments centraux : partenaire fromager identifié, flore du bleu, fermentation ouverte et longue garde sous bois.
+
+Coolship No.6 ne cherche pas à liquéfier un plateau de fromages. Elle met à l’épreuve une question de microbiologie alimentaire : qu’advient-il lorsqu’une communauté façonnée pour une cave d’affinage entre dans une autre cave, gouvernée par le malt ?`,
       "chapitres": [
         {
           "titre": "Deux caves, deux microbiologies",
           "texte": "Une bière de coolship collecte une microflore environnementale puis évolue lentement en fermentation mixte. Un bleu comme Rogue River Blue s’appuie notamment sur des moisissures Penicillium et des cultures d’affinage. Les réunir est spectaculaire, mais pas absurde d’un point de vue microbiologique : les deux produits sont déjà des écosystèmes comestibles."
         },
         {
-          "titre": "Fromage entier ou culture : l’incertitude fait partie de la fiche",
-          "texte": "Les comptes rendus accessibles ne décrivent pas tous le protocole avec la même précision. La Brassopédie conserve donc l’alternative au lieu de choisir arbitrairement la version la plus théâtrale. Ce que l’on peut affirmer : collaboration Rogue Creamery, lien direct avec Rogue River Blue, bière acide/coolship et vieillissement prolongé."
+          "titre": "La flore du fromage, plutôt qu’une fondue",
+          "texte": "Le communiqué de lancement repris par la presse décrit une inoculation avec la flore de Rogue River Blue. Les titres simplifiés parlent parfois de bière « au fromage », mais la formulation microbiologique est la plus précise : collaboration Rogue Creamery, culture issue du bleu, base de coolship et vieillissement prolongé."
         }
       ],
       "recette": {
         "titre": "Le coolship rencontre le bleu",
         "profilUnique": true,
-        "noteProfil": "Cette entrée décrit un objet brassicole singulier : elle ne constitue pas une recette-type à reproduire.",
-        "explicationProfil": "Bière acide de fermentation spontanée vieillie longuement puis expérimentée avec Rogue River Blue ou une culture qui lui est associée ; le protocole exact varie selon les sources accessibles.",
+        "noteProfil": "Cette fermentation croisée dépend de cultures alimentaires contrôlées et d’une longue garde ; elle ne se résume pas à ajouter du fromage à une sour.",
+        "explicationProfil": "Bière de coolship inoculée avec la flore du Rogue River Blue, puis élevée près de deux ans en fût de chêne.",
         "maltsEtCereales": [
           "Base de bière de coolship non détaillée avec précision."
         ],
@@ -3166,10 +3278,10 @@ L’idée reste techniquement cohérente : bière acide et fromage bleu reposent
         ],
         "levuresEtMicroorganismes": [
           "Microflore spontanée/culture mixte de la bière.",
-          "Cultures associées au fromage bleu selon les descriptions du projet."
+          "Flore microbienne issue du Rogue River Blue selon le communiqué du projet."
         ],
         "ingredientsComplementaires": [
-          "Rogue River Blue cheese et/ou culture liée au fromage bleu selon les sources ; ne pas trancher au-delà des documents disponibles."
+          "Culture prélevée sur le Rogue River Blue ; aucun ajout de fromage entier n’est établi par les sources retenues."
         ],
         "profilEau": "Profil d’eau non documenté dans les sources retenues.",
         "empatage": "Empâtage non documenté avec assez de précision pour être reproduit fidèlement.",
@@ -3185,7 +3297,7 @@ L’idée reste techniquement cohérente : bière acide et fromage bleu reposent
           "reference": "Rogue Creamery and Crux release ale brewed with blue cheese",
           "type": "source_presse_professionnelle",
           "url": "https://brewpublic.com/beer-releases/rogue-creamery-and-crux-fermentation-release-limited-edition-ale-brewed-with-blue-cheese/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "InsideHook",
@@ -3193,7 +3305,7 @@ L’idée reste techniquement cohérente : bière acide et fromage bleu reposent
           "reference": "Oregon brewery makes blue cheese beer",
           "type": "source_presse",
           "url": "https://www.insidehook.com/beer/oregon-brewery-blue-cheese-beer",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Rogue Creamery",
@@ -3201,7 +3313,7 @@ L’idée reste techniquement cohérente : bière acide et fromage bleu reposent
           "reference": "Rogue River Blue — affinage et cultures",
           "type": "source_producteur",
           "url": "https://roguecreamery.com/rogue-river-blue/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -3254,12 +3366,16 @@ L’idée reste techniquement cohérente : bière acide et fromage bleu reposent
         "verresRecommandes": [],
         "libelle": "Non documenté"
       },
-      "description": "Une saison australienne brassée avec du durian, le fruit tropical dont l’odeur suffit à déclencher des interdictions dans certains hôtels et transports. La bière n’ajoute pas un monstre à la cuve : elle invite un fruit qui arrive déjà avec sa propre réputation de catastrophe olfactive.",
-      "histoireEtOrigines": `Foreigner Brewing a produit Durian Durian Beer comme une saison mettant en avant le durian, fruit d’Asie du Sud-Est célèbre pour une chair riche et une odeur extrêmement clivante. Dans les pays où il est consommé, le fruit est à la fois recherché, culturellement important et parfois interdit dans des espaces clos en raison de son parfum puissant.
+      "description": "Présentée au GABS de Melbourne en 2018, Durian Durian Beer associe une saison de Foreigner Brewing au fruit d’Asie du Sud-Est célèbre pour son parfum clivant. Les comptes rendus évoquent douceur fruitée, registre savoureux et finale sèche épicée ; la recette, le dosage et même le titre alcoolique restent cependant peu documentés.",
+      "histoireEtOrigines": `Le durian arrive rarement seul dans une conversation. En Asie du Sud-Est, sa chair riche et crémeuse lui vaut le surnom de « roi des fruits » et une place culinaire importante ; son bouquet soufré et persistant provoque aussi des interdictions dans certains hôtels ou transports. Lorsque Foreigner Brewing l’associe à une saison pour le Great Australasian Beer SpecTAPular de Melbourne en mai 2018, le fruit possède déjà toute la publicité nécessaire.
 
-La recette détaillée de la bière est peu documentée. On sait qu’il s’agit d’une saison au durian ; l’alcool, les quantités de fruit, les houblons et la souche ne sont pas suffisamment établis dans les sources retenues. La tentation serait d’inventer une dégustation entière à partir de la réputation du fruit. Ce serait précisément l’erreur à éviter.
+Le choix de la saison offre un contrepoint logique. Cette famille de bière peut développer une fermentation sèche, poivrée et très expressive, capable de répondre à la densité aromatique du durian sans chercher à la dissimuler. Les rares descriptions contemporaines parlent d’un équilibre entre facettes sucrées et savoureuses du fruit, puis d’une épice sèche provenant du caractère saison. Elles confirment l’intention générale, pas une analyse sensorielle universelle.
 
-La carte fonctionne donc sur un contraste : une famille de bière sèche et fermentaire rencontre un ingrédient dont la personnalité aromatique occupe déjà toute la pièce avant ouverture.`,
+La documentation technique demeure mince. Les articles identifient Foreigner Brewing, le festival, la date et le couple saison–durian, mais ils ne publient ni masse de fruit, ni forme d’incorporation, ni souche, ni densités, ni houblonnage. Les bases de produits conservées ne suffisent pas à combler ces blancs avec assurance. Il serait donc facile, mais faux, de transformer la réputation olfactive du fruit en recette détaillée ou de prétendre connaître le goût de chaque verre.
+
+Cette pauvreté documentaire fait elle-même partie de l’histoire. Beaucoup de créations de festival apparaissent une fois, circulent sous forme de titres spectaculaires, puis laissent peu d’archives primaires. Durian Durian est bien attestée comme saison au fruit, mais toute précision supplémentaire doit rester conditionnelle.
+
+L’expérience mérite enfin mieux que la caricature du « fruit qui sent mauvais ». Le durian change selon la variété, la maturité et la perception du dégustateur ; ses amateurs y trouvent une complexité que les comparaisons occidentales les plus outrées effacent. La bière met face à face deux signatures fermentaires puissantes. Ce que l’on peut affirmer s’arrête là où commence le nez imaginaire.`,
       "chapitres": [
         {
           "titre": "Le fruit qui possède déjà une légende",
@@ -3267,13 +3383,13 @@ La carte fonctionne donc sur un contraste : une famille de bière sèche et ferm
         },
         {
           "titre": "Ce que l’on sait, sans renifler à distance",
-          "texte": "Foreigner Brewing a bien associé une saison au durian. En revanche, les sources accessibles ne donnent pas une recette complète ni une analyse sensorielle stabilisée. La Brassopédie garde donc le fruit au centre tout en refusant de lui prêter automatiquement des notes que personne n’a mesurées dans le brassin."
+          "texte": "Foreigner Brewing a bien associé une saison au durian. En revanche, les sources accessibles ne donnent pas une recette complète ni une analyse sensorielle stabilisée. Le fruit reste donc au centre sans se voir prêter automatiquement toutes les notes de sa réputation."
         }
       ],
       "recette": {
         "titre": "Une saison avec un fruit impossible à ignorer",
         "profilUnique": true,
-        "noteProfil": "Cette entrée décrit un objet brassicole singulier : elle ne constitue pas une recette-type à reproduire.",
+        "noteProfil": "Les archives d’un brassin de festival ne donnent pas assez de paramètres pour transformer son concept en recette fidèle.",
         "explicationProfil": "Saison brassée avec du durian ; formulation complète et paramètres non publiés.",
         "maltsEtCereales": [
           "Base de saison claire ; céréales et proportions non documentées avec précision."
@@ -3301,7 +3417,7 @@ La carte fonctionne donc sur un contraste : une famille de bière sèche et ferm
           "reference": "Australian brewery debuts durian beer",
           "type": "source_presse",
           "url": "https://vinepair.com/booze-news/brewery-debuted-durian-beer-rotting-flesh/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "The Drinks Business",
@@ -3309,7 +3425,7 @@ La carte fonctionne donc sur un contraste : une famille de bière sèche et ferm
           "reference": "Aussie brewery makes beer with Asia’s smelliest fruit",
           "type": "source_presse",
           "url": "https://www.thedrinksbusiness.com/2018/05/aussie-brewery-makes-beer-with-asias-smelliest-fruit/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -3365,12 +3481,16 @@ La carte fonctionne donc sur un contraste : une famille de bière sèche et ferm
         "verresRecommandes": [],
         "libelle": "Non documenté"
       },
-      "description": "Une sour qui fait dialoguer deux mondes déjà obsédés par les microbes : bière acide et kimchi. Gochugaru, gingembre et culture lactique déplacent le bocal coréen dans le langage du brassage sans prétendre qu’une pinte est devenue un accompagnement de barbecue liquide.",
-      "histoireEtOrigines": `Dokkaebier s’est fait connaître par des bières intégrant des ingrédients et références culinaires coréennes. Kimchi Sour pousse cette logique sur un terrain particulièrement cohérent : le kimchi est lui-même un produit de fermentation lactique, et la bière sour utilise également des bactéries capables de produire de l’acide lactique.
+      "description": "Kimchi Sour est une kettle sour de Dokkaebier à 6 % vol., relevée de gingembre et de gochugaru. Son acidification emploie une culture entretenue dans le kimchi maison du fondateur pendant deux ans. Le bocal fournit donc surtout une communauté lactique et une mémoire familiale, pas nécessairement tous les ingrédients d’un kimchi versés dans la cuve.",
+      "histoireEtOrigines": `Dokkaebier construit son identité autour d’un dialogue entre bière artisanale américaine et ingrédients coréens. Kimchi Sour en est l’expression la plus microbiologique. Le kimchi ne désigne pas une recette unique, mais une vaste famille de légumes fermentés dont l’acidification repose notamment sur des bactéries lactiques. Une sour beer peut mobiliser le même grand mécanisme biochimique, dans une matrice et avec des contraintes très différentes.
 
-Les descriptions du produit mentionnent du gochugaru — piment coréen —, du gingembre et une culture lactique associée à l’univers du kimchi. Les informations disponibles ne permettent pas d’affirmer qu’un bocal complet de kimchi, avec chaque ingrédient traditionnel, a été vidé dans la cuve. Là encore, l’imaginaire doit rester au service des faits.
+Le fondateur raconte avoir entretenu pendant environ deux ans une culture issue de son kimchi maison avant de l’utiliser pour acidifier la bière. Cette donnée est plus précise que l’image d’un bocal complet renversé dans la cuve. La culture apporte des micro-organismes sélectionnés par des cycles de fermentation domestique ; gingembre et gochugaru, le piment rouge coréen, construisent ensuite le pont aromatique explicite avec l’inspiration culinaire.
 
-Cette bière est moins un gag qu’une conversation fermentaire : deux traditions utilisent des micro-organismes pour transformer des matières premières, puis un brasseur décide qu’elles peuvent partager la même table.`,
+La bière est annoncée à 6 % vol. et 10,6 IBU. Dokkaebier la décrit comme une kettle sour : le moût est acidifié dans la chaudière par la culture lactique, puis le processus est repris et sécurisé avant la fermentation alcoolique. Ce schéma permet de maîtriser l’acidité et de limiter la présence des bactéries dans le reste de la brasserie. Les températures, durées et espèces exactes ne sont pas publiées, si bien que la culture familiale ne peut pas être réduite à une souche de catalogue.
+
+Il faut également résister au réflexe d’ajouter mentalement chou, ail, sauce de poisson ou toute autre composante possible du kimchi. Les éléments documentés pour la bière sont la culture, le gingembre et le gochugaru. Le nom indique une filiation ; il ne garantit pas la transposition intégrale d’un plat, d’autant que les kimchis varient selon les régions, les saisons et les foyers.
+
+Kimchi Sour n’est donc pas seulement une provocation gastronomique. Elle met en circulation une culture vivante entre cuisine familiale et équipement brassicole, puis traduit cette parenté lactique en bière aigre, épicée et mesurée. Deux fermentations se rencontrent sans que l’une devienne le déguisement de l’autre.`,
       "chapitres": [
         {
           "titre": "Fermentation rencontre fermentation",
@@ -3384,8 +3504,8 @@ Cette bière est moins un gag qu’une conversation fermentaire : deux tradition
       "recette": {
         "titre": "Le bocal et le fermenteur trouvent un terrain commun",
         "profilUnique": true,
-        "noteProfil": "Cette entrée décrit un objet brassicole singulier : elle ne constitue pas une recette-type à reproduire.",
-        "explicationProfil": "Sour inspirée du kimchi, documentée avec gochugaru, gingembre et culture lactique ; la composition complète reste propriétaire ou non publiée.",
+        "noteProfil": "La culture familiale et le procédé de kettle sour sont spécifiques au producteur ; les ingrédients documentés ne forment pas une recette complète de kimchi.",
+        "explicationProfil": "Kettle sour à 6 % et 10,6 IBU, documentée avec gochugaru, gingembre et une culture issue d’un kimchi maison entretenu deux ans.",
         "maltsEtCereales": [
           "Base maltée de sour non documentée avec précision."
         ],
@@ -3415,7 +3535,7 @@ Cette bière est moins un gag qu’une conversation fermentaire : deux tradition
           "reference": "Kimchi Sour — présentation de la bière",
           "type": "source_producteur",
           "url": "https://enjoydkb.com/blogs/from-the-blogs/dokkaebier-kimchi-sour-korean-craft-beer",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Craft Beer & Brewing",
@@ -3423,7 +3543,7 @@ Cette bière est moins un gag qu’une conversation fermentaire : deux tradition
           "reference": "Special Ingredient: Kimchi",
           "type": "source_professionnelle",
           "url": "https://www.beerandbrewing.com/special-ingredient-kimchi",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "BeerAdvocate",
@@ -3431,7 +3551,7 @@ Cette bière est moins un gag qu’une conversation fermentaire : deux tradition
           "reference": "Dokkaebier Kimchi Sour",
           "type": "source_secondaire",
           "url": "https://www.beeradvocate.com/beer/profile/59808/542566/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -3487,12 +3607,16 @@ Cette bière est moins un gag qu’une conversation fermentaire : deux tradition
         "verresRecommandes": [],
         "libelle": "Non documenté"
       },
-      "description": "Une bière fermentée avec une culture de levure obtenue à partir d’un prélèvement sur la chaise d’écriture de Roald Dahl. La littérature ne finit pas dans la cuve en pages déchirées : c’est le mobilier qui fournit une trace microbienne à cultiver.",
-      "histoireEtOrigines": `Mr. Twit’s Odious Ale a été créée en 2016 par Bompas & Parr avec 40FT Brewery pour Dinner at the Twits, expérience culinaire inspirée du roman de Roald Dahl. Le détail qui a assuré la célébrité du projet est la provenance de la levure : un écouvillon passé sur la chaise d’écriture personnelle de l’auteur a servi à rechercher une culture fermentaire.
+      "description": "Créée pour un dîner-spectacle inspiré des Deux Gredins, Mr. Twit’s Odious Ale utilise une culture issue d’un prélèvement sur la chaise d’écriture de Roald Dahl. Une base de bière de blé fumée au chêne, dans l’esprit du Grätzer polonais, transforme ainsi un meuble patrimonial en adresse microbienne — jamais l’auteur en ingrédient.",
+      "histoireEtOrigines": `En 2016, le studio de création culinaire Bompas & Parr prépare Dinner at the Twits, un banquet théâtral inspiré des personnages répugnants de Roald Dahl. Pour fournir au dîner sa bière, il collabore avec 40FT Brewery et ne se contente pas d’une étiquette littéraire : un écouvillon est passé sur la chaise où l’écrivain travaillait, avec l’accord de la Roald Dahl Estate, afin d’y rechercher une levure cultivable.
 
-Certaines reprises ont transformé l’histoire en « bière faite avec Roald Dahl », formule beaucoup plus macabre que la réalité. Aucun prélèvement sur son corps n’est documenté. Le lien est patrimonial : un objet de travail, son environnement microbien, puis un laboratoire qui tente d’en tirer une levure utilisable.
+Le prélèvement rejoint ensuite un laboratoire. Des micro-organismes présents sur le meuble sont isolés, testés et propagés jusqu’à fournir une culture apte à la fermentation. Cette chaîne est la partie souvent perdue dans les titres parlant d’une bière « faite avec Roald Dahl ». Aucun tissu de l’auteur n’est collecté et aucun fragment de chaise n’entre dans la cuve. La relation est environnementale : un meuble ayant partagé son espace de travail héberge une population microbienne, dont une descendante devient levure brassicole.
 
-C’est une forme étonnante de relique littéraire : au lieu de conserver uniquement l’encre ou le papier, on fait fermenter la poussière biologique du décor.`,
+Bompas & Parr documente aussi une architecture de bière plus précise que ne le laissent entendre les reprises médiatiques. Mr. Twit’s Odious Ale s’inspire du Grätzer, bière polonaise de blé fumé, et emploie du malt de blé fumé au chêne. Le profil sec, fumé et céréalier convient au décor du repas tout en laissant la provenance de la culture porter l’essentiel du récit. Le projet n’est donc pas une ale générique à laquelle on aurait collé une anecdote après fermentation.
+
+Cette levure n’établit pas pour autant un « goût de littérature ». Une souche trouvée sur un objet prestigieux n’est chimiquement remarquable qu’après caractérisation ; sa valeur publique vient surtout de sa traçabilité. Le même isolat découvert sur une chaise anonyme n’aurait probablement jamais obtenu son banquet.
+
+Mr. Twit’s Odious Ale appartient ainsi aux reliques vivantes, catégorie où patrimoine et microbiologie s’entrecroisent. L’encre, le papier et le mobilier restent au musée ; seule une lignée microscopique franchit la porte de la brasserie. Le récit demeure odieux au sens de Dahl, pas au sens sanitaire.`,
       "chapitres": [
         {
           "titre": "La chaise devient terroir",
@@ -3506,10 +3630,10 @@ C’est une forme étonnante de relique littéraire : au lieu de conserver uniqu
       "recette": {
         "titre": "Une bière avec note de bas de chaise",
         "profilUnique": true,
-        "noteProfil": "Cette entrée décrit un objet brassicole singulier : elle ne constitue pas une recette-type à reproduire.",
-        "explicationProfil": "Le style, l’alcool et la formulation complète ne sont pas publiés ; l’élément documenté est la culture issue d’un prélèvement sur la chaise de Roald Dahl.",
+        "noteProfil": "Le prélèvement patrimonial a été isolé et contrôlé en laboratoire ; écouvillonner un meuble ne fournit pas directement une levure sûre.",
+        "explicationProfil": "Bière de blé au malt fumé au chêne, inspirée du Grätzer, fermentée avec une culture issue de la chaise d’écriture de Roald Dahl.",
         "maltsEtCereales": [
-          "Base d’ale non documentée avec précision."
+          "Malt de blé fumé au chêne, dans l’inspiration Grätzer annoncée par Bompas & Parr."
         ],
         "houblons": [
           "Houblons non documentés avec précision."
@@ -3534,7 +3658,7 @@ C’est une forme étonnante de relique littéraire : au lieu de conserver uniqu
           "reference": "Mr Twit’s Odious Ale",
           "type": "source_createur",
           "url": "https://bompasandparr.com/case-study/mr-twits-odious-ale/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "The Independent",
@@ -3542,7 +3666,7 @@ C’est une forme étonnante de relique littéraire : au lieu de conserver uniqu
           "reference": "Beer made from yeast swabbed from Roald Dahl’s writing chair",
           "type": "source_presse",
           "url": "https://www.independent.co.uk/arts-entertainment/books/news/beer-to-be-made-from-yeast-swabbed-from-roald-dahl-s-writing-chair-a7195721.html",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -3599,12 +3723,16 @@ C’est une forme étonnante de relique littéraire : au lieu de conserver uniqu
         "verresRecommandes": [],
         "libelle": "Non documenté"
       },
-      "description": "Des chercheurs ont isolé des levures dans les pores de récipients archéologiques puis les ont utilisées pour fermenter des boissons modernes. Ce n’est pas une recette égyptienne parfaitement ressuscitée : c’est une expérience où un micro-organisme ancien rencontre un moût contemporain.",
-      "histoireEtOrigines": `Une équipe interdisciplinaire israélienne a travaillé sur des récipients archéologiques provenant de plusieurs sites et périodes, certains associés à la production ou à la consommation de bière et d’autres boissons fermentées. Des colonies de levures ont été isolées à partir des pores de la céramique, identifiées, puis certaines ont été utilisées pour produire de nouvelles boissons.
+      "description": "Une équipe israélienne a cultivé des levures piégées dans les pores de 21 récipients archéologiques provenant de quatre sites, puis six isolats ont fermenté des moûts modernes. L’expérience démontre un potentiel biologique associé aux céramiques ; elle ne ressuscite ni une unique bière égyptienne vieille de 5 000 ans, ni sa recette complète.",
+      "histoireEtOrigines": `L’expérience publiée en 2019 commence par une question inhabituelle : les pores d’une céramique ayant contenu une boisson fermentée peuvent-ils conserver des levures viables pendant des siècles ou des millénaires ? Archéologues et microbiologistes israéliens examinent 21 récipients provenant de quatre sites. Les objets ne forment pas un ensemble égyptien homogène : ils couvrent des lieux, des cultures et des périodes différents, depuis l’Antiquité ancienne jusqu’à des contextes plus récents.
 
-La couverture médiatique a résumé l’expérience par « bière brassée avec une levure vieille de 5 000 ans ». Cette formule traduit l’émerveillement mais compresse une réalité plus complexe : plusieurs récipients, plusieurs datations, plusieurs régions et un moût moderne. La levure peut éclairer des pratiques anciennes ; elle ne fournit pas à elle seule le reste d’une recette perdue.
+Les chercheurs prélèvent l’intérieur poreux des tessons, mettent les échantillons en culture et identifient les colonies obtenues. Six souches jugées pertinentes sont ensuite testées dans des fermentations modernes, avec l’aide de brasseurs et de producteurs de miel. Certaines produisent bière ou hydromel considérés comme buvables. Ce résultat établit que des isolats associés aux récipients peuvent encore métaboliser un moût ; il ne transforme pas chaque colonie en témoin direct et incontestable du jour où le vase a été rempli.
 
-C’est précisément ce qui rend l’expérience scientifique intéressante. On ne boit pas l’Égypte antique en bouteille ; on teste ce qu’une culture associée à des objets anciens peut encore faire dans un environnement de fermentation actuel.`,
+La formule médiatique « bière à la levure vieille de 5 000 ans » rassemble donc plusieurs raccourcis. L’âge dépend du récipient concerné, l’étude comprend davantage qu’une seule tradition, et la boisson d’essai est fabriquée avec des matières premières et un équipement contemporains. Même une provenance ancienne parfaitement établie ne fournirait que la fermentation. Céréales, maltage, aromates, eau, températures et gestes de brassage resteraient à reconstruire.
+
+Cette prudence n’affaiblit pas la découverte. Elle en précise la portée : la poterie peut fonctionner comme archive biologique, en plus de conserver des résidus chimiques ou des formes. Le passage de l’archéologie à la cuve devient alors un test expérimental du comportement des isolats, pas une séance de dégustation identique à celle d’un palais antique.
+
+La « bière égyptienne » désigne ainsi un programme à plusieurs voix plutôt qu’un produit unique. Six cultures, 21 objets et quatre sites racontent un paysage fermentaire complexe. Ce que les chercheurs remettent en mouvement est une lignée microbienne candidate ; le reste de la recette demeure, honnêtement, dans les lacunes de l’histoire.`,
       "chapitres": [
         {
           "titre": "Les pores de la poterie comme archive biologique",
@@ -3618,7 +3746,7 @@ C’est précisément ce qui rend l’expérience scientifique intéressante. On
       "recette": {
         "titre": "Ce que l’archéologie a réellement remis en fermentation",
         "profilUnique": false,
-        "noteProfil": "Cette entrée décrit un programme d’archéologie expérimentale : la levure ancienne ne suffit pas à définir une bière égyptienne complète.",
+        "noteProfil": "Six isolats et plusieurs essais sont concernés : aucune formulation unique ne peut représenter tout le programme archéologique.",
         "explicationProfil": "Moûts modernes fermentés avec des levures isolées de céramiques antiques ; plusieurs essais et souches sont concernés, pas une recette unique.",
         "maltsEtCereales": [
           "Moûts modernes préparés pour les expérimentations ; composition variable selon l’essai et non équivalente à une recette antique intégrale."
@@ -3645,8 +3773,8 @@ C’est précisément ce qui rend l’expérience scientifique intéressante. On
           "edition": null,
           "reference": "Researchers brew beer with yeast isolated from ancient vessels",
           "type": "source_universitaire",
-          "url": "https://www.biu.ac.il/en/article/581409",
-          "consultation": "2026-08-09"
+          "url": "https://www.biu.ac.il/en/article/13727",
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Hebrew University / CFHU",
@@ -3654,7 +3782,7 @@ C’est précisément ce qui rend l’expérience scientifique intéressante. On
           "reference": "Ancient yeast from pottery used to recreate fermented beverages",
           "type": "source_universitaire",
           "url": "https://www.cfhu.org/news/ancient-yeast/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Jewish Telegraphic Agency",
@@ -3662,7 +3790,7 @@ C’est précisément ce qui rend l’expérience scientifique intéressante. On
           "reference": "5,000-year-old yeast used to brew beer",
           "type": "source_presse",
           "url": "https://www.jta.org/2019/05/22/israel/5000-year-old-yeast-is-being-used-by-israeli-scientists-to-brew-a-pretty-good-beer",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -3718,12 +3846,16 @@ C’est précisément ce qui rend l’expérience scientifique intéressante. On
         "verresRecommandes": [],
         "libelle": "Non documenté"
       },
-      "description": "Un porter moderne utilisant une levure récupérée à partir de bouteilles retrouvées dans l’épave du Sydney Cove, naufragé en 1797. Le trésor n’est pas le rhum, ni l’or : c’est une cellule qui a attendu deux siècles qu’on lui rende un fermenteur.",
-      "histoireEtOrigines": `Le Sydney Cove a fait naufrage au large de la Tasmanie en 1797 avec une cargaison comprenant des bouteilles d’alcool. Des fouilles archéologiques ont permis de récupérer des bouteilles scellées et leur contenu, conservés ensuite par le Queen Victoria Museum and Art Gallery.
+      "description": "Preservation Ale est un porter moderne fermenté avec une culture isolée d’une bouteille scellée retrouvée dans l’épave du Sydney Cove, perdu en 1797. Le naufrage fournit une levure liée à la cargaison historique ; Malt Shovel Brewery fournit les matières premières, l’équipement et les choix nécessaires à toute reconstruction contemporaine.",
+      "histoireEtOrigines": `En février 1797, le Sydney Cove s’échoue près de Preservation Island, dans le détroit de Bass, alors qu’il transporte vers Port Jackson une cargaison de marchandises et d’alcool. Plus de deux siècles plus tard, les fouilles sous-marines mettent au jour des bouteilles encore scellées. Le Queen Victoria Museum and Art Gallery de Launceston conserve ces objets et leur contenu dans une collection où l’archéologie maritime rencontre bientôt la microbiologie.
 
-Des travaux scientifiques ont cherché des micro-organismes viables dans ces bouteilles. Une culture de levure associée aux restes de bière a ensuite participé à un projet de rebrassage avec James Squire / Malt Shovel Brewery, donnant naissance à Preservation Ale, souvent décrite comme un porter foncé inspiré de l’époque.
+Des chercheurs analysent le liquide demeuré à l’abri de l’air. Parmi les micro-organismes récupérés, une culture de levure associée à une bouteille de bière peut être propagée. Cette viabilité exceptionnelle fait les gros titres : une cellule a traversé environ 220 ans de stockage avant de retrouver un milieu de culture. L’image est juste à condition de ne pas confondre la lignée réveillée avec tout le contenu originel, fortement transformé par le temps.
 
-Il serait excessif d’appeler le résultat « la bière de 1797 ressuscitée » : la levure est historique, mais la recette et les conditions de production modernes sont des reconstructions. L’épave fournit une voix, pas toute la partition.`,
+Le musée travaille ensuite avec Malt Shovel Brewery, maison de la marque James Squire, pour produire Preservation Ale. Le brasseur choisit un porter sombre inspiré des bières que la cargaison aurait pu contenir et utilise la culture issue de l’épave pour la fermentation. Le nom rend hommage à l’île du naufrage autant qu’au geste de conservation.
+
+Ce brassin n’est pourtant pas une bouteille de 1797 dupliquée. Les malts actuels, l’eau traitée, les équipements inox, le contrôle thermique et le protocole sanitaire appartiennent au XXIe siècle. La recette complète du navire n’a pas survécu ; même l’identité précise de chaque organisme isolé demande une interprétation scientifique. L’expérience assemble donc un élément biologique historique et une reconstruction sensorielle moderne.
+
+Cette limite est sa force. Preservation Ale ne prétend pas effacer le naufrage ni deux cents ans de technologie. Elle donne à une collection de musée une fonction nouvelle : au lieu de rester seulement visible derrière une vitrine, une descendante microscopique de la cargaison agit à nouveau. L’épave fournit une voix authentique ; le porter contemporain écrit le reste de la partition.`,
       "chapitres": [
         {
           "titre": "Une bouteille comme capsule de temps",
@@ -3737,7 +3869,7 @@ Il serait excessif d’appeler le résultat « la bière de 1797 ressuscitée »
       "recette": {
         "titre": "Le porter qui remonte d’une épave",
         "profilUnique": true,
-        "noteProfil": "Cette entrée décrit un objet brassicole singulier : elle ne constitue pas une recette-type à reproduire.",
+        "noteProfil": "Seule la culture issue de l’épave est historique ; le porter et son environnement de production sont une reconstruction moderne.",
         "explicationProfil": "Base de porter moderne utilisant une culture obtenue à partir de bouteilles historiques du Sydney Cove.",
         "maltsEtCereales": [
           "Base de porter foncé inspirée d’un profil historique ; composition exacte non publiée dans les sources retenues."
@@ -3765,7 +3897,7 @@ Il serait excessif d’appeler le résultat « la bière de 1797 ressuscitée »
           "reference": "The Sydney Cove Collection",
           "type": "source_museale",
           "url": "https://www.qvmag.tas.gov.au/Whats-on/Museum-at-Inveresk/The-Sydney-Cove-Collection",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "The Maritime Executive",
@@ -3773,7 +3905,7 @@ Il serait excessif d’appeler le résultat « la bière de 1797 ressuscitée »
           "reference": "Beer brewed from 1797 shipwreck bottle",
           "type": "source_presse",
           "url": "https://maritime-executive.com/article/beer-brewed-from-1797-shipwrecks-bottle",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -3828,12 +3960,18 @@ Il serait excessif d’appeler le résultat « la bière de 1797 ressuscitée »
         "verresRecommandes": [],
         "libelle": "Non documenté"
       },
-      "description": "Une sour maison inspirée de textes médicaux et d’ingrédients du monde antique, fermentée avec une levure annoncée comme vieille d’environ trois millénaires. Figues de sycomore, dattes, miel, raisins et encens composent moins une recette certifiée qu’un roman archéologique soigneusement annoté.",
-      "histoireEtOrigines": `Le brasseur amateur Dylan McDonnell a développé Sinai Sour à partir de deux fils documentaires : une culture de levure ancienne liée à des recherches archéologiques au Proche-Orient et le papyrus Ebers, vaste texte médical de l’Égypte antique qui mentionne de nombreuses matières végétales et préparations.
+      "description": "Dylan McDonnell a composé Sinai Sour autour d’une levure annoncée comme vieille d’environ trois millénaires et d’ingrédients repérés dans le papyrus Ebers. Cette bière maison à 5 % vol. est une reconstruction créative : le texte antique fournit un garde-manger documentaire, pas une recette complète portant ce nom et ces proportions.",
+      "histoireEtOrigines": `Sinai Sour naît moins d’une fouille que d’un long travail de lecture. Le brasseur amateur américain Dylan McDonnell obtient une culture liée aux recherches sur des levures isolées de céramiques antiques du Proche-Orient. Il cherche ensuite un milieu de fermentation capable de donner à cet organisme un contexte historique plausible sans reproduire simplement une recette moderne de pale ale.
 
-Les comptes rendus de 2024 décrivent un brassin autour de 5 % ABV utilisant notamment orge égyptienne/emmer, figues de sycomore, encens, dattes du désert, cumin noir, miel de Sidr yéménite, caroube, raisins secs dorés et genévrier épineux. Cette liste donne une profondeur réelle au projet, mais elle ne prouve pas qu’une seule recette antique associait exactement tous ces ingrédients dans ces proportions.
+Son fil conducteur est le papyrus Ebers, traité médical égyptien copié au deuxième millénaire avant notre ère. Le document recense remèdes, plantes, fruits et préparations, mais ne livre pas la formule prête à brasser de Sinai Sour. McDonnell l’utilise comme inventaire d’ingrédients attestés ou compatibles avec le monde étudié, puis construit lui-même leur assemblage.
 
-Sinai Sour est donc une reconstruction créative informée par des sources, pas une recette retrouvée sur un papyrus avec le mode d’emploi « fermenter trois jours puis servir au pharaon ».`,
+Les comptes rendus de 2024 décrivent une bière d’environ 5 % vol. avec une céréale telle que l’emmer ou une orge égyptienne, des figues de sycomore, des dattes du désert, du miel de Sidr yéménite, de la caroube et des raisins secs dorés. Cumin noir, encens et genévrier épineux complètent cette architecture sans houblon moderne mis au premier plan. La culture ancienne apporte acidité et fermentation à un moût entièrement préparé aujourd’hui.
+
+La liste impressionne, mais elle ne prouve pas qu’un brasseur antique ait combiné exactement ces matières, encore moins sous les mêmes températures ou dosages. Chaque choix contemporain relie des indices dispersés. Le matériel, l’hygiène, la forme des ingrédients et le contrôle du processus appartiennent eux aussi au présent. Le terme « reconstruction » doit donc être accompagné de « créative » ou « expérimentale ».
+
+Cette honnêteté ne réduit pas le projet à un simple pastiche. McDonnell teste la compatibilité entre un isolat archéologique, des céréales anciennes disponibles et un vocabulaire botanique documenté. La dégustation devient une hypothèse comestible : non pas « voici la bière des Égyptiens », mais « voici ce que ces sources nous ont permis d’imaginer sans les contredire délibérément ».
+
+Sinai Sour est ainsi un roman archéologique annoté. La levure et le papyrus ouvrent le dossier ; le brasseur contemporain en écrit nécessairement les pages manquantes.`,
       "chapitres": [
         {
           "titre": "Le papyrus comme garde-manger, pas comme fiche de brassage",
@@ -3847,7 +3985,7 @@ Sinai Sour est donc une reconstruction créative informée par des sources, pas 
       "recette": {
         "titre": "Une reconstruction avec notes de papyrus",
         "profilUnique": true,
-        "noteProfil": "Cette entrée décrit un objet brassicole singulier : elle ne constitue pas une recette-type à reproduire.",
+        "noteProfil": "Les ingrédients sont documentés comme inspiration historique, mais leur assemblage appartient au brasseur moderne et ne vaut pas recette antique certifiée.",
         "explicationProfil": "Brassin expérimental de Dylan McDonnell autour de 5 % ABV, inspiré de matières mentionnées dans des sources anciennes et utilisant une culture de levure ancienne.",
         "maltsEtCereales": [
           "Orge égyptienne et/ou emmer rapportés dans les descriptions du projet."
@@ -3882,7 +4020,7 @@ Sinai Sour est donc une reconstruction créative informée par des sources, pas 
           "reference": "Man brews beer using ancient yeast and Egyptian papyrus inspiration",
           "type": "source_presse_scientifique",
           "url": "https://www.smithsonianmag.com/smart-news/this-man-brewed-beer-using-3000-year-old-yeast-and-a-recipe-from-an-ancient-egyptian-papyrus-180984576/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "VinePair",
@@ -3890,7 +4028,7 @@ Sinai Sour est donc une reconstruction créative informée par des sources, pas 
           "reference": "Beer made with ancient yeast",
           "type": "source_presse",
           "url": "https://vinepair.com/booze-news/beer-made-with-ancient-yeast/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -3948,16 +4086,22 @@ Sinai Sour est donc une reconstruction créative informée par des sources, pas 
         "verresRecommandes": [],
         "libelle": "Non applicable · projet non brassé"
       },
-      "description": "La carte fantôme de la collection : en 2026, des chercheurs ont travaillé sur des levures associées à Ötzi et les ont utilisées pour du levain ; la bière n’est encore qu’une piste annoncée. Ici, la Brassopédie décrit une promesse, pas une bouteille qui existerait déjà.",
-      "histoireEtOrigines": `Une étude publiée en 2026 sur le microbiome d’Ötzi, l’homme des glaces, a identifié des micro-organismes et notamment des levures associées à la momie et à son environnement de conservation. Des chercheurs ont réussi à cultiver certaines de ces levures et à explorer leur potentiel, avec une démonstration spectaculaire autour de pain au levain.
+      "description": "En août 2026, la « bière Ötzi » n’existe encore que comme projet. Des chercheurs ont cultivé des levures associées à la momie et démontré leur potentiel avec du pain au levain ; un essai brassicole est envisagé. Ces organismes adaptés au froid ont pu coloniser Ötzi après sa mort : leur âge n’est pas automatiquement celui de l’homme des glaces.",
+      "histoireEtOrigines": `Cette histoire doit être racontée au présent, car sa bouteille n’existe pas encore. En 2026, Eurac Research publie les résultats d’une exploration du microbiome associé à Ötzi, la momie découverte dans les Alpes de l’Ötztal. L’équipe récupère et cultive plusieurs levures capables de vivre dans des conditions froides, puis teste leur comportement dans une fermentation alimentaire.
 
-La couverture médiatique a ensuite évoqué une prochaine étape possible : tester ces cultures dans une bière, avec l’intérêt de partenaires spécialisés en brassage. À la date de consultation de cette fiche, il ne faut donc pas présenter une « bière Ötzi » comme un produit brassé, commercialisé ou même comme une recette stabilisée.
+La démonstration la plus concrète concerne le pain. Des cultures participent à un levain et produisent un aliment réel, ce qui montre qu’elles peuvent métaboliser des substrats utiles. Les communications scientifiques et les articles de juin 2026 évoquent ensuite la bière comme prochaine piste, avec l’intérêt de spécialistes du brassage. Aucun nom de produit, degré, malt, houblon ou protocole achevé n’est cependant publié à la date de consultation du 11 août.
 
-Autre nuance capitale : les travaux scientifiques suggèrent que certaines levures pourraient être des organismes adaptés au froid ayant colonisé ou persisté dans l’environnement glaciaire après la mort d’Ötzi. Dire « levure de 5 300 ans provenant du corps vivant d’Ötzi » irait bien au-delà de ce que les données autorisent.`,
+Le raccourci « levure de bière vieille de 5 300 ans trouvée sur Ötzi » cumulerait donc deux erreurs. Premièrement, le potentiel brassicole reste à expérimenter ; du levain n’est pas une bière. Deuxièmement, l’association spatiale avec une momie ne donne pas automatiquement l’âge du micro-organisme. Les chercheurs considèrent que certaines souches adaptées au froid ont pu rejoindre le corps ou son environnement glaciaire après la mort d’Ötzi et y persister.
+
+Cette incertitude temporelle ne rend pas les isolats banals. Des levures sélectionnées par un habitat froid peuvent présenter des propriétés intéressantes pour les fermentations à basse température, la production d’arômes ou la recherche sur la conservation. Ces hypothèses demandent des essais comparatifs et une identification précise, pas une date de naissance empruntée à la momie.
+
+Le statut de projet constitue ainsi l’information principale. Il empêche les cases vides — alcool, couleur, amertume, recette — d’être remplies par anticipation et laisse un repère clair pour une future mise à jour. Si un brassin voit le jour, il faudra alors distinguer la souche employée, le protocole moderne et le lien réellement démontré avec l’environnement d’Ötzi.
+
+Pour l’instant, le dossier contient une étude microbiologique, un pain et une intention. C’est déjà fascinant ; inventer la bière ne le serait pas.`,
       "chapitres": [
         {
-          "titre": "Le boss final est encore dans le glacier",
-          "texte": "Alcool, couleur, amertume, malts, houblons et style n’existent pas encore comme données de bière. Une fiche qui remplirait ces cases aujourd’hui fabriquerait une boisson imaginaire. Le statut « projet » est donc une information positive : il permet à ZythoHunt de suivre une expérience avant qu’elle ne devienne éventuellement un produit."
+          "titre": "Le brassin est encore dans le futur",
+          "texte": "Alcool, couleur, amertume, malts, houblons et style n’existent pas encore comme données de bière. Remplir ces cases aujourd’hui fabriquerait une boisson imaginaire. Le statut « projet » est une information positive : il distingue ce qui a été cultivé de ce qui pourrait un jour être brassé."
         },
         {
           "titre": "Ancienne, glaciaire ou simplement bien adaptée au froid ?",
@@ -3995,7 +4139,7 @@ Autre nuance capitale : les travaux scientifiques suggèrent que certaines levur
           "reference": "Study of microorganisms associated with Ötzi and cold-adapted yeasts",
           "type": "source_scientifique",
           "url": "https://www.eurac.edu/en/magazine/otzi-microbiome",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Smithsonian Magazine",
@@ -4003,7 +4147,7 @@ Autre nuance capitale : les travaux scientifiques suggèrent que certaines levur
           "reference": "Scientists made sourdough with yeast associated with Ötzi",
           "type": "source_presse_scientifique",
           "url": "https://www.smithsonianmag.com/smart-news/scientists-made-sourdough-bread-with-yeast-found-on-otzi-the-icemans-mummified-body-180988894/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "The Guardian",
@@ -4011,7 +4155,7 @@ Autre nuance capitale : les travaux scientifiques suggèrent que certaines levur
           "reference": "Scientists explore sourdough and possible brewing with Ötzi-associated yeast",
           "type": "source_presse",
           "url": "https://www.theguardian.com/science/2026/jun/05/scientists-sourdough-bread-yeast-strains-mummy",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "The Drinks Business",
@@ -4019,7 +4163,7 @@ Autre nuance capitale : les travaux scientifiques suggèrent que certaines levur
           "reference": "Scientists to brew beer with yeast from mummified remains — project report",
           "type": "source_presse",
           "url": "https://www.thedrinksbusiness.com/2026/06/scientists-to-brew-beer-with-yeast-from-mummified-remains/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -4075,12 +4219,16 @@ Autre nuance capitale : les travaux scientifiques suggèrent que certaines levur
         "verresRecommandes": [],
         "libelle": "Non documenté"
       },
-      "description": "Une bière de Calgary brassée avec des eaux usées municipales transformées en eau potable par une chaîne de traitement avancé. L’expérience vise moins à parfumer la bière à l’égout qu’à démonter, filtre après filtre, la peur instinctive de la réutilisation de l’eau.",
-      "histoireEtOrigines": `Le projet mené autour d’ACWA — Advancing Canadian Wastewater Assets — réunit l’University of Calgary, Village Brewery et Xylem. L’objectif est de démontrer concrètement qu’une eau municipale usée peut être traitée jusqu’à respecter des critères très exigeants puis être utilisée dans un produit alimentaire familier.
+      "description": "En 2020, l’Université de Calgary, Village Brewery et Xylem ont brassé une Village Blonde avec une eau municipale usée purifiée par plusieurs barrières de traitement puis analysée selon les recommandations canadiennes de potabilité. Première démonstration de ce type en Alberta, ACWA Reuse Brew transforme une question d’infrastructure en expérience publique et buvable.",
+      "histoireEtOrigines": `À Calgary, la bière sert en 2020 de banc d’essai à une infrastructure de réutilisation. ACWA — Advancing Canadian Wastewater Assets — est une plateforme de recherche de l’Université de Calgary installée auprès d’une station d’épuration. Avec l’équipementier Xylem et Village Brewery, l’équipe veut montrer qu’une eau municipale déjà utilisée peut devenir une ressource alimentaire sûre après un traitement conçu et vérifié pour cet objectif.
 
-La chaîne décrite par l’université ne se résume pas à « un bon filtre ». Elle associe traitement biologique des nutriments, ultrafiltration, oxydation avancée par ozone et UV, puis osmose inverse. L’eau obtenue a été testée par un laboratoire indépendant et comparée aux lignes directrices canadiennes de qualité de l’eau potable avant d’être utilisée pour brasser une Village Blonde.
+Le parcours de l’eau compte davantage que la recette de la blonde. Un traitement biologique retire une partie des nutriments ; l’ultrafiltration constitue une barrière physique ; l’ozone et les ultraviolets participent à une oxydation avancée ; l’osmose inverse retient de nombreux contaminants dissous. Ces étapes n’ont pas la même fonction et se complètent. La sûreté repose sur leur succession, la surveillance et les analyses, pas sur un filtre miraculeux placé au bout d’un tuyau.
 
-La bière devient ainsi un outil de communication scientifique. Le verre dit : si le traitement est correctement conçu et contrôlé, l’histoire de l’eau avant purification n’est pas son identité chimique après purification.`,
+Avant le brassage, un laboratoire indépendant teste l’eau obtenue. L’université indique qu’elle satisfait les recommandations canadiennes applicables à la qualité de l’eau potable. Village Brewery l’utilise alors dans sa Village Blonde, une bière volontairement familière. Le projet est présenté comme la première bière d’Alberta élaborée avec des eaux usées traitées et reste un démonstrateur, non le début silencieux d’un changement généralisé de l’approvisionnement commercial.
+
+Le choix de la bière répond au « facteur beurk », cette réaction qui associe spontanément l’eau à son origine plutôt qu’à sa composition présente. Un verre transparent et une boisson connue rendent visibles les performances abstraites d’une chaîne de traitement. Le public peut discuter du risque, des contrôles et de la pénurie sur un objet concret, tout en comprenant que l’eau circule déjà naturellement et techniquement à travers de multiples usages.
+
+ACWA Reuse Brew ne cherche donc aucune saveur d’égout. Les constituants indésirables sont précisément ce que le système doit retirer. L’insolite se situe dans la mémoire sociale de la matière : chimiquement contrôlée comme potable, l’eau continue d’être perçue à travers son passé. La mousse devient un outil de communication sur l’avenir hydrique des villes.`,
       "chapitres": [
         {
           "titre": "Une station d’épuration en plusieurs actes",
@@ -4094,7 +4242,7 @@ La bière devient ainsi un outil de communication scientifique. Le verre dit : s
       "recette": {
         "titre": "La recette commence par une usine de traitement",
         "profilUnique": true,
-        "noteProfil": "Cette entrée décrit un objet brassicole singulier : elle ne constitue pas une recette-type à reproduire.",
+        "noteProfil": "La singularité dépend d’une installation pilote, d’analyses indépendantes et d’un cadre réglementaire ; elle ne se reproduit pas avec une filtration domestique.",
         "explicationProfil": "Le brassin documenté est une Village Blonde utilisant une eau municipale usée purifiée et testée ; la formulation complète de la bière n’est pas publiée.",
         "maltsEtCereales": [
           "Base maltée de Village Blonde ; composition détaillée non publiée dans la documentation du projet."
@@ -4122,7 +4270,7 @@ La bière devient ainsi un outil de communication scientifique. Le verre dit : s
           "reference": "UCalgary, Village Brewery and Xylem produce Alberta’s first beer made with treated wastewater",
           "type": "source_universitaire",
           "url": "https://ucalgary.ca/news/ucalgary-village-brewery-and-xylem-produce-albertas-first-beer-made-treated-wastewater",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Global News",
@@ -4130,7 +4278,7 @@ La bière devient ainsi un outil de communication scientifique. Le verre dit : s
           "reference": "Calgary brewery makes beer with treated wastewater",
           "type": "source_presse",
           "url": "https://globalnews.ca/news/7282032/calgary-brewery-wastewater-beer/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -4187,12 +4335,16 @@ La bière devient ainsi un outil de communication scientifique. Le verre dit : s
         "verresRecommandes": [],
         "libelle": "Non documenté"
       },
-      "description": "Des bières brassées avec l’eau récupérée des douches, lavabos et machines à laver d’immeubles, puis purifiée par un système de réutilisation avancé. Shower Hour IPA et Laundry Club Kölsch ont au moins l’élégance d’annoncer d’où vient la blague hydraulique.",
-      "histoireEtOrigines": `Epic Cleantec travaille sur le traitement local des eaux grises de bâtiments afin de les réutiliser plutôt que de les envoyer systématiquement vers le réseau d’assainissement. Pour rendre le concept visible, l’entreprise a lancé OneWater Brew avec Devil’s Canyon Brewing, utilisant une eau récupérée dans un immeuble de San Francisco puis traitée.
+      "description": "Epic Cleantec et Devil’s Canyon brassent avec de l’eau grise de bâtiments — douches et lessive — purifiée sur place par une chaîne multibarrière. Après un premier démonstrateur OneWater Brew, le programme a donné Shower Hour IPA à 6 % vol. et Laundry Club Kölsch à 4,6 %, deux recettes distinctes plutôt qu’un hypothétique style « eau recyclée ».",
+      "histoireEtOrigines": `Dans un immeuble, l’eau des douches, lavabos et machines à laver repart généralement vers l’égout alors qu’elle pourrait servir de nouveau après traitement. Epic Cleantec conçoit des installations compactes capables de récupérer cette eau grise au plus près du bâtiment. Pour rendre une tuyauterie invisible compréhensible par le public, l’entreprise choisit une preuve familière : une bière brassée avec l’eau purifiée.
 
-Le projet a ensuite donné des produits mieux caractérisés. Shower Hour IPA est annoncée autour de 6 % ABV avec houblon Azacca, fonio et levure kveik ; Laundry Club Kölsch autour de 4,6 % avec malt Pilsner, Hallertau et un assemblage de levures. Les noms jouent sur la douche et la lessive, mais aucune bière ne reçoit savon ou assouplissant : la source est de l’eau grise purifiée.
+Le premier OneWater Brew est développé avec Devil’s Canyon Brewing à partir d’une eau récupérée dans un immeuble de San Francisco. Le système associe plusieurs barrières, qui peuvent inclure traitement biologique, filtration membranaire, charbon actif, osmose inverse et désinfection. Elles retirent matières organiques, micro-organismes et composés dissous avant tout contact avec le malt. Les savons ou produits de lessive appartiennent donc au problème à éliminer, jamais à la liste aromatique.
 
-Le système de traitement décrit par Epic Cleantec combine plusieurs barrières, dont filtration, traitement biologique, membranes, charbon actif, osmose inverse et désinfection selon les installations.`,
+Le projet évolue ensuite d’un démonstrateur distribué lors d’événements vers deux bières présentées commercialement en 2025. Shower Hour IPA titre 6 % vol. et combine notamment houblon Azacca, fonio et levure kveik. Laundry Club Kölsch affiche 4,6 %, avec malt Pilsner, houblon Hallertau et assemblage de levures. Leurs noms gardent la mémoire de la source d’eau, tandis que leurs recettes affirment des identités sensorielles séparées.
+
+Cette chronologie évite de fusionner tous les brassins sous une formule unique. OneWater Brew désigne d’abord une démonstration puis un programme ; Shower Hour et Laundry Club sont des produits caractérisés. La constante n’est ni le style ni la levure, mais la boucle locale de traitement mise en œuvre avec la brasserie partenaire.
+
+La bière intervient enfin comme test social. Une eau conforme peut rester difficile à accepter si son histoire évoque la salle de bains. En donnant au liquide deux expressions ordinaires et nommées, Epic déplace la discussion vers les performances du système, les analyses et la rareté de la ressource. La douche est une origine administrative ; après purification, elle ne doit plus être une saveur.`,
       "chapitres": [
         {
           "titre": "La douche est une source, pas une saveur",
@@ -4200,7 +4352,7 @@ Le système de traitement décrit par Epic Cleantec combine plusieurs barrières
         },
         {
           "titre": "Une anomalie devenue petite gamme",
-          "texte": "La première OneWater Brew était surtout un démonstrateur. Les déclinaisons Shower Hour IPA et Laundry Club Kölsch montrent une maturation du concept : la source d’eau reste insolite, mais chaque bière possède désormais une vraie identité de recette. La collection ne contient donc pas un style unique, mais une famille de preuves par la bière."
+          "texte": "La première OneWater Brew était surtout un démonstrateur. Shower Hour IPA et Laundry Club Kölsch montrent ensuite la maturation du concept : la source d’eau reste insolite, mais chaque bière possède une véritable identité de recette. Il s’agit d’une famille de preuves par la bière, pas d’un style unique."
         }
       ],
       "recette": {
@@ -4237,7 +4389,7 @@ Le système de traitement décrit par Epic Cleantec combine plusieurs barrières
           "reference": "Shower Hour IPA and Laundry Club Kölsch",
           "type": "source_producteur_technique",
           "url": "https://epiccleantec.com/blog/shower-hour-ipa-laundry-club-kolsch",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Devil's Canyon Brewing Company",
@@ -4245,7 +4397,7 @@ Le système de traitement décrit par Epic Cleantec combine plusieurs barrières
           "reference": "Epic OneWater Brew",
           "type": "source_brasserie",
           "url": "https://www.devilscanyon.com/epic-onewater-brew.html",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -4300,12 +4452,16 @@ Le système de traitement décrit par Epic Cleantec combine plusieurs barrières
         "verresRecommandes": [],
         "libelle": "Non documenté"
       },
-      "description": "Une lager tchèque de type Pilsner brassée avec de l’eau usée recyclée puis purifiée par plusieurs étapes, dont ultrafiltration et osmose inverse. Dans le pays de la Pils, choisir une blonde nette comme démonstrateur revient à faire passer l’eau recyclée devant un jury particulièrement susceptible.",
-      "histoireEtOrigines": `ERKO est un projet tchèque associé à Veolia et à une brasserie de Čížová, conçu pour sensibiliser à la sécheresse et à la réutilisation de l’eau. Contrairement aux premières descriptions très vagues qui circulent parfois, Veolia précise que la bière originale est une lager de type Pilsner, non filtrée et non pasteurisée, à fermentation basse.
+      "description": "Lancée en 2019, ERKO est une lager tchèque non filtrée et non pasteurisée, produite à Čížová avec une eau usée passée par coagulation, ultrafiltration, osmose inverse, charbon actif et désinfection. Quinze hectolitres ont servi à démontrer la réutilisation face à la sécheresse ; ERKO ZERO est une déclinaison ultérieure, à ne pas confondre avec l’originale.",
+      "histoireEtOrigines": `En 2019, la République tchèque traverse une succession d’années sèches qui transforme la réutilisation de l’eau en sujet public. Veolia choisit la bière comme démonstrateur dans un pays où la lager pâle possède une forte valeur culturelle. Avec la brasserie de Čížová, le groupe produit environ quinze hectolitres d’ERKO, présentée comme la première bière tchèque brassée à partir d’eaux usées recyclées.
 
-L’eau provient d’eaux usées traitées puis passe par une chaîne supplémentaire comprenant coagulation, ultrafiltration, osmose inverse, adsorption sur charbon actif et désinfection. Le but est de produire une eau compatible avec le brassage, pas de laisser une trace sensorielle de son origine.
+Le raccourci « eau d’égout » masque toute la chaîne qui rend le projet possible. Une eau déjà traitée reçoit des étapes supplémentaires : coagulation, ultrafiltration, osmose inverse, adsorption sur charbon actif puis désinfection. Chaque barrière vise une famille de particules, de molécules ou de micro-organismes. Le liquide final doit répondre aux exigences prévues avant d’entrer en brasserie ; son passé n’est pas recherché comme caractère gustatif.
 
-Des déclinaisons plus récentes existent, dont ERKO ZERO ; elles ne doivent pas être confondues avec la bière originale. La collection documente ici le projet initial de lager à eau recyclée.`,
+ERKO prend la forme exigeante d’une lager de type Pilsner, fermentée à basse température, non filtrée et non pasteurisée. Une bière claire offre peu de malts torréfiés ou d’aromates derrière lesquels cacher un défaut. Ce choix sert donc le message : l’eau purifiée doit permettre une boisson nette dans le pays qui a donné son nom à Pilsen. La fermentation et la garde restent conventionnelles ; l’innovation se situe en amont du brassage.
+
+Le lot initial est destiné surtout aux événements, à la sensibilisation et à la discussion réglementaire, plutôt qu’à une distribution nationale permanente. Veolia prolonge ensuite la marque avec d’autres démonstrations, dont ERKO ZERO sans alcool. Cette évolution crée un piège documentaire : les communications récentes peuvent décrire une version différente de la lager de 2019. Les deux ne doivent pas être fusionnées dans une recette intemporelle.
+
+ERKO raconte finalement une boucle industrielle autant qu’une bière. L’eau traverse une ville, une station, une unité de finition et une brasserie avant de revenir sous une forme socialement reconnaissable. La Pils ne camoufle pas l’infrastructure ; elle lui fait passer un examen public.`,
       "chapitres": [
         {
           "titre": "Tester l’eau recyclée dans le temple de la Pils",
@@ -4313,13 +4469,13 @@ Des déclinaisons plus récentes existent, dont ERKO ZERO ; elles ne doivent pas
         },
         {
           "titre": "ERKO n’est pas forcément ERKO ZERO",
-          "texte": "Le projet a évolué et Veolia communique désormais sur plusieurs produits. La fiche conserve les générations séparées : la première ERKO illustre la réutilisation d’eau dans une lager tchèque ; une version zéro alcool appartient à une étape ultérieure. L’histoire reste lisible seulement si l’on évite de fusionner toutes les fiches marketing."
+          "texte": "Le projet a évolué et Veolia communique désormais sur plusieurs produits. Les générations doivent rester séparées : la première ERKO illustre la réutilisation d’eau dans une lager tchèque ; une version zéro alcool appartient à une étape ultérieure. L’histoire reste lisible seulement si l’on évite de fusionner toutes les communications marketing."
         }
       ],
       "recette": {
         "titre": "Une Pilsner qui commence par l’osmose inverse",
         "profilUnique": true,
-        "noteProfil": "Cette entrée décrit un objet brassicole singulier : elle ne constitue pas une recette-type à reproduire.",
+        "noteProfil": "Le lot de 2019 dépend d’une filière industrielle contrôlée ; ERKO ZERO appartient à une génération ultérieure et ne doit pas fournir sa recette rétroactivement.",
         "explicationProfil": "Lager de type Pilsner à fermentation basse, non filtrée et non pasteurisée dans la présentation du projet initial.",
         "maltsEtCereales": [
           "Base de Pilsner tchèque ; malt exact et composition non publiés dans les sources techniques retenues."
@@ -4347,7 +4503,7 @@ Des déclinaisons plus récentes existent, dont ERKO ZERO ; elles ne doivent pas
           "reference": "ERKO — beer brewed from recycled wastewater",
           "type": "source_entreprise",
           "url": "https://www.veolia.cz/cs/erko",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Veolia",
@@ -4355,7 +4511,7 @@ Des déclinaisons plus récentes existent, dont ERKO ZERO ; elles ne doivent pas
           "reference": "Drought, recycling wastewater and reuse",
           "type": "source_entreprise",
           "url": "https://www.veolia.com/en/news/drought-recycling-wastewater-reuse-drinking-water",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Radio Prague International",
@@ -4363,7 +4519,7 @@ Des déclinaisons plus récentes existent, dont ERKO ZERO ; elles ne doivent pas
           "reference": "Czech brewery rolls out wastewater beer",
           "type": "source_presse",
           "url": "https://english.radio.cz/czech-brewery-rolls-out-first-wastewater-beer-8128614",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -4418,12 +4574,16 @@ Des déclinaisons plus récentes existent, dont ERKO ZERO ; elles ne doivent pas
         "verresRecommandes": [],
         "libelle": "Non documenté"
       },
-      "description": "Une boisson inspirée du récipient trouvé dans la tombe de la jeune fille d’Egtved, morte à l’âge du Bronze : blé, miel, baies rouges, myrte des marais et pollen. Une recette funéraire qui ressemble moins à une bière moderne qu’à un carrefour entre bière, hydromel et paysage danois.",
-      "histoireEtOrigines": `La jeune fille d’Egtved a été enterrée au Danemark vers 1370 av. J.-C. Dans son cercueil de chêne se trouvait un récipient en écorce contenant les restes d’une boisson fermentée. Les analyses et la présentation du Nationalmuseet mentionnent du blé, du miel, des airelles ou canneberges, du myrte des marais et une quantité importante de pollen, notamment de tilleul.
+      "description": "Egtvedpigens Bryg est une reconstitution danoise inspirée du récipient d’écorce placé vers 1370 av. J.-C. dans la tombe de la jeune fille d’Egtved. Les résidus indiquent une boisson fermentée au blé, au miel, aux baies et au myrte des marais ; ils ne livrent ni proportions, ni levure, ni une recette moderne de bière au sens strict.",
+      "histoireEtOrigines": `Vers 1370 avant notre ère, une jeune femme est inhumée près d’Egtved, au Danemark, dans un cercueil de chêne. La conservation exceptionnelle du mobilier funéraire révèle ses vêtements, ses bijoux et un récipient en écorce placé auprès d’elle. Au fond de ce dernier subsistent les traces d’une boisson fermentée. L’objet archéologique, pas une tradition brassicole continue, constitue le point de départ.
 
-Ces indices suggèrent une boisson fermentée complexe, parfois décrite comme bière sucrée au miel, braggot ou mélange bière-hydromel. Les catégories modernes sont forcément imparfaites : l’âge du Bronze n’avait aucune raison de respecter nos menus déroulants.
+Les analyses rapportées par le Musée national du Danemark identifient du blé, du miel, des airelles ou canneberges, du myrte des marais et une grande quantité de pollen, notamment de tilleul. Ces marqueurs dessinent un liquide composite : la céréale évoque la bière, le miel l’hydromel, les baies et la plante aromatique un paysage de collecte. Les catégories actuelles telles que braggot, gruit ou bière fruitée aident à comparer, mais aucune ne peut être imposée à l’âge du Bronze.
 
-Des reconstitutions danoises comme Egtvedpigens Bryg s’inspirent de ces résidus. Elles ne peuvent évidemment pas récupérer la souche de levure originelle ni chaque proportion, mais elles permettent de tester l’équilibre possible entre céréales, miel, fruits et plantes.`,
+En 2019, le producteur danois Snoremark présente une reconstitution baptisée Egtvedpigens Bryg. Son approche reprend les familles d’ingrédients révélées par le récipient et parle volontiers de braggot ou d’hydromel à la bière. Ce brassin moderne permet d’explorer un équilibre plausible entre céréales, sucres de miel, acidité des fruits et amertume végétale.
+
+La distance entre résidu et verre reste cependant considérable. L’analyse ne donne pas les masses initiales, l’état malté du blé, l’origine exacte de chaque pollen, la durée de chauffe ni la communauté microbienne. Une partie du pollen peut même provenir du miel plutôt que d’un ajout volontaire. Toute levure utilisée aujourd’hui, tout équipement et toute décision de dosage appartiennent à la reconstruction.
+
+Egtvedpigens Bryg ne ressuscite donc pas une recette écrite. Elle transforme des indices funéraires en hypothèse sensorielle et rend visible une boisson qui débordait probablement nos frontières entre bière et hydromel. Le récipient fournit le vocabulaire ; le producteur contemporain compose la phrase.`,
       "chapitres": [
         {
           "titre": "Une recette écrite en résidus",
@@ -4431,7 +4591,7 @@ Des reconstitutions danoises comme Egtvedpigens Bryg s’inspirent de ces résid
         },
         {
           "titre": "Quand le style n’existe pas encore",
-          "texte": "Appeler la boisson « bière » est pratique parce que le blé fermenté joue un rôle, mais le miel peut rapprocher le produit d’un hydromel et les plantes d’un gruit. La fiche assume cette indéfinition : le meilleur nom moderne est peut-être simplement « boisson fermentée de l’âge du Bronze »."
+          "texte": "Appeler la boisson « bière » est pratique parce que le blé fermenté joue un rôle, mais le miel peut rapprocher le produit d’un hydromel et les plantes d’un gruit. Cette indéfinition est instructive : le meilleur nom moderne est peut-être simplement « boisson fermentée de l’âge du Bronze »."
         }
       ],
       "recette": {
@@ -4468,7 +4628,7 @@ Des reconstitutions danoises comme Egtvedpigens Bryg s’inspirent de ces résid
           "reference": "The Egtved Girl — fermented drink in the burial",
           "type": "source_museale",
           "url": "https://en.natmus.dk/historical-knowledge/denmark/prehistoric-period-until-1050-ad/the-bronze-age/the-egtved-girl/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Snoremark",
@@ -4476,7 +4636,7 @@ Des reconstitutions danoises comme Egtvedpigens Bryg s’inspirent de ces résid
           "reference": "Bronze Age girl buried with braggot/mead — reconstruction",
           "type": "source_producteur_reconstitution",
           "url": "https://snoremark.dk/en/girl-from-bronze-age-was-barried-with-braggot-mead/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -4530,16 +4690,20 @@ Des reconstitutions danoises comme Egtvedpigens Bryg s’inspirent de ces résid
         "verresRecommandes": [],
         "libelle": "Non documenté"
       },
-      "description": "Une quadrupel à 10,1 % fermentée avec une culture sauvage capturée sur la propriété du sanctuaire franciscain St. Anthony, puis vieillie en barriques de vin rouge. La sainteté n’est pas un paramètre de fermentation ; le lieu, en revanche, devient réellement source microbienne.",
-      "histoireEtOrigines": `Urban Artifact et le National Shrine of St. Anthony à Cincinnati ont monté cette bière comme collaboration caritative et expérience de capture de levure sauvage. Des dizaines de récipients contenant un milieu attractif ont été disposés sur la propriété, protégés par une étamine, afin d’exposer le liquide aux micro-organismes présents dans l’air et sur le site.
+      "description": "Urban Artifact a disposé 28 pièges de moût pendant quatorze heures sur la propriété du sanctuaire St. Anthony, puis sélectionné une culture sauvage pour une quadrupel d’environ 10 % vol. élevée en fûts de vin de Napa. La bière crée un terroir microbien contemporain et finance le sanctuaire ; elle n’est ni une relique ni une tradition monastique retrouvée.",
+      "histoireEtOrigines": `Sur la propriété boisée du National Shrine of St. Anthony, près de Cincinnati, l’équipe d’Urban Artifact installe 28 récipients contenant du moût non fermenté. Chaque pot est protégé par une étamine et reste exposé environ quatorze heures. Le but n’est pas de recueillir une bénédiction liquide, mais des levures et bactéries transportées par l’air, les plantes et les surfaces du lieu.
 
-Après sélection et culture, la levure sauvage a servi à fermenter une Belgian-style quadrupel riche. Les sources du projet décrivent ensuite un vieillissement prolongé en barriques de vin rouge, autour de dix mois, pour un produit final annoncé à 10,1 % ABV.
+Les pièges retournent ensuite à la brasserie. Pendant plusieurs mois, les cultures sont observées, évaluées et écartées si elles présentent des caractères indésirables. Une candidate suffisamment prometteuse est propagée pour fermenter une Belgian-style quadrupel. Ce travail de sélection sépare la capture sauvage d’une simple fermentation abandonnée au hasard : le site fournit la diversité, le laboratoire et le brasseur choisissent ce qui peut devenir une boisson sûre.
 
-L’histoire est presque monastique sans être une bière d’abbaye au sens traditionnel : ce ne sont pas des moines qui transmettent une souche séculaire, mais une équipe qui part à la chasse aux levures sur un terrain religieux contemporain.`,
+La bière forte, annoncée autour de 10 % vol. selon les présentations, poursuit son évolution dans des barriques ayant contenu du vin rouge de Napa. Le bois et l’usage précédent ajoutent un second environnement au terroir du sanctuaire. La commercialisation sert une levée de fonds pour l’institution franciscaine, donnant au projet une finalité caritative aussi concrète que sa provenance microbienne.
+
+St. Anthony’s Quad n’est pourtant pas une bière d’abbaye au sens historique. Aucun monastère ne transmet une souche séculaire et les frères ne reconstituent pas une recette ancienne. Urban Artifact apporte une pratique craft contemporaine de bioprospection ; le sanctuaire fournit un lieu, un récit et une cause. Aucune relique du saint n’est utilisée.
+
+Cette distinction rend l’expérience plus intéressante. Une culture capturée sur place ne prouve pas qu’elle soit exclusive à quelques hectares, mais elle établit une chaîne matérielle vérifiable entre le terrain et la cuve. La sainteté reste affaire de foi ; les 28 pièges, les quatorze heures d’exposition et les mois de sélection appartiennent à la méthode.`,
       "chapitres": [
         {
-          "titre": "Vingt-huit pièges à levure dans un sanctuaire",
-          "texte": "La capture sauvage n’est pas un acte mystique. On expose un milieu nutritif à l’environnement, puis on observe ce qui s’y développe et on sélectionne les cultures intéressantes. Le nombre de pièges augmente les chances de trouver un candidat fermentaire viable. La grâce divine peut rester dans le récit ; la boîte de Petri garde la responsabilité technique."
+          "titre": "Vingt-huit pièges pendant quatorze heures",
+          "texte": "La capture sauvage n’est pas un acte mystique. On expose un milieu nutritif à l’environnement, puis on observe ce qui s’y développe et on sélectionne les cultures intéressantes. Multiplier les pièges augmente les chances de trouver un candidat viable. La grâce peut rester dans le récit ; le laboratoire garde la responsabilité technique."
         },
         {
           "titre": "Le terroir peut tenir dans un jardin",
@@ -4549,7 +4713,7 @@ L’histoire est presque monastique sans être une bière d’abbaye au sens tra
       "recette": {
         "titre": "La quad qui a tendu des pièges au vent",
         "profilUnique": true,
-        "noteProfil": "Cette entrée décrit un objet brassicole singulier : elle ne constitue pas une recette-type à reproduire.",
+        "noteProfil": "Une capture environnementale exige des mois de sélection microbiologique ; le lieu ne garantit ni innocuité ni exclusivité de la souche.",
         "explicationProfil": "Belgian-style quadrupel à 10,1 % fermentée avec une culture sauvage capturée sur la propriété puis élevée en barrique de vin rouge.",
         "maltsEtCereales": [
           "Base riche de quadrupel belge ; composition exacte des malts et sucres non publiée dans les sources retenues."
@@ -4567,7 +4731,7 @@ L’histoire est presque monastique sans être une bière d’abbaye au sens tra
         "empatage": "Empâtage non documenté avec assez de précision pour être reproduit fidèlement.",
         "ebullitionEtHoublonnage": "Ébullition et calendrier de houblonnage non documentés avec assez de précision pour être reproduits fidèlement.",
         "fermentation": "Fermentation haute avec la culture sauvage sélectionnée ; paramètres détaillés non publiés.",
-        "maturation": "Environ dix mois en barriques de vin rouge selon les descriptions du projet.",
+        "maturation": "Élevage en barriques ayant contenu du vin rouge de Napa ; la durée exacte n’est pas établie de manière cohérente dans les sources retenues.",
         "profilRecherche": "Une quadrupel forte où la singularité vient d’un véritable lien microbien avec un lieu, sans confondre fermentation sauvage et miracle."
       },
       "sources": [
@@ -4577,7 +4741,7 @@ L’histoire est presque monastique sans être une bière d’abbaye au sens tra
           "reference": "St. Anthony’s Quad Beer",
           "type": "source_institutionnelle",
           "url": "https://www.stanthony.org/st-anthonys-quad-beer/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Brewbound",
@@ -4585,7 +4749,7 @@ L’histoire est presque monastique sans être une bière d’abbaye au sens tra
           "reference": "Urban Artifact collaborates with St. Anthony’s Shrine on a Quad",
           "type": "source_professionnelle",
           "url": "https://www.brewbound.com/news/urban-artifact-collaborates-st-anthonys-shrine-friary-quad/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "The Catholic Telegraph",
@@ -4593,7 +4757,7 @@ L’histoire est presque monastique sans être une bière d’abbaye au sens tra
           "reference": "St. Anthony Quad beer to debut",
           "type": "source_presse",
           "url": "https://www.thecatholictelegraph.com/st-anthony-quad-beer-to-debut-fat-tuesday/38390",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -4647,12 +4811,16 @@ L’histoire est presque monastique sans être une bière d’abbaye au sens tra
         "verresRecommandes": [],
         "libelle": "Non documenté"
       },
-      "description": "Une lager foncée rebrassée avec une culture Carlsberg issue d’une bouteille de 1883 retrouvée dans les anciennes caves. Pas besoin de momie ni de météorite : une levure de brasserie historique parfaitement datée suffit à ouvrir une porte sur la révolution scientifique de la fermentation.",
-      "histoireEtOrigines": `Carlsberg a retrouvé dans ses caves des bouteilles anciennes datant de 1883. Le laboratoire de recherche a réussi à récupérer et cultiver une levure viable associée à cette période, puis a développé Rebrew 1883 afin de recréer une lager inspirée du goût et des méthodes de la fin du XIXe siècle.
+      "description": "En 2016, Carlsberg a réactivé une levure provenant d’une bouteille de 1883 découverte dans ses caves et rebrassé une lager historique. Les pages actuelles décrivent aussi une 1883 à 4,6 % vol., aux malts Munich, caramel et torréfié avec Hallertauer Tradition. Ces éditions apparentées ne doivent pas être fondues en une recette unique.",
+      "histoireEtOrigines": `Quelques bouteilles fermées reposent sous l’ancienne brasserie Carlsberg lorsqu’elles sont redécouvertes plus d’un siècle après leur remplissage. L’une, datée de 1883, contient encore des cellules que le Carlsberg Research Laboratory parvient à récupérer, identifier et multiplier. En 2016, soit 133 ans plus tard, la maison annonce un rebrassage destiné à approcher la lager de cette période.
 
-L’année est particulièrement symbolique. C’est en 1883 qu’Emil Christian Hansen, au Carlsberg Laboratory, parvient à isoler et propager une culture pure de levure de lager, étape fondamentale de l’histoire brassicole moderne. La maîtrise d’une souche stable permet alors de réduire l’imprévisibilité des fermentations et Carlsberg diffuse largement cette avancée.
+La date forme un remarquable nœud historique. En 1883, Emil Christian Hansen, chercheur du laboratoire Carlsberg, met au point la propagation d’une culture pure de levure de lager à partir d’une cellule sélectionnée. Cette maîtrise réduit les contaminations et l’irrégularité des fermentations. Carlsberg partage ensuite la souche avec d’autres brasseries, contribuant à transformer une technique de laboratoire en infrastructure mondiale de la lager moderne.
 
-La bière moderne documentée titre 4,6 %, avec malts Munich, caramel et torréfié, houblon Hallertauer Tradition et la levure historique réactivée. Ici, l’insolite n’est pas grotesque : il porte une blouse, tient un microscope et a changé la bière mondiale.`,
+Pour le projet de 2016, l’équipe ne sert évidemment pas le liquide vieilli de la bouteille. Elle réactive la culture, consulte les archives et emploie des matières premières modernes afin de reconstruire un profil historique. La communication de lancement présente une édition spéciale dont les chiffres rapportés ne coïncident pas toujours avec ceux du produit 1883 décrit aujourd’hui. La page commerciale actuelle indique 4,6 % vol., des malts Munich, caramel et torréfié ainsi que du Hallertauer Tradition ; certaines publications liées au rebrew initial mentionnent une bière plus forte.
+
+Il faut donc distinguer la démonstration scientifique de 2016, les brassins événementiels et la référence commerciale ultérieure portant le même millésime. Ils partagent une histoire, une esthétique sombre et la filiation de levure, mais ne constituent pas nécessairement une formulation figée. Le titre de 4,6 % et la liste d’ingrédients décrivent la version actuellement documentée, pas automatiquement chaque verre servi lors du lancement.
+
+Rebrew 1883 est moins une résurrection parfaite qu’une expérience de continuité. La bouteille fournit une culture datée et les archives orientent les choix ; l’eau, les malts, l’équipement et les contrôles appartiennent au présent. La plus grande étrangeté tient finalement à l’ordinaire : chaque lager propre produite avec une levure sélectionnée hérite d’une révolution que Hansen a contribué à installer derrière ces mêmes murs.`,
       "chapitres": [
         {
           "titre": "1883 : quand la levure devient un individu",
@@ -4666,8 +4834,8 @@ La bière moderne documentée titre 4,6 %, avec malts Munich, caramel et torréf
       "recette": {
         "titre": "Une machine à remonter le temps parfaitement danoise",
         "profilUnique": true,
-        "noteProfil": "Cette entrée décrit un objet brassicole singulier : elle ne constitue pas une recette-type à reproduire.",
-        "explicationProfil": "Carlsberg documente les grands éléments de la reconstitution : levure historique, malts sombres et houblon Hallertauer Tradition pour une lager à 4,6 %.",
+        "noteProfil": "Les données à 4,6 % décrivent la référence actuelle ; le rebrew de 2016 et les éditions apparentées peuvent différer.",
+        "explicationProfil": "La version actuellement documentée associe levure historique, malts sombres et Hallertauer Tradition dans une lager à 4,6 %.",
         "maltsEtCereales": [
           "Malt Munich.",
           "Malt caramel.",
@@ -4696,7 +4864,7 @@ La bière moderne documentée titre 4,6 %, avec malts Munich, caramel et torréf
           "reference": "Carlsberg Research Lab rebrews the father of quality beers",
           "type": "source_producteur_scientifique",
           "url": "https://www.carlsberggroup.com/newsroom/carlsberg-research-lab-rebrews-the-father-of-quality-beers/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Carlsberg",
@@ -4704,7 +4872,7 @@ La bière moderne documentée titre 4,6 %, avec malts Munich, caramel et torréf
           "reference": "1883 beer",
           "type": "source_producteur",
           "url": "https://www.carlsberg.com/en/our-beer/1883/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Carlsberg Group",
@@ -4712,7 +4880,7 @@ La bière moderne documentée titre 4,6 %, avec malts Munich, caramel et torréf
           "reference": "1883 Rebrew — scientific discoveries",
           "type": "source_producteur_scientifique",
           "url": "https://www.carlsberggroup.com/pursuit-of-better/scientific-discoveries/1883-rebrew/",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -4765,27 +4933,31 @@ La bière moderne documentée titre 4,6 %, avec malts Munich, caramel et torréf
         "verresRecommandes": [],
         "libelle": "Non documenté"
       },
-      "description": "Une hazy IPA norvégienne à 7,8 % et 60 IBU dont le caractère « nucléaire » appartient au nom et à l’imagerie, pas à la liste d’ingrédients. Elle termine la collection avec une anomalie salutaire : parfois le bizarre est seulement une histoire que l’étiquette raconte très fort.",
-      "histoireEtOrigines": `Chernobyl Iиfusioи IPA est documentée comme une collaboration homebrew entre Gullkrona Eliksir-kokeri et Engelsrud Gladbryggeri. La fiche publique disponible la classe comme New England / Hazy IPA, à 7,8 % ABV et 60 IBU, avec une communication volontairement chargée de références à Tchernobyl, au compteur Geiger et à l’excès de houblon.
+      "description": "Chernobyl Iиfusioи est une collaboration de brasseurs amateurs norvégiens, enregistrée comme New England IPA à 7,8 % vol. et 60 IBU. L’unique fiche publique retrouvée ne documente ni matière de Tchernobyl ni ingrédient radioactif : l’anomalie appartient au nom, au compteur Geiger imaginaire et au récit houblonné, pas au procédé établi.",
+      "histoireEtOrigines": `La trace disponible tient dans une fiche de dégustation communautaire. Elle attribue Chernobyl Iиfusioи IPA à une collaboration entre Gullkrona Eliksir-kokeri et Engelsrud Gladbryggeri, deux noms associés au brassage amateur norvégien. Le produit est classé New England ou Hazy IPA, affiche 7,8 % vol. et 60 IBU, et apparaît aujourd’hui comme retiré ou non commercialisé régulièrement.
 
-Aucun ingrédient radioactif, aucune matière provenant de la zone de Tchernobyl et aucune contamination ne sont documentés. Le caractère insolite est donc essentiellement thématique. Ce constat pourrait sembler décevant après quarante et une cartes de microbes, animaux, épaves et eaux recyclées ; il est en réalité une excellente conclusion méthodologique.
+La présentation joue avec le vocabulaire nucléaire : Tchernobyl, infusion, compteur Geiger et houblonnage capable de faire grimper l’aiguille. Ce registre décrit une mise en scène, pas une analyse. Aucune source primaire retrouvée ne mentionne d’eau, de céréale, de plante ou de matériau provenant de la zone d’exclusion. Aucun contrôle radiologique, aucune contamination et aucun isotope ne sont associés au brassin.
 
-Une encyclopédie du bizarre doit aussi savoir dire quand le bizarre s’arrête à la narration. Sinon, elle devient elle-même radioactive en informations douteuses.`,
+Le dossier ne permet pas davantage d’identifier les malts, les variétés de houblon, la levure ou le calendrier d’ajout. Déduire une recette complète de la catégorie « NEIPA » reviendrait à confondre une famille sensorielle avec une formulation. Les 60 IBU donnent une mesure déclarée d’amertume ; ils ne révèlent pas la composition du bouquet ni la manière dont la bière a été clarifiée ou conditionnée.
+
+Cette documentation mince impose un statut inhabituel : la bière est attestée par une entrée précise et des évaluations d’utilisateurs, mais son histoire technique ne peut pas être vérifiée auprès d’un producteur actif. La prudence n’autorise ni à nier son existence, ni à promouvoir ses plaisanteries en faits matériels. Si une archive de brasseur réapparaît, elle pourra préciser ce cadre.
+
+Chernobyl Iиfusioи illustre ainsi une fausse bizarrerie utile. Certaines bières deviennent insolites par leur ingrédient, leur microbe, leur eau ou leur méthode ; celle-ci l’est surtout par la narration. Le liquide documenté reste une IPA forte et amère. Tout rayonnement supplémentaire vient de l’étiquette — et, faute de meilleure source, doit y rester.`,
       "chapitres": [
         {
           "titre": "Le compteur Geiger peut rester au placard",
-          "texte": "Les 60 IBU et le profil hazy sont des données brassicoles ; la radioactivité ne l’est pas. Les plaisanteries de la fiche de bière font partie du thème, mais elles ne doivent pas être traduites en fait matériel. Le vert néon appartient au décor graphique, pas à l’analyse chimique."
+          "texte": "Les 60 IBU et le profil hazy sont des données brassicoles ; la radioactivité ne l’est pas. Les plaisanteries de la notice publique font partie du thème, mais elles ne doivent pas être traduites en fait matériel. Le vert néon appartient au décor graphique, pas à l’analyse chimique."
         },
         {
           "titre": "La dernière anomalie : une bière presque normale",
-          "texte": "Cette carte rappelle qu’une collection de curiosités mélange nécessairement plusieurs natures d’étrangeté. Certaines bières sont singulières par un ingrédient, d’autres par une souche, une provenance, un procédé, un record ou une reconstitution. Chernobyl Iиfusioи est singulière surtout par son récit. La classification elle-même devient alors la leçon finale."
+          "texte": "Les curiosités ne partagent pas toutes la même nature. Certaines bières sont singulières par un ingrédient, d’autres par une souche, une provenance, un procédé, un record ou une reconstitution. Chernobyl Iиfusioи se distingue surtout par son récit ; cette classification est elle-même l’information essentielle."
         }
       ],
       "recette": {
         "titre": "Une NEIPA, sans isotope caché",
         "profilUnique": true,
-        "noteProfil": "Cette entrée décrit un objet brassicole singulier : elle ne constitue pas une recette-type à reproduire.",
-        "explicationProfil": "Hazy/New England IPA documentée à 7,8 % ABV et 60 IBU ; les houblons, malts et levure exacts ne sont pas publiés dans la fiche publique disponible.",
+        "noteProfil": "Une seule base communautaire documente le brassin ; tout détail absent doit rester inconnu plutôt que déduit du thème nucléaire.",
+        "explicationProfil": "Hazy/New England IPA documentée à 7,8 % ABV et 60 IBU ; les houblons, malts et levure exacts ne sont pas publiés dans la notice publique disponible.",
         "maltsEtCereales": [
           "Base de hazy IPA non documentée avec précision."
         ],
@@ -4812,7 +4984,7 @@ Une encyclopédie du bizarre doit aussi savoir dire quand le bizarre s’arrête
           "reference": "Chernobyl Iиfusioи IPA — fiche publique",
           "type": "source_secondaire",
           "url": "https://untappd.com/b/gullkrona-eliksir-kokeri-chernobyl-iifusioi-ipa/2517910",
-          "consultation": "2026-08-09"
+          "consultation": "2026-08-11"
         }
       ]
     }
