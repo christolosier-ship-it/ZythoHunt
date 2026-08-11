@@ -46,7 +46,7 @@ const collection = {
       },
       "fermentation": {
         "type": "variable",
-        "details": "Le type de fermentation dépend du style de base ou du produit concerné."
+        "details": "La couleur blonde ne renseigne pas sur la fermentation : lagers, ales et fermentations mixtes peuvent toutes la revendiquer."
       },
       "service": {
         "temperatureMin": 3,
@@ -57,56 +57,70 @@ const collection = {
           "Tulipe"
         ]
       },
-      "description": "“Blonde” indique d’abord une couleur claire ou une promesse de bière facile : dorée, accessible, peu intimidante. Mais derrière ce mot peuvent se cacher lager, ale belge, pale ale, bière forte, bière industrielle ou création artisanale. Blonde donne une piste visuelle, pas une recette.",
-      "histoireEtOrigines": `« Blonde » est avant tout une indication visuelle et commerciale. Elle promet une bière claire, jaune à dorée, mais ne renseigne ni sur la fermentation, ni sur la force, ni sur le niveau de houblon. Une lager internationale, une Belgian Blond Ale, une Golden Ale britannique, une bière d’abbaye forte ou une pale ale très claire peuvent toutes être vendues comme blondes sans partager la même architecture brassicole.
+      "description": "« Blonde » place d’abord la bière dans une famille de couleurs claires, du jaune paille à l’or soutenu. Le mot aide à choisir avec les yeux, mais il ne garantit ni fermentation basse, ni faible degré, ni douceur. Une lager industrielle, une ale belge forte et une pale ale houblonnée peuvent partager cette même enseigne lumineuse.",
+      "histoireEtOrigines": `Dans un rayon français ou belge, « blonde » agit comme un panneau de signalisation avant d’être une catégorie brassicole. Le mot annonce une robe claire et mobilise tout un imaginaire de fraîcheur, de netteté et d’accessibilité. Cette association est assez puissante pour orienter les attentes : une étude sensorielle a montré que la couleur d’une bière modifie les saveurs anticipées et le prix jugé acceptable, même lorsque le liquide servi reste par ailleurs identique. L’étiquette commence donc à travailler avant la première gorgée.
 
-Dans le commerce français et belge, le mot s’est imposé parce qu’il est immédiatement compréhensible par un consommateur qui ne connaît pas nécessairement les classifications techniques. Il fonctionne comme un repère de rayon : clair, souvent perçu comme accessible et rafraîchissant. La réglementation française des dénominations de bière ne crée pourtant pas de catégorie juridique « bière blonde » ; le terme complète donc une dénomination légale ou usuelle sans définir une recette.
+    Le droit français ne transforme pourtant pas cette impression en recette. Le décret qui définit la bière encadre les matières premières et certaines dénominations réservées, mais ne crée aucune « bière blonde » légale. La couleur se mesure bien selon des méthodes conventionnelles, notamment celles de l’European Brewery Convention, sans que ces valeurs imposent une levure, une densité ou une amertume. Deux blondes voisines peuvent ainsi sortir de mondes techniques opposés : fermentation basse très propre, fermentation haute fruitée, bière désalcoolisée, bière forte sucrée ou pale ale sèche.
 
-La bonne lecture d’une étiquette « blonde » consiste ainsi à chercher derrière la couleur : fermentation basse ou haute, degré alcoolique, style revendiqué, houblons, origine et éventuels ingrédients complémentaires.`,
+    Pourquoi le mot s’est-il imposé ? Parce qu’il traduit instantanément une apparence dans un langage ordinaire, là où « helles », « golden ale » ou « Belgian blond » demandent déjà un peu de vocabulaire. Aujourd’hui, le lecteur avisé traite « blonde » comme la première ligne d’une adresse, jamais comme l’adresse entière : il complète avec le degré alcoolique, la liste des ingrédients lorsqu’elle figure, le pays, le style revendiqué et les indications de fermentation. Le mot promet de la lumière ; il laisse le reste de la pièce à découvrir.`,
       "recette": {
         "profilUnique": false,
-        "explicationProfil": "Cette appellation ne définit pas à elle seule une recette brassicole unique.",
+        "explicationProfil": "Le seul signal commun est visuel. Les choix de céréales et de procédé ci-dessous expliquent comment une robe claire peut être obtenue, pas une formule obligatoire.",
         "maltsEtCereales": [
-          "Selon le style ou le produit de base ; l’appellation seule ne fixe pas de céréales obligatoires."
+          "Malts pâles et céréales peu colorées facilitent la robe blonde ; leur proportion, leur statut malté et leur intensité aromatique restent libres dans le cadre de la dénomination générale bière."
         ],
         "houblons": [
-          "Selon le style ou le produit de base ; l’appellation seule ne fixe pas le niveau d’amertume ou les variétés de houblon."
+          "Une blonde peut être presque neutre, amère ou intensément aromatique : la couleur ne fixe ni variété ni dose de houblon."
         ],
         "levuresEtMicroorganismes": [
-          "Selon le style ou le procédé de base ; fermentation haute, basse, mixte ou désalcoolisation peuvent coexister selon l’appellation."
+          "Souches de lager, levures d’ale et cultures plus complexes sont compatibles avec le mot ; leur signature se lit dans le style ou la description, pas dans la teinte."
         ],
         "ingredientsComplementaires": [],
-        "profilEau": "Selon le style ou le procédé de base ; aucun profil d’eau universel n’est déductible de l’appellation seule.",
-        "empatage": "Selon la bière de base et les matières premières réellement employées.",
-        "ebullitionEtHoublonnage": "Selon le style de base ; l’appellation commerciale ne fixe pas à elle seule la conduite du houblonnage.",
-        "fermentation": "Selon le produit réel ; l’appellation doit être interprétée avec le style, la liste d’ingrédients et les mentions réglementaires.",
-        "maturation": "Selon le style de base ou la contrainte réglementaire éventuellement associée à la mention.",
-        "profilRecherche": "Une mention de couleur claire, utile comme repère visuel mais insuffisante pour déduire le style, la fermentation ou la recette."
+        "profilEau": "Une eau peu alcaline aide souvent à brasser très pâle, mais aucune composition minérale n’accompagne juridiquement l’appellation.",
+        "empatage": "Le brasseur règle surtout la fermentescibilité et la limpidité voulues ; « blonde » ne désigne ni palier ni méthode.",
+        "ebullitionEtHoublonnage": "Limiter les réactions qui foncent le moût préserve une robe claire ; le programme de houblon reste une décision de produit.",
+        "fermentation": "Haute, basse, spontanée ou suivie d’une désalcoolisation : la fermentation doit être cherchée ailleurs sur l’étiquette ou dans la fiche technique.",
+        "maturation": "Une garde froide clarifie certaines blondes ; d’autres restent troubles, refermentées ou servies jeunes.",
+        "profilRecherche": "Une robe jaune à dorée cohérente avec le produit annoncé, sans déduire automatiquement légèreté, douceur ou fermentation basse."
       },
       "sources": [
+        {
+          "organisme": "Légifrance",
+          "edition": null,
+          "reference": "Décret n° 92-307 du 31 mars 1992 relatif aux bières et boissons à base de bière — texte consolidé",
+          "type": "source_reglementaire",
+          "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000357138",
+          "consultation": "2026-08-11"
+        },
         {
           "organisme": "DGCCRF",
           "edition": null,
           "reference": "Tout savoir sur l’étiquetage des bières",
           "type": "source_reglementaire",
           "url": "https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/tout-savoir-sur-letiquetage-des-bieres",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
-          "organisme": "Brasseurs de France",
+          "organisme": "European Brewery Convention",
           "edition": null,
-          "reference": "Glossaire — bière de Mars / bière de Printemps et vocabulaire brassicole",
-          "type": "source_professionnelle",
-          "url": "https://brasseurs-de-france.com/tout-savoir-sur-la-biere/glossaire/",
-          "consultation": "2026-08-08"
+          "reference": "Analytica-EBC — méthodes d’analyse de la couleur de la bière",
+          "type": "source_technique",
+          "url": "https://europeanbreweryconvention.eu/",
+          "consultation": "2026-08-11"
         },
         {
-          "organisme": "Brewers Association",
-          "edition": "2026",
-          "reference": "Beer Style Guidelines — pale and gold styles across multiple families",
-          "type": "guide_de_style",
-          "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "organisme": "Frontiers in Psychology",
+          "edition": "2017 — doi:10.3389/fpsyg.2017.02205",
+          "reference": "The Influence of Color on Consumer’s Experience of Beer",
+          "type": "publication_scientifique",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5742240/",
+          "consultation": "2026-08-11"
+        }
+      ],
+      "chapitres": [
+        {
+          "titre": "La couleur goûte avant nous",
+          "texte": "La teinte ne crée pas mécaniquement une saveur, mais elle prépare le cerveau à en attendre certaines. Voilà pourquoi une blonde paraît souvent spontanément plus légère qu’une brune, même lorsque le degré, le sucre résiduel ou l’amertume racontent une autre histoire."
         }
       ]
     },
@@ -146,7 +160,7 @@ La bonne lecture d’une étiquette « blonde » consiste ainsi à chercher derr
       },
       "fermentation": {
         "type": "variable",
-        "details": "Le type de fermentation dépend du style de base ou du produit concerné."
+        "details": "Le nom français peut couvrir une Witbier, une Weissbier ou une création claire et trouble ; les fermentations et les souches diffèrent donc fortement."
       },
       "service": {
         "temperatureMin": 3,
@@ -157,58 +171,72 @@ La bonne lecture d’une étiquette « blonde » consiste ainsi à chercher derr
           "Tulipe"
         ]
       },
-      "description": "“Blanche” évoque souvent une bière pâle, trouble, au blé, fraîche et citronnée, mais le mot reste commercialement plus large. Il peut viser une Witbier belge, une Weissbier, une blanche aromatisée, une bière de blé industrielle ou une simple bière trouble très claire.",
-      "histoireEtOrigines": `Le mot « blanche » possède davantage de profondeur historique que beaucoup d’autres couleurs commerciales, car il renvoie depuis longtemps à des bières de froment très pâles. Les traditions belge de Witbier et bavaroise de Weissbier ont contribué à associer le terme à une robe laiteuse ou opalescente, au blé, à une mousse abondante et à une grande fraîcheur.
+      "description": "« Blanche » est un mot français trompeusement simple. Il évoque souvent une bière pâle, trouble et brassée avec du blé, mais il peut traduire des traditions distinctes : Witbier belge épicée, Weissbier allemande fruitée, recette aromatisée ou création simplement très claire. Il faut lire le style et les ingrédients avant de commander des clous de girofle imaginaires.",
+      "histoireEtOrigines": `Une bière dite « blanche » n’est presque jamais blanche. Elle est jaune très pâle, opalescente ou coiffée d’une mousse qui a probablement beaucoup aidé le mot à voyager. En français, l’appellation réunit surtout deux familles dont les noms locaux partagent une idée de blancheur : la Witbier belge et la Weissbier allemande. Elles utilisent volontiers du blé, mais ne racontent pas la même production. La première associe traditionnellement blé non malté, fermentation haute et parfois épices ; la seconde repose sur une forte part de malt de blé et sur une levure dont les esters et phénols rappellent banane et clou de girofle.
 
-Mais l’appellation commerciale moderne est plus large que ces deux styles. Une « blanche » peut être une Witbier épicée à la coriandre et aux agrumes, une Weissbier sans épices dominée par la levure, une American Wheat très propre, une bière aromatisée au citron ou une création trouble dont le blé n’est qu’un élément secondaire. Le mot ne permet donc pas, à lui seul, de conclure à la présence de coriandre, d’écorce d’orange ou même à un profil fermentaire précis.
+    Le commerce a ensuite élargi le parapluie. Une blanche peut être filtrée ou trouble, citronnée par la fermentation ou aromatisée, peu alcoolisée ou forte, pasteurisée ou refermentée. Le décret français sur la bière ne réserve pas le mot « blanche » et n’impose aucune proportion de froment. L’idée selon laquelle toute blanche serait nécessairement une bière de blé conforme à une recette belge est donc une habitude de marché, pas une règle juridique.
 
-La réglementation française ne définit pas « blanche » comme dénomination légale autonome. La fiche doit donc inviter à distinguer la couleur commerciale du véritable style brassicole indiqué ailleurs sur l’étiquette.`,
+    Au-delà de « contient-elle du blé ? », il faut demander quel monde le producteur invoque. Un nom allemand comme Hefeweizen signale une autre généalogie qu’une Wit belge ; la présence de coriandre ou d’écorce d’agrume relève encore d’un autre indice ; une mention « aromatisée » change la nature de la promesse. Ici, la couleur ouvre le dossier, tandis que la céréale, la levure et l’étiquetage le résolvent.`,
       "recette": {
         "profilUnique": false,
-        "explicationProfil": "Cette appellation ne définit pas à elle seule une recette brassicole unique.",
+        "explicationProfil": "Le mot suggère pâleur et souvent trouble ou blé ; il faut ensuite identifier la tradition réellement revendiquée.",
         "maltsEtCereales": [
-          "Souvent blé malté ou non malté avec malt d’orge pâle, mais aucune proportion universelle n’est imposée par le mot « blanche »."
+          "Blé non malté fréquent en Witbier, malt de blé dominant en Weissbier, base plus libre dans les usages commerciaux : aucune proportion n’est attachée au seul mot français."
         ],
         "houblons": [
-          "Souvent modérés à faibles dans les traditions de blé, mais variables selon le style réel."
+          "Le houblon reste généralement discret dans les archétypes belge et allemand, mais une blanche moderne peut en faire un premier rôle."
         ],
         "levuresEtMicroorganismes": [
-          "Levure Witbier épicée, levure Weizen banane/girofle, levure ale neutre ou autre selon la bière réelle."
+          "Levure belge épicée et levure de Weizen aux marqueurs banane-girofle ne sont pas interchangeables ; certaines versions industrielles recherchent au contraire une expression très neutre."
         ],
         "ingredientsComplementaires": [
-          "Coriandre et écorces d’agrumes possibles en Witbier ; non obligatoires pour l’appellation commerciale « blanche »."
+          "Coriandre et écorces d’agrumes sont classiques dans certaines Witbiers, jamais obligatoires pour toute bière vendue comme blanche."
         ],
-        "profilEau": "Selon le style ou le procédé de base ; aucun profil d’eau universel n’est déductible de l’appellation seule.",
-        "empatage": "Selon la bière de base et les matières premières réellement employées.",
-        "ebullitionEtHoublonnage": "Selon le style de base ; l’appellation commerciale ne fixe pas à elle seule la conduite du houblonnage.",
-        "fermentation": "Selon le produit réel ; l’appellation doit être interprétée avec le style, la liste d’ingrédients et les mentions réglementaires.",
-        "maturation": "Selon le style de base ou la contrainte réglementaire éventuellement associée à la mention.",
-        "profilRecherche": "Une mention claire et souvent associée au blé, à vérifier par le style réel : Witbier, Weissbier, Wheat Beer ou création commerciale."
+        "profilEau": "Une faible alcalinité convient à la pâleur ; les minéraux sont ensuite ajustés à l’acidité, au houblon et à la texture visés.",
+        "empatage": "Le blé, surtout non malté, peut imposer paliers, enzymes ou précautions de filtration ; une simple couleur claire ne les exige pas.",
+        "ebullitionEtHoublonnage": "L’ébullition gère protéines et épices éventuelles ; l’amertume ne doit pas être extrapolée du mot.",
+        "fermentation": "La signature de levure distingue mieux les traditions que la robe : fruitée-épicée, banane-girofle, neutre ou même acidulée selon le produit.",
+        "maturation": "Le trouble peut être conservé volontairement, remis en suspension par la levure ou retiré par filtration.",
+        "profilRecherche": "Identifier derrière « blanche » la céréale, la souche et l’éventuel aromatisant, plutôt que supposer une Witbier universelle."
       },
       "sources": [
+        {
+          "organisme": "Légifrance",
+          "edition": null,
+          "reference": "Décret n° 92-307 du 31 mars 1992 relatif aux bières et boissons à base de bière — texte consolidé",
+          "type": "source_reglementaire",
+          "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000357138",
+          "consultation": "2026-08-11"
+        },
         {
           "organisme": "DGCCRF",
           "edition": null,
           "reference": "Tout savoir sur l’étiquetage des bières",
           "type": "source_reglementaire",
           "url": "https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/tout-savoir-sur-letiquetage-des-bieres",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Journal of Food Science and Technology",
+          "edition": null,
+          "reference": "How to objectively determine the color of beer?",
+          "type": "publication_scientifique",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7026378/",
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "BJCP",
           "edition": "2021",
-          "reference": "Witbier",
+          "reference": "Witbier et Weissbier — deux familles de bière de blé distinctes",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/24/24A/witbier/",
-          "consultation": "2026-08-08"
-        },
+          "consultation": "2026-08-11"
+        }
+      ],
+      "chapitres": [
         {
-          "organisme": "BJCP",
-          "edition": "2021",
-          "reference": "Weissbier",
-          "type": "guide_de_style",
-          "url": "https://www.bjcp.org/style/2021/10/10A/weissbier/",
-          "consultation": "2026-08-08"
+          "titre": "Deux blancheurs, deux accents",
+          "texte": "Wit signifie blanc en néerlandais, Weiss en allemand. Leur parenté linguistique a facilité le rangement sous un même mot français, mais elle n’abolit ni les différences de céréales ni celles de levure. Une traduction commode n’est pas une recette commune."
         }
       ]
     },
@@ -248,7 +276,7 @@ La réglementation française ne définit pas « blanche » comme dénomination 
       },
       "fermentation": {
         "type": "variable",
-        "details": "Le type de fermentation dépend du style de base ou du produit concerné."
+        "details": "L’ambré décrit une teinte obtenue par les malts ou d’autres choix de formulation ; il ne départage pas fermentation haute et basse."
       },
       "service": {
         "temperatureMin": 3,
@@ -259,58 +287,67 @@ La réglementation française ne définit pas « blanche » comme dénomination 
           "Tulipe"
         ]
       },
-      "description": "“Ambrée” promet une robe cuivre à caramel et suggère souvent plus de malt : biscuit, croûte, caramel, toast léger. Mais l’étiquette peut couvrir une lager ambrée, une ale belge, une amber ale américaine, une bière de Noël ou une spéciale maltée.",
-      "histoireEtOrigines": `« Ambrée » décrit une zone de couleur allant approximativement de l’or profond au cuivre et au caramel. Dans l’imaginaire commercial, elle suggère souvent davantage de malt, de biscuit, de croûte de pain ou de caramel qu’une blonde, sans que ces sensations soient obligatoires.
+      "description": "« Ambrée » promet une robe allant de l’or profond au cuivre, souvent accompagnée d’attentes de biscuit, de pain grillé ou de caramel. Ces saveurs sont fréquentes, pas contractuelles : lager viennoise, ale belge, amber ale houblonnée et bière de Noël peuvent porter le même adjectif. La couleur donne une ambiance ; la recette garde les clés.",
+      "histoireEtOrigines": `L’ambre est d’abord une comparaison de matière : une résine fossile, translucide, entre miel et cuivre. Appliqué à la bière, le mot évite le vocabulaire technique et transforme une plage de couleur en image immédiatement familière. Dans les rayons, il occupe aussi une position stratégique entre la blonde jugée légère et la brune supposée intense. Cette place intermédiaire lui a permis d’accueillir des produits qui n’ont en commun ni pays, ni fermentation, ni force.
 
-Cette couleur traverse des familles très différentes : Vienna Lager, Märzen, Amber Lager, Belgian Pale Ale, bière d’abbaye ambrée, American Amber Ale ou créations saisonnières. Le mot est donc un repère chromatique et sensoriel, pas une filiation historique unique. Deux bières ambrées peuvent avoir des fermentations, des taux d’alcool et des niveaux d’amertume totalement opposés.
+    La couleur provient souvent de malts plus touraillés, de malts de type Vienna ou Munich, de petites quantités de malts caramel ou de réactions survenues pendant la fabrication. Ces choix peuvent effectivement apporter croûte de pain, biscuit et caramel. Ils ne le font cependant ni avec la même intensité ni de façon exclusive : une recette très sèche et houblonnée peut être ambrée, tandis qu’une bière pâle peut développer des notes maltées profondes. Les méthodes EBC mesurent la teinte du liquide ; elles ne convertissent pas le nombre obtenu en arôme.
 
-En France, le décret sur les dénominations brassicoles ne réserve pas la mention « ambrée ». Elle fonctionne comme une information de présentation qui doit être complétée par le véritable type de produit.`,
+    En France, « ambrée » n’est pas une dénomination réservée par le décret bière. C’est une information descriptive soumise aux règles générales de loyauté, pas un cahier des charges. Pour savoir ce que l’étiquette promet réellement, il faut donc regarder le degré, le style, la fermentation, les ingrédients mis en avant et parfois la date saisonnière. L’ambre cadre la photographie, mais il ne dit pas encore qui se tient dedans.`,
       "recette": {
         "profilUnique": false,
-        "explicationProfil": "Cette appellation ne définit pas à elle seule une recette brassicole unique.",
+        "explicationProfil": "La teinte cuivre est le fil commun ; les techniques qui la produisent peuvent aussi modeler le goût, sans être imposées.",
         "maltsEtCereales": [
-          "Souvent malts pale, Vienna, Munich ou caramel pour la couleur et le toasté ; le choix dépend entièrement du style de base."
+          "Malts Vienna, Munich, biscuit ou caramel sont des chemins fréquents vers l’ambré ; leur dosage va d’un accent discret à une charpente maltée."
         ],
         "houblons": [
-          "Selon le style ou le produit de base ; l’appellation seule ne fixe pas le niveau d’amertume ou les variétés de houblon."
+          "L’étiquette n’arbitre pas entre équilibre malté et profil très houblonné : les deux existent."
         ],
         "levuresEtMicroorganismes": [
-          "Selon le style ou le procédé de base ; fermentation haute, basse, mixte ou désalcoolisation peuvent coexister selon l’appellation."
+          "Lagers nettes, ales fruitées et fermentations belges expressives peuvent présenter la même couleur cuivre."
         ],
         "ingredientsComplementaires": [],
-        "profilEau": "Selon le style ou le procédé de base ; aucun profil d’eau universel n’est déductible de l’appellation seule.",
-        "empatage": "Selon la bière de base et les matières premières réellement employées.",
-        "ebullitionEtHoublonnage": "Selon le style de base ; l’appellation commerciale ne fixe pas à elle seule la conduite du houblonnage.",
-        "fermentation": "Selon le produit réel ; l’appellation doit être interprétée avec le style, la liste d’ingrédients et les mentions réglementaires.",
-        "maturation": "Selon le style de base ou la contrainte réglementaire éventuellement associée à la mention.",
-        "profilRecherche": "Une bière de teinte cuivrée à ambrée, souvent plus maltée en perception, sans recette ni fermentation imposées."
+        "profilEau": "L’alcalinité est adaptée à la charge de malts colorés ; chlorures et sulfates suivent l’équilibre sensoriel recherché.",
+        "empatage": "Le régime d’empâtage détermine corps et fermentescibilité indépendamment de la qualification ambrée.",
+        "ebullitionEtHoublonnage": "Une ébullition soutenue peut approfondir la couleur ; le houblonnage varie du soutien discret à l’aromatique moderne.",
+        "fermentation": "Le terme ne fixe aucune famille de levure et ne permet pas de prédire la finale sèche ou ronde.",
+        "maturation": "La garde peut polir les notes maltées, mais n’est pas constitutive du mot.",
+        "profilRecherche": "Une robe ambrée lisible, puis un équilibre à découvrir : biscuit, caramel, fruit, amertume ou combinaison de ces axes."
       },
       "sources": [
         {
-          "organisme": "DGCCRF",
+          "organisme": "Légifrance",
           "edition": null,
-          "reference": "Tout savoir sur l’étiquetage des bières",
+          "reference": "Décret n° 92-307 du 31 mars 1992 relatif aux bières et boissons à base de bière — texte consolidé",
           "type": "source_reglementaire",
-          "url": "https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/tout-savoir-sur-letiquetage-des-bieres",
-          "consultation": "2026-08-08"
+          "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000357138",
+          "consultation": "2026-08-11"
         },
         {
-          "organisme": "Brasseurs de France",
+          "organisme": "European Brewery Convention",
           "edition": null,
-          "reference": "Glossaire — bière de Mars / bière de Printemps et vocabulaire brassicole",
-          "type": "source_professionnelle",
-          "url": "https://brasseurs-de-france.com/tout-savoir-sur-la-biere/glossaire/",
-          "consultation": "2026-08-08"
+          "reference": "Analytica-EBC — méthodes d’analyse de la couleur de la bière",
+          "type": "source_technique",
+          "url": "https://europeanbreweryconvention.eu/",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Frontiers in Psychology",
+          "edition": "2017 — doi:10.3389/fpsyg.2017.02205",
+          "reference": "The Influence of Color on Consumer’s Experience of Beer",
+          "type": "publication_scientifique",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5742240/",
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Brewers Association",
           "edition": "2026",
-          "reference": "Amber beer styles across ale and lager families",
+          "reference": "Beer Style Guidelines — amber beer families",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         }
-      ]
+      ],
+      "chapitres": []
     },
     {
       "id": "rousse",
@@ -348,7 +385,7 @@ En France, le décret sur les dénominations brassicoles ne réserve pas la ment
       },
       "fermentation": {
         "type": "variable",
-        "details": "Le type de fermentation dépend du style de base ou du produit concerné."
+        "details": "Le terme rassemble des ales et des lagers cuivrées ; sa nuance chromatique ne constitue pas une famille de fermentation."
       },
       "service": {
         "temperatureMin": 3,
@@ -359,58 +396,67 @@ En France, le décret sur les dénominations brassicoles ne réserve pas la ment
           "Tulipe"
         ]
       },
-      "description": "“Rousse” se place entre ambrée, rouge et brune claire : caramel, biscuit, reflets cuivrés, parfois une touche grillée. Selon l’origine, elle peut désigner une Irish Red, une amber ale, une ale belge ou simplement une bière plus colorée qu’une blonde.",
-      "histoireEtOrigines": `« Rousse » est une appellation de couleur particulièrement utilisée dans les marchés francophones. Elle évoque des reflets cuivre rouge, acajou clair ou roux, souvent associés à caramel léger, biscuit ou pain grillé. Cette promesse sensorielle reste pourtant très souple.
+      "description": "« Rousse » personnifie une teinte cuivrée aux reflets rouges, souvent associée au biscuit, au caramel léger ou à une pointe grillée. Elle peut toutefois désigner une Irish Red Ale, une ale belge, une lager rousse ou une invention locale. Plus narrative qu’une valeur EBC, la rousse sait présenter sa couleur sans montrer son passeport.",
+      "histoireEtOrigines": `« Rousse » fait partie de ces appellations qui décrivent moins un échantillon de laboratoire qu’un personnage. Le mot convoque des reflets de cuivre et d’acajou clair, et le commerce francophone l’utilise volontiers pour donner à une bière intermédiaire une identité plus vive que « ambrée ». Aucune frontière instrumentale universelle ne sépare pourtant les deux termes. Une même teinte pourrait être qualifiée d’amber, red, rousse ou cuivrée selon le pays et la stratégie de marque.
 
-Le terme peut recouvrir une Irish Red Ale, une ale ambrée française, une bière belge, une lager rougeâtre ou une création de microbrasserie. Il n’existe pas de « recette rousse » internationale et l’emploi du mot ne garantit ni origine irlandaise, ni fermentation haute, ni niveau précis de malt caramel.
+    L’association gustative avec le caramel et le toast n’est pas sortie de nulle part. Les malts qui font apparaître ces tons peuvent également produire des arômes de biscuit, de croûte ou de sucre cuit. Mais la causalité n’est pas automatique : la quantité de malt coloré, son procédé de fabrication, la fermentation et le houblonnage changent le résultat. L’Irish Red Ale est devenue un repère international utile, sans détenir le monopole du mot français. Une « rousse » n’est donc pas juridiquement irlandaise et ne suit pas nécessairement son équilibre malté discret.
 
-Comme « blonde » ou « ambrée », « rousse » n’est pas une dénomination légale spécifique du décret français sur la bière. La couleur doit être lue comme un indice, non comme le nom d’un style technique.`,
+    Le décret français n’en fait pas une dénomination réglementée. Le consommateur peut retenir deux informations raisonnables : le producteur annonce une robe dans la zone cuivre-rouge et souhaite probablement la distinguer de ses blondes et brunes. Pour le reste, le degré, l’amertume, la fermentation et l’origine reprennent la parole. Dans la grande famille des couleurs d’étiquette, la rousse est une nuance culturelle davantage qu’une case graduée.`,
       "recette": {
         "profilUnique": false,
-        "explicationProfil": "Cette appellation ne définit pas à elle seule une recette brassicole unique.",
+        "explicationProfil": "L’appellation vise des reflets roux ou rouges ; elle n’impose pas la construction d’une Irish Red Ale.",
         "maltsEtCereales": [
-          "Malt pâle avec malts caramel, biscuit, Munich ou très petite touche de malt torréfié pour ajuster les reflets, selon style."
+          "Malts de base toastés, caramel clair et très petites touches de malt torréfié peuvent construire le cuivre et ses reflets rubis."
         ],
         "houblons": [
-          "Selon le style ou le produit de base ; l’appellation seule ne fixe pas le niveau d’amertume ou les variétés de houblon."
+          "Le houblon peut rester en retrait dans une rousse maltée ou devenir central dans une interprétation moderne."
         ],
         "levuresEtMicroorganismes": [
-          "Selon le style ou le procédé de base ; fermentation haute, basse, mixte ou désalcoolisation peuvent coexister selon l’appellation."
+          "Les versions irlandaises privilégient souvent une ale assez propre ; les usages belge, lager ou créatif élargissent fortement ce choix."
         ],
         "ingredientsComplementaires": [],
-        "profilEau": "Selon le style ou le procédé de base ; aucun profil d’eau universel n’est déductible de l’appellation seule.",
-        "empatage": "Selon la bière de base et les matières premières réellement employées.",
-        "ebullitionEtHoublonnage": "Selon le style de base ; l’appellation commerciale ne fixe pas à elle seule la conduite du houblonnage.",
-        "fermentation": "Selon le produit réel ; l’appellation doit être interprétée avec le style, la liste d’ingrédients et les mentions réglementaires.",
-        "maturation": "Selon le style de base ou la contrainte réglementaire éventuellement associée à la mention.",
-        "profilRecherche": "Une mention de robe rousse à cuivre rouge, sans implication automatique d’Irish Red Ale ou de recette précise."
+        "profilEau": "Une minéralité modérée soutient le malt ; le réglage dépend surtout de la sécheresse et de l’amertume voulues.",
+        "empatage": "Le corps peut rester léger malgré la couleur : une température élevée n’est pas la contrepartie obligatoire d’une robe rousse.",
+        "ebullitionEtHoublonnage": "La couleur se construit avec précision pour éviter qu’un accent rouge ne devienne brûlé ; le houblonnage suit ensuite le produit.",
+        "fermentation": "Haute ou basse, elle peut être neutre ou expressive ; la teinte n’en fournit pas l’empreinte.",
+        "maturation": "Une courte garde fond parfois le toast et le caramel, mais aucune durée n’est attachée au nom.",
+        "profilRecherche": "Des reflets cuivre à rubis et un équilibre annoncé honnêtement, sans réduire toutes les rousses au modèle irlandais."
       },
       "sources": [
         {
-          "organisme": "DGCCRF",
+          "organisme": "Légifrance",
           "edition": null,
-          "reference": "Tout savoir sur l’étiquetage des bières",
+          "reference": "Décret n° 92-307 du 31 mars 1992 relatif aux bières et boissons à base de bière — texte consolidé",
           "type": "source_reglementaire",
-          "url": "https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/tout-savoir-sur-letiquetage-des-bieres",
-          "consultation": "2026-08-08"
+          "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000357138",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Journal of Food Science and Technology",
+          "edition": null,
+          "reference": "How to objectively determine the color of beer?",
+          "type": "publication_scientifique",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7026378/",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Frontiers in Psychology",
+          "edition": "2017 — doi:10.3389/fpsyg.2017.02205",
+          "reference": "The Influence of Color on Consumer’s Experience of Beer",
+          "type": "publication_scientifique",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5742240/",
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "BJCP",
           "edition": "2021",
-          "reference": "Irish Red Ale",
+          "reference": "Irish Red Ale — un style possible derrière l’appellation rousse",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/15/15A/irish-red-ale/",
-          "consultation": "2026-08-08"
-        },
-        {
-          "organisme": "Brewers Association",
-          "edition": "2026",
-          "reference": "Amber and Red beer styles",
-          "type": "guide_de_style",
-          "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         }
-      ]
+      ],
+      "chapitres": []
     },
     {
       "id": "brune",
@@ -448,7 +494,7 @@ Comme « blonde » ou « ambrée », « rousse » n’est pas une dénomination 
       },
       "fermentation": {
         "type": "variable",
-        "details": "Le type de fermentation dépend du style de base ou du produit concerné."
+        "details": "La robe brune traverse ales, lagers et bières mixtes ; le terme ne choisit ni levure ni profil fermentaire."
       },
       "service": {
         "temperatureMin": 3,
@@ -459,56 +505,72 @@ Comme « blonde » ou « ambrée », « rousse » n’est pas une dénomination 
           "Tulipe"
         ]
       },
-      "description": "“Brune” annonce une bière sombre, mais le tiroir est immense : dubbel belge, brown ale, porter, stout, bock brune, dunkel, bière d’abbaye ou brune sucrée commerciale. Le mot donne la couleur ; le goût peut aller du caramel doux au café noir.",
-      "histoireEtOrigines": `« Brune » est un grand mot de couleur, historiquement très présent dans les marchés belge, français et britannique, mais il ne correspond pas à une famille technique unique. Il peut désigner une Dubbel belge, une Brown Ale, une Dunkel, une bière d’abbaye sombre, une strong ale ou une lager brune.
+      "description": "« Brune » couvre un continent de bières sombres : douce ou sèche, légère ou massive, nette ou acidulée. Dubbel, brown ale, dunkel, porter et certaines bières d’abbaye peuvent toutes entrer dans le cadre visuel. L’étiquette garantit surtout que le verre ne sera pas blond ; café, caramel et force restent à vérifier séparément.",
+      "histoireEtOrigines": `Avant que les classifications de styles ne circulent largement, opposer blonde et brune suffisait souvent à organiser une gamme. Ce partage élémentaire reste très efficace : il parle à tous les publics et supporte les traditions les plus diverses. Le problème apparaît lorsque la couleur est prise pour un goût. « Brune » peut annoncer le caramel doux d’une bière belge, le pain noir d’une dunkel, la noisette d’une brown ale, l’acidité d’une vieille brune flamande ou la torréfaction d’un porter.
 
-La couleur provient de choix très différents : malts Munich et mélanoïdines, malts caramel, malts bruns, sucres foncés, petites fractions de grains fortement torréfiés. Ces chemins produisent des profils allant du pain et de la noisette aux fruits secs, au caramel ou au cacao doux. « Brune » ne signifie donc pas automatiquement « torréfiée », encore moins « stout ».
+    Ces divergences viennent de techniques réellement différentes. Les malts touraillés et caramel développent couleur et arômes sans nécessairement brûler ; les malts torréfiés apportent café ou cacao ; certaines recettes utilisent des sucres foncés ; la fermentation peut ajouter fruit, propreté lager ou acidité. La mesure EBC décrit l’absorption de lumière par l’échantillon, pas l’origine de cette couleur. Deux bières de valeur voisine peuvent ainsi sentir l’une la croûte de pain et l’autre le café froid.
 
-Dans la vente, le mot joue surtout le rôle de repère chromatique face à blonde et ambrée. Il doit être accompagné du style réel si l’on veut comprendre le produit.`,
+    La législation française ne fixe pas de recette « brune ». Le mot constitue une description commerciale, à compléter par des éléments plus discriminants : style précis, degré, présence de fruit, qualification d’abbaye, fermentation ou ingrédients. Il faut surtout résister à deux raccourcis : sombre ne veut pas dire forte, et brune ne veut pas dire sucrée. L’étiquette a éteint la lumière ; elle n’a pas encore raconté ce qui se passe dans la cave.`,
       "recette": {
         "profilUnique": false,
-        "explicationProfil": "Cette appellation ne définit pas à elle seule une recette brassicole unique.",
+        "explicationProfil": "La robe foncée est commune ; le chemin malté, torréfié, sucré ou fermentaire qui y mène doit être identifié produit par produit.",
         "maltsEtCereales": [
-          "Malts Munich, caramel, brown, chocolate ou autres selon style ; la robe brune peut aussi venir de sucres foncés."
+          "Munich, caramel, malts bruns, grains torréfiés ou combinaisons de ces familles peuvent construire la couleur et des arômes très différents."
         ],
         "houblons": [
-          "Selon le style ou le produit de base ; l’appellation seule ne fixe pas le niveau d’amertume ou les variétés de houblon."
+          "L’amertume va du simple contrepoids au rôle dominant ; une brune n’est pas nécessairement douce."
         ],
         "levuresEtMicroorganismes": [
-          "Selon le style ou le procédé de base ; fermentation haute, basse, mixte ou désalcoolisation peuvent coexister selon l’appellation."
+          "Levure belge fruitée, ale britannique, souche de lager ou culture acidifiante : la robe accepte plusieurs mondes microbiologiques."
         ],
-        "ingredientsComplementaires": [],
-        "profilEau": "Selon le style ou le procédé de base ; aucun profil d’eau universel n’est déductible de l’appellation seule.",
-        "empatage": "Selon la bière de base et les matières premières réellement employées.",
-        "ebullitionEtHoublonnage": "Selon le style de base ; l’appellation commerciale ne fixe pas à elle seule la conduite du houblonnage.",
-        "fermentation": "Selon le produit réel ; l’appellation doit être interprétée avec le style, la liste d’ingrédients et les mentions réglementaires.",
-        "maturation": "Selon le style de base ou la contrainte réglementaire éventuellement associée à la mention.",
-        "profilRecherche": "Une mention de couleur brune, couvrant des profils maltés très variés et ne signifiant ni Stout ni Dubbel par défaut."
+        "ingredientsComplementaires": [
+          "Sucres foncés, fruits ou épices existent dans certaines recettes, sans appartenir à la définition du mot."
+        ],
+        "profilEau": "L’alcalinité peut tamponner l’acidité des grains très torréfiés ; elle doit rester proportionnée à leur quantité réelle.",
+        "empatage": "Le corps est réglé indépendamment de la teinte : une brune peut viser une forte atténuation et une finale sèche.",
+        "ebullitionEtHoublonnage": "Ébullition, sucres et malts participent différemment aux notes de cuisson ; le houblon suit l’équilibre annoncé.",
+        "fermentation": "Le profil peut être net, fruité, sauvage ou acide. Aucun de ces caractères ne découle du seul adjectif.",
+        "maturation": "Certaines brunes gagnent à vieillir, d’autres sont conçues pour la fraîcheur ; la couleur ne fixe pas leur calendrier.",
+        "profilRecherche": "Lire la brune comme une teinte, puis chercher le vrai moteur sensoriel : malt, torréfaction, fermentation, fruit ou vieillissement."
       },
       "sources": [
         {
-          "organisme": "DGCCRF",
+          "organisme": "Légifrance",
           "edition": null,
-          "reference": "Tout savoir sur l’étiquetage des bières",
+          "reference": "Décret n° 92-307 du 31 mars 1992 relatif aux bières et boissons à base de bière — texte consolidé",
           "type": "source_reglementaire",
-          "url": "https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/tout-savoir-sur-letiquetage-des-bieres",
-          "consultation": "2026-08-08"
+          "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000357138",
+          "consultation": "2026-08-11"
         },
         {
-          "organisme": "Brewers Association",
-          "edition": "2026",
-          "reference": "Brown and dark beer styles across multiple families",
-          "type": "guide_de_style",
-          "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "organisme": "European Brewery Convention",
+          "edition": null,
+          "reference": "Analytica-EBC — méthodes d’analyse de la couleur de la bière",
+          "type": "source_technique",
+          "url": "https://europeanbreweryconvention.eu/",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Frontiers in Psychology",
+          "edition": "2017 — doi:10.3389/fpsyg.2017.02205",
+          "reference": "The Influence of Color on Consumer’s Experience of Beer",
+          "type": "publication_scientifique",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5742240/",
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "BJCP",
           "edition": "2021",
-          "reference": "British Brown Ale",
+          "reference": "British Brown Ale — un exemple parmi plusieurs familles brunes",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/13/13B/british-brown-ale/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
+        }
+      ],
+      "chapitres": [
+        {
+          "titre": "Sombre n’est pas lourd",
+          "texte": "Une faible quantité de malt très colorant suffit à noircir un moût sans lui donner beaucoup de sucre ni d’alcool. À l’inverse, une grande bière forte peut rester dorée. La couleur et la masse du produit évoluent sur deux axes distincts."
         }
       ]
     },
@@ -548,7 +610,7 @@ Dans la vente, le mot joue surtout le rôle de repère chromatique face à blond
       },
       "fermentation": {
         "type": "variable",
-        "details": "Le type de fermentation dépend du style de base ou du produit concerné."
+        "details": "Stout, porter, schwarzbier et black IPA démontrent qu’une robe noire peut accompagner des fermentations et des équilibres opposés."
       },
       "service": {
         "temperatureMin": 3,
@@ -559,58 +621,67 @@ Dans la vente, le mot joue surtout le rôle de repère chromatique face à blond
           "Tulipe"
         ]
       },
-      "description": "“Noire” pousse la couleur au maximum : stout, porter, schwarzbier, black IPA, imperial stout ou bière aromatisée sombre. Elle suggère café, cacao, torréfaction ou malt noir, mais certaines bières noires restent sèches, légères et très propres.",
-      "histoireEtOrigines": `« Noire » annonce une robe très sombre à opaque et constitue d’abord une promesse visuelle. Dans l’esprit du consommateur, elle suggère souvent café, cacao, torréfaction ou pain brûlé, mais ces arômes ne sont pas obligatoires : une Schwarzbier cherche par exemple une torréfaction beaucoup plus douce qu’un Stout, tandis qu’une Black IPA peut associer couleur noire et houblon intense.
+      "description": "« Noire » pousse la promesse visuelle jusqu’à l’opacité, sans imposer la torréfaction massive que l’œil imagine. Une stout peut être crémeuse, une schwarzbier nette et légère, une black IPA sèche et houblonnée. Le mot décrit la lumière qui ne traverse presque plus le verre ; il reste beaucoup moins bavard sur le goût.",
+      "histoireEtOrigines": `Noire semble être la plus catégorique des couleurs : au-delà, il n’y aurait plus rien à préciser. Pourtant, les brasseurs obtiennent cette apparence par des voies très différentes. Des malts fortement torréfiés donnent café, cacao et amertume brûlée ; des grains décortiqués ou des malts colorants peuvent assombrir avec moins d’âpreté ; une petite fraction très sombre suffit parfois à transformer une base autrement légère. L’œil additionne la couleur, pas les kilogrammes de matière.
 
-Le mot peut donc couvrir Stout, Porter très sombre, Schwarzbier, Black IPA, lager noire, bière aromatisée ou création expérimentale. La couleur ne permet pas d’inférer la fermentation ni la force alcoolique.
+    Cette plasticité explique la cohabitation de produits presque antagonistes. Porter et stout mettent souvent la torréfaction au centre. Schwarzbier conserve la netteté, la buvabilité et la fermentation basse d’une lager. Black IPA cherche le contraste entre robe sombre et houblon aromatique. Aucune méthode EBC, si précise soit-elle pour quantifier la couleur, ne permet de choisir entre ces scénarios. Une bière peut même paraître noire dans un grand verre et révéler des bords rubis face à une lampe.
 
-Aucune catégorie légale française « bière noire » ne fixe de paramètres particuliers. L’appellation doit rester un raccourci de couleur, à distinguer des noms de styles réellement définis.`,
+    « Noire » ne figure pas parmi les dénominations réservées du décret français. Elle vaut comme description honnête d’apparence, non comme garantie de style, de force ou de café. Le consommateur qui redoute les bières lourdes ou qui recherche une stout doit donc lire au-delà du pigment. Dans cette appellation, la surprise la plus utile tient à une séparation simple : l’obscurité est une propriété optique, la lourdeur une propriété de composition et de fermentation. Elles se fréquentent, mais n’ont signé aucun contrat.`,
       "recette": {
         "profilUnique": false,
-        "explicationProfil": "Cette appellation ne définit pas à elle seule une recette brassicole unique.",
+        "explicationProfil": "La couleur très sombre peut être un goût central ou un effet soigneusement isolé de la torréfaction.",
         "maltsEtCereales": [
-          "Malts torréfiés, black malt, chocolate, roasted barley ou malts déhuskés selon le profil recherché ; aucune combinaison universelle."
+          "Orge torréfiée, malts noirs, chocolat ou variétés décortiquées apportent des intensités différentes de café, cacao, sécheresse et couleur."
         ],
         "houblons": [
-          "Selon le style ou le produit de base ; l’appellation seule ne fixe pas le niveau d’amertume ou les variétés de houblon."
+          "Discret dans certaines lagers noires, structurant dans un stout, explosif dans une black IPA : aucun niveau n’est inhérent au mot."
         ],
         "levuresEtMicroorganismes": [
-          "Selon le style ou le procédé de base ; fermentation haute, basse, mixte ou désalcoolisation peuvent coexister selon l’appellation."
+          "Ales, lagers et fermentations mixtes peuvent devenir noires sans perdre leur identité fermentaire."
         ],
         "ingredientsComplementaires": [],
-        "profilEau": "Selon le style ou le procédé de base ; aucun profil d’eau universel n’est déductible de l’appellation seule.",
-        "empatage": "Selon la bière de base et les matières premières réellement employées.",
-        "ebullitionEtHoublonnage": "Selon le style de base ; l’appellation commerciale ne fixe pas à elle seule la conduite du houblonnage.",
-        "fermentation": "Selon le produit réel ; l’appellation doit être interprétée avec le style, la liste d’ingrédients et les mentions réglementaires.",
-        "maturation": "Selon le style de base ou la contrainte réglementaire éventuellement associée à la mention.",
-        "profilRecherche": "Une bière très sombre ou noire dont le style réel peut aller d’une lager douce à une stout ou une bière fortement houblonnée."
+        "profilEau": "Le pH et l’alcalinité sont réglés selon la quantité et le moment d’ajout des grains torréfiés pour éviter acidité dure ou extraction cendreuse.",
+        "empatage": "L’ajout tardif de grains noirs ou l’emploi d’extraits froids peut dissocier davantage couleur et âpreté ; ce sont des options, pas une règle d’appellation.",
+        "ebullitionEtHoublonnage": "Le programme décide si la torréfaction dialogue avec une amertume de houblon ou si elle reste en arrière-plan.",
+        "fermentation": "Le choix de souche construit fruit, netteté ou sécheresse sans être visible dans la robe.",
+        "maturation": "La garde peut adoucir des angles torréfiés, tandis qu’une lager noire demande surtout une maturation propre et froide.",
+        "profilRecherche": "Une apparence noire cohérente avec le produit, sans supposer automatiquement alcool élevé, sucre ou goût de café."
       },
       "sources": [
         {
-          "organisme": "DGCCRF",
+          "organisme": "Légifrance",
           "edition": null,
-          "reference": "Tout savoir sur l’étiquetage des bières",
+          "reference": "Décret n° 92-307 du 31 mars 1992 relatif aux bières et boissons à base de bière — texte consolidé",
           "type": "source_reglementaire",
-          "url": "https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/tout-savoir-sur-letiquetage-des-bieres",
-          "consultation": "2026-08-08"
+          "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000357138",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Journal of Food Science and Technology",
+          "edition": null,
+          "reference": "How to objectively determine the color of beer?",
+          "type": "publication_scientifique",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7026378/",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Frontiers in Psychology",
+          "edition": "2017 — doi:10.3389/fpsyg.2017.02205",
+          "reference": "The Influence of Color on Consumer’s Experience of Beer",
+          "type": "publication_scientifique",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5742240/",
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "BJCP",
           "edition": "2021",
-          "reference": "Schwarzbier",
+          "reference": "Schwarzbier — lager noire sèche et légère",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/8/8B/schwarzbier/",
-          "consultation": "2026-08-08"
-        },
-        {
-          "organisme": "Brewers Association",
-          "edition": "2026",
-          "reference": "Dark and black beer styles",
-          "type": "guide_de_style",
-          "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         }
-      ]
+      ],
+      "chapitres": []
     },
     {
       "id": "rouge",
@@ -648,7 +719,7 @@ Aucune catégorie légale française « bière noire » ne fixe de paramètres p
       },
       "fermentation": {
         "type": "variable",
-        "details": "Le type de fermentation dépend du style de base ou du produit concerné."
+        "details": "Le rouge peut venir du malt, du fruit ou de la formulation ; les fermentations vont de l’ale nette aux cultures mixtes acidifiantes."
       },
       "service": {
         "temperatureMin": 3,
@@ -659,58 +730,72 @@ Aucune catégorie légale française « bière noire » ne fixe de paramètres p
           "Tulipe"
         ]
       },
-      "description": "“Rouge” peut désigner une bière aux reflets rubis, une bière fruitée, une kriek commerciale, une red ale, une bière flamande ou simplement une bière colorée par fruit ou ingrédient. C’est une couleur très vendeuse, mais un piège taxonomique.",
-      "histoireEtOrigines": `« Rouge » est encore plus ambigu que « rousse ». La couleur peut provenir des malts, d’un fruit, d’un ingrédient végétal ou d’une combinaison des deux. Une Flanders Red Ale est un style historique précis ; une fruit beer à la framboise peut être rouge pour une raison totalement différente ; une Red IPA ou une lager rouge relève encore d’une autre logique.
+      "description": "« Rouge » peut annoncer des reflets rubis de malt, une bière aux fruits, une ale flamande acide ou une simple couleur de gamme. Ces chemins ne sont pas équivalents : l’un relève du grain, l’autre d’un ingrédient, un troisième de la fermentation. Sur l’étiquette, le rouge est un signal puissant ; dans la cuve, il faut encore trouver sa source.",
+      "histoireEtOrigines": `Le rouge est la couleur commerciale la plus susceptible de raconter plusieurs histoires en même temps. Dans une red ale, il naît souvent d’un réglage minutieux des malts. Dans une bière à la cerise ou à la framboise, pigments et arômes viennent du fruit. Dans une Flanders Red Ale, le nom renvoie aussi à une tradition de fermentation mixte, d’acidité et de maturation. Ailleurs, l’adjectif peut seulement harmoniser une bouteille avec une identité de marque.
 
-Dans le commerce, le mot attire l’œil et évoque fruits rouges, caramel ou acidité selon les marques, mais il ne garantit aucun de ces caractères. La réglementation française permet d’ailleurs certains ingrédients végétaux colorants dans les catégories prévues de bières « à… » et aromatisées, ce qui renforce la nécessité de lire la liste d’ingrédients.
+    Cette diversité rend le raccourci particulièrement risqué. Une bière rouge n’est pas forcément fruitée ; une bière fruitée n’a pas forcément reçu le fruit qu’elle représente, car elle peut relever de l’aromatisation ; une bière acide n’est pas forcément une rouge flamande. Le droit français ne réserve pas la couleur, mais il distingue précisément « bière à… » et « bière aromatisée à… ». Cette seconde ligne de l’étiquette est souvent plus informative que la première.
 
-Une « bière rouge » ne doit donc jamais être automatiquement assimilée à une Flanders Red Ale.`,
+    La mesure colorimétrique peut établir que le liquide se situe dans une zone rousse ou rubis, sans expliquer la matière responsable. Pour lire le produit, il faut croiser la couleur avec la dénomination complète, les ingrédients, le style et la mention d’un éventuel fruit. Une mousse rosée ou un dessin de cerise ne remplace pas cette lecture. Le mot « rouge » attire l’œil avec une efficacité redoutable ; son véritable mérite encyclopédique est de forcer une question : rouge de quoi ?`,
       "recette": {
         "profilUnique": false,
-        "explicationProfil": "Cette appellation ne définit pas à elle seule une recette brassicole unique.",
+        "explicationProfil": "La singularité technique consiste à identifier l’origine réelle du rouge : malts, fruit, autre ingrédient ou combinaison.",
         "maltsEtCereales": [
-          "Selon style : malts caramel/rouges pour une base maltée, ou malt pâle si la couleur vient principalement du fruit."
+          "Des malts caramel et de très faibles doses de grains torréfiés peuvent créer des reflets rubis sans apporter de fruit."
         ],
         "houblons": [
-          "Selon le style ou le produit de base ; l’appellation seule ne fixe pas le niveau d’amertume ou les variétés de houblon."
+          "L’amertume est faible dans certaines rouges acides, équilibrée dans les red ales ou moderne et aromatique dans des créations houblonnées."
         ],
         "levuresEtMicroorganismes": [
-          "Selon le style ou le procédé de base ; fermentation haute, basse, mixte ou désalcoolisation peuvent coexister selon l’appellation."
+          "Levure d’ale propre, cultures mixtes et bactéries acidifiantes correspondent à des produits très différents sous la même couleur."
         ],
         "ingredientsComplementaires": [
-          "Fruits, jus, extraits végétaux ou autres ingrédients possibles lorsque la dénomination légale et l’étiquetage le permettent."
+          "Cerise, framboise, hibiscus ou autres matières colorantes peuvent intervenir ; leur présence et leur forme doivent être vérifiées dans la dénomination et l’information produit."
         ],
-        "profilEau": "Selon le style ou le procédé de base ; aucun profil d’eau universel n’est déductible de l’appellation seule.",
-        "empatage": "Selon la bière de base et les matières premières réellement employées.",
-        "ebullitionEtHoublonnage": "Selon le style de base ; l’appellation commerciale ne fixe pas à elle seule la conduite du houblonnage.",
-        "fermentation": "Selon le produit réel ; l’appellation doit être interprétée avec le style, la liste d’ingrédients et les mentions réglementaires.",
-        "maturation": "Selon le style de base ou la contrainte réglementaire éventuellement associée à la mention.",
-        "profilRecherche": "Une mention de couleur rouge dont l’origine chromatique doit être recherchée dans le style et les ingrédients, sans supposer une Flanders Red Ale."
+        "profilEau": "Le profil minéral suit l’acidité et l’amertume réelles, non le pigment.",
+        "empatage": "Un fruit ajouté plus tard n’impose pas le même moût qu’une red ale tout malt ; la fermentescibilité anticipe ses sucres éventuels.",
+        "ebullitionEtHoublonnage": "Les fruits délicats passent volontiers après la phase la plus chaude pour préserver leurs arômes ; une base maltée rouge se traite autrement.",
+        "fermentation": "Le producteur doit gérer les sucres du fruit, l’acidification éventuelle et la stabilité microbiologique selon le chemin choisi.",
+        "maturation": "Bois et vieillissement sont centraux dans certaines rouges flamandes, inutiles dans beaucoup de rouges commerciales.",
+        "profilRecherche": "Comprendre ce qui colore et ce qui aromatise, plutôt que confondre rubis, fruit et acidité."
       },
       "sources": [
+        {
+          "organisme": "Légifrance",
+          "edition": null,
+          "reference": "Décret n° 92-307 du 31 mars 1992 relatif aux bières et boissons à base de bière — texte consolidé",
+          "type": "source_reglementaire",
+          "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000357138",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Frontiers in Psychology",
+          "edition": "2017 — doi:10.3389/fpsyg.2017.02205",
+          "reference": "The Influence of Color on Consumer’s Experience of Beer",
+          "type": "publication_scientifique",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5742240/",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "BJCP",
+          "edition": "2021",
+          "reference": "Flanders Red Ale — tradition rouge à fermentation mixte",
+          "type": "guide_de_style",
+          "url": "https://www.bjcp.org/style/2021/23/23B/flanders-red-ale/",
+          "consultation": "2026-08-11"
+        },
         {
           "organisme": "DGCCRF",
           "edition": null,
           "reference": "Tout savoir sur l’étiquetage des bières",
           "type": "source_reglementaire",
           "url": "https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/tout-savoir-sur-letiquetage-des-bieres",
-          "consultation": "2026-08-08"
-        },
+          "consultation": "2026-08-11"
+        }
+      ],
+      "chapitres": [
         {
-          "organisme": "BJCP",
-          "edition": "2021",
-          "reference": "Flanders Red Ale",
-          "type": "guide_de_style",
-          "url": "https://www.bjcp.org/style/2021/23/23B/flanders-red-ale/",
-          "consultation": "2026-08-08"
-        },
-        {
-          "organisme": "Brewers Association",
-          "edition": "2026",
-          "reference": "Fruit Beer and Red beer categories",
-          "type": "guide_de_style",
-          "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "titre": "Trois chemins vers le rubis",
+          "texte": "Le malt colore sans fruit, le fruit colore tout en ajoutant sucres et acides, la fermentation mixte construit surtout un profil aromatique et acide. Une étiquette précise peut combiner ces chemins ; elle ne devrait pas les rendre interchangeables."
         }
       ]
     },
@@ -752,7 +837,7 @@ Une « bière rouge » ne doit donc jamais être automatiquement assimilée à u
       },
       "fermentation": {
         "type": "variable",
-        "details": "Le type de fermentation dépend du style de base ou du produit concerné."
+        "details": "L’image monastique ne prescrit aucune fermentation ; les produits peuvent être brassés sous licence par des entreprises aux procédés variés."
       },
       "service": {
         "temperatureMin": 3,
@@ -763,56 +848,76 @@ Une « bière rouge » ne doit donc jamais être automatiquement assimilée à u
           "Tulipe"
         ]
       },
-      "description": "“Bière d’abbaye” évoque immédiatement la Belgique, les levures expressives, les blondes fortes, dubbel, tripel ou brunes épicées. Mais c’est surtout une appellation d’inspiration monastique ou commerciale : elle peut être excellente, médiocre, traditionnelle ou purement marketing.",
-      "histoireEtOrigines": `« Bière d’abbaye » n’est pas un style brassicole. L’expression évoque un lien réel, historique ou simplement de marque avec un monastère, mais elle peut couvrir des blondes, brunes, Dubbel, Tripel, fortes ou légères. Ce qui définit éventuellement l’appellation est la relation institutionnelle ou commerciale, pas une recette.
+      "description": "« Bière d’abbaye » met une histoire monastique sur l’étiquette, mais la force du lien varie considérablement. Certaines marques sont associées à une abbaye existante ou disparue et versent des redevances ; d’autres empruntent surtout un décor de cloître. Contrairement à « trappiste », le terme seul n’équivaut pas au label Authentic Trappist Product et ne promet aucune recette.",
+      "histoireEtOrigines": `Le succès des bières trappistes a donné à l’imaginaire monastique une valeur commerciale qui dépasse largement les murs des monastères. Noms latins, silhouettes d’abbaye, vitraux et moines calligraphiés installent immédiatement ancienneté, patience et désintéressement. L’ethnologue Isabelle Jonveaux a décrit ce transfert de prestige comme une économie charismatique : plus l’image monastique circule, plus il devient nécessaire de demander quel lien concret subsiste derrière elle.
 
-En Belgique, il existe un label collectif « Bière belge d’Abbaye reconnue / Erkend Belgisch Abdijbier » créé pour distinguer certaines marques ayant un lien documenté avec une abbaye et répondant à des conditions de licence, de royalties et de contrôle. Toutes les bières vendues comme « d’abbaye » ne portent toutefois pas ce label, et l’expression générale ne doit pas être confondue avec « Trappiste ».
+    En Belgique, le label collectif « Bière belge d’Abbaye reconnue » a cherché à distinguer certaines marques possédant un rapport historique et contractuel avec une abbaye. Ce dispositif privé n’est toutefois ni une appellation européenne d’origine ni l’équivalent du logo Authentic Trappist Product. Hors de ce cadre, « bière d’abbaye » demeure une désignation commerciale largement utilisée. L’abbaye peut encore exister, avoir disparu, autoriser la marque, recevoir des redevances ou n’être qu’une référence graphique ; le mot seul ne permet pas de choisir entre ces situations.
 
-Une bière trappiste répond à des règles d’origine et de gouvernance beaucoup plus strictes. Une bière d’abbaye peut au contraire être produite dans une brasserie laïque sous licence ou en relation avec une abbaye. Dans les deux cas, le nom ne préjuge pas du style : c’est l’étiquette de la bière elle-même qui dira si elle est Dubbel, Tripel, blonde forte, etc.`,
+    Il ne fixe pas davantage le liquide. Blonde forte, dubbel, tripel, brune douce et bière de table peuvent partager cette mise en scène. Pour lire l’étiquette, il faut donc séparer trois étages : l’identité de la brasserie qui fabrique, la nature documentée du lien avec l’institution religieuse, puis le style réel de la bière. Une date ancienne peut appartenir à l’abbaye sans être celle de la recette ni de la marque. Le clocher peut raconter une histoire légitime ; il n’est pas, à lui seul, un certificat de brassage.`,
       "recette": {
         "profilUnique": false,
-        "explicationProfil": "Bière d’abbaye décrit un lien de marque, historique ou institutionnel ; les recettes vont de bières légères à des ales monastiques fortes.",
+        "explicationProfil": "L’appellation décrit un lien institutionnel ou un positionnement de marque, non une recette commune.",
         "maltsEtCereales": [
-          "Selon la bière : Pilsner, pale, Munich, caramel, sucres et autres matières premières possibles."
+          "La composition suit le produit précis : blonde, dubbel, tripel, brune ou autre. Aucun malt n’est consacré par le mot."
         ],
         "houblons": [
-          "Houblons continentaux ou autres selon le produit ; aucune intensité commune à toutes les bières d’abbaye."
+          "L’amertume et les variétés relèvent de chaque bière sous la marque d’abbaye."
         ],
         "levuresEtMicroorganismes": [
-          "Souvent levure ale belge pour les exemples connus, mais l’appellation n’impose aucune souche ni fermentation unique."
+          "Des souches expressives belges sont fréquentes, mais l’étiquette monastique ne les rend ni obligatoires ni exclusives."
         ],
-        "ingredientsComplementaires": [],
-        "profilEau": "Selon le style ou le procédé de base ; aucun profil d’eau universel n’est déductible de l’appellation seule.",
-        "empatage": "Selon la bière de base et les matières premières réellement employées.",
-        "ebullitionEtHoublonnage": "Selon le style de base ; l’appellation commerciale ne fixe pas à elle seule la conduite du houblonnage.",
-        "fermentation": "Selon le produit réel ; l’appellation doit être interprétée avec le style, la liste d’ingrédients et les mentions réglementaires.",
-        "maturation": "Selon le style de base ou la contrainte réglementaire éventuellement associée à la mention.",
-        "profilRecherche": "Une bière liée commercialement ou historiquement à une abbaye ; le lien institutionnel ne remplace jamais l’identification du style réel."
+        "ingredientsComplementaires": [
+          "Sucres, épices et refermentation éventuelle doivent être attribués à la recette documentée, pas à l’iconographie."
+        ],
+        "profilEau": "Le lieu représenté sur l’étiquette ne prouve pas que son eau alimente la brasserie sous licence.",
+        "empatage": "La méthode suit la bière produite et le site industriel réel.",
+        "ebullitionEtHoublonnage": "Aucune conduite de houblonnage n’est définie par le lien d’abbaye.",
+        "fermentation": "Le producteur, son équipement et sa souche déterminent le procédé ; ils doivent être recherchés séparément du propriétaire de la marque.",
+        "maturation": "Cave figurée et longue garde ne sont pas synonymes. Seule la documentation du produit permet de les relier.",
+        "profilRecherche": "Identifier qui brasse, quel accord relie la marque à l’abbaye et quel style se trouve réellement dans la bouteille."
       },
       "sources": [
         {
+          "organisme": "Isabelle Jonveaux — Ethnologie française",
+          "edition": "2011 — doi:10.3917/ethn.111.0117",
+          "reference": "Bière belge et image monastique. Un exemple d’économie charismatique",
+          "type": "publication_scientifique",
+          "url": "https://shs.cairn.info/revue-ethnologie-francaise-2011-1-page-117",
+          "consultation": "2026-08-11"
+        },
+        {
           "organisme": "Zythos",
           "edition": null,
-          "reference": "Trappist or Abbey beer? — distinction entre trappiste et bière d’abbaye",
-          "type": "source_associative",
+          "reference": "Trappist or abbey beer? — distinctions entre usages belges",
+          "type": "source_professionnelle",
           "url": "https://www.zythos.be/trappist-of-abdijbier/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Association Internationale Trappiste",
           "edition": null,
-          "reference": "FAQ — protection du nom Trappist® et différence avec le label ATP",
-          "type": "source_certification",
+          "reference": "Questions fréquentes — marque Trappist et label ATP",
+          "type": "organisme_certificateur",
           "url": "https://www.trappist.be/en/faqs/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
-          "organisme": "BJCP",
-          "edition": "2021",
-          "reference": "Monastic Ale family",
-          "type": "guide_de_style",
-          "url": "https://www.bjcp.org/style/2021/26/",
-          "consultation": "2026-08-08"
+          "organisme": "DGCCRF",
+          "edition": null,
+          "reference": "Tout savoir sur l’étiquetage des bières",
+          "type": "source_reglementaire",
+          "url": "https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/tout-savoir-sur-letiquetage-des-bieres",
+          "consultation": "2026-08-11"
+        }
+      ],
+      "chapitres": [
+        {
+          "titre": "Le monastère, la licence et l’image",
+          "texte": "Une abbaye peut contrôler une marque sans posséder la brasserie, concéder une recette ou seulement autoriser un nom. Ces montages économiques ne sont pas nécessairement trompeurs, mais ils doivent être distingués de la production sous contrôle d’une communauté trappiste."
+        },
+        {
+          "titre": "Ce que le mot ne bénit pas",
+          "texte": "Ni fermentation haute, ni sucre candi, ni bouteille lourde, ni longue garde ne sont garantis. Ces caractères appartiennent à certains produits et à certaines traditions, pas à la simple présence du mot « abbaye »."
         }
       ]
     },
@@ -854,7 +959,7 @@ Une bière trappiste répond à des règles d’origine et de gouvernance beauco
       },
       "fermentation": {
         "type": "variable",
-        "details": "Le type de fermentation dépend du style de base ou du produit concerné."
+        "details": "La marque Trappist et le label ATP encadrent le lieu, la supervision et l’économie du produit, pas une souche ou une méthode de fermentation unique."
       },
       "service": {
         "temperatureMin": 6,
@@ -865,56 +970,76 @@ Une bière trappiste répond à des règles d’origine et de gouvernance beauco
           "Tulipe belge"
         ]
       },
-      "description": "“Trappiste” n’est pas un goût, c’est une origine contrôlée : une bière produite dans ou près d’une abbaye trappiste, sous contrôle monastique, avec des revenus liés à la communauté et à ses œuvres. Une trappiste peut être blonde, brune, tripel, dubbel, forte ou plus légère.",
-      "histoireEtOrigines": `« Trappiste » désigne d’abord une origine monastique protégée, pas un style de bière. L’Association Internationale Trappiste rappelle que seuls les monastères trappistes peuvent utiliser la marque Trappist® et qu’aucune recette comparable ne peut, à elle seule, justifier cette appellation. Chaque abbaye possède ses propres bières, levures et choix techniques.
+      "description": "« Trappiste » ne désigne ni une couleur ni un style : c’est une marque protégée liée à des communautés de l’ordre trappiste. Le logo Authentic Trappist Product ajoute des critères contrôlés de proximité, de supervision monastique et d’affectation des revenus. Une trappiste peut donc être blonde, brune, légère ou très forte ; son point commun est institutionnel.",
+      "histoireEtOrigines": `Le mot « trappiste » vient d’une branche de l’ordre cistercien, pas d’une famille de levures. Sa valeur brassicole moderne s’est construite parce que des monastères ont produit ou fait produire des bières destinées à faire vivre leur communauté. Le prestige de quelques maisons a ensuite attiré les imitations. Pour défendre le nom et rendre le lien vérifiable, des abbayes ont fondé en 1998 l’Association Internationale Trappiste et développé la marque collective ainsi que le logo Authentic Trappist Product.
 
-Le label international « Authentic Trappist Product » ajoute trois critères stricts : fabrication dans l’environnement immédiat de l’abbaye, production sous la supervision des moines ou moniales, et affectation des revenus aux besoins de la communauté, à la solidarité de l’ordre, à des projets de développement ou à des œuvres caritatives. Le label est attribué après contrôle et n’est pas synonyme d’un profil sensoriel particulier.
+    Selon l’association, le produit portant ce logo est fabriqué dans l’environnement immédiat de l’abbaye, sous le contrôle des moines ou des moniales. La production doit rester subordonnée à la communauté ; les revenus servent à son entretien, à la solidarité de l’ordre et à des œuvres. Un audit précède l’autorisation, accordée pour cinq ans. Ce dispositif est une certification privée et une marque protégée : le présenter comme une AOP européenne confondrait deux familles juridiques différentes.
 
-C’est pourquoi une Trappiste peut être blonde légère, Dubbel, Tripel, bière sombre forte, bière houblonnée atypique ou même sans alcool. L’appellation renseigne sur l’origine et la gouvernance du produit, tandis que le style renseigne sur ce qui se trouve dans le verre.`,
+    Le logo ATP et le mot Trappist ne décrivent pas le goût. Les abbayes conservent leurs propres recettes, souches, degrés et gammes. Certaines bières sont produites sur des équipements exploités avec du personnel laïc, dès lors que la supervision et les autres critères sont respectés. Face à l’étiquette, il faut donc vérifier le logo, le producteur et le produit exact. « Trappiste » garantit une relation de production et une économie monastique contrôlées ; il ne garantit ni triple, ni brune, ni supériorité sensorielle automatique.`,
       "recette": {
         "profilUnique": false,
-        "explicationProfil": "Trappiste est une certification d’origine et de gouvernance, pas une formule brassicole. Les recettes diffèrent volontairement entre abbayes et produits.",
+        "explicationProfil": "Les invariants sont le cadre de production et de gouvernance. La diversité des bières trappistes interdit une recette moyenne crédible.",
         "maltsEtCereales": [
-          "Variables selon chaque bière trappiste : malt pâle, Munich, caramel, blé, sucres brassicoles, etc."
+          "Chaque abbaye détermine sa gamme : bières de table, blondes, dubbel, tripel, brunes fortes et autres recettes utilisent des grists distincts."
         ],
         "houblons": [
-          "Variables selon l’abbaye et le style ; des profils très discrets à nettement houblonnés existent."
+          "Variétés, dose et expression appartiennent à chaque produit certifié, non au label lui-même."
         ],
         "levuresEtMicroorganismes": [
-          "Levures propres aux différentes brasseries trappistes ; aucune souche « trappiste » universelle."
+          "Des souches de maison jouent souvent un rôle identitaire, mais aucune levure trappiste universelle n’est imposée par l’Association."
         ],
-        "ingredientsComplementaires": [],
-        "profilEau": "Selon le style ou le procédé de base ; aucun profil d’eau universel n’est déductible de l’appellation seule.",
-        "empatage": "Selon la bière de base et les matières premières réellement employées.",
-        "ebullitionEtHoublonnage": "Selon le style de base ; l’appellation commerciale ne fixe pas à elle seule la conduite du houblonnage.",
-        "fermentation": "Selon le produit réel ; l’appellation doit être interprétée avec le style, la liste d’ingrédients et les mentions réglementaires.",
-        "maturation": "Selon le style de base ou la contrainte réglementaire éventuellement associée à la mention.",
-        "profilRecherche": "Identifier une origine trappiste authentique sans transformer la marque/certification en faux style brassicole unique."
+        "ingredientsComplementaires": [
+          "Sucres de brassage, épices ou refermentation existent selon les maisons ; le logo ne les prescrit pas."
+        ],
+        "profilEau": "La proximité de l’abbaye n’établit pas un profil minéral commun à l’ordre.",
+        "empatage": "Équipement et programme restent propres à chaque brasserie placée sous contrôle monastique.",
+        "ebullitionEtHoublonnage": "Le cahier des charges public du label porte sur les conditions de fabrication et l’affectation des revenus, pas sur une courbe de houblonnage.",
+        "fermentation": "La production doit être supervisée par la communauté ; le type de fermentation et la souche restent des choix de la maison.",
+        "maturation": "Refermentation en bouteille et garde sont fréquentes dans plusieurs gammes, sans constituer un critère ATP général.",
+        "profilRecherche": "Lire Trappist/ATP comme une garantie institutionnelle contrôlée, puis découvrir séparément le style et la personnalité de chaque abbaye."
       },
       "sources": [
         {
           "organisme": "Association Internationale Trappiste",
           "edition": null,
-          "reference": "Le label Authentic Trappist Product — critères",
-          "type": "source_certification",
-          "url": "https://www.trappist.be/fr/l-association/le-label-atp/",
-          "consultation": "2026-08-08"
+          "reference": "Critères du label Authentic Trappist Product",
+          "type": "organisme_certificateur",
+          "url": "https://www.trappist.be/en/about-ita/atp-label/",
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Association Internationale Trappiste",
           "edition": null,
-          "reference": "FAQ — protection du nom Trappist® et différence avec le label ATP",
-          "type": "source_certification",
+          "reference": "Questions fréquentes — marque Trappist, association et diversité des produits",
+          "type": "organisme_certificateur",
           "url": "https://www.trappist.be/en/faqs/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Association Internationale Trappiste",
+          "edition": null,
+          "reference": "Bières trappistes actuellement présentées par l’association",
+          "type": "registre_certificateur",
+          "url": "https://www.trappist.be/en/products/beers/",
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Trappist Westmalle",
           "edition": null,
-          "reference": "Histoire des bières trappistes — Dubbel et Tripel",
-          "type": "source_producteur_historique",
+          "reference": "Bières et histoire de la brasserie monastique",
+          "type": "source_primaire_producteur",
           "url": "https://www.trappistwestmalle.be/fr/bieres-trappistes/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
+        }
+      ],
+      "chapitres": [
+        {
+          "titre": "Une marque, pas une AOP",
+          "texte": "Le système ATP repose sur l’Association Internationale Trappiste, ses critères et ses audits. Il ne doit pas être traduit dans le vocabulaire des indications géographiques de l’Union européenne, même si son contrôle de provenance est exigeant."
+        },
+        {
+          "titre": "Le logo a une date de péremption",
+          "texte": "L’autorisation d’utiliser Authentic Trappist Product est accordée pour cinq ans. Ce détail rappelle qu’une certification est un contrôle renouvelé, pas une décoration acquise une fois pour toutes."
         }
       ]
     },
@@ -957,7 +1082,7 @@ C’est pourquoi une Trappiste peut être blonde légère, Dubbel, Tripel, bièr
       },
       "fermentation": {
         "type": "variable",
-        "details": "Le type de fermentation dépend du style de base ou du produit concerné."
+        "details": "Craft ne sélectionne aucun procédé fermentaire ; selon la juridiction, le mot décrit une entreprise, un statut ou une identité revendiquée."
       },
       "service": {
         "temperatureMin": 3,
@@ -968,56 +1093,76 @@ C’est pourquoi une Trappiste peut être blonde légère, Dubbel, Tripel, bièr
           "Tulipe"
         ]
       },
-      "description": "“Craft Beer” ou “bière artisanale” promet souvent indépendance, créativité, petite production ou rupture avec l’industriel. Mais le mot ne donne ni couleur, ni fermentation, ni goût : une craft beer peut être IPA, lager, stout, sour, pils ou potion de gobelin houblonné.",
-      "histoireEtOrigines": `« Bière artisanale » et « craft beer » décrivent davantage le producteur, son organisation ou son positionnement que le contenu du verre. Le mouvement craft moderne s’est construit autour de petites brasseries indépendantes, de la diversité des styles, de l’innovation et d’un lien plus direct avec le territoire ou la clientèle, mais il n’existe aucune recette « craft ».
+      "description": "« Craft Beer » est une bannière de marché plus qu’une formule mondiale. Aux États-Unis, la Brewers Association publie des critères de taille et d’indépendance ; en France, l’usage d’« artisan » renvoie au droit de l’artisanat. Ni l’un ni l’autre ne garantit houblon massif, petites cuves, absence de pasteurisation ou goût supérieur.",
+      "histoireEtOrigines": `Craft beer s’est imposé avec la renaissance des petites brasseries américaines, puis a voyagé comme synonyme de créativité, d’indépendance et d’opposition aux grands groupes. Le mot a gagné en désirabilité à mesure que les rachats et les prises de participation brouillaient la frontière entre petit producteur et marque à l’esthétique indépendante. Cette histoire explique pourquoi la définition la plus citée aux États-Unis vient d’une organisation professionnelle : la Brewers Association qualifie actuellement de craft un brasseur petit et indépendant, avec un plafond de six millions de barils et moins de 25 % de contrôle par un acteur de l’alcool qui ne serait pas lui-même craft.
 
-Les définitions varient selon les pays. Aux États-Unis, la Brewers Association définit aujourd’hui un craft brewer comme un brasseur petit et indépendant selon ses propres critères professionnels ; cette définition qualifie le brasseur, pas un style sensoriel. En France, la DGCCRF rappelle que l’usage de « bière artisanale » ou « brasserie artisanale » se rattache aux règles applicables à la qualité artisanale : ce n’est donc pas un simple synonyme juridique de « petite production » ou « bière originale ».
+    Cette définition n’est ni une loi universelle ni un passeport exportable. L’Union européenne connaît une catégorie fiscale de petite brasserie indépendante, pouvant aller jusqu’à 200 000 hectolitres pour l’application de taux d’accise réduits ; ce seuil ne définit pas la craft beer. En France, les termes artisan et artisanal sont liés à l’immatriculation et aux conditions prévues par le Code de l’artisanat. Une entreprise peut donc relever d’un cadre artisanal français sans correspondre au seuil américain, et inversement.
 
-Une lager techniquement classique peut être craft, tout comme une stout pâtissière ou une IPA. À l’inverse, un goût « artisanal » ne permet pas de déduire le statut de l’entreprise. La fiche doit donc séparer identité économique, mode de production et style de bière.`,
+    Surtout, aucune de ces catégories ne décrit le liquide. Craft n’impose ni fermentation haute, ni absence de filtration, ni ingrédients locaux, ni propriété intégralement familiale. Une lager parfaitement classique peut être craft ; une IPA exubérante peut appartenir à un groupe mondial. La lecture utile consiste à demander qui possède la brasserie, où le produit est fabriqué, quelle définition le logo invoque et ce que la fiche technique affirme réellement. Le mot porte une histoire d’entreprise ; le verre mérite encore sa propre enquête.`,
       "recette": {
         "profilUnique": false,
-        "explicationProfil": "Craft/artisanale qualifie principalement le producteur ou le positionnement commercial ; tous les styles de bière peuvent être concernés.",
+        "explicationProfil": "La mention renseigne d’abord sur le positionnement ou le statut du producteur ; elle ne définit aucune technique commune.",
         "maltsEtCereales": [
-          "Tous types de malts, céréales et adjuncts selon le style réellement brassé."
+          "Toutes les familles de céréales et de malts peuvent entrer dans une bière craft."
         ],
         "houblons": [
-          "Tous profils de houblonnage possibles, du quasi absent au très intense."
+          "L’association fréquente entre craft et houblonnage généreux vient de l’histoire du mouvement, pas d’une condition juridique."
         ],
         "levuresEtMicroorganismes": [
-          "Toutes fermentations possibles selon le style : ale, lager, mixte, spontanée ou procédés sans alcool."
+          "Lager, ale, fermentation mixte, levures non conventionnelles et désalcoolisation figurent toutes dans le secteur."
         ],
-        "ingredientsComplementaires": [],
-        "profilEau": "Selon le style ou le procédé de base ; aucun profil d’eau universel n’est déductible de l’appellation seule.",
-        "empatage": "Selon la bière de base et les matières premières réellement employées.",
-        "ebullitionEtHoublonnage": "Selon le style de base ; l’appellation commerciale ne fixe pas à elle seule la conduite du houblonnage.",
-        "fermentation": "Selon le produit réel ; l’appellation doit être interprétée avec le style, la liste d’ingrédients et les mentions réglementaires.",
-        "maturation": "Selon le style de base ou la contrainte réglementaire éventuellement associée à la mention.",
-        "profilRecherche": "Une indication sur l’identité ou le mode d’organisation du producteur, sans prétendre à une recette ou un profil sensoriel universel."
+        "ingredientsComplementaires": [
+          "Local, biologique, fruité ou expérimental sont des choix supplémentaires qui doivent être prouvés séparément."
+        ],
+        "profilEau": "Petite taille et indépendance ne déterminent pas l’origine ni le traitement de l’eau.",
+        "empatage": "Une microbrasserie peut employer infusion simple, décoction, céréales crues ou procédés très automatisés.",
+        "ebullitionEtHoublonnage": "Le mot craft n’établit ni quantité de houblon ni mode d’extraction.",
+        "fermentation": "La taille de l’entreprise n’est pas un type de fermentation ; le contrôle des souches et des températures reste un critère de produit.",
+        "maturation": "Filtration, pasteurisation, garde et conditionnement varient librement selon le brasseur.",
+        "profilRecherche": "Identifier la définition de craft invoquée et le propriétaire réel, puis juger séparément le produit et son procédé."
       },
       "sources": [
         {
-          "organisme": "DGCCRF",
-          "edition": null,
-          "reference": "Tout savoir sur l’étiquetage des bières — usage de bière artisanale",
-          "type": "source_reglementaire",
-          "url": "https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/tout-savoir-sur-letiquetage-des-bieres",
-          "consultation": "2026-08-08"
-        },
-        {
-          "organisme": "Brewers Association",
-          "edition": null,
-          "reference": "Craft Brewer Definition — small and independent brewer",
-          "type": "source_professionnelle",
-          "url": "https://www.brewersassociation.org/statistics-and-data/craft-brewer-definition/",
-          "consultation": "2026-08-08"
-        },
-        {
           "organisme": "Brewers Association",
           "edition": "2026",
-          "reference": "Beer Style Guidelines — diversité des styles",
-          "type": "guide_de_style",
-          "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "reference": "Craft brewer definition — small and independent",
+          "type": "source_professionnelle",
+          "url": "https://www.brewersassociation.org/statistics-and-data/craft-brewer-definition/",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Légifrance",
+          "edition": null,
+          "reference": "Code de l’artisanat, articles L. 241-1 et L. 241-2 — usage du mot artisan et de ses dérivés",
+          "type": "source_reglementaire",
+          "url": "https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006075116/LEGISCTA000047362458/",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Union européenne — EUR-Lex",
+          "edition": null,
+          "reference": "Directive 92/83/CEE — taux réduits pour petites brasseries indépendantes",
+          "type": "source_reglementaire",
+          "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX%3A01992L0083-20220101",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "DGCCRF",
+          "edition": null,
+          "reference": "Tout savoir sur l’étiquetage des bières",
+          "type": "source_reglementaire",
+          "url": "https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/tout-savoir-sur-letiquetage-des-bieres",
+          "consultation": "2026-08-11"
+        }
+      ],
+      "chapitres": [
+        {
+          "titre": "Trois seuils, trois questions",
+          "texte": "Le plafond américain de six millions de barils sert une définition professionnelle ; le seuil européen de 200 000 hectolitres sert une faculté fiscale ; le droit français de l’artisanat qualifie une entreprise et ses conditions d’exercice. Les aligner comme s’ils mesuraient la même chose produit une précision très décorative et très fausse."
+        },
+        {
+          "titre": "L’indépendance n’a pas de goût unique",
+          "texte": "La propriété d’une entreprise influence son histoire, ses moyens et parfois sa distribution. Elle ne permet pas de prédire à l’aveugle la fraîcheur, la qualité ou l’intensité d’une bière particulière."
         }
       ]
     },
@@ -1060,7 +1205,7 @@ Une lager techniquement classique peut être craft, tout comme une stout pâtiss
       },
       "fermentation": {
         "type": "variable",
-        "details": "Le type de fermentation dépend du style de base ou du produit concerné."
+        "details": "La certification porte sur la production et les ingrédients agricoles ; elle ne prescrit aucune famille de levure, méthode fermentaire ou filtration."
       },
       "service": {
         "temperatureMin": 3,
@@ -1070,42 +1215,50 @@ Une lager techniquement classique peut être craft, tout comme une stout pâtiss
           "Verre adapté au style de base"
         ]
       },
-      "description": "“Bio” parle des ingrédients et du mode de production, pas du goût. Une bière bio peut être blonde, brune, IPA, sans alcool ou triple. Elle signale un cadre agricole et réglementaire, pas une levure spéciale ni une amertume en sandales de chanvre.",
-      "histoireEtOrigines": `« Bière biologique » ou « bière bio » n’est pas un style : c’est une qualification de production et d’étiquetage encadrée par le droit européen. Le règlement (UE) 2018/848 protège les termes faisant référence à la production biologique et impose un système de certification et de contrôle. Pour une denrée transformée présentée comme biologique, les règles portent notamment sur la proportion d’ingrédients agricoles biologiques et sur l’usage du logo européen.
+      "description": "« Bio » est une allégation réglementée, pas une impression de campagne. Dans l’Union européenne, elle renvoie au règlement sur la production biologique, à un contrôle et, pour une bière préemballée produite dans l’UE, au logo européen accompagné du code de l’organisme et de l’origine agricole. Elle ne promet ni goût rustique, ni petite brasserie, ni bouteille non pasteurisée.",
+      "histoireEtOrigines": `Le mot « naturel » peut flotter librement dans une publicité ; « biologique » voyage avec des papiers. Dans l’Union européenne, le règlement 2018/848 organise la production, la certification et l’étiquetage bio. Pour qu’un aliment transformé porte la référence biologique dans sa dénomination de vente, au moins 95 % en poids de ses ingrédients agricoles doivent être biologiques. L’eau et le sel ne participent pas à ce calcul ; la levure, elle, est comptée comme ingrédient agricole. Cette arithmétique discrète explique mieux le label qu’une photo de champ au coucher du soleil.
 
-Pour les denrées préemballées produites dans l’Union qui satisfont aux conditions d’étiquetage biologique, le logo bio européen est obligatoire, accompagné du code de l’organisme de contrôle et de l’indication de l’origine des matières premières agricoles. Le seuil de 95 % concerne les ingrédients agricoles dans les cas où le produit transformé est étiqueté comme biologique ; l’eau et le sel ne sont pas comptés comme ingrédients agricoles dans ce calcul.
+    Sur une bière préemballée produite dans l’Union, le logo biologique de l’UE est obligatoire lorsque le produit est présenté comme bio. Le numéro de code de l’autorité ou de l’organisme de contrôle doit aussi figurer sur l’étiquetage ; l’indication sur l’origine des matières premières agricoles partage, elle, le champ visuel du logo. Le dispositif porte sur toute une chaîne documentée : fournisseurs, transformation, séparation des flux, contrôles et traçabilité. Une brasserie peut être artisanale sans être certifiée bio ; une grande brasserie peut produire une référence biologique conforme.
 
-Une bière bio peut donc être Pils, IPA, Stout, Saison, sans alcool ou autre. La certification ne donne aucune indication automatique sur la couleur, l’amertume, le degré alcoolique ou le caractère « artisanal ».`,
+    Le label ne fixe ni couleur, ni degré, ni amertume. Il ne signifie pas automatiquement local, sans gluten, végétalien, non filtré ou sans intrants de transformation autorisés. Pour lire correctement la bouteille, il faut regarder le logo, le code de contrôle et l’origine agricole, puis revenir au style pour comprendre le goût. Bio répond à la question « selon quelles règles les ingrédients agricoles et la production ont-ils été certifiés ? » ; il laisse la levure et le brasseur répondre à la question suivante.`,
       "recette": {
         "profilUnique": false,
-        "explicationProfil": "Bio décrit le mode de production certifié des ingrédients agricoles et l’étiquetage, non un profil sensoriel ou une recette unique.",
+        "explicationProfil": "La contrainte distinctive est la conformité biologique vérifiée de la chaîne et des ingrédients agricoles, pas une architecture gustative.",
         "maltsEtCereales": [
-          "Malts et autres ingrédients agricoles conformes au cahier des charges biologique lorsque la bière est commercialisée comme biologique."
+          "Les céréales et malts agricoles comptabilisés doivent respecter les règles bio ; le seuil de 95 % s’applique aux ingrédients agricoles du produit transformé."
         ],
         "houblons": [
-          "Houblons biologiques lorsque requis par le statut biologique du produit ; variété et intensité selon style."
+          "Le houblon agricole doit entrer dans la chaîne certifiée lorsque la bière revendique le bio dans sa dénomination."
         ],
         "levuresEtMicroorganismes": [
-          "Levure adaptée au style ; la certification bio ne crée pas de fermentation spécifique."
+          "La levure est traitée comme un ingrédient agricole dans le calcul réglementaire ; aucune souche sensorielle particulière n’est imposée."
         ],
         "ingredientsComplementaires": [
-          "Épices, fruits, sucres ou autres ingrédients agricoles possibles selon style et conformité au règlement biologique."
+          "Fruits, épices et autres ingrédients agricoles sont intégrés au calcul et aux règles applicables, avec les exceptions limitativement prévues par le règlement."
         ],
-        "profilEau": "Selon le style ou le procédé de base ; aucun profil d’eau universel n’est déductible de l’appellation seule.",
-        "empatage": "Selon la bière de base et les matières premières réellement employées.",
-        "ebullitionEtHoublonnage": "Selon le style de base ; l’appellation commerciale ne fixe pas à elle seule la conduite du houblonnage.",
-        "fermentation": "Selon le produit réel ; l’appellation doit être interprétée avec le style, la liste d’ingrédients et les mentions réglementaires.",
-        "maturation": "Selon le style de base ou la contrainte réglementaire éventuellement associée à la mention.",
-        "profilRecherche": "Une bière de n’importe quel style dont la production et l’étiquetage satisfont aux exigences de l’agriculture biologique européenne."
+        "profilEau": "L’eau n’entre pas dans le calcul des 95 %, sans cesser pour autant d’être une matière déterminante pour le brassage.",
+        "empatage": "Le procédé peut être classique ou moderne ; l’enjeu spécifique est la séparation et la traçabilité des matières certifiées.",
+        "ebullitionEtHoublonnage": "Aucune intensité de houblonnage n’est imposée, mais les lots utilisés doivent rester identifiables dans le système de contrôle.",
+        "fermentation": "La certification suit les flux et les enregistrements de production ; elle ne prescrit pas haute ou basse fermentation.",
+        "maturation": "Filtration, pasteurisation et garde ne sont pas exclues par le seul mot bio, sous réserve des règles de production applicables.",
+        "profilRecherche": "Vérifier la certification et sa traçabilité, puis évaluer séparément style, fraîcheur et qualité sensorielle."
       },
       "sources": [
         {
           "organisme": "Union européenne — EUR-Lex",
-          "edition": "2018/848",
+          "edition": null,
           "reference": "Règlement (UE) 2018/848 relatif à la production biologique et à l’étiquetage des produits biologiques",
           "type": "source_reglementaire",
-          "url": "https://eur-lex.europa.eu/eli/reg/2018/848/oj?locale=fr",
-          "consultation": "2026-08-08"
+          "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX%3A02018R0848-20250325",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Commission européenne",
+          "edition": null,
+          "reference": "The organic logo — conditions d’emploi et mentions associées",
+          "type": "source_institutionnelle",
+          "url": "https://agriculture.ec.europa.eu/farming/organic-farming/organic-logo_en",
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "DGCCRF",
@@ -1113,7 +1266,17 @@ Une bière bio peut donc être Pils, IPA, Stout, Saison, sans alcool ou autre. L
           "reference": "Tout savoir sur l’étiquetage des bières",
           "type": "source_reglementaire",
           "url": "https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/tout-savoir-sur-letiquetage-des-bieres",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
+        }
+      ],
+      "chapitres": [
+        {
+          "titre": "Le seuil des 95 %",
+          "texte": "Le pourcentage vise les ingrédients agricoles du produit transformé, pas 95 % du volume de la bouteille. Comme la bière contient beaucoup d’eau, confondre les deux calculs donnerait un label étonnamment facile à obtenir."
+        },
+        {
+        "titre": "Trois indices à repérer",
+        "texte": "Logo européen, code de l’organisme de contrôle et mention d’origine agricole forment le petit dossier visible du produit. L’origine partage le champ visuel du logo ; l’ensemble dit davantage que la couleur verte choisie par le graphiste."
         }
       ]
     },
@@ -1153,7 +1316,7 @@ Une bière bio peut donc être Pils, IPA, Stout, Saison, sans alcool ou autre. L
       },
       "fermentation": {
         "type": "variable",
-        "details": "Le type de fermentation dépend du style de base ou du produit concerné."
+        "details": "« Spéciale » n’impose aucun procédé : son sens dépend de la gamme, du marché et de l’explication fournie par la marque."
       },
       "service": {
         "temperatureMin": 3,
@@ -1164,48 +1327,64 @@ Une bière bio peut donc être Pils, IPA, Stout, Saison, sans alcool ou autre. L
           "Tulipe"
         ]
       },
-      "description": "“Bière spéciale” est le tiroir élastique par excellence : plus forte, plus maltée, plus aromatique, plus premium, plus différente, ou simplement mieux habillée marketing. Le mot annonce une singularité, mais pas laquelle.",
-      "histoireEtOrigines": `« Bière spéciale » est l’un des termes commerciaux les plus souples de l’univers brassicole. Selon l’époque et le pays, il a servi à distinguer une bière plus forte, plus riche, plus élaborée, saisonnière ou simplement différente de la gamme standard. En Belgique et en France, l’expression a été abondamment utilisée sur les marques sans devenir pour autant un style technique homogène.
+      "description": "« Bière spéciale » annonce une différence sans toujours la nommer. Le mot a servi de segment commercial français, entre bières courantes, de luxe et de spécialité, mais le décret actuel ne lui attribue ni degré minimal, ni fermentation, ni recette. Une spéciale peut être plus forte, plus maltée ou seulement mieux habillée : l’adjectif demande une preuve après lui.",
+      "histoireEtOrigines": `Dans le commerce, « spécial » est un adjectif extrêmement rentable : il crée une marche au-dessus sans préciser la hauteur de la marche. L’histoire récente du marché français lui donne toutefois un contenu économique réel. Une décision publiée en 2005 par les autorités de concurrence décrivait un secteur organisé en catégories telles que bières de luxe, bières spéciales et bières de spécialité ; les spéciales représentaient alors une part importante des volumes. Il s’agissait d’une segmentation de marché, non d’une recette opposable à toutes les brasseries.
 
-Le décret français qui définit les dénominations légales de produits brassicoles énumère « bière », « bière sans alcool », « bière à… », « bière aromatisée à… », « bière de fermentation lactique / Gueuze » et « panaché », ainsi que les mentions « bière de garde » et « pur malt ». Il ne crée pas de dénomination réglementaire générale « bière spéciale ».
+    Le décret français définissant la bière ne réserve pas aujourd’hui la dénomination « bière spéciale ». Aucun seuil général d’alcool, de malt ou de garde ne transforme automatiquement une bière ordinaire en spéciale. Selon les marques et les époques, le mot a pu signaler une densité plus élevée, un caractère plus malté, une fermentation différente, un produit de fête ou un positionnement premium. Cette élasticité fait sa longévité et sa faiblesse documentaire.
 
-Il faut donc lire « spéciale » comme un signal de gamme ou de différenciation. La bière réelle peut être forte ou non, blonde ou sombre, haute ou basse fermentation, traditionnelle ou expérimentale.`,
+    L’étiquette doit donc être lue comme une phrase inachevée : spéciale par quoi ? Un degré indiqué, une matière première, une durée de maturation ou un style précis peuvent fournir la suite. À défaut, l’adjectif reste une promesse comparative sans terme de comparaison très visible. Cela ne rend pas la bière médiocre ni la mention illicite ; cela signifie seulement que la singularité doit être cherchée dans des informations plus concrètes que la typographie dorée.`,
       "recette": {
         "profilUnique": false,
-        "explicationProfil": "Cette appellation ne définit pas à elle seule une recette brassicole unique.",
+        "explicationProfil": "Le mot ne constitue pas une spécification technique ; seule l’explication particulière du producteur peut lui donner un contenu vérifiable.",
         "maltsEtCereales": [
-          "Selon le style ou le produit de base ; l’appellation seule ne fixe pas de céréales obligatoires."
+          "Une charge maltée supérieure ou des malts plus expressifs ont souvent justifié la mention, sans seuil commun."
         ],
         "houblons": [
-          "Selon le style ou le produit de base ; l’appellation seule ne fixe pas le niveau d’amertume ou les variétés de houblon."
+          "Une spéciale peut rester maltée ou miser sur le houblon ; l’adjectif ne tranche pas."
         ],
         "levuresEtMicroorganismes": [
-          "Selon le style ou le procédé de base ; fermentation haute, basse, mixte ou désalcoolisation peuvent coexister selon l’appellation."
+          "Aucune souche ni famille de fermentation n’est attachée à la catégorie commerciale."
         ],
-        "ingredientsComplementaires": [],
-        "profilEau": "Selon le style ou le procédé de base ; aucun profil d’eau universel n’est déductible de l’appellation seule.",
-        "empatage": "Selon la bière de base et les matières premières réellement employées.",
-        "ebullitionEtHoublonnage": "Selon le style de base ; l’appellation commerciale ne fixe pas à elle seule la conduite du houblonnage.",
-        "fermentation": "Selon le produit réel ; l’appellation doit être interprétée avec le style, la liste d’ingrédients et les mentions réglementaires.",
-        "maturation": "Selon le style de base ou la contrainte réglementaire éventuellement associée à la mention.",
-        "profilRecherche": "Une appellation commerciale de différenciation, sans seuil légal français ni recette universelle ; le style réel doit être recherché ailleurs sur l’étiquette."
+        "ingredientsComplementaires": [
+          "Épices, sucres ou ingrédients distinctifs peuvent expliquer le mot lorsqu’ils sont réellement annoncés."
+        ],
+        "profilEau": "Aucun profil minéral ne peut être déduit d’un rang de gamme.",
+        "empatage": "Si la marque revendique plus de corps ou de force, densité et fermentescibilité deviennent pertinentes ; sinon, aucune méthode n’est sous-entendue.",
+        "ebullitionEtHoublonnage": "Le traitement du houblon doit être lu dans la description du produit, pas dans « spéciale ».",
+        "fermentation": "Le procédé n’est informatif que s’il est nommé séparément : haute fermentation, refermentation ou autre particularité.",
+        "maturation": "Une garde prolongée peut constituer la singularité, mais le terme n’en promet aucune durée.",
+        "profilRecherche": "Trouver la différence mesurable ou documentée derrière l’adjectif ; accepter qu’elle soit parfois purement positionnelle."
       },
       "sources": [
+        {
+          "organisme": "Légifrance",
+          "edition": null,
+          "reference": "Décret n° 92-307 du 31 mars 1992 relatif aux bières et boissons à base de bière — texte consolidé",
+          "type": "source_reglementaire",
+          "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000357138",
+          "consultation": "2026-08-11"
+        },
         {
           "organisme": "DGCCRF",
           "edition": null,
           "reference": "Tout savoir sur l’étiquetage des bières",
           "type": "source_reglementaire",
           "url": "https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/tout-savoir-sur-letiquetage-des-bieres",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
-          "organisme": "Brewers Association",
-          "edition": "2026",
-          "reference": "Specialty and Experimental beer categories",
-          "type": "guide_de_style",
-          "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "organisme": "Conseil de la concurrence — BOCCRF",
+          "edition": "Décision publiée en 2005",
+          "reference": "Secteur de la distribution de bières — segmentation historique du marché français",
+          "type": "archive_institutionnelle",
+          "url": "https://www.economie.gouv.fr/files/files/directions_services/dgccrf/boccrf/05_07/a0070004.htm",
+          "consultation": "2026-08-11"
+        }
+      ],
+      "chapitres": [
+        {
+          "titre": "Une ancienne case de rayon",
+          "texte": "Les catégories commerciales relevées dans les études de marché racontent comment les industriels et distributeurs vendaient la bière à une époque donnée. Elles ne deviennent pas pour autant des styles ni des dénominations légales permanentes."
         }
       ]
     },
@@ -1247,7 +1426,7 @@ Il faut donc lire « spéciale » comme un signal de gamme ou de différenciatio
       },
       "fermentation": {
         "type": "variable",
-        "details": "Le type de fermentation dépend du style de base ou du produit concerné."
+        "details": "La saison de vente n’impose ni type de fermentation ni épices ; chaque brasseur compose son produit d’hiver."
       },
       "service": {
         "temperatureMin": 3,
@@ -1258,58 +1437,76 @@ Il faut donc lire « spéciale » comme un signal de gamme ou de différenciatio
           "Tulipe"
         ]
       },
-      "description": "“Bière de Noël” évoque une bière de saison souvent plus ronde, plus maltée, parfois épicée, ambrée, brune ou plus forte. Mais elle n’a pas une recette unique : certaines jouent le caramel et les fruits secs, d’autres l’épice, d’autres seulement la capsule festive.",
-      "histoireEtOrigines": `La « bière de Noël » désigne une bière saisonnière brassée ou commercialisée pour la fin de l’année plutôt qu’un style unique. Les traditions européennes de bières hivernales fortes, maltées ou épicées ont nourri cette image : couleurs ambrées à brunes, rondeur, fruits secs, caramel, épices et degré alcoolique parfois supérieur à la gamme permanente.
+      "description": "« Bière de Noël » est un rendez-vous commercial et culturel, pas une recette mondiale. Beaucoup sont plus maltées, fortes ou épicées pour accompagner l’hiver ; d’autres restent blondes, sèches ou simplement vêtues pour décembre. La mention garantit surtout une intention saisonnière. Cannelle, fruits secs et cheminée sont des personnages fréquents, jamais une distribution obligatoire.",
+      "histoireEtOrigines": `Le calendrier a longtemps été une contrainte de production avant de devenir un calendrier de lancement. Les récoltes, le froid disponible pour maîtriser les fermentations et les besoins de conservation rythmaient les brassins. Dans plusieurs cultures européennes, la bière des fêtes s’est chargée d’obligations domestiques, religieuses ou communautaires. En Norvège, les recherches historiques recensées par l’Université norvégienne de sciences et de technologie montrent une tradition ancienne de brassage de Noël et des publicités pour juleøl dès le XIXe siècle.
 
-Brasseurs de France décrit la bière de Noël comme une tradition de fin de saison brassicole, mise en avant à partir de la mi-novembre et souvent plus aromatique, ronde et forte. Mais ces caractéristiques restent des tendances, non une norme obligatoire. Certaines bières de Noël sont blondes, très houblonnées, acides ou sans épices.
+    Le marché moderne a transformé ce moment en catégorie saisonnière internationale. Les brasseries y placent volontiers des recettes plus riches, des malts foncés, des épices et des degrés supérieurs, parce que ces signaux correspondent aux attentes hivernales. Mais la circulation du modèle n’a pas créé de cahier des charges. Aux États-Unis, Anchor a lancé en 1975 une Christmas Ale annuelle dont la recette et l’étiquette changeaient, exemple influent d’un produit de fête défini par le retour et la variation plutôt que par une formule fixe.
 
-Le BJCP classe les Winter Seasonal Beers comme une catégorie de spécialité dont la bière de base et les ingrédients doivent être annoncés. La bonne approche encyclopédique est donc de parler de saison et d’intention festive, puis d’identifier la recette réelle.`,
+    En France, le décret bière ne réserve pas « bière de Noël ». Les récits professionnels qui font remonter une recette précise au Moyen Âge doivent donc être distingués de la documentation disponible pour chaque région. Le lecteur peut raisonnablement attendre une édition saisonnière et chercher ensuite son degré, ses épices, sa couleur et sa date de conditionnement. Parfois la bière a été conçue pour le repas de fête ; parfois Noël se trouve surtout sur la capsule. Les deux cas sont commerciaux, mais ils ne racontent pas la même profondeur de projet.`,
       "recette": {
         "profilUnique": false,
-        "explicationProfil": "Bière de Noël est une appellation saisonnière : la base, la couleur, les épices et la force varient selon le brasseur.",
+        "explicationProfil": "Le produit est d’abord saisonnier ; richesse maltée, épices et force sont des conventions fréquentes, non des conditions.",
         "maltsEtCereales": [
-          "Souvent pale/Munich/caramel et parfois malts sombres pour rondeur et couleur, mais une base claire reste possible."
+          "Malts caramel, Munich et grains plus foncés soutiennent souvent les profils hivernaux, mais des versions blondes existent."
         ],
         "houblons": [
-          "Généralement d’équilibre ; certaines interprétations modernes peuvent être nettement houblonnées."
+          "Le houblon peut équilibrer une forte charge maltée ou devenir aromatique dans une interprétation contemporaine."
         ],
         "levuresEtMicroorganismes": [
-          "Selon le style de base : ale, lager ou autre."
+          "Ales fruitées, lagers d’hiver et fermentations belges sont toutes compatibles avec la saison."
         ],
         "ingredientsComplementaires": [
-          "Cannelle, agrumes, gingembre, muscade, clou de girofle, miel, fruits ou sucres possibles mais jamais obligatoires par le seul nom Noël."
+          "Cannelle, coriandre, agrumes, miel ou aucun ajout : la liste réelle prime sur l’imagerie festive."
         ],
-        "profilEau": "Selon le style ou le procédé de base ; aucun profil d’eau universel n’est déductible de l’appellation seule.",
-        "empatage": "Selon la bière de base et les matières premières réellement employées.",
-        "ebullitionEtHoublonnage": "Selon le style de base ; l’appellation commerciale ne fixe pas à elle seule la conduite du houblonnage.",
-        "fermentation": "Selon le produit réel ; l’appellation doit être interprétée avec le style, la liste d’ingrédients et les mentions réglementaires.",
-        "maturation": "Souvent quelques semaines de garde pour intégrer alcool, malt et éventuelles épices ; durée variable selon la force.",
-        "profilRecherche": "Une bière saisonnière hivernale expressive et festive dont le caractère doit rester cohérent avec sa base plutôt que suivre une recette imposée."
+        "profilEau": "Le profil suit la couleur et l’équilibre de la recette, pas le mois du calendrier.",
+        "empatage": "Le corps est souvent renforcé pour l’hiver, mais une finale digeste peut demander au contraire une bonne fermentescibilité.",
+        "ebullitionEtHoublonnage": "Épices et sucres éventuels sont dosés selon leur volatilité ; aucune séquence n’est commune à toutes les éditions.",
+        "fermentation": "Une forte densité exige une levure saine et une température maîtrisée ; les bières plus légères n’ont pas cette contrainte particulière.",
+        "maturation": "Une sortie en fin d’année peut nécessiter d’anticiper la garde de plusieurs semaines ou mois, selon la force réelle.",
+        "profilRecherche": "Une édition saisonnière dont le contenu est décrit honnêtement, sans supposer épices ou force d’après un sapin sur l’étiquette."
       },
       "sources": [
         {
+          "organisme": "Légifrance",
+          "edition": null,
+          "reference": "Décret n° 92-307 du 31 mars 1992 relatif aux bières et boissons à base de bière — texte consolidé",
+          "type": "source_reglementaire",
+          "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000357138",
+          "consultation": "2026-08-11"
+        },
+        {
           "organisme": "Brasseurs de France",
           "edition": null,
-          "reference": "Bière de Noël — tradition saisonnière",
+          "reference": "Bière de Noël — usages professionnels et accords",
           "type": "source_professionnelle",
           "url": "https://brasseurs-de-france.com/tout-savoir-sur-la-biere/accords-bieres-mets/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
-          "organisme": "BJCP",
-          "edition": "2021",
-          "reference": "Winter Seasonal Beer",
-          "type": "guide_de_style",
-          "url": "https://www.bjcp.org/style/2021/30/30C/winter-seasonal-beer/",
-          "consultation": "2026-08-08"
+          "organisme": "Norwegian University of Science and Technology",
+          "edition": "2018",
+          "reference": "Norway’s long tradition of brewing Christmas beer",
+          "type": "source_universitaire",
+          "url": "https://norwegianscitechnews.com/2018/12/norways-long-tradition-of-brewing-christmas-beer/",
+          "consultation": "2026-08-11"
         },
         {
-          "organisme": "Brewers Association",
-          "edition": "2026",
-          "reference": "Winter Seasonal Beer",
-          "type": "guide_de_style",
-          "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "organisme": "All About Beer",
+          "edition": null,
+          "reference": "American Christmas Beer History — Anchor Christmas Ale depuis 1975",
+          "type": "presse_specialisee",
+          "url": "https://allaboutbeer.com/american-christmas-beer-history/",
+          "consultation": "2026-08-11"
+        }
+      ],
+      "chapitres": [
+        {
+          "titre": "Le calendrier comme ingrédient",
+          "texte": "La répétition annuelle peut donner une identité solide même lorsque la recette change. Le caractère de Noël tient alors au rendez-vous, au conditionnement et à l’usage autant qu’à une liste d’épices."
+        },
+        {
+          "titre": "L’épice facultative",
+          "texte": "Une bière peut évoquer pain d’épices et fruits secs par ses malts, sa levure et son vieillissement, sans cannelle ni girofle ajoutés. Inversement, une blonde légère peut être épicée et vendue pour les fêtes."
         }
       ]
     },
@@ -1353,7 +1550,7 @@ Le BJCP classe les Winter Seasonal Beers comme une catégorie de spécialité do
       },
       "fermentation": {
         "type": "variable",
-        "details": "Le type de fermentation dépend du style de base ou du produit concerné."
+        "details": "Le lancement printanier rassemble des ales et des lagers ; le calendrier ne sélectionne pas une levure."
       },
       "service": {
         "temperatureMin": 3,
@@ -1364,48 +1561,74 @@ Le BJCP classe les Winter Seasonal Beers comme une catégorie de spécialité do
           "Tulipe"
         ]
       },
-      "description": "“Bière de printemps” ou “bière de mars” annonce généralement une bière saisonnière plus fraîche, florale, dorée ou légèrement ambrée. Mais le mot parle surtout de calendrier : le printemps est plus précis que la recette.",
-      "histoireEtOrigines": `« Bière de Mars » ou « bière de Printemps » est une appellation saisonnière française liée à l’ancien calendrier brassicole. Avant la généralisation du froid industriel à la fin du XIXe siècle, l’hiver offrait naturellement de bonnes conditions pour la fermentation et la garde. Brasseurs de France rattache la tradition à l’orge récoltée en été, maltée à l’automne puis brassée pendant la saison froide pour être proposée au retour du printemps.
+      "description": "« Bière de mars » ou « de printemps » désigne aujourd’hui une édition saisonnière lancée au retour des beaux jours. Les professionnels français lui associent souvent un brassage hivernal, une robe claire à ambrée et une expression florale, mais aucune recette légale ne s’impose. Elle ne doit pas être confondue automatiquement avec la Märzen bavaroise, sa cousine de calendrier au destin différent.",
+      "histoireEtOrigines": `Avant le froid artificiel, l’hiver donnait aux brasseurs des conditions plus sûres pour fermenter et conserver. Un brassin préparé pendant la saison froide pouvait arriver à maturité au début du printemps et célébrer les nouvelles matières premières. C’est le noyau causal de la bière de mars française : récolte, froid, brassage, attente, puis mise en vente. Les récits professionnels situent des mentions anciennes à Arras, mais les dates publiées ne concordent pas toujours — 1394 dans certaines communications, 1420 dans une présentation patrimoniale locale. Faute de pièce d’archive directement consultée ici, la primauté précise reste donc une tradition rapportée.
 
-L’appellation moderne conserve surtout cette idée de fraîcheur saisonnière et de série limitée. Elle n’impose pas un style unique : blonde, ambrée, ale, lager ou recette plus houblonnée peuvent porter la mention selon le producteur. Elle ne doit pas être confondue avec la Märzen bavaroise, dont le nom partage l’idée de mars mais appartient à une histoire et à un profil brassicole distincts.
+    La catégorie moderne doit aussi beaucoup à sa relance commerciale à la fin du XXe siècle. « Bière de printemps » a élargi une fenêtre que « bière de mars » semblait enfermer dans un seul mois et a ajouté l’imaginaire des beaux jours. Cette appellation française n’est pas la traduction technique automatique de la Märzen allemande : en Bavière, la bière brassée en mars était historiquement destinée à traverser l’été, ce qui a produit une autre trajectoire de lager et de fête automnale.
 
-La fiche doit donc présenter la Bière de Mars française comme une tradition calendaire et commerciale, pas comme un clone de Märzen ni comme une recette réglementaire figée.`,
+    Le décret français n’accorde ni seuil ni recette à ces mots. Les versions contemporaines peuvent être blondes, ambrées, florales, maltées, de fermentation haute ou basse. L’information garantie est surtout temporelle et éditoriale : le producteur a choisi de présenter ce brassin comme sa sortie de printemps. Pour comprendre le liquide, l’étiquette doit encore préciser le style, le degré et les ingrédients. Le calendrier indique l’heure du rendez-vous ; il ne choisit pas la boisson à votre place.`,
       "recette": {
         "profilUnique": false,
-        "explicationProfil": "Bière de Mars / Printemps décrit une saison de brassage et de commercialisation ; la recette moderne varie selon les producteurs.",
+        "explicationProfil": "La contrainte commune est un lancement saisonnier ; les profils floraux, maltés et modérés relèvent de conventions professionnelles.",
         "maltsEtCereales": [
-          "Base souvent claire à ambrée, mais aucune composition universelle ; malt d’orge généralement central."
+          "Malts pâles à légèrement toastés sont fréquents ; aucune récolte ou céréale n’est aujourd’hui imposée par la mention."
         ],
         "houblons": [
-          "Houblonnage modéré à aromatique selon l’interprétation printanière."
+          "Une touche florale ou herbacée accompagne souvent l’image printanière, sans seuil d’amertume."
         ],
         "levuresEtMicroorganismes": [
-          "Ale ou lager selon le brasseur ; le terme de saison n’impose pas une fermentation."
+          "Ales et lagers coexistent, contrairement à l’assimilation rapide avec une famille unique."
         ],
         "ingredientsComplementaires": [],
-        "profilEau": "Selon le style ou le procédé de base ; aucun profil d’eau universel n’est déductible de l’appellation seule.",
-        "empatage": "Selon la bière de base et les matières premières réellement employées.",
-        "ebullitionEtHoublonnage": "Selon le style de base ; l’appellation commerciale ne fixe pas à elle seule la conduite du houblonnage.",
-        "fermentation": "Selon le produit réel ; l’appellation doit être interprétée avec le style, la liste d’ingrédients et les mentions réglementaires.",
-        "maturation": "Traditionnellement associée à une fermentation/garde hivernale avant consommation printanière ; pratique moderne variable.",
-        "profilRecherche": "Une bière de saison printanière fraîche et limitée, héritière d’un calendrier de brassage plus que d’un style technique unique."
+        "profilEau": "Le profil se règle au style réellement choisi et à la robe, non à la date de sortie.",
+        "empatage": "Le brassage hivernal peut être un choix de calendrier ; l’empâtage n’en reçoit pas de programme spécifique.",
+        "ebullitionEtHoublonnage": "Les houblons aromatiques peuvent mettre en scène la fraîcheur, mais une version maltée reste tout aussi possible.",
+        "fermentation": "Le planning doit permettre une bière prête au printemps ; la température et la souche relèvent du produit précis.",
+        "maturation": "La garde entre brassage hivernal et sortie de mars est historiquement intelligible, sans durée légale contemporaine.",
+        "profilRecherche": "Une saisonnière clairement datée et décrite, sans confondre appellation française, Märzen et Saison belge."
       },
       "sources": [
         {
-          "organisme": "Brasseurs de France",
+          "organisme": "Légifrance",
           "edition": null,
-          "reference": "Glossaire — bière de Mars / bière de Printemps et vocabulaire brassicole",
-          "type": "source_professionnelle",
-          "url": "https://brasseurs-de-france.com/tout-savoir-sur-la-biere/glossaire/",
-          "consultation": "2026-08-08"
+          "reference": "Décret n° 92-307 du 31 mars 1992 relatif aux bières et boissons à base de bière — texte consolidé",
+          "type": "source_reglementaire",
+          "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000357138",
+          "consultation": "2026-08-11"
         },
         {
-          "organisme": "DGCCRF",
+          "organisme": "Brasseurs de France",
           "edition": null,
-          "reference": "Tout savoir sur l’étiquetage des bières",
-          "type": "source_reglementaire",
-          "url": "https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/tout-savoir-sur-letiquetage-des-bieres",
-          "consultation": "2026-08-08"
+          "reference": "Bière de printemps — récit professionnel de la saisonnière française",
+          "type": "source_professionnelle",
+          "url": "https://actualites-agricoles.lacooperationagricole.coop/images/files/2019/AA-2019-03-22/Biere%20de%20Printemps_Brasseurs%20de%20France-Recettes.pdf",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Arras Pays d’Artois",
+          "edition": null,
+          "reference": "Voyage en Terre de bière — patrimoine brassicole et mention de 1420",
+          "type": "source_patrimoniale",
+          "url": "https://www.arraspaysdartois.com/voyage-en-terre-de-biere/",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Revue d’Alsace",
+          "edition": "2011",
+          "reference": "La bière en Alsace — renaissance des bières saisonnières",
+          "type": "publication_historique",
+          "url": "https://journals.openedition.org/alsace/1212",
+          "consultation": "2026-08-11"
+        }
+      ],
+      "chapitres": [
+        {
+          "titre": "1394 ou 1420 ?",
+          "texte": "Les deux dates circulent dans des sources touristiques et professionnelles à propos d’archives d’Arras. Sans publication de la pièce et de sa transcription, il est plus honnête de retenir l’existence d’une tradition ancienne que de transformer une date flottante en acte de naissance."
+        },
+        {
+          "titre": "Mars n’est pas toujours Märzen",
+          "texte": "Même mois, contraintes de froid apparentées, mais marchés et évolutions différents : la saisonnière française moderne et la lager bavaroise ne deviennent pas un seul style par traduction."
         }
       ]
     },
@@ -1448,7 +1671,7 @@ La fiche doit donc présenter la Bière de Mars française comme une tradition c
       },
       "fermentation": {
         "type": "variable",
-        "details": "Le type de fermentation dépend du style de base ou du produit concerné."
+        "details": "La force alcoolique peut provenir d’un moût dense, de sucres fermentescibles ou d’une concentration ; aucune fermentation unique n’est attachée au terme."
       },
       "service": {
         "temperatureMin": 3,
@@ -1459,48 +1682,64 @@ La fiche doit donc présenter la Bière de Mars française comme une tradition c
           "Tulipe"
         ]
       },
-      "description": "“Bière forte” annonce surtout un degré alcoolique élevé. Elle peut être blonde industrielle forte, triple, barley wine, imperial stout, strong ale ou lager forte. Le mot prévient que ça tape plus haut, mais ne dit pas si ça chante, rugit ou brûle.",
-      "histoireEtOrigines": `« Bière forte » ou « Strong Beer » est une indication relative : elle signale un degré alcoolique ou une densité supérieure à la norme attendue pour une gamme ou un style donné, mais il n’existe pas de seuil international unique. Une forte lager, une Belgian Strong Ale, une Barley Wine et une Imperial Stout peuvent toutes être « fortes » sans rien partager d’autre.
+      "description": "« Bière forte » parle d’alcool avant de parler de style, mais le seuil change avec les pays. La France ne crée pas de catégorie générale Strong Beer dans son décret ; le Canada, par exemple, réserve officiellement le nom aux bières de 5,6 à 8,5 % vol., puis « extra strong » au-delà. Le chiffre imprimé reste plus fiable que l’adjectif voyageur.",
+      "histoireEtOrigines": `Fort est un mot relatif : une bière à 6 % vol. paraît puissante dans une gamme de lagers légères et presque sage entre une tripel et un barley wine. Les producteurs l’utilisent pour avertir, valoriser ou segmenter, mais le point de bascule dépend du marché. Cette variabilité devient évidente en comparant les juridictions. Aucun seuil général ne définit « bière forte » dans le décret français. Au Canada, les normes de composition organisent au contraire les noms communs par degré : light, beer, strong beer entre 5,6 et 8,5 %, puis extra strong à partir de 8,6 %.
 
-La Brewers Association utilise une catégorie Other Strong Beer pour les bières volontairement brassées au-dessus de la force du style sous-jacent lorsqu’elles ne trouvent pas mieux leur place dans une catégorie forte déjà définie. C’est un cadre de concours, pas une définition juridique mondiale.
+    Dans l’Union européenne, le titre alcoométrique volumique acquis doit être indiqué pour les boissons dépassant 1,2 % vol. selon le règlement d’information des consommateurs. Ce nombre offre donc une base de comparaison beaucoup plus robuste que Strong imprimé en grand. L’adjectif ne précise ni la densité finale, ni la chaleur alcoolique, ni la quantité de sucre résiduel. Une bière très atténuée peut être forte et sèche ; une autre, moins alcoolisée, paraître plus lourde.
 
-Sur une étiquette, le consommateur doit donc regarder le titre alcoométrique et le style réel. « Strong » décrit l’intensité alcoolique relative ; il ne dit ni couleur, ni fermentation, ni douceur, ni quantité de malt.`,
+    Techniquement, la force vient le plus souvent d’un moût riche en sucres fermentescibles et d’une levure capable d’achever le travail. Des procédés de concentration créent d’autres cas, mais doivent être documentés séparément. À la lecture, trois informations comptent : le pourcentage, le volume du contenant et le style. « Forte » prévient que la boisson monte l’escalier ; le chiffre indique enfin combien de marches.`,
       "recette": {
         "profilUnique": false,
-        "explicationProfil": "Strong/Forte qualifie une force alcoolique relative au produit ou au style de base, sans seuil universel ni recette propre.",
+        "explicationProfil": "La seule idée stable est un degré perçu comme élevé dans son marché ; le chiffre et la juridiction donnent la mesure réelle.",
         "maltsEtCereales": [
-          "Charge fermentescible plus élevée que la version standard du style ; malts et sucres selon la famille de bière."
+          "Un moût dense demande davantage de matières fermentescibles ; malts, céréales et sucres peuvent répartir cette charge de façons différentes."
         ],
         "houblons": [
-          "Adaptés au style de base et souvent renforcés pour équilibrer la densité, mais pas systématiquement."
+          "L’amertume compense parfois la densité, tandis que certains produits privilégient douceur ou neutralité."
         ],
         "levuresEtMicroorganismes": [
-          "Souche capable d’achever une fermentation plus dense ; tolérance alcoolique adaptée."
+          "Tolérance à l’alcool, vitalité et atténuation deviennent critiques ; aucune souche universelle de bière forte n’existe."
         ],
-        "ingredientsComplementaires": [],
-        "profilEau": "Selon le style ou le procédé de base ; aucun profil d’eau universel n’est déductible de l’appellation seule.",
-        "empatage": "Selon la bière de base et les matières premières réellement employées.",
-        "ebullitionEtHoublonnage": "Selon le style de base ; l’appellation commerciale ne fixe pas à elle seule la conduite du houblonnage.",
-        "fermentation": "Gestion attentive du pitch, de l’oxygénation et de la température pour éviter alcools chauds et fermentation incomplète.",
-        "maturation": "Souvent plus longue qu’une bière standard afin de fondre l’alcool et les composés de fermentation.",
-        "profilRecherche": "Une version plus forte d’une famille donnée, où l’alcool supplémentaire reste intégré et où le style de base demeure identifiable."
+        "ingredientsComplementaires": [
+          "Des sucres simples peuvent relever le degré tout en limitant le corps, notamment dans certaines traditions belges."
+        ],
+        "profilEau": "Calcium, pH et nutriments soutiennent la fermentation ; la force ne réclame pas une minéralité gustative élevée.",
+        "empatage": "La fermentescibilité doit être pensée avec la densité pour éviter une finale involontairement sirupeuse.",
+        "ebullitionEtHoublonnage": "Ébullition prolongée et charge de houblon peuvent concentrer ou équilibrer le moût, selon le style.",
+        "fermentation": "Ensemencement suffisant, oxygénation adaptée et contrôle thermique limitent arrêts et alcools agressifs dans les hauts degrés.",
+        "maturation": "Une garde peut fondre l’alcool et les arômes, mais ne corrige pas une fermentation défaillante.",
+        "profilRecherche": "Comparer le degré chiffré et la taille de service, puis juger l’intégration de l’alcool plutôt que le seul mot Strong."
       },
       "sources": [
         {
-          "organisme": "Brewers Association",
-          "edition": "2026",
-          "reference": "Other Strong Beer",
-          "type": "guide_de_style",
-          "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "organisme": "Légifrance",
+          "edition": null,
+          "reference": "Décret n° 92-307 du 31 mars 1992 relatif aux bières et boissons à base de bière — texte consolidé",
+          "type": "source_reglementaire",
+          "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000357138",
+          "consultation": "2026-08-11"
         },
         {
-          "organisme": "DGCCRF",
+          "organisme": "Union européenne — EUR-Lex",
           "edition": null,
-          "reference": "Tout savoir sur l’étiquetage des bières",
+          "reference": "Règlement (UE) n° 1169/2011 — indication du titre alcoométrique",
           "type": "source_reglementaire",
-          "url": "https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/tout-savoir-sur-letiquetage-des-bieres",
-          "consultation": "2026-08-08"
+          "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX%3A02011R1169-20250401",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Agence canadienne d’inspection des aliments",
+          "edition": "Mise à jour 2026",
+          "reference": "Labelling requirements for alcoholic beverages — common names by alcohol content",
+          "type": "source_reglementaire_etrangere",
+          "url": "https://inspection.canada.ca/en/food-labels/labelling/industry/alcoholic-beverages",
+          "consultation": "2026-08-11"
+        }
+      ],
+      "chapitres": [
+        {
+          "titre": "Une frontière qui traverse l’Atlantique",
+          "texte": "À 6 % vol., une bière peut porter légalement le nom Strong Beer au Canada sans constituer une catégorie réglementée équivalente en France. Les mots circulent plus vite que leurs seuils."
         }
       ]
     },
@@ -1543,7 +1782,7 @@ Sur une étiquette, le consommateur doit donc regarder le titre alcoométrique e
       },
       "fermentation": {
         "type": "variable",
-        "details": "Le type de fermentation dépend du style de base ou du produit concerné."
+        "details": "La légèreté peut résulter d’une faible densité, d’une forte atténuation, d’un degré réduit ou d’une désalcoolisation ; le contexte de l’allégation est décisif."
       },
       "service": {
         "temperatureMin": 3,
@@ -1554,40 +1793,50 @@ Sur une étiquette, le consommateur doit donc regarder le titre alcoométrique e
           "Tulipe"
         ]
       },
-      "description": "“Bière légère” peut vouloir dire faible en alcool, allégée en calories, douce en goût ou simplement facile à boire. C’est une appellation glissante : légère dans le verre, légère sur l’étiquette, parfois légère surtout dans la promesse.",
-      "histoireEtOrigines": `« Bière légère » ou « Light Beer » est une appellation dépendante du marché. Elle peut évoquer moins d’alcool, moins de corps, moins de calories, une lager très atténuée ou simplement une bière plus facile à boire que la référence de la marque. Ces significations ne sont pas interchangeables et le mot « light » n’est pas un style international unique.
+      "description": "« Légère » peut viser le degré, l’énergie, le corps ou simplement l’impression en bouche. Dans l’Union européenne, l’allégation nutritionnelle light/lite suit les conditions de « réduit » et doit nommer la caractéristique allégée ; au-delà de 1,2 % vol., seules les réductions d’alcool ou d’énergie peuvent être revendiquées. Les règles nationales peuvent préciser l’alcool. Il faut donc chercher : légère en quoi ?",
+      "histoireEtOrigines": `Light a prospéré parce qu’il permet de condenser plusieurs désirs contemporains : moins d’alcool, moins de calories, moins de lourdeur et plus de buvabilité. Ces dimensions se recoupent parfois, jamais parfaitement. Une bière très sèche peut sembler légère tout en affichant un degré ordinaire ; une bière à faible alcool peut conserver des dextrines et du corps ; une réduction calorique doit être démontrée par comparaison. L’ambiguïté n’est donc pas qu’une coquetterie de traduction, elle correspond à des propriétés techniquement distinctes.
 
-Dans les classifications brassicoles américaines, plusieurs styles « light » décrivent des lagers pâles, sèches et peu corpulentes. Ailleurs, « bière légère » peut désigner une ale à faible degré. Elle ne doit surtout pas être confondue avec la dénomination française « bière sans alcool », qui possède son propre seuil légal et ses propres procédés.
+    Dans l’Union européenne, le règlement 1924/2006 encadre les allégations nutritionnelles. Light ou lite est soumis aux mêmes conditions que « réduit » et doit indiquer la caractéristique qui rend le produit léger. La réduction atteint au moins 30 % pour l’énergie et, en règle générale, pour les nutriments couverts, par rapport à un produit similaire. Pour les boissons contenant plus de 1,2 % vol., seules les allégations de réduction d’alcool ou d’énergie sont admises ; faute de règle européenne spécifique sur la réduction ou l’absence d’alcool, des règles nationales peuvent s’appliquer. Le mot sensoriel n’efface jamais les principes contre les présentations trompeuses.
 
-Pour comprendre une Light Beer, il faut donc lire le degré alcoolique, les informations nutritionnelles éventuelles et le style de base plutôt que supposer une formule standard.`,
+    Ailleurs, le terme peut devenir un nom réglementé par degré : au Canada, Light Beer correspond actuellement à 4,1–5,5 % vol., tandis que 2,6–4,0 % relève d’Extra Light Beer. Cette comparaison suffit à déconseiller tout seuil universel mémorisé. Sur une étiquette européenne, il faut repérer le comparatif, la propriété réduite, la déclaration nutritionnelle éventuelle et le degré. Une bière légère sans complément est comme une valise marquée « moins lourde » : le lecteur aimerait encore savoir ce qui a été retiré.`,
       "recette": {
         "profilUnique": false,
-        "explicationProfil": "Light/Légère est un qualificatif relatif dont le sens peut porter sur alcool, corps ou positionnement ; il ne remplace pas la dénomination légale sans alcool.",
+        "explicationProfil": "Le procédé pertinent dépend de la propriété réduite : densité et atténuation pour l’alcool ou le corps, formulation pour l’énergie, désalcoolisation dans certains cas.",
         "maltsEtCereales": [
-          "Souvent densité initiale réduite et/ou adjuncts favorisant légèreté dans les lagers, mais dépend du produit."
+          "Une quantité moindre de matières fermentescibles réduit naturellement alcool et énergie, mais peut aussi amincir mousse et texture."
         ],
         "houblons": [
-          "Généralement faibles à modérés pour préserver la buvabilité ; variables selon style."
+          "À faible corps, une amertume inchangée paraît plus forte ; le houblonnage est souvent recalibré plutôt que simplement réduit."
         ],
         "levuresEtMicroorganismes": [
-          "Levure du style de base, avec forte atténuation souvent recherchée."
+          "Levures à faible atténuation, fermentation interrompue ou forte atténuation répondent à des objectifs opposés ; le mot light ne permet pas de choisir."
         ],
-        "ingredientsComplementaires": [],
-        "profilEau": "Selon le style ou le procédé de base ; aucun profil d’eau universel n’est déductible de l’appellation seule.",
-        "empatage": "Selon la bière de base et les matières premières réellement employées.",
-        "ebullitionEtHoublonnage": "Selon le style de base ; l’appellation commerciale ne fixe pas à elle seule la conduite du houblonnage.",
-        "fermentation": "Fermentation visant une finale nette et légère ; le procédé exact dépend du produit.",
-        "maturation": "Selon le style de base ou la contrainte réglementaire éventuellement associée à la mention.",
-        "profilRecherche": "Une bière perçue comme plus légère que sa référence, dont le degré et le style doivent être vérifiés sur l’étiquette."
+        "ingredientsComplementaires": [
+          "Fibres, dextrines ou autres leviers de texture peuvent compenser une baisse de matière, sous réserve de l’étiquetage applicable."
+        ],
+        "profilEau": "Une minéralité dure se remarque davantage dans un corps aminci ; l’équilibre doit être ajusté à la nouvelle matrice.",
+        "empatage": "La température et la charge de grain règlent la quantité de sucres fermentescibles et la texture restante.",
+        "ebullitionEtHoublonnage": "Le brasseur évite de concentrer excessivement un moût conçu pour rester léger et adapte l’amertume à la densité finale.",
+        "fermentation": "Fermentation limitée, recette peu dense ou désalcoolisation ne donnent ni les mêmes arômes ni les mêmes risques microbiologiques.",
+        "maturation": "La stabilité est particulièrement importante lorsque sucre résiduel et faible alcool coexistent.",
+        "profilRecherche": "Identifier la propriété réellement réduite, le comparateur et le degré, puis vérifier que le goût n’a pas été réduit par mégarde."
       },
       "sources": [
         {
-          "organisme": "Brewers Association",
-          "edition": "2026",
-          "reference": "American-Style Light Lager and other light beer categories",
-          "type": "guide_de_style",
-          "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "organisme": "Union européenne — EUR-Lex",
+          "edition": null,
+          "reference": "Règlement (CE) n° 1924/2006 concernant les allégations nutritionnelles et de santé — annexe Light/Lite",
+          "type": "source_reglementaire",
+          "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX%3A02006R1924-20141213",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Agence canadienne d’inspection des aliments",
+          "edition": "Mise à jour 2026",
+          "reference": "Labelling requirements for alcoholic beverages — Light Beer et seuils de degré",
+          "type": "source_reglementaire_etrangere",
+          "url": "https://inspection.canada.ca/en/food-labels/labelling/industry/alcoholic-beverages",
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "DGCCRF",
@@ -1595,7 +1844,17 @@ Pour comprendre une Light Beer, il faut donc lire le degré alcoolique, les info
           "reference": "Tout savoir sur l’étiquetage des bières",
           "type": "source_reglementaire",
           "url": "https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/tout-savoir-sur-letiquetage-des-bieres",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
+        }
+      ],
+      "chapitres": [
+        {
+          "titre": "Quatre légèretés différentes",
+          "texte": "Alcool, énergie, corps et intensité aromatique peuvent baisser séparément. Une formulation sérieuse dit laquelle est visée et par rapport à quel produit la réduction est calculée."
+        },
+        {
+          "titre": "Le cas des boissons alcoolisées",
+        "texte": "Au-dessus de 1,2 % vol., le droit européen limite fortement les allégations nutritionnelles aux réductions d’alcool ou d’énergie. La réduction d’énergie suit le seuil européen ; l’alcool peut relever de précisions nationales en l’absence de règle harmonisée."
         }
       ]
     },
@@ -1635,7 +1894,7 @@ Pour comprendre une Light Beer, il faut donc lire le degré alcoolique, les info
       },
       "fermentation": {
         "type": "variable",
-        "details": "Le type de fermentation dépend du style de base ou du produit concerné."
+        "details": "Session décrit un objectif de buvabilité sur la durée ; ales, lagers et fermentations mixtes peuvent être conçues dans ce but."
       },
       "service": {
         "temperatureMin": 3,
@@ -1646,48 +1905,64 @@ Pour comprendre une Light Beer, il faut donc lire le degré alcoolique, les info
           "Tulipe"
         ]
       },
-      "description": "“Session Beer” désigne une bière pensée pour être bue en plusieurs verres : alcool modéré, buvabilité forte, profil lisible, fatigue faible. Elle peut être IPA, pale ale, stout, lager ou sour ; le mot indique l’usage, pas le style.",
-      "histoireEtOrigines": `« Session Beer » est devenue une appellation craft internationale pour des bières conçues afin de conserver le caractère d’un style tout en abaissant sa densité et son alcool, de manière à favoriser la buvabilité sur plusieurs verres. Le mot « session » possède un imaginaire britannique, mais les récits qui lui attribuent une origine historique unique pendant les pauses d’usine ou de guerre sont difficiles à démontrer et ne doivent pas être présentés comme des faits établis.
+      "description": "« Session Beer » désigne une bière pensée pour plusieurs verres : degré contenu, finale nette, intensité suffisante pour rester intéressante. Aucun seuil mondial ne clôt la catégorie, et le mot n’est pas un style autonome. Session IPA, stout, lager ou sour peuvent partager cette intention ; le vrai test n’est pas le nom, mais l’équilibre entre présence et fatigue.",
+      "histoireEtOrigines": `L’histoire populaire rattache volontiers session beer aux pauses réglementées des ouvriers britanniques ou aux périodes de service dans les pubs. Le problème est documentaire : le Royaume-Uni possède une longue tradition de bières faibles et de consommation prolongée, mais l’expression elle-même semble beaucoup plus récente. L’historien de la bière Martyn Cornell, en recherchant ses occurrences imprimées, n’a pas trouvé la formule comme vieille catégorie industrielle et situe sa diffusion moderne dans le vocabulaire de la fin du XXe siècle.
 
-La Brewers Association fournit un cadre moderne précis pour ses concours : une Session Beer doit être à 5,0 % vol. ou moins et se situer en dessous de la densité et de la force du style classique pris comme référence. Ce seuil appartient à ce guide de compétition ; il ne constitue pas une loi internationale sur l’usage commercial du mot « session ».
+    Ce décalage est instructif. Le produit — une bière assez peu alcoolisée pour accompagner une longue présence au comptoir — peut précéder de plusieurs décennies le nom qui le reconditionne. Avec l’essor de la craft beer, « session » a offert un contrepoint aux doubles IPA et aux impériales : conserver un caractère aromatique moderne tout en abaissant la force. Session IPA est devenue la combinaison la plus visible, sans épuiser le principe.
 
-Une Session IPA, Session Bock ou Session Stout doit donc rester reconnaissable comme version allégée de son modèle, avec l’équilibre recalibré plutôt qu’une simple dilution.`,
+    Les guides professionnels proposent parfois des fourchettes, mais aucune frontière juridique internationale ne s’impose. Le mot promet une architecture d’usage : alcool modéré, absence de lourdeur excessive, finale qui appelle une autre gorgée. Il ne garantit ni faibles calories ni innocuité, et plusieurs verres additionnent toujours leur alcool. La taille du contenant compte donc avec le pourcentage. Sur l’étiquette, le degré permet de vérifier si la promesse tient ; au palais, l’équilibre détermine si la session reste une conversation ou devient un concours d’endurance.`,
       "recette": {
         "profilUnique": false,
-        "explicationProfil": "Session Beer est une version volontairement moins forte d’un style de référence ; le seuil de 5 % est celui du cadre BA 2026, pas une définition légale universelle.",
+        "explicationProfil": "L’objectif technique est de préserver goût, mousse et texture avec moins d’alcool et une fatigue sensorielle limitée.",
         "maltsEtCereales": [
-          "Densité initiale réduite tout en conservant la signature céréalière du style de base."
+          "Une charge réduite demande des malts expressifs ou des céréales de texture pour éviter l’impression aqueuse."
         ],
         "houblons": [
-          "Houblonnage recalibré à la baisse en intensité absolue afin de conserver l’équilibre du style ; peut rester aromatique pour une Session IPA."
+          "L’amertume doit être proportionnée au corps ; l’aromatique peut rester intense dans une Session IPA sans rendre la finale râpeuse."
         ],
         "levuresEtMicroorganismes": [
-          "Levure du style sous-jacent ; bonne atténuation et absence de défauts essentiels à faible densité."
+          "La souche construit du caractère à faible densité et doit achever proprement la fermentation."
         ],
-        "ingredientsComplementaires": [],
-        "profilEau": "Profil du style de base, souvent ajusté pour éviter qu’amertume ou minéralité ne paraissent agressives dans un corps plus léger.",
-        "empatage": "Selon la bière de base et les matières premières réellement employées.",
-        "ebullitionEtHoublonnage": "Selon le style de base ; l’appellation commerciale ne fixe pas à elle seule la conduite du houblonnage.",
-        "fermentation": "Selon le produit réel ; l’appellation doit être interprétée avec le style, la liste d’ingrédients et les mentions réglementaires.",
-        "maturation": "Selon le style de base ou la contrainte réglementaire éventuellement associée à la mention.",
-        "profilRecherche": "Une version plus faible mais non aqueuse d’un style identifiable, équilibrée pour la répétabilité et la buvabilité."
+        "ingredientsComplementaires": [
+          "Aucun ajout n’est constitutif ; sels, céréales de texture ou acidité peuvent servir l’équilibre selon la famille."
+        ],
+        "profilEau": "Sulfates et chlorures sont réglés avec prudence, car une faible matière amplifie dureté et sécheresse.",
+        "empatage": "Le brasseur conserve assez de dextrines et de protéines pour le corps sans pousser le degré final.",
+        "ebullitionEtHoublonnage": "L’arôme peut être chargé tardivement ; l’amertume calculée seule décrit mal sa perception dans un petit moût.",
+        "fermentation": "Une atténuation complète évite le sucre lourd, mais un produit trop sec et mince manquerait la cible de buvabilité.",
+        "maturation": "La fraîcheur est souvent déterminante, notamment pour les versions très houblonnées.",
+        "profilRecherche": "Un degré réellement modéré, une finale propre et assez de caractère pour que le deuxième verre ne ressemble pas à une punition."
       },
       "sources": [
         {
-          "organisme": "Brewers Association",
-          "edition": "2026",
-          "reference": "Session Beer",
-          "type": "guide_de_style",
-          "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "organisme": "Martyn Cornell — Zythophile",
+          "edition": "2011",
+          "reference": "How old is the term ‘session beer’?",
+          "type": "recherche_historique",
+          "url": "https://zythophile.wordpress.com/2011/05/20/how-old-is-the-term-session-beer/",
+          "consultation": "2026-08-11"
         },
         {
-          "organisme": "DGCCRF",
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "Beer Style Guidelines — Session Beer",
+          "type": "guide_professionnel",
+          "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Union européenne — EUR-Lex",
           "edition": null,
-          "reference": "Tout savoir sur l’étiquetage des bières",
+          "reference": "Règlement (UE) n° 1169/2011 — indication du titre alcoométrique",
           "type": "source_reglementaire",
-          "url": "https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/tout-savoir-sur-letiquetage-des-bieres",
-          "consultation": "2026-08-08"
+          "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX%3A02011R1169-20250401",
+          "consultation": "2026-08-11"
+        }
+      ],
+      "chapitres": [
+        {
+          "titre": "Une pratique plus vieille que son nom",
+          "texte": "Les milds, bitters et autres bières britanniques modestes ont longtemps rempli la fonction aujourd’hui appelée session. Leur existence ne prouve pas que l’expression moderne était déjà une catégorie d’époque."
         }
       ]
     },
@@ -1727,7 +2002,7 @@ Une Session IPA, Session Bock ou Session Stout doit donc rester reconnaissable c
       },
       "fermentation": {
         "type": "variable",
-        "details": "Le type de fermentation dépend du style de base ou du produit concerné."
+        "details": "Double peut renvoyer à une Dubbel belge, à une force accrue ou à une étape revendiquée ; le mot seul ne fixe pas la fermentation."
       },
       "service": {
         "temperatureMin": 3,
@@ -1738,40 +2013,42 @@ Une Session IPA, Session Bock ou Session Stout doit donc rester reconnaissable c
           "Tulipe"
         ]
       },
-      "description": "“Double” donne une impression de montée en puissance : plus de malt, plus d’alcool, parfois plus de corps. Mais selon l’étiquette, il peut évoquer une dubbel belge, une double IPA, une double fermentation ou juste une intensité commerciale vaguement musclée.",
-      "histoireEtOrigines": `« Double » est un terme commercial ambigu qu’il faut distinguer du style belge Dubbel. Dans une gamme, « double » peut signaler une force supérieure, une concentration accrue ou simplement un niveau hiérarchique de produit. Rien n’oblige internationalement une bière appelée Double à contenir exactement deux fois plus de malt, de houblon ou d’alcool qu’une autre.
+      "description": "« Double » ressemble à une équation, mais l’étiquette fournit rarement les deux termes. Dans la tradition de Westmalle, Dubbel nomme une bière brune renforcée mise au point au XXe siècle ; ailleurs, double peut signaler davantage de houblon, d’alcool ou une « double fermentation ». Il ne signifie pas automatiquement deux fois le malt, le degré ou le goût.",
+      "histoireEtOrigines": `Les nombres donnent au commerce une précision séduisante. Double paraît mesurable, ascendant et facile à placer dans une gamme. Dans la tradition monastique belge, le repère historique le plus influent vient de Westmalle : la brasserie, commencée en 1836, présente sa recette brune remaniée en 1926 comme plus riche en ingrédients, origine de la Westmalle Dubbel moderne. Le nom a ensuite servi de modèle à une famille de bières brunes d’abbaye ou trappistes, fruitées, maltées et relativement fortes.
 
-L’histoire de Westmalle explique toutefois pourquoi l’idée de doublement est devenue célèbre : en 1926, les moines renforcent leur bière trappiste sombre en doublant les ingrédients de leur bière légère d’origine, donnant naissance à la Westmalle Dubbel moderne. Cette origine spécifique ne doit pas être transformée en règle générale pour toutes les « doubles ».
+    Cette généalogie ne transforme pas tous les « double » en Dubbel. Une Double IPA parle surtout d’intensification du houblon et du degré. Une mention « double fermentation » prétend décrire un procédé, parfois une fermentation principale suivie d’une refermentation en bouteille, mais sa formulation doit être expliquée par le producteur. Dans d’autres gammes, le mot fonctionne comme simple échelon avant Triple et Quadruple.
 
-Lorsque l’étiquette vise clairement une Belgian Dubbel, on attend une ale sombre, maltée, fruitée et sèche à modérément sèche. Lorsqu’elle dit seulement « Double », il faut vérifier le contexte de marque.`,
+    Aucune règle française générale n’exige un facteur deux. Le degré chiffré, le nom complet et la description technique sont donc indispensables. Écrit seul sur une bière belge brune, Double peut raisonnablement évoquer la famille Dubbel ; accolé à IPA, il change de grammaire ; associé à fermentation, il demande où et comment a lieu la seconde étape. Même au sein d’une gamme, le rapport entre deux échelons n’est pas forcément constant. Le chiffre est un excellent titre de chapitre, mais il ne dispense jamais de lire le chapitre.`,
       "recette": {
         "profilUnique": false,
-        "explicationProfil": "Double peut désigner une Belgian Dubbel ou un simple niveau de force commercial ; aucun multiplicateur universel ne s’applique.",
+        "explicationProfil": "Il faut d’abord développer le nom complet : Dubbel, Double IPA, double fermentation ou simple rang de gamme.",
         "maltsEtCereales": [
-          "Pour une Dubbel belge : malt Pils/pale avec malts ou sucres foncés apportant pain, caramel et fruits secs ; autrement selon le produit."
+          "Dans une Dubbel, malts foncés et sucres peuvent construire fruit sombre et toast ; dans une Double IPA, la base cherche souvent à soutenir le houblon sans lourdeur."
         ],
         "houblons": [
-          "Pour une Dubbel : houblons continentaux modérés et secondaires ; autrement selon style."
+          "Discret à équilibré pour une Dubbel, massif pour une Double IPA : le complément du mot change tout."
         ],
         "levuresEtMicroorganismes": [
-          "Pour une Dubbel : levure belge fruitée/épicée ; aucune levure imposée au mot commercial Double."
+          "Une levure belge expressive appartient à la Dubbel ; elle n’est pas exigée par « Double » employé seul."
         ],
-        "ingredientsComplementaires": [],
-        "profilEau": "Selon le style ou le procédé de base ; aucun profil d’eau universel n’est déductible de l’appellation seule.",
-        "empatage": "Selon la bière de base et les matières premières réellement employées.",
-        "ebullitionEtHoublonnage": "Selon le style de base ; l’appellation commerciale ne fixe pas à elle seule la conduite du houblonnage.",
-        "fermentation": "Fermentation haute et souvent refermentation en bouteille pour une Dubbel classique ; variable pour un produit seulement nommé Double.",
-        "maturation": "Selon le style de base ou la contrainte réglementaire éventuellement associée à la mention.",
-        "profilRecherche": "Distinguer le style Belgian Dubbel de l’usage marketing plus large du mot Double."
+        "ingredientsComplementaires": [
+          "Sucres de brassage possibles dans la tradition belge ; aucune quantité doublée n’est imposée."
+        ],
+        "profilEau": "Le profil suit la famille développée, maltée ou houblonnée.",
+        "empatage": "La densité et la fermentescibilité sont ajustées à la force réelle, pas à une multiplication nominale.",
+        "ebullitionEtHoublonnage": "La signification technique va d’un équilibre malté à une forte charge houblonnée selon le nom complet.",
+        "fermentation": "Une prétendue double fermentation doit identifier les deux phases ; Dubbel, elle, reste un nom de famille historique plutôt qu’un comptage d’ensemencements.",
+        "maturation": "Refermentation en bouteille fréquente dans certaines bières belges, mais non garantie par le mot Double.",
+        "profilRecherche": "Refuser l’arithmétique automatique et identifier la tradition ou le procédé réellement revendiqué."
       },
       "sources": [
         {
           "organisme": "Trappist Westmalle",
           "edition": null,
-          "reference": "Histoire des bières trappistes — Dubbel et Tripel",
-          "type": "source_producteur_historique",
+          "reference": "Histoire des bières — Dubbel de 1926",
+          "type": "source_primaire_producteur",
           "url": "https://www.trappistwestmalle.be/fr/bieres-trappistes/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "BJCP",
@@ -1779,15 +2056,21 @@ Lorsque l’étiquette vise clairement une Belgian Dubbel, on attend une ale som
           "reference": "Belgian Dubbel",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/26/26B/belgian-dubbel/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
-          "organisme": "Brewers Association",
-          "edition": "2026",
-          "reference": "Belgian-Style Dubbel",
-          "type": "guide_de_style",
-          "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "organisme": "Légifrance",
+          "edition": null,
+          "reference": "Décret n° 92-307 du 31 mars 1992 relatif aux bières et boissons à base de bière — texte consolidé",
+          "type": "source_reglementaire",
+          "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000357138",
+          "consultation": "2026-08-11"
+        }
+      ],
+      "chapitres": [
+        {
+          "titre": "1926, pas deux multiplié par tout",
+          "texte": "Westmalle relie sa Dubbel actuelle à une reformulation plus riche de 1926. Ce récit historique éclaire le nom sans fournir une règle arithmétique à appliquer aux ingrédients de toutes les marques."
         }
       ]
     },
@@ -1827,7 +2110,7 @@ Lorsque l’étiquette vise clairement une Belgian Dubbel, on attend une ale som
       },
       "fermentation": {
         "type": "variable",
-        "details": "Le type de fermentation dépend du style de base ou du produit concerné."
+        "details": "La Tripel belge est généralement une ale très atténuée et expressive ; « Triple » employé commercialement peut viser d’autres produits."
       },
       "service": {
         "temperatureMin": 3,
@@ -1838,40 +2121,42 @@ Lorsque l’étiquette vise clairement une Belgian Dubbel, on attend une ale som
           "Tulipe"
         ]
       },
-      "description": "“Triple” évoque souvent la grande blonde belge : forte, dorée, levurée, épicée, sèche malgré l’alcool. Mais sur une étiquette moderne, le mot peut aussi servir d’indicateur de puissance, sans garantir une vraie Tripel belge.",
-      "histoireEtOrigines": `« Triple » ou « Tripel » est aujourd’hui fortement associé au style belge pâle et fort, mais le mot reste également utilisé comme marqueur commercial de gamme. Westmalle constitue le repère historique majeur : une nouvelle bière est brassée en 1934 pour l’inauguration de la nouvelle salle de brassage, et cette Tripel popularise le modèle moderne.
+      "description": "« Triple » évoque aujourd’hui une forte ale belge, pâle, sèche et très effervescente, dont Westmalle a fixé un modèle majeur en 1934. Mais le mot commercial n’impose aucun triplement : ni trois fermentations, ni trois céréales, ni trois fois plus d’alcool. Sans référence claire au style Tripel, il reste surtout le troisième barreau d’une échelle de puissance.",
+      "histoireEtOrigines": `La puissance de « Triple » vient d’un paradoxe bien belge : un mot lourd pour une bière souvent dorée et sèche. Westmalle situe en 1934 la création de la recette qui deviendra sa Tripel, lors de la mise en service d’une nouvelle brasserie. Son influence a fait du nom un repère stylistique international : moût dense mais très fermentescible, levure expressive, carbonatation élevée et amertume suffisante pour éviter la masse sirupeuse.
 
-La Westmalle Tripel est une bière claire, forte, très atténuée, hautement carbonatée, fruitée et épicée, avec une amertume notable. Le BJCP rattache explicitement le style moderne à Westmalle. Mais le terme « triple » ne signifie pas qu’une recette contemporaine doit contenir mathématiquement trois fois chaque ingrédient d’une bière simple.
+    Le nombre n’est pourtant pas un mode d’emploi. Les explications populaires évoquent volontiers trois fois le malt, trois fermentations ou une ancienne série de croix inscrites sur les fûts. Ces récits peuvent aider à mémoriser une montée en force, mais ils ne forment pas une règle commune démontrée pour toutes les Tripel. Une bière refermentée en bouteille a bien deux étapes fermentaires visibles ; elle ne devient pas « triple fermentation » par la seule magie du nom.
 
-Dans certaines gammes commerciales, « Triple » signifie seulement « forte et prestigieuse ». La fiche doit donc différencier l’appellation de force du véritable style Belgian Tripel.`,
+    La Collection 9 traite donc Triple comme une appellation commerciale, distincte de la fiche stylistique Tripel. Si le producteur revendique clairement la tradition belge, le lecteur peut attendre une forte blonde d’ale, sèche et épicée. Si le mot figure seul dans une gamme Double–Triple–Quadruple, il indique surtout une hiérarchie maison. Le degré, la couleur et le style complètent alors ce que le chiffre suggère. Triple est devenu plus grand que son calcul ; c’est précisément pourquoi il faut vérifier l’unité.`,
       "recette": {
         "profilUnique": false,
-        "explicationProfil": "Tripel est un style belge reconnaissable mais « Triple » peut aussi être un rang de gamme ; le mot n’impose aucun triplement mathématique universel.",
+        "explicationProfil": "Lorsque Triple signifie Tripel belge, le défi est de rendre une forte densité pâle et digeste ; hors de ce contexte, le procédé doit être documenté séparément.",
         "maltsEtCereales": [
-          "Pour une Tripel classique : malt Pilsner majoritaire et sucres pâles souvent utilisés pour augmenter l’alcool sans alourdir le corps."
+          "Base de malt pâle et part éventuelle de sucre très fermentescible dans la Tripel ; aucune règle de triplement."
         ],
         "houblons": [
-          "Houblons continentaux avec amertume modérée à ferme ; aromatique noble discret à modéré."
+          "Une amertume nette équilibre la force du modèle belge, avec un aromatique généralement moins démonstratif qu’une IPA."
         ],
         "levuresEtMicroorganismes": [
-          "Levure belge fruitée et épicée, fortement atténuative."
+          "Levure d’ale belge fruitée et phénolique dans le style historique ; d’autres usages du mot n’en héritent pas automatiquement."
         ],
-        "ingredientsComplementaires": [],
-        "profilEau": "Plutôt douce pour soutenir finesse, sécheresse et houblon sans dureté.",
-        "empatage": "Empâtage favorisant une forte fermentescibilité ; la légèreté du corps est essentielle malgré la densité initiale.",
-        "ebullitionEtHoublonnage": "Houblonnage d’équilibre à relativement ferme ; sucres pâles ajoutés selon la recette.",
-        "fermentation": "Fermentation haute maîtrisée avec forte atténuation ; refermentation en bouteille fréquente dans les exemples traditionnels.",
-        "maturation": "Conditionnement suffisant pour intégrer alcool, esters et carbonatation élevée.",
-        "profilRecherche": "Une Tripel pâle, forte mais étonnamment sèche et légère de corps, distincte d’une simple bière blonde très alcoolisée."
+        "ingredientsComplementaires": [
+          "Le sucre peut alléger le corps en fermentant presque entièrement ; il ne sert pas nécessairement à sucrer le verre."
+        ],
+        "profilEau": "Faible alcalinité pour la pâleur, minéralité mesurée pour préserver une sécheresse élégante.",
+        "empatage": "Une forte fermentescibilité empêche la densité initiale de se transformer en finale collante.",
+        "ebullitionEtHoublonnage": "L’amertume soutient la structure et l’ébullition doit préserver la robe claire visée.",
+        "fermentation": "Ensemencement, oxygénation et température maîtrisent une fermentation très active et limitent les alcools agressifs.",
+        "maturation": "Refermentation et garde peuvent fondre l’ensemble, sans constituer la définition numérique du nom.",
+        "profilRecherche": "Dans la tradition belge : force cachée par la sécheresse, l’effervescence et l’équilibre ; ailleurs : demander ce que Triple mesure."
       },
       "sources": [
         {
           "organisme": "Trappist Westmalle",
           "edition": null,
-          "reference": "Histoire des bières trappistes — Dubbel et Tripel",
-          "type": "source_producteur_historique",
+          "reference": "Histoire des bières — Tripel créée en 1934",
+          "type": "source_primaire_producteur",
           "url": "https://www.trappistwestmalle.be/fr/bieres-trappistes/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "BJCP",
@@ -1879,15 +2164,25 @@ Dans certaines gammes commerciales, « Triple » signifie seulement « forte et 
           "reference": "Belgian Tripel",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/26/26C/belgian-tripel/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
-          "organisme": "Brewers Association",
-          "edition": "2026",
-          "reference": "Belgian-Style Tripel",
-          "type": "guide_de_style",
-          "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "organisme": "Légifrance",
+          "edition": null,
+          "reference": "Décret n° 92-307 du 31 mars 1992 relatif aux bières et boissons à base de bière — texte consolidé",
+          "type": "source_reglementaire",
+          "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000357138",
+          "consultation": "2026-08-11"
+        }
+      ],
+      "chapitres": [
+        {
+          "titre": "1934, la grande blonde prend son nom",
+          "texte": "Westmalle associe sa Tripel à la nouvelle brasserie de 1934 et à une recette restée structurante. Cette source primaire donne un jalon solide sans prétendre que personne n’avait jamais utilisé le mot auparavant."
+        },
+        {
+          "titre": "Trois de quoi ?",
+          "texte": "Sans unité, le chiffre exprime surtout une montée de gamme. Les ingrédients, le degré et les étapes de fermentation ne sont pas multipliés uniformément par trois."
         }
       ]
     },
@@ -1927,7 +2222,7 @@ Dans certaines gammes commerciales, « Triple » signifie seulement « forte et 
       },
       "fermentation": {
         "type": "variable",
-        "details": "Le type de fermentation dépend du style de base ou du produit concerné."
+        "details": "Quadrupel désigne souvent une ale très forte d’inspiration belge ; le mot moderne ne prouve ni quatre fermentations ni un facteur quatre."
       },
       "service": {
         "temperatureMin": 3,
@@ -1938,56 +2233,68 @@ Dans certaines gammes commerciales, « Triple » signifie seulement « forte et 
           "Tulipe"
         ]
       },
-      "description": "“Quadruple” annonce souvent une bière belge très forte, sombre ou ambrée, riche en fruits secs, caramel, sucre candi et alcool doux. Mais comme “double” et “triple”, le mot peut aussi servir d’échelle commerciale de puissance.",
-      "histoireEtOrigines": `« Quadrupel » est une appellation moderne devenue courante pour des ales belges ou d’inspiration monastique très fortes, souvent sombres et riches. Contrairement à Dubbel et Tripel, elle ne correspond pas à une ancienne progression universelle où chaque niveau multiplierait mécaniquement les ingrédients. Le mot s’est surtout imposé comme nom de produit puis comme catégorie commerciale et de concours à la fin du XXe siècle.
+      "description": "« Quadruple » paraît médiévale, mais son repère commercial majeur est récent : La Trappe indique avoir lancé sa Quadrupel en 1991. Depuis, le mot couvre des ales très fortes, souvent ambrées ou brunes, proches des Belgian Dark Strong Ales. Il n’exige ni quatre fermentations ni quatre fois le malt ; il couronne surtout une gamme numérique.",
+      "histoireEtOrigines": `Quadruple possède l’air ancien des chiffres monastiques, alors que sa carrière moderne est remarquablement bien datée. La brasserie trappiste La Trappe situe en 1991 l’introduction de sa Quadrupel, bière à 10 % vol. devenue permanente. Le nom a offert une suite naturelle à Dubbel et Tripel, puis s’est diffusé dans les brasseries internationales comme sommet d’une hiérarchie belge.
 
-Le profil recoupe souvent celui que le BJCP classe comme Belgian Dark Strong Ale : forte ale ambrée foncée à brune, riche en malt et fruits noirs, épicée par la fermentation, avec alcool doux et carbonatation élevée. Le BJCP note d’ailleurs que de nombreux exemples traditionnels portent plutôt des désignations de force ou de couleur que le nom Quadrupel.
+    La diffusion a élargi le contenu. Beaucoup de Quadrupels sont fortes, ambrées à brunes, riches en fruits secs, caramel et chaleur alcoolique. Elles chevauchent largement la catégorie Belgian Dark Strong Ale des guides de styles. Mais ce profil est un usage brassicole, pas une définition juridique française ni un cahier des charges uniforme. Certaines maisons écrivent Quad, d’autres Quadrupel ou Quadruple ; les degrés et les couleurs varient.
 
-Une bière marquée « Quadruple » doit donc être évaluée sur son style et son producteur. Elle peut correspondre à une Belgian Dark Strong, à une bière d’abbaye forte ou à une interprétation plus libre ; le chiffre quatre n’est pas une formule de brassage.`,
+    Le chiffre n’organise aucune multiplication vérifiable. Une Quadrupel n’a pas nécessairement quatre fermentations, quatre malts ou quatre fois la force d’une bière simple. Sa production demande réellement un moût dense, une fermentation robuste et un équilibre capable de porter l’alcool ; ce sont ces contraintes, et non l’arithmétique de l’étiquette, qui façonnent le verre. Les formats de service réduits rappellent d’ailleurs mieux sa puissance que son numéro, surtout à table. Pour le consommateur, le nom annonce généralement le haut de gamme alcoolique d’inspiration belge. Le pourcentage et la description confirment ensuite si la couronne tient sur la tête.`,
       "recette": {
         "profilUnique": false,
-        "explicationProfil": "Quadrupel est une appellation moderne de bière belge/inspirée monastique très forte ; elle n’implique aucun quadruplement universel des ingrédients.",
+        "explicationProfil": "L’usage dominant décrit une forte ale belge sombre ou ambrée ; la recette doit gérer densité, atténuation et alcool sans règle du facteur quatre.",
         "maltsEtCereales": [
-          "Souvent base Pils/pale ou Munich avec sucres foncés et éventuellement malts spéciaux pour profondeur sans torréfaction excessive."
+          "Malts pâles et foncés, malts caramel et sucres peuvent construire profondeur et couleur sans multiplier un grist de référence."
         ],
         "houblons": [
-          "Houblons continentaux faibles à modérés, généralement secondaires face au malt, aux fruits et à la fermentation."
+          "Le houblon équilibre la richesse mais laisse généralement malt, fruit fermentaire et alcool au premier plan."
         ],
         "levuresEtMicroorganismes": [
-          "Levure belge fortement atténuative, expressive en esters et épices, tolérante à l’alcool."
+          "Une souche belge tolérante à l’alcool crée esters et phénols ; sa santé est plus importante que son folklore."
         ],
-        "ingredientsComplementaires": [],
-        "profilEau": "Variable mais sans minéralité agressive ; doit préserver souplesse et profondeur.",
-        "empatage": "Empâtage suffisamment fermentescible pour éviter qu’une forte densité ne donne une bière sirupeuse.",
-        "ebullitionEtHoublonnage": "Houblonnage structurel modéré ; sucres foncés ou sirops possibles selon recette.",
-        "fermentation": "Fermentation haute robuste et maîtrisée ; température souvent conduite progressivement pour achever l’atténuation.",
-        "maturation": "Plusieurs semaines à plusieurs mois pour intégrer l’alcool ; refermentation en bouteille fréquente dans les interprétations belges.",
-        "profilRecherche": "Une ale très forte, complexe et fruitée, souvent sombre, où l’alcool reste doux et où « quatre » est un nom de gamme plutôt qu’une équation."
+        "ingredientsComplementaires": [
+          "Sucres très fermentescibles peuvent relever le degré et alléger la texture ; épices ou bois restent optionnels."
+        ],
+        "profilEau": "Alcalinité ajustée à la couleur réelle, calcium utile à la fermentation et minéralité sans dureté.",
+        "empatage": "Un moût fermentescible évite d’empiler sucre résiduel sur un degré déjà élevé.",
+        "ebullitionEtHoublonnage": "Concentration et amertume sont calculées pour conserver une finale mobile malgré la densité.",
+        "fermentation": "Levain suffisant, oxygène et température progressive permettent d’achever une fermentation éprouvante sans solvants excessifs.",
+        "maturation": "Une garde mesurée intègre fruit, malt et alcool ; l’oxydation peut apporter des notes agréables puis rapidement dépasser ce bénéfice.",
+        "profilRecherche": "Une grande force intégrée et complexe, lue comme un usage moderne d’inspiration belge plutôt qu’une multiplication littérale."
       },
       "sources": [
         {
+          "organisme": "La Trappe Trappist",
+          "edition": null,
+          "reference": "History — introduction of La Trappe Quadrupel in 1991",
+          "type": "source_primaire_producteur",
+          "url": "https://uk.latrappetrappist.com/gb/en/la-trappe-trappist/history.html",
+          "consultation": "2026-08-11"
+        },
+        {
           "organisme": "BJCP",
           "edition": "2021",
-          "reference": "Belgian Dark Strong Ale",
+          "reference": "Belgian Dark Strong Ale — recouvrement avec l’usage Quadrupel",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/26/26D/belgian-dark-strong-ale/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
-          "organisme": "Brewers Association",
-          "edition": "2026",
-          "reference": "Belgian-Style Quadrupel",
-          "type": "guide_de_style",
-          "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
-        },
-        {
-          "organisme": "Trappist Westmalle",
+          "organisme": "Légifrance",
           "edition": null,
-          "reference": "Histoire des bières trappistes — Dubbel et Tripel",
-          "type": "source_producteur_historique",
-          "url": "https://www.trappistwestmalle.be/fr/bieres-trappistes/",
-          "consultation": "2026-08-08"
+          "reference": "Décret n° 92-307 du 31 mars 1992 relatif aux bières et boissons à base de bière — texte consolidé",
+          "type": "source_reglementaire",
+          "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000357138",
+          "consultation": "2026-08-11"
+        }
+      ],
+      "chapitres": [
+        {
+          "titre": "1991, un faux air d’éternité",
+          "texte": "La Trappe documente l’apparition de sa Quadrupel en 1991. Le produit s’appuie sur une longue tradition monastique, mais son nom de gamme moderne n’a pas besoin d’être vieilli artificiellement pour être intéressant."
+        },
+        {
+          "titre": "Quad et Dark Strong",
+          "texte": "Les deux ensembles se recouvrent souvent dans le verre. L’un vient d’un nom commercial devenu catégorie ; l’autre sert de classement descriptif dans certains guides. Leur frontière reste poreuse."
         }
       ]
     },
@@ -2031,7 +2338,7 @@ Une bière marquée « Quadruple » doit donc être évaluée sur son style et s
       },
       "fermentation": {
         "type": "variable",
-        "details": "Le type de fermentation dépend du style de base ou du produit concerné."
+        "details": "En France, le produit doit résulter d’une désalcoolisation ou d’une fermentation commencée puis limitée, avec un titre acquis au plus égal à 1,2 % vol."
       },
       "service": {
         "temperatureMin": 3,
@@ -2042,42 +2349,58 @@ Une bière marquée « Quadruple » doit donc être évaluée sur son style et s
           "Pint"
         ]
       },
-      "description": "“Bière sans alcool” désigne une bière dont l’alcool est absent ou très faible selon le cadre légal. En France, la dénomination est réservée aux bières à titre alcoométrique acquis inférieur ou égal à 1,2 % vol., après désalcoolisation ou début de fermentation.",
-      "histoireEtOrigines": `En France, « bière sans alcool » est une dénomination légale précise et beaucoup plus large que ce que le langage courant imagine parfois. Le décret n° 92-307 réserve cette dénomination à une bière dont le titre alcoométrique acquis est inférieur ou égal à 1,2 % vol., obtenue à la suite d’une désalcoolisation ou d’un début de fermentation. Une bière française étiquetée « sans alcool » peut donc légalement contenir une petite quantité d’alcool.
+      "description": "En France, « bière sans alcool » ne signifie pas nécessairement zéro : le décret réserve la dénomination aux bières ne dépassant pas 1,2 % vol., obtenues par désalcoolisation ou par début de fermentation. Le cadre change selon les pays, car l’Union européenne n’a pas harmonisé un seuil unique. Le chiffre précis et la juridiction comptent donc autant que les grands caractères.",
+      "histoireEtOrigines": `La contradiction est inscrite dans la langue : une bière « sans alcool » peut légalement en contenir un peu. En France, le décret de 1992 fixe une définition précise et actuellement applicable. Le produit doit présenter un titre alcoométrique acquis inférieur ou égal à 1,2 % vol. et être obtenu soit par désalcoolisation d’une bière, soit par un début de fermentation. Cette seconde condition est importante : la dénomination n’est pas un simple synonyme de soda au goût de malt.
 
-Cette définition nationale ne doit pas être confondue avec les seuils utilisés ailleurs. La Brewers Association, par exemple, classe dans son cadre de compétition les Non-Alcohol Malt Beverages sous 0,5 % vol. : il s’agit d’une convention américaine de concours, pas du seuil juridique français.
+    Deux grandes familles techniques répondent à cette définition. La fermentation peut être limitée par la recette, la souche, la température ou l’arrêt du procédé afin de produire peu d’éthanol ; il reste alors à maîtriser douceur, arômes de moût et stabilité microbiologique. La bière peut aussi être fermentée plus classiquement puis désalcoolisée. Distillation sous vide, évaporation et procédés membranaires cherchent à retirer l’éthanol en préservant des composés aromatiques qui ne se laissent pas toujours convaincre de rester. Le marché progresse précisément parce que ces technologies deviennent plus fines.
 
-Les procédés modernes se répartissent en deux grandes familles : limiter la formation d’éthanol dès la fermentation, ou brasser une bière normalement puis retirer l’alcool. Fermentation interrompue ou restreinte, levures à faible production d’alcool, évaporation sous vide, procédés membranaires ou autres technologies peuvent être employés. Le défi reste de conserver malt, houblon, corps et équilibre malgré l’absence d’une grande partie de l’éthanol.`,
+    Le seuil français n’est pas une règle européenne uniforme. Une étude commandée par la Commission a relevé la fragmentation des définitions nationales pour les boissons no/low alcohol. Il faut donc éviter de transporter le 1,2 % d’un pays à l’autre comme une vérité universelle. Pour le consommateur, « sans alcool » garantit en France une catégorie et un plafond, pas l’absence absolue d’éthanol. Le degré indiqué, la mention 0,0 éventuelle et les informations du fabricant permettent d’aller plus loin ; pour certaines contraintes médicales ou personnelles strictes, cette nuance n’est pas une virgule décorative.`,
       "recette": {
         "profilUnique": false,
-        "explicationProfil": "Sans alcool est une catégorie réglementaire de teneur et de procédé ; tous les styles peuvent être adaptés, donc aucune recette unique n’existe.",
+        "explicationProfil": "Le procédé constitutif est une fermentation limitée ou une désalcoolisation, avec contrôle analytique du titre final et protection renforcée du produit.",
         "maltsEtCereales": [
-          "Selon le style de base ; formulation souvent ajustée pour recréer corps et saveur malgré une fermentation limitée ou une désalcoolisation."
+          "Une faible densité ou un moût conçu avec peu de sucres fermentescibles peut limiter l’alcool ; une bière destinée à être désalcoolisée peut partir d’une recette plus classique."
         ],
         "houblons": [
-          "Selon style, avec dosage prudent car l’amertume peut paraître plus vive dans un corps très léger."
+          "La perte d’arômes pendant la désalcoolisation et la faible matrice gustative demandent un houblonnage soigneusement recalibré."
         ],
         "levuresEtMicroorganismes": [
-          "Levure de bière classique avec fermentation contrôlée, souche à faible production d’alcool ou fermentation suivie d’une désalcoolisation."
+          "Souches produisant peu d’alcool, fermentation interrompue ou levure ordinaire avant retrait de l’éthanol correspondent à des stratégies distinctes."
         ],
         "ingredientsComplementaires": [
-          "Maltodextrines, céréales ou autres outils de formulation possibles selon recette pour soutenir le corps, dans le respect de l’étiquetage."
+          "Arômes récupérés ou ajustements de texture peuvent compenser les pertes, dans le respect de la dénomination et de l’étiquetage."
         ],
-        "profilEau": "Très importante pour l’équilibre : minéralité souvent modérée afin de ne pas durcir une bière peu alcoolisée.",
-        "empatage": "Peut viser davantage de dextrines ou, au contraire, un moût très léger selon le procédé de réduction d’alcool choisi.",
-        "ebullitionEtHoublonnage": "Houblonnage calibré pour éviter une amertume disproportionnée ; traitement identique à la bière de base pour la sécurité microbiologique.",
-        "fermentation": "Début/limitation de fermentation ou fermentation complète suivie de désalcoolisation ; en France, le produit final doit rester à ≤ 1,2 % vol. pour la dénomination légale.",
-        "maturation": "Conditionnement très propre et maîtrise de l’oxygène essentiels ; l’absence d’alcool réduit une partie de la protection sensorielle et microbiologique habituelle.",
-        "profilRecherche": "Une bière conforme au seuil français ≤ 1,2 % vol., conservant le plus possible le caractère du style malgré la réduction d’alcool."
+        "profilEau": "Une faible masse aromatique rend les déséquilibres minéraux plus visibles ; pH et sels participent aussi à la stabilité.",
+        "empatage": "Des températures favorisant les dextrines limitent parfois les sucres fermentescibles, au risque de laisser une douceur de moût.",
+        "ebullitionEtHoublonnage": "Le programme anticipe les pertes du procédé aval et évite une amertume dure dans un corps aminci.",
+        "fermentation": "Elle est volontairement limitée ou précède la désalcoolisation ; en France, le produit fini ne dépasse pas le plafond légal de 1,2 % vol.",
+        "maturation": "Faible alcool et sucres résiduels augmentent l’importance de l’hygiène, de la pasteurisation éventuelle, de la filtration et de la chaîne froide.",
+        "profilRecherche": "Une bière stable et aromatiquement complète malgré un procédé qui limite ou retire l’éthanol, avec un degré final clairement compris."
       },
       "sources": [
         {
           "organisme": "Légifrance",
-          "edition": "version en vigueur",
-          "reference": "Décret n° 92-307 du 31 mars 1992 relatif aux bières — version en vigueur",
+          "edition": null,
+          "reference": "Décret n° 92-307 du 31 mars 1992 relatif aux bières et boissons à base de bière — texte consolidé",
           "type": "source_reglementaire",
           "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000357138",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Commission européenne",
+          "edition": "2023",
+          "reference": "Study on low/no alcohol beverages — marché et fragmentation des cadres nationaux",
+          "type": "rapport_institutionnel",
+          "url": "https://agriculture.ec.europa.eu/common-agricultural-policy/cap-overview/pmef/products-and-markets/study-lowno-alcohol-beverages_en",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Foods",
+          "edition": "2023",
+          "reference": "Dealcoholization of Unfiltered and Filtered Lager Beer by Hollow Fiber Nanofiltration Membranes",
+          "type": "publication_scientifique",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10058455/",
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "DGCCRF",
@@ -2085,15 +2408,17 @@ Les procédés modernes se répartissent en deux grandes familles : limiter la f
           "reference": "Tout savoir sur l’étiquetage des bières",
           "type": "source_reglementaire",
           "url": "https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/tout-savoir-sur-letiquetage-des-bieres",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
+        }
+      ],
+      "chapitres": [
+        {
+          "titre": "Deux portes d’entrée",
+          "texte": "Limiter la création d’alcool et retirer l’alcool après fermentation ne laissent pas les mêmes sucres, arômes ni risques de stabilité. Le droit français admet les deux chemins ; la qualité dépend de la façon dont le brasseur compense leurs défauts."
         },
         {
-          "organisme": "Brewers Association",
-          "edition": "2026",
-          "reference": "Non-Alcohol Malt Beverage",
-          "type": "guide_de_style",
-          "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "titre": "Sans ne veut pas dire zéro",
+          "texte": "Le plafond français est de 1,2 % vol. Cette règle donne une définition claire à la dénomination, mais elle oblige à distinguer le langage courant — absence — du langage juridique — très faible teneur encadrée."
         }
       ]
     },
@@ -2135,7 +2460,7 @@ Les procédés modernes se répartissent en deux grandes familles : limiter la f
       },
       "fermentation": {
         "type": "variable",
-        "details": "Le type de fermentation dépend du style de base ou du produit concerné."
+        "details": "0,0 % est une déclaration numérique volontaire à vérifier analytiquement ; le décret français ne la définit pas comme une troisième méthode de fermentation."
       },
       "service": {
         "temperatureMin": 3,
@@ -2146,56 +2471,76 @@ Les procédés modernes se répartissent en deux grandes familles : limiter la f
           "Pint"
         ]
       },
-      "description": "“0,0 %” promet une absence d’alcool plus stricte dans l’esprit du consommateur que “sans alcool”. Techniquement, le seuil exact dépend des règles d’arrondi, du marché et de l’étiquetage, mais le message commercial est clair : pas une bière “presque sans”, une bière zéro.",
-      "histoireEtOrigines": `« 0,0 % » est avant tout une promesse chiffrée de marketing et d’étiquetage ; le décret français sur les bières ne crée pas une seconde dénomination légale distincte appelée « bière 0,0 ». Sa catégorie juridique est « bière sans alcool » lorsqu’elle remplit les conditions correspondantes, tandis que la mention 0,0 % communique au consommateur une ambition plus stricte que le plafond légal français de 1,2 % vol.
+      "description": "« 0,0 % » n’est pas, en France, une dénomination de bière distincte définie par le décret de 1992. C’est une affirmation chiffrée, soumise aux règles générales d’information loyale, qui suggère une cible plus stricte que le plafond de 1,2 % de « sans alcool ». Elle ne permet pourtant pas, à elle seule, d’inventer une tolérance analytique universelle ni de promettre un zéro absolu.",
+      "histoireEtOrigines": `Lorsque le marché des bières sans alcool s’est diversifié, « 0,0 % » a résolu un problème de langage commercial : comment distinguer visuellement un produit visant presque aucune trace d’un autre qui respecte simplement le plafond national ? Le nombre est devenu une sous-catégorie de rayon, immédiatement lisible. En France, il ne figure pourtant pas parmi les dénominations définies par le décret bière. La catégorie juridique reste « bière sans alcool » jusqu’à 1,2 % vol. selon les conditions prévues ; 0,0 est une information supplémentaire.
 
-Il ne faut pas transformer cette inscription en procédé unique. Certaines 0,0 sont produites par fermentation très limitée, d’autres par désalcoolisation poussée d’une bière fermentée, et les techniques peuvent être combinées. Les contraintes analytiques, les règles d’arrondi et les limites de quantification dépendent du cadre de mesure et du marché ; l’étiquette et la fiche technique du fabricant restent donc les références pour un produit précis.
+    Cette information est encadrée par le principe général du règlement européen 1169/2011 : la présentation d’un aliment ne doit pas induire en erreur, notamment sur ses caractéristiques et sa composition. Mais ce principe ne fournit pas dans le décret français une définition autonome de 0,0, ni un seuil harmonisé pour toutes les bières de l’Union. Mesure, arrondi, méthode analytique et spécification interne doivent être attribués au produit ou à la juridiction réellement documentés. Écrire que toute 0,0 contient exactement zéro molécule d’éthanol serait transformer un affichage décimal en expérience de physique parfaite.
 
-Sensoriellement, atteindre 0,0 est difficile : l’éthanol contribue au corps, à la chaleur, à la volatilité aromatique et à l’équilibre. Une bonne bière 0,0 doit reconstruire cette architecture sans devenir sucrée, aqueuse ou excessivement amère.`,
+    La distinction utile tient donc en deux phrases. « Sans alcool » est une dénomination française avec procédé et plafond ; « 0,0 % » est une allégation numérique qui vise à être plus explicite, sans effacer les règles de loyauté ni les variations nationales. Le consommateur peut consulter le titre déclaré, les questions fréquentes du fabricant et, lorsque l’enjeu est strict, les spécifications analytiques. Le zéro attire l’œil ; sa signification exacte doit rester attachée au produit qui l’imprime.`,
       "recette": {
         "profilUnique": false,
-        "explicationProfil": "0,0 % est une mention chiffrée commerciale plus stricte dans son intention que la catégorie française ≤ 1,2 %, mais ce n’est pas un style ni un procédé unique.",
+        "explicationProfil": "Les mêmes technologies que pour le sans-alcool peuvent être mobilisées, avec une cible analytique plus basse revendiquée par le produit.",
         "maltsEtCereales": [
-          "Selon style de base ; formulation adaptée pour fournir du corps sans produire ou conserver d’alcool significatif."
+          "La formulation doit créer suffisamment de goût malgré une production d’éthanol minimale ou son retrait poussé."
         ],
         "houblons": [
-          "Dosage fin car le faible corps accentue facilement l’amertume."
+          "Arômes et amertume sont ajustés à une matrice très légère et aux pertes éventuelles de désalcoolisation."
         ],
         "levuresEtMicroorganismes": [
-          "Fermentation très limitée, levures spécifiques ou fermentation complète suivie d’une désalcoolisation poussée selon procédé."
+          "Fermentation très limitée, souches adaptées ou fermentation complète suivie d’un retrait renforcé sont possibles."
         ],
-        "ingredientsComplementaires": [],
-        "profilEau": "Souvent douce à modérée pour préserver rondeur et éviter l’agressivité.",
-        "empatage": "Conçu en fonction du procédé : moût peu fermentescible pour limitation biologique, ou recette classique si désalcoolisation ultérieure.",
-        "ebullitionEtHoublonnage": "Houblonnage et évaporation adaptés au profil recherché ; maîtrise du DMS et de l’oxygène essentielle dans les bases pâles.",
-        "fermentation": "Procédé choisi pour atteindre la teneur revendiquée ; la mention 0,0 ne remplace pas les contrôles analytiques du produit fini.",
-        "maturation": "Conditionnement froid, protection contre l’oxygène et hygiène très rigoureuse.",
-        "profilRecherche": "Une bière revendiquant 0,0 % avec un profil complet et stable, sans confondre cette mention commerciale avec une catégorie de style."
+        "ingredientsComplementaires": [
+          "Les ajustements aromatiques ou de texture ne se déduisent pas du chiffre et doivent être lus dans l’information produit."
+        ],
+        "profilEau": "Le contrôle du pH soutient goût et stabilité dans une boisson presque dépourvue de l’effet protecteur de l’alcool.",
+        "empatage": "La création de sucres peu fermentescibles peut maintenir le corps, mais exige une gestion rigoureuse de la douceur et des microbes.",
+        "ebullitionEtHoublonnage": "Le procédé est calibré pour ne pas surcharger une base délicate et pour compenser les pertes en aval.",
+        "fermentation": "La cible 0,0 est vérifiée sur le produit fini selon la méthode et les spécifications applicables ; le mot ne prescrit pas le chemin technique.",
+        "maturation": "Stabilisation et conditionnement sont critiques, particulièrement si des sucres fermentescibles subsistent.",
+        "profilRecherche": "Une allégation chiffrée loyale, une méthode de production maîtrisée et un produit stable dont la cible exacte est documentée."
       },
       "sources": [
         {
           "organisme": "Légifrance",
-          "edition": "version en vigueur",
-          "reference": "Décret n° 92-307 du 31 mars 1992 relatif aux bières — version en vigueur",
+          "edition": null,
+          "reference": "Décret n° 92-307 du 31 mars 1992 relatif aux bières et boissons à base de bière — texte consolidé",
           "type": "source_reglementaire",
           "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000357138",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
-          "organisme": "DGCCRF",
+          "organisme": "Union européenne — EUR-Lex",
           "edition": null,
-          "reference": "Tout savoir sur l’étiquetage des bières",
+          "reference": "Règlement (UE) n° 1169/2011 — pratiques loyales d’information, article 7",
           "type": "source_reglementaire",
-          "url": "https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/tout-savoir-sur-letiquetage-des-bieres",
-          "consultation": "2026-08-08"
+          "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX%3A02011R1169-20250401",
+          "consultation": "2026-08-11"
         },
         {
-          "organisme": "Brewers Association",
-          "edition": "2026",
-          "reference": "Non-Alcohol Malt Beverage",
-          "type": "guide_de_style",
-          "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "organisme": "Commission européenne",
+          "edition": "2023",
+          "reference": "Study on low/no alcohol beverages — executive summary",
+          "type": "rapport_institutionnel",
+          "url": "https://op.europa.eu/en/publication-detail/-/publication/f45aaea7-b7e9-11ed-8912-01aa75ed71a1/language-fr",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Foods",
+          "edition": "2023",
+          "reference": "Dealcoholization of Unfiltered and Filtered Lager Beer by Hollow Fiber Nanofiltration Membranes",
+          "type": "publication_scientifique",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10058455/",
+          "consultation": "2026-08-11"
+        }
+      ],
+      "chapitres": [
+        {
+          "titre": "Un chiffre hors du décret bière",
+          "texte": "Le texte français définit « bière sans alcool », pas une dénomination séparée « bière 0,0 ». La seconde mention peut compléter la première, mais elle ne possède pas dans ce décret son propre procédé ni sa propre définition."
+        },
+        {
+          "titre": "Le zéro et la mesure",
+          "texte": "Une analyse possède une limite de quantification et un étiquetage obéit à des règles de présentation. Sans source propre au produit, il faut résister à la tentation de transformer 0,0 en seuil analytique universel."
         }
       ]
     },
@@ -2237,7 +2582,7 @@ Sensoriellement, atteindre 0,0 est difficile : l’éthanol contribue au corps, 
       },
       "fermentation": {
         "type": "variable",
-        "details": "Le type de fermentation dépend du style de base ou du produit concerné."
+        "details": "Le seuil concerne le produit fini ; fermentation et hydrolyse peuvent fragmenter le gluten, ce qui rend la méthode analytique particulièrement importante."
       },
       "service": {
         "temperatureMin": 3,
@@ -2247,42 +2592,58 @@ Sensoriellement, atteindre 0,0 est difficile : l’éthanol contribue au corps, 
           "Verre adapté au style de base"
         ]
       },
-      "description": "“Bière sans gluten” indique une conformité liée à la teneur en gluten, pas un style. Elle peut être brassée avec céréales naturellement sans gluten ou avec une bière traitée pour réduire le gluten. Dans l’Union européenne, la mention “sans gluten” exige au plus 20 mg/kg de gluten.",
-      "histoireEtOrigines": `« Sans gluten » est une mention réglementée au niveau européen, indépendante du style de bière. Le règlement d’exécution (UE) n° 828/2014 autorise la mention « sans gluten » uniquement si la denrée vendue au consommateur final ne contient pas plus de 20 mg/kg de gluten. « Très faible teneur en gluten » possède un autre seuil, fixé à 100 mg/kg dans les conditions prévues par le règlement.
+      "description": "Dans l’Union européenne, « sans gluten » signifie au plus 20 mg/kg de gluten dans le produit vendu. Une bière peut partir de céréales naturellement sans gluten ou d’orge dont le gluten est réduit par traitement. La seconde voie reste une bière fermentée hydrolysée, plus délicate à mesurer : la mention est un seuil réglementaire, pas une déclaration d’absence moléculaire ni un style.",
+      "histoireEtOrigines": `Le défi paraît simple tant qu’on imagine le gluten comme un objet entier que l’on pourrait filtrer. Dans la bière, fermentation et traitements enzymatiques fragmentent les protéines en peptides de tailles diverses. Deux familles de produits se sont donc développées. Les bières brassées avec sorgho, riz, millet, sarrasin ou autres matières naturellement sans gluten évitent les céréales concernées, sous réserve des contaminations croisées. Les bières dites gluten-removed ou déglutinisées partent souvent d’orge et cherchent à hydrolyser suffisamment ses protéines.
 
-Pour la bière, deux grandes voies existent. La première utilise des matières premières naturellement dépourvues de gluten — par exemple millet, sorgho, sarrasin ou riz — et doit malgré tout maîtriser les contaminations croisées. La seconde part de céréales contenant du gluten, souvent l’orge, puis réduit les protéines concernées par le procédé ; le produit fini doit néanmoins satisfaire au seuil analytique applicable pour porter la mention.
+    Le règlement européen 828/2014 fixe des mots précis. « Sans gluten » exige une teneur ne dépassant pas 20 mg/kg dans l’aliment vendu. « Très faible teneur en gluten » autorise jusqu’à 100 mg/kg, mais vise des produits contenant du blé, du seigle, de l’orge, de l’avoine ou leurs variétés croisées spécialement traités pour réduire le gluten. Ces seuils décrivent le produit fini ; ils ne transforment pas l’orge en céréale naturellement exempte de gluten.
 
-« Sans gluten » ne signifie donc ni sans céréales, ni sans malt au sens large, ni sans alcool. Une IPA, une lager ou une bière noire peut être sans gluten si le produit final respecte les exigences.`,
+    L’analyse des boissons fermentées ajoute une vraie incertitude technique. Pour les matrices hydrolysées comme la bière, l’AOECS indique l’usage d’un test R5 compétitif plutôt que du format sandwich destiné aux protéines intactes. Des études comparant les méthodes ont trouvé des classements divergents autour du seuil, rappelant que le chiffre dépend aussi de la capacité à détecter les fragments pertinents. La mention légale reste opérante, mais le consommateur cœliaque peut préférer un produit certifié et documenté. Il faut alors examiner deux indices : la céréale employée et la méthode qui a mesuré ce qu’il en reste.`,
       "recette": {
         "profilUnique": false,
-        "explicationProfil": "Sans gluten est une exigence analytique européenne ≤ 20 mg/kg, pas une recette ni une famille sensorielle.",
+        "explicationProfil": "La contrainte constitutive est d’atteindre et de vérifier le seuil final, soit en évitant les céréales à gluten, soit en réduisant leurs protéines.",
         "maltsEtCereales": [
-          "Céréales naturellement sans gluten ou ingrédients spécialement traités ; sélection et prévention des contaminations croisées essentielles."
+          "Sorgho, millet, riz, maïs ou pseudo-céréales offrent une voie naturellement sans gluten ; l’orge traitée offre une autre voie réglementaire mais non la même matière première."
         ],
         "houblons": [
-          "Tous houblons possibles selon style ; le houblon n’est pas la source habituelle de gluten dans la bière."
+          "Le houblon ne définit pas la catégorie et peut suivre n’importe quel profil compatible avec la base."
         ],
         "levuresEtMicroorganismes": [
-          "Levure adaptée au style ; vérifier supports, procédés et contaminations dans la chaîne de production."
+          "La fermentation fragmente déjà certaines protéines ; elle ne suffit pas à garantir le seuil sans contrôle du produit fini."
         ],
         "ingredientsComplementaires": [
-          "Enzymes ou procédés de réduction du gluten possibles ; l’allégation dépend du résultat analytique final, pas de l’intention de recette."
+          "Des enzymes protéolytiques peuvent réduire le gluten ; leur efficacité et l’analyse des fragments doivent être validées."
         ],
-        "profilEau": "Selon style de base.",
-        "empatage": "Adapté aux céréales choisies : gélatinisation et enzymes peuvent devenir plus complexes avec sorgho, millet, sarrasin ou riz.",
-        "ebullitionEtHoublonnage": "Selon style ; séparation et nettoyage de l’équipement importants en brasserie produisant aussi avec orge/blé/seigle.",
-        "fermentation": "Selon style ; la fermentation n’annule pas à elle seule l’obligation de respecter le seuil de gluten.",
-        "maturation": "Prévenir toute contamination croisée jusqu’au conditionnement.",
-        "profilRecherche": "Une bière de n’importe quel style respectant le seuil européen de 20 mg/kg maximum pour l’allégation « sans gluten »."
+        "profilEau": "Les céréales alternatives changent pH, minéraux et comportement de l’empâtage ; l’eau est adaptée à leur chimie réelle.",
+        "empatage": "Gélatinisation, enzymes et filtration diffèrent fortement avec sorgho, riz ou sarrasin ; une base d’orge traitée suit un autre schéma.",
+        "ebullitionEtHoublonnage": "Le programme de houblon reste stylistique ; la maîtrise des contaminations croisées continue pendant tout le procédé.",
+        "fermentation": "Le contrôle analytique doit porter sur la bière finie et employer une méthode adaptée à la matrice hydrolysée.",
+        "maturation": "Transferts, cuves et conditionnement font partie du plan de prévention des contaminations.",
+        "profilRecherche": "Un produit sous le seuil applicable, mesuré par une méthode appropriée, avec une chaîne de production documentée."
       },
       "sources": [
         {
           "organisme": "Union européenne — EUR-Lex",
-          "edition": "828/2014",
-          "reference": "Règlement d’exécution (UE) n° 828/2014 — mentions sans gluten et très faible teneur en gluten",
+          "edition": null,
+          "reference": "Règlement d’exécution (UE) n° 828/2014 — mentions relatives à l’absence ou à la présence réduite de gluten",
           "type": "source_reglementaire",
           "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX%3A32014R0828",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Association of European Coeliac Societies",
+          "edition": null,
+          "reference": "Statement on gluten-free beer and analysis of hydrolysed products",
+          "type": "organisme_certificateur",
+          "url": "https://www.aoecs.org/advocacy/position-papers/statement-on-gluten-free-beer/",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Foods",
+          "edition": "2021",
+          "reference": "Gluten Assessment in Beers: Comparison by Different Analytical Methods",
+          "type": "publication_scientifique",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8224778/",
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "DGCCRF",
@@ -2290,7 +2651,17 @@ Pour la bière, deux grandes voies existent. La première utilise des matières 
           "reference": "Tout savoir sur l’étiquetage des bières",
           "type": "source_reglementaire",
           "url": "https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/tout-savoir-sur-letiquetage-des-bieres",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
+        }
+      ],
+      "chapitres": [
+        {
+          "titre": "20 et 100 mg/kg",
+          "texte": "L’Union européenne distingue « sans gluten » à 20 mg/kg au plus et « très faible teneur en gluten » à 100 mg/kg au plus sous conditions. Les deux formulations ne sont ni synonymes ni appréciations libres."
+        },
+        {
+          "titre": "Le problème des fragments",
+          "texte": "Dans une bière hydrolysée, les protéines ne sont plus intactes. Un test conçu pour saisir deux sites sur une grande molécule peut sous-réagir lorsque celle-ci a été découpée ; d’où l’importance d’une méthode compétitive adaptée."
         }
       ]
     },
@@ -2333,7 +2704,7 @@ Pour la bière, deux grandes voies existent. La première utilise des matières 
       },
       "fermentation": {
         "type": "variable",
-        "details": "Le type de fermentation dépend du style de base ou du produit concerné."
+        "details": "La mention porte sur la préparation du moût à partir de seuls malts de céréales ; elle ne prescrit aucune levure ni famille de fermentation."
       },
       "service": {
         "temperatureMin": 3,
@@ -2343,42 +2714,42 @@ Pour la bière, deux grandes voies existent. La première utilise des matières 
           "Verre adapté au style de base"
         ]
       },
-      "description": "“Pur malt” indique que le moût est préparé uniquement à partir de malt de céréales. Cela ne dit pas si la bière est blonde, brune, forte, amère ou douce, mais cela exclut les sucres ou céréales non maltées comme base amylacée principale.",
-      "histoireEtOrigines": `En France, « pur malt » est une mention valorisante juridiquement réservée. L’article 2 du décret n° 92-307 précise qu’elle est réservée à la bière obtenue par fermentation alcoolique d’un moût préparé uniquement à partir de malt de céréales.
+      "description": "En France, « pur malt » est une dénomination réservée aux bières dont le moût a été préparé uniquement à partir de malt de céréales. Elle exclut donc les céréales non maltées et sucres comme matières de préparation du moût, mais ne signifie pas « pur orge », ne fixe aucun degré et ne garantit ni tradition, ni intensité maltée, ni absence de tout ingrédient aromatique autorisé.",
+      "histoireEtOrigines": `Pur malt ressemble à une promesse qualitative avant même que l’on sache ce qu’elle mesure. Dans le droit français, sa fonction est plus étroite et plus utile : l’article 2 du décret bière réserve la mention aux produits dont le moût a été préparé uniquement à partir de malt de céréales. Le mot « céréales » compte autant que « pur ». Une recette peut donc réunir malt d’orge, malt de blé ou malt de seigle et rester dans cette logique ; la mention n’est pas synonyme de 100 % orge.
 
-Deux erreurs sont fréquentes. D’abord, « pur malt » ne signifie pas « 100 % malt d’orge » : le texte parle de malt de céréales, ce qui permet en principe de combiner plusieurs céréales maltées. Ensuite, la mention n’interdit évidemment pas l’eau, le houblon ou la levure ; elle vise la composition du moût en matières céréalières/fermentescibles par opposition à l’emploi d’adjuncts non maltés ou de sucres comme substituts de l’extrait malté.
+    Le contraste se comprend avec la définition générale de la bière, qui permet que le malt de céréales représente au moins la moitié du poids des matières amylacées ou sucrées mises en œuvre, le reste pouvant inclure notamment céréales crues et sucres alimentaires dans les limites du cadre. Pur malt resserre cette composition du moût. Il ne dit toutefois rien du touraillage, de la couleur, du houblon, de la levure, du degré ou de la taille du producteur.
 
-Une Pur Malt peut être blonde, brune, ale ou lager. La mention décrit donc une contrainte de matières premières, pas un style sensoriel.`,
+    Il faut aussi éviter d’étendre le mot au-delà de sa phrase juridique. La mention concerne la préparation du moût ; elle n’est pas une certification biologique et ne promet pas un produit sans épice, fruit ou autre caractère déclaré selon les dénominations applicables. Sur l’étiquette, elle répond proprement à une question de matière fermentescible. Si le buveur veut savoir si cette matière donnera biscuit, pain, sécheresse ou caramel, il lui reste à lire le style. « Pur » a ici un objet précis ; il ne distribue pas des médailles de vertu à la bouteille.`,
       "recette": {
         "profilUnique": false,
-        "explicationProfil": "Pur malt est une mention légale française sur la composition du moût : uniquement du malt de céréales comme base amylacée/sucrée, sans définir le style.",
+        "explicationProfil": "La règle distinctive concerne l’origine maltée de toutes les matières utilisées pour préparer le moût, sans cahier des charges sensoriel.",
         "maltsEtCereales": [
-          "Uniquement malts de céréales pour le moût : orge, blé, seigle ou autres céréales maltées selon la recette."
+          "Uniquement des malts de céréales pour la préparation du moût ; mélanges d’orge, blé ou seigle maltés possibles."
         ],
         "houblons": [
-          "Houblons selon style ; la mention pur malt ne limite pas le houblonnage."
+          "La mention n’impose ni variété ni intensité de houblon."
         ],
         "levuresEtMicroorganismes": [
-          "Levure selon style."
+          "Toute fermentation compatible avec la bière peut suivre ce moût ; le mot ne qualifie pas la souche."
         ],
         "ingredientsComplementaires": [
-          "Pas d’adjunct non malté ou de sucre utilisé comme matière fermentescible du moût si l’on revendique la mention française pur malt."
+          "La portée exacte reste celle de la préparation du moût ; d’éventuels caractères ajoutés doivent respecter leur propre dénomination et leur étiquetage."
         ],
-        "profilEau": "Selon style.",
-        "empatage": "Empâtage des malts choisis ; gestion enzymatique selon leur pouvoir diastasique.",
-        "ebullitionEtHoublonnage": "Selon style ; houblonnage indépendant de la mention.",
-        "fermentation": "Fermentation alcoolique normale de la bière, haute ou basse selon style.",
-        "maturation": "Selon style.",
-        "profilRecherche": "Une bière dont le moût est construit uniquement à partir de malts de céréales, sans confondre pur malt avec 100 % orge ou avec un style particulier."
+        "profilEau": "Aucune composition minérale n’est associée à la pureté maltée.",
+        "empatage": "Tous les sucres du moût doivent provenir des malts de céréales mis en œuvre, ce qui rend l’activité enzymatique et le choix des malts centraux.",
+        "ebullitionEtHoublonnage": "Le houblonnage intervient librement après la production du moût pur malt.",
+        "fermentation": "Haute, basse ou autre conduite : la qualification demeure une question de matières du moût.",
+        "maturation": "Aucune durée ni méthode de garde n’est exigée.",
+        "profilRecherche": "Vérifier la composition maltée du moût sans extrapoler qualité, origine, couleur ou force."
       },
       "sources": [
         {
           "organisme": "Légifrance",
-          "edition": "version en vigueur",
-          "reference": "Décret n° 92-307 du 31 mars 1992 relatif aux bières — version en vigueur",
+          "edition": null,
+          "reference": "Décret n° 92-307 du 31 mars 1992 relatif aux bières et boissons à base de bière — texte consolidé",
           "type": "source_reglementaire",
           "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000357138",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "DGCCRF",
@@ -2386,7 +2757,13 @@ Une Pur Malt peut être blonde, brune, ale ou lager. La mention décrit donc une
           "reference": "Tout savoir sur l’étiquetage des bières",
           "type": "source_reglementaire",
           "url": "https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/tout-savoir-sur-letiquetage-des-bieres",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
+        }
+      ],
+      "chapitres": [
+        {
+          "titre": "Pur malt n’est pas pur orge",
+          "texte": "La formule légale parle de malt de céréales au pluriel générique. Les malts de blé, de seigle ou d’autres céréales ne sont donc pas exclus par le principe de la mention."
         }
       ]
     },
@@ -2426,7 +2803,7 @@ Une Pur Malt peut être blonde, brune, ale ou lager. La mention décrit donc une
       },
       "fermentation": {
         "type": "variable",
-        "details": "Le type de fermentation dépend du style de base ou du produit concerné."
+        "details": "L’ingrédient annoncé peut apporter sucres et micro-organismes ; son ajout ou sa macération doit être intégré à la fermentation et à la stabilité du produit."
       },
       "service": {
         "temperatureMin": 3,
@@ -2436,42 +2813,42 @@ Une Pur Malt peut être blonde, brune, ale ou lager. La mention décrit donc une
           "Verre adapté au style de base"
         ]
       },
-      "description": "“Bière à…” désigne une bière élaborée avec ajout ou macération d’un ingrédient : fruit, plante, miel, boisson alcoolisée ou autre matière végétale. En France, cette dénomination est encadrée et l’ingrédient ajouté ne doit pas dépasser 10 % du volume du produit fini.",
-      "histoireEtOrigines": `La dénomination française « bière à… » possède un sens réglementaire précis depuis la révision de 2016. Elle est réservée à une bière élaborée par addition ou macération de matières végétales ou d’origine végétale, de boissons alcoolisées ou de miel, la dénomination étant complétée par la nature de l’ingrédient mis en œuvre.
+      "description": "En France, « bière à… » désigne une bière élaborée par ajout ou macération de matières végétales, de produits d’origine végétale, de boissons alcoolisées ou de miel. Ces apports ne doivent pas dépasser 10 % du volume fini ; une boisson alcoolisée ne peut relever le titre de plus de 0,5 point. Le mot indique donc une matière réellement employée, pas seulement son arôme.",
+      "histoireEtOrigines": `Une préposition suffit à changer la preuve attendue. « Bière à la cerise » fait comprendre qu’une matière associée à la cerise est entrée dans le produit ; « bière aromatisée à la cerise » indique l’emploi d’un arôme. Le décret français organise cette différence. La dénomination « bière à… » couvre l’ajout ou la macération de matières végétales, de produits d’origine végétale, de boissons alcoolisées ou de miel. La quantité totale concernée est plafonnée à 10 % du volume du produit fini.
 
-Le décret fixe un plafond : ces ingrédients ne doivent pas excéder 10 % du volume du produit fini. Si une boisson alcoolisée est ajoutée, elle ne peut augmenter le titre alcoométrique acquis final de plus de 0,5 point de pourcentage en volume. Une « bière au miel », « bière au fruit » ou « bière au whisky » relevant de cette dénomination n’est donc pas une catégorie sans limites.
+    Le texte ajoute une règle particulière pour les boissons alcoolisées : leur introduction ne peut augmenter le titre alcoométrique acquis final de plus de 0,5 % en volume. Une bière passée dans un fût ayant contenu du whisky n’est pas nécessairement une « bière au whisky » au sens d’un ajout ; une bière recevant effectivement la boisson doit respecter le cadre. La distinction entre contact, macération et incorporation évite que le contenant ne se transforme verbalement en ingrédient.
 
-Le point essentiel est la différence avec « bière aromatisée à… » : dans « bière à… », l’ingrédient lui-même est ajouté ou macéré ; dans la seconde, le caractère provient d’un arôme au sens réglementaire.`,
+    Le nom ne donne toutefois ni la forme ni la quantité précise sous le plafond. Fruit entier, jus, purée, plante, infusion, miel ou boisson peuvent intervenir à des étapes différentes, avec des effets distincts sur les sucres, l’acidité et la stabilité. Le lecteur doit chercher la dénomination complète et les informations du fabricant pour savoir ce qui est réellement entré, quand et sous quelle forme. « À… » garantit une relation matérielle encadrée ; il ne garantit pas que l’ingrédient dominera le goût, encore moins qu’il poussera en grand sur l’illustration.`,
       "recette": {
         "profilUnique": false,
-        "explicationProfil": "Bière à… est une dénomination légale française fondée sur l’ajout ou la macération de l’ingrédient nommé ; la bière de base peut appartenir à de nombreux styles.",
+        "explicationProfil": "Le point constitutif est l’ajout ou la macération réelle de la matière annoncée, dans les limites françaises de volume et, pour l’alcool, d’augmentation du titre.",
         "maltsEtCereales": [
-          "Selon style de base ; la bière doit d’abord répondre à la définition réglementaire de bière."
+          "La base doit laisser de la place à l’ingrédient sans supposer une céréale particulière."
         ],
         "houblons": [
-          "Selon style et ingrédient, souvent ajustés pour préserver l’équilibre."
+          "Amertume et aromatique sont réglés pour ne pas écraser ou durcir fruit, plante, miel ou boisson ajoutée."
         ],
         "levuresEtMicroorganismes": [
-          "Selon la bière de base."
+          "La souche doit gérer les sucres apportés ; fruit cru et miel augmentent aussi les exigences microbiologiques."
         ],
         "ingredientsComplementaires": [
-          "Matière végétale/d’origine végétale, boisson alcoolisée ou miel correspondant au nom ; ensemble limité à 10 % du volume final dans le cadre français."
+          "Matière végétale, produit végétal, boisson alcoolisée ou miel réellement ajouté ou macéré ; total au plus égal à 10 % du volume fini en France."
         ],
-        "profilEau": "Selon style de base.",
-        "empatage": "Selon bière de base ; certains ingrédients peuvent être introduits par macération hors empâtage.",
-        "ebullitionEtHoublonnage": "Moment d’ajout choisi selon stabilité et volatilité de l’ingrédient ; la réglementation porte sur sa nature et sa proportion, pas sur un moment unique.",
-        "fermentation": "Selon bière de base ; l’ingrédient peut modifier fermentescibilité et nécessiter une reprise de fermentation.",
-        "maturation": "Temps d’intégration variable selon fruit, plante, miel ou boisson alcoolisée utilisée.",
-        "profilRecherche": "Une bière où l’ingrédient réellement mis en œuvre est perceptible et correctement nommé, distincte d’une bière seulement aromatisée par arôme."
+        "profilEau": "L’acidité et les tanins de l’ajout peuvent modifier le réglage minéral pertinent.",
+        "empatage": "La fermentescibilité de la base anticipe la quantité de sucres que l’ingrédient apportera plus tard.",
+        "ebullitionEtHoublonnage": "Le moment d’ajout dépend de la volatilité, de l’extraction recherchée et du besoin d’assainissement.",
+        "fermentation": "Sucres ajoutés, acidité et éventuelle flore de l’ingrédient sont suivis jusqu’à stabilisation.",
+        "maturation": "Macération et contact sont chronométrés pour extraire l’arôme sans excès végétal, tannique ou oxydatif.",
+        "profilRecherche": "Savoir quelle matière a réellement été employée, sous quelle forme et à quelle étape, plutôt que juger par le dessin."
       },
       "sources": [
         {
           "organisme": "Légifrance",
-          "edition": "version en vigueur",
-          "reference": "Décret n° 92-307 du 31 mars 1992 relatif aux bières — version en vigueur",
+          "edition": null,
+          "reference": "Décret n° 92-307 du 31 mars 1992 relatif aux bières et boissons à base de bière — texte consolidé",
           "type": "source_reglementaire",
           "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000357138",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "DGCCRF",
@@ -2479,7 +2856,17 @@ Le point essentiel est la différence avec « bière aromatisée à… » : dans
           "reference": "Tout savoir sur l’étiquetage des bières",
           "type": "source_reglementaire",
           "url": "https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/tout-savoir-sur-letiquetage-des-bieres",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
+        }
+      ],
+      "chapitres": [
+        {
+          "titre": "La limite des 10 %",
+          "texte": "Le plafond est exprimé en volume du produit fini pour les matières et boissons visées par la dénomination. Il ne dit pas que toute bière à un ingrédient en contient exactement 10 %, ni que ce chiffre mesure son intensité aromatique."
+        },
+        {
+          "titre": "Le fût n’est pas la bouteille qu’il contenait",
+          "texte": "Une maturation dans un ancien fût produit un contact et des extractions. L’ajout direct d’une boisson alcoolisée est un autre acte, auquel le décret associe une limite d’augmentation du degré."
         }
       ]
     },
@@ -2519,7 +2906,7 @@ Le point essentiel est la différence avec « bière aromatisée à… » : dans
       },
       "fermentation": {
         "type": "variable",
-        "details": "Le type de fermentation dépend du style de base ou du produit concerné."
+        "details": "L’arôme peut être ajouté avant ou après fermentation selon sa stabilité ; il ne constitue pas nécessairement un substrat fermenté."
       },
       "service": {
         "temperatureMin": 3,
@@ -2529,42 +2916,50 @@ Le point essentiel est la différence avec « bière aromatisée à… » : dans
           "Verre adapté au style de base"
         ]
       },
-      "description": "“Bière aromatisée à…” indique que le caractère annoncé vient d’arômes, et non forcément d’une macération ou d’un ajout direct de l’ingrédient. C’est une nuance capitale : une bière aromatisée cerise n’est pas automatiquement une bière à la cerise.",
-      "histoireEtOrigines": `La « bière aromatisée à… » est une autre dénomination légale française, distincte de « bière à… ». Le décret n° 92-307 la réserve à une bière aromatisée par des arômes tels que définis par le règlement européen sur les arômes alimentaires.
+      "description": "En France, « bière aromatisée à… » signifie qu’un ou plusieurs arômes relevant du règlement européen 1334/2008 ont été ajoutés. Le fruit, la plante ou le dessert nommé n’a donc pas nécessairement été incorporé sous sa forme ordinaire, même si une recette peut cumuler ingrédient et arôme. La formulation décrit la source de la note annoncée, pas une récolte imaginaire dans la cuve.",
+      "histoireEtOrigines": `L’industrialisation des arômes a permis de produire des profils stables, disponibles toute l’année et reproductibles sans transporter des tonnes de fruit. Il fallait alors que le langage distingue la présence d’une matière de l’emploi d’une préparation aromatisante. Le décret français réserve « bière aromatisée à… » aux produits auxquels ont été ajoutés un ou plusieurs arômes tels que définis par le règlement européen 1334/2008.
 
-La différence n’est pas seulement sémantique : une bière peut évoquer la cerise parce que des cerises ont été ajoutées ou macérées, ou parce qu’un arôme de cerise a été utilisé. Le droit français prévoit des dénominations différentes pour rendre cette distinction lisible au consommateur.
+    Cette définition ne signifie pas automatiquement artificiel. Le règlement distingue plusieurs catégories et encadre notamment l’usage du terme « naturel ». Elle ne signifie pas non plus que le fruit ou la plante est forcément absent : une recette peut combiner purée et arôme pour renforcer ou standardiser un profil. Ce que la mention garantit, c’est que l’aromatisation intervient dans la construction du caractère nommé. Elle doit être lue différemment de « bière à… », qui exige une relation matérielle d’ajout ou de macération avec les catégories prévues par le décret.
 
-La base brassicole reste libre dans les limites de la définition de bière. Lager, blanche, sour, stout ou bière sans alcool peuvent être aromatisées ; le mot ne définit ni fermentation ni force.`,
+    Techniquement, un arôme concentré peut être dosé très bas tout en dominant le nez ; sa quantité ne se compare donc pas au plafond volumique de la dénomination « bière à… ». Le moment d’incorporation protège les composés volatils et la reproductibilité du lot. Pour le consommateur, la préposition longue est ici la plus honnête : elle évite de faire passer un profil aromatique pour un panier de matières premières. La petite différence de mots tient parfois sur une ligne ; dans la cuve, elle change la nature de la preuve.`,
       "recette": {
         "profilUnique": false,
-        "explicationProfil": "Bière aromatisée à… décrit l’usage d’un arôme réglementaire ; elle se distingue juridiquement de la bière à… élaborée avec l’ingrédient nommé.",
+        "explicationProfil": "L’acte distinctif est l’ajout d’un arôme réglementé ; la recette doit gérer son dosage, sa volatilité et sa cohérence avec la base.",
         "maltsEtCereales": [
-          "Selon style de base."
+          "La base est choisie pour porter l’arôme sans le brouiller ; aucune céréale n’est imposée."
         ],
         "houblons": [
-          "Selon style, souvent ajustés pour ne pas masquer l’aromatisation."
+          "Le houblon peut compléter ou concurrencer les composés aromatiques, ce qui demande un équilibre intentionnel."
         ],
         "levuresEtMicroorganismes": [
-          "Selon style de base."
+          "Une fermentation neutre laisse l’arôme au premier plan ; une souche expressive peut créer des accords plus complexes."
         ],
         "ingredientsComplementaires": [
-          "Arôme correspondant à la dénomination, conforme au cadre européen applicable aux arômes alimentaires."
+          "Un ou plusieurs arômes conformes au règlement 1334/2008 ; un ingrédient réel peut aussi être présent s’il est déclaré et documenté."
         ],
-        "profilEau": "Selon style de base.",
-        "empatage": "Selon bière de base.",
-        "ebullitionEtHoublonnage": "Les arômes volatils sont souvent dosés tardivement ou après fermentation selon leur stabilité ; aucune méthode unique n’est imposée par le nom.",
-        "fermentation": "Selon bière de base ; l’aromatisation peut intervenir avant ou après selon le produit et la réglementation.",
-        "maturation": "Courte à longue selon la base ; vérifier stabilité et intégration aromatique.",
-        "profilRecherche": "Une bière dont le caractère nommé vient d’un arôme déclaré, avec une base brassicole encore équilibrée et une information consommateur non trompeuse."
+        "profilEau": "Le pH et la minéralité modifient la perception de fraîcheur, de fruit et de douceur.",
+        "empatage": "Corps et sucre résiduel sont calibrés pour éviter qu’un arôme gourmand ne devienne écœurant ou qu’un agrume ne paraisse maigre.",
+        "ebullitionEtHoublonnage": "Les arômes volatils sont souvent protégés d’une longue ébullition ; le point d’ajout dépend de leur formulation.",
+        "fermentation": "L’arôme peut être incorporé après la phase la plus active pour limiter les pertes, avec contrôle d’homogénéité et de stabilité.",
+        "maturation": "Le temps permet de vérifier intégration et évolution du profil, mais certains arômes demandent surtout de la fraîcheur.",
+        "profilRecherche": "Une aromatisation identifiable, équilibrée et décrite sans laisser croire automatiquement à l’incorporation de la matière représentée."
       },
       "sources": [
         {
           "organisme": "Légifrance",
-          "edition": "version en vigueur",
-          "reference": "Décret n° 92-307 du 31 mars 1992 relatif aux bières — version en vigueur",
+          "edition": null,
+          "reference": "Décret n° 92-307 du 31 mars 1992 relatif aux bières et boissons à base de bière — texte consolidé",
           "type": "source_reglementaire",
           "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000357138",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Union européenne — EUR-Lex",
+          "edition": null,
+          "reference": "Règlement (CE) n° 1334/2008 relatif aux arômes et ingrédients alimentaires possédant des propriétés aromatisantes — texte consolidé",
+          "type": "source_reglementaire",
+          "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX%3A02008R1334-20241203",
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "DGCCRF",
@@ -2572,7 +2967,17 @@ La base brassicole reste libre dans les limites de la définition de bière. Lag
           "reference": "Tout savoir sur l’étiquetage des bières",
           "type": "source_reglementaire",
           "url": "https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/tout-savoir-sur-letiquetage-des-bieres",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
+        }
+      ],
+      "chapitres": [
+        {
+          "titre": "Aromatisé ne veut pas dire artificiel",
+          "texte": "Le règlement européen définit les catégories d’arômes et réserve l’emploi du qualificatif « naturel » à des conditions précises. La distinction pertinente est d’abord entre arôme et ingrédient incorporé, pas entre une caricature de laboratoire et une caricature de verger."
+        },
+        {
+          "titre": "Les deux peuvent coexister",
+          "texte": "Une bière peut recevoir du fruit et un arôme. La dénomination et l’information produit doivent alors permettre de comprendre la contribution de chacun sans présenter l’arôme comme le fruit lui-même."
         }
       ]
     },
@@ -2612,7 +3017,7 @@ La base brassicole reste libre dans les limites de la définition de bière. Lag
       },
       "fermentation": {
         "type": "mixte",
-        "details": "Fermentation mixte associant levures et micro-organismes acidifiants selon le profil recherché."
+        "details": "La dénomination française exige qu’une fermentation lactique intervienne pendant l’élaboration ; acidification par simple ajout d’acide et fermentation ne sont pas synonymes."
       },
       "service": {
         "temperatureMin": 4,
@@ -2623,40 +3028,58 @@ La base brassicole reste libre dans les limites de la définition de bière. Lag
           "Teku"
         ]
       },
-      "description": "“Bière de fermentation lactique” indique qu’une fermentation lactique intervient dans l’élaboration. Elle peut évoquer gueuze, lambic, Berliner Weisse, Gose ou autres bières acides, mais la mention française ne suffit pas à identifier le style exact.",
-      "histoireEtOrigines": `Le droit français réserve la dénomination « bière de fermentation lactique » ou « Gueuze » à une bière qui fait l’objet d’une fermentation lactique au cours de son élaboration. Cette définition réglementaire est volontairement courte et ne doit pas être confondue avec la définition brassicole traditionnelle beaucoup plus étroite d’une Oude Geuze belge.
+      "description": "En France, « bière de fermentation lactique » — comme « Gueuze » dans le décret bière — est réservée aux produits ayant subi une fermentation lactique au cours de leur élaboration. Cela prouve un rôle microbien dans l’acidification, pas un style unique. Berliner Weisse, Gose ou productions spontanées diffèrent encore ; les mentions européennes « Oude Geuze/Vieille Gueuze » ajoutent leur propre tradition protégée.",
+      "histoireEtOrigines": `L’acidité peut entrer dans une bière par plusieurs portes : acides produits par des bactéries, fermentation spontanée complexe, fruit, malt acidifié ou ajout direct d’un correcteur. Le décret français choisit une porte précise pour la dénomination « bière de fermentation lactique » : une fermentation lactique doit se produire pendant l’élaboration. Le texte associe également à cette condition l’emploi de « Gueuze ». Il ne suffit donc pas qu’un produit fini soit acide au goût.
 
-Une fermentation lactique implique l’activité de bactéries lactiques telles que Lactobacillus ou Pediococcus dans de nombreuses méthodes modernes ou traditionnelles. Elle peut intervenir dans une fermentation mixte longue, une acidification rapide du moût ou d’autres schémas. Le simple fait d’être acide ne prouve pas forcément le procédé, et une bière utilisant uniquement Brettanomyces n’est pas automatiquement une bière de fermentation lactique.
+    Cette définition nationale reste plus large qu’un style. Lactobacillaceae et autres bactéries lactiques peuvent intervenir dans une acidification rapide du moût, une cofermentation ou une maturation longue avec levures sauvages. Berliner Weisse, Gose et plusieurs sour ales modernes organisent ces organismes différemment. Le lambic et la gueuze traditionnelle suivent encore une trajectoire spécifique de fermentation spontanée, de vieillissement et d’assemblage.
 
-La Gueuze traditionnelle, elle, repose sur lambics spontanés d’âges différents assemblés et refermentés, avec un héritage régional et des pratiques précises documentées par les producteurs traditionnels. La mention juridique française et le style traditionnel se recouvrent donc partiellement sans être équivalents.`,
+    L’Union européenne protège en outre comme spécialités traditionnelles garanties les noms « Oude Geuze/Oude Gueuze, Oude Geuze-Lambiek/Oude Gueuze-Lambic, Oude Lambiek/Vieux Lambic ». Cette STG et son cahier des charges ne doivent pas être confondus avec la seule condition française de fermentation lactique pour le mot Gueuze. La présence du mot « vieille » n’est donc pas une simple flatterie de cave. Face à l’étiquette, il faut séparer trois questions : l’acide a-t-il été produit par fermentation, quel procédé et quels organismes ont travaillé, et une mention traditionnelle protégée est-elle revendiquée ? Une acidité a un pH ; une appellation possède aussi une histoire et un droit.`,
       "recette": {
         "profilUnique": false,
-        "explicationProfil": "La mention française exige une fermentation lactique mais ne fixe pas une recette unique ; la Gueuze traditionnelle constitue un cas beaucoup plus spécifique.",
+        "explicationProfil": "Le critère constitutif est une production d’acide lactique par fermentation pendant l’élaboration ; organismes, durée et assemblage déterminent ensuite le style.",
         "maltsEtCereales": [
-          "Selon style : orge et blé non malté pour lambic traditionnel, ou tout autre grist adapté à une sour beer lactique."
+          "Orge, froment et autres céréales suivent les traditions ou les recettes modernes ; aucune composition unique n’est imposée par la mention française."
         ],
         "houblons": [
-          "Faibles dans de nombreuses sour beers ; houblons âgés dans le lambic traditionnel, car une forte activité antibactérienne du houblon peut freiner les bactéries lactiques."
+          "Une forte activité antibactérienne du houblon peut contrarier les bactéries lactiques ; dose et âge des houblons sont adaptés au procédé."
         ],
         "levuresEtMicroorganismes": [
-          "Bactéries lactiques impliquées dans le procédé ; Saccharomyces, Brettanomyces et microflore spontanée peuvent également intervenir selon la méthode."
+          "Bactéries lactiques nécessaires au caractère de la dénomination, parfois avec Saccharomyces, Brettanomyces et flore spontanée."
         ],
-        "ingredientsComplementaires": [],
-        "profilEau": "Selon style et méthode d’acidification ; minéralité à contrôler pour éviter une acidité dure.",
-        "empatage": "Variable : empâtage classique, turbid mash traditionnel du lambic ou autres méthodes selon la bière.",
-        "ebullitionEtHoublonnage": "Variable ; le houblonnage et le timing sont déterminants pour la survie ou l’inhibition des bactéries lactiques.",
-        "fermentation": "Une phase de fermentation lactique doit réellement faire partie du processus pour employer la dénomination française.",
-        "maturation": "De quelques jours pour certaines acidifications modernes à plusieurs années pour lambic et cultures mixtes traditionnelles.",
-        "profilRecherche": "Une bière dont l’acidité résulte réellement d’une fermentation lactique, en distinguant la catégorie juridique française de la Gueuze traditionnelle belge."
+        "ingredientsComplementaires": [
+          "Sel, épices ou fruits appartiennent à certaines familles, jamais à la définition générale de fermentation lactique."
+        ],
+        "profilEau": "Alcalinité et pouvoir tampon influencent la vitesse et la perception de l’acidification.",
+        "empatage": "La composition du moût et ses nutriments doivent convenir à la succession microbienne choisie.",
+        "ebullitionEtHoublonnage": "Kettle sour, cofermentation et fermentation spontanée placent l’acidification de part et d’autre de l’ébullition ; ce choix change tout le contrôle microbiologique.",
+        "fermentation": "Une fermentation lactique réelle doit intervenir ; température, oxygène et cultures déterminent sa cinétique et ses sous-produits.",
+        "maturation": "De quelques jours à plusieurs années selon la méthode, avec assemblage indispensable dans certaines gueuzes traditionnelles.",
+        "profilRecherche": "Une acidité produite et expliquée par le procédé, puis attribuée au bon style ou à la bonne protection sans raccourci."
       },
       "sources": [
         {
           "organisme": "Légifrance",
-          "edition": "version en vigueur",
-          "reference": "Décret n° 92-307 du 31 mars 1992 relatif aux bières — version en vigueur",
+          "edition": null,
+          "reference": "Décret n° 92-307 du 31 mars 1992 relatif aux bières et boissons à base de bière — texte consolidé",
           "type": "source_reglementaire",
           "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000357138",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Union européenne — EUR-Lex",
+          "edition": null,
+          "reference": "Règlement d’exécution (UE) 2017/2216 — STG Oude Geuze/Vieille Gueuze et autres bières traditionnelles",
+          "type": "source_reglementaire",
+          "url": "https://eur-lex.europa.eu/eli/reg_impl/2017/2216/oj?locale=fr",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "HORAL",
+          "edition": null,
+          "reference": "Traditional lambic beers — fermentation, vieillissement et assemblage",
+          "type": "organisme_professionnel",
+          "url": "https://horal.be/en/traditional-lambic-beers/",
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "DGCCRF",
@@ -2664,23 +3087,17 @@ La Gueuze traditionnelle, elle, repose sur lambics spontanés d’âges différe
           "reference": "Tout savoir sur l’étiquetage des bières",
           "type": "source_reglementaire",
           "url": "https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/tout-savoir-sur-letiquetage-des-bieres",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
+        }
+      ],
+      "chapitres": [
+        {
+          "titre": "Acidifiée ou fermentée ?",
+          "texte": "Ajouter de l’acide peut rapprocher une valeur de pH, mais ne remplace pas l’activité de bactéries lactiques exigée par la dénomination française. Les deux routes laissent aussi des signatures aromatiques différentes."
         },
         {
-          "organisme": "HORAL",
-          "edition": null,
-          "reference": "Traditional Lambic Beers — Oude Geuze, lambic et traditions",
-          "type": "source_professionnelle_traditionnelle",
-          "url": "https://horal.be/en/traditional-lambic-beers/",
-          "consultation": "2026-08-08"
-        },
-        {
-          "organisme": "BJCP",
-          "edition": "2021",
-          "reference": "Gueuze",
-          "type": "guide_de_style",
-          "url": "https://www.bjcp.org/style/2021/23/23E/gueuze/",
-          "consultation": "2026-08-08"
+          "titre": "Gueuze et Oude Gueuze",
+          "texte": "Le décret français associe Gueuze à une fermentation lactique. La STG européenne portant sur Oude/Vieille Gueuze ajoute un ensemble traditionnel plus spécifique. Un mot supplémentaire peut donc porter beaucoup plus qu’une nuance d’âge."
         }
       ]
     },
@@ -2722,7 +3139,7 @@ La Gueuze traditionnelle, elle, repose sur lambics spontanés d’âges différe
       },
       "fermentation": {
         "type": "variable",
-        "details": "Le type de fermentation dépend du style de base ou du produit concerné."
+        "details": "La règle porte sur la durée après fermentation primaire : au moins vingt et un jours de garde, quelle que soit la famille de levure."
       },
       "service": {
         "temperatureMin": 6,
@@ -2733,40 +3150,40 @@ La Gueuze traditionnelle, elle, repose sur lambics spontanés d’âges différe
           "Calice"
         ]
       },
-      "description": "“Bière de garde” peut faire penser au style du Nord de la France, mais la mention légale française est plus large : elle est réservée à une bière ayant subi au moins 21 jours de garde après fermentation primaire. Ce n’est donc pas toujours une Bière de Garde au sens stylistique.",
-      "histoireEtOrigines": `En France, « bière de garde » est une mention valorisante légalement réservée, et son critère est étonnamment simple : après sa fermentation primaire, la bière doit avoir subi une période de garde d’au moins 21 jours. Le décret n’impose ni couleur, ni fermentation haute, ni région, ni degré alcoolique.
+      "description": "En France, « bière de garde » est une mention réservée à une bière ayant subi au moins vingt et un jours de garde après la fermentation primaire. Cette règle ne lui impose ni origine nordiste, ni couleur ambrée, ni fermentation haute. Le style historique Bière de Garde possède un profil culturel plus étroit ; la dénomination légale, elle, chronomètre une étape.",
+      "histoireEtOrigines": `Bière de garde porte deux histoires superposées. Dans le Nord de la France, le nom évoque des ales brassées pour mûrir, souvent maltées, blondes, ambrées ou brunes, liées à une culture régionale de conservation. Dans le droit français contemporain, l’article 2 du décret de 1992 emploie un critère beaucoup plus simple : la dénomination est réservée à une bière ayant subi une période de garde d’au moins vingt et un jours après la fermentation primaire.
 
-Cette définition doit être distinguée du style brassicole French-Style Bière de Garde, historiquement associé au nord de la France et caractérisé dans les guides par une bière maltée, généralement bien atténuée, pouvant être blonde, ambrée ou brune. Une bière peut donc satisfaire à la mention légale française sans correspondre exactement au style de concours, et inversement l’histoire du style ne se résume pas au seuil de 21 jours.
+    Le chronomètre juridique ne demande pas que la bière provienne du Nord, qu’elle soit de fermentation haute, qu’elle titre un certain degré ou qu’elle reproduise un profil historique. Une lager gardée assez longtemps peut satisfaire le critère ; une ale nordiste présentée comme style doit également respecter la règle si elle emploie la dénomination en France, mais son identité sensorielle ne se résume pas à vingt et un jours. La température, le contenant et la transformation réellement obtenue pendant cette période ne sont pas détaillés par le seuil.
 
-La carte « mention légale française » existe précisément pour éviter cette confusion : ici, le cœur de l’appellation est la durée minimale de garde.`,
+    Cette distinction évite une fausse généalogie. La fiche stylistique raconte une tradition de brassage et de goût ; la présente fiche explique ce que les mots garantissent légalement sur une étiquette française. Ils garantissent une durée minimale après fermentation primaire, pas une ferme, une cave voûtée ou une levure régionale. Vingt et un jours constituent un fait contrôlable. Tout ce que l’imaginaire ajoute autour doit être soutenu par la provenance et la description du produit.`,
       "recette": {
         "profilUnique": false,
-        "explicationProfil": "La mention légale française impose au moins 21 jours de garde après fermentation primaire ; elle ne définit pas à elle seule le style French Bière de Garde.",
+        "explicationProfil": "Le seul invariant légal est une garde d’au moins vingt et un jours après fermentation primaire ; le reste dépend du produit.",
         "maltsEtCereales": [
-          "Libres selon le style réel ; pale, Vienna, Munich, caramel ou autres possibles."
+          "Aucune composition n’est fixée ; les profils nordistes traditionnels privilégient souvent le malt, sans monopoliser la mention."
         ],
         "houblons": [
-          "Libres selon style ; la mention légale ne fixe aucun IBU."
+          "La garde peut fondre l’amertume et les arômes, mais aucun seuil n’est prescrit."
         ],
         "levuresEtMicroorganismes": [
-          "Haute ou basse fermentation possible juridiquement ; le style historique français est souvent traité comme ale propre ou fermentation hybride selon producteurs."
+          "Levures d’ale ou de lager sont compatibles avec la condition temporelle."
         ],
         "ingredientsComplementaires": [],
-        "profilEau": "Selon style de base.",
-        "empatage": "Selon recette.",
-        "ebullitionEtHoublonnage": "Selon style.",
-        "fermentation": "Fermentation primaire normale, suivie obligatoirement d’une phase de garde pour revendiquer la mention française.",
-        "maturation": "Au minimum 21 jours après la fermentation primaire selon le décret français ; davantage selon le produit.",
-        "profilRecherche": "Une bière respectant la condition légale de 21 jours de garde, sans déduire abusivement couleur, région ou fermentation du seul libellé."
+        "profilEau": "Le profil suit la recette et la région réelle, non le simple droit d’utiliser la mention.",
+        "empatage": "Corps et fermentescibilité sont réglés selon le style ; ils ne participent pas au seuil de vingt et un jours.",
+        "ebullitionEtHoublonnage": "Le programme anticipe l’évolution pendant la garde sans être défini par le décret.",
+        "fermentation": "La fermentation primaire marque le point de départ de la période réglementaire.",
+        "maturation": "Au moins vingt et un jours de garde après la fermentation primaire en France ; température et contenant ne sont pas imposés par cette phrase du décret.",
+        "profilRecherche": "Vérifier la durée garantie, puis distinguer cette conformité du style régional et de ses qualités sensorielles."
       },
       "sources": [
         {
           "organisme": "Légifrance",
-          "edition": "version en vigueur",
-          "reference": "Décret n° 92-307 du 31 mars 1992 relatif aux bières — version en vigueur",
+          "edition": null,
+          "reference": "Décret n° 92-307 du 31 mars 1992 relatif aux bières et boissons à base de bière — texte consolidé",
           "type": "source_reglementaire",
           "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000357138",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "DGCCRF",
@@ -2774,23 +3191,25 @@ La carte « mention légale française » existe précisément pour éviter cett
           "reference": "Tout savoir sur l’étiquetage des bières",
           "type": "source_reglementaire",
           "url": "https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/tout-savoir-sur-letiquetage-des-bieres",
-          "consultation": "2026-08-08"
-        },
-        {
-          "organisme": "Brewers Association",
-          "edition": "2026",
-          "reference": "French-Style Bière de Garde",
-          "type": "guide_de_style",
-          "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "BJCP",
           "edition": "2021",
-          "reference": "Bière de Garde",
+          "reference": "Bière de Garde — profil stylistique à distinguer de la mention légale française",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/24/24C/biere-de-garde/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
+        }
+      ],
+      "chapitres": [
+        {
+          "titre": "Le vingt-deuxième jour",
+          "texte": "À vingt jours, le produit ne remplit pas le seuil de la dénomination française ; à vingt et un, il le remplit. Cette netteté juridique ne dit toujours pas si la maturation a eu lieu à froid, en cuve, en bouteille ou avec quelle évolution sensorielle."
+        },
+        {
+          "titre": "Une durée, pas un terroir",
+          "texte": "Le texte ne réserve aucune région. Une origine nordiste peut donner au mot sa profondeur historique, mais elle constitue une information supplémentaire et non une conséquence du seul délai légal."
         }
       ]
     },
@@ -2831,7 +3250,7 @@ La carte « mention légale française » existe précisément pour éviter cett
       },
       "fermentation": {
         "type": "variable",
-        "details": "Le type de fermentation dépend du style de base ou du produit concerné."
+        "details": "La fermentation concerne la bière incorporée ; après assemblage, le panaché ne peut dépasser le plafond français de 1,2 % vol."
       },
       "service": {
         "temperatureMin": 2,
@@ -2842,42 +3261,42 @@ La carte « mention légale française » existe précisément pour éviter cett
           "Pilsner"
         ]
       },
-      "description": "“Panaché” désigne en France un mélange de bière et de boisson gazeuse aromatisée sans alcool, avec un titre alcoométrique inférieur ou égal à 1,2 % vol. C’est une boisson de mélange, pas un style brassicole.",
-      "histoireEtOrigines": `« Panaché » est une dénomination légale française, pas seulement un nom de comptoir. Le décret n° 92-307 la réserve à une boisson dont le titre alcoométrique acquis est inférieur ou égal à 1,2 % vol. et qui est exclusivement constituée d’un mélange de bière et de boisson gazeuse aromatisée sans alcool.
+      "description": "En France, le panaché est défini comme le mélange exclusif de bière et de boisson gazeuse aromatisée sans alcool, avec au plus 1,2 % vol. d’alcool acquis. La loi n’impose pas une proportion moitié-moitié ni le seul citron. C’est donc une boisson de mélange réglementée : la bière apporte la fermentation, le soda apporte sa propre voix.",
+      "histoireEtOrigines": `Panaché signifie d’abord mélangé, bigarré. Dans le verre français, le mot a fini par désigner l’alliance populaire de bière et de limonade, servie au comptoir puis conditionnée industriellement. Le décret lui donne aujourd’hui des contours plus précis que le geste du serveur : le produit doit être constitué exclusivement d’un mélange de bière et de boisson gazeuse aromatisée sans alcool, et son titre alcoométrique acquis ne doit pas dépasser 1,2 % vol.
 
-Le texte ne fixe pas un rapport universel bière/limonade : la recette commerciale peut donc varier tant que le produit reste dans cette définition. Cela le distingue d’un simple shandy de bar ou d’un Radler international, qui peuvent être préparés à parts égales mais aussi dépasser 1,2 % vol. et relever d’autres règles selon le pays.
+    Deux idées répandues ne figurent pas dans cette définition. Le mélange n’est pas légalement fixé à cinquante-cinquante, et la boisson gazeuse n’est pas nécessairement limitée à une limonade citronnée par le texte. Les proportions sont en pratique déterminées par le degré de la bière, la cible sensorielle et le plafond final. Le mot ne qualifie pas une bière fermentée avec du citron : la boisson gazeuse est mélangée à une bière déjà constituée.
 
-Le panaché vise avant tout fraîcheur, carbonatation, faible alcool et équilibre entre amertume de la bière, acidité et douceur de la boisson gazeuse.`,
+    Cette architecture explique pourquoi Panaché n’est ni un style ni exactement un synonyme universel de Radler ou Shandy. Ces termes étrangers ont des usages, ratios et cadres nationaux variables ; un produit vendu comme panaché en France doit, lui, respecter la définition française. L’étiquette doit permettre de voir le degré final et les composants du mélange. Ici, la législation a fait quelque chose de rare : elle a pris une commande de terrasse très simple et lui a donné une frontière que le serveur peut mesurer.`,
       "recette": {
-        "profilUnique": true,
-        "explicationProfil": "",
+        "profilUnique": false,
+        "explicationProfil": "Le procédé constitutif est le mélange exclusif d’une bière et d’une boisson gazeuse aromatisée sans alcool, avec contrôle du degré final.",
         "maltsEtCereales": [
-          "Bière de base généralement claire et peu intense ; sa recette peut varier."
+          "Ils appartiennent à la bière de départ ; la dénomination panaché n’en choisit aucun."
         ],
         "houblons": [
-          "Houblonnage faible à modéré pour ne pas devenir dur face à la limonade/boisson gazeuse."
+          "Une base très amère peut rester perceptible après dilution ; le choix dépend de l’équilibre avec la boisson gazeuse."
         ],
         "levuresEtMicroorganismes": [
-          "Levure de la bière de base ; aucune fermentation du mélange n’est nécessairement recherchée après assemblage."
+          "La bière est fermentée avant le mélange ; le produit fini doit être stabilisé pour éviter une reprise inattendue."
         ],
         "ingredientsComplementaires": [
-          "Boisson gazeuse aromatisée sans alcool ; exclusivement ce type de boisson avec la bière dans la définition française."
+          "Boisson gazeuse aromatisée sans alcool, unique autre composante prévue par la définition française."
         ],
-        "profilEau": "Profil de la bière de base et de la boisson gazeuse ; fraîcheur et netteté prioritaires.",
-        "empatage": "Celui de la bière de base.",
-        "ebullitionEtHoublonnage": "Celui de la bière de base.",
-        "fermentation": "La bière est fermentée avant mélange ; le produit fini doit rester à ≤ 1,2 % vol. pour la dénomination française panaché.",
-        "maturation": "Assemblage et conditionnement visant stabilité, carbonatation et fraîcheur ; généralement pas de longue garde.",
-        "profilRecherche": "Un mélange très frais de bière et boisson gazeuse aromatisée sans alcool, conforme au seuil français ≤ 1,2 % vol."
+        "profilEau": "L’eau intervient dans la bière et dans la boisson gazeuse ; leurs acidités et minéralités se combinent.",
+        "empatage": "Il concerne uniquement la bière de base et n’est pas défini par le mélange final.",
+        "ebullitionEtHoublonnage": "La base est conçue pour conserver assez de caractère après assemblage sans heurter l’acidité ou le sucre du soda.",
+        "fermentation": "Achevée et maîtrisée sur la bière avant assemblage ; le titre acquis du panaché fini reste à 1,2 % vol. ou moins.",
+        "maturation": "L’enjeu final est l’homogénéité, la carbonatation et la stabilité du mélange plutôt qu’une garde de style.",
+        "profilRecherche": "Un mélange rafraîchissant dont proportions, degré et composition respectent la définition au lieu d’être supposés."
       },
       "sources": [
         {
           "organisme": "Légifrance",
-          "edition": "version en vigueur",
-          "reference": "Décret n° 92-307 du 31 mars 1992 relatif aux bières — version en vigueur",
+          "edition": null,
+          "reference": "Décret n° 92-307 du 31 mars 1992 relatif aux bières et boissons à base de bière — texte consolidé",
           "type": "source_reglementaire",
           "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000357138",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "DGCCRF",
@@ -2885,7 +3304,17 @@ Le panaché vise avant tout fraîcheur, carbonatation, faible alcool et équilib
           "reference": "Tout savoir sur l’étiquetage des bières",
           "type": "source_reglementaire",
           "url": "https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/tout-savoir-sur-letiquetage-des-bieres",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
+        }
+      ],
+      "chapitres": [
+        {
+          "titre": "Exclusivement deux familles",
+          "texte": "La formule française associe bière et boisson gazeuse aromatisée sans alcool. Elle ne décrit pas un cocktail ouvert où sirops, spiritueux et jus pourraient s’ajouter librement tout en conservant la même dénomination."
+        },
+        {
+          "titre": "Pas de moitié obligatoire",
+          "texte": "Le plafond de 1,2 % vol. contraint les proportions en fonction de la bière choisie, mais le décret ne grave pas un ratio 50/50 dans le marbre du comptoir."
         }
       ]
     },
@@ -2930,7 +3359,7 @@ Le panaché vise avant tout fraîcheur, carbonatation, faible alcool et équilib
       },
       "fermentation": {
         "type": "variable",
-        "details": "Le type de fermentation dépend du style de base ou du produit concerné."
+        "details": "La bière est brassée puis mélangée à une boisson non alcoolisée ; proportions, base et stabilisation varient selon pays et producteurs."
       },
       "service": {
         "temperatureMin": 2,
@@ -2941,61 +3370,80 @@ Le panaché vise avant tout fraîcheur, carbonatation, faible alcool et équilib
           "Pilsner"
         ]
       },
-      "description": "“Radler” ou “Shandy” désigne un mélange bière-limonade ou bière-soda citronné, généralement léger, très frais, peu alcoolisé et facile à boire. Contrairement au panaché français réglementaire, le terme varie selon les pays et les traditions.",
-      "histoireEtOrigines": `Radler et Shandy appartiennent à la grande famille internationale des mélanges de bière et de boisson rafraîchissante. En pays germanophones, le Radler associe généralement une lager — parfois une bière de blé — à une limonade gazeuse citronnée. Le mot allemand signifie « cycliste » et le récit le plus célèbre attribue la popularisation du Radlermaß à l’aubergiste bavarois Franz Xaver Kugler en 1922. Les sources sérieuses présentent toutefois cette attribution comme une tradition largement répétée plutôt que comme une preuve que personne n’avait jamais mélangé bière et limonade auparavant.
+      "description": "Radler et Shandy sont des noms culturels de mélanges à base de bière et de boisson non alcoolisée, souvent citronnée. Shandygaff est attesté dans l’anglais du XIXe siècle ; Radler signifie « cycliste » en allemand. La célèbre invention bavaroise de 1922 est une excellente histoire publicitaire, mais une attestation écrite antérieure oblige à la raconter comme légende, pas comme acte de naissance.",
+      "histoireEtOrigines": `Le Shandy arrive avec des preuves écrites avant le Radler légendaire. Merriam-Webster rattache le mot à shandygaff, mélange de bière et de ginger beer attesté dans un roman anglais de 1853, puis raccourci à la fin du XIXe siècle. Le mélange évolue vers la limonade et d’autres boissons gazeuses. Son nom garde une origine obscure, mais sa chronologie est plus solide que beaucoup de récits de comptoir.
 
-Le Shandy britannique suit la même logique générale : bière, souvent bitter ou lager, mélangée à de la lemonade ou parfois ginger beer. Les proportions varient, même si le mélange moitié-moitié est courant. Aujourd’hui, de nombreuses versions sont conditionnées industriellement avec citron, agrumes ou autres fruits.
+    Radler signifie cycliste en allemand, et l’histoire la plus célèbre place Franz Xaver Kugler à la Kugler-Alm en 1922 : face à une foule de cyclistes et à un stock de bière insuffisant, il aurait allongé ses chopes de limonade. Le récit est si parfait qu’il mérite précisément d’être vérifié. La Bayerische Akademie der Wissenschaften relève déjà Radlermaß dans l’ouvrage de Lena Christ publié en 1912, qui évoque ses souvenirs de cuisinière autour de 1900. Kugler a pu populariser le nom ; l’invention absolue ne tient plus comme certitude.
 
-En France, Radler ou Shandy ne doivent pas être automatiquement assimilés à la dénomination légale « panaché ». Un produit vendu comme panaché doit respecter la définition française et son plafond de 1,2 % vol. ; un Radler international peut parfaitement titrer davantage.`,
+    Aujourd’hui, Radler, Alster, Shandy et variantes régionales ne possèdent pas un ratio mondial ni un cadre juridique commun. Citron, ginger beer, orange, soda clair ou herbes peuvent changer selon le lieu. En France, un produit répondant à la définition de Panaché doit respecter son mélange exclusif et son plafond de 1,2 % vol., alors qu’un Radler importé peut suivre la réglementation de son marché d’origine et les règles de reconnaissance mutuelle. Le cycliste sur l’étiquette raconte une étymologie ; le degré et la composition racontent la boisson.`,
       "recette": {
-        "profilUnique": true,
-        "explicationProfil": "",
+        "profilUnique": false,
+        "explicationProfil": "Le socle commun assemble une bière et un rafraîchissement sans alcool ; la base, le mixer, le ratio et le degré appartiennent aux usages locaux.",
         "maltsEtCereales": [
-          "Bière de base généralement lager pâle, Helles, Pils ou bière de blé ; autres bases possibles pour un Shandy moderne."
+          "Lager claire, ale amère ou bière sombre peuvent servir de base selon la tradition régionale."
         ],
         "houblons": [
-          "Amertume faible à modérée afin de rester harmonieuse avec douceur et acidité de la boisson mélangée."
+          "Une amertume modérée résiste à la dilution ; des houblons d’agrumes peuvent prolonger le mixer sans être obligatoires."
         ],
         "levuresEtMicroorganismes": [
-          "Levure de la bière de base."
+          "La fermentation appartient à la bière de départ. Le produit assemblé doit rester stable malgré les sucres du mixer."
         ],
         "ingredientsComplementaires": [
-          "Limonade gazeuse citronnée, lemonade, ginger beer ou boisson fruitée selon tradition et marché."
+          "Limonade, ginger beer, soda d’agrumes, orange ou boisson aux herbes selon la région et l’étiquette."
         ],
-        "profilEau": "Fraîcheur, carbonatation et équilibre sucre/acide dominent ; profil de la bière de base généralement doux.",
-        "empatage": "Celui de la bière de base.",
-        "ebullitionEtHoublonnage": "Celui de la bière de base ; houblonnage pensé pour le mélange final.",
-        "fermentation": "Bière fermentée avant assemblage ; les produits conditionnés doivent être stabilisés pour éviter refermentation non désirée des sucres de la boisson.",
-        "maturation": "Très courte : produit conçu pour être consommé frais et vif.",
-        "profilRecherche": "Un mélange léger, pétillant et désaltérant où bière et agrumes/limonade restent perceptibles, sans confondre l’usage international avec le panaché légal français."
+        "profilEau": "L’acidité, le sucre et la carbonatation du mixer modifient plus directement l’équilibre que le seul profil de l’eau de brassage.",
+        "empatage": "Conçu pour une bière assez expressive après dilution, sans méthode propre au nom Radler ou Shandy.",
+        "ebullitionEtHoublonnage": "L’amertume et les arômes sont anticipés avec le mixer choisi plutôt qu’avec une formule universelle.",
+        "fermentation": "La bière est fermentée avant l’assemblage ; une stabilisation évite que les sucres ajoutés ne relancent la production d’alcool.",
+        "maturation": "Le mélange privilégie généralement fraîcheur et carbonatation ; une longue garde est rarement son moteur.",
+        "profilRecherche": "Identifier le nom local, le mixer, le ratio et le degré sans transformer la légende de 1922 en règle de production."
       },
       "sources": [
         {
-          "organisme": "Oxford Companion to Beer / Craft Beer & Brewing",
+          "organisme": "Merriam-Webster",
           "edition": null,
-          "reference": "Radlermass — histoire et usage",
-          "type": "source_historique_secondaire",
-          "url": "https://www.beerandbrewing.com/dictionary/Z4jAApWYk0",
-          "consultation": "2026-08-08"
+          "reference": "An Undiluted History of Shandy — shandygaff attesté au XIXe siècle",
+          "type": "source_linguistique",
+          "url": "https://www.merriam-webster.com/wordplay/word-history-of-shandygaff-or-shandy",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Bayerische Akademie der Wissenschaften",
+          "edition": null,
+          "reference": "Bayerisches Wörterbuch — Radlermaß et discussion de la légende de 1922",
+          "type": "source_linguistique",
+          "url": "https://bwb.badw.de/fileadmin/user_upload/Files/BWB/Goggolori/Goggolori_9.pdf",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Bayerischer Brauerbund",
+          "edition": null,
+          "reference": "Radler — récit professionnel bavarois autour de Franz Xaver Kugler",
+          "type": "source_professionnelle",
+          "url": "https://www.bayerisches-bier.de/bier-wissen/radler/",
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Légifrance",
-          "edition": "version en vigueur",
-          "reference": "Décret n° 92-307 du 31 mars 1992 relatif aux bières — version en vigueur",
+          "edition": null,
+          "reference": "Décret n° 92-307 du 31 mars 1992 relatif aux bières et boissons à base de bière — texte consolidé",
           "type": "source_reglementaire",
           "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000357138",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
+        }
+      ],
+      "chapitres": [
+        {
+          "titre": "La panne de bière trop parfaite",
+          "texte": "Kugler, treize mille cyclistes, une réserve de limonade et un nom instantané : la scène possède toutes les qualités d’une légende de marque. L’attestation antérieure ne la rend pas inutile ; elle la déplace de l’invention vers la popularisation."
         },
         {
-          "organisme": "DGCCRF",
-          "edition": null,
-          "reference": "Tout savoir sur l’étiquetage des bières",
-          "type": "source_reglementaire",
-          "url": "https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/tout-savoir-sur-letiquetage-des-bieres",
-          "consultation": "2026-08-08"
+          "titre": "1853, le shandygaff écrit",
+          "texte": "Le mot apparaît dans The Adventures of Mr. Verdant Green avec d’autres boissons à la mode. Le premier mixer documenté est la ginger beer ; la limonade ne monopolise donc pas l’histoire britannique."
         }
       ]
     }
+
   ]
 };
 
