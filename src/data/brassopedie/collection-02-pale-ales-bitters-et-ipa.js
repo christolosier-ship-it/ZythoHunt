@@ -1034,7 +1034,7 @@ La catégorie existe parce que le marché moderne a séparé ce que l’histoire
           "Crystal léger à moyen possible pour couleur cuivre et complexité ; biscuit ou amber malt en touche faible selon l’interprétation."
         ],
         "houblons": [
-          "East Kent Goldings, Fuggles, Challenger, Target ou autres houblons britanniques ; variétés fruitées modernes possibles avec retenue.",
+          "Goldings de l’East Kent, Fuggles, Challenger ou Target donnent le registre britannique ; des variétés fruitées modernes peuvent intervenir avec retenue.",
           "Houblon perceptible en arôme et en bouche, soutenu par une amertume moyenne."
         ],
         "levuresEtMicroorganismes": [
@@ -1307,7 +1307,7 @@ Ce profil n’est pas un brouillon sans personnalité : réussir la discrétion 
         "profilEau": "Faible alcalinité et minéralité modérée. L’eau peut être légèrement orientée sulfate pour une version sèche ou chlorure pour une version plus douce.",
         "empatage": "Infusion simple donnant un corps léger à moyen-léger et une bonne atténuation.",
         "ebullitionEtHoublonnage": "Amertume propre et mesurée, avec ajouts tardifs facultatifs selon le niveau d’expression du houblon recherché.",
-        "fermentation": "Fermentation haute propre, avec esters faibles à modérés.",
+        "fermentation": "Fermentation d’ale menée proprement, laissant peu à modérément d’esters.",
         "maturation": "Courte ; une clarification fraîche améliore la brillance mais un lagering long n’est pas requis.",
         "profilRecherche": "Une ale dorée facile d’accès, nette et rafraîchissante, dont la simplicité apparente repose sur un équilibre précis."
       },
@@ -2156,6 +2156,8 @@ Les qualifier correctement évite le podium artificiel. Anchor fournit un jalon 
       "description": "L’American ESB traduit une strong bitter avec un dictionnaire américain : malt toasté, caramel mesuré et levure fruitée restent lisibles, tandis que le houblon peut prendre un accent d’agrume ou de résine. Ce n’est ni une IPA brune ni une antiquité anglaise expatriée ; c’est l’un des premiers dialectes du brewpub, formé quand les brasseurs américains apprenaient encore leurs classiques au comptoir britannique.",
       "histoireEtOrigines": `À la fin des années 1970 et dans les années 1980, les pionniers du craft américain regardent vers les ales britanniques pour échapper à l’uniformité des lagers industrielles. Fuller’s ESB, exportée vers les États-Unis à partir de 1979, devient un modèle particulièrement visible. Les homebrewers, brewpubs et premiers guides adoptent ses initiales comme nom de famille, alors qu’au Royaume-Uni elles restent attachées à une marque et que « strong bitter » décrit mieux l’ensemble.
 
+Seattle fournit un jalon américain concret. Redhook fait d’abord de son ESB une bière d’hiver au milieu des années 1980, puis la brasse sans interruption depuis 1987. La maison se souvient de ses premiers lots sous le surnom de « banana beer », souvenir très fermentaire d’une époque où les petites brasseries apprenaient encore à stabiliser leur accent. Devenue un produit phare, Redhook ESB montre comment les trois lettres anglaises prennent aux États-Unis une vie commerciale propre sans constituer, à elles seules, un nouveau style.
+
 La traduction modifie rapidement l’accent. Les malts américains peuvent être plus neutres, la carbonatation plus vive et le service plus souvent en keg ; Cascade, Centennial ou d’autres variétés locales remplacent parfois tout ou partie des houblons anglais. Le résultat garde une assise de malt plus prononcée qu’une American Pale Ale classique, mais son fruit et son amertume peuvent regarder vers le Pacifique.
 
 L’American ESB est donc moins une invention ponctuelle qu’un genre de transition. Elle documente le moment où la scène craft américaine apprend avec des modèles britanniques avant de créer ses propres catégories. Sa place actuelle est plus discrète, prise entre APA, amber ale et IPA ; son intérêt historique tient précisément à cette position de pont.`,
@@ -2199,12 +2201,20 @@ L’American ESB est donc moins une invention ponctuelle qu’un genre de transi
           "consultation": "2026-08-10"
         },
         {
-          "organisme": "Sierra Nevada Brewing Co.",
+          "organisme": "Redhook Brewery",
           "edition": null,
-          "reference": "Pale Ale — Cascade, malt two-row et caramel, repère de l’American Pale Ale",
-          "type": "source_primaire_technique",
-          "url": "https://sierranevada.com/brews/pale-ale",
-          "consultation": "2026-08-10"
+          "reference": "ESB — saisonnière d’hiver devenue production continue en 1987, profil et mémoire des premiers brassins",
+          "type": "source_primaire_historique_technique",
+          "url": "https://redhook.com/beers/redhook-esb",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "The Oxford Companion to Beer / Craft Beer & Brewing",
+          "edition": null,
+          "reference": "Redhook Ale Brewery — création de la bière phare Redhook ESB en 1987",
+          "type": "ouvrage_de_reference_brassicole",
+          "url": "https://www.beerandbrewing.com/dictionary/Enh5W97jBf",
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Fuller’s Brewery",
@@ -2277,7 +2287,7 @@ L’American ESB est donc moins une invention ponctuelle qu’un genre de transi
       "description": "La Juicy / Hazy Pale Ale garde le toucher velouté, le parfum de houblon et le trouble assumé de l’école Hazy, mais ramène la force au territoire de la pale ale. Le fruit semble mûr, l’amertume moins anguleuse et le malt presque tactile. Ce n’est pas une NEIPA coupée à l’eau : c’est un exercice d’échelle où texture et fraîcheur doivent survivre à une densité plus basse.",
       "histoireEtOrigines": `Cette catégorie ne précède pas la New England IPA ; elle en descend. Lorsque les IPA troubles et fruitées du Vermont puis du Massachusetts rencontrent un public national, les brasseries déclinent leur langage à plusieurs niveaux de force. La pale ale permet de conserver une forte présence aromatique avec moins d’alcool, de coût et de fatigue au verre.
 
-En 2018, la Brewers Association reconnaît simultanément Juicy or Hazy Pale Ale, IPA et Double IPA. Ce triptyque révèle une codification par intensité d’un mouvement déjà installé, non trois inventions séparées. Heady Topper, Tree House, Trillium et la rupture sensorielle appartiennent à l’histoire de la NEIPA ; la Hazy Pale Ale raconte le redimensionnement.
+En 2018, la Brewers Association reconnaît d’un même mouvement trois niveaux de force pour les ales juicy ou hazy. Ce triptyque révèle une codification par intensité d’une pratique déjà installée, non trois inventions séparées. Heady Topper, Tree House, Trillium et la rupture sensorielle appartiennent à l’histoire de la NEIPA ; la Hazy Pale Ale raconte le redimensionnement.
 
 Le défi technique ressemble à celui d’une Session IPA, mais avec une autre cible. Blé ou avoine, protéines du malt, levure expressive et composés du houblon construisent la texture et le trouble ; une amertume moins dure préserve l’impression juteuse. À faible densité, trop de céréales peut donner une bouche farineuse, trop de dry-hop une astringence végétale, et l’oxygène ternit rapidement couleur et parfum. Réduire l’alcool ne réduit donc pas le nombre de pièges.`,
       "recette": {
@@ -2424,7 +2434,7 @@ Cette catégorie reste volontairement concise. Issue de l’escalade craft, elle
         ],
         "ingredientsComplementaires": [],
         "profilEau": "Profil pauvre en alcalinité, souvent sulfaté pour éviter qu’une densité plus élevée ne donne une finale lourde.",
-        "empatage": "Infusion orientée vers une bonne fermentescibilité et un corps moyen-léger à moyen.",
+        "empatage": "Infusion donnant une maische bien fermentescible et une bouche moyenne-légère à moyenne.",
         "ebullitionEtHoublonnage": "Amertume construite en chaudière et forte charge aromatique tardive ; équilibre plus malté qu’une West Coast IPA très sèche.",
         "fermentation": "Fermentation haute propre, contrôle de l’alcool supérieur et des esters.",
         "maturation": "Courte ; service frais pour préserver le houblon.",
@@ -2527,7 +2537,7 @@ Il serait artificiel de lui inventer un fondateur. La catégorie documente la ma
           "Crystal généralement évité afin de conserver un profil clair, fruité et non caramélisé."
         ],
         "houblons": [
-          "Variétés modernes riches en agrumes, fruits tropicaux ou fruits à noyau : Citra, Mosaic, Galaxy, Nelson Sauvin, Motueka, El Dorado et nombreuses alternatives.",
+          "Des variétés modernes à expression intense construisent les agrumes, fruits tropicaux ou fruits à noyau ; leur assemblage compte davantage qu’une liste obligatoire.",
           "Whirlpool et dry-hop massifs, avec amertume classique modérée afin de préserver une perception douce."
         ],
         "levuresEtMicroorganismes": [
@@ -3185,7 +3195,7 @@ Ces étapes ne possèdent pas de températures universelles ni de dose magique. 
         ]
       },
       "description": "La New Zealand IPA pousse les houblons néo-zélandais jusqu’au premier plan : citron vert, fruit à noyau, herbe, baies ou raisin blanc peuvent surgir sur une base sèche et claire. Plus intense que la Pale Ale sœur, elle garde une amertume structurante sans imposer un bouquet officiel. Sa géographie vient des cultivars et de leur sélection, non d’une couleur de passeport.",
-      "histoireEtOrigines": `La New Zealand Pale Ale porte l’histoire du programme de sélection commencé dans les années 1950. La branche IPA apparaît lorsque ces variétés rencontrent l’intensité et les techniques du craft international : densité plus élevée, houblonnage tardif et à cru plus important, finale sèche capable de soutenir des arômes puissants.
+      "histoireEtOrigines": `Le programme de sélection engagé dans les années 1950 appartient à l’histoire agricole commune des bières houblonnées néo-zélandaises. La branche IPA apparaît lorsque ses variétés rencontrent l’intensité et les techniques du craft international : densité plus élevée, houblonnage tardif et à cru plus important, finale sèche capable de soutenir des arômes puissants.
 
 Nelson Sauvin, Motueka, Riwaka ou Nectaron peuvent servir d’outils, mais aucun n’est obligatoire et leurs profils changent selon récolte, lot et procédé. Leur succès mondial donne aux brasseries néo-zélandaises un avantage de proximité et une identité exportable ; il permet aussi à des producteurs étrangers de brasser des « New Zealand IPA ». Le style désigne donc une matière première géographique plus sûrement qu’une école de fermentation unique.
 
@@ -3208,7 +3218,7 @@ Les guides de la Brewers Association reconnaissent une catégorie dédiée, sign
         "profilEau": "Faible alcalinité ; sulfate modéré pour la netteté, chlorure suffisant pour préserver le fruit et la texture.",
         "empatage": "Infusion simple orientée vers une bonne atténuation.",
         "ebullitionEtHoublonnage": "Amertume moyenne-forte, puis forte charge aromatique tardive et à cru. Éviter une extraction végétale qui masquerait les caractères délicats de certaines variétés.",
-        "fermentation": "Fermentation haute propre et gestion stricte de l’oxygène après fermentation.",
+        "fermentation": "La levure d’ale reste nette ; dès la fin de son travail, transferts et conditionnement doivent exclure l’oxygène.",
         "maturation": "Très courte ; service frais pour conserver les thiols et huiles les plus volatils.",
         "profilRecherche": "Une IPA où le terroir variétal néo-zélandais se lit immédiatement : agrumes, raisin, fruits tropicaux ou à noyau sur une base sèche et nette."
       },
@@ -4208,6 +4218,8 @@ Le but n’est pas d’annuler tout malt sombre : une nuance de cacao ou de pain
       "description": "La Brown IPA donne au houblon une charpente de noix, de pain grillé et de caramel sec. Plus sombre et plus maltée qu’une American IPA, elle reste pourtant atténuée et amère, sans glisser vers le dessert ni le porter. Son autonomie historique est limitée : c’est surtout une exploration craft devenue sous-type de concours.",
       "histoireEtOrigines": `Des brown ales américaines fortement houblonnées existaient avant que le nom Brown IPA ne se fixe. La catégorie se forme lorsque les brasseurs appliquent l’intensité IPA à une base brune plus toastée et que les concours cherchent à distinguer ce profil de la Black IPA, de l’American Brown Ale et de l’American IPA.
 
+Dogfish Head fournit un jalon commercial utile sans résoudre la question des origines. La brasserie date de 1999 la première sortie d’Indian Brown Ale et la décrit comme un croisement entre Scotch Ale, IPA et American Brown Ale. Le nom n’est pas encore Brown IPA, mais la bière matérialise déjà le problème que la future catégorie tentera de ranger : une charpente brune et maltée traversée par un houblonnage d’IPA.
+
 Le BJCP l’intègre en 2015 dans les Specialty IPA. Cette date marque une codification, pas une invention. Aucune bière pivot ne rassemble un consensus comparable à Pliny, Heady Topper ou la collaboration White IPA ; fabriquer un fondateur serait plus narratif que vrai.
 
 La modification réelle tient au malt : Munich, crystal ou malts bruns apportent noix, pain et caramel, tandis que l’atténuation et le houblon empêchent la lourdeur. Si la torréfaction devient dominante, la Black IPA reprend le dossier ; si le houblon recule, l’American Brown Ale le récupère. La Brown IPA existe dans cet intervalle administratif et sensoriel, ce qui est déjà une raison suffisante.`,
@@ -4258,6 +4270,14 @@ La modification réelle tient au malt : Munich, crystal ou malts bruns apportent
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2015/21/ipa/",
           "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Dogfish Head Craft Brewery",
+          "edition": null,
+          "reference": "Indian Brown Ale — première sortie en 1999 et hybridation revendiquée entre Scotch Ale, IPA et American Brown Ale",
+          "type": "source_primaire_historique_technique",
+          "url": "https://www.dogfish.com/drink/beer/indian-brown-ale",
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -4311,6 +4331,8 @@ La modification réelle tient au malt : Munich, crystal ou malts bruns apportent
       "description": "La Red IPA porte une robe rubis et une base de caramel sec ou de pain grillé, puis laisse l’amertume et le houblon reprendre le gouvernail. Plus maltée qu’une American IPA, plus sèche et plus houblonnée qu’une amber ale, elle organise un contraste plutôt qu’un coloriage. Sa catégorie vient surtout du brassage craft et de sa codification.",
       "histoireEtOrigines": `L’American Amber Ale fournit le parent malté ; l’American IPA fournit la force du houblon. Des brasseries américaines croisent naturellement ces profils sous des noms comme red ale, imperial red ou red IPA, sans qu’un premier exemple unique se détache de façon suffisamment documentée.
 
+Flipside de Sierra Nevada donne en 2013 un exemple commercial bien documenté avant la codification. Sa base associe malts pale, caramel et chocolat pour la couleur et la profondeur, tandis que Citra, Simcoe et Centennial construisent le registre tropical et citronné. La bière ne fonde pas à elle seule la Red IPA ; elle montre qu’un produit clairement nommé et techniquement cohérent circule déjà lorsque les juges préparent leurs nouvelles cases.
+
 Le BJCP formalise Red IPA parmi les Specialty IPA en 2015. Comme pour Brown IPA, le guide reconnaît une pratique commerciale et offre une case de concours ; il ne fait pas apparaître le style au premier coup de sifflet. La catégorie reste poreuse avec les American Amber Ales les plus houblonnées.
 
 La couleur provient généralement de crystal et de malts apportant pain grillé ou fruits secs, parfois d’une très petite quantité de malt plus sombre. L’erreur consiste à accumuler le caramel jusqu’à émousser l’amertume. Une Red IPA réussie garde une finale sèche et un houblon dominant : le rouge indique une architecture de malt, pas une autorisation de sucrer le paysage.`,
@@ -4323,8 +4345,8 @@ La couleur provient généralement de crystal et de malts apportant pain grillé
           "Éviter une proportion de crystal qui rendrait la finale sucrée."
         ],
         "houblons": [
-          "Houblons américains et du Nouveau Monde, souvent agrumés, résineux, tropicaux ou à fruits à noyau.",
-          "Amertume moyenne-forte à très forte et fort houblonnage aromatique."
+          "Le bouquet vient de variétés américaines ou du Nouveau Monde évoquant agrumes, résine, tropiques ou fruits à noyau.",
+          "L’amertume reste soutenue, parfois très haute, et les ajouts aromatiques sont généreux."
         ],
         "levuresEtMicroorganismes": [
           "Souche américaine propre et atténuante."
@@ -4361,6 +4383,22 @@ La couleur provient généralement de crystal et de malts apportant pain grillé
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2015/21/ipa/",
           "consultation": "2026-08-10"
+        },
+        {
+          "organisme": "Sierra Nevada Brewing Co.",
+          "edition": null,
+          "reference": "Flipside — malts, houblons et profil d’une Red IPA commercialisée avant la codification BJCP",
+          "type": "source_primaire_technique",
+          "url": "https://sierranevada.com/brews/flipside-red-ipa",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "The Brewer Magazine",
+          "edition": "2013",
+          "reference": "Sierra Nevada: Flipside Red IPA — lancement, recette et positionnement saisonnier",
+          "type": "presse_professionnelle",
+          "url": "https://thebrewermagazine.com/sierra-nevada-flipside-red-ipa/",
+          "consultation": "2026-08-11"
         }
       ]
     },
