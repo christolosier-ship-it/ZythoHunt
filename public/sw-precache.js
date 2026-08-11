@@ -4,5 +4,5 @@ self.__ZYTHOHUNT_PRECACHE = [
   "./",
   "./offline.html",
   "./manifest.webmanifest",
-  "./logo.png"
+  "./beer-search-index.json"
 ];
