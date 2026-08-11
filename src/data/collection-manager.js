@@ -24,43 +24,6 @@
  */
 
 /**
- * Gestionnaire historique pour les usages qui disposent déjà des bundles complets.
- * @param {CollectionBundle[]} collectionBundles
- * @param {{ initialCollectionId?: string }} [options]
- */
-export function createCollectionManager(collectionBundles, { initialCollectionId } = {}) {
-  const orderedBundles = [...collectionBundles].sort((a, b) => (a.collection.order || 0) - (b.collection.order || 0));
-  const bundlesById = new Map(orderedBundles.map((bundle) => [bundle.collection.id, bundle]));
-  const requestedInitialBundle = initialCollectionId ? bundlesById.get(initialCollectionId) : null;
-  let activeCollectionId = requestedInitialBundle?.collection.id || orderedBundles[0]?.collection.id || null;
-
-  function getActiveBundle() {
-    const bundle = activeCollectionId ? bundlesById.get(activeCollectionId) : null;
-    if (!bundle) throw new Error(`Unknown active collection: ${activeCollectionId}`);
-    return bundle;
-  }
-
-  function getBundle(collectionId) {
-    return bundlesById.get(collectionId) || null;
-  }
-
-  return {
-    listCollections: ({ includeHidden = false } = {}) => orderedBundles
-      .map((bundle) => bundle.collection)
-      .filter((collection) => includeHidden || collection.hiddenFromNavigation !== true),
-    getBundle,
-    getActiveCollectionId: () => activeCollectionId,
-    getActiveBundle,
-    getActiveCollection: () => getActiveBundle().collection,
-    setActiveCollection(collectionId) {
-      if (!bundlesById.has(collectionId)) return { status: "missing", collectionId };
-      activeCollectionId = collectionId;
-      return { status: "active", collectionId, bundle: getActiveBundle() };
-    }
-  };
-}
-
-/**
  * Gestionnaire runtime : il conserve un catalogue léger au démarrage et ne charge
  * le bundle encyclopédique d'une collection que lorsqu'il devient nécessaire.
  * @param {CollectionCatalogEntry[]} collectionCatalog
