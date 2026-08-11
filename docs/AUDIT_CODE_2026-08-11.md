@@ -18,14 +18,17 @@ Objectifs de cette passe :
 
 L'architecture actuelle est nettement plus saine qu'au 8 août. L'ancien problème d'un bundle JavaScript initial d'environ 1,29 Mio a été largement corrigé par le chargement dynamique des collections.
 
-La présente passe a identifié puis corrigé deux nouvelles régressions de frontière de chargement :
+La présente passe a identifié puis corrigé trois zones de dette :
 
 1. la recherche globale parcourait encore les collections en chargeant leurs bundles complets, alors que ces bundles embarquent désormais la Brassopédie complète ;
-2. les interfaces Badges et bibliothèque Brassopédie étaient encore payées au démarrage alors qu'elles sont des vues secondaires.
+2. les interfaces Badges et bibliothèque Brassopédie étaient encore payées au démarrage alors qu'elles sont des vues secondaires ;
+3. un ancien chemin de données eager subsistait en parallèle du catalogue lazy et forçait encore les tests historiques à importer les neuf collections classiques.
 
 La recherche globale utilise désormais un **index léger généré automatiquement** depuis les sources canoniques. Une recherche inconnue ne charge plus les bundles encyclopédiques et une correspondance externe ne provoque le chargement de sa collection qu'au moment du changement effectif de collection.
 
-Le shell PWA a également été allégé : `public/logo.png`, qui pèse **2 842 386 octets**, reste l'icône applicative mais n'est plus précaché de force par le service worker. Le petit index de recherche rejoint au contraire le shell hors ligne.
+Le chemin eager historique a été supprimé : il n'existe plus qu'un gestionnaire de collections runtime, le manager lazy utilisé par l'application. Les tests du manager utilisent désormais de petits bundles factices et vérifient explicitement l'absence de chargement anticipé.
+
+Le shell PWA a également été allégé : `public/logo.png`, qui pèse **2 840 970 octets**, reste l'icône applicative mais n'est plus précaché de force par le service worker. Le petit index de recherche rejoint au contraire le shell hors ligne.
 
 Le principal sujet restant est désormais architectural : `src/app/app-runtime.js` devient progressivement le point de convergence de trop de responsabilités. Il reste lisible, mais l'ajout prochain de fonctionnalités Badges, Réglages et Dégustation en ferait rapidement un nouveau noyau spaghetti si aucune frontière n'est posée.
 
@@ -78,7 +81,7 @@ Des tests garantissent explicitement qu'une recherche externe ou inconnue ne dé
 
 #### Constat
 
-`public/logo.png` pèse **2 842 386 octets**.
+`public/logo.png` pèse **2 840 970 octets**.
 
 Il sert encore de :
 
@@ -101,7 +104,30 @@ Une passe d'assets dédiée doit encore produire des icônes optimisées adapté
 - icône PWA 192 × 192 ;
 - icône PWA 512 × 512 optimisée.
 
-Cette optimisation binaire n'est pas réalisée à l'aveugle dans cette PR.
+Cette optimisation binaire doit conserver exactement le dessin actuel et sera plus sûre lorsqu'elle pourra être contrôlée visuellement.
+
+### P2 corrigé — Double infrastructure de collections
+
+#### Constat initial
+
+Trois reliquats du prototype coexistaient avec l'architecture lazy actuelle :
+
+- `src/data/collections.js` importait immédiatement les neuf collections classiques et reconstruisait un tableau `collectionBundles` eager ;
+- `src/data/collection-manager.js` exposait encore `createCollectionManager()`, gestionnaire synchrone de bundles complets, en parallèle de `createLazyCollectionManager()` ;
+- `src/data/collection-manager.test.js` utilisait ce vieux chemin et chargeait donc l'intégralité du corpus classique pour tester quelques opérations de registre.
+
+`src/data/cards.js` constituait en plus un reliquat de prototype contenant seulement trois cartes Stout et n'était plus la source de données du runtime.
+
+#### Correction appliquée
+
+- suppression de `src/data/collections.js` ;
+- suppression de `src/data/cards.js` ;
+- suppression de `createCollectionManager()` ;
+- conservation de `createLazyCollectionManager()` comme unique stratégie de gestion des collections ;
+- réécriture des tests avec un catalogue léger factice ;
+- ajout de garde-fous vérifiant qu'énumérer, sélectionner ou inspecter les métadonnées ne charge aucun bundle avant demande explicite.
+
+Cette suppression réduit la duplication conceptuelle et empêche les tests du manager de devenir de plus en plus lourds à mesure que la Brassopédie grandit.
 
 ### P2 — `app-runtime.js` devient un orchestrateur trop large
 
@@ -127,21 +153,22 @@ Le lazy loading des collections est correct. Un bundle de collection réunit tou
 
 La règle à conserver est simple : lorsqu'un usage ne nécessite que quelques métadonnées, il doit consommer un index généré plutôt qu'importer un bundle encyclopédique par commodité.
 
-### P2 — Candidats legacy à vérifier avant suppression
+### P3 — CSS historique à élaguer avec contrôle visuel
 
-Deux zones paraissent potentiellement obsolètes, mais ne doivent pas être supprimées sans validation supplémentaire :
+`src/styles.css` contient encore des sélecteurs hérités de l'ancienne grille 3 × 3, notamment `#grid-container`, `.grid-glow` et `#card-grid`. Le DOM actuel est piloté par le carrousel et ne contient plus ces conteneurs.
 
-- l'export synchrone `createCollectionManager()` dans `src/data/collection-manager.js`, alors que l'application utilise le manager lazy ;
-- plusieurs règles historiques de grille dans `src/styles.css` (`#grid-container`, `#card-grid`, `.card-slot`, etc.) qui ne correspondent plus à la présentation principale en carrousel.
+En revanche, `.card-slot` **n'est pas mort** : cette classe est toujours créée dynamiquement par `src/components/create-card.js` et utilisée par le carrousel. Une suppression globale des règles « grid » serait donc dangereuse.
 
-La recherche de références n'a pas fourni de consommateur évident, mais une suppression CSS ou d'API sans test visuel/structurel serait une fausse économie. Ces éléments doivent faire l'objet d'une passe de suppression contrôlée.
+Le nettoyage des sélecteurs morts est volontairement différé jusqu'à un contrôle visuel ciblé. Le gain de poids est minime et ne justifie pas une régression de mise en page.
 
 ### P3 corrigé — Résidus et documentation interne obsolète
 
-Deux éléments étaient clairement morts ou trompeurs :
+Plusieurs éléments étaient clairement morts ou trompeurs :
 
 - `.staging/fingerprints.txt`, résidu temporaire de contrôle d'assets suivi par Git ;
-- `src/data/brassopedie/index.json`, index non utilisé, limité à 9 collections et pointant vers des fichiers `.json` qui n'existent plus dans le modèle canonique actuel.
+- `src/data/brassopedie/index.json`, index non utilisé, limité à 9 collections et pointant vers des fichiers `.json` qui n'existent plus dans le modèle canonique actuel ;
+- `src/data/cards.js`, jeu de trois cartes de prototype ;
+- `src/data/collections.js`, agrégateur eager devenu redondant avec `collection-catalog.js`.
 
 Ils sont supprimés. `.staging/` est désormais ignoré par Git.
 
@@ -184,11 +211,17 @@ Conséquences attendues :
 
 Le logo de 2,84 Mo sort du précache obligatoire. `beer-search-index.json` y entre afin de maintenir la résolution globale hors ligne.
 
-### 4.5 Nettoyage des résidus
+### 4.5 Un seul chemin de chargement des collections
+
+Le registre eager historique et son manager synchrone ont été supprimés. Les tests protègent désormais directement le comportement lazy et ne chargent plus les collections réelles pour vérifier le registre.
+
+### 4.6 Nettoyage des résidus
 
 - suppression de `.staging/fingerprints.txt` ;
 - ajout de `.staging/` au `.gitignore` ;
 - suppression de l'ancien `src/data/brassopedie/index.json` ;
+- suppression du prototype `src/data/cards.js` ;
+- suppression de l'agrégateur eager `src/data/collections.js` ;
 - mise à jour du README interne des données Brassopédie.
 
 ---
@@ -202,15 +235,15 @@ Cette PR ne modifie pas :
 - la future feature Réglages, réservée à l'étape 4 ;
 - la future feature Dégustation, réservée à l'étape 5 ;
 - le visuel ou le contenu binaire de `public/logo.png` ;
-- les candidats legacy encore insuffisamment prouvés comme morts.
+- les quelques sélecteurs CSS historiques dont le retrait doit être validé visuellement.
 
 ---
 
 ## 6. Suite recommandée du point 1
 
-1. **Valider la nouvelle CI** après génération de l'index et modification du précache.
-2. **Optimiser réellement les variantes d'icônes PWA/favicon** lorsque les assets binaires peuvent être retraités proprement.
-3. **Élaguer les candidats legacy** uniquement après vérification par tests et contrôle visuel.
+1. **Valider la CI** après suppression du chemin eager et génération de l'index.
+2. **Optimiser réellement les variantes d'icônes PWA/favicon** en conservant le visuel actuel.
+3. **Élaguer les sélecteurs CSS morts** avec contrôle visuel ciblé, sans toucher à `.card-slot`.
 4. **Extraire les contrôleurs de feature** au rythme des étapes Badges/Réglages/Dégustation afin que `app-runtime.js` cesse de grossir.
 
 ---
@@ -220,7 +253,7 @@ Cette PR ne modifie pas :
 La CI doit exécuter au minimum :
 
 - typecheck standard et strict ;
-- tests Node, y compris les garde-fous du resolver global ;
+- tests Node, y compris les garde-fous du resolver global et du manager lazy ;
 - contrôle d'inventaire des images ;
 - build Vite ;
 - génération de l'index de recherche ;
@@ -245,6 +278,6 @@ Contrôles manuels recommandés :
 
 Le dépôt n'est pas actuellement dans un état « spaghetti ». Le refactor récent a supprimé une grande partie des défauts structurels qui justifiaient l'audit du 8 août.
 
-Cette passe remet désormais les frontières de chargement en phase avec la croissance de la Brassopédie : les vues secondaires sont différées et la recherche globale n'importe plus le corpus encyclopédique par ricochet.
+Cette passe remet désormais les frontières de chargement en phase avec la croissance de la Brassopédie : les vues secondaires sont différées, la recherche globale n'importe plus le corpus encyclopédique par ricochet et l'ancien chemin eager des collections a disparu.
 
 Le risque principal devient donc organisationnel : les prochaines features ne doivent pas ajouter leurs détails directement dans `app-runtime.js`. Côté performance, la dette la plus visible restante est l'optimisation réelle des variantes d'icônes PWA/favicon.
