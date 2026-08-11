@@ -80,8 +80,21 @@ export function createGlobalBeerResolver(source, preferredCollectionId) {
       .map((entry) => entry?.collection?.id || entry?.id)
       .filter(Boolean)
   );
+  let searchIndexPromise = null;
 
   indexBundle(preferredAliases, preferredBundle);
+
+  const getSearchIndex = () => {
+    if (!searchIndexPromise) {
+      searchIndexPromise = Promise.resolve()
+        .then(() => loadSearchIndex())
+        .catch((error) => {
+          searchIndexPromise = null;
+          throw error;
+        });
+    }
+    return searchIndexPromise;
+  };
 
   return {
     async resolve(input) {
@@ -91,7 +104,7 @@ export function createGlobalBeerResolver(source, preferredCollectionId) {
       const preferredMatches = preferredAliases.get(key) || [];
       if (preferredMatches.length) return pickMatch(preferredMatches, preferredId);
 
-      const searchIndex = await loadSearchIndex();
+      const searchIndex = await getSearchIndex();
       const indexedMatches = Array.isArray(searchIndex?.aliases?.[key])
         ? searchIndex.aliases[key].filter((candidate) => allowedCollectionIds.has(candidate.collectionId))
         : [];
