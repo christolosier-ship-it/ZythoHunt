@@ -47,3 +47,9 @@ Thumbs.db
 # Replit
 .cache/
 .local/
+
+# Generated runtime indexes
+/public/beer-search-index.json
+
+# Temporary local audit / asset staging
+.staging/

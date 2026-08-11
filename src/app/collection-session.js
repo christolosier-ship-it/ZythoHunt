@@ -91,8 +91,7 @@ export async function mountCollectionSession({
   const resolver = createGlobalBeerResolver({
     preferredBundle: collectionSearchable ? bundle : null,
     preferredCollectionId: collectionSearchable ? collection.id : null,
-    collectionCatalog: searchableCatalog,
-    loadCollectionBundle
+    collectionCatalog: searchableCatalog
   });
 
   const discovery = createDiscoveryController({

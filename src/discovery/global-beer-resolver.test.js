@@ -50,3 +50,75 @@ test("handles aliases", () => {
   assert.equal(result.collectionId, "lagers");
   assert.equal(result.cardId, "pilsner");
 });
+
+test("runtime search resolves another collection from the lightweight index", async () => {
+  let indexLoads = 0;
+  let bundleLoads = 0;
+  const resolver = createGlobalBeerResolver({
+    preferredBundle: bundles[0],
+    preferredCollectionId: "porters-stouts",
+    collectionCatalog: bundles.map(({ collection }) => ({ collection })),
+    loadSearchIndex: async () => {
+      indexLoads += 1;
+      return {
+        schemaVersion: 1,
+        aliases: {
+          pilsner: [{ collectionId: "lagers", collectionName: "Lagers", cardId: "pilsner", cardName: "Pilsner" }]
+        }
+      };
+    },
+    loadCollectionBundle: async () => {
+      bundleLoads += 1;
+      throw new Error("Aucun bundle lourd ne doit être chargé par le resolver");
+    }
+  });
+
+  const result = await resolver.resolve("pilsner");
+  assert.equal(result.status, "matched");
+  assert.equal(result.collectionId, "lagers");
+  assert.equal(result.cardId, "pilsner");
+  assert.equal(indexLoads, 1);
+  assert.equal(bundleLoads, 0);
+});
+
+test("runtime unknown search does not load collection bundles and reuses the index", async () => {
+  let indexLoads = 0;
+  let bundleLoads = 0;
+  const resolver = createGlobalBeerResolver({
+    preferredBundle: bundles[0],
+    preferredCollectionId: "porters-stouts",
+    collectionCatalog: bundles.map(({ collection }) => ({ collection })),
+    loadSearchIndex: async () => {
+      indexLoads += 1;
+      return { schemaVersion: 1, aliases: {} };
+    },
+    loadCollectionBundle: async () => {
+      bundleLoads += 1;
+      throw new Error("Aucun bundle lourd ne doit être chargé par le resolver");
+    }
+  });
+
+  assert.deepEqual(await resolver.resolve("gose"), { status: "unknown" });
+  assert.deepEqual(await resolver.resolve("still unknown"), { status: "unknown" });
+  assert.equal(indexLoads, 1);
+  assert.equal(bundleLoads, 0);
+});
+
+test("runtime local match does not even request the global index", async () => {
+  let indexLoads = 0;
+  const resolver = createGlobalBeerResolver({
+    preferredBundle: bundles[0],
+    preferredCollectionId: "porters-stouts",
+    collectionCatalog: bundles.map(({ collection }) => ({ collection })),
+    loadSearchIndex: async () => {
+      indexLoads += 1;
+      return { schemaVersion: 1, aliases: {} };
+    }
+  });
+
+  const result = await resolver.resolve("dark ale");
+  assert.equal(result.status, "matched");
+  assert.equal(result.collectionId, "porters-stouts");
+  assert.equal(result.cardId, "stout");
+  assert.equal(indexLoads, 0);
+});

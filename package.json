@@ -4,9 +4,12 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "predev": "pnpm search-index:generate",
     "dev": "vite",
+    "prebuild": "pnpm search-index:generate",
     "build": "vite build && node scripts/prepare-service-worker.mjs",
     "preview": "vite preview",
+    "search-index:generate": "node scripts/generate-beer-search-index.mjs",
     "assets:thumbs": "python scripts/generate-thumbnails.py",
     "assets:thumbs:check": "python scripts/generate-thumbnails.py --check",
     "typecheck": "tsc --noEmit",

@@ -1,4 +1,4 @@
-const CACHE_VERSION = "zythohunt-v3";
+const CACHE_VERSION = "zythohunt-v4";
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
 const IMAGE_CACHE = `${CACHE_VERSION}-images`;
@@ -13,7 +13,7 @@ try {
 
 const PRECACHE_URLS = Array.isArray(self.__ZYTHOHUNT_PRECACHE)
   ? self.__ZYTHOHUNT_PRECACHE
-  : ["./", "./offline.html", "./manifest.webmanifest", "./logo.png"];
+  : ["./", "./offline.html", "./manifest.webmanifest", "./beer-search-index.json"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil((async () => {
@@ -93,7 +93,7 @@ async function staleWhileRevalidateImage(request) {
 
 async function staleWhileRevalidateRuntime(request) {
   const cache = await caches.open(RUNTIME_CACHE);
-  const cached = await cache.match(request);
+  const cached = await cachedResponse(request);
   const update = fetch(request).then(async (response) => {
     if (response.ok) await cache.put(request, response.clone());
     return response;
@@ -124,7 +124,7 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  if (["font", "manifest"].includes(request.destination)) {
+  if (["font", "manifest"].includes(request.destination) || url.pathname.endsWith("/beer-search-index.json")) {
     event.respondWith(staleWhileRevalidateRuntime(request));
   }
 });

@@ -10,7 +10,7 @@ const urls = new Set([
   "./",
   "./offline.html",
   "./manifest.webmanifest",
-  "./logo.png"
+  "./beer-search-index.json"
 ]);
 
 for (const match of html.matchAll(/(?:src|href)=["']([^"']+)["']/g)) {
