@@ -1,5 +1,7 @@
 import { normalizeBeerName } from "./normalize-text.js";
 
+let sharedSearchIndexPromise = null;
+
 function indexBundle(aliases, bundle) {
   bundle?.revealableCards?.forEach((card) => {
     [card.name, ...(card.aliases || [])].forEach((alias) => {
@@ -22,9 +24,38 @@ function pickMatch(matches, preferredCollectionId) {
   return { status: "matched", ...match, matches };
 }
 
+function getSearchIndexUrl() {
+  if (typeof document !== "undefined" && document.baseURI) {
+    return new URL("beer-search-index.json", document.baseURI).href;
+  }
+  return "beer-search-index.json";
+}
+
+async function loadDefaultSearchIndex() {
+  if (!sharedSearchIndexPromise) {
+    sharedSearchIndexPromise = fetch(getSearchIndexUrl(), { cache: "force-cache" })
+      .then((response) => {
+        if (!response.ok) throw new Error(`Index de recherche indisponible (${response.status})`);
+        return response.json();
+      })
+      .then((payload) => {
+        if (!payload || payload.schemaVersion !== 1 || typeof payload.aliases !== "object") {
+          throw new Error("Index de recherche invalide");
+        }
+        return payload;
+      })
+      .catch((error) => {
+        sharedSearchIndexPromise = null;
+        throw error;
+      });
+  }
+  return sharedSearchIndexPromise;
+}
+
 /**
  * Compatibilité tests/outils : avec un tableau de bundles complets, le résolveur
- * reste synchrone. Au runtime, passer l'objet de configuration paresseux.
+ * reste synchrone. Au runtime, il consulte l'index léger généré au build et ne
+ * charge plus les bundles complets pour chercher une correspondance.
  */
 export function createGlobalBeerResolver(source, preferredCollectionId) {
   if (Array.isArray(source)) {
@@ -40,41 +71,32 @@ export function createGlobalBeerResolver(source, preferredCollectionId) {
   const {
     preferredBundle,
     collectionCatalog = [],
-    loadCollectionBundle
+    loadSearchIndex = loadDefaultSearchIndex
   } = source || {};
   const preferredId = source?.preferredCollectionId || preferredCollectionId || preferredBundle?.collection?.id;
-  const aliases = new Map();
-  const indexedCollections = new Set();
+  const preferredAliases = new Map();
+  const allowedCollectionIds = new Set(
+    collectionCatalog
+      .map((entry) => entry?.collection?.id || entry?.id)
+      .filter(Boolean)
+  );
 
-  function ensureIndexed(bundle) {
-    const id = bundle?.collection?.id;
-    if (!id || indexedCollections.has(id)) return;
-    indexBundle(aliases, bundle);
-    indexedCollections.add(id);
-  }
-
-  ensureIndexed(preferredBundle);
+  indexBundle(preferredAliases, preferredBundle);
 
   return {
     async resolve(input) {
       const key = normalizeBeerName(input);
       if (!key) return { status: "unknown" };
 
-      let matches = aliases.get(key) || [];
-      if (matches.some((candidate) => candidate.collectionId === preferredId)) {
-        return pickMatch(matches, preferredId);
-      }
+      const preferredMatches = preferredAliases.get(key) || [];
+      if (preferredMatches.length) return pickMatch(preferredMatches, preferredId);
 
-      for (const entry of collectionCatalog) {
-        const collectionId = entry?.collection?.id || entry?.id;
-        if (!collectionId || indexedCollections.has(collectionId)) continue;
-        const bundle = await loadCollectionBundle(collectionId);
-        ensureIndexed(bundle);
-        matches = aliases.get(key) || [];
-        if (matches.length) return pickMatch(matches, preferredId);
-      }
+      const searchIndex = await loadSearchIndex();
+      const indexedMatches = Array.isArray(searchIndex?.aliases?.[key])
+        ? searchIndex.aliases[key].filter((candidate) => allowedCollectionIds.has(candidate.collectionId))
+        : [];
 
-      return pickMatch(aliases.get(key) || [], preferredId);
+      return pickMatch(indexedMatches, preferredId);
     }
   };
 }
