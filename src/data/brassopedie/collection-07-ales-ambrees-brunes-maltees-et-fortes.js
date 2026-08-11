@@ -46,7 +46,7 @@ const collection = {
       },
       "fermentation": {
         "type": "haute",
-        "details": "Fermentation haute, avec une expression de levure et une température adaptées au style."
+        "details": "Levures de fermentation haute, généralement plus chaudes que les lagers ; esters, atténuation et récolte de levure varient selon les branches."
       },
       "service": {
         "temperatureMin": null,
@@ -179,7 +179,7 @@ Les arômes fruités souvent associés aux ales proviennent notamment d'esters s
       },
       "fermentation": {
         "type": "haute",
-        "details": "Fermentation haute, avec une expression de levure et une température adaptées au style."
+        "details": "Levure ale britannique et cycle rapide ; la faible densité moderne réclame une atténuation franche plutôt qu’une fermentation arrêtée."
       },
       "service": {
         "temperatureMin": null,
@@ -324,7 +324,7 @@ Cette continuité explique mieux le style que le seul taux d'alcool. La Mild dem
       },
       "fermentation": {
         "type": "haute",
-        "details": "Fermentation haute, avec une expression de levure et une température adaptées au style."
+        "details": "Fermentation ale dont les esters changent avec la branche régionale, assez retenus pour laisser parler noix, céréale et malt brun."
       },
       "service": {
         "temperatureMin": null,
@@ -339,7 +339,7 @@ Cette continuité explique mieux le style que le seul taux d'alcool. La Mild dem
 
 La famille contemporaine se consolide surtout au XXe siècle autour de produits en bouteille. À Londres, Mann's lance en 1902 une Brown Ale douce et de faible densité, branche qui deviendra un sous-style à part. Dans le nord-est, Newcastle Brown Ale apparaît en 1927 et donne une visibilité internationale à une expression plus forte, plus sèche et plus fruitée. D'autres brasseries utilisent le nom avec leurs propres équilibres : le singulier « English Brown Ale » masque donc déjà une carte régionale.
 
-Les brasseurs artisanaux américains rouvrent le dossier dans les années 1980. Ils conservent la profondeur de couleur et les accents de noix ou de chocolat, mais augmentent volontiers amertume et arômes de houblons américains. Pete's Wicked Ale, lancée en 1986, contribuera à rendre cette Brown Ale américaine visible bien au-delà des brewpubs.
+Les brasseurs artisanaux américains rouvrent le dossier dans les années 1980. Ils conservent la profondeur de couleur et les accents de noix ou de chocolat, mais augmentent volontiers amertume et arômes de houblons américains. À partir de 1986, la diffusion nationale de Pete's Wicked Ale rend cette branche visible bien au-delà des brewpubs.
 
 La classification moderne réunit ces branches pour aider à la lecture sensorielle. Elle ne leur fabrique pas un ancêtre commun. Le parent Brown Ale porte cette constellation ; London Brown, British Brown et American Brown racontent ensuite pourquoi une ville, un conditionnement ou une révolution craft a déplacé l'équilibre.`,
       "chapitres": [
@@ -458,7 +458,7 @@ Cette distinction protège aussi le Porter et la Dark Mild. Ils peuvent partager
       },
       "fermentation": {
         "type": "haute",
-        "details": "Fermentation haute, avec une expression de levure et une température adaptées au style."
+        "details": "Fermentation ale moderne, nette à modérément fruitée selon la tradition revendiquée ; la couleur n’impose aucune souche unique."
       },
       "service": {
         "temperatureMin": null,
@@ -560,7 +560,7 @@ Le succès commercial a ensuite internationalisé le mot. « Amber Ale » peut d
       },
       "fermentation": {
         "type": "haute",
-        "details": "Fermentation haute, avec une expression de levure et une température adaptées au style."
+        "details": "Fermentation propre à légèrement fruitée ; l’atténuation empêche malts colorants et crystal de finir en sirop rouge."
       },
       "service": {
         "temperatureMin": null,
@@ -577,7 +577,7 @@ En Irlande, l'histoire brassicole de Kilkenny et de Smithwick's est ancienne, ma
 
 Aux États-Unis, red fonctionne d'abord comme voisin ou synonyme d'amber dans le mouvement craft. Les houblons américains déplacent ensuite certaines versions vers Red IPA, Double Red ou Imperial Red. Ce sont des bifurcations de recette et de marché, non les degrés d'une ancienne échelle irlandaise.
 
-La famille réunit ainsi trois histoires : une identité irlandaise codifiée tardivement, une ale craft américaine d'équilibre et des variantes modernes d'intensification. Sa mémoire-cible est le nuancier lui-même : le rouge indique où regarder, jamais tout ce qu'il faut comprendre.`,
+La famille réunit ainsi trois histoires : une identité irlandaise codifiée tardivement, une ale craft américaine d'équilibre et des variantes modernes d'intensification. L'image à retenir est le nuancier lui-même : le rouge indique où regarder, jamais tout ce qu'il faut comprendre.`,
       "chapitres": [
         {
           "titre": "Rougir une bière sans la brûler",
@@ -702,7 +702,7 @@ Les pigments et produits de cuisson formés pendant le maltage ne sont pas une m
       },
       "fermentation": {
         "type": "haute",
-        "details": "Fermentation haute, avec une expression de levure et une température adaptées au style."
+        "details": "Fermentation ale à haute densité : ensemencement, oxygène, nutriments et température conditionnent l’atténuation et limitent les alcools solvants."
       },
       "service": {
         "temperatureMin": null,
@@ -715,7 +715,7 @@ Les pigments et produits de cuisson formés pendant le maltage ne sont pas une m
       "description": "Strong Ale est la grande salle des ales fortes : Old Ale vieillie, Wee Heavy écossaise, Barley Wine de garde ou création américaine trop maltée pour l’IPA et trop vive pour le fauteuil club. L’alcool augmente la chaleur et le défi fermentaire ; il n’autorise ni le sirop ni le dissolvant. Ici, « strong » mesure une contrainte avant de raconter une filiation.",
       "histoireEtOrigines": `Pendant des siècles, strong n'a pas eu besoin de majuscule : c'était un adjectif utile pour distinguer, dans la gamme d'une brasserie, les moûts les plus denses et les bières les plus chères. Les marques X, XX ou XXX, les prix par baril et les noms Stock, Old, Burton ou October Ale ont chacun classé la force selon leur époque. Aucune administration n'a remis un acte de naissance à « la Strong Ale ».
 
-La puissance avait pourtant des conséquences concrètes. Plus de malt mobilisait davantage de capital ; une fermentation à haute densité réclamait une levure saine ; une garde longue immobilisait fûts et espace. En échange, l'alcool et le houblon permettaient de construire des bières de saison, de prestige ou de conservation. La Grande-Bretagne a produit plusieurs lignées de ce monde, parmi lesquelles Old Ale, Burton Ale, Scotch Ale et Barley Wine se recouvrent parfois sans devenir synonymes.
+La puissance avait pourtant des conséquences concrètes. Plus de malt mobilisait davantage de capital ; une fermentation à haute densité réclamait une levure saine ; une garde longue immobilisait fûts et espace. En échange, l'alcool et le houblon permettaient de construire des bières de saison, de prestige ou de conservation. La Grande-Bretagne a produit plusieurs lignées de ce monde, parmi lesquelles Old Ale, Burton Ale, Scotch Ale et Barley Wine se recouvrent parfois tout en gardant des trajectoires distinctes.
 
 À la fin du XXe siècle, le mouvement craft américain transforme aussi strong en zone de classement. Des bières intensément maltées et houblonnées se logent entre Double IPA, Red IPA et American Barleywine. Le BJCP nomme explicitement American Strong Ale ce regroupement de profil plutôt qu'un style historique ; la Brewers Association distribue ces produits entre plusieurs catégories de concours.
 
@@ -840,7 +840,7 @@ La richesse finale ne dépend donc pas seulement de la quantité de malt. Fermen
       },
       "fermentation": {
         "type": "haute",
-        "details": "Fermentation haute, avec une expression de levure et une température adaptées au style."
+        "details": "Moût très dense confié à une levure ale abondante ; chaleur et nutrition sont maîtrisées avant une maturation qui polit alcool et esters."
       },
       "service": {
         "temperatureMin": null,
@@ -998,7 +998,7 @@ Une Barley Wine conçue pour la cave, correctement conditionnée et gardée au f
       },
       "fermentation": {
         "type": "haute",
-        "details": "Fermentation haute, avec une expression de levure et une température adaptées au style."
+        "details": "Levure britannique rapide et légèrement fruitée ; le grist pâle expose immédiatement diacétyle excessif, soufre ou sous-atténuation."
       },
       "service": {
         "temperatureMin": 9,
@@ -1106,7 +1106,7 @@ Aujourd'hui, sa différence tient moins à la teinte qu'à l'usage du houblon. �
       },
       "fermentation": {
         "type": "haute",
-        "details": "Fermentation haute, avec une expression de levure et une température adaptées au style."
+        "details": "Levure britannique conduite à température modérée ; le corps vient du grist et de l’empâtage, non d’une fermentation abandonnée."
       },
       "service": {
         "temperatureMin": 10,
@@ -1224,7 +1224,7 @@ La Dark Mild devient l'une des grandes bières de débit du milieu du XXe siècl
       },
       "fermentation": {
         "type": "haute",
-        "details": "Fermentation haute, avec une expression de levure et une température adaptées au style."
+        "details": "Fermentation anglaise modérément fruitée et correctement atténuée, où la levure complète noisette et caramel sans les sucrer."
       },
       "service": {
         "temperatureMin": 10,
@@ -1340,7 +1340,7 @@ L'embouteillage compte autant que la latitude. Une marque comme Newcastle voyage
       },
       "fermentation": {
         "type": "haute",
-        "details": "Fermentation haute, avec une expression de levure et une température adaptées au style."
+        "details": "Levure anglaise conservant corps et esters mesurés ; une atténuation plus ronde sert le profil doux de la Brown londonienne embouteillée."
       },
       "service": {
         "temperatureMin": 10,
@@ -1458,7 +1458,7 @@ Mann's atteint une grande diffusion au milieu du siècle, puis le style décline
       },
       "fermentation": {
         "type": "haute",
-        "details": "Fermentation haute, avec une expression de levure et une température adaptées au style."
+        "details": "Fermentation nette aux esters discrets, afin que le jeu entre malt roux, légère torréfaction et finale sèche reste lisible."
       },
       "service": {
         "temperatureMin": 8,
@@ -1584,7 +1584,7 @@ Cette touche n'est ni obligatoire dans toute ale irlandaise ni la preuve d'une r
       },
       "fermentation": {
         "type": "haute",
-        "details": "Fermentation haute, avec une expression de levure et une température adaptées au style."
+        "details": "Fermentation ale primaire puis maturation de stock ; Brettanomyces, acidité et bois sont des possibilités documentées, jamais des automatismes."
       },
       "service": {
         "temperatureMin": 10,
@@ -1720,7 +1720,7 @@ Une Old Ale moderne proprement fermentée avec Saccharomyces reste parfaitement 
       },
       "fermentation": {
         "type": "haute",
-        "details": "Fermentation haute, avec une expression de levure et une température adaptées au style."
+        "details": "Levure anglaise sur moût très dense, esters fruités admis ; la chaleur est contenue avant une garde assez longue pour fondre l’alcool."
       },
       "service": {
         "temperatureMin": 11,
@@ -1856,7 +1856,7 @@ Ce cas historique ne prescrit pas douze heures à toute Barley Wine moderne. Il 
       },
       "fermentation": {
         "type": "haute",
-        "details": "Fermentation haute, avec une expression de levure et une température adaptées au style."
+        "details": "Fermentation ale écossaise fraîche et propre ; à faible densité, ensemencement et atténuation précis évitent à la fois maigreur et lourdeur."
       },
       "service": {
         "temperatureMin": 9,
@@ -1982,7 +1982,7 @@ Lire 60/- comme « recette à 3 % » pour toutes les époques reviendrait à uti
       },
       "fermentation": {
         "type": "haute",
-        "details": "Fermentation haute, avec une expression de levure et une température adaptées au style."
+        "details": "Levure ale conduite plutôt fraîche, avec esters retenus et atténuation modérée pour conserver une rondeur maltée sans sucre pâteux."
       },
       "service": {
         "temperatureMin": 9,
@@ -1998,7 +1998,7 @@ Lire 60/- comme « recette à 3 % » pour toutes les époques reviendrait à uti
 
 La Heavy moderne se consolide comme ale de session légèrement plus pleine que la 60/-. Son identité tient à un équilibre bas : malt pale, couleur cuivrée à brune obtenue par de petites additions, fermentation propre et houblon sans démonstration. Elle n'est pas une Wee Heavy miniature, car la forte Scotch Ale descend d'autres produits et d'autres occasions de service.
 
-Cette position médiane constitue précisément sa mémoire-cible. La 70/- ne raconte ni exportation ni prestige : elle raconte le vocabulaire vivant d'un marché qui a transformé une ancienne classe de prix en commande de pub, puis une commande de pub en style de concours. Sa modestie n'est pas un manque de documentation ; c'est la fonction même du produit, conçu pour revenir au comptoir sans cérémonie.`,
+Cette position médiane résume précisément la 70/-. Elle ne raconte ni exportation ni prestige : elle raconte le vocabulaire vivant d'un marché qui a transformé une ancienne classe de prix en commande de pub, puis une commande de pub en style de concours. Sa modestie n'est pas un manque de documentation ; c'est la fonction même du produit, conçu pour revenir au comptoir sans cérémonie.`,
       "recette": {
         "profilUnique": true,
         "explicationProfil": "",
@@ -2092,7 +2092,7 @@ Cette position médiane constitue précisément sa mémoire-cible. La 70/- ne ra
       },
       "fermentation": {
         "type": "haute",
-        "details": "Fermentation haute, avec une expression de levure et une température adaptées au style."
+        "details": "Fermentation ale fraîche et propre ; la densité supérieure exige davantage de levure tout en gardant le malt au premier plan."
       },
       "service": {
         "temperatureMin": 9,
@@ -2215,7 +2215,7 @@ Dans le verre, la densité supplémentaire permet davantage de malt et une amert
       },
       "fermentation": {
         "type": "haute",
-        "details": "Fermentation haute, avec une expression de levure et une température adaptées au style."
+        "details": "Moût dense fermenté plutôt frais avec un ensemencement généreux, puis longue garde pour intégrer alcool, fruit et profondeur maltée."
       },
       "service": {
         "temperatureMin": 10,
@@ -2367,7 +2367,7 @@ Une impression fumée légère peut venir d'un ingrédient moderne ou être évo
       },
       "fermentation": {
         "type": "haute",
-        "details": "Fermentation haute, avec une expression de levure et une température adaptées au style."
+        "details": "Base de forte ale fermentée proprement ; les phénols de tourbe rendent tout alcool solvant ou ester excessif particulièrement discordant."
       },
       "service": {
         "temperatureMin": 10,
@@ -2413,7 +2413,7 @@ Un pourcentage de recette copié sans connaître la spécification du lot est do
         "empatage": "Base fermentescible et dose de malt tourbé calculée à partir de sa spécification en phénols, non d'un pourcentage universel.",
         "ebullitionEtHoublonnage": "Houblon discret ; l'ébullition élimine une partie des phénols volatils, ce qui doit être intégré aux essais plutôt que compensé aveuglément.",
         "fermentation": "Souche propre et température tenue afin de ne pas empiler phénols fermentaires et fumée de tourbe.",
-        "maturation": "Semaines ou mois pour intégrer alcool et fumée ; la garde arrondit parfois, elle n'efface pas un surdosage.",
+        "maturation": "La garde peut fondre alcool et fumée sur plusieurs semaines ou mois ; elle n'efface jamais un surdosage de tourbe.",
         "profilRecherche": "Une forte ale maltée où terre, fumée et phénols restent une couche volontaire et lisible, clairement moderne."
       },
       "sources": [
@@ -2498,7 +2498,7 @@ Un pourcentage de recette copié sans connaître la spécification du lot est do
       },
       "fermentation": {
         "type": "haute",
-        "details": "Fermentation haute, avec une expression de levure et une température adaptées au style."
+        "details": "Levure américaine neutre à légèrement fruitée ; l’atténuation maintient la tension entre crystal, agrumes et résine."
       },
       "service": {
         "temperatureMin": 7,
@@ -2616,7 +2616,7 @@ Son importance vient de cette visibilité. Un nom, une couleur et un lieu renden
       },
       "fermentation": {
         "type": "haute",
-        "details": "Fermentation haute, avec une expression de levure et une température adaptées au style."
+        "details": "Fermentation américaine propre aux esters modestes, assez atténuante pour empêcher chocolat et caramel d’étouffer le houblon."
       },
       "service": {
         "temperatureMin": 9,
@@ -2734,7 +2734,7 @@ Lorsque la marque décline, la catégorie ne s'effondre pas avec elle. Recettes,
       },
       "fermentation": {
         "type": "haute",
-        "details": "Fermentation haute, avec une expression de levure et une température adaptées au style."
+        "details": "Levure américaine neutre : sa netteté sépare la couleur des malts sombres de leur torréfaction et laisse avancer le houblon."
       },
       "service": {
         "temperatureMin": 8,
@@ -2860,7 +2860,7 @@ La chronologie la plus honnête garde ces niveaux séparés. Noonan précède la
       },
       "fermentation": {
         "type": "haute",
-        "details": "Fermentation haute, avec une expression de levure et une température adaptées au style."
+        "details": "Fermentation américaine bien atténuante ; oxygène et température sont maîtrisés avant le houblonnage massif de cette red ale renforcée."
       },
       "service": {
         "temperatureMin": 8,
@@ -2976,7 +2976,7 @@ La frontière avec Red IPA ou American Strong Ale dépend du cadre et de l'équi
       },
       "fermentation": {
         "type": "haute",
-        "details": "Fermentation haute, avec une expression de levure et une température adaptées au style."
+        "details": "Levure américaine propre et tolérante à l’alcool, avec fort ensemencement et chaleur contenue avant les ajouts aromatiques tardifs."
       },
       "service": {
         "temperatureMin": 9,
@@ -3002,7 +3002,7 @@ Ce partage ne prétend pas résoudre tous les concours. Il offre une mémoire si
           "Base pale importante ; crystal/caramel pour couleur et richesse ; malts toastés éventuels."
         ],
         "houblons": [
-          "Houblons américains/New World de modérés à très élevés selon équilibre visé."
+          "Variétés américaines modernes, d’une présence moyenne à une charge aromatique très élevée selon l’équilibre visé."
         ],
         "levuresEtMicroorganismes": [
           "Levure ale américaine robuste et neutre."
@@ -3086,7 +3086,7 @@ Ce partage ne prétend pas résoudre tous les concours. Il offre une mémoire si
       },
       "fermentation": {
         "type": "haute",
-        "details": "Fermentation haute, avec une expression de levure et une température adaptées au style."
+        "details": "Souche ale choisie pour sa tolérance alcoolique et ses esters mesurés ; la température évite de transformer la force en brûlure."
       },
       "service": {
         "temperatureMin": 10,
@@ -3123,7 +3123,7 @@ Cette distinction protège le récit historique : le concours donne un nom à un
           "Houblons américains/New World à intensité moyenne à forte."
         ],
         "levuresEtMicroorganismes": [
-          "Levure ale américaine neutre ou légèrement fruitée, bonne tolérance alcoolique."
+          "Souche américaine discrète, sobre en esters et suffisamment tolérante à l’alcool."
         ],
         "ingredientsComplementaires": [],
         "profilEau": "Sulfate/chlorure réglé pour l'orientation choisie ; calcium et nutriments soutiennent la forte fermentation.",
@@ -3206,7 +3206,7 @@ Cette distinction protège le récit historique : le concours donne un nom à un
       },
       "fermentation": {
         "type": "haute",
-        "details": "Fermentation haute, avec une expression de levure et une température adaptées au style."
+        "details": "Très haute densité : levure abondante, oxygène, nutriments et température par paliers précèdent une maturation prolongée."
       },
       "service": {
         "temperatureMin": 11,
@@ -3249,7 +3249,7 @@ Le style moderne vient moins d'une invention instantanée que de cette successio
         "profilEau": "Calcium suffisant et sulfate souvent plus élevé que dans la branche britannique, sans rendre une amertume déjà massive râpeuse.",
         "empatage": "Empâtage fermentescible et gestion attentive du rendement ; la densité vient surtout du malt de base.",
         "ebullitionEtHoublonnage": "Ébullition longue possible, forte amertume, ajouts tardifs et parfois dry hop. Le programme doit anticiper ce qui restera après quelques mois.",
-        "fermentation": "Grand ensemencement, oxygénation adaptée, nutriments et température rigoureuse pour traverser pression osmotique puis alcool.",
+        "fermentation": "Une population levurienne abondante, bien oxygénée et nourrie, traverse successivement pression osmotique et montée de l’alcool sous contrôle thermique.",
         "maturation": "Mois avant intégration ; cave pluriannuelle possible avec perte des houblons frais et risque oxydatif croissant.",
         "profilRecherche": "Une Barleywine américaine dense mais atténuée, où le houblon structure la jeunesse et le malt demeure lorsque cette jeunesse se retire."
       },
