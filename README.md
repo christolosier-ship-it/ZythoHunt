@@ -5,10 +5,10 @@
 
 **Explorez, révélez et collectionnez les styles de bières dans une Brassopédie interactive.**
 
-[![Version](https://img.shields.io/badge/version-1.0.0-c68b3c?style=flat-square)](./package.json)
+[![Version](https://img.shields.io/badge/version-0.2.0-c68b3c?style=flat-square)](./package.json)
 [![Node.js](https://img.shields.io/badge/Node.js-24.x-43853d?style=flat-square&logo=node.js&logoColor=white)](./package.json)
 [![Vite](https://img.shields.io/badge/Vite-7.3-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vite.dev/)
-[![Tests](https://img.shields.io/badge/tests-Node.js-3c873a?style=flat-square)](#qualité-et-vérifications)
+[![Tests](https://img.shields.io/badge/tests-Node.js%20%2B%20Playwright-3c873a?style=flat-square)](#qualité-et-vérifications)
 [![PWA](https://img.shields.io/badge/PWA-installable-8b4513?style=flat-square)](./public/manifest.webmanifest)
 
 [Présentation](#présentation) · [Fonctionnalités](#fonctionnalités) · [Démarrage](#démarrage-rapide) · [Architecture](#architecture)
@@ -27,12 +27,13 @@ L’expérience repose sur une direction artistique sombre et brassicole, des ca
 ## Fonctionnalités
 
 - Recherche et révélation d’un style de bière à partir de son nom ou de ses alias.
-- Navigation entre **neuf collections thématiques**.
+- Navigation entre **neuf collections classiques et une dixième collection secrète**.
 - Carrousel interactif animé avec GSAP et interactions tactiles.
 - Séquence de révélation cinématique avec ajout automatique à la collection.
 - Brassopédie permettant de consulter les cartes découvertes et leurs fiches détaillées.
 - Progression indépendante pour chaque collection.
 - Détection des styles appartenant à une autre collection et bascule automatique.
+- Déverrouillage de la collection secrète **Bizarre et insolite** à partir de 50 % de progression sur les collections classiques.
 - Système de badges fondé sur les découvertes et les habitudes de révélation.
 - Fond de bière animé adapté à l’identité de chaque collection.
 - Persistance locale de la progression, des badges et de la collection active.
@@ -55,8 +56,9 @@ ZythoHunt regroupe actuellement les familles suivantes :
 - Ales ambrées, brunes, maltées et fortes
 - Styles singuliers, historiques et hybrides
 - Appellations commerciales
+- Bizarre et insolite, collection secrète
 
-Chaque collection possède ses propres cartes, alias de recherche, progression, identité visuelle et réglages d’ambiance.
+Chaque collection possède ses propres cartes, alias de recherche, progression, identité visuelle et réglages d’ambiance. Les neuf collections classiques totalisent 251 cartes et la collection secrète en ajoute 42.
 
 ## Démarrage rapide
 
@@ -91,7 +93,7 @@ pnpm preview
 4. Retrouvez la carte découverte dans le carrousel et la Brassopédie.
 5. Consultez l’onglet **Badge** pour suivre les exploits débloqués.
 
-Les variantes orthographiques et noms alternatifs peuvent être reconnus grâce aux alias définis dans les données de chaque carte.
+Les variantes orthographiques et noms alternatifs peuvent être reconnus grâce aux alias définis dans les données de chaque carte. La recherche inter-collections s’appuie sur un index léger généré automatiquement afin d’éviter de charger inutilement les contenus encyclopédiques des autres collections.
 
 ## Installation PWA et mode hors ligne
 
@@ -100,10 +102,11 @@ L’application fournit un manifest et un service worker. Une fois déployée su
 Le service worker utilise :
 
 - une stratégie **network first** pour les pages, scripts et feuilles de style ;
-- une stratégie **stale while revalidate** pour les images, polices et le manifest.
+- une stratégie **stale while revalidate** avec cache borné pour les images ;
+- une stratégie **stale while revalidate** pour les polices, le manifest et l’index léger de recherche inter-collections.
 
 > [!WARNING]
-> Le cache se remplit au fil de l’utilisation. Les cartes et ressources qui n’ont jamais été chargées peuvent rester indisponibles hors connexion. Les polices Google externes ne sont pas gérées par le cache applicatif ; des polices de secours sont alors utilisées.
+> Le shell PWA et l’index de recherche sont précachés, mais les bundles de collections et les images se chargent progressivement. Une ressource de collection qui n’a jamais été chargée peut donc rester indisponible hors connexion.
 
 ## Données et confidentialité
 
@@ -127,6 +130,7 @@ ZythoHunt/
 │   ├── logo.png                   # Logo et icône principale
 │   ├── manifest.webmanifest       # Métadonnées PWA
 │   └── sw.js                      # Cache et mises à jour hors ligne
+├── scripts/                       # Génération des miniatures, index et préparation PWA
 ├── src/
 │   ├── animation/                 # Timelines et effets de révélation
 │   ├── app/                       # Navigation, session et état applicatif
@@ -135,23 +139,28 @@ ZythoHunt/
 │   ├── brassopedie/               # Bibliothèque et consultation des cartes
 │   ├── carousel/                  # Navigation et interactions du carrousel
 │   ├── components/                # Construction des éléments d’interface
-│   ├── data/                      # Collections, cartes et métadonnées
+│   ├── data/                      # Catalogue lazy, bundles, Brassopédie et assets de cartes
 │   ├── discovery/                 # Résolution des styles et progression
 │   ├── pwa/                       # Enregistrement du service worker
 │   ├── reveal/                    # Orchestration des révélations
-│   ├── utils/                     # Géométrie et résolution des assets
+│   ├── storage/                   # Primitives communes de persistance locale
+│   ├── utils/                     # Géométrie, préchargement et résolution des assets
 │   └── main.js                    # Point d’entrée et composition globale
 ├── index.html                     # Structure principale de l’application
 ├── package.json                   # Scripts et dépendances
 └── vite.config.js                 # Configuration Vite et GitHub Pages
 ```
 
+Le catalogue léger `src/data/collection-catalog.js` est chargé au démarrage. Les bundles complets des collections restent derrière des `import()` dynamiques et ne sont chargés qu’à la demande. Les vues Badges et bibliothèque Brassopédie chargent également leur JavaScript et leur CSS à leur première ouverture.
+
 Le flux principal suit cette chaîne :
 
 ```text
 Saisie du style
       ↓
-Résolution du nom et des alias
+Résolution du nom et des alias dans la collection active
+      ↓
+Consultation de l’index léger si une recherche inter-collections est nécessaire
       ↓
 Vérification de la collection et de la progression
       ↓
@@ -170,13 +179,15 @@ Archivage local, mise à jour de la Brassopédie et évaluation des badges
 | GSAP | Carrousel, transitions et séquences de révélation |
 | Vite | Serveur de développement et build de production |
 | TypeScript | Vérification statique du JavaScript via `checkJs` |
-| Node Test Runner | Tests automatisés sans framework supplémentaire |
-| Local Storage | Progression, badges et préférences locales |
+| Node Test Runner | Tests unitaires automatisés sans framework supplémentaire |
+| Playwright + axe-core | Tests end-to-end et contrôles d’accessibilité |
+| @fontsource | Polices embarquées localement |
+| Local Storage | Progression, badges, statistiques et préférences locales |
 | Service Worker et Cache API | Installation PWA et cache progressif |
 
 ## Qualité et vérifications
 
-La commande principale exécute le typecheck, les tests puis le build de production :
+La commande principale exécute les deux niveaux de typecheck, les tests unitaires puis le build de production :
 
 ```bash
 pnpm check
@@ -186,7 +197,10 @@ Les commandes peuvent également être lancées séparément :
 
 ```bash
 pnpm typecheck
+pnpm typecheck:strict
 pnpm test
+pnpm test:e2e
+pnpm assets:thumbs:check
 pnpm build
 ```
 
@@ -197,14 +211,14 @@ pnpm build
 
 Une collection est généralement composée de :
 
-1. données Brassopédie au format JSON ;
-2. module JavaScript décrivant la collection et ses cartes ;
-3. mapping des images et miniatures ;
-4. clé de progression locale unique ;
-5. preset d’arrière-plan ;
-6. ajout du bundle dans `src/data/collections.js`.
+1. un fichier canonique Brassopédie dans `src/data/brassopedie/collection-XX-*.js` ;
+2. un mapping des images et miniatures dans `src/data/card-assets/` ;
+3. un module `*-collection.js` composant les données et les assets dans un bundle ;
+4. une entrée de métadonnées et de chargement dynamique dans `src/data/collection-catalog.js` ;
+5. une clé de progression locale unique ;
+6. un preset d’arrière-plan.
 
-Chaque carte expose notamment un identifiant stable, un nom, des alias, une description, ses images et ses données Brassopédie.
+Chaque carte expose notamment un identifiant stable, un nom, des alias, une description, ses images et ses données Brassopédie. L’index léger de recherche inter-collections est régénéré automatiquement avant `dev` et `build`.
 
 ## Déploiement sur GitHub Pages
 
