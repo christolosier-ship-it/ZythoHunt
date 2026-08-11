@@ -14,12 +14,10 @@ import {
   getSecretCollectionState,
   resolveCollectionDisplayName
 } from "../data/secret-collection-rules.js";
-import { createBrassopedieLibraryView } from "../brassopedie/brassopedie-library-view.js";
 import { BADGE_DEFINITIONS } from "../badges/badge-definitions.js";
 import { createBadgeStore } from "../badges/badge-storage.js";
 import { createRevealStatsStore } from "../badges/badge-stats-storage.js";
 import { createBadgeEngine } from "../badges/badge-engine.js";
-import { createBadgesView } from "../badges/badges-view.js";
 import { notifyBadgesUnlocked, showBadgeToast } from "../badges/badge-notifications.js";
 import { mountBackground, applyCollectionBackground, createBackgroundTransition } from "../background/background-runtime.js";
 
@@ -147,13 +145,35 @@ export async function bootApp(navigation) {
   const revealStatsStore = createRevealStatsStore({ onPersistenceError: reportPersistenceError });
   const badgeEngine = createBadgeEngine({ badgeStore, discoveryRegistry, revealStatsStore, collectionCatalog });
 
-  let badgesView = createBadgesView({
-    root: $("badges-view"),
-    badgeStore,
-    badgeEngine,
-    definitions: BADGE_DEFINITIONS
-  });
-  badgesView.mount();
+  let badgesView = null;
+  let badgesViewPromise = null;
+
+  async function ensureBadgesView() {
+    if (badgesView) return badgesView;
+    const root = $("badges-view");
+    if (!root) return null;
+
+    if (!badgesViewPromise) {
+      badgesViewPromise = Promise.all([
+        import("../badges/badges-view.js"),
+        import("../badges/badges.css")
+      ]).then(([{ createBadgesView }]) => {
+        badgesView = createBadgesView({
+          root,
+          badgeStore,
+          badgeEngine,
+          definitions: BADGE_DEFINITIONS
+        });
+        badgesView.mount();
+        return badgesView;
+      }).catch((error) => {
+        badgesViewPromise = null;
+        throw error;
+      });
+    }
+
+    return badgesViewPromise;
+  }
 
   const getSecretState = () => getSecretCollectionState({ collectionCatalog, registry: discoveryRegistry });
   const refreshSecretUi = () => {
@@ -181,22 +201,54 @@ export async function bootApp(navigation) {
 
   const brassopedieRoot = $("brassopedie-view");
   let brassopedieLibrary = null;
+  let brassopedieLibraryPromise = null;
   let brassopedieCollectionId = initialBundle.collection.id;
-  if (brassopedieRoot) {
-    brassopedieLibrary = createBrassopedieLibraryView({
-      root: brassopedieRoot,
-      collectionCatalog,
-      registry: discoveryRegistry,
-      initialCollectionId: brassopedieCollectionId,
-      loadCollectionBundle: (collectionId) => collectionManager.loadBundle(collectionId),
-      onOpen: () => background.pause(),
-      onClose: () => background.resume()
-    });
+
+  async function ensureBrassopedieLibrary() {
+    if (brassopedieLibrary) return brassopedieLibrary;
+    if (!brassopedieRoot) return null;
+
+    if (!brassopedieLibraryPromise) {
+      brassopedieLibraryPromise = Promise.all([
+        import("../brassopedie/brassopedie-library-view.js"),
+        import("../brassopedie/brassopedie-library.css")
+      ]).then(([{ createBrassopedieLibraryView }]) => {
+        brassopedieLibrary = createBrassopedieLibraryView({
+          root: brassopedieRoot,
+          collectionCatalog,
+          registry: discoveryRegistry,
+          initialCollectionId: brassopedieCollectionId,
+          loadCollectionBundle: (collectionId) => collectionManager.loadBundle(collectionId),
+          onOpen: () => background.pause(),
+          onClose: () => background.resume()
+        });
+        return brassopedieLibrary;
+      }).catch((error) => {
+        brassopedieLibraryPromise = null;
+        throw error;
+      });
+    }
+
+    return brassopedieLibraryPromise;
   }
 
   navigation?.onViewChange((viewId) => {
-    if (viewId === "brassopedie") void brassopedieLibrary?.refresh();
-    if (viewId === "badges") badgesView?.refresh();
+    if (viewId === "brassopedie") {
+      const wasMounted = Boolean(brassopedieLibrary);
+      void ensureBrassopedieLibrary()
+        .then((view) => {
+          if (wasMounted) void view?.refresh();
+        })
+        .catch((error) => console.error("Chargement de la Brassopédie impossible", error));
+    }
+    if (viewId === "badges") {
+      const wasMounted = Boolean(badgesView);
+      void ensureBadgesView()
+        .then((view) => {
+          if (wasMounted) view?.refresh();
+        })
+        .catch((error) => console.error("Chargement des badges impossible", error));
+    }
   });
 
   let activeSession = null;
@@ -392,7 +444,8 @@ export async function bootApp(navigation) {
     initialBrassopedieCollectionId: brassopedieCollectionId,
     onSelectZythosphereCollection: (collectionId) => switchCollection(collectionId),
     onSelectBrassopedieCollection: async (collectionId) => {
-      brassopedieCollectionId = await brassopedieLibrary?.selectCollection?.(collectionId) || collectionId;
+      const library = await ensureBrassopedieLibrary();
+      brassopedieCollectionId = await library?.selectCollection?.(collectionId) || collectionId;
       refreshSecretUi();
       return { status: "active", collectionId: brassopedieCollectionId };
     }
