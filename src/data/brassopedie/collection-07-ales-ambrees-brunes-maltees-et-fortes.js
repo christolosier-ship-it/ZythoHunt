@@ -56,29 +56,41 @@ const collection = {
           "Verre adapté au sous-style"
         ]
       },
-      "description": "L’Ale est la grande famille des fermentations hautes : malt, levure, esters, chaleur douce, fruits, pain, caramel ou houblon selon les branches. Ici, elle sert de tronc commun aux bières brunes, ambrées, écossaises, irlandaises et fortes, là où la fermentation donne souvent plus de rondeur et d’expression qu’une lager.",
-      "histoireEtOrigines": `Le mot « ale » est bien plus ancien que les styles modernes qui l'emploient. Dans l'usage brassicole contemporain, il désigne surtout les bières fermentées avec des levures de fermentation haute, par opposition aux lagers de fermentation basse. Cette opposition est pratique mais imparfaite : certaines ales sont fermentées très froid, certaines bières dites hybrides empruntent aux deux mondes, et l'histoire européenne de la bière est plus ancienne que notre classification microbiologique actuelle.
+      "description": "Ale est un vieux mot devenu une immense famille : une fermentation haute relie aujourd’hui la pinte de Mild, l’Alt de Düsseldorf, la Brown américaine et le Barley Wine, sans leur imposer ni couleur ni force. La levure peut apporter fruits ou épices, mais chaque branche décide ensuite du malt, du houblon, de la garde et du volume sonore.",
+      "histoireEtOrigines": `Avant de désigner une famille microbiologique, « ale » nommait une boisson. Dans l'Angleterre de la fin du Moyen Âge, les textes opposaient volontiers l'ale locale, traditionnellement non houblonnée, à la beer houblonnée associée aux brasseurs venus du continent. Historic England situe l'installation du commerce du houblon à Londres au XVe siècle. La distinction a survécu longtemps dans les mots et les règlements, puis s'est brouillée à mesure que le houblon s'imposait dans les deux boissons. Au XVIIIe siècle, « ale » pouvait déjà contenir du houblon sans provoquer l'effondrement de la langue anglaise.
 
-En Grande-Bretagne, « ale » et « beer » ont longtemps eu des sens variables selon les époques, notamment autour de l'usage du houblon. Avec la généralisation de celui-ci, « ale » est progressivement devenu un terme générique pour de nombreuses bières britanniques de fermentation haute. Aujourd'hui il couvre des familles aussi différentes que Mild, Brown Ale, Bitter, Old Ale, Barley Wine, Scottish Ale ou American Strong Ale. Dans ZythoHunt, cette carte doit donc être comprise comme une porte d'entrée taxonomique, pas comme une recette historique unique.`,
+La révolution suivante n'est pas lexicale mais biologique. Au XIXe puis au XXe siècle, l'observation des levures, leur isolement et la maîtrise des fermentations donnent un nouveau sens pratique au terme : les ales sont principalement associées à Saccharomyces cerevisiae, les lagers à des levures du complexe S. pastorianus. « Fermentation haute » reste toutefois une commodité historique. Une levure ale n'est pas définie par une obligation de camper au sommet de la cuve, et sa température de travail varie avec la souche, la pression, la géométrie du fermenteur et le profil recherché.
+
+Cette définition moderne forme un tronc, pas une recette. Des ales peuvent être pâles ou noires, légères ou proches du vin en alcool, servies jeunes au pub ou gardées plusieurs années. L'Altbier fermente avec une levure ale puis mûrit au froid ; certaines Strong Ales américaines poussent houblon et densité dans la même direction ; une Mild contemporaine préfère la conversation longue à la démonstration de force.
+
+La généalogie explique ainsi l'apparente bizarrerie de la collection : Brown, Amber, Red, Scottish et Strong Ale ne descendent pas d'un breuvage originel aux reflets bruns. Elles partagent un mode de fermentation et un vocabulaire, puis bifurquent sous l'effet des villes, des impôts, des malts, des marchés et des habitudes de service.`,
+      "chapitres": [
+        {
+          "titre": "Le dessus de la cuve n'est pas une frontière",
+          "texte": `Les expressions « fermentation haute » et « fermentation basse » décrivent une histoire de pratiques autant qu'une séparation biologique absolue. Les souches diffèrent par leur capacité à fermenter certains sucres, leur floculation, leur tolérance à l'alcool et leur production d'esters ; la température module ces caractères sans transformer magiquement une ale en lager.
+
+Les arômes fruités souvent associés aux ales proviennent notamment d'esters synthétisés par la levure. Leur intensité dépend de la souche et du procédé : taux d'ensemencement, oxygénation, température, pression et composition du moût. Le mot « ale » annonce donc un monde fermentaire ; il ne promet pas automatiquement une corbeille de fruits.`
+        }
+      ],
       "recette": {
         "profilUnique": false,
-        "explicationProfil": "Ale est une famille de fermentation, pas un style de recette unique.",
+        "explicationProfil": "Ale relie des bières par leur monde fermentaire ; couleur, densité, houblonnage et durée de garde appartiennent aux branches.",
         "maltsEtCereales": [
-          "Orge maltée comme base la plus fréquente, avec blé, avoine, seigle, sucres ou malts spéciaux selon le style."
+          "Orge maltée comme base la plus fréquente ; autres céréales, sucres et malts de spécialité ne prennent sens qu'à l'échelle du sous-style."
         ],
         "houblons": [
-          "Houblonnage extrêmement variable, de presque absent à intensément aromatique et amer."
+          "Le houblon n'est ni obligatoire historiquement dans toutes les ales anciennes, ni discret dans la famille moderne : son rôle va de la conservation et de l'équilibre à l'arôme principal."
         ],
         "levuresEtMicroorganismes": [
-          "Saccharomyces cerevisiae et autres souches de fermentation haute, choisies pour leur atténuation et leur profil ester/phénol."
+          "Souches de Saccharomyces cerevisiae sélectionnées pour leur atténuation, leur floculation et leur signature fermentaire ; les phénols épicés ne sont produits que par certaines lignées."
         ],
         "ingredientsComplementaires": [],
-        "profilEau": "Adaptée au style : minéralité faible à forte selon la tradition et l'équilibre malt/houblon recherché.",
-        "empatage": "Empâtage conçu autour du profil de corps et d'atténuation de chaque style.",
-        "ebullitionEtHoublonnage": "Durée et houblonnage variables selon le style ; aucune architecture universelle.",
-        "fermentation": "Fermentation généralement plus chaude qu'une lager, mais les températures exactes dépendent fortement de la souche et du style.",
-        "maturation": "De quelques jours à plusieurs années selon qu'il s'agit d'une ale de session ou d'une bière forte de garde.",
-        "profilRecherche": "Une famille de bières où la fermentation haute constitue le principe commun, sans imposer couleur, force ou niveau de houblon."
+        "profilEau": "Aucun profil familial : alcalinité, sulfate, chlorure et calcium se règlent pour le malt, le houblon, la levure et la couleur de la branche concernée.",
+        "empatage": "La fermentescibilité recherchée commande les paliers et la température ; une Mild légère et un Barley Wine ne résolvent pas le même problème de corps.",
+        "ebullitionEtHoublonnage": "De l'amertume d'équilibre au houblonnage massif, le programme suit le style. Une ébullition prolongée peut concentrer une ale forte, mais elle n'est pas un rite de famille.",
+        "fermentation": "Souche, température, oxygénation, pression et ensemencement règlent atténuation et esters. Les ales fermentent souvent plus chaud que les lagers, avec des exceptions importantes comme l'Altbier.",
+        "maturation": "Quelques jours de conditionnement pour une ale de session, garde froide pour une Alt, mois ou années pour certaines ales fortes : le temps est un axe de divergence majeur.",
+        "profilRecherche": "Une identité lisible du sous-style, portée par une fermentation maîtrisée plutôt qu'une caricature universelle de fruits et de rondeur."
       },
       "sources": [
         {
@@ -87,7 +99,7 @@ En Grande-Bretagne, « ale » et « beer » ont longtemps eu des sens variables 
           "reference": "2021 Beer Style Guidelines — familles d'ales",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Brewers Association",
@@ -95,7 +107,39 @@ En Grande-Bretagne, « ale » et « beer » ont longtemps eu des sens variables 
           "reference": "2026 Beer Style Guidelines — Ale Styles",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Historic England",
+          "edition": "2018",
+          "reference": "500 Years of Oasts and Hop Kilns in England",
+          "type": "recherche_patrimoniale",
+          "url": "https://historicengland.org.uk/whats-new/research/back-issues/500-years-of-oasts-and-hop-kilns-in-england/",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Colonial Williamsburg Foundation",
+          "edition": "1996",
+          "reference": "A Study of Beer and Brewing in 18th-Century England",
+          "type": "rapport_de_recherche_historique",
+          "url": "https://research.colonialwilliamsburg.org/DigitalLibrary/view/index.cfm?doc=ResearchReports%5CRR0364.xml",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Stewart — Beverages",
+          "edition": "2016",
+          "reference": "Saccharomyces species in the production of beer",
+          "type": "publication_scientifique",
+          "url": "https://www.mdpi.com/2306-5710/2/4/34",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Saerens et al. — Applied and Environmental Microbiology",
+          "edition": "2008",
+          "reference": "The Saccharomyces cerevisiae EHT1 and EEB1 genes encode novel enzymes with medium-chain fatty acid ethyl ester synthesis capacity",
+          "type": "publication_scientifique",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2223249/",
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -145,15 +189,28 @@ En Grande-Bretagne, « ale » et « beer » ont longtemps eu des sens variables 
           "Verre adapté au sous-style"
         ]
       },
-      "description": "La Mild Ale est une bière de pub discrète mais pas vide : faible alcool, malt doux, caramel, pain, noix, chocolat léger ou fruits secs selon la couleur. Elle ne cherche ni l’amertume ni la puissance ; elle cherche la pinte qui disparaît sans faire de bruit.",
-      "histoireEtOrigines": `« Mild » ne signifiait pas à l'origine « faible en alcool ». Dans la brasserie britannique des XVIIIe et XIXe siècles, le terme décrivait surtout une bière jeune, vendue avant une longue garde, par opposition aux stock ou stale ales vieillies. Des Milds historiques pouvaient dépasser 5 ou 6 % vol. et exister en plusieurs forces dans une même brasserie.
+      "description": "Une Mild moderne tient souvent sous les 4 % vol., mais son nom racontait d’abord l’âge : mild signifiait jeune, encore tendre, face aux ales gardées devenues stock ou stale. Dans la pinte actuelle, céréale, cacao doux, noisette ou sucre brun parlent bas, le houblon équilibre, et le pub peut poursuivre la conversation sans appeler un taxi après deux tournées.",
+      "histoireEtOrigines": `Imaginez d'abord deux tonneaux, pas deux degrés d'alcool. Dans la brasserie britannique des XVIIIe et XIXe siècles, mild décrivait une bière vendue jeune, encore « douce » au sens de non vieillie. Stock ou stale désignaient des ales ayant attendu, parfois pour être assemblées aux jeunes. Une Mild pouvait donc être forte ; le mot renseignait son état et son traitement bien avant de devenir le nom d'une petite bière brune.
 
-Le style moderne naît d'une longue contraction. À partir de la fin du XIXe siècle puis surtout pendant et après la Première Guerre mondiale, fiscalité, restrictions sur les matières premières et baisse des densités transforment la Mild en bière de pub plus légère. Les versions brunes deviennent dominantes au XXe siècle, au point d'effacer presque totalement les Pale Milds. La concurrence du Bitter puis de la lager provoque un profond déclin après-guerre. CAMRA continue aujourd'hui à défendre cette tradition de bière de session maltée, subtile et peu houblonnée.`,
+Le glissement vers la légèreté résulte d'une longue pression, accélérée par la guerre. À la veille de la Première Guerre mondiale, une réponse parlementaire de novembre 1914 place encore la densité moyenne des Milds courantes au-dessus de 1,040. Les droits sur la bière augmentent, les autorités limitent les matières premières puis pilotent les densités et les volumes. En 1918, le débat à la Chambre des communes porte explicitement sur les quantités de grain autorisées aux brasseurs ; en 1922, les députés rappellent que le droit sur le baril standard est passé depuis 1914 de 7 shillings 9 pence à 5 livres. La fiscalité n'a pas inventé seule la Mild faible, mais elle a puissamment rétréci le moût.
+
+La couleur change elle aussi de statut. Les Milds pâles ne disparaissent pas d'un coup ; cependant les versions brunes, rendues sombres par des malts colorés, des sucres ou du caramel de brasserie selon les recettes, deviennent l'image dominante du XXe siècle. Le produit se fixe alors comme bière de débit : peu alcoolisée, modérément houblonnée, servie en cask et assez savoureuse pour supporter une pinte, puis une autre.
+
+Après la Seconde Guerre mondiale, le Bitter gagne du terrain, la lager progresse et la Mild recule. Elle représentait encore une part considérable des ventes pression au milieu du siècle avant de devenir une spécialité menacée. La campagne de CAMRA et le Mild Month ont conservé le mot dans les pubs, tandis que des brasseries contemporaines redécouvrent aussi les versions pâles ou plus fortes. La mémoire utile tient dans ce paradoxe : la Mild est devenue légère par l'histoire ; son nom, lui, n'était pas né sur une balance.`,
+      "chapitres": [
+        {
+          "titre": "Du tonneau jeune à la pinte de session",
+          "texte": `Le service rapide des Milds anciennes ne signifie pas qu'elles sortaient chaudes et inachevées de la cuve. « Jeune » s'entendait face à des ales conservées des mois : fermentation, clarification et conditionnement restaient nécessaires. Dans le pub moderne, le cask poursuit une maturation courte et la prise en charge par le cellarman règle limpidité, carbonatation naturelle et service.
+
+Cette continuité explique mieux le style que le seul taux d'alcool. La Mild demeure une bière pensée pour être débitée fraîche et en volume, avec une intensité aromatique proportionnée à une densité modeste. Son héroïsme consiste à rester intéressante au troisième demi, performance moins spectaculaire qu'un fût de whisky mais nettement plus sociale.`
+        }
+      ],
       "recette": {
         "profilUnique": false,
-        "explicationProfil": "La famille Mild couvre historiquement des forces et couleurs très différentes ; les versions modernes sont surtout légères et maltées.",
+        "explicationProfil": "Mild désignait historiquement une ale jeune ; les sous-styles actuels retiennent surtout une bière de session maltée, pâle ou sombre.",
         "maltsEtCereales": [
-          "Malt pale ou mild britannique ; crystal, amber, brown, chocolat ou black malt selon la couleur ; adjuncts et sucres de brasserie possibles."
+          "Malt pale ou mild comme base ; les versions sombres règlent couleur et accents de cacao ou de noix avec crystal, brown, chocolat, caramel de brasserie ou sucres selon la tradition.",
+          "La faible densité impose de doser les malts spéciaux : leur goût doit enrichir la gorgée sans donner l'impression de boire un extrait de malt."
         ],
         "houblons": [
           "Houblons britanniques à faible intensité, destinés surtout à équilibrer le malt."
@@ -164,12 +221,12 @@ Le style moderne naît d'une longue contraction. À partir de la fin du XIXe si�
         "ingredientsComplementaires": [
           "Sucres invertis, maïs, caramel de brasserie ou autres adjuncts sont historiquement plausibles selon la recette."
         ],
-        "profilEau": "Souvent douce à modérément minérale ; l'alcalinité augmente avec les versions plus sombres.",
-        "empatage": "Empâtage visant assez de corps pour éviter la minceur malgré une faible densité initiale.",
-        "ebullitionEtHoublonnage": "Amertume retenue ; peu ou pas de houblonnage aromatique moderne.",
-        "fermentation": "Fermentation haute relativement propre, avec esters britanniques modérés possibles.",
-        "maturation": "Courte pour les versions modernes de pub ; conditionnement en cask fréquent.",
-        "profilRecherche": "Une ale facile à boire où le malt, le caramel, le pain et parfois le chocolat léger dominent sans lourdeur ni forte amertume."
+        "profilEau": "Une minéralité modérée soutient la fermentation et l'équilibre ; les grains sombres exigent surtout un pH d'empâtage maîtrisé, non une eau systématiquement alcaline.",
+        "empatage": "Température et composition préservent une sensation suffisante malgré la faible densité, tout en laissant une finale nette qui invite à reprendre la pinte.",
+        "ebullitionEtHoublonnage": "Amertume basse à modérée, généralement sans houblonnage aromatique démonstratif ; l'objectif est de tendre le malt, pas de le couvrir.",
+        "fermentation": "Une souche britannique modérément atténuante peut apporter des esters discrets. Un ensemencement sain évite que faible densité ne signifie fermentation négligée.",
+        "maturation": "Courte et orientée vers le service frais ; en cask, la fermentation secondaire, la clarification et le travail de cave font partie du produit final.",
+        "profilRecherche": "Une pinte légère mais construite, où chaque note maltée reste lisible et où la finale permet le débit plutôt que la dégustation au compte-gouttes."
       },
       "sources": [
         {
@@ -178,7 +235,7 @@ Le style moderne naît d'une longue contraction. À partir de la fin du XIXe si�
           "reference": "Mild, Pale — histoire et profil",
           "type": "source_historique_et_style",
           "url": "https://learn.camra.org.uk/beer-styles/mild-pale",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "BJCP",
@@ -186,7 +243,7 @@ Le style moderne naît d'une longue contraction. À partir de la fin du XIXe si�
           "reference": "Dark Mild",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/13/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Brewers Association",
@@ -194,7 +251,39 @@ Le style moderne naît d'une longue contraction. À partir de la fin du XIXe si�
           "reference": "English-Style Mild Ale",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "UK Parliament — Hansard",
+          "edition": "1914",
+          "reference": "Beer Duties — gravities of Mild ales before wartime contraction",
+          "type": "archive_parlementaire",
+          "url": "https://api.parliament.uk/historic-hansard/written-answers/1914/nov/26/beer-duties",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "UK Parliament — Hansard",
+          "edition": "1918",
+          "reference": "Intoxicating Liquors (Manufacture) — restrictions on brewing materials",
+          "type": "archive_parlementaire",
+          "url": "https://api.parliament.uk/historic-hansard/commons/1918/mar/12/intoxicating-liquors-manufacture",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "UK Parliament — Hansard",
+          "edition": "1922",
+          "reference": "Reduced Excise Duty on Beer — evolution of duty since 1914",
+          "type": "archive_parlementaire",
+          "url": "https://api.parliament.uk/historic-hansard/commons/1922/jun/27/new-clause-reduced-excise-duty-on-beer",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Encyclopaedia Britannica",
+          "edition": "1911",
+          "reference": "Ale — mild and stock ales in contemporary brewing vocabulary",
+          "type": "source_historique",
+          "url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica/Ale",
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -245,15 +334,28 @@ Le style moderne naît d'une longue contraction. À partir de la fin du XIXe si�
           "Verre adapté au sous-style"
         ]
       },
-      "description": "La Brown Ale construit son charme dans le brun : noisette, caramel, pain grillé, biscuit, cacao doux ou fruits secs. Elle peut être anglaise et ronde, américaine et plus houblonnée, faible et sucrée ou plus sèche et robuste, mais son centre reste le malt brun.",
-      "histoireEtOrigines": `Brown Ale est aujourd'hui une famille utile pour regrouper des ales brunes maltées, mais elle ne constitue pas une lignée historique unique. Le BJCP insiste d'ailleurs sur le fait que Dark Mild, British Brown Ale et Porter ont des histoires indépendantes malgré leurs couleurs voisines. Le terme « brown ale » a été utilisé commercialement de façons très différentes selon les époques et les régions.
+      "description": "Brown Ale est une étagère de bruns, pas une dynastie : bouteille douce du Londres industriel, ale du nord anglais plus sèche, interprétation américaine traversée de houblon. Noisette, cacao, sucre brun ou malt grillé donnent un air de famille ; le degré, l’amertume et même la raison d’exister changent dès que l’on passe à la bouteille suivante.",
+      "histoireEtOrigines": `La couleur donne envie de dessiner une lignée : d'abord des ales brunes anciennes, puis la Brown Ale moderne, enfin ses descendantes. Les archives résistent à ce scénario trop propre. Les mots brown ale ont servi à des produits différents, tandis que Mild, Porter et Brown Ale ont poursuivi des histoires parallèles malgré des robes voisines. Une bière brune n'hérite pas automatiquement de toutes les autres bières brunes ; la couleur fait une excellente photographie et une médiocre généalogie.
 
-Dans sa lecture moderne, la famille couvre surtout les British Brown Ales, les London Brown Ales beaucoup plus sucrées et les American Brown Ales plus houblonnées. Leur point commun est un registre de caramel, noix, biscuit, pain grillé et parfois chocolat léger, mais leurs forces, niveaux d'amertume et histoires divergent nettement.`,
+La famille contemporaine se consolide surtout au XXe siècle autour de produits en bouteille. À Londres, Mann's lance en 1902 une Brown Ale douce et de faible densité, branche qui deviendra un sous-style à part. Dans le nord-est, Newcastle Brown Ale apparaît en 1927 et donne une visibilité internationale à une expression plus forte, plus sèche et plus fruitée. D'autres brasseries utilisent le nom avec leurs propres équilibres : le singulier « English Brown Ale » masque donc déjà une carte régionale.
+
+Les brasseurs artisanaux américains rouvrent le dossier dans les années 1980. Ils conservent la profondeur de couleur et les accents de noix ou de chocolat, mais augmentent volontiers amertume et arômes de houblons américains. Pete's Wicked Ale, lancée en 1986, contribuera à rendre cette Brown Ale américaine visible bien au-delà des brewpubs.
+
+La classification moderne réunit ces branches pour aider à la lecture sensorielle. Elle ne leur fabrique pas un ancêtre commun. Le parent Brown Ale porte cette constellation ; London Brown, British Brown et American Brown racontent ensuite pourquoi une ville, un conditionnement ou une révolution craft a déplacé l'équilibre.`,
+      "chapitres": [
+        {
+          "titre": "Le brun n'est pas un ingrédient",
+          "texte": `La robe peut venir de crystal, de brown malt, de malts chocolat ou d'une combinaison mesurée de grains très foncés. Deux bières au même EBC peuvent ainsi évoquer l'une la noisette et le sucre brun, l'autre le cacao sec et le houblon résineux. La couleur indique la quantité de lumière absorbée ; elle ne livre ni la facture de malt ni l'histoire de la brasserie.
+
+Cette distinction protège aussi le Porter et la Dark Mild. Ils peuvent partager la palette visuelle d'une Brown Ale sans adopter son intensité torréfiée, sa densité ou son mode de service. Le nuancier rapproche ; la recette tranche.`
+        }
+      ],
       "recette": {
         "profilUnique": false,
-        "explicationProfil": "Brown Ale regroupe plusieurs traditions distinctes et ne possède pas de recette universelle.",
+        "explicationProfil": "Catégorie en constellation : les Brown Ales britanniques, londoniennes et américaines partagent une zone sensorielle, non une recette fondatrice.",
         "maltsEtCereales": [
-          "Malt pale comme base ; crystal, brown, amber et petites quantités de chocolat ou malt sombre selon la branche."
+          "Malt pale comme base ; crystal, brown, amber et petites quantités de chocolat règlent couleur, noix, cacao et douceur selon la branche.",
+          "Le malt brun historique n'est pas obligatoire dans toute bière moderne portant le mot Brown."
         ],
         "houblons": [
           "Houblons britanniques discrets dans les versions anglaises ; houblons américains plus présents dans les versions US."
@@ -262,12 +364,12 @@ Dans sa lecture moderne, la famille couvre surtout les British Brown Ales, les L
           "Levure ale britannique ou américaine selon le sous-style."
         ],
         "ingredientsComplementaires": [],
-        "profilEau": "Modérément carbonatée pour soutenir les malts bruns sans dureté excessive.",
-        "empatage": "Empâtage moyen à légèrement chaud pour préserver une texture maltée.",
-        "ebullitionEtHoublonnage": "Amertume faible à moyenne en Angleterre, plus ferme dans les versions américaines.",
-        "fermentation": "Fermentation haute, fruitée avec retenue côté britannique, plus neutre côté américain.",
-        "maturation": "Courte à modérée ; service cask ou bouteille selon tradition.",
-        "profilRecherche": "Une bière brune portée par le malt, de la noix et du caramel doux jusqu'à des versions plus sèches et houblonnées."
+        "profilEau": "Le pH compte davantage qu'une supposée « eau brune » : alcalinité et sels s'ajustent à la charge de malts foncés et au niveau de houblon.",
+        "empatage": "La branche londonienne préserve davantage de rondeur ; les versions nordiques ou américaines peuvent viser une atténuation plus nette.",
+        "ebullitionEtHoublonnage": "Amertume très retenue dans London Brown, modérée dans British Brown, franchement structurante dans American Brown.",
+        "fermentation": "Esters britanniques possibles dans les branches anglaises ; profil plus net côté américain pour séparer malt sombre et houblon.",
+        "maturation": "Conditionnement en cask ou en bouteille selon l'histoire du produit ; la famille n'impose pas de longue garde.",
+        "profilRecherche": "Une identité de branche immédiatement perceptible derrière la robe brune : douce et embouteillée, sèche et fruitée, ou houblonnée à l'américaine."
       },
       "sources": [
         {
@@ -276,7 +378,7 @@ Dans sa lecture moderne, la famille couvre surtout les British Brown Ales, les L
           "reference": "Brown British Beer",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/13/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "BJCP",
@@ -284,7 +386,7 @@ Dans sa lecture moderne, la famille couvre surtout les British Brown Ales, les L
           "reference": "American Brown Ale",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/19/19C/american-brown-ale/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Brewers Association",
@@ -292,7 +394,31 @@ Dans sa lecture moderne, la famille couvre surtout les British Brown Ales, les L
           "reference": "English-Style Brown Ale / American-Style Brown Ale",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "American Homebrewers Association",
+          "edition": "2017",
+          "reference": "London Brown Ale — Mann's 1902 and the bottled London tradition",
+          "type": "histoire_de_style",
+          "url": "https://homebrewersassociation.org/zymurgy-article/london-brown-ale/",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Heineken UK",
+          "edition": null,
+          "reference": "Newcastle Brown Ale — product history",
+          "type": "source_producteur",
+          "url": "https://www.heineken.co.uk/newcastlebrown",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Martyn Cornell — Zythophile",
+          "edition": "2011",
+          "reference": "Why there's no such beer as English brown ale",
+          "type": "recherche_historique_specialisee",
+          "url": "https://zythophile.wordpress.com/2011/03/31/why-theres-no-such-beer-as-english-brown-ale/",
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -342,15 +468,18 @@ Dans sa lecture moderne, la famille couvre surtout les British Brown Ales, les L
           "Verre adapté au sous-style"
         ]
       },
-      "description": "L’Amber Ale est le point d’équilibre entre malt caramelisé et houblon : cuivre, caramel sec, pain grillé, agrumes, fleurs ou résine selon l’origine. Elle n’est pas une pale ale rougie par accident, mais une bière où la couleur annonce une vraie présence maltée.",
-      "histoireEtOrigines": `Amber Ale est avant tout une description de couleur devenue catégorie commerciale, pas une tradition ancienne unique. Des ales ambrées existent depuis des siècles, mais la catégorie moderne s'est surtout structurée avec les brasseries craft américaines, qui ont cherché un espace entre Pale Ale et Brown Ale : davantage de caramel et de corps qu'une Pale Ale, moins de torréfaction qu'une Brown Ale.
+      "description": "Amber Ale nomme moins une patrie qu’une zone de rencontre : robe cuivrée, saveurs de céréale toastée ou de sucre cuit, amertume capable de répondre sans transformer la pinte en IPA. Le mouvement craft américain a donné à cette zone une identité commerciale ; ailleurs, « amber » reste souvent un adjectif. La couleur ouvre la porte, l’équilibre malt-houblon donne l’adresse.",
+      "histoireEtOrigines": `Des ales ambrées existaient évidemment avant les microbrasseries : la couleur n'a pas attendu 1980 pour apparaître dans un verre. La catégorie Amber Ale, en revanche, est largement une construction récente. Elle prend forme lorsque le mouvement craft américain cherche un vocabulaire lisible entre Pale Ale et Brown Ale. Le malt crystal apporte couleur cuivrée, rondeur et saveurs de sucre cuit ; les nouveaux houblons américains donnent à l'ensemble une finale plus parfumée que celle de nombreuses ales britanniques.
 
-Le BJCP présente l'American Amber Ale comme une variation moderne de l'American Pale Ale. La famille s'est largement diffusée à partir des années 1980, avec des équilibres très variables : certaines versions sont nettement maltées, d'autres presque aussi houblonnées qu'une Pale Ale. Utiliser « Amber Ale » sans préciser la tradition doit donc rester une catégorie transversale.`,
+Les brasseries n'ont pas suivi un manifeste commun. Certaines Amber Ales servent de porte d'entrée maltée à une gamme craft ; d'autres ressemblent à des Pale Ales plus colorées ; la côte Ouest produit bientôt des versions assez houblonnées pour que « red », « amber » et même « red IPA » se chevauchent. Le BJCP décrit ainsi l'American Amber comme une cousine moderne de l'American Pale Ale, tandis que la Brewers Association réunit Amber et Red dans une même catégorie de concours.
+
+Le succès commercial a ensuite internationalisé le mot. « Amber Ale » peut désormais désigner une interprétation locale, une étiquette de couleur ou le sous-style américain précis. Cette fiche conserve donc la fonction d'un carrefour : elle explique comment une bande du nuancier est devenue une promesse d'équilibre, puis laisse l'American Amber/Red raconter la branche issue des brewpubs des années 1980.`,
       "recette": {
         "profilUnique": false,
-        "explicationProfil": "Amber Ale décrit surtout une zone de couleur et d'équilibre ; les recettes changent fortement selon le pays et l'époque.",
+        "explicationProfil": "Catégorie moderne de couleur et d'équilibre, dont l'American Amber/Red est la branche la mieux codifiée.",
         "maltsEtCereales": [
-          "Malt pale ; malts crystal/caramel pour couleur et rondeur ; petits apports toastés possibles."
+          "Malt pale fermentescible ; crystal/caramel pour la teinte cuivrée et la rondeur, avec une main assez légère pour ne pas figer la finale.",
+          "De petits apports toastés ou biscuités peuvent donner du relief sans conduire vers Brown Ale."
         ],
         "houblons": [
           "Houblons variables : anglais discrets, américains ou New World plus expressifs selon la version."
@@ -359,12 +488,12 @@ Le BJCP présente l'American Amber Ale comme une variation moderne de l'American
           "Levure ale adaptée à la tradition visée, de fruitée à très neutre."
         ],
         "ingredientsComplementaires": [],
-        "profilEau": "Équilibre sulfate/chlorure choisi selon que la bière privilégie le malt ou le houblon.",
-        "empatage": "Empâtage moyen pour conserver du corps sans finir sucré.",
-        "ebullitionEtHoublonnage": "Amertume d'équilibre ; houblonnage tardif possible dans les versions craft.",
-        "fermentation": "Fermentation haute propre à modérément fruitée.",
-        "maturation": "Courte à modérée, souvent orientée fraîcheur.",
-        "profilRecherche": "Une ale ambrée équilibrant caramel léger, pain toasté et houblon sans devenir brune ni excessivement sucrée."
+        "profilEau": "Sulfate et chlorure accompagnent le choix éditorial de la bière — finale plus vive ou texture plus ronde — sans remplacer le travail d'atténuation.",
+        "empatage": "Un moût suffisamment fermentescible évite que malt crystal et couleur soient traduits en sucrosité pesante.",
+        "ebullitionEtHoublonnage": "Amertume moyenne et houblonnage tardif variable ; le houblon doit être assez présent pour répondre au malt dans la branche américaine.",
+        "fermentation": "Une souche ale nette rend l'axe malt-houblon lisible ; des esters modérés restent possibles dans les interprétations britanniques.",
+        "maturation": "Garde courte, puis service frais afin de préserver les houblons lorsqu'ils participent à l'identité.",
+        "profilRecherche": "Une ale cuivrée où texture, atténuation et amertume construisent un équilibre reconnaissable au-delà du simple code couleur."
       },
       "sources": [
         {
@@ -373,7 +502,7 @@ Le BJCP présente l'American Amber Ale comme une variation moderne de l'American
           "reference": "American Amber Ale",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/19/19A/american-amber-ale/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Brewers Association",
@@ -381,7 +510,15 @@ Le BJCP présente l'American Amber Ale comme une variation moderne de l'American
           "reference": "American-Style Amber/Red Ale",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Brewers Association",
+          "edition": "2022",
+          "reference": "Craft Historical Data — growth of American craft brewing since 1971",
+          "type": "donnees_professionnelles",
+          "url": "https://cdn.brewersassociation.org/wp-content/uploads/2022/07/05094132/Brewers_Association_Data_2022.xlsx",
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -433,15 +570,28 @@ Le BJCP présente l'American Amber Ale comme une variation moderne de l'American
           "Verre adapté au sous-style"
         ]
       },
-      "description": "La Red Ale met la couleur au service du malt : cuivre rouge, caramel doux, biscuit, toast léger, parfois houblon floral, terreux ou américain. Selon l’école, elle peut être irlandaise et douce, américaine et plus amère, ou moderne et franchement houblonnée.",
-      "histoireEtOrigines": `Red Ale est un terme encore plus ambigu qu'Amber Ale. La couleur rouge peut provenir de malts caramel, de petites quantités de grains très torréfiés ou simplement de la profondeur d'une robe cuivrée. Elle apparaît dans des traditions sans lien direct : Irish Red Ale, American Amber/Red Ale, certaines ales fortes américaines et de nombreux produits commerciaux baptisés « red ».
+      "description": "Red Ale est une couleur devenue argument : rousse douce dans certaines interprétations irlandaises, ambrée et houblonnée dans les brasseries américaines, dense sous les noms Double ou Imperial. Une pointe de grain sombre peut rougir la robe sans donner de brûlé. Le mot rapproche ces bières sur l’étiquette ; leur histoire, elle, refuse obstinément de poser pour la photo de famille.",
+      "histoireEtOrigines": `Le rouge paraît précis jusqu'au moment où l'on place deux verres sous la même lumière. Une bière cuivrée profonde, un malt crystal rougeâtre et une petite dose de grain torréfié peuvent tous conduire au mot red, sans produire le même goût. Le terme a donc prospéré comme signal visuel et commercial avant de devenir une catégorie stable.
 
-Il est donc important de ne pas raconter une histoire unique du « style Red Ale ». L'Irish Red est une construction moderne issue du paysage des ales irlandaises ; l'American Red est liée au mouvement craft des années 1980 et au développement d'American Amber Ale. Les versions Double ou Imperial Red sont encore plus récentes et relèvent surtout de la logique craft d'intensification du malt et du houblon.`,
+En Irlande, l'histoire brassicole de Kilkenny et de Smithwick's est ancienne, mais l'expression « Irish Red Ale » au sens d'un style universel est bien plus récente. La bière pression de Smithwick's prend son essor dans les années 1960 ; le vocabulaire de la rousse irlandaise est aussi façonné hors d'Irlande par George Killian's Bière Rousse, créée en 1975 par Pelforth, puis par ses adaptations internationales. Une tradition réelle de production ne suffit donc pas à faire remonter intacte une catégorie contemporaine jusqu'au XVIIIe siècle.
+
+Aux États-Unis, red fonctionne d'abord comme voisin ou synonyme d'amber dans le mouvement craft. Les houblons américains déplacent ensuite certaines versions vers Red IPA, Double Red ou Imperial Red. Ce sont des bifurcations de recette et de marché, non les degrés d'une ancienne échelle irlandaise.
+
+La famille réunit ainsi trois histoires : une identité irlandaise codifiée tardivement, une ale craft américaine d'équilibre et des variantes modernes d'intensification. Sa mémoire-cible est le nuancier lui-même : le rouge indique où regarder, jamais tout ce qu'il faut comprendre.`,
+      "chapitres": [
+        {
+          "titre": "Rougir une bière sans la brûler",
+          "texte": `La couleur rouge peut être obtenue avec des malts crystal appropriés, une base ambrée ou une quantité minuscule de malt très foncé. Ce dernier absorbe beaucoup de lumière : quelques dixièmes ou pourcents de la mouture suffisent parfois à approfondir la robe. Au-delà, café et brûlé changent la famille sensorielle.
+
+Les pigments et produits de cuisson formés pendant le maltage ne sont pas une molette unique appelée « Maillard ». Température, humidité, durée de touraillage ou de torréfaction et composition du grain fabriquent des ensembles différents de couleur et d'arômes. Le rouge est un résultat mesuré, pas une saveur en soi.`
+        }
+      ],
       "recette": {
         "profilUnique": false,
-        "explicationProfil": "Red Ale est une catégorie de couleur et de commercialisation qui recouvre plusieurs styles distincts.",
+        "explicationProfil": "Red Ale rassemble des identités irlandaises et américaines récentes autour d'un signal de couleur, non d'une origine commune.",
         "maltsEtCereales": [
-          "Base pale ; crystal/caramel et très petites quantités de grains foncés pour obtenir le rouge sans goût brûlé."
+          "Base pale ; crystal/caramel ou malts ambrés pour la teinte et la texture.",
+          "Une très petite quantité de grain foncé peut approfondir le rouge, à condition de ne pas imposer café ou cendre."
         ],
         "houblons": [
           "De très discret dans l'Irish Red à puissant dans les interprétations américaines."
@@ -450,12 +600,12 @@ Il est donc important de ne pas raconter une histoire unique du « style Red Ale
           "Levure ale irlandaise, britannique ou américaine selon le style sous-jacent."
         ],
         "ingredientsComplementaires": [],
-        "profilEau": "Adaptée au style de base ; éviter une alcalinité excessive pour de faibles charges de grains foncés.",
-        "empatage": "Empâtage moyen visant équilibre entre fermentescibilité et rondeur maltée.",
-        "ebullitionEtHoublonnage": "Houblonnage calé sur la branche : discret à fortement aromatique.",
-        "fermentation": "Fermentation haute généralement propre à légèrement fruitée.",
-        "maturation": "Courte à modérée ; plus longue pour les versions fortes.",
-        "profilRecherche": "Une robe cuivrée à rouge profond au service d'un style identifiable, sans confondre couleur et identité historique."
+        "profilEau": "Réglée selon la branche : minéralité modérée pour l'Irish Red, sulfate plus présent possible dans une version américaine houblonnée.",
+        "empatage": "La fermentescibilité compense les dextrines et la douceur des malts crystal ; les variantes fortes demandent encore plus de vigilance.",
+        "ebullitionEtHoublonnage": "Houblonnage discret dans l'Irish Red, équilibré dans l'American Amber/Red, tardif et massif dans les dérivés Double ou Imperial.",
+        "fermentation": "Une fermentation nette à légèrement fruitée laisse la couleur être accompagnée par un profil réel plutôt que par une sucrosité de façade.",
+        "maturation": "Courte pour les versions de pub ou de fraîcheur houblonnée ; plus longue seulement lorsque force et alcool réclament une intégration.",
+        "profilRecherche": "Une robe rouge lisible au service d'une branche clairement identifiée — irlandaise, américaine équilibrée ou américaine intensifiée."
       },
       "sources": [
         {
@@ -464,7 +614,7 @@ Il est donc important de ne pas raconter une histoire unique du « style Red Ale
           "reference": "Irish Red Ale",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/15/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "BJCP",
@@ -472,7 +622,7 @@ Il est donc important de ne pas raconter une histoire unique du « style Red Ale
           "reference": "American Amber Ale",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/19/19A/american-amber-ale/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Brewers Association",
@@ -480,7 +630,39 @@ Il est donc important de ne pas raconter une histoire unique du « style Red Ale
           "reference": "American-Style Amber/Red Ale",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Brewery History Society",
+          "edition": "2022",
+          "reference": "The story of George Killian's — Bière Rousse, Pelforth and the Irish claim",
+          "type": "recherche_historique",
+          "url": "https://breweryhistory.com/journal/archive/187/Killian.pdf",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Kilkenny Archaeological Society",
+          "edition": "1989",
+          "reference": "A Brief History of the Brewing Industry in Kilkenny",
+          "type": "histoire_locale",
+          "url": "https://kilkennyarchaeologicalsociety.ie/wp-content/uploads/2022/02/OKR1989-583-T-B-Halpin-A-Brief-History-of-the-Brewing-Industry-in-Kilkenny.pdf",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Smithwick's Experience",
+          "edition": null,
+          "reference": "Smithwick's brewing history and surviving ledgers",
+          "type": "source_producteur_historique",
+          "url": "https://www.smithwicksexperience.com/",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Yin et al. — Comprehensive Reviews in Food Science and Food Safety",
+          "edition": "2022",
+          "reference": "Formation and sensory contribution of aroma compounds in malt",
+          "type": "publication_scientifique",
+          "url": "https://ift.onlinelibrary.wiley.com/doi/10.1111/1541-4337.12806",
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -530,13 +712,25 @@ Il est donc important de ne pas raconter une histoire unique du « style Red Ale
           "Verre adapté au sous-style"
         ]
       },
-      "description": "La Strong Ale est la famille des ales qui épaississent le rideau : alcool sensible, malt riche, caramel, fruits secs, noix, pain, esters et parfois chaleur douce. Elle doit être profonde sans devenir collante, puissante sans sentir le solvant.",
-      "histoireEtOrigines": `Strong Ale est un terme fonctionnel plutôt qu'une généalogie précise. Les brasseries britanniques ont longtemps produit des ales plus riches destinées à la garde, à l'hiver ou aux marchés premium, tandis que les brasseries américaines ont plus tard utilisé « strong ale » pour des bières situées entre Amber Ale, Double IPA et Barleywine.
+      "description": "Strong Ale est la grande salle des ales fortes : Old Ale vieillie, Wee Heavy écossaise, Barley Wine de garde ou création américaine trop maltée pour l’IPA et trop vive pour le fauteuil club. L’alcool augmente la chaleur et le défi fermentaire ; il n’autorise ni le sirop ni le dissolvant. Ici, « strong » mesure une contrainte avant de raconter une filiation.",
+      "histoireEtOrigines": `Pendant des siècles, strong n'a pas eu besoin de majuscule : c'était un adjectif utile pour distinguer, dans la gamme d'une brasserie, les moûts les plus denses et les bières les plus chères. Les marques X, XX ou XXX, les prix par baril et les noms Stock, Old, Burton ou October Ale ont chacun classé la force selon leur époque. Aucune administration n'a remis un acte de naissance à « la Strong Ale ».
 
-Les guides modernes utilisent donc Strong Ale comme une zone de classement : la Brewers Association décrit une Strong Ale maltée, riche et peu houblonnée dans son cadre général, tandis que le BJCP distingue British Strong Ale et American Strong Ale. Le point commun est la force et la densité aromatique, pas une recette universelle.`,
+La puissance avait pourtant des conséquences concrètes. Plus de malt mobilisait davantage de capital ; une fermentation à haute densité réclamait une levure saine ; une garde longue immobilisait fûts et espace. En échange, l'alcool et le houblon permettaient de construire des bières de saison, de prestige ou de conservation. La Grande-Bretagne a produit plusieurs lignées de ce monde, parmi lesquelles Old Ale, Burton Ale, Scotch Ale et Barley Wine se recouvrent parfois sans devenir synonymes.
+
+À la fin du XXe siècle, le mouvement craft américain transforme aussi strong en zone de classement. Des bières intensément maltées et houblonnées se logent entre Double IPA, Red IPA et American Barleywine. Le BJCP nomme explicitement American Strong Ale ce regroupement de profil plutôt qu'un style historique ; la Brewers Association distribue ces produits entre plusieurs catégories de concours.
+
+La famille sert donc de plan de salle. Les enfants apportent leur propre moteur — garde, ville, marché ou houblon — tandis que le parent explique le problème commun : faire fermenter beaucoup de sucre, équilibrer l'alcool et décider si le temps doit préserver, assouplir ou transformer la bière.`,
+      "chapitres": [
+        {
+          "titre": "Plus de malt, plus de travail pour la levure",
+          "texte": `Un moût très dense exerce une pression osmotique avant même que l'éthanol ne s'accumule. Au fil de la fermentation, alcool, manque d'oxygène et nutriments limitants fragilisent encore les cellules. Un grand ensemencement viable, une oxygénation adaptée au cadre de production, des nutriments suffisants et une température pilotée deviennent des outils de goût : ils réduisent les arrêts de fermentation et les alcools supérieurs agressifs.
+
+La richesse finale ne dépend donc pas seulement de la quantité de malt. Fermentescibilité du moût, santé de la levure et atténuation décident si la force donnera une chaleur intégrée ou une cuillère debout dans le verre — exploit de physique rarement recherché par le brasseur.`
+        }
+      ],
       "recette": {
         "profilUnique": false,
-        "explicationProfil": "Strong Ale est une famille de force : British Strong, American Strong, Old Ale et autres variantes ont des architectures différentes.",
+        "explicationProfil": "Famille de contrainte fermentaire et de classement : ses branches historiques et modernes ne partagent pas une recette unique.",
         "maltsEtCereales": [
           "Base pale riche ; malts crystal, toastés ou foncés en proportions variables selon la tradition."
         ],
@@ -549,12 +743,12 @@ Les guides modernes utilisent donc Strong Ale comme une zone de classement : la 
         "ingredientsComplementaires": [
           "Sucres de brassage possibles dans les traditions britanniques pour contrôler le corps."
         ],
-        "profilEau": "Profil suffisamment minéral pour soutenir fermentation et équilibre, sans dureté excessive.",
-        "empatage": "Empâtage visant un compromis entre richesse et fermentescibilité ; éviter une finale sirupeuse.",
-        "ebullitionEtHoublonnage": "Ébullition souvent plus longue ou plus intense pour concentrer le moût ; houblonnage proportionné à la densité.",
-        "fermentation": "Ensemencement généreux, oxygénation soignée et contrôle de température essentiels à une fermentation propre.",
-        "maturation": "Souvent plusieurs semaines à plusieurs mois ; certaines versions gagnent à vieillir davantage.",
-        "profilRecherche": "Une ale forte où malt, alcool et houblon éventuel restent intégrés, sans chaleur solvante ni sucrosité lourde."
+        "profilEau": "Calcium et nutriments soutiennent brassage et fermentation ; sulfate et chlorure suivent ensuite l'équilibre propre à la branche.",
+        "empatage": "Une forte charge de malt exige un moût assez fermentescible pour éviter la lourdeur. Les sucres simples peuvent alléger certaines recettes britanniques.",
+        "ebullitionEtHoublonnage": "Une longue ébullition concentre certains brassins mais augmente aussi couleur et charge thermique ; le houblon compense densité et durée de garde selon le style.",
+        "fermentation": "Pression osmotique puis éthanol éprouvent la levure : ensemencement, oxygénation, nutriments et maîtrise thermique déterminent atténuation et propreté.",
+        "maturation": "Le repos intègre alcool et fermentation ; une garde prolongée n'est choisie que si la branche accepte l'évolution du houblon et de l'oxydation.",
+        "profilRecherche": "Une force structurée : finale encore mobile, alcool intégré et intensité maltée ou houblonnée cohérente avec le sous-style."
       },
       "sources": [
         {
@@ -563,7 +757,7 @@ Les guides modernes utilisent donc Strong Ale comme une zone de classement : la 
           "reference": "Strong Ale",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "BJCP",
@@ -571,7 +765,7 @@ Les guides modernes utilisent donc Strong Ale comme une zone de classement : la 
           "reference": "Strong British Ale",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/17/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "BJCP",
@@ -579,7 +773,31 @@ Les guides modernes utilisent donc Strong Ale comme une zone de classement : la 
           "reference": "American Strong Ale",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/22/22B/american-strong-ale/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Puligundla et al. — Food and Bioproducts Processing",
+          "edition": "2020",
+          "reference": "Recent developments in high gravity beer-brewing",
+          "type": "publication_scientifique",
+          "url": "https://www.sciencedirect.com/science/article/abs/pii/S1466856420303453",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Heriot-Watt University",
+          "edition": "2003",
+          "reference": "Effects of osmotic pressure and ethanol on yeast viability and morphology",
+          "type": "publication_scientifique",
+          "url": "https://researchportal.hw.ac.uk/en/publications/the-effects-of-osmotic-pressure-and-ethanol-on-yeast-viability-an",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Wyeast Laboratories",
+          "edition": null,
+          "reference": "Professional high-gravity brewing",
+          "type": "ressource_technique_professionnelle",
+          "url": "https://wyeastlab.com/resource/professional-high-gravity-brewing/",
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -632,15 +850,34 @@ Les guides modernes utilisent donc Strong Ale comme une zone de classement : la 
           "Verre adapté au sous-style"
         ]
       },
-      "description": "Le Barley Wine est une ale qui regarde le vin droit dans le verre : très forte, dense, maltée, fruitée, parfois oxydée noblement, avec caramel, toffee, pain, marmelade, fruits secs ou houblon massif selon l’école. C’est une bière de petite gorgée et de grande patience.",
-      "histoireEtOrigines": `Barley Wine désigne les ales parmi les plus fortes du monde britannique. Le nom n'implique évidemment pas de raisin : il souligne une puissance alcoolique et une capacité de garde comparables à celles d'un vin. Les fortes Burton Ales du XIXe siècle forment une partie importante de cette généalogie ; le BJCP signale Bass No. 1 comme première bière appelée « barley wine » en 1872.
+      "description": "Le Barley Wine est bien une bière : l’orge fournit le moût, la levure construit une force comparable à celle du vin, et le temps peut ajouter cuir, marmelade ou fruits confits — comme il peut simplement fatiguer la bouteille. L’école britannique privilégie malt et maturation ; l’américaine ajoute une architecture de houblon. Petite quantité servie, grand dossier historique.",
+      "histoireEtOrigines": `Le nom arrive tard dans une histoire déjà ancienne. Les brasseurs britanniques produisaient depuis longtemps October Ales, Stock Ales et fortes Burton Ales capables de mûrir en fût ou en bouteille. Au XIXe siècle, Bass No. 1 appartient à ce monde de bières puissantes de Burton-upon-Trent. L'expression barley wine offre ensuite une comparaison commerciale immédiatement compréhensible : alcool et occasion de dégustation proches du vin, matière première toujours céréalière.
 
-Au XXe siècle, le style s'est diversifié. Les versions anglaises mettent généralement le malt, les fruits secs et la maturation au premier plan ; les versions américaines, à partir des années 1970-1980, renforcent nettement l'amertume et les houblons. Anchor Old Foghorn en 1975 puis Sierra Nevada Bigfoot en 1983 sont devenues des références de cette branche américaine. La famille Barley Wine doit donc conserver ces deux lignées distinctes.`,
+La date exacte mérite davantage de prudence que la légende habituelle. Le BJCP retient 1872 pour Bass No. 1. Des recherches dans la presse et la littérature médicale trouvent cependant l'expression « barley wine » associée à Bass autour de 1870, tandis que les publicités de Bass continuent longtemps à parler de strong ale ou de No. 1. Les documents disponibles ne permettent donc pas d'identifier avec certitude le jour où Bass aurait officiellement baptisé le style. Le terme émerge autour de 1870 ; le premier carton d'invitation reste introuvable.
+
+Au XXe siècle, les bouteilles fortes survivent comme produits d'hiver, de cadeau ou de prestige. Bass No. 1 et, à partir de 1951, Gold Label de Tennant participent à fixer l'image britannique : malt profond, alcool, fruité de fermentation et évolution en cave. La garde n'est pourtant pas une garantie de noblesse. L'oxygène peut former des notes de fruits secs ou de vin doux appréciées dans certaines bouteilles, mais aussi carton, papier et perte d'arôme ; fermeture, température et recette décident du verdict.
+
+Les États-Unis ouvrent une seconde grande branche. Anchor présente Old Foghorn en 1975, puis Sierra Nevada lance Bigfoot en 1983. Les houblons américains, plus abondants et plus expressifs, donnent une jeunesse amère et résineuse qui s'assouplit avec le temps. Le parent Barley Wine conserve ce voyage commun ; les fiches britannique et américaine racontent ensuite comment chaque rive emploie malt, houblon et cave.`,
+      "chapitres": [
+        {
+          "titre": "Bass No. 1 et le premier nom introuvable",
+          "texte": `Bass No. 1 est indispensable à l'histoire, mais « première Barley Wine en 1872 » condense plusieurs choses : une bière plus ancienne, un terme qui circule dans des textes autour de 1870 et une adoption commerciale dont les traces ne coïncident pas parfaitement. Les sources spécialisées ne datent pas toutes le même événement parce qu'elles ne posent pas exactement la même question.
+
+La formulation la plus solide est donc modeste : Bass No. 1 a joué un rôle fondateur dans l'association entre forte ale de Burton et barley wine ; l'expression apparaît publiquement vers 1870, sans preuve définitive d'un baptême unique en 1872.`
+        },
+        {
+          "titre": "Vieillir n'est pas simplement stocker",
+          "texte": `La maturation poursuit un objectif : intégrer alcool, fermentation et amertume dans des conditions choisies. Le stockage décrit seulement le fait que la bouteille attend. Pendant cette attente, réactions d'oxydation, transformations d'esters et perte des composés de houblon changent le profil ; elles ne suivent pas une pente régulière vers le sublime.
+
+Une Barley Wine conçue pour la cave, correctement conditionnée et gardée au frais peut gagner en cohésion. La même bière chaude, mal fermée ou déjà oxydée vieillira surtout plus vite. Le calendrier ne possède pas de palais.`
+        }
+      ],
       "recette": {
         "profilUnique": false,
-        "explicationProfil": "Barley Wine comprend au moins deux grandes écoles modernes : britannique, plus maltée et fruitée, et américaine, plus fortement houblonnée.",
+        "explicationProfil": "Deux grandes écoles modernes partagent la haute densité et la capacité de garde : britannique centrée sur malt et évolution, américaine fortement structurée par le houblon.",
         "maltsEtCereales": [
-          "Grande majorité de malt pale de qualité ; crystal en quantité contrôlée ; malts sombres très limités."
+          "Grande majorité de malt pale de qualité ; la profondeur peut venir d'une longue ébullition et de la maturation plutôt que d'une accumulation de malts spéciaux.",
+          "Crystal en quantité contrôlée et malts sombres limités afin de préserver atténuation et lisibilité."
         ],
         "houblons": [
           "Houblons anglais pour la branche britannique ; houblons américains/New World plus intenses pour la branche US."
@@ -651,12 +888,12 @@ Au XXe siècle, le style s'est diversifié. Les versions anglaises mettent gén�
         "ingredientsComplementaires": [
           "Sucres fermentescibles possibles dans certaines recettes britanniques pour limiter le corps."
         ],
-        "profilEau": "Calcium suffisant et équilibre minéral évitant d'accentuer dureté ou lourdeur.",
-        "empatage": "Empâtage plutôt fermentescible malgré la forte densité afin de conserver de la buvabilité.",
-        "ebullitionEtHoublonnage": "Ébullition longue fréquente pour concentrer et développer la profondeur maltée ; amertume élevée en valeur absolue pour équilibrer la densité.",
-        "fermentation": "Pitch important, oxygénation renforcée et température maîtrisée ; fermentation souvent longue.",
-        "maturation": "Plusieurs mois courants ; certaines bouteilles évoluent favorablement pendant des années avec notes de fruits secs, vin doux et oxydation noble.",
-        "profilRecherche": "Une ale de dégustation très forte, riche et chaleureuse, mais encore structurée par l'atténuation et l'amertume."
+        "profilEau": "Calcium suffisant pour l'empâtage et la levure ; sulfate plus ferme dans l'école américaine, sans durcir un alcool déjà puissant.",
+        "empatage": "Profil fermentescible malgré la densité, parfois complété par du sucre dans des recettes britanniques, pour conserver une finale de bière plutôt que de sirop.",
+        "ebullitionEtHoublonnage": "Ébullition souvent longue pour concentrer le moût ; amertume élevée en valeur absolue. L'école américaine protège en plus une charge aromatique destinée à s'estomper avec l'âge.",
+        "fermentation": "Grand ensemencement, oxygénation adaptée, nutriments et température maîtrisée ; la fermentation peut repartir lentement après sa phase la plus active.",
+        "maturation": "Plusieurs mois avant commercialisation possibles. Une garde de plusieurs années transforme la bière, favorablement ou non selon oxygène, température, fermeture et conception.",
+        "profilRecherche": "Une ale de dégustation concentrée mais fermentée jusqu'à l'équilibre, dont la jeunesse et l'âge ont chacun un propos plutôt qu'une hiérarchie automatique."
       },
       "sources": [
         {
@@ -665,7 +902,7 @@ Au XXe siècle, le style s'est diversifié. Les versions anglaises mettent gén�
           "reference": "English Barleywine",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/17/17D/english-barleywine/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "BJCP",
@@ -673,7 +910,7 @@ Au XXe siècle, le style s'est diversifié. Les versions anglaises mettent gén�
           "reference": "American Barleywine",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/22/strong-american-ale/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Brewers Association",
@@ -681,7 +918,47 @@ Au XXe siècle, le style s'est diversifié. Les versions anglaises mettent gén�
           "reference": "American-Style Barley Wine Ale",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Martyn Cornell — Zythophile",
+          "edition": "2010",
+          "reference": "What is the difference between barley wine and old ale?",
+          "type": "recherche_historique_specialisee",
+          "url": "https://zythophile.wordpress.com/2010/09/14/so-what-is-the-difference-between-barley-wine-and-old-ale/",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Ron Pattinson — Shut Up About Barclay Perkins",
+          "edition": "2013",
+          "reference": "The Lancet and Bass's Barley Wine — 1870 documentary evidence",
+          "type": "recherche_sur_archives",
+          "url": "https://barclayperkins.blogspot.com/2013/11/the-lancet-and-basss-barley-wine.html",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "National Center for Biotechnology Information",
+          "edition": "2019",
+          "reference": "Bass advertising and the marketing of barley wine",
+          "type": "ouvrage_universitaire",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK524984/?report=printable",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Vanderhaegen et al. — Food Chemistry",
+          "edition": "2006",
+          "reference": "The chemistry of beer aging — a critical review",
+          "type": "publication_scientifique",
+          "url": "https://talcottlab.tamu.edu/wp-content/uploads/sites/108/2020/03/Review-Beer-Ageing.pdf",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Sierra Nevada Brewing Co.",
+          "edition": null,
+          "reference": "Bigfoot Barleywine-Style Ale — introduced in 1983",
+          "type": "source_producteur",
+          "url": "https://sierranevada.com/brews/bigfoot-barleywine-style-ale",
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -732,10 +1009,12 @@ Au XXe siècle, le style s'est diversifié. Les versions anglaises mettent gén�
           "Dimple mug"
         ]
       },
-      "description": "L’English Pale Mild Ale est la mild rare en habits clairs : faible alcool, malt pâle, biscuit, pain, fruit léger et amertume modérée. Elle garde l’esprit mild, c’est-à-dire la douceur de pub et la buvabilité, mais sans la robe brune attendue.",
-      "histoireEtOrigines": `La Pale Mild rappelle que la Mild britannique n'a pas toujours été brune. Lorsque « mild » signifiait d'abord jeune et non vieillie, la couleur n'était pas une condition. Des Milds pâles ont coexisté avec des versions plus foncées ; elles sont aujourd'hui devenues très rares.
+      "description": "La Pale Mild est la photographie qui fait mentir le cliché : une Mild peut être dorée à ambrée, légère et centrée sur la céréale, avec miel discret, mie fraîche et fruit de levure. Le houblon garde le comptoir sans monter sur scène. Light Mild ou Pennine Mild selon les lieux, elle rappelle qu’un mot d’âge n’a jamais été un code Pantone.",
+      "histoireEtOrigines": `Sa simple robe constitue une pièce d'archive. Lorsque mild qualifiait une ale jeune, aucune règle ne l'obligeait à être brune. Les gammes britanniques proposaient des Milds de couleurs et de forces diverses ; ce sont les transformations du XXe siècle qui ont soudé, dans l'imaginaire du pub, faible densité et teinte sombre.
 
-CAMRA décrit encore Pale Mild comme une bière légère, peu amère et dominée par le malt, parfois appelée Light Mild ou Pennine Mild. Elle peut être confondue avec une Pale Ale ou un Bitter, mais son houblonnage plus discret et son objectif de buvabilité maltée la distinguent. Son intérêt encyclopédique est précisément de montrer que l'image moderne « Mild = brune » est une simplification du XXe siècle.`,
+La Pale Mild a survécu par poches plutôt que par grande dynastie nationale. CAMRA relève les noms Light Mild et, dans certaines régions, Pennine Mild. Maurice Gorham écrivait en 1949 que la light mild avait la couleur d'un bitter et se rencontrait rarement dans les pubs londoniens : la branche claire existait encore, mais le brun occupait déjà le portrait officiel.
+
+Aujourd'hui, sa différence tient moins à la teinte qu'à l'usage du houblon. À force égale, un Bitter privilégie davantage amertume et arôme ; la Pale Mild laisse malt clair et fermentation construire une pinte souple. Sa rareté moderne lui donne un rôle disproportionné : elle prouve, verre en main, que la famille Mild s'est rétrécie au cours de l'histoire sans avoir toujours porté le même uniforme. Elle conserve ainsi une branche entière en une seule nuance.`,
       "recette": {
         "profilUnique": true,
         "explicationProfil": "",
@@ -749,12 +1028,12 @@ CAMRA décrit encore Pale Mild comme une bière légère, peu amère et dominée
           "Levure ale britannique assez propre, esters légers possibles."
         ],
         "ingredientsComplementaires": [],
-        "profilEau": "Plutôt douce à modérément minérale.",
-        "empatage": "Empâtage moyen à chaud pour préserver du corps malgré la faible densité.",
-        "ebullitionEtHoublonnage": "Amertume basse ; pas de forte signature aromatique de houblon.",
-        "fermentation": "Fermentation haute douce, visant une bière propre et peu alcoolisée.",
-        "maturation": "Courte ; conditionnement cask particulièrement cohérent historiquement.",
-        "profilRecherche": "Une ale pâle de session, maltée, douce et subtile, moins houblonnée qu'un Bitter de même force."
+        "profilEau": "Faible alcalinité adaptée au malt clair ; calcium modéré pour fermentation et clarification.",
+        "empatage": "Une température moyenne à haute et un malt de base savoureux maintiennent la texture sans charger la recette de crystal.",
+        "ebullitionEtHoublonnage": "Amertume basse, ajout tardif discret : la différence avec le Bitter se joue précisément dans ce volume baissé.",
+        "fermentation": "Une souche britannique peut apporter poire ou pomme légère ; une bonne atténuation évite qu'une petite bière devienne molle.",
+        "maturation": "Conditionnement court, souvent en cask, afin de conserver céréale fraîche et carbonatation douce.",
+        "profilRecherche": "Une pinte claire de session où le malt parle avant le houblon, preuve sensorielle que Mild n'est pas synonyme de brune."
       },
       "sources": [
         {
@@ -763,7 +1042,7 @@ CAMRA décrit encore Pale Mild comme une bière légère, peu amère et dominée
           "reference": "Mild, Pale",
           "type": "source_historique_et_style",
           "url": "https://learn.camra.org.uk/beer-styles/mild-pale",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "BJCP",
@@ -771,7 +1050,23 @@ CAMRA décrit encore Pale Mild comme une bière légère, peu amère et dominée
           "reference": "Dark Mild — commentaire sur les versions pâles historiques",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/13/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Brewers Association",
+          "edition": "2026",
+          "reference": "English-Style Pale Mild Ale",
+          "type": "guide_de_style",
+          "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Martyn Cornell — Zythophile",
+          "edition": "2008",
+          "reference": "What colour was mild?",
+          "type": "recherche_historique_specialisee",
+          "url": "https://zythophile.wordpress.com/2008/04/09/what-colour-was-mild/",
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -822,10 +1117,12 @@ CAMRA décrit encore Pale Mild comme une bière légère, peu amère et dominée
           "Dimple mug"
         ]
       },
-      "description": "L’English Dark Mild Ale est la pinte brune de faible gravité : caramel, toffee, pain grillé, noisette, chocolat doux, parfois prune ou raisin. Elle doit être savoureuse malgré son faible degré, sans devenir porter miniature ni eau sucrée.",
-      "histoireEtOrigines": `La Dark Mild actuelle est le résultat d'une évolution, pas la forme originelle du Mild. Le BJCP rappelle que les X ales du XIXe siècle ont commencé à s'assombrir dans les années 1880, mais que la teinte brun foncé ne devient véritablement caractéristique qu'après la Première Guerre mondiale. Dans le même temps, les densités chutent fortement.
+      "description": "La Dark Mild fait tenir un garde-manger dans une petite pinte : noix, cacao doux, sucre brun, céréale grillée et parfois prune, pour un alcool souvent voisin de 3 à 4 %. Sa robe sombre est une conquête du XXe siècle, pas l’acte de naissance de Mild. Le tour de force consiste à donner du relief sans emprunter au Porter son café ni sa masse.",
+      "histoireEtOrigines": `Dans les registres du XIXe siècle, les X ales appelées mild sont d'abord classées par âge et par force. À partir des années 1880, certaines recettes s'assombrissent ; après la Première Guerre mondiale, couleur brune et faible densité se rejoignent assez durablement pour que « Mild » finisse, dans de nombreux pubs, par signifier Dark Mild sans autre précision.
 
-Au XXe siècle, la Dark Mild devient une bière de pub de faible degré, peu houblonnée, souvent servie en cask. Caramel, pain grillé, noix, chocolat léger ou fruits sombres peuvent apparaître malgré une densité faible. Son déclin à partir des années 1960 a été profond, mais elle reste une tradition vivante défendue par CAMRA et par des brasseries régionales.`,
+Cette rencontre n'est pas un simple effet de malt. Les brasseurs ont travaillé avec malt crystal, brown ou chocolat, sucres invertis, adjuncts et parfois caramel de brasserie. À mesure que la densité tombait, ces outils maintenaient couleur et saveur dans une pinte moins alcoolisée. La difficulté technique changeait : produire moins d'alcool tout en laissant assez de matière pour que la bière ne s'efface pas entre la pompe et la table.
+
+La Dark Mild devient l'une des grandes bières de débit du milieu du XXe siècle. Puis sa propre efficacité sociale la rend vulnérable : le Bitter gagne le comptoir, la lager capte de nouveaux consommateurs et les regroupements brassicoles réduisent les gammes régionales. CAMRA en fait une cause patrimoniale. Les exemples survivants ne reconstituent pas une Mild victorienne ; ils conservent cette solution du XXe siècle, sombre, légère et étonnamment bavarde à faible volume.`,
       "recette": {
         "profilUnique": true,
         "explicationProfil": "",
@@ -841,12 +1138,12 @@ Au XXe siècle, la Dark Mild devient une bière de pub de faible degré, peu hou
         "ingredientsComplementaires": [
           "Sucres invertis, maïs ou caramel de brasserie historiquement possibles."
         ],
-        "profilEau": "Modérément carbonatée, adaptée aux petites charges de grains foncés.",
-        "empatage": "Empâtage assez chaud pour conserver texture et rondeur à faible densité.",
-        "ebullitionEtHoublonnage": "10 à 25 IBU environ dans le cadre BJCP moderne ; houblon aromatique très discret.",
-        "fermentation": "Fermentation haute contrôlée, sans excès d'esters ni diacétyle.",
-        "maturation": "Courte ; service cask traditionnel avec carbonatation basse.",
-        "profilRecherche": "Une bière sombre de session très buvable, maltée et nuancée, jamais lourde ni fortement torréfiée."
+        "profilEau": "Alcalinité seulement suffisante pour la petite charge de grains foncés ; un pH trop haut rendrait la finale terne.",
+        "empatage": "Corps préservé par la température et le choix du malt, sans accumulation de dextrines qui contredirait la pinte de session.",
+        "ebullitionEtHoublonnage": "Amertume de soutien et arôme de houblon presque en coulisses ; la perception dépend autant de l'atténuation que du nombre d'IBU.",
+        "fermentation": "Esters modérés et atténuation régulière. Un soupçon de diacétyle peut exister dans certains exemples, jamais comme cache-misère.",
+        "maturation": "Conditionnement court en cask, carbonatation basse et service de cave donnent du volume à une bière peu dense.",
+        "profilRecherche": "Une petite ale sombre où plusieurs couches maltées restent distinctes, avec une finale nette et aucune torréfaction de Porter."
       },
       "sources": [
         {
@@ -855,7 +1152,7 @@ Au XXe siècle, la Dark Mild devient une bière de pub de faible degré, peu hou
           "reference": "Dark Mild",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/13/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "CAMRA",
@@ -863,7 +1160,7 @@ Au XXe siècle, la Dark Mild devient une bière de pub de faible degré, peu hou
           "reference": "Mild, 60/-",
           "type": "source_historique_et_style",
           "url": "https://learn.camra.org.uk/beer-styles/mild-60",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Brewers Association",
@@ -871,7 +1168,23 @@ Au XXe siècle, la Dark Mild devient une bière de pub de faible degré, peu hou
           "reference": "English-Style Mild Ale",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Martyn Cornell — Zythophile",
+          "edition": "2008",
+          "reference": "What colour was mild? — chronology of darkening",
+          "type": "recherche_historique_specialisee",
+          "url": "https://zythophile.wordpress.com/2008/04/09/what-colour-was-mild/",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "UK Parliament — Hansard",
+          "edition": "1920",
+          "reference": "Food Controller beer gravities and wartime regulation",
+          "type": "archive_parlementaire",
+          "url": "https://api.parliament.uk/historic-hansard/commons/1920/jul/06/clause-6-increased-excise-duty-on-beer/division_185",
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -922,10 +1235,12 @@ Au XXe siècle, la Dark Mild devient une bière de pub de faible degré, peu hou
           "Tulipe"
         ]
       },
-      "description": "L’English Brown Ale est une brune confortable : noisette, caramel, biscuit, pain brun, chocolat doux et fruit discret. Elle doit rester ronde, maltée et claire dans son intention, sans basculer vers le porter ni vers l’amertume américaine.",
-      "histoireEtOrigines": `La British Brown Ale moderne est une catégorie relativement étroite par rapport à l'immense histoire des bières brunes britanniques. Le BJCP prend soin de préciser qu'elle ne descend pas du Dark Mild et qu'elle n'est pas une étape vers le Porter : ces familles ont simplement fini par partager certaines couleurs et certains marqueurs maltés.
+      "description": "L’English Brown Ale moderne regarde surtout vers le nord de l’Angleterre : force moyenne, noisette, toffee léger, fruit de levure et finale plus sèche que la London Brown. Newcastle Brown Ale lui a donné une silhouette exportable, sans résumer toutes les brunes du pays. Entre Mild et Porter sur le nuancier, elle suit sa propre route dans l’histoire.",
+      "histoireEtOrigines": `La carte se précise au nord. Lorsque Newcastle Brown Ale paraît en 1927, la bouteille conçue par le brasseur Jim Porter et le chimiste Archie Jones associe une ale ambrée-brune, fruitée et relativement sèche à une ville industrielle. Son succès national puis international fournit au XXe siècle un repère puissant pour ce que les guides appelleront British Brown Ale.
 
-Les exemples modernes sont généralement plus forts qu'une Mild, avec caramel, noix, biscuit, toffee et parfois chocolat léger, mais sans la torréfaction d'un Porter. Les versions du nord de l'Angleterre ont souvent servi de référence internationale au XXe siècle, tandis que la London Brown Ale sucrée constitue une branche historique distincte.`,
+Ce repère ne crée pas une recette anglaise universelle. Les brasseries ont vendu des brown ales de forces et de profils variés ; les archives montrent que la couleur ne permet pas de les aligner proprement entre Dark Mild et Porter. La catégorie moderne retient surtout les versions plus fortes et moins sucrées que la London Brown, avec malt de base, crystal, notes de noix et esters britanniques.
+
+L'embouteillage compte autant que la latitude. Une marque comme Newcastle voyage en bouteille puis en canette et transforme une spécialité régionale en emblème. Le service, la carbonatation et la stabilité attendue diffèrent alors de la petite Mild en cask. L'English Brown Ale est ainsi moins un fauteuil ancestral qu'un produit du XXe siècle ayant très bien appris à prendre le train.`,
       "recette": {
         "profilUnique": true,
         "explicationProfil": "",
@@ -939,12 +1254,12 @@ Les exemples modernes sont généralement plus forts qu'une Mild, avec caramel, 
           "Levure ale britannique à esters bas à modérés."
         ],
         "ingredientsComplementaires": [],
-        "profilEau": "Carbonatation modérée de l'eau, suffisante pour les malts bruns sans accentuer l'âcreté.",
-        "empatage": "Empâtage moyen pour une texture souple, ni mince ni sucrée.",
-        "ebullitionEtHoublonnage": "Amertume basse à moyenne ; houblon tardif discret.",
-        "fermentation": "Fermentation haute à température modérée.",
-        "maturation": "Courte à modérée ; conditionnement cask ou bouteille.",
-        "profilRecherche": "Une ale brune maltée et équilibrée, évoquant caramel, noix et biscuit sans torréfaction de Porter."
+        "profilEau": "Minéralité modérée et pH adapté aux malts colorés ; aucune dureté nécessaire pour prouver l'origine nordique.",
+        "empatage": "Fermentescibilité moyenne : assez de corps pour porter noix et toffee, assez d'atténuation pour distinguer la branche londonienne.",
+        "ebullitionEtHoublonnage": "Amertume moyenne, houblons anglais discrets mais perceptibles dans la finale.",
+        "fermentation": "Une souche britannique apporte des esters fruités retenus et une atténuation plus nette que dans London Brown.",
+        "maturation": "Courte à modérée ; bouteille, canette ou cask changent la carbonatation sans exiger de longue garde.",
+        "profilRecherche": "Une brune anglaise souple et fruitée, plus sèche et plus ferme que London Brown, sans café de Porter."
       },
       "sources": [
         {
@@ -953,7 +1268,7 @@ Les exemples modernes sont généralement plus forts qu'une Mild, avec caramel, 
           "reference": "British Brown Ale",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/13/13b-british-brown-ale/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Brewers Association",
@@ -961,7 +1276,31 @@ Les exemples modernes sont généralement plus forts qu'une Mild, avec caramel, 
           "reference": "English-Style Brown Ale",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Heineken UK",
+          "edition": null,
+          "reference": "Newcastle Brown Ale — Jim Porter and the 1927 launch",
+          "type": "source_producteur",
+          "url": "https://www.heineken.co.uk/newcastlebrown",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "The Oxford Companion to Beer",
+          "edition": "2011",
+          "reference": "Newcastle Brown Ale",
+          "type": "encyclopedie_brassicole",
+          "url": "https://www.beerandbrewing.com/dictionary/3p7imypYfG",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Martyn Cornell — Zythophile",
+          "edition": "2011",
+          "reference": "Regional divergence within English brown ales",
+          "type": "recherche_historique_specialisee",
+          "url": "https://zythophile.wordpress.com/2011/03/31/why-theres-no-such-beer-as-english-brown-ale/",
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -1012,10 +1351,12 @@ Les exemples modernes sont généralement plus forts qu'une Mild, avec caramel, 
           "Dimple mug"
         ]
       },
-      "description": "La London Brown Ale est plus sombre, plus douce et plus basse en alcool que beaucoup de brown ales : caramel, sucre brun, mélasse légère, pain noir et fruit doux. Elle a quelque chose de dessert de pub, mais doit rester une bière, pas un sirop brun.",
-      "histoireEtOrigines": `La London Brown Ale est beaucoup plus précisément documentée que le terme générique Brown Ale. Le BJCP la rattache à Mann's, qui développe en 1902 une Brown Ale en bouteille annoncée à l'époque comme « the sweetest beer in London ». Avant la Première Guerre mondiale, elle tournait autour de 5 % vol., puis sa densité et son alcool diminuent fortement au fil du XXe siècle.
+      "description": "Née pour la bouteille londonienne, la London Brown Ale assemble faible alcool, robe presque noire et douceur franche : toffee, sucre brun, raisin léger et mousse crémeuse, avec juste assez d’amertume pour remettre la cuillère au tiroir. Mann’s l’a lancée en 1902 ; son étrangeté moderne vient de cette invention industrielle, pas d’une taverne médiévale opportunément mal éclairée.",
+      "histoireEtOrigines": `En 1902, Thomas Wells Thorpe, directeur de Mann, Crossman & Paulin, lance une Brown Ale à l'Albion Brewery de Whitechapel. Le produit est conçu pour la bouteille à une époque où ce conditionnement ouvre de nouveaux circuits de vente. Son profil doux se distingue des ales pression et la publicité en fait bientôt une spécialité reconnaissable.
 
-Sa signature moderne est inhabituelle : faible degré, couleur très sombre, amertume basse et douceur marquée. Certaines versions commerciales pasteurisées peuvent être édulcorées après fermentation. Le style décline fortement dans la seconde moitié du XXe siècle et devient une bière historique de niche. Il ne doit donc pas être confondu avec la British Brown Ale moderne, généralement plus sèche et moins sucrée.`,
+La Première Guerre mondiale puis la fiscalité et les baisses de densité transforment la formule. D'environ 5 % vol. avant-guerre selon les reconstructions documentaires, Mann's descend vers la petite bière brune connue au XXe siècle. La douceur demeure alors que l'alcool recule : forte proportion de malts crystal ou sucres, faible atténuation et, dans certaines fabrications stabilisées, édulcoration après fermentation deviennent des moyens possibles de tenir ce paradoxe.
+
+Mann's atteint une grande diffusion au milieu du siècle, puis le style décline avec la concentration industrielle et le changement des goûts. L'Albion Brewery ferme en 1979. Les recréations et catégories historiques actuelles décrivent donc une branche très spécifique : sombre, embouteillée, peu amère et franchement douce. La London Brown n'est pas la grand-mère de toutes les Brown Ales ; c'est une invention de produit dont l'acte de naissance porte une adresse.`,
       "recette": {
         "profilUnique": true,
         "explicationProfil": "",
@@ -1031,12 +1372,12 @@ Sa signature moderne est inhabituelle : faible degré, couleur très sombre, ame
         "ingredientsComplementaires": [
           "Édulcoration post-fermentation possible dans certaines versions pasteurisées ; lactose ou sucre selon méthode."
         ],
-        "profilEau": "Eau modérément à fortement carbonatée, historiquement adaptée aux malts foncés londoniens.",
-        "empatage": "Empâtage orienté vers une faible fermentescibilité et un corps doux malgré la faible densité.",
-        "ebullitionEtHoublonnage": "Houblonnage minimal ; éviter toute signature moderne intense.",
-        "fermentation": "Fermentation haute avec atténuation contenue.",
-        "maturation": "Conditionnement bouteille ; stabilisation nécessaire si édulcoration fermentescible après fermentation.",
-        "profilRecherche": "Une petite ale brun très foncé, crémeuse et franchement douce, dominée par caramel et toffee plutôt que par le houblon."
+        "profilEau": "Alcalinité adaptée à la mouture sombre et pH final net ; l'eau londonienne historique n'est pas une ordonnance universelle.",
+        "empatage": "Faible fermentescibilité et choix de crystal construisent la douceur, mais le faible degré impose de préserver une texture non aqueuse.",
+        "ebullitionEtHoublonnage": "Houblonnage minimal, sans signature tardive : l'amertume empêche la douceur de devenir uniforme.",
+        "fermentation": "Atténuation contenue ; toute édulcoration post-fermentation exige pasteurisation, filtration stérile ou autre stabilisation fiable.",
+        "maturation": "Pensée pour la bouteille plutôt que pour une longue cave ; carbonatation et stabilité sont des composantes du style.",
+        "profilRecherche": "Une petite ale très sombre et douce, dont l'équilibre de bouteille reste crémeux et brassicole plutôt que sirupeux."
       },
       "sources": [
         {
@@ -1045,7 +1386,7 @@ Sa signature moderne est inhabituelle : faible degré, couleur très sombre, ame
           "reference": "Historical Beer: London Brown Ale",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/27/historical-beer/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Brewers Association",
@@ -1053,7 +1394,31 @@ Sa signature moderne est inhabituelle : faible degré, couleur très sombre, ame
           "reference": "English-Style Brown Ale",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "American Homebrewers Association",
+          "edition": "2017",
+          "reference": "London Brown Ale — Thomas Wells Thorpe, Mann's and the 1902 launch",
+          "type": "histoire_de_style",
+          "url": "https://homebrewersassociation.org/zymurgy-article/london-brown-ale/",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Brewery History Society",
+          "edition": null,
+          "reference": "Mann, Crossman & Paulin Ltd — Albion Brewery records",
+          "type": "archive_industrielle",
+          "url": "https://breweryhistory.com/wiki/index.php/Mann%2C_Crossman_%26_Paulin_Ltd",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Martyn Cornell — Zythophile",
+          "edition": "2011",
+          "reference": "Mann's gravities and the London brown branch",
+          "type": "recherche_historique_specialisee",
+          "url": "https://zythophile.wordpress.com/2011/03/31/why-theres-no-such-beer-as-english-brown-ale/",
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -1104,10 +1469,22 @@ Sa signature moderne est inhabituelle : faible degré, couleur très sombre, ame
           "Nonic pint"
         ]
       },
-      "description": "L’Irish Red Ale est une bière rouge de comptoir : caramel léger, biscuit, toast sec, parfois une pointe de grain rôti pour sécher la finale. Elle doit être douce sans être sucrée, rousse sans être lourde, irlandaise sans se déguiser en stout.",
-      "histoireEtOrigines": `L'Irlande possède une longue histoire de brassage d'ales, mais l'Irish Red Ale moderne ne doit pas être présentée comme une survivance médiévale inchangée. Le BJCP la décrit essentiellement comme une adaptation irlandaise du Bitter anglais : moins houblonnée, souvent plus douce, avec une petite quantité de grain torréfié pour produire une couleur rouge-cuivrée et une finale sèche.
+      "description": "L’Irish Red Ale moderne est une pinte cuivrée, souple et peu démonstrative : céréale toastée, toffee léger, fruit discret, amertume mesurée et parfois un trait de grain rôti qui sèche la sortie. Kilkenny lui donne une histoire de brasserie ancienne ; la catégorie « Irish Red », elle, s’est fixée beaucoup plus tard. Le patrimoine est réel, la ligne directe vers 1710 beaucoup moins.",
+      "histoireEtOrigines": `Kilkenny fournit le lieu, mais pas une recette figée. Des documents conservés par Smithwick's font remonter l'activité de John Smithwick à 1710, dans une ville déjà brassicole. La maison traverse changements de propriété, concurrence du porter et industrialisation ; cette continuité raconte une entreprise et une culture locale, non trois siècles d'une même « Irish Red Ale ».
 
-Le style est aujourd'hui devenu une composante standard de nombreuses gammes de brasseries irlandaises et internationales. Les versions irlandaises tendent à rester relativement sèches et modestes en alcool, alors que certaines interprétations étrangères sont plus fortes et caramélisées. La légère note de torréfaction doit rester un accent de finale, pas transformer la bière en stout rouge.`,
+Le produit qui structure la branche moderne apparaît après le rapprochement avec Guinness. L'histoire locale publiée par la Kilkenny Archaeological Society date de 1966 le lancement de la keg ale de Smithwick's, au début d'une forte expansion commerciale. Pression sous gaz, régularité industrielle et export donnent à l'ale ambrée de Kilkenny une identité beaucoup plus visible que les catégories antérieures du marché irlandais.
+
+Le nom rouge se renforce ensuite à l'international. George Killian's Bière Rousse, créée par Pelforth en France en 1975 à partir d'un récit familial irlandais, puis les marchés nord-américains contribuent à faire de « Irish Red » un style reconnaissable. Les guides contemporains le décrivent comme proche du Bitter anglais, moins houblonné, avec une finale parfois asséchée par une faible dose de grain torréfié.
+
+La fiche raconte donc une codification, pas une résurrection. La brasserie de Kilkenny est ancienne ; le service keg de 1966 et le marketing de la rousse sont modernes ; la recette de concours est plus récente encore. Ces couches se superposent dans la pinte sans avoir été brassées le même jour.`,
+      "chapitres": [
+        {
+          "titre": "Un soupçon de rôti, pas une stout en rouge",
+          "texte": `Une petite quantité d'orge torréfiée ou de malt très foncé peut approfondir la robe et donner une impression sèche en finale. À ce dosage, café et brûlé restent sous le seuil dominant. La base pale, un crystal mesuré et l'atténuation produisent l'essentiel du profil.
+
+Cette touche n'est ni obligatoire dans toute ale irlandaise ni la preuve d'une recette ancestrale. C'est un outil de formulation devenu caractéristique de la catégorie moderne.`
+        }
+      ],
       "recette": {
         "profilUnique": true,
         "explicationProfil": "",
@@ -1121,12 +1498,12 @@ Le style est aujourd'hui devenu une composante standard de nombreuses gammes de 
           "Levure ale irlandaise ou britannique assez propre, esters faibles."
         ],
         "ingredientsComplementaires": [],
-        "profilEau": "Profil modéré, sulfate/chlorure équilibré pour conserver une finale nette.",
-        "empatage": "Empâtage moyen favorisant une bière facile à boire et modérément sèche.",
-        "ebullitionEtHoublonnage": "Amertume 18-28 IBU dans le cadre BJCP ; houblon tardif très discret.",
-        "fermentation": "Fermentation haute propre, diacétyle éventuel seulement à très faible niveau.",
-        "maturation": "Courte à modérée ; bière généralement consommée fraîche.",
-        "profilRecherche": "Une ale rouge-cuivrée souple et subtile, légèrement maltée, avec une finale sèche soulignée par une touche de grain torréfié."
+        "profilEau": "Minéralité modérée ; sulfate suffisant pour une finale nette, sans sécher une bière déjà légère.",
+        "empatage": "Fermentescibilité moyenne à élevée pour empêcher le crystal de rendre la pinte collante.",
+        "ebullitionEtHoublonnage": "Amertume mesurée et houblon tardif très discret ; l'équilibre vise le débit plutôt que le parfum.",
+        "fermentation": "Souche propre à légèrement fruitée. Un diacétyle très bas peut être toléré par certains guides, jamais recherché comme signature obligatoire.",
+        "maturation": "Courte, avec conditionnement cask, keg ou bouteille selon le produit moderne.",
+        "profilRecherche": "Une ale rouge-cuivrée sèche et souple, où le grain rôti signe la finale d'un trait fin au lieu de peindre tout le verre."
       },
       "sources": [
         {
@@ -1135,7 +1512,7 @@ Le style est aujourd'hui devenu une composante standard de nombreuses gammes de 
           "reference": "Irish Red Ale",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/15/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Brewers Association",
@@ -1143,7 +1520,31 @@ Le style est aujourd'hui devenu une composante standard de nombreuses gammes de 
           "reference": "Irish-Style Red Ale",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Kilkenny Archaeological Society",
+          "edition": "1989",
+          "reference": "A Brief History of the Brewing Industry in Kilkenny",
+          "type": "histoire_locale",
+          "url": "https://kilkennyarchaeologicalsociety.ie/wp-content/uploads/2022/02/OKR1989-583-T-B-Halpin-A-Brief-History-of-the-Brewing-Industry-in-Kilkenny.pdf",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Smithwick's Experience",
+          "edition": null,
+          "reference": "Smithwick's and Kilkenny brewing history",
+          "type": "source_producteur_historique",
+          "url": "https://www.smithwicksexperience.com/",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Brewery History Society",
+          "edition": "2022",
+          "reference": "The story of George Killian's and the modern red-ale identity",
+          "type": "recherche_historique",
+          "url": "https://breweryhistory.com/journal/archive/187/Killian.pdf",
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -1194,10 +1595,28 @@ Le style est aujourd'hui devenu une composante standard de nombreuses gammes de 
           "Nonic pint"
         ]
       },
-      "description": "L’Old Ale sent la cave chaude et le temps : malt profond, caramel sombre, fruits secs, prune, cuir doux, noix, oxydation noble et alcool arrondi. Elle peut être plus sèche ou plus douce, mais elle doit évoquer une bière qui a vécu.",
-      "histoireEtOrigines": `Old Ale est l'un des rares styles où la garde est aussi importante que le brassage. Historiquement, les stock ales britanniques étaient conservées longtemps avant d'être servies seules ou assemblées avec des bières plus jeunes. Les mots « old », « stale » ou « stock » renvoyaient à cette maturation plutôt qu'à une simple couleur ou densité.
+      "description": "Old Ale décrit ce que le temps a fait autant que ce que la cuve a produit : une ale britannique gardée, parfois assemblée à une jeune, où prune, noix, mélasse, cuir ou légère vinosité peuvent remplacer l’éclat initial du houblon. « Old » ne signifie ni très forte à coup sûr ni volontairement éventée. La cave travaille ; elle n’obtient pas l’immunité diplomatique.",
+      "histoireEtOrigines": `Le geste fondateur est un déplacement. Une partie de la bière quitte la rotation rapide, entre dans un grand fût ou un vat et attend. Dans le vocabulaire britannique, mild désigne longtemps la jeune bière ; stock, stale ou old signalent une maturation. Le brasseur ou le publican peut servir la bière âgée seule, ou l'assembler avec une jeune plus douce afin de régler acidité, fruité et vivacité.
 
-Le style moderne reste variable. Le BJCP distingue des Old Ales relativement faibles et peu vieillies, autour de 4,5 %, et des versions fortes de 6 à 8 % ou davantage où apparaissent fruits secs, caramel, mélasse, notes vineuses, noix et oxydation noble rappelant xérès, porto ou madère. Une acidité légère ou un caractère Brett peut exister dans certaines traditions historiques de garde, mais ne doit jamais servir d'excuse à une bière techniquement dégradée.`,
+Le bois historique n'était pas toujours neutre au sens microbiologique moderne. Des travaux sur des stock ales et des textes de brasserie associent Brettanomyces à certaines maturations longues, où la levure consomme lentement des composés résiduels et produit un caractère sec, cuiré ou fruité. Cette réalité ne transforme pas toute Old Ale en bière sauvage : brasserie, époque, état des fûts et stratégie d'assemblage variaient considérablement.
+
+L'industrialisation remplace nombre de grands contenants et privilégie la stabilité. « Old Ale » survit alors comme nom de bières fortes, hivernales ou simplement traditionnelles, avec des degrés très différents. Certaines sont mises en vente relativement jeunes ; d'autres mûrissent en bouteille. Le guide moderne conserve cette amplitude, des exemples proches de 4,5 % aux fortes ales de 8 % et davantage.
+
+La leçon de la cave tient dans les verbes. Garder vise une évolution ; stocker constate une attente ; oxyder décrit une famille de réactions ; assembler construit un goût. Notes de noix ou de vin doux peuvent être harmonieuses, tandis que carton, vinaigre ou solvant restent des défauts. L'âge apporte un dossier, jamais un certificat de bonne conduite.`,
+      "chapitres": [
+        {
+          "titre": "Le fût de stock, réservoir et atelier",
+          "texte": `Un stock ale pouvait immobiliser capital et volume pendant des mois. La récompense attendue était une bière transformée, parfois suffisamment tranchante pour être mélangée à une mild ale plus jeune. L'assemblage permettait au débitant ou à la brasserie de reproduire un équilibre malgré des lots vivants et des fûts variables.
+
+Le modèle explique pourquoi Old Ale et Barley Wine se chevauchent sans se confondre. La seconde met d'abord l'accent sur la force ; la première sur l'état mûri. Une bière peut appartenir aux deux histoires, ce qui est moins une erreur de classement qu'une conséquence du réel.`
+        },
+        {
+          "titre": "Brettanomyces : présence historique, option moderne",
+          "texte": `Des analyses microbiologiques de stock ales britanniques contemporaines et des sources anciennes documentent un rôle possible de Brettanomyces dans la garde. Son métabolisme lent peut assécher et développer des arômes caractéristiques. Il exige aussi temps, contrôle et séparation sanitaire.
+
+Une Old Ale moderne proprement fermentée avec Saccharomyces reste parfaitement légitime. Inoculer Brett pour « faire ancien » sans maîtriser le processus ne reconstitue pas une cave victorienne ; cela introduit surtout un micro-organisme très persévérant dans la brasserie.`
+        }
+      ],
       "recette": {
         "profilUnique": true,
         "explicationProfil": "",
@@ -1213,12 +1632,12 @@ Le style moderne reste variable. Le BJCP distingue des Old Ales relativement fai
         "ingredientsComplementaires": [
           "Sucres invertis, mélasse légère ou autres sucres de brasserie possibles selon la tradition."
         ],
-        "profilEau": "Profil modéré compatible avec une bière maltée de longue garde.",
-        "empatage": "Empâtage moyen à chaud pour une base riche, tout en conservant assez d'atténuation.",
-        "ebullitionEtHoublonnage": "Ébullition souvent soutenue ; houblonnage plus élevé qu'il n'y paraît après vieillissement.",
-        "fermentation": "Fermentation haute complète avant transfert en garde ; éviter tout stress de levure sur les versions fortes.",
-        "maturation": "Élément central : plusieurs mois à plus d'un an possibles, en cuve, bouteille ou parfois bois, avec évolution oxidative contrôlée.",
-        "profilRecherche": "Une ale anglaise mûre, chaleureuse et complexe, où caramel, fruits secs et notes vineuses de garde restent harmonieuses."
+        "profilEau": "Profil modéré : la garde concentre la perception de certains défauts, une minéralité brutale ne s'assagit pas par devoir.",
+        "empatage": "Assez de fermentescibilité pour une longue évolution ; un moût trop dextrinique peut rester lourd même après des mois.",
+        "ebullitionEtHoublonnage": "Houblonnage initial plus ferme que le verre mûr ne le suggère, car arômes et amertume évoluent pendant la garde.",
+        "fermentation": "Fermentation primaire complète avant transfert. Brettanomyces ou bactéries n'interviennent que dans une méthode explicitement conçue et suivie.",
+        "maturation": "Mois en cuve, bois ou bouteille ; contrôle de l'oxygène, dégustation et éventuel assemblage comptent davantage qu'un âge affiché.",
+        "profilRecherche": "Une ale mûre dont sécheresse, fruit, légère vinosité et chaleur forment un ensemble intentionnel, sans confondre complexité et altération."
       },
       "sources": [
         {
@@ -1227,7 +1646,7 @@ Le style moderne reste variable. Le BJCP distingue des Old Ales relativement fai
           "reference": "Old Ale",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/17/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Brewers Association",
@@ -1235,7 +1654,31 @@ Le style moderne reste variable. Le BJCP distingue des Old Ales relativement fai
           "reference": "Old Ale / Strong Ale",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Craft Beer & Brewing",
+          "edition": "2022",
+          "reference": "Lost, Stock & Barrel — historical stock ales and Brettanomyces",
+          "type": "presse_specialisee",
+          "url": "https://www.beerandbrewing.com/lost-stock-and-barrel-the-forgotten-funk-of-old-ales",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Thomas et al. — Journal of the Institute of Brewing",
+          "edition": "2021",
+          "reference": "Preliminary microbiological and chemical analysis of two historical stock ales",
+          "type": "publication_scientifique",
+          "url": "https://onlinelibrary.wiley.com/doi/full/10.1002/jib.641",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Vanderhaegen et al. — Food Chemistry",
+          "edition": "2006",
+          "reference": "The chemistry of beer aging — a critical review",
+          "type": "publication_scientifique",
+          "url": "https://talcottlab.tamu.edu/wp-content/uploads/sites/108/2020/03/Review-Beer-Ageing.pdf",
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -1288,10 +1731,22 @@ Le style moderne reste variable. Le BJCP distingue des Old Ales relativement fai
           "Tulipe"
         ]
       },
-      "description": "Le British Barley Wine est la version maltée et contemplative du monstre : toffee, pain, caramel, marmelade, fruits secs, sherry doux, alcool chaud et amertume de soutien. Il peut vieillir magnifiquement, en troquant la fougue contre le cuir, la noix et la profondeur.",
-      "histoireEtOrigines": `Le British Barley Wine moderne descend des plus fortes ales britanniques, notamment des Burton Ales. Le BJCP cite Bass No. 1, appelée « barley wine » dès 1872, comme jalon déterminant. Ces bières occupaient le sommet de gamme des brasseries : densité élevée, prix élevé, service en petites quantités et aptitude à une longue garde.
+      "description": "Le British Barley Wine concentre le brassin britannique en petite bouteille : malt pale devenu marmelade, toffee ou fruits confits par fermentation, ébullition et temps, alcool ample, houblon ferme à la jeunesse puis plus discret. Bass No. 1 représente la lignée sombre de Burton ; Gold Label, lancé en 1951, rappelle qu’une Barley Wine peut aussi porter une robe dorée.",
+      "histoireEtOrigines": `Une bouteille de Ratcliff Ale brassée par Bass le 16 décembre 1869 a survécu jusqu'au XXIe siècle. Le brassin célébrait une naissance dans la famille Ratcliff et reprenait la forte No. 1 de Bass, avec une ébullition rapportée de douze heures lors de sa recréation. L'objet donne une mesure concrète de la branche britannique : moût très dense, bouteille solide, liège, temps et beaucoup de confiance dans les générations futures.
 
-Le style a longtemps été associé à des robes ambrées foncées et à des profils très maltés, mais Gold Label de Tennant introduit en 1951 une version dorée qui élargit nettement le spectre. Les British Barley Wines peuvent ainsi aller de l'ambre clair au brun profond. Leur identité repose moins sur la couleur que sur la richesse maltée, les fruits, l'alcool fondu et un houblonnage britannique qui peut être ferme à la jeunesse puis s'effacer avec la garde.`,
+Burton-upon-Trent fournissait au XIXe siècle un vaste appareil industriel, des réseaux ferroviaires et d'exportation, ainsi que des gammes de fortes ales. Bass No. 1 devient le jalon autour duquel l'expression barley wine se fixe vers 1870, avec l'incertitude documentaire détaillée par la fiche parente. Dans la publicité, ces bières occupent le sommet de gamme et empruntent au vin son langage de santé, d'hiver ou de respectabilité.
+
+La couleur n'est jamais restée stable. En 1951, Tennant de Sheffield lance Gold Label, une Barley Wine pâle, fortement atténuée et pétillante. Des annonces de 1954 insistent sur plusieurs mois de maturation en fût, une saveur « clean » et l'absence de lourdeur. Le produit prouve qu'une forte ale britannique peut construire sa richesse avec malt pale, fermentation et garde sans se déguiser en mélasse.
+
+La branche britannique se distingue aujourd'hui de l'américaine par un houblon moins aromatiquement dominateur et une fermentation plus fruitée. Jeune, elle peut être vivement amère ; mûre, elle tend vers orange confite, noix et vin doux. La cave reste un choix de profil, non une obligation de boire chaque bouteille le jour de sa retraite.`,
+      "chapitres": [
+        {
+          "titre": "Douze heures d'ébullition, pas douze malts spéciaux",
+          "texte": `La recréation du Ratcliff Ale de 1869 a utilisé le registre de Bass et une ébullition de douze heures. Une telle durée concentre le moût, augmente la couleur et favorise des réactions thermiques ; elle impose aussi rendement énergétique, évaporation et contrôle du volume. Elle explique comment une recette dominée par le malt pale peut devenir très profonde.
+
+Ce cas historique ne prescrit pas douze heures à toute Barley Wine moderne. Il rappelle surtout que couleur et saveur ne se lisent pas uniquement dans la liste des grains : le temps passé dans la chaudière possède lui aussi une facture.`
+        }
+      ],
       "recette": {
         "profilUnique": true,
         "explicationProfil": "",
@@ -1307,12 +1762,12 @@ Le style a longtemps été associé à des robes ambrées foncées et à des pro
         "ingredientsComplementaires": [
           "Sucres de brassage possibles pour atteindre la densité sans corps excessif."
         ],
-        "profilEau": "Profil minéral équilibré, assez de calcium pour la fermentation et la clarification.",
-        "empatage": "Empâtage plutôt fermentescible malgré la forte densité ; efficacité et oxygénation du moût sont critiques.",
-        "ebullitionEtHoublonnage": "Ébullition longue favorisant concentration et complexité ; 35-70 IBU typiques dans le cadre BJCP.",
-        "fermentation": "Ensemencement massif, oxygénation poussée et contrôle thermique pour éviter alcools supérieurs et fermentation bloquée.",
-        "maturation": "Plusieurs mois minimum pour les versions les plus fortes ; potentiel de garde pluriannuel avec évolution vers fruits secs et notes vineuses.",
-        "profilRecherche": "Une ale britannique très forte, riche et veloutée, maltée et fruitée, avec une chaleur alcoolique douce et une amertume fondue."
+        "profilEau": "Calcium suffisant pour un brassin très dense ; minéralité retenue afin que la concentration ne durcisse pas la finale.",
+        "empatage": "Moût fermentescible, rendement suivi et rinçage prudent. Une densité spectaculaire n'excuse pas l'extraction de tanins.",
+        "ebullitionEtHoublonnage": "Ébullition prolongée possible pour concentrer et colorer ; houblons britanniques généreux au départ, appelés à s'intégrer avec la garde.",
+        "fermentation": "Ensemencement massif, oxygénation adaptée et contrôle thermique : les esters sont souhaités, les alcools de fusel ne le sont pas.",
+        "maturation": "Plusieurs mois peuvent intégrer le produit avant vente ; cave pluriannuelle seulement si emballage, température et profil s'y prêtent.",
+        "profilRecherche": "Une forte ale britannique fruitée et profondément maltée, dont la chaleur reste douce et la finale plus nette que sa densité ne le laisse craindre."
       },
       "sources": [
         {
@@ -1321,7 +1776,7 @@ Le style a longtemps été associé à des robes ambrées foncées et à des pro
           "reference": "English Barleywine",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/17/17D/english-barleywine/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Brewers Association",
@@ -1329,7 +1784,39 @@ Le style a longtemps été associé à des robes ambrées foncées et à des pro
           "reference": "British-Style Barley Wine Ale",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Historic England",
+          "edition": "2025",
+          "reference": "Burton-upon-Trent: The Beer Capital of England",
+          "type": "recherche_patrimoniale",
+          "url": "https://heritagecalling.com/2025/03/27/burton-upon-trent-the-beer-capital-of-england/",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Pete Brown",
+          "edition": "2019",
+          "reference": "Ratcliff Ale at 150 — Bass brewing record and reconstruction",
+          "type": "recherche_historique_et_experimentale",
+          "url": "https://www.petebrown.net/2019/12/20/happy-birthday-ratcliff-ale-tasting-pretty-good-at-150-years-old/",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Ron Pattinson — Shut Up About Barclay Perkins",
+          "edition": "2016",
+          "reference": "Advertising Gold Label — 1954 documentary evidence",
+          "type": "recherche_sur_archives",
+          "url": "https://barclayperkins.blogspot.com/2016/11/advertising-gold-label.html",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Picture Sheffield",
+          "edition": null,
+          "reference": "Tennant's Gold Label Barley Wine label",
+          "type": "archive_municipale",
+          "url": "https://picturesheffield.com/frontend.php?action=zoom&id=157813&keywords=Ref_No_increment%3BEQUALS%3Bt16145&pos=8348",
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -1380,10 +1867,20 @@ Le style a longtemps été associé à des robes ambrées foncées et à des pro
           "Nonic pint"
         ]
       },
-      "description": "La Scottish Light Ale est petite en force mais bien ancrée : caramel, toast, pain, toffee léger, fruit discret et finale légèrement sèche. Elle donne du malt sans poids, comme une braise modeste dans une chope fraîche.",
-      "histoireEtOrigines": `La Scottish Light moderne correspond à la classe 60/- (sixty shilling), mais les appellations en shillings sont souvent mal interprétées comme une échelle de recette intemporelle. Le BJCP rappelle que ces noms étaient employés pour des mild ales avant la Première Guerre mondiale, tandis que les styles tels qu'on les juge aujourd'hui prennent surtout leur forme après la Seconde Guerre mondiale.
+      "description": "La Scottish Light moderne, souvent notée 60/-, met une faible densité au service d’une pinte cuivrée : céréale toastée, sucre cuit léger, fruit discret et finale sèche. Le nombre vient d’un ancien prix de vente, pas d’un dosage de malt gravé dans le granit. À 2,5–3,5 % vol., la précision compte davantage que les effets de cornemuse.",
+      "histoireEtOrigines": `Commençons par la facture. Au XIXe siècle, les désignations en shillings indiquent le prix d'un hogshead, un grand fût de vente en gros. Les bières plus denses coûtent généralement davantage, mais le nombre ne constitue ni une recette ni un degré fixe : une brasserie peut vendre sous une même classe de prix des types différents. L'échelle 60/-, 70/-, 80/- apprise aujourd'hui est une normalisation tardive de ce vocabulaire commercial.
 
-La 60/- est devenue rare, souvent servie en cask, et ressemble par sa force à une Dark Mild tout en conservant une identité écossaise plus maltée et propre. Caramel, pain grillé, toffee et une légère sécheresse de malt sombre composent le profil. Le fumé n'est pas une caractéristique obligatoire : le BJCP exclut explicitement le malt tourbé de ses ingrédients typiques.`,
+Light devient, au XXe siècle, le nom écossais d'une ale de faible force. Les guerres, les droits et la contraction générale des densités britanniques réduisent les produits ; la 60/- moderne finit par occuper la marche la plus basse des guides. Elle partage avec la Mild anglaise le service de session et le cask, mais la codification contemporaine privilégie une fermentation plus nette, une amertume basse et une palette de malt toasté.
+
+La branche est rare, ce qui rend les chiffres trompeusement monumentaux : 60 shillings paraît une formule ancestrale, alors qu'il s'agissait d'un prix mouvant réemployé par les brasseurs et le mouvement real ale. Aucun élément historique n'impose le malt tourbé. La Scottish Light mémorable est donc une petite bière accompagnée d'une grande étiquette comptable.`,
+      "chapitres": [
+        {
+          "titre": "60/- : une ancienne ligne de facture",
+          "texte": `Le signe /- signifie que le montant est exprimé en shillings sans pence. Le prix reflétait souvent la force parce que plus de matière et davantage de droit coûtaient plus cher, mais inflation, fiscalité, volume du fût et politique commerciale empêchent toute conversion universelle en alcool.
+
+Lire 60/- comme « recette à 3 % » pour toutes les époques reviendrait à utiliser un ticket de caisse victorien comme densimètre. Les plages modernes restent utiles ; elles sont modernes.`
+        }
+      ],
       "recette": {
         "profilUnique": true,
         "explicationProfil": "",
@@ -1399,12 +1896,12 @@ La 60/- est devenue rare, souvent servie en cask, et ressemble par sa force à u
         "ingredientsComplementaires": [
           "Caramel de brasserie ou sucres possibles selon tradition ; malt tourbé non nécessaire et non traditionnel dans le cadre BJCP."
         ],
-        "profilEau": "Plutôt douce, afin de laisser le malt dominer.",
-        "empatage": "Empâtage visant assez de corps à faible densité sans produire de lourdeur.",
-        "ebullitionEtHoublonnage": "Amertume basse ; presque aucun houblon aromatique perceptible.",
-        "fermentation": "Fermentation haute fraîche et propre.",
-        "maturation": "Courte ; service cask cohérent avec la tradition moderne.",
-        "profilRecherche": "Une petite ale écossaise maltée, douce et très buvable, avec caramel léger et finale légèrement sèche."
+        "profilEau": "Profil modéré plutôt que mythiquement doux ; pH et calcium soutiennent une petite mouture où chaque âcreté serait visible.",
+        "empatage": "Assez de corps pour porter la gorgée, mais une atténuation nette : faible alcool ne doit pas signifier moût inachevé.",
+        "ebullitionEtHoublonnage": "Amertume basse, arôme de houblon minimal. La couleur vient du grist et du procédé ordinaire, non d'une réduction obligatoire du premier jus.",
+        "fermentation": "Fermentation haute fraîche et propre, avec très peu d'esters.",
+        "maturation": "Conditionnement court en cask ; carbonatation douce et température de cave donnent de l'ampleur.",
+        "profilRecherche": "Une ale écossaise minuscule en alcool mais nette en malt, dont la finale permet la pinte entière sans fatigue."
       },
       "sources": [
         {
@@ -1413,7 +1910,7 @@ La 60/- est devenue rare, souvent servie en cask, et ressemble par sa force à u
           "reference": "Scottish Light",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/14/14A/scottish-light/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Brewers Association",
@@ -1421,7 +1918,31 @@ La 60/- est devenue rare, souvent servie en cask, et ressemble par sa force à u
           "reference": "Scottish-Style Light Ale",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "The Oxford Companion to Beer",
+          "edition": "2011",
+          "reference": "Shilling system",
+          "type": "encyclopedie_brassicole",
+          "url": "https://www.beerandbrewing.com/dictionary/WD4TbnEdt4",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "All About Beer",
+          "edition": "2014",
+          "reference": "Scottish Ale — invoice prices and modern class names",
+          "type": "presse_specialisee",
+          "url": "https://allaboutbeer.com/article/scottish-ale-style/",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Scottish Brewing Archive Association",
+          "edition": null,
+          "reference": "Scottish brewing archives and company collections",
+          "type": "association_archivistique",
+          "url": "https://www.scottishbrewingarchive.co.uk/",
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -1472,10 +1993,12 @@ La 60/- est devenue rare, souvent servie en cask, et ressemble par sa force à u
           "Nonic pint"
         ]
       },
-      "description": "La Scottish Heavy Ale reprend le même alphabet malté, mais avec un peu plus d’épaule : caramel, biscuit, pain grillé, toffee et fruit léger. Elle reste une bière de pub, basse en houblon, propre, ronde et sèche juste ce qu’il faut.",
-      "histoireEtOrigines": `Scottish Heavy correspond aujourd'hui à la classe 70/-. Comme pour la Light et l'Export, cette dénomination moderne ne doit pas être projetée sans nuance sur plusieurs siècles de bière écossaise. Les shilling ales avaient d'autres usages avant 1914 et le profil actuel se consolide surtout après 1945.
+      "description": "Dans le pub écossais, Heavy a fini par désigner une ale de force courante ; les guides l’alignent aujourd’hui sur 70/-. À 3,5–4 % vol., elle ajoute à la Light une assise de malt, de toffee pâle et de fruit discret, toujours avec peu de houblon aromatique. Le nom promet une marche supplémentaire, pas un poids d’haltère dans la pinte.",
+      "histoireEtOrigines": `Heavy appartient d'abord à la langue du comptoir. Au milieu du XXe siècle, les clients écossais demandent volontiers light, heavy ou export plutôt qu'un ancien prix en shillings. Les brasseurs et les guides feront ensuite correspondre 70/- à cette marche intermédiaire, malgré des archives où prix, type et densité ne s'alignent pas avec une telle régularité.
 
-La Heavy occupe un palier intermédiaire : plus forte que la Light, mais toujours bière de session. Elle privilégie le malt, le caramel, le biscuit et une fermentation propre, avec une amertume juste suffisante pour empêcher la sucrosité de dominer. La petite impression de sécheresse grillée parfois perçue ne doit pas être confondue avec une saveur de fumée.`,
+La Heavy moderne se consolide comme ale de session légèrement plus pleine que la 60/-. Son identité tient à un équilibre bas : malt pale, couleur cuivrée à brune obtenue par de petites additions, fermentation propre et houblon sans démonstration. Elle n'est pas une Wee Heavy miniature, car la forte Scotch Ale descend d'autres produits et d'autres occasions de service.
+
+Cette position médiane constitue précisément sa mémoire-cible. La 70/- ne raconte ni exportation ni prestige : elle raconte le vocabulaire vivant d'un marché qui a transformé une ancienne classe de prix en commande de pub, puis une commande de pub en style de concours. Sa modestie n'est pas un manque de documentation ; c'est la fonction même du produit, conçu pour revenir au comptoir sans cérémonie.`,
       "recette": {
         "profilUnique": true,
         "explicationProfil": "",
@@ -1491,12 +2014,12 @@ La Heavy occupe un palier intermédiaire : plus forte que la Light, mais toujour
         "ingredientsComplementaires": [
           "Sucres, maïs ou caramel de brasserie possibles selon les pratiques historiques et modernes."
         ],
-        "profilEau": "Eau plutôt douce, favorisant la rondeur maltée.",
-        "empatage": "Empâtage moyen à chaud pour conserver texture et moelleux.",
-        "ebullitionEtHoublonnage": "Houblonnage très mesuré ; caramelisation recherchée surtout par les malts, pas par une réduction extrême du premier moût.",
-        "fermentation": "Fermentation haute fraîche, profil propre.",
-        "maturation": "Courte à modérée, souvent pour service cask.",
-        "profilRecherche": "Une ale écossaise maltée et douce, plus charpentée qu'une Light mais toujours facile à boire."
+        "profilEau": "Minéralité modérée ; chlorure et sulfate restent secondaires devant pH, fermentation et fraîcheur.",
+        "empatage": "Température moyenne pour une texture souple ; le supplément de corps par rapport à Light vient surtout de la densité, pas d'un empâtage extrême.",
+        "ebullitionEtHoublonnage": "Houblonnage mesuré. Les malts colorés construisent la teinte plus sûrement qu'une réduction spectaculaire du premier moût.",
+        "fermentation": "Fermentation haute fraîche, propre et faiblement estérifiée.",
+        "maturation": "Conditionnement court à modéré, souvent en cask.",
+        "profilRecherche": "Une ale de pub écossaise au malt lisible, plus pleine que Light mais encore sèche, mobile et modeste en alcool."
       },
       "sources": [
         {
@@ -1505,7 +2028,7 @@ La Heavy occupe un palier intermédiaire : plus forte que la Light, mais toujour
           "reference": "Scottish Heavy",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/14/14B/scottish-heavy/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Brewers Association",
@@ -1513,7 +2036,23 @@ La Heavy occupe un palier intermédiaire : plus forte que la Light, mais toujour
           "reference": "Scottish-Style Heavy Ale",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "The Oxford Companion to Beer",
+          "edition": "2011",
+          "reference": "Shilling system and parti-gyle",
+          "type": "encyclopedie_brassicole",
+          "url": "https://www.beerandbrewing.com/dictionary/WD4TbnEdt4",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Archives Hub",
+          "edition": "2002",
+          "reference": "Celebrating 20 years of preserving Scottish brewing heritage",
+          "type": "portail_archivistique_universitaire",
+          "url": "https://archiveshub.jisc.ac.uk/features/apr02.shtml",
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -1564,10 +2103,14 @@ La Heavy occupe un palier intermédiaire : plus forte que la Light, mais toujour
           "Nonic pint"
         ]
       },
-      "description": "La Scottish Export Ale est la plus structurée des petites écossaises : malt plus présent, caramel, biscuit, toast, fruit discret et corps plus affirmé. Elle reste retenue en houblon, car ici le malt tient la cornemuse et personne ne lui coupe le souffle.",
-      "histoireEtOrigines": `La Scottish Export, souvent associée à l'appellation 80/-, représente le palier standard le plus robuste de la famille écossaise moderne. Les guides contemporains la rapprochent en force d'un Best ou Strong Bitter, mais son équilibre est différent : davantage orienté vers le malt, moins vers le houblon.
+      "description": "Scottish Export, ou 80/- dans son classement moderne, porte la famille de session vers 4–5,5 % vol. : malt plus ferme, fruits de levure discrets, céréale grillée et amertume capable d’allonger la finale. Le mot Export rappelle la puissance commerciale des brasseurs écossais, mais ne prouve pas que chaque pinte ait préparé sa malle pour les colonies.",
+      "histoireEtOrigines": `Au XIXe siècle, les brasseries d'Édimbourg ne vivent pas repliées derrière un mur de malt. William Younger et d'autres maisons produisent Pale Ale, IPA, stout et fortes ales, utilisent des houblons importés et expédient vers l'Angleterre et l'outre-mer. Les collections du Scottish Brewing Archive documentent cette industrie diverse. L'absence de houblonnières écossaises n'a jamais constitué une interdiction commerciale : les ports et le rail savent transporter des ballots.
 
-Le BJCP souligne que les Light, Heavy et Export partagent un profil apparenté et peuvent historiquement provenir de méthodes de parti-gyle. La couleur va de l'ambre au brun châtaigne, avec caramel, pain toasté et fruits légers. Comme pour les autres Scottish Ales modernes, le malt tourbé n'est pas requis ; le BJCP le rejette même comme ingrédient typique, alors que la Brewers Association admet dans son cadre de concours que certaines versions commerciales modernes peuvent afficher un faible caractère tourbé.`,
+Le nom Export du pub moderne s'inscrit dans cet horizon, sans correspondre à une recette d'exportation unique. Avec Heavy, il devient une commande de force ; la renaissance du cask associe ensuite 80/- à la plus robuste des trois Scottish Ales courantes. Les guides actuels en font une bière de malt modérée, proche en alcool d'un Best Bitter mais moins dominée par le houblon.
+
+Cette construction tardive évite deux mythes. D'une part, tout 80/- historique n'était pas nécessairement l'ancêtre de Scottish Export. D'autre part, les brasseurs écossais ne furent pas uniformément avares de houblon par climat : leurs pales ales exportées pouvaient être amères et fortement houblonnées. La retenue aromatique de la Scottish Export contemporaine décrit un style actuel, non une incapacité nationale à passer commande.
+
+Dans le verre, la densité supplémentaire permet davantage de malt et une amertume légèrement plus ferme que Light ou Heavy. La fiche raconte donc une double circulation : des bières écossaises ont réellement voyagé ; leur ancien vocabulaire a lui aussi voyagé jusqu'aux catégories modernes.`,
       "recette": {
         "profilUnique": true,
         "explicationProfil": "",
@@ -1583,12 +2126,12 @@ Le BJCP souligne que les Light, Heavy et Export partagent un profil apparenté e
         "ingredientsComplementaires": [
           "Sucres ou caramel de brasserie possibles ; tourbe non nécessaire à l'authenticité."
         ],
-        "profilEau": "Plutôt douce à modérément minérale.",
-        "empatage": "Empâtage moyen préservant la richesse sans produire de sucrosité excessive.",
-        "ebullitionEtHoublonnage": "Amertume équilibrante, houblon aromatique très discret.",
-        "fermentation": "Fermentation haute propre et relativement fraîche.",
-        "maturation": "Courte à modérée ; versions embouteillées parfois plus carbonatées que le cask.",
-        "profilRecherche": "Une ale écossaise ambrée à brune, maltée, caramelisée avec retenue et suffisamment sèche pour rester digeste."
+        "profilEau": "Le profil dépendait des sites de brassage ; la version moderne demande surtout un pH net et une minéralité qui n'écrase pas la faible charge de houblon.",
+        "empatage": "Fermentescibilité moyenne : davantage de matière que Heavy, sans finale sucrée.",
+        "ebullitionEtHoublonnage": "Amertume équilibrante et arôme discret dans le style actuel ; l'histoire écossaise autorise cependant bien plus de houblon que le cliché.",
+        "fermentation": "Fermentation haute fraîche, propre, avec esters bas.",
+        "maturation": "Conditionnement court à modéré ; bouteille plus vive ou cask plus doux selon le marché.",
+        "profilRecherche": "La plus structurée des Scottish Ales de session, maltée mais sèche, sans tourbe obligatoire ni fausse timidité historique envers le houblon."
       },
       "sources": [
         {
@@ -1597,7 +2140,7 @@ Le BJCP souligne que les Light, Heavy et Export partagent un profil apparenté e
           "reference": "Scottish Export",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/14/14C/scottish-export/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Brewers Association",
@@ -1605,7 +2148,31 @@ Le BJCP souligne que les Light, Heavy et Export partagent un profil apparenté e
           "reference": "Scottish-Style Export Ale",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Scottish Brewing Archive Association",
+          "edition": "2022",
+          "reference": "Forty years of the Scottish Brewing Archive and its Edinburgh collections",
+          "type": "association_archivistique",
+          "url": "https://www.scottishbrewingarchive.co.uk/newsletter-no-47/",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Archives Hub",
+          "edition": "2002",
+          "reference": "Scottish brewing records — Edinburgh ales, IPA and export",
+          "type": "portail_archivistique_universitaire",
+          "url": "https://archiveshub.jisc.ac.uk/features/apr02.shtml",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "All About Beer",
+          "edition": "2014",
+          "reference": "Scottish Ale — trade, imported hops and brewing diversity",
+          "type": "presse_specialisee",
+          "url": "https://allaboutbeer.com/article/scottish-ale-style/",
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -1659,12 +2226,30 @@ Le BJCP souligne que les Light, Heavy et Export partagent un profil apparenté e
           "Snifter"
         ]
       },
-      "description": "La Scotch Ale / Wee Heavy est l’Écosse en version feu de cheminée : malt massif, caramel profond, toffee, pain, fruits secs, alcool doux et corps ample. Elle doit être riche et chaleureuse, mais pas fumée par défaut ni sucrée comme un caramel fondu oublié.",
-      "histoireEtOrigines": `La Wee Heavy, également appelée Strong Scotch Ale, ne doit pas être comprise comme une simple Scottish Export renforcée. Le BJCP la rattache plutôt aux fortes Edinburgh Ales, elles-mêmes proches par certains aspects des Burton Ales mais historiquement moins houblonnées. Le terme « wee heavy » est associé au produit Fowler's Wee Heavy, une 12 Guinea Ale.
+      "description": "La Wee Heavy est une forte ale écossaise servie avec mesure : malt profond, toffee, fruits sombres, alcool enveloppant et houblon intégré. Son nom vient surtout de la petite bouteille de Fowler’s, descendante d’une Twelve Guinea Ale, non d’une antique unité nationale. Ni tourbe ni goût de whisky ne sont requis ; l’Écosse brassait de la bière, détail parfois perdu dans le brouillard marketing.",
+      "histoireEtOrigines": `À Prestonpans, Fowler brassait au XIXe siècle une Twelve Guinea Ale d'une densité extraordinaire. Les analyses retrouvées dans les archives montrent un produit dépassant 1,150 à certaines périodes ; guerres et fiscalité réduisent ensuite sa force. Au milieu du XXe siècle, la petite nip bottle de Fowler's Wee Heavy donne son nom populaire à cette lignée de fortes ales écossaises. « Wee » décrit bien le format de service ; « heavy » prévient que le contenu n'a rien d'une 70/- ordinaire.
 
-Les versions modernes se caractérisent par une grande profondeur maltée : pain toasté, caramel, toffee, fruits secs et chaleur alcoolique. Les exemples peuvent aller d'environ 6,5 à 10 % vol. Le BJCP est sans ambiguïté : le malt tourbé ne fait pas partie des ingrédients traditionnels du style. La réputation internationale de la Strong Scotch Ale a néanmoins favorisé, surtout hors d'Écosse, des interprétations fumées qui ont fini par devenir une catégorie distincte dans certains concours.
+Le produit appartient au vaste monde des Edinburgh et Scotch Ales fortes, non à une simple multiplication de la Scottish Export. Les brasseurs écossais produisaient aussi des ales pâles, amères et exportées. Affirmer que leurs fortes bières étaient nécessairement peu houblonnées faute de culture locale projette une géographie rurale sur des entreprises très connectées : l'Écosse importait des houblons et ses archives conservent des recettes généreuses.
 
-Traquair offre un intéressant lien entre tradition domestique et revival moderne : sa brasserie du début du XVIIIe siècle, abandonnée au XIXe, fut remise en service en 1965 avec ses anciens équipements et ses cuves de fermentation en chêne.`,
+La Wee Heavy moderne choisit néanmoins un équilibre nettement malté. Malt pale en grande majorité, couleur mesurée, ébullition et fermentation construisent toffee, fruit et chaleur ; l'amertume empêche la densité de s'affaisser. Le BJCP exclut le malt tourbé du profil traditionnel. Le cliché whisky-climat-tourbe est séduisant, mais il assemble trois industries et un bulletin météo sans consulter les registres.
+
+Traquair offre une autre sorte de continuité. La brasserie domestique aménagée au XVIIIe siècle dans la maison est remise en activité en 1965 avec ses équipements anciens et ses cuves ouvertes en chêne. Elle n'est pas une capsule intacte — une production contemporaine répond à des contraintes contemporaines —, mais elle relie lieu, geste et renaissance mieux qu'un arôme artificiellement enfumé.
+
+Le pub ajoute enfin son propre rituel. Dans les anciens bassins miniers des Lothians, la Scottish Brewing Archive Association rapporte le « Happy Days » : une demi-pinte de light ou heavy complétée par une nip de Fowler's Wee Heavy. La bière forte n'était pas seulement contemplée près d'un feu ; elle entrait aussi, très concrètement, dans la sociabilité du comptoir.`,
+      "chapitres": [
+        {
+          "titre": "Du prix en guinées à la petite bouteille",
+          "texte": `Comme les shillings, la guinée relève du prix et du prestige, non d'une unité de densité. Fowler's Twelve Guinea Ale était une forte bière coûteuse ; son profil et sa force ont changé au fil des décennies. Wee Heavy devient ensuite le nom d'une marque et d'un format reconnaissable.
+
+La catégorie moderne hérite de cette mémoire commerciale. Elle ne convertit pas automatiquement douze guinées en une recette de 8 % vol., opération que même la comptabilité brassicole refuserait de signer.`
+        },
+        {
+          "titre": "La tourbe appartient d'abord au mythe moderne",
+          "texte": `Les archives écossaises montrent une industrie capable d'acheter houblon et combustible, de brasser pâle ou noir et d'exporter à grande échelle. Le malt tourbé destiné au whisky ne devient pas, par voisinage, l'ingrédient normal de Scotch Ale.
+
+Une impression fumée légère peut venir d'un ingrédient moderne ou être évoquée par certaines notes de fermentation et de malt ; elle ne constitue pas une preuve historique. La Peated Scotch Ale possède sa propre fiche précisément parce qu'elle représente une divergence volontaire.`
+        }
+      ],
       "recette": {
         "profilUnique": true,
         "explicationProfil": "",
@@ -1680,12 +2265,12 @@ Traquair offre un intéressant lien entre tradition domestique et revival modern
         "ingredientsComplementaires": [
           "Adjuncts ou sucres possibles selon recette ; pas besoin de malt tourbé pour une Wee Heavy traditionnelle."
         ],
-        "profilEau": "Douce à modérément minérale, limitant toute dureté houblonnée.",
-        "empatage": "Empâtage moyen à chaud pour une forte richesse, mais avec assez de fermentescibilité pour éviter le sirop.",
-        "ebullitionEtHoublonnage": "Ébullition soutenue ; la complexité caramel vient du malt et du procédé global, pas d'une obligation de faire bouillir une petite fraction de moût jusqu'au caramel.",
-        "fermentation": "Fermentation haute maîtrisée ; température et pitch suffisants pour éviter les alcools solvants.",
-        "maturation": "Plusieurs semaines à plusieurs mois ; la chaleur alcoolique doit se fondre.",
-        "profilRecherche": "Une ale écossaise forte, ample et maltée, riche en caramel/toffee et fruits secs, avec faible houblon et alcool chaleureux mais doux."
+        "profilEau": "Profil du site et de la recette, non légendaire douceur écossaise ; calcium suffisant et minéralité sans dureté.",
+        "empatage": "Moût fermentescible malgré la richesse. Les malts spéciaux restent mesurés afin de laisser base, ébullition et fermentation construire la profondeur.",
+        "ebullitionEtHoublonnage": "Ébullition soutenue possible ; aucune obligation de réduire une casserole de premier moût. Une amertume réelle équilibre la densité même si l'arôme reste discret.",
+        "fermentation": "Grand ensemencement et température maîtrisée. Une fermentation fraîche peut retenir les esters, mais elle doit atteindre son atténuation.",
+        "maturation": "Semaines ou mois pour intégrer alcool et fermentation ; le houblon se fond, la sucrosité excessive ne disparaît pas par décret.",
+        "profilRecherche": "Une forte ale écossaise concentrée, fruitée et maltée, servie en petite quantité, sans tourbe obligatoire ni lourdeur de confiserie."
       },
       "sources": [
         {
@@ -1694,7 +2279,7 @@ Traquair offre un intéressant lien entre tradition domestique et revival modern
           "reference": "Wee Heavy",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/17/17C/wee-heavy/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Brewers Association",
@@ -1702,7 +2287,7 @@ Traquair offre un intéressant lien entre tradition domestique et revival modern
           "reference": "Scotch Ale — Unpeated Scotch Ale",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Traquair House",
@@ -1710,7 +2295,39 @@ Traquair offre un intéressant lien entre tradition domestique et revival modern
           "reference": "History of Traquair House Brewery",
           "type": "source_producteur_historique",
           "url": "https://www.traquair.co.uk/brewery/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Scottish Brewing Archive Association",
+          "edition": "2019",
+          "reference": "Fowler's Wee Heavy and the Happy Days pub serve",
+          "type": "memoire_industrielle_et_locale",
+          "url": "https://www.scottishbrewingarchive.co.uk/newsletter-no-43/",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Ron Pattinson — Shut Up About Barclay Perkins",
+          "edition": "2011",
+          "reference": "Fowler's Twelve Guinea Ale — historical analyses",
+          "type": "recherche_sur_archives",
+          "url": "https://barclayperkins.blogspot.com/2011/10/fowlers-twelve-guinea-ale.html",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Archives Hub",
+          "edition": "2002",
+          "reference": "Scottish Brewing Archive — strong Edinburgh ales and brewing diversity",
+          "type": "portail_archivistique_universitaire",
+          "url": "https://archiveshub.jisc.ac.uk/features/apr02.shtml",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "All About Beer",
+          "edition": "2014",
+          "reference": "Scottish Ale — hops, trade and the peat myth",
+          "type": "presse_specialisee",
+          "url": "https://allaboutbeer.com/article/scottish-ale-style/",
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -1761,10 +2378,22 @@ Traquair offre un intéressant lien entre tradition domestique et revival modern
           "Snifter"
         ]
       },
-      "description": "La Peated Scotch Ale est une interprétation moderne : une Wee Heavy à laquelle on ajoute fumée tourbée, phénols, terre, braise froide ou whisky. Le danger est immense : trop de tourbe, et la bière devient un pansement flambé dans une cheminée.",
-      "histoireEtOrigines": `Peated Scotch Ale est un excellent exemple de catégorie moderne qu'il ne faut pas faire passer pour une tradition immémoriale. L'association intuitive entre Écosse, whisky et tourbe a conduit des brasseurs — particulièrement hors d'Écosse — à ajouter du malt tourbé à des Strong Scotch Ales. Cette pratique a obtenu une visibilité suffisante pour que la Brewers Association distingue aujourd'hui Peated Scotch Ale et Unpeated Scotch Ale dans ses catégories de concours.
+      "description": "La Peated Scotch Ale est une mutation contemporaine : une forte ale maltée reçoit du malt séché à la fumée de tourbe, donc phénol, terre humide, goudron doux ou notes médicinales selon le produit et la dose. La Brewers Association la classe séparément ; les archives ne la consacrent pas tradition nationale. Une pincée intrigue, une pelletée transforme la pinte en cabinet de pansements.",
+      "histoireEtOrigines": `Le raisonnement paraît irrésistible : whisky écossais, malt tourbé, Scotch Ale — donc tourbe dans la bière. Il est surtout récent. Les registres brassicoles étudiés ne montrent pas le malt tourbé comme signature régulière des fortes ales écossaises ; le BJCP l'exclut explicitement de Wee Heavy. Les brasseurs modernes, particulièrement hors d'Écosse, ont pourtant trouvé l'association expressive et commercialement claire.
 
-Cette reconnaissance moderne ne signifie pas que le caractère tourbé soit historiquement central aux Scotch Ales. Le BJCP 2021 indique au contraire « no peat-smoked malt » pour Wee Heavy et pour les Scottish Ales. La fiche ZythoHunt doit donc présenter Peated Scotch Ale comme une interprétation contemporaine : une base riche et maltée de Scotch Ale à laquelle s'ajoute volontairement une fumée phénolique de tourbe, à doser avec beaucoup de retenue.`,
+La répétition crée alors une catégorie. La Brewers Association distingue Peated Scotch Ale et Unpeated Scotch Ale dans ses lignes de concours. Cette décision décrit des produits présents sur le marché ; elle ne rétroagit pas sur le XIXe siècle. La fiche commence donc au moment de la divergence : une base de forte ale écossaise moderne reçoit volontairement un malt fabriqué surtout pour la distillation.
+
+Le changement technique est considérable. Les malteurs expriment la charge de fumée en parties par million de phénols ; Crisp propose par exemple plusieurs niveaux allant d'environ 15 à 50 ppm. Ces valeurs décrivent le malt, non la bière finie. Des recherches sur le brassage montrent qu'une partie importante des phénols volatils se perd pendant empâtage et ébullition, mais la tourbe reste plus riche en phénols et crésols que certains malts fumés au bois.
+
+La recette doit donc être construite par essais, spécification du lot et dégustation. Guaiacol, phénol et crésols ne racontent pas tous la même fumée ; leur excès peut donner antiseptique, caoutchouc ou cendre. La réussite ne consiste pas à prouver l'Écosse par la force, mais à laisser une fumée identifiable traverser le malt sans confisquer le verre.`,
+      "chapitres": [
+        {
+          "titre": "Le ppm du malt n'est pas celui de la bière",
+          "texte": `La fiche technique mesure les phénols sur la matière première. La proportion dans la mouture, l'empâtage, l'ébullition, la fermentation et la maturation modifient ensuite leur transfert et leur perception. Deux malts annoncés au même niveau peuvent aussi répartir différemment guaiacols, phénols et crésols.
+
+Un pourcentage de recette copié sans connaître la spécification du lot est donc une loterie très parfumée. Le brasseur commence bas, mesure ce qu'il peut et, surtout, goûte.`
+        }
+      ],
       "recette": {
         "profilUnique": true,
         "explicationProfil": "",
@@ -1780,12 +2409,12 @@ Cette reconnaissance moderne ne signifie pas que le caractère tourbé soit hist
         "ingredientsComplementaires": [
           "Malt tourbé comme choix contemporain explicite, non comme exigence historique."
         ],
-        "profilEau": "Douce à modérément minérale.",
-        "empatage": "Empâtage riche mais suffisamment fermentescible pour éviter que tourbe et sucrosité ne s'additionnent lourdement.",
-        "ebullitionEtHoublonnage": "Faible houblonnage ; concentration adaptée à une strong ale.",
-        "fermentation": "Fermentation haute propre, sans phénols de levure qui brouilleraient la fumée du malt.",
-        "maturation": "Plusieurs semaines ou mois afin d'intégrer alcool, malt et fumée.",
-        "profilRecherche": "Une Scotch Ale forte et maltée où une fumée tourbée identifiable reste secondaire et intégrée, jamais médicinale ou dominante."
+        "profilEau": "Eau sans chlore résiduel : fumée et chlorophénols médicinaux seraient une alliance particulièrement mal choisie.",
+        "empatage": "Base fermentescible et dose de malt tourbé calculée à partir de sa spécification en phénols, non d'un pourcentage universel.",
+        "ebullitionEtHoublonnage": "Houblon discret ; l'ébullition élimine une partie des phénols volatils, ce qui doit être intégré aux essais plutôt que compensé aveuglément.",
+        "fermentation": "Souche propre et température tenue afin de ne pas empiler phénols fermentaires et fumée de tourbe.",
+        "maturation": "Semaines ou mois pour intégrer alcool et fumée ; la garde arrondit parfois, elle n'efface pas un surdosage.",
+        "profilRecherche": "Une forte ale maltée où terre, fumée et phénols restent une couche volontaire et lisible, clairement moderne."
       },
       "sources": [
         {
@@ -1794,7 +2423,7 @@ Cette reconnaissance moderne ne signifie pas que le caractère tourbé soit hist
           "reference": "Peated Scotch Ale",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "BJCP",
@@ -1802,7 +2431,31 @@ Cette reconnaissance moderne ne signifie pas que le caractère tourbé soit hist
           "reference": "Wee Heavy — no peat-smoked malt",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/17/17C/wee-heavy/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Crisp Malt",
+          "edition": null,
+          "reference": "Scottish Peated Malt — phenol specifications",
+          "type": "fiche_technique_malteur",
+          "url": "https://crispmalt.com/malts/scottish-peated-malt/",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Jung et al. — European Food Research and Technology",
+          "edition": "2023",
+          "reference": "Balance of volatile phenols from wood- and peat-smoked malt during brewing",
+          "type": "publication_scientifique",
+          "url": "https://link.springer.com/article/10.1007/s00217-022-04130-8",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "BeerSmith — Ron Pattinson",
+          "edition": "2016",
+          "reference": "Scottish Ale history and the limited historical role of peat",
+          "type": "entretien_historique",
+          "url": "https://beersmith.com/blog/2016/09/14/scottish-ale-history-with-ron-pattinson-beersmith-podcast-133/",
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -1856,10 +2509,22 @@ Cette reconnaissance moderne ne signifie pas que le caractère tourbé soit hist
           "Tulipe"
         ]
       },
-      "description": "L’American Amber / Red Ale pousse la couleur vers le houblon : caramel sec, pain grillé, agrumes, pin, fruits ou fleurs, avec une amertume plus nette que les rouges britanniques ou irlandaises. Le malt donne le socle, le houblon allume les néons.",
-      "histoireEtOrigines": `L'American Amber/Red Ale naît avec le mouvement craft américain comme variation plus sombre et plus maltée de l'American Pale Ale. Le BJCP cite Mendocino Red Tail Ale, brassée dès 1983, comme un jalon important de cette identité « red ale » régionale avant sa diffusion nationale.
+      "description": "L’American Amber / Red Ale a donné une couleur au premier mouvement craft : cuivre profond, malt crystal, céréale toastée, levure nette et houblons américains aux accents d’agrumes, de fleurs ou de pin. Red Tail Ale apparaît en Californie en 1983 ; le style s’installe entre Pale et Brown avant que l’IPA ne pousse les décibels. Son métier reste l’équilibre.",
+      "histoireEtOrigines": `À Hopland, dans le nord de la Californie, un ancien restaurant routier devient en 1983 le Mendocino Brewing Company brewpub. Red Tail Ale y est brassée dès l'ouverture. Sa robe rouge-ambrée et son équilibre plus malté qu'une Pale Ale fournissent un repère précoce à une génération de consommateurs qui découvre encore le vocabulaire des microbrasseries.
 
-La catégorie se situe volontairement dans un espace d'équilibre : malt caramel et toasté plus présent qu'en Pale Ale, houblons américains ou New World encore clairement perceptibles, mais sans l'intensité d'une Red IPA ou d'une Double Red. « Amber » et « Red » sont ici deux expressions commerciales d'une même famille craft moderne plutôt que deux lignées historiques distinctes.`,
+Le style ne naît pas d'une recette déposée. Les pionniers américains travaillent avec malt pale, crystal et houblons nationaux pour ouvrir un espace accessible entre Pale Ale, Bitter et Brown Ale. Amber promet davantage de couleur et de corps ; Red offre un nom plus vif sur l'enseigne. Le BJCP les réunit parce que les bières se chevauchent davantage que leurs services marketing.
+
+Dans les années 1990 et 2000, l'Amber/Red devient un pilier de gamme : assez différente de la lager blonde, moins amère qu'une IPA, capable d'accompagner un repas et de voyager en bouteille. L'explosion des IPA la rend ensuite moins centrale, tandis que certaines Reds se renforcent jusqu'aux catégories Double, Imperial ou Red IPA.
+
+Cette trajectoire résume une phase du craft américain : avant la course à l'intensité, il fallait d'abord construire un pont entre bière industrielle familière et saveurs nouvelles. L'American Amber/Red a souvent tenu ce pont, avec un sac de crystal d'un côté et du Cascade de l'autre.`,
+      "chapitres": [
+        {
+          "titre": "Hopland, 1983 : la couleur sur l'enseigne",
+          "texte": `Red Tail Ale n'est pas proclamée inventrice de toute Amber Ale. Elle constitue un jalon documenté : un produit vendu dès 1983 dans l'un des premiers brewpubs californiens de la nouvelle vague, puis diffusé au-delà de son comptoir.
+
+Son importance vient de cette visibilité. Un nom, une couleur et un lieu rendent une catégorie mémorisable bien avant que les guides n'en polissent les frontières.`
+        }
+      ],
       "recette": {
         "profilUnique": true,
         "explicationProfil": "",
@@ -1873,12 +2538,12 @@ La catégorie se situe volontairement dans un espace d'équilibre : malt caramel
           "Levure ale américaine neutre ou légèrement fruitée."
         ],
         "ingredientsComplementaires": [],
-        "profilEau": "Sulfate/chlorure équilibré ou légèrement orienté sulfate pour soutenir le houblon sans amincir le malt.",
-        "empatage": "Empâtage moyen pour conserver du corps tout en finissant proprement.",
-        "ebullitionEtHoublonnage": "25-40 IBU typiques BJCP ; ajouts tardifs ou dry hop possibles mais modérés par rapport à une IPA.",
-        "fermentation": "Fermentation haute propre, température contrôlée.",
-        "maturation": "Courte ; bière destinée à conserver une expression fraîche des houblons.",
-        "profilRecherche": "Une ale ambrée à rouge-cuivrée où caramel et houblons américains se soutiennent sans que l'un écrase l'autre."
+        "profilEau": "Sulfate et chlorure proches de l'équilibre ; le premier affine le houblon, le second soutient la texture sans rendre le crystal pâteux.",
+        "empatage": "Fermentescibilité moyenne à haute pour donner une finale nette malgré le malt crystal.",
+        "ebullitionEtHoublonnage": "Amertume moyenne, ajouts tardifs lisibles et dry hop possible à dose inférieure à une IPA.",
+        "fermentation": "Souche américaine propre ; esters bas afin que le dialogue malt-houblon reste au premier plan.",
+        "maturation": "Conditionnement court et protection contre l'oxygène pour préserver houblon et couleur.",
+        "profilRecherche": "Une ale cuivrée où malt toasté et houblon américain arrivent ensemble, sans que l'un serve de décor à l'autre."
       },
       "sources": [
         {
@@ -1887,7 +2552,7 @@ La catégorie se situe volontairement dans un espace d'équilibre : malt caramel
           "reference": "American Amber Ale",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/19/19A/american-amber-ale/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Brewers Association",
@@ -1895,7 +2560,23 @@ La catégorie se situe volontairement dans un espace d'équilibre : malt caramel
           "reference": "American-Style Amber/Red Ale",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "San Francisco Chronicle",
+          "edition": "2025",
+          "reference": "Hopland brewpub and Mendocino Brewing's 1983 opening",
+          "type": "presse_regionale",
+          "url": "https://www.sfgate.com/northcoast/article/historic-brewpub-hopland-for-sale-20240896.php",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Brewers Association — CraftBeer.com",
+          "edition": null,
+          "reference": "Modern U.S. craft beer history",
+          "type": "archives_professionnelles",
+          "url": "https://www.craftbeer.com/beer/beer-history",
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -1946,10 +2627,22 @@ La catégorie se situe volontairement dans un espace d'équilibre : malt caramel
           "Tulipe"
         ]
       },
-      "description": "L’American Brown Ale garde le brun mais ajoute l’énergie craft : chocolat, caramel, noisette, toast, houblon américain, amertume moyenne à forte et finale plus sèche. Elle doit rester Brown Ale, pas devenir porter houblonné ni Brown IPA déguisée.",
-      "histoireEtOrigines": `L'American Brown Ale appartient à la première génération de styles craft américains construits à partir de modèles britanniques puis rééquilibrés avec davantage de houblon. Le style commercial moderne s'est assagi par rapport à certaines recettes homebrew des débuts, mais conserve un contraste plus affirmé qu'une British Brown Ale entre malt brun et houblons américains.
+      "description": "L’American Brown Ale branche une Brown britannique sur le secteur craft : noisette et cacao léger demeurent, mais la finale s’assèche et le houblon américain apporte agrumes, pin ou fleurs. Pete’s Wicked Ale, lancée en 1986, a transformé ce profil en marque nationale avant de disparaître. Le style garde de cette époque une ambition simple : brun, vif, jamais brûlé.",
+      "histoireEtOrigines": `En 1986, Pete Slosberg lance Pete's Wicked Ale avec une recette identifiée comme American Brown. La bière arrive au moment où le secteur craft cherche des produits phares capables de raconter une différence en rayon. Son étiquette, son marketing et une distribution rapide font de la marque l'un des grands succès des années 1990, un temps derrière Boston Beer parmi les acteurs craft américains.
 
-Caramel, noix, chocolat léger et toast composent la base, tandis que les houblons peuvent aller d'un simple soutien à une présence franche. Le BJCP précise que la torréfaction ne doit pas évoquer Porter ou Stout : le style reste une Brown Ale, pas une bière noire fortement grillée.`,
+Le produit illustre le déplacement du modèle britannique. Des accents de noix, de chocolat et de malt toasté restent visibles, mais le houblon américain et une fermentation plus nette donnent davantage de contraste. Les homebrewers et microbrasseries explorent aussi des versions assez amères pour annoncer Brown IPA, tandis que les guides resserrent l'American Brown autour d'un équilibre plus modéré.
+
+L'histoire de Pete's rappelle que les styles craft se forment dans des entreprises, pas seulement dans des concours. La marque change de propriétaire, perd son élan et disparaît finalement du marché ; le profil, lui, entre dans le répertoire brassicole. Une vedette peut quitter l'affiche tout en laissant son rôle au casting.
+
+L'American Brown moderne conserve donc une limite utile : le malt sombre apporte couleur, noix et cacao, sans torréfaction de Porter ; le houblon reste plus expressif qu'en British Brown, sans faire de la bière une Black IPA brune par erreur de lumière.`,
+      "chapitres": [
+        {
+          "titre": "Pete's Wicked : un style porté par une marque",
+          "texte": `Le succès de Pete's ne prouve pas qu'une seule brasserie ait inventé l'American Brown. Il montre comment un profil issu du homebrewing et des premières microbrasseries devient compréhensible à l'échelle nationale grâce à un produit phare.
+
+Lorsque la marque décline, la catégorie ne s'effondre pas avec elle. Recettes, juges, brasseurs et consommateurs ont déjà séparé le personnage de son premier grand interprète.`
+        }
+      ],
       "recette": {
         "profilUnique": true,
         "explicationProfil": "",
@@ -1963,12 +2656,12 @@ Caramel, noix, chocolat léger et toast composent la base, tandis que les houblo
           "Levure ale américaine neutre à légèrement fruitée."
         ],
         "ingredientsComplementaires": [],
-        "profilEau": "Profil équilibré, assez de sulfate pour la netteté du houblon et de chlorure pour le corps.",
-        "empatage": "Empâtage moyen pour une texture ronde mais non sucrée.",
-        "ebullitionEtHoublonnage": "Amertume généralement plus ferme qu'en British Brown ; houblonnage tardif modéré à soutenu.",
-        "fermentation": "Fermentation propre, esters faibles à modérés.",
-        "maturation": "Courte à modérée.",
-        "profilRecherche": "Une brown ale américaine équilibrant caramel, noix et chocolat léger avec un houblon moderne perceptible mais non dominant."
+        "profilEau": "Sulfate modéré pour la netteté et alcalinité calibrée aux malts sombres ; trop d'alcalinité émousserait le houblon.",
+        "empatage": "Température moyenne et mouture mesurée : assez de corps pour la noisette, assez d'atténuation pour la vivacité américaine.",
+        "ebullitionEtHoublonnage": "Amertume plus ferme que British Brown, ajouts tardifs perceptibles mais inférieurs à Brown IPA.",
+        "fermentation": "Fermentation propre, esters faibles ; le profil sépare clairement malt brun et houblon.",
+        "maturation": "Courte à modérée, avec protection contre l'oxydation des houblons.",
+        "profilRecherche": "Une Brown américaine sèche et contrastée, où cacao et noix répondent à un houblon moderne sans torréfaction de Porter."
       },
       "sources": [
         {
@@ -1977,7 +2670,7 @@ Caramel, noix, chocolat léger et toast composent la base, tandis que les houblo
           "reference": "American Brown Ale",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/19/19C/american-brown-ale/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Brewers Association",
@@ -1985,7 +2678,23 @@ Caramel, noix, chocolat léger et toast composent la base, tandis que les houblo
           "reference": "American-Style Brown Ale",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "The Beer Professor",
+          "edition": "2021",
+          "reference": "Pete's Wicked Ale and the rise of American Brown Ale",
+          "type": "histoire_orale_et_industrielle",
+          "url": "https://www.thebeerprofessor.com/?tag=petes-wicked-ale",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Beervana",
+          "edition": "2011",
+          "reference": "The fast rise and slow death of Pete's Wicked Ale",
+          "type": "presse_specialisee",
+          "url": "https://www.beervanablog.com/beervana/2011/05/fast-rise-and-slow-death-of-petes.html",
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -2036,10 +2745,22 @@ Caramel, noix, chocolat léger et toast composent la base, tandis que les houblo
           "IPA glass"
         ]
       },
-      "description": "L’American Black Ale cherche l’ombre sans la lourdeur : robe noire, malt sombre doux, cacao, toast, parfois café léger, mais aussi houblon américain, agrumes, pin ou résine. Elle doit être noire et vive, pas porter sucré ni stout épais.",
-      "histoireEtOrigines": `American Black Ale est une catégorie craft moderne née de la rencontre entre une bière très houblonnée et une robe noire. Selon les régions et les cadres de concours, des produits voisins ont été appelés Black IPA ou Cascadian Dark Ale. La Brewers Association conserve cependant une catégorie American-Style Black Ale distincte, définie par un houblonnage élevé et une présence de malts sombres qui doit rester douce, sans brûlé ni astringence.
+      "description": "L’American Black Ale produit un tour de lumière : presque noire dans le verre, sèche et saturée de houblons d’agrumes, de pin ou de résine, avec seulement une ombre de cacao. Black IPA, India Black Ale ou Cascadian Dark Ale ont nommé des produits voisins. Le débat sur l’étiquette fut parfois plus torréfié que la bière, qui gagne justement à éviter le brûlé.",
+      "histoireEtOrigines": `Le style commence par plusieurs revendications concurrentes. Greg Noonan brasse Blackwatch IPA au Vermont Pub & Brewery autour de 1990, jalon souvent cité sur la côte Est. Dans le Nord-Ouest, John Maier chez Rogue et d'autres brasseurs développent au tournant des années 2000 des ales noires fortement houblonnées ; le nom Cascadian Dark Ale s'impose chez ceux qui veulent revendiquer le paysage houblonnier régional.
 
-Le style ne cherche donc pas à fabriquer un Stout houblonné. Les meilleurs exemples utilisent des malts noirs désamérisés ou des quantités maîtrisées de grains torréfiés pour obtenir couleur et légère profondeur cacao, tout en laissant le houblon moderne mener l'aromatique. Sa place dans cette collection vient de son identité d'ale américaine sombre et maltée/houblonnée, même si elle chevauche le territoire des IPA noires.`,
+La controverse porte autant sur la géographie que sur la contradiction « black pale ». Black IPA devient le terme immédiatement lisible ; India Black Ale contourne l'oxymore ; Cascadian Dark Ale réclame une identité du Pacifique Nord-Ouest. Les sources ne permettent pas de remettre un brevet unique : recettes sombres et houblonnées avaient existé auparavant, et plusieurs brasseurs ont développé la forme indépendamment.
+
+Le concours transforme le débat en case. En 2010, la Brewers Association reconnaît American-style India Black Ale au Great American Beer Festival ; ses lignes actuelles parlent d'American-Style Black Ale. Le BJCP place Black IPA parmi les Specialty IPA. Ces catégories voisines sélectionnent un même problème technique : obtenir la couleur et un accent de malt sombre sans couvrir les huiles de houblon de café, cendre ou astringence.
+
+Les malts noirs désamérisés, l'ajout tardif des grains sombres et la maîtrise du pH rendent cette séparation plus facile. L'American Black Ale appartient ainsi à la génération des hybrides craft conceptuels : une silhouette de stout, une dynamique d'IPA, et trois noms encore accrochés au même portemanteau.`,
+      "chapitres": [
+        {
+          "titre": "Qui l'a brassée en premier ?",
+          "texte": `Blackwatch de Greg Noonan fournit un jalon commercial solide autour de 1990. Des récits du Nord-Ouest citent ensuite Rogue, Phillips et d'autres producteurs. « Premier » change toutefois selon que l'on cherche la première bière sombre très houblonnée, la première Black IPA nommée ainsi ou la première Cascadian Dark Ale conforme au profil actuel.
+
+La chronologie la plus honnête garde ces niveaux séparés. Noonan précède la vague ; le Nord-Ouest développe une scène et un nom ; les concours stabilisent une définition.`
+        }
+      ],
       "recette": {
         "profilUnique": true,
         "explicationProfil": "",
@@ -2053,12 +2774,12 @@ Le style ne cherche donc pas à fabriquer un Stout houblonné. Les meilleurs exe
           "Levure ale américaine neutre."
         ],
         "ingredientsComplementaires": [],
-        "profilEau": "Profil plutôt sulfaté pour une finale nette, tout en contrôlant pH et alcalinité liés aux malts sombres.",
-        "empatage": "Empâtage moyen à bas pour conserver une finale relativement sèche ; malts foncés éventuellement ajoutés tard pour limiter l'âcreté.",
-        "ebullitionEtHoublonnage": "Amertume élevée et houblonnage tardif/dry hop conséquent.",
-        "fermentation": "Fermentation propre mettant le houblon en avant.",
-        "maturation": "Courte, à l'abri de l'oxygène pour préserver couleur propre et aromatique de houblon.",
-        "profilRecherche": "Une ale noire fortement houblonnée, sèche et nette, où la torréfaction reste basse et jamais brûlée."
+        "profilEau": "Sulfate pour une finale nette, alcalinité juste suffisante pour les grains foncés et pH surveillé afin d'éviter l'âcreté.",
+        "empatage": "Moût fermentescible ; malts noirs désamérisés ou ajout tardif permettent de colorer sans extraire toute la torréfaction.",
+        "ebullitionEtHoublonnage": "Amertume élevée, gros ajouts tardifs et dry hop ; la charge sombre doit être pensée en fonction de ces arômes volatils.",
+        "fermentation": "Souche neutre, atténuation haute et oxygène limité après fermentation.",
+        "maturation": "Courte : le houblon frais est la moitié du concept, tandis que l'oxydation ternit rapidement agrumes et couleur.",
+        "profilRecherche": "Une ale noire qui boit comme une bière houblonnée sèche, avec assez de cacao pour justifier la robe et jamais assez de brûlé pour l'alourdir."
       },
       "sources": [
         {
@@ -2067,7 +2788,7 @@ Le style ne cherche donc pas à fabriquer un Stout houblonné. Les meilleurs exe
           "reference": "American-Style Black Ale",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "BJCP",
@@ -2075,7 +2796,31 @@ Le style ne cherche donc pas à fabriquer un Stout houblonné. Les meilleurs exe
           "reference": "American IPA / Specialty IPA context",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/21/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Brewers Association — CraftBeer.com",
+          "edition": "2010",
+          "reference": "Cascadian Dark Ale: A Rose By Any Other Name",
+          "type": "presse_professionnelle",
+          "url": "https://www.craftbeer.com/craft-beer-muses/india-black-ale-a-rose-by-any-other-name",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "All About Beer",
+          "edition": "2024",
+          "reference": "The Quiet Resilience of the Black IPA",
+          "type": "presse_specialisee",
+          "url": "https://allaboutbeer.com/black-ipa-cascadian-dark-ale/",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Great American Beer Festival",
+          "edition": "2026",
+          "reference": "American-Style Black Ale competition category",
+          "type": "referentiel_de_concours",
+          "url": "https://www.greatamericanbeerfestival.com/brewers-information/gabf-competition/styles/",
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -2126,10 +2871,12 @@ Le style ne cherche donc pas à fabriquer un Stout houblonné. Les meilleurs exe
           "American pint"
         ]
       },
-      "description": "La Double Hoppy Red Ale transforme la red ale en bête de houblon : caramel rouge, malt toasté, amertume haute, agrumes, pin, résine ou fruits rouges. Elle doit garder une charpente maltée, sinon ce n’est qu’une IPA rouge qui a oublié son costume.",
-      "histoireEtOrigines": `Double Hoppy Red Ale n'est pas une tradition historique autonome mais une logique craft d'intensification de l'American Amber/Red Ale. La lignée est cohérente avec le développement des Double Reds et des American Strong Ales : davantage de densité, de caramel et surtout de houblons, jusqu'à frôler Red IPA ou American Barleywine selon la force.
+      "description": "La Double Hoppy Red Ale prend l’Amber/Red comme châssis et installe un moteur de houblon : agrumes, résine, pin ou fruits tropicaux au-dessus d’un malt cuivré, avec 6–9 % vol. et une amertume durable. Les concours l’ont tour à tour séparée, réunie et rebaptisée. Dans le verre, son identité demeure nette : le rouge porte le houblon, pas l’inverse.",
+      "histoireEtOrigines": `Cette bière naît dans une case en mouvement. Au Great American Beer Festival de 2004 et 2005, Imperial et Double Red partagent encore une catégorie. En 2015, le concours distribue séparément Double Red Ale et Imperial Red Ale ; plus tard, Strong Red Ale les réunit de nouveau sous un titre plus large. La chronologie décrit une population de produits, pas une dynastie.
 
-Le BJCP classe aujourd'hui de nombreux « Double Red Ales » dans American Strong Ale et cite explicitement ce type de bière parmi les expressions possibles. La carte doit donc décrire une zone de style moderne, pas prétendre à un canon unique. Le mot « hoppy » est essentiel : une simple strong red maltée sans forte expression de houblon se rapproche davantage d'Imperial Red ou d'American Strong Ale générique.`,
+Double Hoppy Red privilégie la branche aromatique de cette population. Les brasseurs augmentent densité et malt crystal afin de conserver une robe profonde, mais surtout amertume, ajouts tardifs et houblonnage à cru. Ninkasi Believer figure parmi les exemples commerciaux durables de ce langage du Nord-Ouest : double red, malt visible, houblon au premier plan.
+
+La frontière avec Red IPA ou American Strong Ale dépend du cadre et de l'équilibre. Ici, le malt rouge possède une présence propre, plus construite que dans une IPA simplement colorée ; la fraîcheur du houblon compte davantage que la garde. Le nom n'est donc pas l'acte de naissance d'un style ancien, mais une instruction sensorielle étonnamment précise : doubler l'ambition de la Red et laisser le houblon signer le reçu.`,
       "recette": {
         "profilUnique": true,
         "explicationProfil": "",
@@ -2143,12 +2890,12 @@ Le BJCP classe aujourd'hui de nombreux « Double Red Ales » dans American Stron
           "Levure ale américaine neutre, forte atténuation."
         ],
         "ingredientsComplementaires": [],
-        "profilEau": "Sulfate modéré à élevé pour porter l'amertume, avec assez de chlorure pour soutenir le malt.",
-        "empatage": "Empâtage plutôt fermentescible afin que la densité et le caramel ne rendent pas la bière lourde.",
-        "ebullitionEtHoublonnage": "Amertume élevée, houblonnage tardif massif et éventuellement dry hop.",
-        "fermentation": "Fermentation haute propre avec pitch généreux pour la densité supérieure.",
-        "maturation": "Courte à modérée ; consommation relativement fraîche pour conserver les houblons.",
-        "profilRecherche": "Une double red américaine puissante, rouge/cuivrée, caramélisée mais sèche, dominée par un houblon intense sans devenir un Barleywine sucré."
+        "profilEau": "Sulfate modéré à élevé pour tendre l'amertume, chlorure contenu afin de ne pas épaissir une forte charge de crystal.",
+        "empatage": "Empâtage fermentescible : le malt doit résister au houblon par la saveur, pas par le sucre résiduel.",
+        "ebullitionEtHoublonnage": "Amertume haute, ajouts tardifs massifs et dry hop central ; le rendement aromatique exige une excellente maîtrise de l'oxygène.",
+        "fermentation": "Souche américaine propre, ensemencement généreux et température contenue pour une densité supérieure à l'Amber.",
+        "maturation": "Courte ; conditionnement et distribution rapides préservent le moteur narratif du style.",
+        "profilRecherche": "Une Red américaine forte et sèche dont le malt cuivré soutient une expression de houblon immédiatement dominante et fraîche."
       },
       "sources": [
         {
@@ -2157,7 +2904,7 @@ Le BJCP classe aujourd'hui de nombreux « Double Red Ales » dans American Stron
           "reference": "American Strong Ale — Double Red Ales",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/22/22B/american-strong-ale/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Brewers Association",
@@ -2165,7 +2912,31 @@ Le BJCP classe aujourd'hui de nombreux « Double Red Ales » dans American Stron
           "reference": "American-Style Amber/Red Ale and Strong Ale categories",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Great American Beer Festival",
+          "edition": "2004",
+          "reference": "Imperial or Double Red Ale competition category",
+          "type": "archive_de_concours",
+          "url": "https://www.greatamericanbeerfestival.com/wp-content/uploads/gabf04_winners.pdf",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Great American Beer Festival",
+          "edition": "2015",
+          "reference": "Double Red Ale and Imperial Red Ale as separate categories",
+          "type": "archive_de_concours",
+          "url": "https://cdn.greatamericanbeerfestival.com/wp-content/uploads/15_GABF_winners.pdf",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Ninkasi Brewing Company",
+          "edition": null,
+          "reference": "Believer Double Red Ale",
+          "type": "source_producteur",
+          "url": "https://ninkasibrewing.com/beers/",
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -2216,10 +2987,14 @@ Le BJCP classe aujourd'hui de nombreux « Double Red Ales » dans American Stron
           "Snifter"
         ]
       },
-      "description": "L’Imperial Red Ale grossit la Red Ale jusqu’au format de dégustation : alcool élevé, caramel profond, malt rouge, houblon massif, fruits, pin, résine et chaleur. Elle doit rester tendue et sèche, pas sombrer dans le sirop de caramel houblonné.",
-      "histoireEtOrigines": `Imperial Red Ale appartient au vocabulaire craft moderne où « imperial » signifie une version renforcée d'un style existant. Il n'existe pas de tradition impériale rouge ancienne comparable à l'histoire de l'Imperial Stout. La catégorie s'est développée lorsque les brasseries américaines ont augmenté simultanément alcool, malt caramel et houblonnage de leurs Amber/Red Ales.
+      "description": "Imperial Red Ale agrandit d’abord la charpente : 7–10 % vol., couleur rubis sombre, malt intense, fruits de fermentation et chaleur, puis assez de houblon pour tenir l’ensemble debout. « Imperial » est ici le préfixe craft de l’agrandissement, sans tsar ni route commerciale à convoquer. Face à Double Hoppy Red, la force et la masse maltée prennent davantage la parole.",
+      "histoireEtOrigines": `Le mot imperial arrive ici par analogie. Après Imperial Stout, les brasseries craft l'emploient pour signaler la version renforcée d'une IPA, d'une Pilsner, d'une Red ou de presque tout ce qui accepte une police de caractères plus grande. Imperial Red ne revendique donc pas une cour ancienne ; elle traduit une stratégie de gamme.
 
-Selon les guides et concours, ces bières peuvent être classées comme American Strong Ale, Strong Red Ale ou Imperial Red. Le BJCP décrit justement American Strong Ale comme l'espace entre American Barleywine, Double IPA et Red IPA, et rappelle ses liens avec les Double Reds. La frontière avec Double Hoppy Red tient plus à l'équilibre choisi qu'à une généalogie différente.`,
+Les archives du Great American Beer Festival montrent cette stratégie devenue catégorie dès le début des années 2000 : Imperial or Double Red compte ses propres médailles en 2004 et 2005. Les organisateurs séparent ensuite Imperial et Double selon l'équilibre, avant de les rapprocher sous Strong Red. Les noms changent parce que les produits forment un continuum entre Amber/Red, Red IPA, American Strong et Barleywine.
+
+Dans Imperial Red, la hausse de densité est le moteur. Le malt pale et le crystal construisent une matière profonde ; alcool et esters élargissent le fruité ; l'amertume garde la finale en mouvement. Le houblon peut être intense, mais une bière conçue principalement pour son parfum frais se lit mieux comme Double Hoppy Red.
+
+Ce partage ne prétend pas résoudre tous les concours. Il offre une mémoire simple : Double Hoppy décrit l'avant-scène aromatique ; Imperial décrit l'agrandissement du bâtiment. Les deux peuvent partager une porte rouge.`,
       "recette": {
         "profilUnique": true,
         "explicationProfil": "",
@@ -2233,12 +3008,12 @@ Selon les guides et concours, ces bières peuvent être classées comme American
           "Levure ale américaine robuste et neutre."
         ],
         "ingredientsComplementaires": [],
-        "profilEau": "Profil équilibré à légèrement sulfaté, adapté à une bière forte et houblonnée.",
-        "empatage": "Empâtage assez fermentescible pour éviter une finale collante malgré la forte densité.",
-        "ebullitionEtHoublonnage": "Amertume élevée proportionnée au malt ; houblon tardif/dry hop selon interprétation.",
-        "fermentation": "Pitch élevé, oxygénation correcte et contrôle thermique pour une fermentation complète.",
-        "maturation": "Quelques semaines pour intégrer alcool et malt ; fraîcheur importante si le houblon est dominant.",
-        "profilRecherche": "Une red ale américaine forte, profonde et structurée, où caramel, alcool et houblon restent équilibrés."
+        "profilEau": "Calcium suffisant pour la fermentation et équilibre sulfate/chlorure choisi selon la place du houblon.",
+        "empatage": "Moût fermentescible malgré la densité ; le crystal colore et parfume, il ne doit pas devenir la base du corps.",
+        "ebullitionEtHoublonnage": "Amertume élevée proportionnée au malt ; houblonnage tardif présent mais pas nécessairement aussi massif que Double Hoppy.",
+        "fermentation": "Grand ensemencement, oxygénation adaptée et maîtrise thermique pour intégrer alcool et esters.",
+        "maturation": "Quelques semaines pour fondre la chaleur ; garde plus courte si les houblons sont au premier plan.",
+        "profilRecherche": "Une Red américaine agrandie par la densité et l'alcool, profondément maltée mais attenuée, soutenue par une vraie structure amère."
       },
       "sources": [
         {
@@ -2247,7 +3022,7 @@ Selon les guides et concours, ces bières peuvent être classées comme American
           "reference": "American Strong Ale",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/22/22B/american-strong-ale/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Brewers Association",
@@ -2255,7 +3030,23 @@ Selon les guides et concours, ces bières peuvent être classées comme American
           "reference": "Strong Ale / Strong Red Ale context",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Great American Beer Festival",
+          "edition": "2005",
+          "reference": "Imperial or Double Red Ale competition category",
+          "type": "archive_de_concours",
+          "url": "https://www.greatamericanbeerfestival.com/wp-content/uploads/gabf05_winners.pdf",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Great American Beer Festival",
+          "edition": "2026",
+          "reference": "Imperial Red Ale within Strong Red Ale",
+          "type": "referentiel_de_concours",
+          "url": "https://www.greatamericanbeerfestival.com/brewers-information/gabf-competition/styles/",
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -2306,10 +3097,22 @@ Selon les guides et concours, ces bières peuvent être classées comme American
           "Tulipe"
         ]
       },
-      "description": "L’American Strong Ale est une grande ale américaine sans laisse courte : malt riche, caramel, fruits, houblon marqué, alcool, amertume et parfois bois. Elle peut frôler barley wine, double red ou strong amber, mais doit rester cohérente, pas simplement “tout plus fort”.",
-      "histoireEtOrigines": `American Strong Ale est explicitement une catégorie de regroupement moderne plutôt qu'un style historique étroit. Le BJCP la définit comme l'espace entre American Barleywine, Double IPA et Red IPA : des bières fortes où malt et houblon sont tous deux puissants mais généralement en équilibre.
+      "description": "American Strong Ale est une zone de douane brassicole : trop maltée pour une Double IPA, moins concentrée ou moins faite pour la cave qu’une Barleywine, parfois proche d’une Double Red. Malt, alcool, amertume et houblon peuvent tous être élevés ; la cohérence décide du visa. Son histoire est celle d’une catégorie de classement née après les bières qu’elle rassemble.",
+      "histoireEtOrigines": `Les bières arrivent d'abord, la boîte ensuite. Les brasseries américaines produisent à partir des années 1980 et 1990 des ales fortes, amères et maltées que les catégories existantes accueillent mal : trop riches pour IPA, trop houblonnées ou pas assez massives pour Barleywine, parfois vendues sous un nom de marque sans style précis.
 
-Le style a une parenté de forme avec les anciennes American Stock Ales très houblonnées d'avant la Prohibition, mais le BJCP précise qu'il n'existe pas de continuité directe. Les versions craft contemporaines proviennent surtout de la logique d'« imperialisation » des Amber/Red Ales et d'autres ales américaines. Elles peuvent offrir caramel, toffee, fruits, pin, agrumes et résine, avec alcool perceptible mais non brûlant.`,
+Le BJCP introduit American Strong Ale dans ses lignes de 2015 et la maintient en 2021 comme regroupement de profil. Sa propre définition insiste sur l'espace entre American Barleywine, Double IPA et Red IPA. Cette naissance administrative est une information positive : elle évite d'inventer un ancêtre unique à des créations craft convergentes.
+
+Le centre de gravité est l'équilibre à haute intensité. Une base de malt apporte céréale, toffee ou fruit sombre ; les houblons fournissent amertume, pin ou agrumes ; l'alcool reste perceptible. La différence avec American Barleywine n'est pas un chiffre isolé : la Barleywine possède généralement davantage de concentration et de vocation à évoluer, tandis que la Strong Ale peut être conçue pour une consommation plus jeune.
+
+La catégorie fonctionne comme un sas. Une recette très rouge peut entrer par Double/Imperial Red ; une recette très houblonnée par Double IPA ; une recette de garde par Barleywine. American Strong accueille ce qui conserve volontairement plusieurs axes à égalité — et lui demande tout de même de ranger ses valises.`,
+      "chapitres": [
+        {
+          "titre": "2015 : le classement rattrape le marché",
+          "texte": `L'ajout dans le BJCP 2015 n'invente pas les bières. Il reconnaît qu'un nombre suffisant de produits partagent un équilibre sans correspondre proprement aux styles voisins. C'est une catégorie descriptive, non une origine.
+
+Cette distinction protège le récit historique : le concours donne un nom à une population contemporaine ; il ne transforme pas rétrospectivement chaque forte ale américaine en membre conscient du club.`
+        }
+      ],
       "recette": {
         "profilUnique": true,
         "explicationProfil": "",
@@ -2323,12 +3126,12 @@ Le style a une parenté de forme avec les anciennes American Stock Ales très ho
           "Levure ale américaine neutre ou légèrement fruitée, bonne tolérance alcoolique."
         ],
         "ingredientsComplementaires": [],
-        "profilEau": "Sulfate/chlorure équilibré selon orientation malt/houblon ; calcium suffisant pour la fermentation.",
-        "empatage": "Empâtage moyen à plutôt fermentescible pour garder une forte bière buvable.",
-        "ebullitionEtHoublonnage": "Amertume typiquement élevée ; houblonnage aromatique conséquent mais moins extrême qu'une Double IPA selon l'équilibre.",
-        "fermentation": "Pitch généreux, oxygénation soignée et contrôle thermique.",
-        "maturation": "Quelques semaines à quelques mois selon force ; le houblon plaide pour une consommation plus jeune qu'un Barleywine.",
-        "profilRecherche": "Une strong ale américaine dense, maltée et houblonnée, puissante mais équilibrée, sans lourdeur sirupeuse ni alcool agressif."
+        "profilEau": "Sulfate/chlorure réglé pour l'orientation choisie ; calcium et nutriments soutiennent la forte fermentation.",
+        "empatage": "Moût fermentescible afin que la somme malt-alcool-houblon reste mobile.",
+        "ebullitionEtHoublonnage": "Amertume haute, aromatique conséquent mais modulé pour ne pas faire basculer automatiquement vers Double IPA.",
+        "fermentation": "Grand ensemencement, oxygénation adaptée et contrôle thermique ; le profil propre laisse les axes de recette se comparer.",
+        "maturation": "Semaines à quelques mois. Plus le houblon définit la bière, moins une longue cave a de sens.",
+        "profilRecherche": "Une forte ale américaine à plusieurs voix, où malt, houblon et alcool restent distincts puis se rejoignent dans une finale nette."
       },
       "sources": [
         {
@@ -2337,7 +3140,7 @@ Le style a une parenté de forme avec les anciennes American Stock Ales très ho
           "reference": "American Strong Ale",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/22/22B/american-strong-ale/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Brewers Association",
@@ -2345,7 +3148,23 @@ Le style a une parenté de forme avec les anciennes American Stock Ales très ho
           "reference": "Strong Ale / Other Strong Beer",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Brew Your Own",
+          "edition": "2017",
+          "reference": "American Strong Ale — a new style in the 2015 BJCP Guidelines",
+          "type": "presse_technique",
+          "url": "https://byo.com/articles/style-profile-layout-6/",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Great American Beer Festival",
+          "edition": "2026",
+          "reference": "Current strong-ale competition categories",
+          "type": "referentiel_de_concours",
+          "url": "https://www.greatamericanbeerfestival.com/brewers-information/gabf-competition/styles/",
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -2398,10 +3217,22 @@ Le style a une parenté de forme avec les anciennes American Stock Ales très ho
           "Tulipe"
         ]
       },
-      "description": "L’American Barley Wine est le barley wine avec les bottes de combat : malt massif, alcool élevé, caramel, pain, fruits secs, mais aussi houblon frontal, agrumes, pin, résine et amertume durable. Il vieillit bien, mais jeune, il peut rugir comme une tronçonneuse fruitée.",
-      "histoireEtOrigines": `L'American Barleywine est une adaptation craft de l'English Barleywine qui transforme profondément l'équilibre par le houblon. Le BJCP cite Anchor Old Foghorn, brassée pour la première fois en 1975, comme l'un des premiers exemples américains modernes. Sierra Nevada Bigfoot, lancé en 1983, fixe ensuite le modèle très houblonné qui devient emblématique du style.
+      "description": "L’American Barley Wine fait tenir deux époques dans la bouteille : Old Foghorn, lancé par Anchor en 1975, adapte la forte ale anglaise ; Bigfoot de Sierra Nevada, apparu en 1983, l’équipe de houblons américains entiers. Jeune, pin, agrumes et amertume affrontent un moût massif ; avec le temps, le houblon recule. La cave change le rapport de force, pas toujours à son avantage.",
+      "histoireEtOrigines": `San Francisco fournit le premier grand repère. Anchor Brewing, relancée par Fritz Maytag, présente Old Foghorn en 1975. Le rapport patrimonial de la ville l'identifie comme une première américaine moderne du Barley Wine. Le nom évoque la baie ; la méthode s'inspire des fortes ales anglaises, avec un produit riche, conditionné et destiné à une petite portion.
 
-Contrairement à une Double IPA, l'American Barleywine garde un corps plus riche, une base maltée plus massive et une vocation de dégustation lente. Jeune, il peut être intensément amer, résineux et fruité ; avec quelques années, le houblon s'assagit et la bière évolue vers caramel, fruits secs, vin doux et notes oxydatives harmonieuses. Cette capacité de garde fait partie de son identité, sans rendre obligatoire le vieillissement.`,
+Huit ans plus tard, Sierra Nevada lance Bigfoot. La brasserie de Chico emploie ses houblons entiers américains avec une intensité qui transforme l'équilibre : l'amertume et les arômes résineux ne soutiennent plus seulement le malt, ils organisent la jeunesse de la bière. Les bouteilles millésimées invitent bientôt les consommateurs à comparer les années, pratique devenue un rituel craft.
+
+Ces deux produits n'épuisent pas le style, mais ils en dessinent les axes. L'American Barleywine garde la densité, la force et la lente dégustation britanniques ; il ajoute une architecture de houblon issue du mouvement américain. Une Double IPA peut atteindre un degré voisin, mais elle recherche généralement une finale plus sèche et la consommation fraîche. Ici, la masse de malt et la transformation en cave restent centrales.
+
+Le vieillissement produit un échange plutôt qu'une amélioration automatique. Les arômes frais de houblon diminuent, l'amertume s'arrondit, fruits secs et notes vineuses peuvent émerger ; l'oxygène peut aussi fabriquer papier et carton. Une verticale de Bigfoot raconte donc le temps avec une franchise remarquable : certaines années gagnent une voix grave, d'autres perdent simplement les aigus.`,
+      "chapitres": [
+        {
+          "titre": "1975 et 1983 : deux gestes fondateurs",
+          "texte": `Old Foghorn établit qu'une microbrasserie américaine peut produire et vendre une forte ale de tradition anglaise. Bigfoot ajoute quelques années plus tard l'accent houblonné de Sierra Nevada et la logique du millésime.
+
+Le style moderne vient moins d'une invention instantanée que de cette succession : importer une forme, déplacer son équilibre, puis faire de son évolution un rendez-vous.`
+        }
+      ],
       "recette": {
         "profilUnique": true,
         "explicationProfil": "",
@@ -2415,12 +3246,12 @@ Contrairement à une Double IPA, l'American Barleywine garde un corps plus riche
           "Levure ale américaine ou anglaise tolérante à l'alcool et fortement atténuative."
         ],
         "ingredientsComplementaires": [],
-        "profilEau": "Calcium suffisant, sulfate souvent plus élevé que dans la version britannique pour soutenir l'amertume.",
-        "empatage": "Empâtage fermentescible et gestion attentive d'une très forte densité.",
-        "ebullitionEtHoublonnage": "Ébullition longue fréquente ; forte amertume et houblonnage aromatique/dry hop possibles.",
-        "fermentation": "Pitch massif, oxygénation renforcée et contrôle thermique rigoureux.",
-        "maturation": "Quelques mois minimum pour intégrer l'alcool ; potentiel de garde de plusieurs années, avec perte progressive du houblon frais.",
-        "profilRecherche": "Une ale américaine extrêmement forte, maltée et amère, riche mais non sirupeuse, où le houblon puissant dialogue avec une base de Barleywine."
+        "profilEau": "Calcium suffisant et sulfate souvent plus élevé que dans la branche britannique, sans rendre une amertume déjà massive râpeuse.",
+        "empatage": "Empâtage fermentescible et gestion attentive du rendement ; la densité vient surtout du malt de base.",
+        "ebullitionEtHoublonnage": "Ébullition longue possible, forte amertume, ajouts tardifs et parfois dry hop. Le programme doit anticiper ce qui restera après quelques mois.",
+        "fermentation": "Grand ensemencement, oxygénation adaptée, nutriments et température rigoureuse pour traverser pression osmotique puis alcool.",
+        "maturation": "Mois avant intégration ; cave pluriannuelle possible avec perte des houblons frais et risque oxydatif croissant.",
+        "profilRecherche": "Une Barleywine américaine dense mais atténuée, où le houblon structure la jeunesse et le malt demeure lorsque cette jeunesse se retire."
       },
       "sources": [
         {
@@ -2429,7 +3260,7 @@ Contrairement à une Double IPA, l'American Barleywine garde un corps plus riche
           "reference": "American Barleywine",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/22/strong-american-ale/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Brewers Association",
@@ -2437,7 +3268,7 @@ Contrairement à une Double IPA, l'American Barleywine garde un corps plus riche
           "reference": "American-Style Barley Wine Ale",
           "type": "guide_de_style",
           "url": "https://www.brewersassociation.org/edu/brewers-association-beer-style-guidelines/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "San Francisco Planning Department",
@@ -2445,7 +3276,23 @@ Contrairement à une Double IPA, l'American Barleywine garde un corps plus riche
           "reference": "Anchor Brewing cultural history — Old Foghorn 1975",
           "type": "source_historique_institutionnelle",
           "url": "https://www.sf.gov/sites/default/files/2024-09/item_3a._lbr-2018-19-053_anchor_brewing.pdf",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Sierra Nevada Brewing Co.",
+          "edition": null,
+          "reference": "Bigfoot Barleywine-Style Ale — introduced in 1983",
+          "type": "source_producteur",
+          "url": "https://sierranevada.com/brews/bigfoot-barleywine-style-ale",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Vanderhaegen et al. — Food Chemistry",
+          "edition": "2006",
+          "reference": "The chemistry of beer aging — a critical review",
+          "type": "publication_scientifique",
+          "url": "https://talcottlab.tamu.edu/wp-content/uploads/sites/108/2020/03/Review-Beer-Ageing.pdf",
+          "consultation": "2026-08-11"
         }
       ]
     },
@@ -2498,12 +3345,30 @@ Contrairement à une Double IPA, l'American Barleywine garde un corps plus riche
           "Verre cylindrique étroit"
         ]
       },
-      "description": "L’Altbier est une ale allemande qui pense comme une lager : cuivre, malt toasté, noisette, amertume ferme, fermentation haute propre et garde froide. Elle doit être sèche, nette et élégante, avec le malt et le houblon en ligne droite, pas en bagarre de taverne.",
-      "histoireEtOrigines": `Altbier est la grande exception géographique de cette collection : une ale ambrée allemande, profondément liée à Düsseldorf. Le mot « Alt » signifie ici l'ancienne manière de fermenter — fermentation haute — par contraste avec l'essor des lagers. Mais le BJCP corrige une autre simplification fréquente : l'Altbier moderne se développe surtout à la fin du XIXe siècle en utilisant des techniques de garde froide pour concurrencer les lagers ; il ne s'agit pas d'une bière médiévale restée inchangée.
+      "description": "À Düsseldorf, l’Altbier relie deux temps : levure de fermentation haute, méthode devenue « ancienne » face aux lagers, puis plusieurs semaines de garde froide. Le résultat est cuivré, sec, finement fruité et franchement amer. Dans l’Altstadt, le Köbes apporte les verres de 0,2 litre jusqu’à ce qu’un sous-bock couvre le dernier. Ici, le procédé et la ville se servent ensemble.",
+      "histoireEtOrigines": `Düsseldorf a transformé une position défensive en identité. Lorsque les lagers de fermentation basse progressent au XIXe siècle, les brasseurs rhénans conservent leurs levures de fermentation haute. Le mot Alt — ancien — finit par distinguer cette méthode. La bière actuelle n'est pourtant pas une survivante médiévale intacte : refroidissement, cuves et garde froide lui permettent justement d'adopter la netteté qui faisait la force commerciale des lagers.
 
-Le résultat est une bière de fermentation haute au profil étonnamment propre : malt allemand riche, forte atténuation, amertume ferme, houblons épicés/floraux et maturation froide. Dans les Altstadtbrauereien de Düsseldorf, elle reste une bière de débit et de session malgré sa profondeur aromatique.
+Schumacher date sa Hausbrauerei de 1838 et se présente comme la plus ancienne de Düsseldorf. Uerige brasse sa spécialité de fermentation haute depuis 1862. Autour d'elles, Füchschen, Schlüssel, Kürzer et d'autres maisons maintiennent une production urbaine concentrée : l'office du tourisme recense six Altbiere brassées sur le territoire municipal, dont cinq maisons-mères dans l'Altstadt. La pluralité compte, car « l'Alt » locale n'est pas une marque unique.
 
-Schumacher, qui se présente comme la plus ancienne Hausbrauerei de Düsseldorf, brasse son Alt depuis 1838. Son exemple actuel illustre bien le style : fermentation haute, robe ambrée, Tettnanger et équilibre entre malt et houblon.`,
+Le procédé crée son paradoxe. Une levure ale fermente assez frais, puis la bière mûrit plusieurs semaines à basse température. Esters et sous-produits s'intègrent, la levure se dépose, tandis qu'une forte atténuation et des houblons allemands laissent une amertume précise. Classer simplement l'Alt comme « hybride » décrit le résultat mais cache le geste : elle ne mélange pas nécessairement deux levures, elle enchaîne fermentation haute et conditionnement froid.
+
+La ville termine le travail. Dans les brasseries, le Köbes circule avec un plateau de petits verres cylindriques de 0,2 litre. Le remplacement peut se poursuivre sans nouvelle commande jusqu'à ce que le client pose son sous-bock sur le verre. Ce débit rapide sert l'Alt fraîche, multiplie les comparaisons entre maisons et fait de la carbonatation, de la température et du service une même chaîne.
+
+La mémoire de l'Altbier tient donc dans une succession : méthode haute, cave froide, petit verre, nouveau verre. L'ancienne fermentation n'a survécu ni sous cloche ni par nostalgie ; elle s'est modernisée assez habilement pour rester la boisson quotidienne d'une ville entourée de lagers.`,
+      "chapitres": [
+        {
+          "titre": "Haute fermentation, basse température",
+          "texte": `Les souches d'Alt travaillent dans la partie fraîche du spectre des ales, souvent autour de 13 à 19 °C selon levure et brasserie. Après la fermentation et l'éventuelle réduction du diacétyle, la garde froide clarifie et affine le profil. Cette séquence demande une levure saine : trop froid au départ peut ralentir l'atténuation et retenir soufre ou diacétyle.
+
+« Hybride » décrit donc une méthode croisée, non une fermentation confuse. La levure reste ale ; la gestion du froid emprunte au monde lager.`
+        },
+        {
+          "titre": "Le sous-bock fait office de feu rouge",
+          "texte": `Le petit Altbierbecher accélère le service et garantit une bière renouvelée avant qu'elle ne se réchauffe. Le Köbes remplace le verre et marque le compte sur le sous-bock ; posé sur l'ouverture, celui-ci indique que la série s'arrête.
+
+Le rituel n'est pas un folklore ajouté après la recette. Il règle volume, fraîcheur, carbonatation et rythme de consommation — quatre paramètres sensoriels avec un simple morceau de carton.`
+        }
+      ],
       "recette": {
         "profilUnique": true,
         "explicationProfil": "",
@@ -2517,12 +3382,12 @@ Schumacher, qui se présente comme la plus ancienne Hausbrauerei de Düsseldorf,
           "Levure ale propre et fortement atténuative, adaptée à une fermentation relativement fraîche."
         ],
         "ingredientsComplementaires": [],
-        "profilEau": "Eau modérément minérale ; sulfates suffisants pour soutenir l'amertume mais sans dureté agressive.",
-        "empatage": "Empâtage multi-palier traditionnel possible, visant forte atténuation et profondeur maltée.",
-        "ebullitionEtHoublonnage": "Amertume ferme, généralement 25-50 IBU BJCP ; aromatique noble modéré.",
-        "fermentation": "Fermentation haute à température fraîche, suivie d'une phase de conditionnement froid.",
-        "maturation": "Lagering à froid de plusieurs semaines pour lisser esters et affiner la bière.",
-        "profilRecherche": "Une ale ambrée de Düsseldorf sèche, propre, maltée mais nettement amère, avec la douceur de texture d'une bière longuement conditionnée à froid."
+        "profilEau": "Eau modérément minérale ; sulfate suffisant pour une amertume précise, sans dureté qui masquerait le malt allemand.",
+        "empatage": "Palier unique ou programme multi-palier selon malts et équipement, avec forte atténuation comme objectif plutôt qu'un cérémonial imposé.",
+        "ebullitionEtHoublonnage": "Amertume ferme, houblons allemands épicés ou floraux, aromatique moins expansive qu'une ale américaine.",
+        "fermentation": "Levure ale ensemencée sainement et fermentée dans une plage fraîche adaptée à la souche ; repos de réduction si nécessaire.",
+        "maturation": "Plusieurs semaines à froid pour clarifier, déposer la levure et intégrer les sous-produits avant un service très frais.",
+        "profilRecherche": "Une Alt de Düsseldorf sèche, cuivrée et amère, dont la fermentation haute reste subtile derrière la précision acquise en garde froide."
       },
       "sources": [
         {
@@ -2531,23 +3396,55 @@ Schumacher, qui se présente comme la plus ancienne Hausbrauerei de Düsseldorf,
           "reference": "Altbier",
           "type": "guide_de_style",
           "url": "https://www.bjcp.org/style/2021/7/",
-          "consultation": "2026-08-08"
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Brauerei Schumacher",
           "edition": null,
           "reference": "Our Altbier — brewed since 1838",
           "type": "source_producteur_historique",
-          "url": "https://schumacher-alt.de/en/our-altbier/",
-          "consultation": "2026-08-08"
+          "url": "https://schumacher-alt.de/unser-alt/",
+          "consultation": "2026-08-11"
         },
         {
           "organisme": "Brauerei Schumacher",
           "edition": null,
           "reference": "Brewery and brewing process",
           "type": "source_producteur_historique",
-          "url": "https://schumacher-alt.de/en/brewery-and-brewing-process/",
-          "consultation": "2026-08-08"
+          "url": "https://schumacher-alt.de/",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Uerige Obergärige Hausbrauerei",
+          "edition": null,
+          "reference": "Uerige Alt — top-fermented house beer since 1862",
+          "type": "source_producteur_historique",
+          "url": "https://uerige.de/erzeugnisse/biere/",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Düsseldorf Tourismus",
+          "edition": "2026",
+          "reference": "Breweries in Düsseldorf and Altstadt beer culture",
+          "type": "source_locale_institutionnelle",
+          "url": "https://www.visitduesseldorf.de/en/business/contact-us/media-service/infotexts/the-cult-of-beer-and-brewing-in-dusseldorfs-old-town",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "Düsseldorf Tourismus",
+          "edition": null,
+          "reference": "Köbes service and the 0.2-litre glass ritual",
+          "type": "source_locale_institutionnelle",
+          "url": "https://www.visitduesseldorf.de/en/experience/sights/altstadt-old-town",
+          "consultation": "2026-08-11"
+        },
+        {
+          "organisme": "The Oxford Companion to Beer",
+          "edition": "2011",
+          "reference": "Altbier — cool top fermentation",
+          "type": "encyclopedie_brassicole",
+          "url": "https://www.beerandbrewing.com/dictionary/kX0vhv1TwC",
+          "consultation": "2026-08-11"
         }
       ]
     }
