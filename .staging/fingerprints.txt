@@ -1,2 +1,0 @@
-face-bizarre-insolite.webp: size=(1060, 1484) mode=RGBA dhash=0701ef00ca00c178c01ec00cc00c800e800cc00cc31c82bcdba0df065f020001
-dos-bizarre-insolite.webp: size=(1060, 1484) mode=RGBA dhash=c70cd964d134c77cd334ee88d694d6b4d964db24d354d118eb38a968c73c0000
