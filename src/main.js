@@ -3,8 +3,6 @@ import "./styles.css";
 import "./card-presentation.css";
 import "./background/background-integration.css";
 import "./brassopedie/brassopedie-panel.css";
-import "./brassopedie/brassopedie-library.css";
-import "./badges/badges.css";
 import "./carousel/carousel-layout.css";
 import "./app/app-shell.css";
 import "./app/app-notice.css";
