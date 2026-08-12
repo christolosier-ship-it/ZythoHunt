@@ -1,29 +1,50 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { createBadgeStore } from "./badge-storage.js";
+import { BADGE_STORAGE_KEY, createBadgeStore } from "./badge-storage.js";
 
-function memoryStorage() {
-  const data = new Map();
+function memoryStorage(initial = {}) {
+  const data = new Map(Object.entries(initial));
   return {
+    data,
     getItem: (key) => data.get(key) ?? null,
-    setItem: (key, value) => data.set(key, value)
+    setItem: (key, value) => data.set(key, value),
+    removeItem: (key) => data.delete(key)
   };
 }
 
-test("badge store unlock et queue", () => {
+test("un nouveau badge reste Nouveau jusqu'à sa première consultation", () => {
   const store = createBadgeStore({ storage: memoryStorage() });
-  const first = store.unlock({ id: "x", name: "Test" }, "now");
+  const first = store.unlock({ id: "x", name: "Test" }, "2026-08-12T06:00:00Z");
+
   assert.equal(first.status, "unlocked");
-  assert.equal(first.ok, true);
-  assert.equal(first.item.badgeId, "x");
+  assert.equal(store.isNew("x"), true);
 
-  const duplicate = store.unlock({ id: "x", name: "Test" }, "later");
-  assert.equal(duplicate.status, "already-unlocked");
-  assert.equal(duplicate.item, null);
+  const seen = store.markSeen("x", "2026-08-12T06:05:00Z");
+  assert.equal(seen.status, "seen");
+  assert.equal(store.isNew("x"), false);
+  assert.equal(store.getUnlocked("x").seenAt, "2026-08-12T06:05:00Z");
+});
 
-  assert.equal(store.enqueue([{ badge: { id: "x" }, unlockedAt: "now" }]).ok, true);
-  assert.deepEqual(store.takeQueue(), [{ badgeId: "x", unlockedAt: "now" }]);
-  assert.deepEqual(store.takeQueue(), []);
+test("les badges V1 migrent comme déjà consultés", () => {
+  const storage = memoryStorage({
+    [BADGE_STORAGE_KEY]: JSON.stringify({
+      schemaVersion: 1,
+      unlocked: {
+        legacy: { unlockedAt: "2026-01-01T00:00:00Z" }
+      }
+    })
+  });
+  const store = createBadgeStore({ storage });
+
+  assert.equal(store.isUnlocked("legacy"), true);
+  assert.equal(store.isNew("legacy"), false);
+  assert.equal(store.getUnlocked("legacy").seenAt, "2026-01-01T00:00:00Z");
+});
+
+test("un badge d'archive peut être créé directement comme consulté", () => {
+  const store = createBadgeStore({ storage: memoryStorage() });
+  store.unlock({ id: "archive", name: "Archive" }, "now", { seen: true });
+  assert.equal(store.isNew("archive"), false);
 });
 
 test("un badge n'est pas déverrouillé si l'écriture échoue", () => {

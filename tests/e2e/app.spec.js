@@ -2,8 +2,6 @@ import { test, expect } from "@playwright/test";
 import axeCore from "axe-core";
 
 async function waitForApp(page) {
-  // Les scripts d'initialisation Playwright sont installés avant le document et
-  // permettent d'exécuter axe sans ajouter unsafe-inline à la CSP de production.
   await page.addInitScript({ content: axeCore.source });
   await page.goto("/");
   await expect(page.locator("#loading-screen")).toBeHidden({ timeout: 20_000 });
@@ -24,7 +22,12 @@ async function assertNoSeriousA11yViolations(page) {
     });
     return result.violations
       .filter((violation) => ["serious", "critical"].includes(violation.impact))
-      .map(({ id, impact, help, nodes }) => ({ id, impact, help, targets: nodes.map((node) => node.target) }));
+      .map(({ id, impact, help, nodes }) => ({
+        id,
+        impact,
+        help,
+        targets: nodes.map((node) => node.target)
+      }));
   });
   expect(violations, JSON.stringify(violations, null, 2)).toEqual([]);
 }
@@ -67,12 +70,41 @@ test("un stockage refusé n'empêche pas de terminer la révélation", async ({ 
       return originalSetItem.call(this, key, value);
     };
   });
+
   await waitForApp(page);
   await revealLager(page);
   await page.locator("#btn-continue").click();
   await expect(page.locator("#reveal-overlay")).toBeHidden();
   await expect(page.locator("#reveal-search-feedback")).toContainText("n'a pas pu être enregistrée");
   await expect(page.locator("#app-notice")).toBeVisible();
+});
+
+test("l'écran Badges est navigable, accessible et expose les nouveaux objectifs", async ({ page }) => {
+  await waitForApp(page);
+  await page.locator('[data-menu-view="badge"]').click();
+
+  await expect(page.locator("#badges-view h1")).toHaveText("Badges");
+  await expect(page.locator(".badges-objectives")).toContainText("Prochains objectifs");
+  await expect(page.locator(".badge-notification-state")).toContainText("Notifications de trophées");
+  await assertNoSeriousA11yViolations(page);
+});
+
+test("un badge débloqué célèbre chaque trophée et Voir le badge ouvre sa fiche", async ({ page }) => {
+  await waitForApp(page);
+  await revealLager(page);
+  await page.locator("#btn-continue").click();
+  await expect(page.locator("#reveal-overlay")).toBeHidden();
+
+  const celebration = page.locator('.badge-celebration[data-badge-id="global-premiere-gorgee-du-destin"]');
+  await expect(celebration).toBeVisible();
+  await expect(celebration).toContainText("Première gorgée du destin");
+  await celebration.getByRole("button", { name: "Voir le badge" }).click();
+
+  await expect(page.locator("#badges-view h1")).toHaveText("Badges");
+  await expect(page.locator(".badge-detail")).toBeVisible();
+  await expect(page.locator(".badge-detail h2")).toHaveText("Première gorgée du destin");
+  await expect(page.locator('[data-badge-id="global-premiere-gorgee-du-destin"] .badge-state')).toHaveText("Débloqué");
+  await assertNoSeriousA11yViolations(page);
 });
 
 test("le shell reste ouvrable hors ligne après amorçage", async ({ page, context }, testInfo) => {

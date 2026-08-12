@@ -6,6 +6,7 @@ import "./brassopedie/brassopedie-panel.css";
 import "./carousel/carousel-layout.css";
 import "./app/app-shell.css";
 import "./app/app-notice.css";
+import "./badges/badge-notifications.css";
 import { createAppNavigation } from "./app/app-navigation.js";
 import { bootApp } from "./app/app-runtime.js";
 import { showAppNotice } from "./app/app-notice.js";

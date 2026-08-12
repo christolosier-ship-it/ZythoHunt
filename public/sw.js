@@ -132,11 +132,19 @@ self.addEventListener("fetch", (event) => {
 self.addEventListener("notificationclick", (event) => {
   event.notification.close();
   event.waitUntil((async () => {
+    const badgeId = event.notification.data?.badgeId || null;
     const allClients = await clients.matchAll({ type: "window", includeUncontrolled: true });
+
     if (allClients.length > 0) {
-      await allClients[0].focus();
+      const client = allClients[0];
+      await client.focus();
+      if (badgeId) client.postMessage({ type: "OPEN_BADGE", badgeId });
       return;
     }
-    await clients.openWindow("./");
+
+    const target = badgeId
+      ? `./?badge=${encodeURIComponent(badgeId)}`
+      : "./";
+    await clients.openWindow(target);
   })());
 });
