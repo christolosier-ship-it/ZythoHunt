@@ -1,8 +1,7 @@
 import gsap from "gsap";
-import packageMeta from "../../package.json";
 import { collectionCatalog } from "../data/collection-catalog.js";
 import { createLazyCollectionManager } from "../data/collection-manager.js";
-import { getStoredActiveCollectionId, setStoredActiveCollectionId } from "./active-collection-storage.js";
+import { readStoredActiveCollectionId, setStoredActiveCollectionId } from "./active-collection-storage.js";
 import { mountCollectionSession } from "./collection-session.js";
 import { createSidebarNavigation } from "./sidebar-navigation.js";
 import { showAppNotice } from "./app-notice.js";
@@ -17,8 +16,6 @@ import { createBadgeFeatureController } from "../badges/badge-feature-controller
 import { mountBackground, applyCollectionBackground, createBackgroundTransition } from "../background/background-runtime.js";
 import { createSettingsStore } from "../settings/settings-storage.js";
 import { createExperiencePolicy } from "../settings/settings-policy.js";
-import { createSettingsController } from "../settings/settings-controller.js";
-import { createAppDataManager } from "../storage/app-data-manager.js";
 
 const $ = (id) => document.getElementById(id);
 
@@ -91,10 +88,13 @@ export async function bootApp(navigation) {
   const loadingScreen = $("loading-screen");
   const settingsStore = createSettingsStore({ onPersistenceError: reportPersistenceError });
   const experiencePolicy = createExperiencePolicy({ settingsStore });
-  const startupCollectionId = settingsStore.getState().startupMode === "resume"
-    ? getStoredActiveCollectionId()
-    : undefined;
-  const collectionManager = createLazyCollectionManager(collectionCatalog, { initialCollectionId: startupCollectionId });
+  const activeCollectionRead = settingsStore.getState().startupMode === "resume"
+    ? readStoredActiveCollectionId()
+    : { ok: true, persisted: true, error: null, collectionId: undefined };
+  if (!activeCollectionRead.ok) reportPersistenceError({ error: activeCollectionRead.error });
+  const collectionManager = createLazyCollectionManager(collectionCatalog, {
+    initialCollectionId: activeCollectionRead.collectionId
+  });
 
   const discoveryRegistry = createDiscoveryRegistry(collectionCatalog, {
     getBundle: (collectionId) => collectionManager.getBundle(collectionId),
@@ -143,16 +143,29 @@ export async function bootApp(navigation) {
     onPersistenceError: reportPersistenceError
   });
 
-  const dataManager = createAppDataManager({
-    collectionCatalog,
-    appVersion: packageMeta.version
-  });
-  const settingsFeature = createSettingsController({
-    root: $("reglages-view"),
-    settingsStore,
-    dataManager,
-    onNotice: ({ message, tone, duration }) => showAppNotice({ message, tone, duration })
-  });
+  let settingsFeature = null;
+  let settingsFeaturePromise = null;
+  async function ensureSettingsFeature() {
+    if (settingsFeature) return settingsFeature;
+    if (!$("reglages-view")) return null;
+    if (!settingsFeaturePromise) {
+      settingsFeaturePromise = import("../settings/settings-controller.js")
+        .then(({ createSettingsController }) => {
+          settingsFeature = createSettingsController({
+            root: $("reglages-view"),
+            settingsStore,
+            collectionCatalog,
+            onNotice: ({ message, tone, duration }) => showAppNotice({ message, tone, duration })
+          });
+          return settingsFeature;
+        })
+        .catch((error) => {
+          settingsFeaturePromise = null;
+          throw error;
+        });
+    }
+    return settingsFeaturePromise;
+  }
 
   const brassopedieRoot = $("brassopedie-view");
   let brassopedieLibrary = null;
@@ -194,8 +207,11 @@ export async function bootApp(navigation) {
     }
     void badgeFeature.handleViewChange(viewId)
       .catch((error) => console.error("Chargement des badges impossible", error));
-    void settingsFeature.handleViewChange(viewId)
-      .catch((error) => console.error("Chargement des réglages impossible", error));
+    if (viewId === "reglages") {
+      void ensureSettingsFeature()
+        .then((feature) => feature?.handleViewChange?.(viewId))
+        .catch((error) => console.error("Chargement des réglages impossible", error));
+    }
   });
 
   let activeSession = null;

@@ -1,5 +1,5 @@
 import packageMeta from "../../package.json";
-import { validateBackup } from "../storage/app-data-manager.js";
+import { createAppDataManager, validateBackup } from "../storage/app-data-manager.js";
 import { clearZythoHuntCaches, getPwaDisplayMode, getStorageEstimate, checkForPwaUpdate } from "../pwa/pwa-tools.js";
 
 function notificationState(settings) {
@@ -22,6 +22,7 @@ function notificationState(settings) {
  * @param {{
  *   root?: HTMLElement | null,
  *   settingsStore?: any,
+ *   collectionCatalog?: any[],
  *   dataManager?: any,
  *   onRestart?: (() => void) | null,
  *   onNotice?: ((detail: { message: string, tone?: "info" | "warning" | "error" | "success", duration?: number | null }) => void) | null
@@ -30,10 +31,15 @@ function notificationState(settings) {
 export function createSettingsController({
   root,
   settingsStore,
-  dataManager,
+  collectionCatalog = [],
+  dataManager = null,
   onRestart = () => globalThis.location?.reload?.(),
   onNotice = null
 } = {}) {
+  const appDataManager = dataManager || createAppDataManager({
+    collectionCatalog,
+    appVersion: packageMeta.version
+  });
   let view = null;
   let viewPromise = null;
 
@@ -104,7 +110,7 @@ export function createSettingsController({
   }
 
   function exportData() {
-    const result = dataManager?.exportBackup?.();
+    const result = appDataManager.exportBackup();
     if (!result?.ok) notice("La sauvegarde n'a pas pu être préparée.", "warning", 8000);
     return result;
   }
@@ -114,7 +120,7 @@ export function createSettingsController({
   }
 
   function importData(backup) {
-    const result = dataManager?.importBackup?.(backup);
+    const result = appDataManager.importBackup(backup);
     if (!result?.ok) {
       notice("La sauvegarde n'a pas pu être importée. Les données actuelles ont été conservées.", "error", 9000);
       return result;
@@ -125,7 +131,7 @@ export function createSettingsController({
   }
 
   function resetProgress() {
-    const result = dataManager?.resetProgress?.();
+    const result = appDataManager.resetProgress();
     if (!result?.ok) {
       notice("La progression n'a pas pu être entièrement réinitialisée.", "error", 9000);
       return result;
@@ -147,7 +153,7 @@ export function createSettingsController({
   }
 
   async function resetAll() {
-    const dataResult = dataManager?.resetAll?.();
+    const dataResult = appDataManager.resetAll();
     if (!dataResult?.ok) {
       notice("La remise à zéro complète a échoué avant suppression des caches.", "error", 9000);
       return { ok: false, data: dataResult, caches: null };

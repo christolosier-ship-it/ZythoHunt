@@ -236,8 +236,9 @@ export function createSettingsView({ root, controller } = {}) {
     const toggle = el("input", "");
     toggle.type = "checkbox";
     toggle.checked = settings.notificationsEnabled !== false;
+    toggle.setAttribute("aria-label", "Activer les notifications de trophées");
     toggle.addEventListener("change", () => controller.setPreference("notificationsEnabled", toggle.checked));
-    toggleLabel.append(toggle, el("span", "settings-toggle-track"), el("span", "sr-only", "Activer les notifications de trophées"));
+    toggleLabel.append(toggle, el("span", "settings-toggle-track"));
     notificationRow.control.appendChild(toggleLabel);
     if (notifications.canRequest) appendButton(notificationRow.control, "Autoriser dans le navigateur", () => void controller.requestNotificationPermission(), "settings-button settings-button--small");
     notificationSection.appendChild(notificationRow.row);
@@ -249,6 +250,7 @@ export function createSettingsView({ root, controller } = {}) {
     importInput = el("input", "settings-file-input");
     importInput.type = "file";
     importInput.accept = "application/json,.json";
+    importInput.setAttribute("aria-label", "Fichier de sauvegarde ZythoHunt");
     importInput.addEventListener("change", () => void handleImportFile(importInput.files?.[0]));
     importRow.control.appendChild(importInput);
     appendButton(importRow.control, "Choisir un fichier", () => importInput.click());

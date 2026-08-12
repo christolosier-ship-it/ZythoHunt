@@ -161,6 +161,8 @@ test("désactiver les notifications dans Réglages est reflété dans Badges", a
 test("exporte puis importe une sauvegarde versionnée après résumé", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop-chromium", "Le scénario de fichier est exécuté une seule fois.");
   await page.addInitScript(() => {
+    if (sessionStorage.getItem("zythohunt-import-seeded")) return;
+    sessionStorage.setItem("zythohunt-import-seeded", "1");
     localStorage.setItem("foreign.key", "safe");
     localStorage.setItem("zythohunt.discovery.lagers-et-fermentations-basses.v1", JSON.stringify({ schemaVersion: 2, discovered: { lager: { discoveredAt: "2026-08-12T10:00:00.000Z" } } }));
     localStorage.setItem("zythohunt.badges.v1", JSON.stringify({ schemaVersion: 2, unlocked: { "global-premiere-gorgee-du-destin": { unlockedAt: "2026-08-12T10:00:00.000Z", seenAt: null } } }));
@@ -202,7 +204,10 @@ test("exporte puis importe une sauvegarde versionnée après résumé", async ({
   await expect(dialog).toContainText("1 découverte");
   await expect(dialog).toContainText("1 badge");
   await expect(dialog).toContainText("Réglages inclus");
-  await dialog.getByRole("button", { name: "Importer et redémarrer" }).click();
+  await Promise.all([
+    page.waitForNavigation({ waitUntil: "domcontentloaded" }),
+    dialog.getByRole("button", { name: "Importer et redémarrer" }).click()
+  ]);
   await waitForReady(page);
 
   const afterImport = await page.evaluate(() => ({
@@ -217,6 +222,8 @@ test("exporte puis importe une sauvegarde versionnée après résumé", async ({
 test("Réinitialiser la progression conserve les réglages et reverrouille C10", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop-chromium", "Le scénario destructif est exécuté une seule fois.");
   await page.addInitScript(() => {
+    if (sessionStorage.getItem("zythohunt-reset-progress-seeded")) return;
+    sessionStorage.setItem("zythohunt-reset-progress-seeded", "1");
     localStorage.setItem("zythohunt.settings.v1", JSON.stringify({ schemaVersion: 1, notificationsEnabled: false, motionMode: "reduced", ambienceMode: "light", startupMode: "resume" }));
     localStorage.setItem("zythohunt.discovery.lagers-et-fermentations-basses.v1", JSON.stringify({ schemaVersion: 2, discovered: { lager: { discoveredAt: "x" } } }));
     localStorage.setItem("zythohunt.discovery.bizarre-et-insolite.v1", JSON.stringify({ schemaVersion: 2, discovered: { "C10-001": { discoveredAt: "x" } } }));
@@ -230,7 +237,10 @@ test("Réinitialiser la progression conserve les réglages et reverrouille C10",
   await openSettings(page);
   await page.getByRole("button", { name: "Réinitialiser la progression", exact: true }).first().click();
   const dialog = page.locator("dialog.settings-dialog");
-  await dialog.getByRole("button", { name: "Réinitialiser la progression", exact: true }).click();
+  await Promise.all([
+    page.waitForNavigation({ waitUntil: "domcontentloaded" }),
+    dialog.getByRole("button", { name: "Réinitialiser la progression", exact: true }).click()
+  ]);
   await waitForReady(page);
 
   const state = await page.evaluate(() => ({
@@ -273,7 +283,10 @@ test("la remise à zéro complète efface uniquement ZythoHunt, données futures
   await page.getByRole("button", { name: "Tout remettre à zéro" }).click();
   const dialog = page.locator("dialog.settings-dialog");
   await dialog.getByLabel("Tape ZYTHOHUNT pour confirmer").fill("ZYTHOHUNT");
-  await dialog.getByRole("button", { name: "Tout effacer" }).click();
+  await Promise.all([
+    page.waitForNavigation({ waitUntil: "domcontentloaded" }),
+    dialog.getByRole("button", { name: "Tout effacer" }).click()
+  ]);
   await waitForReady(page);
 
   const state = await page.evaluate(async () => ({
