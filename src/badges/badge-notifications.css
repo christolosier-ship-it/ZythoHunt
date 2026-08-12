@@ -1,0 +1,96 @@
+.badge-celebration-root,
+.badge-toast-root {
+  position: fixed;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  z-index: 10020;
+  display: grid;
+  gap: .6rem;
+  width: min(360px, calc(100vw - 2rem));
+  pointer-events: none;
+}
+
+.badge-celebration {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 12px;
+  border: 1px solid rgba(225, 167, 82, .55);
+  border-radius: 16px;
+  background:
+    radial-gradient(circle at 18% 30%, rgba(223, 145, 58, .18), transparent 38%),
+    rgba(31, 16, 8, .97);
+  color: #ffe6b0;
+  box-shadow: 0 16px 38px rgba(0, 0, 0, .58);
+  pointer-events: auto;
+}
+
+.badge-celebration-icon {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 12px rgba(0, 0, 0, .38));
+}
+
+.badge-celebration-copy {
+  min-width: 0;
+  display: grid;
+  gap: 5px;
+}
+
+.badge-celebration-kicker {
+  color: #dba85e;
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.badge-celebration-copy strong {
+  color: #ffe2a7;
+  font-family: var(--font-serif);
+  font-size: .94rem;
+  line-height: 1.08;
+}
+
+.badge-celebration button {
+  justify-self: start;
+  margin-top: 2px;
+  padding: 7px 10px;
+  border: 1px solid rgba(225, 174, 89, .28);
+  border-radius: 999px;
+  background: rgba(45, 24, 10, .5);
+  color: #f5c77e;
+  font: 700 .72rem/1 var(--font-body);
+  cursor: pointer;
+}
+
+.badge-celebration button:hover,
+.badge-celebration button:focus-visible {
+  color: #ffe0ad;
+  border-color: rgba(239, 180, 96, .48);
+  background: rgba(45, 24, 10, .56);
+  outline: none;
+}
+
+.badge-toast {
+  max-width: 320px;
+  padding: .85rem 1rem;
+  border: 1px solid rgba(214, 149, 59, .72);
+  border-radius: 14px;
+  background: rgba(37, 18, 8, .96);
+  color: #ffe6b0;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .55);
+  pointer-events: auto;
+}
+
+@media (max-width: 620px) {
+  .badge-celebration-root,
+  .badge-toast-root {
+    left: 12px;
+    right: 12px;
+    bottom: max(12px, env(safe-area-inset-bottom));
+    width: auto;
+  }
+}
