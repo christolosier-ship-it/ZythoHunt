@@ -16,7 +16,8 @@ export async function registerServiceWorker({ onUpdateReady = null } = {}) {
   });
 
   const registration = await navigator.serviceWorker.register(`${import.meta.env.BASE_URL}sw.js`, {
-    scope: import.meta.env.BASE_URL
+    scope: import.meta.env.BASE_URL,
+    updateViaCache: "none"
   });
 
   const announceUpdate = (worker) => {
