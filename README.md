@@ -35,13 +35,15 @@ L’expérience repose sur une direction artistique sombre et brassicole, des ca
 - Détection des styles appartenant à une autre collection et bascule automatique.
 - Déverrouillage de la collection secrète **Bizarre et insolite** à partir de 50 % de progression sur les collections classiques.
 - Système de badges fondé sur les découvertes et les habitudes de révélation.
+- Réglages locaux pour les notifications, les animations, l’ambiance et le comportement au démarrage.
+- Export, import et remise à zéro sélective ou complète des données ZythoHunt.
 - Fond de bière animé adapté à l’identité de chaque collection.
-- Persistance locale de la progression, des badges et de la collection active.
+- Persistance locale de la progression, des badges, des préférences et de la collection active.
 - Installation en PWA et mise en cache progressive des ressources consultées.
 - Interface responsive pensée pour mobile, tablette et ordinateur.
 
 > [!IMPORTANT]
-> Les sections **Dégustation** et **Réglages** sont actuellement des écrans préparatoires. La Brassopédie, les collections, les révélations et les badges constituent les fonctionnalités actives.
+> La section **Dégustation** reste actuellement un écran préparatoire. La ZythoSphère, la Brassopédie, les collections, les révélations, les badges et les réglages constituent les fonctionnalités actives.
 
 ## Collections
 
@@ -91,7 +93,8 @@ pnpm preview
 2. Saisissez le nom d’un style de bière dans le champ de révélation.
 3. Validez pour lancer la séquence animée.
 4. Retrouvez la carte découverte dans le carrousel et la Brassopédie.
-5. Consultez l’onglet **Badge** pour suivre les exploits débloqués.
+5. Consultez l’onglet **Badges** pour suivre les exploits débloqués.
+6. Utilisez **Réglages** pour adapter l’expérience ou gérer les données locales.
 
 Les variantes orthographiques et noms alternatifs peuvent être reconnus grâce aux alias définis dans les données de chaque carte. La recherche inter-collections s’appuie sur un index léger généré automatiquement afin d’éviter de charger inutilement les contenus encyclopédiques des autres collections.
 
@@ -103,23 +106,25 @@ Le service worker utilise :
 
 - une stratégie **network first** pour les pages, scripts et feuilles de style ;
 - une stratégie **stale while revalidate** avec cache borné pour les images ;
-- une stratégie **stale while revalidate** pour les polices, le manifest et l’index léger de recherche inter-collections.
+- une stratégie **stale while revalidate** pour les polices, le manifest et l’index léger de recherche inter-collections ;
+- un identifiant de cache dérivé du build afin d’éliminer les anciens caches ZythoHunt lors d’une mise à jour.
 
 > [!WARNING]
 > Le shell PWA et l’index de recherche sont précachés, mais les bundles de collections et les images se chargent progressivement. Une ressource de collection qui n’a jamais été chargée peut donc rester indisponible hors connexion.
 
 ## Données et confidentialité
 
-La progression utilisateur est conservée localement dans le navigateur. ZythoHunt ne nécessite ni compte, ni backend, ni clé API pour fonctionner.
+Les données utilisateur sont conservées localement dans le navigateur. ZythoHunt ne nécessite ni compte, ni backend, ni clé API pour fonctionner.
 
 Les données locales couvrent notamment :
 
 - les cartes révélées ;
 - la collection active ;
 - les statistiques de révélation ;
-- les badges débloqués et notifications associées.
+- les badges débloqués et notifications associées ;
+- les préférences applicatives.
 
-Effacer les données du site depuis le navigateur réinitialise la progression.
+L’écran **Réglages** permet d’exporter ou importer une sauvegarde JSON versionnée, de réinitialiser uniquement la progression, de restaurer les préférences par défaut ou de remettre complètement ZythoHunt à zéro. Ces opérations ne suppriment jamais les clés locales appartenant à une autre application.
 
 ## Architecture
 
@@ -127,23 +132,24 @@ Effacer les données du site depuis le navigateur réinitialise la progression.
 ZythoHunt/
 ├── public/
 │   ├── assets/                    # Illustrations et ressources statiques
-│   ├── logo.png                   # Logo et icône principale
+│   ├── icons/                     # Icônes dédiées favicon, PWA et maskable
 │   ├── manifest.webmanifest       # Métadonnées PWA
 │   └── sw.js                      # Cache et mises à jour hors ligne
 ├── scripts/                       # Génération des miniatures, index et préparation PWA
 ├── src/
 │   ├── animation/                 # Timelines et effets de révélation
-│   ├── app/                       # Navigation, session et état applicatif
+│   ├── app/                       # Navigation, session et composition applicative
 │   ├── background/                # Fond de bière animé et presets
-│   ├── badges/                    # Définitions, stockage et moteur de badges
+│   ├── badges/                    # Définitions, stockage, moteur et contrôleur de badges
 │   ├── brassopedie/               # Bibliothèque et consultation des cartes
 │   ├── carousel/                  # Navigation et interactions du carrousel
 │   ├── components/                # Construction des éléments d’interface
 │   ├── data/                      # Catalogue lazy, bundles, Brassopédie et assets de cartes
 │   ├── discovery/                 # Résolution des styles et progression
-│   ├── pwa/                       # Enregistrement du service worker
+│   ├── pwa/                       # Enregistrement, état et outils PWA
 │   ├── reveal/                    # Orchestration des révélations
-│   ├── storage/                   # Primitives communes de persistance locale
+│   ├── settings/                  # Préférences, politique d’expérience et vue Réglages
+│   ├── storage/                   # Persistance sûre et gestion des données ZythoHunt
 │   ├── utils/                     # Géométrie, préchargement et résolution des assets
 │   └── main.js                    # Point d’entrée et composition globale
 ├── index.html                     # Structure principale de l’application
@@ -151,7 +157,7 @@ ZythoHunt/
 └── vite.config.js                 # Configuration Vite et GitHub Pages
 ```
 
-Le catalogue léger `src/data/collection-catalog.js` est chargé au démarrage. Les bundles complets des collections restent derrière des `import()` dynamiques et ne sont chargés qu’à la demande. Les vues Badges et bibliothèque Brassopédie chargent également leur JavaScript et leur CSS à leur première ouverture.
+Le catalogue léger `src/data/collection-catalog.js` est chargé au démarrage. Les bundles complets des collections restent derrière des `import()` dynamiques et ne sont chargés qu’à la demande. Les vues Badges, Réglages et bibliothèque Brassopédie chargent également leur JavaScript et leur CSS à leur première ouverture.
 
 Le flux principal suit cette chaîne :
 
