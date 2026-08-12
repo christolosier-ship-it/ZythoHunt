@@ -26,6 +26,18 @@ export function createBadgeFeatureController({ root, navigation, discoveryRegist
   let badgesViewPromise = null;
   let pendingExternalMatch = null;
 
+  function syncNotificationIndicator() {
+    const indicator = root?.querySelector?.(".badge-notification-state");
+    if (indicator) indicator.textContent = `Notifications de trophées : ${notificationLabel(settingsStore)}`;
+  }
+
+  function refreshView() {
+    badgesView?.refresh?.();
+    syncNotificationIndicator();
+  }
+
+  const unsubscribeSettings = settingsStore?.subscribe?.(() => refreshView()) || (() => {});
+
   async function ensureView() {
     if (badgesView) return badgesView;
     if (!root) return null;
@@ -35,10 +47,10 @@ export function createBadgeFeatureController({ root, navigation, discoveryRegist
           root,
           badgeStore,
           badgeEngine,
-          definitions: BADGE_DEFINITIONS,
-          getNotificationStatus: () => notificationLabel(settingsStore)
+          definitions: BADGE_DEFINITIONS
         });
         badgesView.mount();
+        syncNotificationIndicator();
         return badgesView;
       }).catch((error) => { badgesViewPromise = null; throw error; });
     }
@@ -49,6 +61,7 @@ export function createBadgeFeatureController({ root, navigation, discoveryRegist
     navigation?.showView?.("badges");
     const view = await ensureView();
     view?.openBadge?.(badgeId);
+    syncNotificationIndicator();
   }
 
   function notificationOptions() {
@@ -82,7 +95,7 @@ export function createBadgeFeatureController({ root, navigation, discoveryRegist
     if (!persisted.ok) return [];
     discoveryRegistry?.refresh?.();
     const items = badgeEngine.evaluate({ event, previousRevealStats });
-    badgesView?.refresh?.();
+    refreshView();
     if (items.length) void notifyBadgesUnlocked(items, notificationOptions());
     return items;
   }
@@ -90,7 +103,7 @@ export function createBadgeFeatureController({ root, navigation, discoveryRegist
   function reconcile({ announce = true } = {}) {
     discoveryRegistry?.refresh?.();
     const items = badgeEngine.evaluate({ archive: true });
-    badgesView?.refresh?.();
+    refreshView();
     if (announce && items.length) showBadgeToast(items, `Archives mises à jour : ${items.length} badge${items.length > 1 ? "s" : ""} retrouvé${items.length > 1 ? "s" : ""}.`);
     return items;
   }
@@ -100,6 +113,7 @@ export function createBadgeFeatureController({ root, navigation, discoveryRegist
     const wasMounted = Boolean(badgesView);
     const view = await ensureView();
     if (wasMounted) view?.refresh?.();
+    syncNotificationIndicator();
   }
 
   function installNotificationNavigation() {
@@ -120,7 +134,11 @@ export function createBadgeFeatureController({ root, navigation, discoveryRegist
     reconcile({ announce: true });
     const pending = badgeStore.takeQueue().map((item) => ({ ...item, badge: BADGE_DEFINITIONS.find((badge) => badge.id === item.badgeId) })).filter((item) => item.badge);
     if (pending.length) void notifyBadgesUnlocked(pending, notificationOptions());
-    return installNotificationNavigation();
+    const uninstallNavigation = installNotificationNavigation();
+    return () => {
+      uninstallNavigation?.();
+      unsubscribeSettings?.();
+    };
   }
 
   return {
@@ -131,7 +149,7 @@ export function createBadgeFeatureController({ root, navigation, discoveryRegist
     noteExternalMatch,
     consumeExternalMatch,
     clearPendingExternalMatch,
-    refreshView: () => badgesView?.refresh?.(),
+    refreshView,
     recordUnknown({ collectionId, input: _input }) { return recordEvent({ type: BADGE_EVENT_TYPES.UNKNOWN, collectionId }); },
     recordAlreadyDiscovered({ collectionId, card }) { const meta = consumeExternalMatch(collectionId, card?.id); return recordEvent({ type: BADGE_EVENT_TYPES.ALREADY_DISCOVERED, collectionId, cardId: card?.id || null, ...meta }); },
     recordNewDiscovery({ collectionId, card }) { const meta = consumeExternalMatch(collectionId, card?.id); return recordEvent({ type: BADGE_EVENT_TYPES.NEW_DISCOVERY, collectionId, cardId: card?.id || null, ...meta }); },

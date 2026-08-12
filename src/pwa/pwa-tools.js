@@ -30,9 +30,10 @@ export async function getStorageEstimate({ storageManager = globalThis.navigator
 }
 
 export function getPwaDisplayMode() {
+  const navigatorWithStandalone = /** @type {Navigator & { standalone?: boolean }} */ (globalThis.navigator);
   const standalone = Boolean(
     globalThis.matchMedia?.("(display-mode: standalone)")?.matches
-    || globalThis.navigator?.standalone === true
+    || navigatorWithStandalone?.standalone === true
   );
   return standalone ? "installée" : "navigateur";
 }

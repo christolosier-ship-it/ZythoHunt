@@ -2,9 +2,16 @@ import { readStoredValue, removeStoredValue, toPersistenceStatus, writeStoredVal
 
 export const ACTIVE_COLLECTION_STORAGE_KEY = "zythohunt.activeCollectionId.v1";
 
-export function getStoredActiveCollectionId({ storage = globalThis.localStorage } = {}) {
+export function readStoredActiveCollectionId({ storage = globalThis.localStorage } = {}) {
   const result = readStoredValue(storage, ACTIVE_COLLECTION_STORAGE_KEY);
-  return result.ok && result.value ? result.value : undefined;
+  return {
+    ...toPersistenceStatus(result),
+    collectionId: result.ok && result.value ? result.value : undefined
+  };
+}
+
+export function getStoredActiveCollectionId(options = {}) {
+  return readStoredActiveCollectionId(options).collectionId;
 }
 
 export function setStoredActiveCollectionId(collectionId, { storage = globalThis.localStorage } = {}) {

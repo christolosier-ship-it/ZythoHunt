@@ -3,28 +3,9 @@ import { createBeerBackground } from "./beer-background.js";
 import { backgroundSettings } from "./background-settings.js";
 import { getCollectionBackgroundSettings } from "./background-presets.js";
 import { getEditorialBackgroundPreset } from "./editorial-background-presets.js";
+import { applyAmbienceProfile, normalizeAmbienceMode } from "./ambience-profile.js";
 
 const BACKGROUND_KEYS = ["beerT", "bubbleDensity", "foamIntensity"];
-const AMBIENCE_MODES = new Set(["full", "light", "static"]);
-
-export function applyAmbienceProfile(settings, mode = "full") {
-  const normalizedMode = AMBIENCE_MODES.has(mode) ? mode : "full";
-  if (normalizedMode === "light") {
-    return {
-      ...settings,
-      bubbleDensity: Math.round(Number(settings.bubbleDensity || 0) * 0.45),
-      foamIntensity: Math.round(Number(settings.foamIntensity || 0) * 0.72)
-    };
-  }
-  if (normalizedMode === "static") {
-    return {
-      ...settings,
-      bubbleDensity: 0,
-      foamIntensity: Math.round(Number(settings.foamIntensity || 0) * 0.62)
-    };
-  }
-  return { ...settings };
-}
 
 function createBackgroundFallback(hostEl, error) {
   console.error("Le fond animé n'a pas pu démarrer. L'application continue avec un fond statique.", error);
@@ -46,7 +27,7 @@ function createBackgroundFallback(hostEl, error) {
 /** @param {HTMLElement | null} hostEl @param {{ ambienceMode?: string, isReducedMotion?: (() => boolean) | null }} [options] */
 export function mountBackground(hostEl, { ambienceMode = "full", isReducedMotion = null } = {}) {
   try {
-    let mode = AMBIENCE_MODES.has(ambienceMode) ? ambienceMode : "full";
+    let mode = normalizeAmbienceMode(ambienceMode);
     let baseSettings = { ...backgroundSettings };
     let manuallyPaused = false;
     const engine = createBeerBackground({
@@ -80,7 +61,7 @@ export function mountBackground(hostEl, { ambienceMode = "full", isReducedMotion
       },
       destroy() { engine.destroy(); },
       setAmbienceMode(nextMode) {
-        mode = AMBIENCE_MODES.has(nextMode) ? nextMode : "full";
+        mode = normalizeAmbienceMode(nextMode);
         engine.update(applyAmbienceProfile(baseSettings, mode));
         syncPause();
       },

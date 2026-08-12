@@ -1,4 +1,10 @@
-const CACHE_VERSION = "zythohunt-v4";
+try {
+  importScripts("./sw-version.js");
+} catch (error) {
+  console.warn("ZythoHunt: identifiant de build indisponible", error);
+}
+
+const CACHE_VERSION = `zythohunt-${self.__ZYTHOHUNT_BUILD_ID || "dev"}`;
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
 const IMAGE_CACHE = `${CACHE_VERSION}-images`;

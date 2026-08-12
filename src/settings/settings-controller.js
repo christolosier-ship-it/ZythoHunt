@@ -24,7 +24,7 @@ function notificationState(settings) {
  *   settingsStore?: any,
  *   dataManager?: any,
  *   onRestart?: (() => void) | null,
- *   onNotice?: ((detail: { message: string, tone?: string, duration?: number | null }) => void) | null
+ *   onNotice?: ((detail: { message: string, tone?: "info" | "warning" | "error" | "success", duration?: number | null }) => void) | null
  * }} [options]
  */
 export function createSettingsController({
@@ -37,7 +37,11 @@ export function createSettingsController({
   let view = null;
   let viewPromise = null;
 
-  const notice = (message, tone = "info", duration = 6000) => onNotice?.({ message, tone, duration });
+  /** @param {string} message @param {"info" | "warning" | "error" | "success"} [tone] @param {number | null} [duration] */
+  function notice(message, tone = "info", duration = 6000) {
+    onNotice?.({ message, tone, duration });
+  }
+
   const getSnapshot = () => ({
     settings: settingsStore?.getState?.() || {},
     notifications: notificationState(settingsStore?.getState?.() || {}),
@@ -78,6 +82,7 @@ export function createSettingsController({
     const result = settingsStore?.setPreference?.(name, value);
     if (!result?.ok) {
       notice("Le réglage n'a pas pu être enregistré sur cet appareil.", "warning", 8000);
+      view?.refresh?.();
       return result;
     }
     view?.refresh?.();
