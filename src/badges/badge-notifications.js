@@ -85,13 +85,16 @@ export function showBadgeToast(items, message) {
   globalThis.setTimeout(() => toast.remove(), 4200);
 }
 
-/** @param {any[]} items @param {{ onViewBadge?: ((badgeId: string) => void) | null }} [options] */
-export async function notifyBadgesUnlocked(items, { onViewBadge } = {}) {
+/**
+ * @param {any[]} items
+ * @param {{ onViewBadge?: ((badgeId: string) => void) | null, systemNotificationsEnabled?: boolean }} [options]
+ */
+export async function notifyBadgesUnlocked(items, { onViewBadge, systemNotificationsEnabled = true } = {}) {
   if (!items?.length) return;
 
   const hidden = globalThis.document?.visibilityState === "hidden";
   celebrateWhenVisible(items, { onViewBadge });
-  if (!hidden) return;
+  if (!hidden || !systemNotificationsEnabled) return;
   if (globalThis.Notification?.permission !== "granted" || !globalThis.navigator?.serviceWorker?.ready) return;
 
   try {

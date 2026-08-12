@@ -1,4 +1,5 @@
 import gsap from "gsap";
+import packageMeta from "../../package.json";
 import { collectionCatalog } from "../data/collection-catalog.js";
 import { createLazyCollectionManager } from "../data/collection-manager.js";
 import { getStoredActiveCollectionId, setStoredActiveCollectionId } from "./active-collection-storage.js";
@@ -7,15 +8,17 @@ import { createSidebarNavigation } from "./sidebar-navigation.js";
 import { showAppNotice } from "./app-notice.js";
 import { preloadAssets } from "../utils/preload-assets.js";
 import { createDiscoveryRegistry } from "../discovery/discovery-registry.js";
-import { createDiscoveryStore } from "../discovery/discovery-store.js";
 import {
   canRevealSecretCollectionByClick,
-  getClassicCollectionEntries,
   getSecretCollectionState,
   resolveCollectionDisplayName
 } from "../data/secret-collection-rules.js";
 import { createBadgeFeatureController } from "../badges/badge-feature-controller.js";
 import { mountBackground, applyCollectionBackground, createBackgroundTransition } from "../background/background-runtime.js";
+import { createSettingsStore } from "../settings/settings-storage.js";
+import { createExperiencePolicy } from "../settings/settings-policy.js";
+import { createSettingsController } from "../settings/settings-controller.js";
+import { createAppDataManager } from "../storage/app-data-manager.js";
 
 const $ = (id) => document.getElementById(id);
 
@@ -56,41 +59,24 @@ function syncSidebarCollectionLabels(collectionManager, secretState = null) {
     const collection = entry?.collection;
     if (!collection || !viewId) return;
     const name = resolveCollectionDisplayName(collection, secretState);
+    const lockedSecret = collection.id === secretState?.collectionId && !secretState?.unlocked;
     button.textContent = name;
-    button.setAttribute("aria-label", `${name} — ${viewId === "zythosphere" ? "ZythoSphère" : "Brassopédie"}`);
+    button.setAttribute(
+      "aria-label",
+      lockedSecret
+        ? `Collection secrète verrouillée — ${viewId === "zythosphere" ? "ZythoSphère" : "Brassopédie"}`
+        : `${name} — ${viewId === "zythosphere" ? "ZythoSphère" : "Brassopédie"}`
+    );
   });
-}
-
-function mountSettingsDebugPanel({ root, onRevealClassicCollections }) {
-  const inner = root?.querySelector?.(".app-view-panel-inner") || root;
-  if (!inner || inner.querySelector?.("[data-settings-reveal-classic]")) return;
-  const section = document.createElement("section");
-  section.className = "settings-debug-panel";
-  section.setAttribute("aria-label", "Outils de contrôle");
-  const title = document.createElement("h2");
-  title.textContent = "Outils de contrôle";
-  const description = document.createElement("p");
-  description.textContent = "Révèle toutes les cartes des 9 collections classiques sur cet appareil pour tester le déblocage de la collection secrète.";
-  const button = document.createElement("button");
-  button.type = "button";
-  button.dataset.settingsRevealClassic = "true";
-  button.textContent = "Révéler les 9 collections classiques";
-  button.addEventListener("click", async () => {
-    const confirmed = window.confirm("Cette action révélera toutes les cartes des 9 collections classiques sur cet appareil. La collection secrète restera à révéler carte par carte. Continuer ?");
-    if (!confirmed) return;
-    button.disabled = true;
-    const previousLabel = button.textContent;
-    button.textContent = "Révélation en cours…";
-    try { await onRevealClassicCollections(); }
-    finally { button.disabled = false; button.textContent = previousLabel; }
-  });
-  section.append(title, description, button);
-  inner.append(section);
 }
 
 function reportPersistenceError(detail) {
   console.warn("Persistance locale indisponible", detail?.error || detail);
-  showAppNotice({ message: "Le navigateur bloque le stockage local. Certaines progressions peuvent ne pas être conservées après fermeture.", tone: "warning", duration: 9000 });
+  showAppNotice({
+    message: "Le navigateur bloque le stockage local. Certaines données peuvent ne pas être conservées après fermeture.",
+    tone: "warning",
+    duration: 9000
+  });
 }
 
 function setCollectionSwitchBusy(value, sidebarNavigation) {
@@ -103,26 +89,48 @@ function setCollectionSwitchBusy(value, sidebarNavigation) {
 
 export async function bootApp(navigation) {
   const loadingScreen = $("loading-screen");
-  const collectionManager = createLazyCollectionManager(collectionCatalog, { initialCollectionId: getStoredActiveCollectionId() });
-  const initialCollection = collectionManager.getActiveCollection();
-  const background = mountBackground($("beer-background-root"));
-  const initialBackgroundSettings = applyCollectionBackground(background, initialCollection);
-  const backgroundTransition = createBackgroundTransition(background, initialBackgroundSettings);
-  const sessionElements = getSessionElements();
-  const initialBundle = await collectionManager.getActiveBundle();
-  syncCollectionChrome(initialBundle);
-  gsap.set(loadingScreen, { opacity: 1 });
+  const settingsStore = createSettingsStore({ onPersistenceError: reportPersistenceError });
+  const experiencePolicy = createExperiencePolicy({ settingsStore });
+  const startupCollectionId = settingsStore.getState().startupMode === "resume"
+    ? getStoredActiveCollectionId()
+    : undefined;
+  const collectionManager = createLazyCollectionManager(collectionCatalog, { initialCollectionId: startupCollectionId });
 
   const discoveryRegistry = createDiscoveryRegistry(collectionCatalog, {
     getBundle: (collectionId) => collectionManager.getBundle(collectionId),
     onPersistenceError: reportPersistenceError
   });
+  const initialSecretState = getSecretCollectionState({ collectionCatalog, registry: discoveryRegistry });
+  if (collectionManager.getActiveCollection().id === initialSecretState.collectionId && !initialSecretState.unlocked) {
+    collectionManager.setActiveCollection(collectionCatalog[0]?.collection?.id);
+  }
 
+  const initialCollection = collectionManager.getActiveCollection();
+  const background = mountBackground($("beer-background-root"), {
+    ambienceMode: experiencePolicy.getAmbienceMode(),
+    isReducedMotion: experiencePolicy.isReducedMotion
+  });
+  const initialBackgroundSettings = applyCollectionBackground(background, initialCollection);
+  const backgroundTransition = createBackgroundTransition(background, initialBackgroundSettings, {
+    isReducedMotion: experiencePolicy.isReducedMotion
+  });
+  experiencePolicy.subscribe(({ ambienceMode }) => {
+    background.setAmbienceMode?.(ambienceMode);
+    background.refreshMotionPreference?.();
+  });
+
+  const sessionElements = getSessionElements();
+  const initialBundle = await collectionManager.getActiveBundle();
+  syncCollectionChrome(initialBundle, initialSecretState);
+  gsap.set(loadingScreen, { opacity: 1 });
+
+  let sidebarNavigation = null;
   const getSecretState = () => getSecretCollectionState({ collectionCatalog, registry: discoveryRegistry });
   const refreshSecretUi = () => {
     const secretState = getSecretState();
     syncSidebarCollectionLabels(collectionManager, secretState);
     syncCollectionChrome(collectionManager.getActiveCollection(), secretState);
+    sidebarNavigation?.refreshAvailability?.();
     return secretState;
   };
 
@@ -131,7 +139,19 @@ export async function bootApp(navigation) {
     navigation,
     discoveryRegistry,
     collectionCatalog,
+    settingsStore,
     onPersistenceError: reportPersistenceError
+  });
+
+  const dataManager = createAppDataManager({
+    collectionCatalog,
+    appVersion: packageMeta.version
+  });
+  const settingsFeature = createSettingsController({
+    root: $("reglages-view"),
+    settingsStore,
+    dataManager,
+    onNotice: ({ message, tone, duration }) => showAppNotice({ message, tone, duration })
   });
 
   const brassopedieRoot = $("brassopedie-view");
@@ -157,7 +177,10 @@ export async function bootApp(navigation) {
           onClose: () => background.resume()
         });
         return brassopedieLibrary;
-      }).catch((error) => { brassopedieLibraryPromise = null; throw error; });
+      }).catch((error) => {
+        brassopedieLibraryPromise = null;
+        throw error;
+      });
     }
     return brassopedieLibraryPromise;
   }
@@ -165,16 +188,18 @@ export async function bootApp(navigation) {
   navigation?.onViewChange((viewId) => {
     if (viewId === "brassopedie") {
       const wasMounted = Boolean(brassopedieLibrary);
-      void ensureBrassopedieLibrary().then((view) => { if (wasMounted) void view?.refresh(); })
+      void ensureBrassopedieLibrary()
+        .then((view) => { if (wasMounted) void view?.refresh(); })
         .catch((error) => console.error("Chargement de la Brassopédie impossible", error));
     }
     void badgeFeature.handleViewChange(viewId)
       .catch((error) => console.error("Chargement des badges impossible", error));
+    void settingsFeature.handleViewChange(viewId)
+      .catch((error) => console.error("Chargement des réglages impossible", error));
   });
 
   let activeSession = null;
   let switchSequence = 0;
-  let sidebarNavigation = null;
 
   const mountSession = (bundle, { skipInitialPreload = false } = {}) => mountCollectionSession({
     bundle,
@@ -183,6 +208,7 @@ export async function bootApp(navigation) {
     collectionCatalog,
     loadCollectionBundle: (collectionId) => collectionManager.loadBundle(collectionId),
     skipInitialPreload,
+    experiencePolicy,
     onPersistenceError: reportPersistenceError,
     onPersistenceFailure: () => reportPersistenceError(new Error("Progression non enregistrée")),
     canRevealCardByClick: (collection) => canRevealSecretCollectionByClick(collection, getSecretState()),
@@ -212,36 +238,14 @@ export async function bootApp(navigation) {
     }
   });
 
-  async function revealClassicCollectionsForDebug() {
-    const entries = getClassicCollectionEntries(collectionCatalog);
-    let total = 0;
-    let persistenceFailed = false;
-    for (const entry of entries) {
-      const bundle = await collectionManager.loadBundle(entry.collection.id);
-      const ids = bundle.revealableCards.map((card) => card.id);
-      total += ids.length;
-      const store = createDiscoveryStore({ key: bundle.collection.discoveryKey, onPersistenceError: reportPersistenceError });
-      const result = store.markAllDiscovered(ids);
-      if (!result.ok) persistenceFailed = true;
-      if (activeSession?.collection?.id === bundle.collection.id) {
-        ids.forEach((id) => activeSession?.carousel?.setDiscovered?.(id, true));
-        activeSession?.discovery?.updateProgress?.();
-      }
-    }
-    discoveryRegistry.refresh();
-    refreshSecretUi();
-    void brassopedieLibrary?.refresh();
-    badgeFeature.reconcile({ announce: true });
-    showAppNotice({
-      message: persistenceFailed ? `${total} cartes classiques révélées pour cette session, mais la sauvegarde locale a signalé une erreur.` : `${total} cartes classiques révélées. La collection secrète peut maintenant être testée.`,
-      tone: persistenceFailed ? "warning" : "success",
-      duration: 9000
-    });
-  }
-
   async function switchCollection(collectionId, { revealMatch = null } = {}) {
     const targetEntry = collectionManager.getEntry(collectionId);
     if (!targetEntry) return { status: "missing", collectionId };
+    const secretState = getSecretState();
+    if (collectionId === secretState.collectionId && !secretState.unlocked) {
+      return { status: "locked", collectionId };
+    }
+
     const previousBundle = await collectionManager.getActiveBundle();
     if (previousBundle.collection.id === collectionId) {
       sidebarNavigation?.setActiveCollection?.("zythosphere", collectionId);
@@ -253,36 +257,60 @@ export async function bootApp(navigation) {
       return { status: "already-active", collectionId };
     }
     if (activeSession?.revealEngine?.isBusy?.()) return { status: "busy", collectionId };
+
     const sequence = ++switchSequence;
     const carouselContainer = sessionElements.carouselContainer;
     const targetCollection = targetEntry.collection;
+    const reducedMotion = experiencePolicy.isReducedMotion();
     setCollectionSwitchBusy(true, sidebarNavigation);
-    syncCollectionChrome(targetCollection, getSecretState());
+    syncCollectionChrome(targetCollection, secretState);
     const backgroundPromise = backgroundTransition.transitionTo(targetCollection);
     let previousDestroyed = false;
+
     try {
       const targetBundle = await collectionManager.loadBundle(collectionId);
       if (sequence !== switchSequence) return { status: "superseded", collectionId };
       await preloadAssets(null, { collection: targetBundle.collection, cards: targetBundle.cards });
       if (sequence !== switchSequence) return { status: "superseded", collectionId };
-      if (carouselContainer) await gsap.to(carouselContainer, { opacity: 0, duration: 0.18, ease: "power1.out", overwrite: true });
+      if (carouselContainer) {
+        await gsap.to(carouselContainer, {
+          opacity: 0,
+          duration: reducedMotion ? 0.05 : 0.18,
+          ease: "power1.out",
+          overwrite: true
+        });
+      }
       if (sequence !== switchSequence) return { status: "superseded", collectionId };
+
       activeSession?.destroy?.();
       activeSession = null;
       previousDestroyed = true;
       carouselContainer?.replaceChildren();
       const nextSession = await mountSession(targetBundle, { skipInitialPreload: true });
-      if (sequence !== switchSequence) { nextSession.destroy?.(); return { status: "superseded", collectionId }; }
+      if (sequence !== switchSequence) {
+        nextSession.destroy?.();
+        return { status: "superseded", collectionId };
+      }
+
       activeSession = nextSession;
       collectionManager.setActiveCollection(collectionId);
-      setStoredActiveCollectionId(collectionId);
+      const persistence = setStoredActiveCollectionId(collectionId);
+      if (!persistence.ok) reportPersistenceError({ error: persistence.error });
       syncCollectionChrome(targetBundle, getSecretState());
       sidebarNavigation?.setActiveCollection?.("zythosphere", collectionId);
       refreshSecretUi();
-      if (carouselContainer) await gsap.fromTo(carouselContainer, { opacity: 0 }, { opacity: 1, duration: 0.28, ease: "power2.out", overwrite: true });
+      if (carouselContainer) {
+        await gsap.fromTo(
+          carouselContainer,
+          { opacity: 0 },
+          { opacity: 1, duration: reducedMotion ? 0.08 : 0.28, ease: "power2.out", overwrite: true }
+        );
+      }
       if (revealMatch?.cardId) {
         await backgroundPromise;
-        if (sequence === switchSequence && activeSession) await activeSession.discovery.revealCard(revealMatch.cardId, { focusInput: false });
+        if (sequence === switchSequence && activeSession) {
+          await activeSession.discovery.revealCard(revealMatch.cardId, { focusInput: false });
+        }
       }
       return { status: "active", collectionId };
     } catch (error) {
@@ -299,16 +327,30 @@ export async function bootApp(navigation) {
           if (carouselContainer) gsap.set(carouselContainer, { opacity: 1 });
         } catch (restoreError) {
           console.error("La session précédente n'a pas pu être restaurée.", restoreError);
-          showAppNotice({ message: "L'affichage précédent n'a pas pu être restauré. Recharge la page pour repartir proprement.", tone: "error", actionLabel: "Recharger", onAction: () => window.location.reload(), duration: null });
+          showAppNotice({
+            message: "L'affichage précédent n'a pas pu être restauré. Recharge la page pour repartir proprement.",
+            tone: "error",
+            actionLabel: "Recharger",
+            onAction: () => window.location.reload(),
+            duration: null
+          });
         }
       }
       const feedback = sessionElements.revealSearchFeedback;
-      if (feedback) { feedback.textContent = "La collection n'a pas pu être chargée. Réessaie."; feedback.classList.add("is-error"); }
+      if (feedback) {
+        feedback.textContent = "La collection n'a pas pu être chargée. Réessaie.";
+        feedback.classList.add("is-error");
+      }
       return { status: "failed", collectionId, error };
     } finally {
       if (sequence === switchSequence) setCollectionSwitchBusy(false, sidebarNavigation);
     }
   }
+
+  const isCollectionSelectable = (collection) => {
+    const secretState = getSecretState();
+    return collection.id !== secretState.collectionId || secretState.unlocked;
+  };
 
   sidebarNavigation = createSidebarNavigation({
     root: /** @type {HTMLElement | null} */ ($("app-sidebar")),
@@ -316,21 +358,28 @@ export async function bootApp(navigation) {
     collections: collectionManager.listCollections(),
     initialZythosphereCollectionId: initialBundle.collection.id,
     initialBrassopedieCollectionId: brassopedieCollectionId,
+    isCollectionSelectable,
     onSelectZythosphereCollection: (collectionId) => switchCollection(collectionId),
     onSelectBrassopedieCollection: async (collectionId) => {
+      if (!isCollectionSelectable(collectionManager.getEntry(collectionId)?.collection)) {
+        return { status: "locked", collectionId };
+      }
       const library = await ensureBrassopedieLibrary();
       brassopedieCollectionId = await library?.selectCollection?.(collectionId) || collectionId;
       refreshSecretUi();
       return { status: "active", collectionId: brassopedieCollectionId };
     }
   });
+
   refreshSecretUi();
-  mountSettingsDebugPanel({ root: $("reglages-view"), onRevealClassicCollections: revealClassicCollectionsForDebug });
   activeSession = await mountSession(initialBundle);
   refreshSecretUi();
   badgeFeature.start();
-  await gsap.to(loadingScreen, { opacity: 0, duration: 0.5, ease: "power2.out" }).then();
+
+  if (experiencePolicy.isReducedMotion()) gsap.set(loadingScreen, { opacity: 0 });
+  else await gsap.to(loadingScreen, { opacity: 0, duration: 0.5, ease: "power2.out" }).then();
   if (loadingScreen) loadingScreen.style.display = "none";
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) gsap.set("#app", { opacity: 1 });
+
+  if (experiencePolicy.isReducedMotion()) gsap.set("#app", { opacity: 1 });
   else gsap.fromTo("#app", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.out" });
 }

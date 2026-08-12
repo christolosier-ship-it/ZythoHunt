@@ -5,6 +5,26 @@ import { getCollectionBackgroundSettings } from "./background-presets.js";
 import { getEditorialBackgroundPreset } from "./editorial-background-presets.js";
 
 const BACKGROUND_KEYS = ["beerT", "bubbleDensity", "foamIntensity"];
+const AMBIENCE_MODES = new Set(["full", "light", "static"]);
+
+export function applyAmbienceProfile(settings, mode = "full") {
+  const normalizedMode = AMBIENCE_MODES.has(mode) ? mode : "full";
+  if (normalizedMode === "light") {
+    return {
+      ...settings,
+      bubbleDensity: Math.round(Number(settings.bubbleDensity || 0) * 0.45),
+      foamIntensity: Math.round(Number(settings.foamIntensity || 0) * 0.72)
+    };
+  }
+  if (normalizedMode === "static") {
+    return {
+      ...settings,
+      bubbleDensity: 0,
+      foamIntensity: Math.round(Number(settings.foamIntensity || 0) * 0.62)
+    };
+  }
+  return { ...settings };
+}
 
 function createBackgroundFallback(hostEl, error) {
   console.error("Le fond animé n'a pas pu démarrer. L'application continue avec un fond statique.", error);
@@ -16,15 +36,61 @@ function createBackgroundFallback(hostEl, error) {
     pause() {},
     resume() {},
     destroy() {},
+    setAmbienceMode() {},
+    refreshMotionPreference() {},
+    getAmbienceMode() { return "static"; },
     getPaletteName() { return "statique"; }
   };
 }
 
-export function mountBackground(hostEl) {
+/** @param {HTMLElement | null} hostEl @param {{ ambienceMode?: string, isReducedMotion?: (() => boolean) | null }} [options] */
+export function mountBackground(hostEl, { ambienceMode = "full", isReducedMotion = null } = {}) {
   try {
-    const engine = createBeerBackground({ hostEl, settings: { ...backgroundSettings } });
+    let mode = AMBIENCE_MODES.has(ambienceMode) ? ambienceMode : "full";
+    let baseSettings = { ...backgroundSettings };
+    let manuallyPaused = false;
+    const engine = createBeerBackground({
+      hostEl,
+      settings: applyAmbienceProfile(baseSettings, mode),
+      isReducedMotion
+    });
     engine.mount();
-    return { ...engine, isAvailable: true };
+
+    const syncPause = () => {
+      if (manuallyPaused || mode === "static") engine.pause();
+      else engine.resume();
+    };
+
+    syncPause();
+
+    return {
+      isAvailable: true,
+      update(next = {}) {
+        baseSettings = { ...baseSettings, ...next };
+        engine.update(applyAmbienceProfile(baseSettings, mode));
+        syncPause();
+      },
+      pause() {
+        manuallyPaused = true;
+        engine.pause();
+      },
+      resume() {
+        manuallyPaused = false;
+        syncPause();
+      },
+      destroy() { engine.destroy(); },
+      setAmbienceMode(nextMode) {
+        mode = AMBIENCE_MODES.has(nextMode) ? nextMode : "full";
+        engine.update(applyAmbienceProfile(baseSettings, mode));
+        syncPause();
+      },
+      refreshMotionPreference() {
+        engine.refreshMotionPreference?.();
+        syncPause();
+      },
+      getAmbienceMode: () => mode,
+      getPaletteName: () => engine.getPaletteName()
+    };
   } catch (error) {
     return createBackgroundFallback(hostEl, error);
   }
@@ -36,7 +102,8 @@ export function applyCollectionBackground(background, collection) {
   return nextSettings;
 }
 
-export function createBackgroundTransition(background, initialSettings) {
+/** @param {any} background @param {Record<string, any>} initialSettings @param {{ isReducedMotion?: (() => boolean) | null }} [options] */
+export function createBackgroundTransition(background, initialSettings, { isReducedMotion = null } = {}) {
   let tween = null;
   let currentSettings = Object.fromEntries(
     BACKGROUND_KEYS.map((key) => [key, Number(initialSettings[key] ?? backgroundSettings[key] ?? 0)])
@@ -49,7 +116,7 @@ export function createBackgroundTransition(background, initialSettings) {
     );
     tween?.kill();
 
-    if (!background.isAvailable || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    if (!background.isAvailable || background.getAmbienceMode?.() === "static" || isReducedMotion?.()) {
       currentSettings = target;
       background.update(nextSettings);
       return Promise.resolve(nextSettings);

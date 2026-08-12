@@ -6,10 +6,18 @@ import { BADGE_EVENT_TYPES, createBadgeEvent, isBadgeEventEligible } from "./bad
 import { notifyBadgesUnlocked, showBadgeToast } from "./badge-notifications.js";
 import { getClassicCollectionEntries } from "../data/secret-collection-rules.js";
 
+function notificationLabel(settingsStore) {
+  if (settingsStore?.getState?.().notificationsEnabled === false) return "désactivées";
+  if (!globalThis.Notification) return "non disponibles";
+  if (Notification.permission === "granted") return "activées";
+  if (Notification.permission === "denied") return "refusées";
+  return "à autoriser";
+}
+
 /**
- * @param {{ root?: HTMLElement | null, navigation?: any, discoveryRegistry?: any, collectionCatalog?: any[], onPersistenceError?: ((detail: any) => void) | null }} [options]
+ * @param {{ root?: HTMLElement | null, navigation?: any, discoveryRegistry?: any, collectionCatalog?: any[], settingsStore?: any, onPersistenceError?: ((detail: any) => void) | null }} [options]
  */
-export function createBadgeFeatureController({ root, navigation, discoveryRegistry, collectionCatalog = [], onPersistenceError = null } = {}) {
+export function createBadgeFeatureController({ root, navigation, discoveryRegistry, collectionCatalog = [], settingsStore = null, onPersistenceError = null } = {}) {
   const badgeStore = createBadgeStore({ onPersistenceError });
   const revealStatsStore = createRevealStatsStore({ onPersistenceError });
   const badgeEngine = createBadgeEngine({ badgeStore, discoveryRegistry, revealStatsStore, collectionCatalog });
@@ -23,7 +31,13 @@ export function createBadgeFeatureController({ root, navigation, discoveryRegist
     if (!root) return null;
     if (!badgesViewPromise) {
       badgesViewPromise = Promise.all([import("./badges-view.js"), import("./badges.css")]).then(([{ createBadgesView }]) => {
-        badgesView = createBadgesView({ root, badgeStore, badgeEngine, definitions: BADGE_DEFINITIONS });
+        badgesView = createBadgesView({
+          root,
+          badgeStore,
+          badgeEngine,
+          definitions: BADGE_DEFINITIONS,
+          getNotificationStatus: () => notificationLabel(settingsStore)
+        });
         badgesView.mount();
         return badgesView;
       }).catch((error) => { badgesViewPromise = null; throw error; });
@@ -36,7 +50,13 @@ export function createBadgeFeatureController({ root, navigation, discoveryRegist
     const view = await ensureView();
     view?.openBadge?.(badgeId);
   }
-  function notificationOptions() { return { onViewBadge: (badgeId) => { void openBadge(badgeId); } }; }
+
+  function notificationOptions() {
+    return {
+      onViewBadge: (badgeId) => { void openBadge(badgeId); },
+      systemNotificationsEnabled: settingsStore?.getState?.().notificationsEnabled !== false
+    };
+  }
 
   /** @param {{ collectionId?: string | null, cardId?: string | null }} [result] @param {string | null} [sourceCollectionId] */
   function noteExternalMatch(result = {}, sourceCollectionId = null) {
@@ -104,7 +124,14 @@ export function createBadgeFeatureController({ root, navigation, discoveryRegist
   }
 
   return {
-    start, handleViewChange, openBadge, reconcile, noteExternalMatch, consumeExternalMatch, clearPendingExternalMatch,
+    start,
+    handleViewChange,
+    openBadge,
+    reconcile,
+    noteExternalMatch,
+    consumeExternalMatch,
+    clearPendingExternalMatch,
+    refreshView: () => badgesView?.refresh?.(),
     recordUnknown({ collectionId, input: _input }) { return recordEvent({ type: BADGE_EVENT_TYPES.UNKNOWN, collectionId }); },
     recordAlreadyDiscovered({ collectionId, card }) { const meta = consumeExternalMatch(collectionId, card?.id); return recordEvent({ type: BADGE_EVENT_TYPES.ALREADY_DISCOVERED, collectionId, cardId: card?.id || null, ...meta }); },
     recordNewDiscovery({ collectionId, card }) { const meta = consumeExternalMatch(collectionId, card?.id); return recordEvent({ type: BADGE_EVENT_TYPES.NEW_DISCOVERY, collectionId, cardId: card?.id || null, ...meta }); },
