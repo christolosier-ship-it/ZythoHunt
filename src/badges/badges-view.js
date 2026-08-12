@@ -54,6 +54,9 @@ function notificationStatus() {
   return "non activées";
 }
 
+/**
+ * @param {{ root?: HTMLElement | null, badgeStore?: any, badgeEngine?: any, definitions?: any[] }} [options]
+ */
 export function createBadgesView({ root, badgeStore, badgeEngine, definitions = BADGE_DEFINITIONS } = {}) {
   let statusFilter = "all";
   let familyFilter = "all";
@@ -94,19 +97,11 @@ export function createBadgesView({ root, badgeStore, badgeEngine, definitions = 
   }
 
   function latestUnlockedBadge() {
-    return definitions
-      .filter((badge) => badgeStore.isUnlocked(badge.id))
-      .map((badge) => ({ badge, unlockedAt: badgeStore.getUnlocked(badge.id)?.unlockedAt || "" }))
-      .sort((a, b) => b.unlockedAt.localeCompare(a.unlockedAt))[0] || null;
+    return definitions.filter((badge) => badgeStore.isUnlocked(badge.id)).map((badge) => ({ badge, unlockedAt: badgeStore.getUnlocked(badge.id)?.unlockedAt || "" })).sort((a, b) => b.unlockedAt.localeCompare(a.unlockedAt))[0] || null;
   }
 
   function nextObjectives() {
-    return definitions
-      .filter((badge) => !badge.hidden && !badgeStore.isUnlocked(badge.id))
-      .map((badge) => ({ badge, progress: badgeEngine.getProgress(badge) }))
-      .filter((item) => item.progress && item.progress.target > 0)
-      .sort((a, b) => a.progress.ratio !== b.progress.ratio ? b.progress.ratio - a.progress.ratio : a.badge.number - b.badge.number)
-      .slice(0, 3);
+    return definitions.filter((badge) => !badge.hidden && !badgeStore.isUnlocked(badge.id)).map((badge) => ({ badge, progress: badgeEngine.getProgress(badge) })).filter((item) => item.progress && item.progress.target > 0).sort((a, b) => a.progress.ratio !== b.progress.ratio ? b.progress.ratio - a.progress.ratio : a.badge.number - b.badge.number).slice(0, 3);
   }
 
   function createOverviewCard() {
@@ -124,9 +119,7 @@ export function createBadgesView({ root, badgeStore, badgeEngine, definitions = 
       button.addEventListener("click", () => openBadge(latest.badge.id));
       row.append(copy, button);
       latestBox.appendChild(row);
-    } else {
-      latestBox.append(el("p", "badges-empty-copy", "La première médaille attend encore son chasseur."));
-    }
+    } else latestBox.append(el("p", "badges-empty-copy", "La première médaille attend encore son chasseur."));
 
     const objectives = el("article", "badges-objectives");
     objectives.append(el("span", "badges-dashboard-label", "Prochains objectifs"));
@@ -165,7 +158,10 @@ export function createBadgesView({ root, badgeStore, badgeEngine, definitions = 
     familyLabel.append(el("span", "badge-filter-label", "Famille"));
     const familySelect = el("select", "badge-select");
     [["all", "Toutes"], ...Object.entries(BADGE_FAMILIES)].forEach(([id, label]) => {
-      const option = el("option", "", label); option.value = id; option.selected = familyFilter === id; familySelect.appendChild(option);
+      const option = el("option", "", label);
+      option.value = id;
+      option.selected = familyFilter === id;
+      familySelect.appendChild(option);
     });
     familySelect.addEventListener("change", () => { familyFilter = familySelect.value; refresh(); });
     familyLabel.appendChild(familySelect);
@@ -174,7 +170,10 @@ export function createBadgesView({ root, badgeStore, badgeEngine, definitions = 
     sortLabel.append(el("span", "badge-filter-label", "Tri"));
     const sortSelect = el("select", "badge-select");
     [["number", "Numéro"], ["closest", "Plus proches"], ["recent", "Récemment obtenus"]].forEach(([id, label]) => {
-      const option = el("option", "", label); option.value = id; option.selected = sortMode === id; sortSelect.appendChild(option);
+      const option = el("option", "", label);
+      option.value = id;
+      option.selected = sortMode === id;
+      sortSelect.appendChild(option);
     });
     sortSelect.addEventListener("change", () => { sortMode = sortSelect.value; refresh(); });
     sortLabel.appendChild(sortSelect);
@@ -193,8 +192,11 @@ export function createBadgesView({ root, badgeStore, badgeEngine, definitions = 
     const top = el("div", "badge-card-top");
     top.append(el("span", "badge-number", badge.numberLabel), el("span", `badge-state${isNew ? " is-new" : ""}`, isNew ? "Nouveau" : unlocked ? "Débloqué" : secretLocked ? "Secret" : "À découvrir"));
     const iconStage = el("div", "badge-card-icon-stage");
-    if (secretLocked) { const secret = el("span", "badge-secret-mark", "?"); secret.setAttribute("aria-hidden", "true"); iconStage.appendChild(secret); }
-    else iconStage.appendChild(createBadgeImage(badge, "badge-card-icon"));
+    if (secretLocked) {
+      const secret = el("span", "badge-secret-mark", "?");
+      secret.setAttribute("aria-hidden", "true");
+      iconStage.appendChild(secret);
+    } else iconStage.appendChild(createBadgeImage(badge, "badge-card-icon"));
     article.append(top, iconStage, el("h3", "", secretLocked ? "???" : badge.name), el("p", "badge-card-description", secretLocked ? getBadgeRumor(badge) : badge.description));
     if (progress && !secretLocked) {
       const progressBox = el("div", "badge-progress");
@@ -202,10 +204,15 @@ export function createBadgesView({ root, badgeStore, badgeEngine, definitions = 
       article.appendChild(progressBox);
     }
     if (unlockedData?.unlockedAt) {
-      const date = el("time", "badge-unlocked-date"); date.dateTime = unlockedData.unlockedAt; date.textContent = `Obtenu le ${new Date(unlockedData.unlockedAt).toLocaleDateString("fr-FR")}`; article.appendChild(date);
+      const date = el("time", "badge-unlocked-date");
+      date.dateTime = unlockedData.unlockedAt;
+      date.textContent = `Obtenu le ${new Date(unlockedData.unlockedAt).toLocaleDateString("fr-FR")}`;
+      article.appendChild(date);
     }
     const open = el("button", "badge-card-open", secretLocked ? "Écouter la rumeur" : "Consulter");
-    open.type = "button"; open.addEventListener("click", () => openBadge(badge.id)); article.appendChild(open);
+    open.type = "button";
+    open.addEventListener("click", () => openBadge(badge.id));
+    article.appendChild(open);
     return article;
   }
 
@@ -217,16 +224,24 @@ export function createBadgesView({ root, badgeStore, badgeEngine, definitions = 
     const dialog = el("dialog", "badge-detail");
     const titleId = `badge-detail-title-${badge.numberLabel}`;
     dialog.setAttribute("aria-labelledby", titleId);
-    const close = el("button", "badge-detail-close", "Fermer"); close.type = "button"; close.addEventListener("click", () => dialog.close());
+    const close = el("button", "badge-detail-close", "Fermer");
+    close.type = "button";
+    close.addEventListener("click", () => dialog.close());
     const hero = el("div", "badge-detail-hero");
-    if (secretLocked) hero.append(el("span", "badge-detail-secret", "?")); else hero.append(createBadgeImage(badge, "badge-detail-icon"));
+    if (secretLocked) hero.append(el("span", "badge-detail-secret", "?"));
+    else hero.append(createBadgeImage(badge, "badge-detail-icon"));
     const copy = el("div", "badge-detail-copy");
-    const title = el("h2", "", secretLocked ? "Badge secret" : badge.name); title.id = titleId;
+    const title = el("h2", "", secretLocked ? "Badge secret" : badge.name);
+    title.id = titleId;
     copy.append(el("span", "badge-detail-number", `Badge ${badge.numberLabel} · ${BADGE_FAMILIES[badge.family] || badge.family}`), title);
     if (secretLocked) copy.append(el("p", "badge-detail-rumor", getBadgeRumor(badge)), el("p", "badge-detail-condition", "Condition inconnue"));
     else {
       copy.append(el("p", "badge-detail-description", badge.description), el("p", "badge-detail-flavor", getBadgeFlavor(badge)));
-      if (progress) { const box = el("div", "badge-detail-progress"); box.append(el("strong", "", formatProgress(progress)), createProgressBar(progress, "badge-detail-progress-track")); copy.appendChild(box); }
+      if (progress) {
+        const box = el("div", "badge-detail-progress");
+        box.append(el("strong", "", formatProgress(progress)), createProgressBar(progress, "badge-detail-progress-track"));
+        copy.appendChild(box);
+      }
       if (unlockedData?.unlockedAt) copy.append(el("time", "badge-detail-date", `Obtenu le ${new Date(unlockedData.unlockedAt).toLocaleString("fr-FR", { dateStyle: "long", timeStyle: "short" })}`));
     }
     dialog.append(close, hero, copy);
@@ -243,7 +258,10 @@ export function createBadgesView({ root, badgeStore, badgeEngine, definitions = 
   function openBadge(badgeId) {
     const badge = definitions.find((item) => item.id === badgeId);
     if (!badge || !root) return false;
-    if (badgeStore.isNew?.(badge.id)) { badgeStore.markSeen?.(badge.id); refresh(); }
+    if (badgeStore.isNew?.(badge.id)) {
+      badgeStore.markSeen?.(badge.id);
+      refresh();
+    }
     root.querySelector(".badge-detail")?.remove();
     const dialog = createBadgeDialog(badge);
     root.appendChild(dialog);
@@ -274,12 +292,15 @@ export function createBadgesView({ root, badgeStore, badgeEngine, definitions = 
       if (!familyBadges.length) return;
       const section = el("section", "badge-family");
       const familyHeader = el("header", "badge-family-header");
-      familyHeader.append(el("h2", "", label), el("span", "badge-family-count", `${allFamilyBadges.filter((badge) => badgeStore.isUnlocked(badge.id)).length} / ${allFamilyBadges.length}`));
+      const unlockedInFamily = allFamilyBadges.filter((badge) => badgeStore.isUnlocked(badge.id)).length;
+      familyHeader.append(el("h2", "", label), el("span", "badge-family-count", `${unlockedInFamily} / ${allFamilyBadges.length}`));
       const grid = el("div", "badge-grid");
       familyBadges.forEach((badge) => grid.appendChild(createBadgeCard(badge)));
-      section.append(familyHeader, grid); shell.appendChild(section);
+      section.append(familyHeader, grid);
+      shell.appendChild(section);
     });
-    root.appendChild(shell); shell.scrollTop = previousScroll;
+    root.appendChild(shell);
+    shell.scrollTop = previousScroll;
   }
 
   return { refresh, mount: refresh, openBadge };

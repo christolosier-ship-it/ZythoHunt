@@ -6,6 +6,9 @@ import { BADGE_EVENT_TYPES, createBadgeEvent, isBadgeEventEligible } from "./bad
 import { notifyBadgesUnlocked, showBadgeToast } from "./badge-notifications.js";
 import { getClassicCollectionEntries } from "../data/secret-collection-rules.js";
 
+/**
+ * @param {{ root?: HTMLElement | null, navigation?: any, discoveryRegistry?: any, collectionCatalog?: any[], onPersistenceError?: ((detail: any) => void) | null }} [options]
+ */
 export function createBadgeFeatureController({ root, navigation, discoveryRegistry, collectionCatalog = [], onPersistenceError = null } = {}) {
   const badgeStore = createBadgeStore({ onPersistenceError });
   const revealStatsStore = createRevealStatsStore({ onPersistenceError });
@@ -35,9 +38,11 @@ export function createBadgeFeatureController({ root, navigation, discoveryRegist
   }
   function notificationOptions() { return { onViewBadge: (badgeId) => { void openBadge(badgeId); } }; }
 
+  /** @param {{ collectionId?: string | null, cardId?: string | null }} [result] @param {string | null} [sourceCollectionId] */
   function noteExternalMatch(result = {}, sourceCollectionId = null) {
     pendingExternalMatch = { sourceCollectionId, targetCollectionId: result.collectionId || null, cardId: result.cardId || null, expiresAt: Date.now() + 30000 };
   }
+
   function consumeExternalMatch(collectionId, cardId) {
     const pending = pendingExternalMatch;
     if (!pending) return { externalMatch: false, sourceCollectionId: collectionId };
@@ -48,6 +53,7 @@ export function createBadgeFeatureController({ root, navigation, discoveryRegist
   }
   function clearPendingExternalMatch() { pendingExternalMatch = null; }
 
+  /** @param {{ type: string, collectionId: string, sourceCollectionId?: string | null, cardId?: string | null, externalMatch?: boolean, at?: string }} eventData */
   function recordEvent({ type, collectionId, sourceCollectionId = collectionId, cardId = null, externalMatch = false, at = new Date().toISOString() }) {
     const event = createBadgeEvent({ type, collectionId, sourceCollectionId, cardId, externalMatch, at });
     if (!isBadgeEventEligible(event, classicIds)) return [];

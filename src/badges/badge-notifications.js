@@ -37,6 +37,7 @@ function createCelebrationItem(item, onViewBadge) {
   return card;
 }
 
+/** @param {any[]} items @param {{ onViewBadge?: ((badgeId: string) => void) | null, duration?: number | null }} [options] */
 export function showBadgeCelebration(items, { onViewBadge, duration = 9500 } = {}) {
   if (!items?.length || !globalThis.document) return;
   const root = getCelebrationRoot();
@@ -64,6 +65,7 @@ export function showBadgeToast(items, message) {
   globalThis.setTimeout(() => toast.remove(), 4200);
 }
 
+/** @param {any[]} items @param {{ onViewBadge?: ((badgeId: string) => void) | null }} [options] */
 export async function notifyBadgesUnlocked(items, { onViewBadge } = {}) {
   if (!items?.length) return;
   showBadgeCelebration(items, { onViewBadge });

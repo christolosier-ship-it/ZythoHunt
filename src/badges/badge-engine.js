@@ -50,7 +50,9 @@ export function isBadgeConditionMet(badge, ctx) {
 
 export function getBadgeProgress(badge, ctx) {
   const c = badge.condition || {};
-  let current; let target; let unit = "count";
+  let current;
+  let target;
+  let unit = "count";
   const ids = collectionIds(ctx);
   if (["totalDiscoveredAtLeast", "totalDiscoveredEquals"].includes(c.type)) { current = total(ctx).discovered; target = c.count; }
   else if (c.type === "collectionDiscoveredAtLeast") { current = progress(ctx, c.collectionId || badge.collectionId).discovered; target = c.count; }
@@ -62,10 +64,22 @@ export function getBadgeProgress(badge, ctx) {
   else if (c.type === "alreadyDiscoveredAttemptsAtLeast") { current = stats(ctx).alreadyDiscoveredAttempts || 0; target = c.count; unit = "repeat"; }
   else if (c.type === "externalCollectionMatchesAtLeast") { current = stats(ctx).externalCollectionMatches || 0; target = c.count; unit = "switch"; }
   else return null;
-  const safeCurrent = Number(current || 0); const safeTarget = Number(target || 0);
+  const safeCurrent = Number(current || 0);
+  const safeTarget = Number(target || 0);
   return { current: safeCurrent, target: safeTarget, ratio: safeTarget ? Math.min(safeCurrent / safeTarget, 1) : 0, unit };
 }
 
+/**
+ * @param {{
+ *   badgeStore?: any,
+ *   discoveryRegistry?: any,
+ *   revealStatsStore?: any,
+ *   collectionBundles?: any[],
+ *   collectionCatalog?: any[],
+ *   definitions?: any[],
+ *   now?: (() => Date) | null
+ * }} [options]
+ */
 export function createBadgeEngine({ badgeStore, discoveryRegistry, revealStatsStore, collectionBundles, collectionCatalog, definitions = BADGE_DEFINITIONS, now } = {}) {
   const base = () => ({ discoveryRegistry, revealStatsStore, collectionBundles, collectionCatalog, now });
   const classicIds = () => collectionIds(base());
