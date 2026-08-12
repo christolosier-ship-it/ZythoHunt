@@ -31,6 +31,7 @@ export async function mountCollectionSession({
   onPersistenceFailure,
   onPersistenceError,
   canRevealCardByClick,
+  experiencePolicy,
   skipInitialPreload = false
 }) {
   const { collection, cards, cardsById } = bundle;
@@ -83,7 +84,8 @@ export async function mountCollectionSession({
     revealActions: elements.revealActions,
     revealHeadline: elements.revealHeadline,
     btnContinue: elements.btnContinue,
-    motionTokens
+    motionTokens,
+    isReducedMotion: experiencePolicy?.isReducedMotion
   });
 
   const searchableCatalog = collectionCatalog.filter((entry) => isCollectionSearchable(entry));
@@ -105,7 +107,6 @@ export async function mountCollectionSession({
     resolver,
     cards,
     progressEl: elements.progressDisplay,
-    closeSettings: () => {},
     beforeReveal: () => background.pause(),
     afterReveal: () => background.resume(),
     currentCollectionId: collection.id,
@@ -115,7 +116,8 @@ export async function mountCollectionSession({
     onAlreadyDiscoveredReveal,
     onNewDiscoveryReveal,
     onExternalCollectionReveal,
-    onPersistenceFailure
+    onPersistenceFailure,
+    isReducedMotion: experiencePolicy?.isReducedMotion
   });
   discovery.mount();
 

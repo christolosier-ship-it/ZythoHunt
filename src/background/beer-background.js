@@ -160,7 +160,7 @@ const blurValue = (value, scale) => {
   return scaled > .2 ? `blur(${scaled.toFixed(2)}px)` : "";
 };
 
-export function createBeerBackground({ hostEl, settings }) {
+export function createBeerBackground({ hostEl, settings, isReducedMotion = null }) {
   let root = null;
   let tier = getParticleTier();
   let densityBucket = null;
@@ -169,6 +169,9 @@ export function createBeerBackground({ hostEl, settings }) {
   let resizeTimer = 0;
 
   const reducedQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const reducedMotion = () => typeof isReducedMotion === "function"
+    ? Boolean(isReducedMotion())
+    : reducedQuery.matches;
   const abortController = new AbortController();
   const { signal } = abortController;
   const refs = {};
@@ -200,7 +203,7 @@ export function createBeerBackground({ hostEl, settings }) {
     const palette = getPalette(settings.beerT);
     const lightness = palette.lightness;
     const foamHeight = 8 + (settings.foamIntensity / 100) * 26;
-    const speed = (0.75 + lightness * .45) * (reducedQuery.matches ? .25 : 1);
+    const speed = (0.75 + lightness * .45) * (reducedMotion() ? .25 : 1);
     const rimStrength = .35 + (1 - lightness) * .55;
     const props = {
       "--liq-top": toHsl(palette.top),
@@ -312,7 +315,13 @@ export function createBeerBackground({ hostEl, settings }) {
 
   function syncPauseState() {
     root.classList.toggle("is-paused", manualPause || document.hidden);
-    root.classList.toggle("is-reduced", reducedQuery.matches);
+    root.classList.toggle("is-reduced", reducedMotion());
+  }
+
+  function refreshMotionPreference() {
+    if (!root) return;
+    applyPalette();
+    syncPauseState();
   }
 
   function mount() {
@@ -323,10 +332,7 @@ export function createBeerBackground({ hostEl, settings }) {
     syncPauseState();
 
     document.addEventListener("visibilitychange", syncPauseState, { signal });
-    reducedQuery.addEventListener?.("change", () => {
-      applyPalette();
-      syncPauseState();
-    }, { signal });
+    reducedQuery.addEventListener?.("change", refreshMotionPreference, { signal });
 
     window.addEventListener("resize", () => {
       clearTimeout(resizeTimer);
@@ -369,6 +375,7 @@ export function createBeerBackground({ hostEl, settings }) {
     pause,
     resume,
     destroy,
+    refreshMotionPreference,
     getPaletteName: () => root?.dataset.palette || getPalette(settings.beerT).name
   };
 }

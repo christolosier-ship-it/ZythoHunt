@@ -3,6 +3,37 @@ function storageUnavailableError() {
 }
 
 /**
+ * @param {Storage | { getItem?: Function } | null | undefined} storage
+ * @param {string} key
+ * @param {string | null} [fallback]
+ * @returns {{ ok: true, value: string | null, error: null } | { ok: false, value: string | null, error: unknown }}
+ */
+export function readStoredValue(storage, key, fallback = null) {
+  try {
+    if (!storage?.getItem) throw storageUnavailableError();
+    return { ok: true, value: storage.getItem(key) ?? fallback, error: null };
+  } catch (error) {
+    return { ok: false, value: fallback, error };
+  }
+}
+
+/**
+ * @param {Storage | { setItem?: Function } | null | undefined} storage
+ * @param {string} key
+ * @param {string} value
+ * @returns {{ ok: true, error: null } | { ok: false, error: unknown }}
+ */
+export function writeStoredValue(storage, key, value) {
+  try {
+    if (!storage?.setItem) throw storageUnavailableError();
+    storage.setItem(key, String(value));
+    return { ok: true, error: null };
+  } catch (error) {
+    return { ok: false, error };
+  }
+}
+
+/**
  * @template T
  * @param {Storage | { getItem?: Function } | null | undefined} storage
  * @param {string} key
@@ -10,11 +41,11 @@ function storageUnavailableError() {
  * @returns {{ ok: true, value: T, error: null } | { ok: false, value: T, error: unknown }}
  */
 export function readJson(storage, key, fallback) {
+  const result = readStoredValue(storage, key);
+  if (!result.ok) return { ok: false, value: fallback(), error: result.error };
+  if (!result.value) return { ok: true, value: fallback(), error: null };
   try {
-    if (!storage?.getItem) throw storageUnavailableError();
-    const raw = storage.getItem(key);
-    if (!raw) return { ok: true, value: fallback(), error: null };
-    return { ok: true, value: JSON.parse(raw), error: null };
+    return { ok: true, value: JSON.parse(result.value), error: null };
   } catch (error) {
     return { ok: false, value: fallback(), error };
   }
@@ -28,9 +59,7 @@ export function readJson(storage, key, fallback) {
  */
 export function writeJson(storage, key, value) {
   try {
-    if (!storage?.setItem) throw storageUnavailableError();
-    storage.setItem(key, JSON.stringify(value));
-    return { ok: true, error: null };
+    return writeStoredValue(storage, key, JSON.stringify(value));
   } catch (error) {
     return { ok: false, error };
   }

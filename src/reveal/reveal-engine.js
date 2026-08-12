@@ -20,7 +20,8 @@ export function createRevealEngine({
   revealActions,
   revealHeadline,
   btnContinue,
-  motionTokens
+  motionTokens,
+  isReducedMotion = null
 }) {
   let state = STATES.IDLE;
   let currentTimeline = null;
@@ -151,7 +152,7 @@ export function createRevealEngine({
   }
 
   function resetSceneVisuals() {
-    if (overlayEl) gsap.to(overlayEl, { opacity: 0, duration: 0.3, ease: "power2.out" });
+    if (overlayEl) gsap.to(overlayEl, { opacity: 0, duration: isReducedMotion?.() ? 0.08 : 0.3, ease: "power2.out" });
     if (revealOverlay) revealOverlay.hidden = true;
     hideActions();
   }
@@ -197,8 +198,8 @@ export function createRevealEngine({
 
     try {
       const result = mode === "quick"
-        ? createQuickReveal({ cardEl, cardData, stageEl, overlayEl })
-        : createRevealTimeline({ cardEl, cardData, stageEl, overlayEl, sceneContext, motionTokens });
+        ? createQuickReveal({ cardEl, cardData, stageEl, overlayEl, isReducedMotion })
+        : createRevealTimeline({ cardEl, cardData, stageEl, overlayEl, sceneContext, motionTokens, isReducedMotion });
 
       currentTimeline = result.tl;
       currentClone = result.cloneEl;
@@ -239,7 +240,7 @@ export function createRevealEngine({
           rotateX: 0,
           rotateZ: 0,
           boxShadow: "0 4px 16px rgba(0,0,0,0.4)",
-          duration: 0.45,
+          duration: isReducedMotion?.() ? 0.1 : 0.45,
           ease: "power3.inOut"
         });
       }

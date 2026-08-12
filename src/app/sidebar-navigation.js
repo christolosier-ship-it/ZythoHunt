@@ -20,7 +20,8 @@ export function getNextAccordionState({ currentOpen = null, targetView, activeVi
  *   initialZythosphereCollectionId?: string | null,
  *   initialBrassopedieCollectionId?: string | null,
  *   onSelectZythosphereCollection?: (collectionId: string) => any,
- *   onSelectBrassopedieCollection?: (collectionId: string) => any
+ *   onSelectBrassopedieCollection?: (collectionId: string) => any,
+ *   isCollectionSelectable?: ((collection: any, viewId: string) => boolean) | null
  * }} options
  */
 export function createSidebarNavigation({
@@ -30,12 +31,14 @@ export function createSidebarNavigation({
   initialZythosphereCollectionId = null,
   initialBrassopedieCollectionId = null,
   onSelectZythosphereCollection,
-  onSelectBrassopedieCollection
+  onSelectBrassopedieCollection,
+  isCollectionSelectable = null
 } = {}) {
   if (!root) {
     return {
       setActiveCollection() {},
       setCollectionBusy() {},
+      refreshAvailability() {},
       getActiveCollection() { return null; },
       getOpenAccordion() { return null; },
       destroy() {}
@@ -47,6 +50,7 @@ export function createSidebarNavigation({
     viewId,
     /** @type {HTMLElement | null} */ (root.querySelector(`[data-sidebar-collections="${viewId}"]`))
   ]));
+  const collectionsById = new Map(collections.map((collection) => [collection.id, collection]));
   const activeCollections = {
     zythosphere: initialZythosphereCollectionId,
     brassopedie: initialBrassopedieCollectionId
@@ -55,6 +59,10 @@ export function createSidebarNavigation({
   let openAccordion = isSidebarCollectionView(navigation?.getActiveView?.()) ? navigation.getActiveView() : null;
 
   const collectionLabel = (collection) => collection.name || collection.nom || collection.id;
+  const selectable = (collectionId, viewId) => {
+    const collection = collectionsById.get(collectionId);
+    return Boolean(collection && isCollectionSelectable?.(collection, viewId) !== false);
+  };
 
   function syncPrimaryButtons(viewId = navigation?.getActiveView?.()) {
     primaryButtons.forEach((button) => {
@@ -87,10 +95,16 @@ export function createSidebarNavigation({
     const busy = busyCollections[viewId];
     host.querySelectorAll("[data-collection-id]").forEach((button) => {
       const element = /** @type {HTMLButtonElement} */ (button);
-      const isActive = element.dataset.collectionId === activeId;
+      const collectionId = element.dataset.collectionId;
+      const isActive = collectionId === activeId;
+      const isSelectable = Boolean(collectionId && selectable(collectionId, viewId));
       element.classList.toggle("is-active", isActive);
-      element.disabled = busy;
+      element.classList.toggle("is-locked", !isSelectable);
+      element.disabled = busy || !isSelectable;
       element.setAttribute("aria-pressed", isActive ? "true" : "false");
+      element.setAttribute("aria-disabled", element.disabled ? "true" : "false");
+      if (!isSelectable) element.title = "Collection secrète verrouillée";
+      else element.removeAttribute("title");
       if (isActive) element.setAttribute("aria-current", "true");
       else element.removeAttribute("aria-current");
     });
@@ -117,7 +131,7 @@ export function createSidebarNavigation({
   }
 
   async function selectCollection(viewId, collectionId) {
-    if (!isSidebarCollectionView(viewId) || !collectionId || busyCollections[viewId]) return;
+    if (!isSidebarCollectionView(viewId) || !collectionId || busyCollections[viewId] || !selectable(collectionId, viewId)) return;
     openAccordion = viewId;
     navigation?.showView?.(viewId);
     syncPrimaryButtons(viewId);
@@ -186,6 +200,9 @@ export function createSidebarNavigation({
       busyCollections[viewId] = Boolean(value);
       syncCollectionButtons(viewId);
       return true;
+    },
+    refreshAvailability() {
+      SIDEBAR_COLLECTION_VIEWS.forEach(syncCollectionButtons);
     },
     getActiveCollection(viewId) {
       return isSidebarCollectionView(viewId) ? activeCollections[viewId] : null;

@@ -11,7 +11,6 @@ export function createDiscoveryController({
   resolver,
   cards,
   progressEl,
-  closeSettings,
   beforeReveal,
   afterReveal,
   currentCollectionId,
@@ -21,7 +20,8 @@ export function createDiscoveryController({
   onAlreadyDiscoveredReveal,
   onNewDiscoveryReveal,
   onExternalCollectionReveal,
-  onPersistenceFailure
+  onPersistenceFailure,
+  isReducedMotion
 }) {
   let busy = false;
   const realCards = cards.filter((card) => card.revealable);
@@ -61,7 +61,6 @@ export function createDiscoveryController({
     }
 
     setBusy(true);
-    closeSettings?.();
 
     try {
       const result = await runRevealCycle({
@@ -117,7 +116,7 @@ export function createDiscoveryController({
     if (!inputEl.value.trim() || result.status === "unknown") {
       setFeedback("Aucun style reconnu.", true);
       onUnknownReveal?.({ input: inputEl.value });
-      if (!window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) {
+      if (!isReducedMotion?.()) {
         inputEl.animate?.(
           [
             { transform: "translateX(0)" },
