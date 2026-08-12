@@ -8,7 +8,7 @@ const VALID_TYPES = new Set(Object.values(BADGE_EVENT_TYPES));
 
 /**
  * @param {{
- *   type?: string,
+ *   type?: "unknown" | "already-discovered" | "new-discovery",
  *   collectionId?: string | null,
  *   sourceCollectionId?: string | null,
  *   cardId?: string | null,

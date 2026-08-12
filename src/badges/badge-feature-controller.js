@@ -53,7 +53,7 @@ export function createBadgeFeatureController({ root, navigation, discoveryRegist
   }
   function clearPendingExternalMatch() { pendingExternalMatch = null; }
 
-  /** @param {{ type: string, collectionId: string, sourceCollectionId?: string | null, cardId?: string | null, externalMatch?: boolean, at?: string }} eventData */
+  /** @param {{ type: "unknown" | "already-discovered" | "new-discovery", collectionId: string, sourceCollectionId?: string | null, cardId?: string | null, externalMatch?: boolean, at?: string }} eventData */
   function recordEvent({ type, collectionId, sourceCollectionId = collectionId, cardId = null, externalMatch = false, at = new Date().toISOString() }) {
     const event = createBadgeEvent({ type, collectionId, sourceCollectionId, cardId, externalMatch, at });
     if (!isBadgeEventEligible(event, classicIds)) return [];
