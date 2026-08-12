@@ -1,21 +1,16 @@
-const ACTIVE_COLLECTION_STORAGE_KEY = "zythohunt.activeCollectionId.v1";
+import { readStoredValue, removeStoredValue, toPersistenceStatus, writeStoredValue } from "../storage/safe-storage.js";
 
-export function getStoredActiveCollectionId() {
-  try {
-    return localStorage.getItem(ACTIVE_COLLECTION_STORAGE_KEY) || undefined;
-  } catch {
-    return undefined;
-  }
+export const ACTIVE_COLLECTION_STORAGE_KEY = "zythohunt.activeCollectionId.v1";
+
+export function getStoredActiveCollectionId({ storage = globalThis.localStorage } = {}) {
+  const result = readStoredValue(storage, ACTIVE_COLLECTION_STORAGE_KEY);
+  return result.ok && result.value ? result.value : undefined;
 }
 
-export function setStoredActiveCollectionId(collectionId) {
-  try {
-    localStorage.setItem(ACTIVE_COLLECTION_STORAGE_KEY, collectionId);
-  } catch {}
+export function setStoredActiveCollectionId(collectionId, { storage = globalThis.localStorage } = {}) {
+  return toPersistenceStatus(writeStoredValue(storage, ACTIVE_COLLECTION_STORAGE_KEY, collectionId));
 }
 
-export function clearStoredActiveCollectionId() {
-  try {
-    localStorage.removeItem(ACTIVE_COLLECTION_STORAGE_KEY);
-  } catch {}
+export function clearStoredActiveCollectionId({ storage = globalThis.localStorage } = {}) {
+  return toPersistenceStatus(removeStoredValue(storage, ACTIVE_COLLECTION_STORAGE_KEY));
 }
