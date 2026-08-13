@@ -7,10 +7,10 @@ const GROUP_WEIGHTS = Object.freeze({
   finish: 10
 });
 
-const COLOR_ORDER = Object.freeze(["paille", "dore", "ambre", "cuivre", "brun", "noir"]);
-const CLARITY_ORDER = Object.freeze(["claire", "voilee", "trouble", "opaque"]);
-const TASTE_AXES = Object.freeze(["amertume", "sucrosite", "acidite"]);
-const BODY_AXES = Object.freeze(["corps", "carbonatation", "alcool"]);
+const COLOR_ORDER = ["paille", "dore", "ambre", "cuivre", "brun", "noir"];
+const CLARITY_ORDER = ["claire", "voilee", "trouble", "opaque"];
+const TASTE_AXES = ["amertume", "sucrosite", "acidite"];
+const BODY_AXES = ["corps", "carbonatation", "alcool"];
 
 function finiteNumber(value) {
   return typeof value === "number" && Number.isFinite(value);
@@ -156,6 +156,7 @@ export function countSensoryEvidence(userProfile = {}) {
   return count;
 }
 
+/** @param {readonly any[]} profiles */
 export function computeDescriptorRarity(profiles = []) {
   const eligible = profiles.filter((profile) => profile?.role === "primary" || profile?.role === "fallback");
   const total = Math.max(1, eligible.length);
@@ -175,11 +176,11 @@ export function computeDescriptorRarity(profiles = []) {
 export function scoreSensoryProfile(userProfile, candidate, { rarity = {} } = {}) {
   const groups = {
     appearance: appearanceGroupScore(userProfile.appearance, candidate.appearance),
-    nose: descriptorGroupScore(userProfile.nose, candidate.nose, rarity, candidate.keyMarkers),
-    palate: descriptorGroupScore(userProfile.palate, candidate.palate, rarity, candidate.keyMarkers),
+    nose: descriptorGroupScore(userProfile.nose, candidate.nose, rarity, [...(candidate.keyMarkers || [])]),
+    palate: descriptorGroupScore(userProfile.palate, candidate.palate, rarity, [...(candidate.keyMarkers || [])]),
     taste: axisGroupScore(userProfile.structure, candidate.structure, TASTE_AXES),
     body: axisGroupScore(userProfile.structure, candidate.structure, BODY_AXES),
-    finish: finishGroupScore(userProfile.finish, candidate.finish)
+    finish: finishGroupScore(userProfile.finish, [...(candidate.finish || [])])
   };
 
   let weightedScore = 0;
