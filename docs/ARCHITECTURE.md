@@ -1,6 +1,6 @@
 # Architecture
 
-ZythoHunt est une PWA Vite en HTML/CSS/JavaScript, sans backend. L'application conserve les données utilisateur localement et charge les collections à la demande.
+ZythoHunt est une PWA Vite en HTML/CSS/JavaScript, sans backend. L'application conserve les données utilisateur localement et charge les collections ainsi que les fonctionnalités secondaires à la demande.
 
 ## Démarrage
 
@@ -29,6 +29,8 @@ Chaque collection possède :
 
 Les dix fichiers Brassopédie sont les sources éditoriales de vérité. Il n'existe plus de registre eager parallèle ni de jeu de cartes prototype.
 
+Le domaine Dégustation possède en complément un référentiel calculable dans `src/data/sensory/sensory-profiles.js`. Ce fichier est canonique uniquement pour les signatures utilisées par le moteur de correspondance ; il ne remplace ni ne patch les textes éditoriaux des fiches Brassopédie. La liaison entre les deux domaines repose exclusivement sur les `collectionId` et `cardId` stables.
+
 ## Flux ZythoSphère
 
 ```text
@@ -43,16 +45,33 @@ saisie d'un style ou alias
 
 `public/beer-search-index.json` est généré avant `dev` et `build` par `scripts/generate-beer-search-index.mjs`. Il permet la recherche inter-collections sans importer les textes encyclopédiques des collections candidates.
 
+## Flux Dégustation
+
+```text
+ouverture de Dégustation
+→ import dynamique du contrôleur
+→ chargement du petit index de styles
+→ parcours libre ou à l'aveugle
+→ profil sensoriel local
+→ moteur pur de correspondance
+→ classement qualitatif + overlays
+→ association facultative à une carte
+→ persistance dans le carnet local
+```
+
+Le moteur ne modifie jamais la progression, les badges ou les découvertes. Une dégustation est une donnée personnelle indépendante de la révélation d'une carte.
+
 ## Responsabilités principales
 
 - `src/app/` : composition runtime, navigation, changement de collection et cycle de session ;
-- `src/data/` : catalogue, bundles, règles de collections et sources Brassopédie ;
+- `src/data/` : catalogue, bundles, règles de collections, sources Brassopédie et référentiel sensoriel ;
 - `src/discovery/` : résolution des saisies, progression et registre des découvertes ;
 - `src/carousel/` : carrousel, snap, navigation et sélection des cartes ;
 - `src/components/` : structure DOM commune des cartes ;
 - `src/reveal/` et `src/animation/` : cycle de révélation et animations GSAP ;
 - `src/brassopedie/` : panneau de fiche et bibliothèque encyclopédique ;
 - `src/badges/` : définitions, moteur, statistiques, stockage, notifications et contrôleur de feature ;
+- `src/tasting/` : modèle, stockage, vocabulaire, moteur sensoriel, comparaison, contrôleur et vue Dégustation ;
 - `src/settings/` : préférences, politique d'expérience, contrôleur et vue Réglages ;
 - `src/background/` : fond liquide, profils d'ambiance et transitions de collection ;
 - `src/storage/` : primitives communes de persistance et gestionnaire central des données ZythoHunt ;
@@ -64,7 +83,11 @@ saisie d'un style ou alias
 
 Le démarrage ne charge que la collection active et les modules nécessaires à la ZythoSphère. Les autres collections restent derrière leurs `import()` dynamiques.
 
-Les vues secondaires Badges, Réglages et bibliothèque Brassopédie chargent leur JavaScript et leur CSS à leur première ouverture. Pour Réglages, le contrôleur, le gestionnaire d'import/export et les outils PWA restent eux aussi derrière cet import dynamique ; seules les petites préférences nécessaires au démarrage et aux notifications sont chargées au boot. Les images du carrousel sont préchargées par fenêtre de miniatures ; l'image HD d'une carte n'est demandée que lorsqu'elle doit être inspectée.
+Les vues secondaires Badges, Réglages, Dégustation et bibliothèque Brassopédie chargent leur JavaScript et leur CSS à leur première ouverture. Pour Réglages, le contrôleur, le gestionnaire d'import/export et les outils PWA restent eux aussi derrière cet import dynamique ; seules les petites préférences nécessaires au démarrage et aux notifications sont chargées au boot.
+
+Dégustation réutilise `beer-search-index.json` pour son sélecteur de styles. Cet index léger couvre les cartes classiques recherchables et est déjà précaché par le service worker. Si l'index local n'est exceptionnellement pas disponible, le contrôleur peut reconstruire la liste en chargeant les bundles classiques à la demande.
+
+Les images du carrousel sont préchargées par fenêtre de miniatures ; l'image HD d'une carte n'est demandée que lorsqu'elle doit être inspectée.
 
 Le service worker précache un shell minimal. Les images de collections sont gérées par un cache borné et ne font pas partie du shell initial. L'identifiant de cache est dérivé du build par `scripts/prepare-service-worker.mjs`, ce qui permet de retirer automatiquement les anciens caches ZythoHunt lors de l'activation d'une nouvelle version.
 
@@ -80,17 +103,32 @@ L'ambiance du fond peut être complète, allégée ou statique. Ces modes module
 
 `src/settings/settings-controller.js` orchestre l'écran Réglages et charge sa vue/CSS à la demande. `app-runtime.js` ne contient pas l'implémentation détaillée de la feature.
 
+## Dégustation et moteur sensoriel
+
+`src/tasting/sensory-score.js` et `src/tasting/sensory-matcher.js` forment un noyau métier pur : ils reçoivent un profil utilisateur et un référentiel, puis retournent un classement, une confiance qualitative, des éléments d'explication et des overlays.
+
+Ils n'accèdent ni au DOM, ni au stockage, ni aux badges, ni à la navigation.
+
+Le pilote V1 comprend 40 profils : 37 `primary`, un `fallback` et deux `overlay`. La Collection 10 est explicitement interdite dans cet index. `scripts/generate-sensory-index.mjs` valide au build les références de cartes, le vocabulaire, les rôles et les invariants du pilote avant de générer un artefact déterministe.
+
+Une valeur non renseignée est toujours ignorée par le calcul. Elle ne devient jamais une valeur nulle ou une absence sensorielle artificielle.
+
+Les overlays sont évalués séparément du classement principal. Ils peuvent donc compléter un style, jamais le remplacer.
+
+Le détail du contrat fonctionnel et des tests se trouve dans `docs/active/Degustation.md`.
+
 ## Persistance, sauvegarde et remise à zéro
 
-La progression des collections, les badges, les statistiques de révélation, la collection active et les préférences applicatives utilisent le stockage local via les helpers communs de `src/storage/`. Les échecs de persistance sont remontés à l'interface au lieu d'être silencieusement ignorés.
+La progression des collections, les badges, les statistiques de révélation, la collection active, les préférences applicatives et le carnet de dégustation utilisent le stockage local via les helpers communs de `src/storage/`. Les échecs de persistance sont remontés à l'interface au lieu d'être silencieusement ignorés.
 
 `src/storage/app-data-manager.js` définit la frontière des données appartenant à ZythoHunt. Il permet :
 
 - d'exporter une sauvegarde JSON versionnée ;
 - de valider strictement l'enveloppe et les structures connues avant import ;
 - de valider la collection active avant toute suppression ;
+- de valider le carnet de dégustation avant remplacement des données courantes ;
 - d'importer une sauvegarde avec restauration de secours en cas d'échec d'écriture ;
-- de réinitialiser la progression sans toucher aux préférences ni aux caches ;
+- de réinitialiser la progression sans toucher aux préférences, au carnet de dégustation ni aux caches ;
 - de remettre entièrement ZythoHunt à zéro sans appeler `localStorage.clear()` et sans supprimer les clés appartenant à une autre application.
 
 La remise à zéro complète couvre également les futures données ZythoHunt utilisant l'espace de noms `zythohunt.*`. Les caches PWA sont supprimés séparément via Cache Storage. Les permissions système du navigateur, notamment la permission de notification, restent sous le contrôle du navigateur.
@@ -99,4 +137,4 @@ Aucun compte, serveur applicatif ou stockage cloud n'est nécessaire au fonction
 
 ## Garde-fou anti-spaghetti
 
-`src/app/app-runtime.js` reste l'orchestrateur général, mais ne doit pas devenir l'implémentation détaillée de chaque feature. Badges et Réglages disposent désormais de leurs contrôleurs propres ; Dégustation devra suivre le même modèle. Le runtime reste responsable de la composition, de la navigation et du cycle de session.
+`src/app/app-runtime.js` reste l'orchestrateur général, mais ne doit pas devenir l'implémentation détaillée de chaque feature. Badges, Réglages et Dégustation disposent de leurs contrôleurs propres. Le runtime reste responsable de la composition, de la navigation et du cycle de session.

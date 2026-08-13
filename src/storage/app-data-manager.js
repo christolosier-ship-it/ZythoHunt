@@ -2,6 +2,7 @@ import { ACTIVE_COLLECTION_STORAGE_KEY } from "../app/active-collection-storage.
 import { BADGE_QUEUE_KEY, BADGE_STORAGE_KEY } from "../badges/badge-storage.js";
 import { REVEAL_STATS_KEY } from "../badges/badge-stats-storage.js";
 import { LEGACY_DISCOVERY_KEY } from "../discovery/discovery-store.js";
+import { parseAndValidateTastingStore, TASTING_STORAGE_KEY } from "../tasting/tasting-storage.js";
 import { readStoredValue, removeStoredValue, writeStoredValue } from "./safe-storage.js";
 
 export const APP_STORAGE_PREFIX = "zythohunt.";
@@ -66,6 +67,9 @@ export function summarizeBackupEntries(entries = {}) {
     } else if (key === BADGE_STORAGE_KEY) {
       const value = safeParse(raw);
       badges = Object.keys(value?.unlocked || {}).length;
+    } else if (key === TASTING_STORAGE_KEY) {
+      const value = safeParse(raw);
+      tastings += Object.keys(value?.items || {}).length;
     } else if (key.includes("tasting") || key.includes("degustation")) {
       const value = safeParse(raw);
       if (Array.isArray(value)) tastings += value.length;
@@ -88,6 +92,10 @@ export function validateBackup(backup) {
   for (const [key, value] of Object.entries(backup.entries)) {
     if (!isZythoHuntStorageKey(key)) return { valid: false, error: `Clé étrangère refusée : ${key}` };
     if (typeof value !== "string") return { valid: false, error: `Valeur invalide pour ${key}.` };
+    if (key === TASTING_STORAGE_KEY) {
+      const tastingValidation = parseAndValidateTastingStore(value);
+      if (!tastingValidation.valid) return { valid: false, error: tastingValidation.error };
+    }
   }
   return { valid: true, error: null, summary: summarizeBackupEntries(backup.entries) };
 }

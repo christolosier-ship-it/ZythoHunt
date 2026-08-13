@@ -4,12 +4,14 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "predev": "pnpm search-index:generate",
+    "content-index:generate": "pnpm search-index:generate && pnpm sensory-index:generate",
+    "predev": "pnpm content-index:generate",
     "dev": "vite",
-    "prebuild": "pnpm search-index:generate",
+    "prebuild": "pnpm content-index:generate",
     "build": "vite build && node scripts/prepare-service-worker.mjs",
     "preview": "vite preview",
     "search-index:generate": "node scripts/generate-beer-search-index.mjs",
+    "sensory-index:generate": "node scripts/generate-sensory-index.mjs",
     "assets:thumbs": "python scripts/generate-thumbnails.py",
     "assets:thumbs:check": "python scripts/generate-thumbnails.py --check",
     "typecheck": "tsc --noEmit",
@@ -17,6 +19,7 @@
     "test": "pnpm test:unit",
     "test:unit": "node --test",
     "test:e2e": "playwright test",
+    "precheck": "pnpm content-index:generate",
     "check": "pnpm typecheck && pnpm typecheck:strict && pnpm test:unit && pnpm build"
   },
   "dependencies": {
