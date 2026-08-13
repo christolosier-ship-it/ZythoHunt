@@ -106,7 +106,7 @@ export function createSettingsView({ root, controller } = {}) {
 
   function confirmResetSettings() {
     const { dialog, body, actions } = createDialog("Rétablir les réglages par défaut ?");
-    body.append(el("p", "", "Les préférences d'affichage, de notifications et de démarrage seront rétablies. Les cartes, badges et futures dégustations resteront intactes."));
+    body.append(el("p", "", "Les préférences d'affichage, de notifications et de démarrage seront rétablies. Les cartes, badges et dégustations resteront intactes."));
     appendButton(actions, "Annuler", () => closeDialog(dialog), "settings-button settings-button--ghost");
     appendButton(actions, "Rétablir", () => {
       controller.resetSettings();
@@ -119,7 +119,7 @@ export function createSettingsView({ root, controller } = {}) {
     const { dialog, body, actions } = createDialog("Réinitialiser toute la progression ?");
     body.append(
       el("p", "", "Cette action effacera les découvertes des 10 collections, les badges, les statistiques de révélation et la collection active."),
-      el("p", "settings-dialog-note", "Les réglages et le cache hors ligne seront conservés. La collection secrète redeviendra verrouillée.")
+      el("p", "settings-dialog-note", "Les réglages, les dégustations et le cache hors ligne seront conservés. La collection secrète redeviendra verrouillée.")
     );
     appendButton(actions, "Annuler", () => closeDialog(dialog), "settings-button settings-button--ghost");
     appendButton(actions, "Réinitialiser la progression", () => controller.resetProgress(), "settings-button settings-button--danger");
@@ -129,7 +129,7 @@ export function createSettingsView({ root, controller } = {}) {
   function confirmFullReset() {
     const { dialog, body, actions } = createDialog("Remettre ZythoHunt entièrement à zéro ?");
     body.append(
-      el("p", "", "Toutes les données ZythoHunt de cet appareil seront supprimées : progression, badges, statistiques, réglages et futures dégustations. Les caches hors ligne seront également vidés."),
+      el("p", "", "Toutes les données ZythoHunt de cet appareil seront supprimées : progression, badges, statistiques, réglages et dégustations. Les caches hors ligne seront également vidés."),
       el("p", "settings-dialog-note", "La permission système de notification dépend du navigateur et ne peut pas être révoquée par l'application.")
     );
 
@@ -254,7 +254,7 @@ export function createSettingsView({ root, controller } = {}) {
     importInput.addEventListener("change", () => void handleImportFile(importInput.files?.[0]));
     importRow.control.appendChild(importInput);
     appendButton(importRow.control, "Choisir un fichier", () => importInput.click());
-    const defaultsRow = createSettingRow({ title: "Rétablir les réglages par défaut", description: "Ne touche ni aux cartes, ni aux badges, ni aux futures dégustations." });
+    const defaultsRow = createSettingRow({ title: "Rétablir les réglages par défaut", description: "Ne touche ni aux cartes, ni aux badges, ni aux dégustations." });
     appendButton(defaultsRow.control, "Rétablir", confirmResetSettings, "settings-button settings-button--ghost");
     data.append(exportRow.row, importRow.row, defaultsRow.row);
 
@@ -279,7 +279,7 @@ export function createSettingsView({ root, controller } = {}) {
 
     const danger = createSection("Zone de danger", "Ici, les boutons ont des dents.");
     danger.classList.add("settings-section--danger");
-    const progressReset = createSettingRow({ title: "Réinitialiser la progression", description: "Efface les 10 collections, badges, statistiques et collection active, mais conserve les réglages et le cache." });
+    const progressReset = createSettingRow({ title: "Réinitialiser la progression", description: "Efface les 10 collections, badges, statistiques et collection active, mais conserve les réglages, les dégustations et le cache." });
     appendButton(progressReset.control, "Réinitialiser la progression", confirmResetProgress, "settings-button settings-button--danger-outline");
     const fullReset = createSettingRow({ title: "Réinitialiser complètement ZythoHunt", description: "Efface toutes les données ZythoHunt et ses caches hors ligne, puis redémarre comme au premier lancement." });
     appendButton(fullReset.control, "Tout remettre à zéro", confirmFullReset, "settings-button settings-button--danger");
