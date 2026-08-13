@@ -45,7 +45,9 @@ function selectRankedCandidates(scoredPrimaries, scoredFallbacks) {
   const fallbacks = [...scoredFallbacks].sort(sortByScore);
   const bestPrimary = primaries[0];
   if (!bestPrimary) return fallbacks;
-  if (bestPrimary.score >= 60) return [...primaries, ...fallbacks];
+  const primaryGap = Math.max(0, bestPrimary.score - (primaries[1]?.score || 0));
+  const primaryIsWellSeparated = bestPrimary.score >= 72 && primaryGap >= 8;
+  if (primaryIsWellSeparated) return [...primaries, ...fallbacks];
   return [...primaries, ...fallbacks.map((entry) => ({ ...entry, score: Math.round(entry.score * 0.97 * 10) / 10 }))]
     .sort(sortByScore);
 }
