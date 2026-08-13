@@ -1,0 +1,58 @@
+const p = ({ color, clarity, nose = {}, palate = {}, structure = {}, finish = [] }) => ({ appearance: { color, clarity }, nose, palate, structure, finish });
+
+// Transcription sensorielle de pages officielles de brasseries consultées le 13/08/2026.
+// Les intensités restent des perceptions ZythoHunt et non une conversion mécanique ABV/IBU.
+export const REAL_BEERS = Object.freeze([
+  {
+    label: "Pilsner Urquell", expected: "czech-premium-pale-lager",
+    input: p({ color: "dore", clarity: "claire", nose: { "pain-biscuit": 2, "herbace-epice": 2, floral: 1, "caramel-toffee": 1 }, palate: { "pain-biscuit": 2, "herbace-epice": 2, "caramel-toffee": 1 }, structure: { amertume: 3, sucrosite: 1, acidite: 0, corps: 2, carbonatation: 3, alcool: 2 }, finish: ["vive", "amere-persistante"] })
+  },
+  {
+    label: "Sierra Nevada Pale Ale", expected: "american-pale-ale",
+    input: p({ color: "ambre", clarity: "claire", nose: { agrumes: 3, "resine-pin": 3, floral: 1, "caramel-toffee": 1 }, palate: { agrumes: 3, "resine-pin": 2, "caramel-toffee": 1 }, structure: { amertume: 3, sucrosite: 1, acidite: 0, corps: 2, carbonatation: 2, alcool: 2 }, finish: ["seche", "amere-persistante"] })
+  },
+  {
+    label: "Sierra Nevada Torpedo", expected: "west-coast-ipa",
+    input: p({ color: "dore", clarity: "claire", nose: { agrumes: 3, "fruits-tropicaux": 2, "resine-pin": 3 }, palate: { agrumes: 3, "fruits-tropicaux": 2, "resine-pin": 3 }, structure: { amertume: 4, sucrosite: 0, acidite: 0, corps: 2, carbonatation: 2, alcool: 3 }, finish: ["seche", "amere-persistante"] })
+  },
+  {
+    label: "Sierra Nevada Hazy Little Thing", expected: "neipa-juicy-hazy-ipa",
+    input: p({ color: "dore", clarity: "trouble", nose: { agrumes: 3, "fruits-tropicaux": 3, "fruits-a-noyau": 2, "fruits-legers": 2 }, palate: { agrumes: 3, "fruits-tropicaux": 3, "fruits-a-noyau": 2 }, structure: { amertume: 1, sucrosite: 1, acidite: 0, corps: 3, carbonatation: 2, alcool: 3 }, finish: ["cremeuse", "ronde"] })
+  },
+  {
+    label: "Sierra Nevada Atomic Torpedo", expected: "double-imperial-ipa",
+    input: p({ color: "ambre", clarity: "voilee", nose: { "fruits-tropicaux": 3, agrumes: 3, "resine-pin": 3 }, palate: { "fruits-tropicaux": 3, agrumes: 3, "resine-pin": 3 }, structure: { amertume: 4, sucrosite: 1, acidite: 0, corps: 3, carbonatation: 2, alcool: 4 }, finish: ["chaleureuse", "seche", "amere-persistante"] })
+  },
+  {
+    label: "Sierra Nevada Narwhal", expected: "imperial-stout",
+    input: p({ color: "noir", clarity: "opaque", nose: { "cafe-torrefie": 3, "chocolat-cacao": 3, "caramel-toffee": 1 }, palate: { "cafe-torrefie": 3, "chocolat-cacao": 3, "caramel-toffee": 1 }, structure: { amertume: 3, sucrosite: 2, acidite: 0, corps: 4, carbonatation: 1, alcool: 4 }, finish: ["chaleureuse", "ronde", "astringente"] })
+  },
+  {
+    label: "Left Hand Milk Stout Nitro", expected: "sweet-milk-cream-stout",
+    input: p({ color: "noir", clarity: "opaque", nose: { "cafe-torrefie": 2, "chocolat-cacao": 3, "caramel-toffee": 2 }, palate: { "cafe-torrefie": 2, "chocolat-cacao": 3, "caramel-toffee": 2 }, structure: { amertume: 1, sucrosite: 4, acidite: 0, corps: 4, carbonatation: 1, alcool: 2 }, finish: ["cremeuse", "ronde"] })
+  },
+  {
+    label: "Weihenstephaner Hefeweissbier", expected: "weissbier-hefeweizen",
+    input: p({ color: "ambre", clarity: "trouble", nose: { banane: 3, "clou-girofle": 3, epices: 1 }, palate: { banane: 3, "clou-girofle": 3 }, structure: { amertume: 0, sucrosite: 1, acidite: 1, corps: 2, carbonatation: 4, alcool: 2 }, finish: ["cremeuse", "vive"] })
+  },
+  {
+    label: "Allagash White", expected: "witbier",
+    input: p({ color: "paille", clarity: "trouble", nose: { agrumes: 3, coriandre: 3, "poivre-epices-levure": 1, cereale: 1 }, palate: { agrumes: 3, coriandre: 3, cereale: 1 }, structure: { amertume: 1, sucrosite: 1, acidite: 1, corps: 2, carbonatation: 3, alcool: 2 }, finish: ["vive", "cremeuse"] })
+  },
+  {
+    label: "Saison Dupont", expected: "saison",
+    input: p({ color: "dore", clarity: "voilee", nose: { agrumes: 2, "clou-girofle": 2, "poivre-epices-levure": 2, "fruits-legers": 2, floral: 1 }, palate: { agrumes: 2, "poivre-epices-levure": 2, "fruits-legers": 1 }, structure: { amertume: 3, sucrosite: 0, acidite: 1, corps: 1, carbonatation: 4, alcool: 3 }, finish: ["seche", "vive"] })
+  },
+  {
+    label: "Duvel", expected: "belgian-golden-strong-ale-belgian-strong-blonde-ale",
+    input: p({ color: "paille", clarity: "claire", nose: { "fruits-legers": 3, "poivre-epices-levure": 2, agrumes: 1, floral: 1 }, palate: { "fruits-legers": 3, "poivre-epices-levure": 2, agrumes: 1 }, structure: { amertume: 2, sucrosite: 0, acidite: 0, corps: 1, carbonatation: 4, alcool: 4 }, finish: ["seche", "vive", "chaleureuse"] })
+  },
+  {
+    label: "Westbrook Lemon Cucumber Gose", expected: "gose",
+    input: p({ color: "paille", clarity: "voilee", nose: { "lactique-yaourt": 2, agrumes: 3, coriandre: 2, "salin-mineral": 3 }, palate: { "lactique-yaourt": 3, agrumes: 3, coriandre: 2, "salin-mineral": 3 }, structure: { amertume: 0, sucrosite: 1, acidite: 4, corps: 1, carbonatation: 4, alcool: 1 }, finish: ["vive", "acide-persistante"] })
+  },
+  {
+    label: "Guinness Draught — coverage gap", expected: null, coverageGap: "dry-stout-irish-dry-stout",
+    input: p({ color: "brun", clarity: "opaque", nose: { "cafe-torrefie": 2, "chocolat-cacao": 2, toaste: 2 }, palate: { "cafe-torrefie": 2, "chocolat-cacao": 2, toaste: 2 }, structure: { amertume: 2, sucrosite: 1, acidite: 0, corps: 2, carbonatation: 1, alcool: 1 }, finish: ["cremeuse", "seche"] })
+  }
+]);
