@@ -14,7 +14,8 @@ const urls = new Set([
   "./",
   "./offline.html",
   "./manifest.webmanifest",
-  "./beer-search-index.json"
+  "./beer-search-index.json",
+  "./beer-sensory-index.json"
 ]);
 
 for (const match of html.matchAll(/(?:src|href)=["']([^"']+)["']/g)) {

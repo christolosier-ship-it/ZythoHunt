@@ -1,6 +1,5 @@
 import { normalizeBeerName } from "../discovery/normalize-text.js";
-import { sensoryMatcher } from "./sensory-matcher.js";
-import { compareTastingToStyle } from "./tasting-comparison.js";
+import { createSensoryRuntime } from "./sensory-runtime.js";
 import { createTastingStore } from "./tasting-storage.js";
 
 function localAssetUrl(path) {
@@ -65,14 +64,17 @@ export function createTastingController({
     storage,
     onPersistenceError: () => notice("Le carnet de dégustation local n'est pas accessible sur cet appareil.", "warning", 8000)
   });
+  const sensoryRuntime = createSensoryRuntime({
+    indexUrl: localAssetUrl("beer-sensory-index.json"),
+    fetchImpl,
+    collectionCatalog,
+    loadCollectionBundle
+  });
 
   async function loadStylesFromBundles() {
     if (!loadCollectionBundle) return [];
     const entries = collectionCatalog.filter(({ collection }) => collection?.id !== "bizarre-et-insolite" && collection?.searchable !== false);
-    const bundles = await Promise.all(entries.map(async ({ collection }) => ({
-      collection,
-      bundle: await loadCollectionBundle(collection.id)
-    })));
+    const bundles = await Promise.all(entries.map(async ({ collection }) => ({ collection, bundle: await loadCollectionBundle(collection.id) })));
     return bundles.flatMap(({ collection, bundle }) => (bundle.cards || []).map((card) => ({
       collectionId: collection.id,
       collectionName: collection.name || collection.nom || collection.id,
@@ -110,21 +112,13 @@ export function createTastingController({
 
   function enrichMatch(entry) {
     const style = findStyle(entry.collectionId, entry.cardId);
-    return {
-      ...entry,
-      name: style?.name || entry.cardId,
-      collectionName: style?.collectionName || entry.collectionId
-    };
+    return { ...entry, name: style?.name || entry.cardId, collectionName: style?.collectionName || entry.collectionId };
   }
 
   async function matchDraft(draft) {
     await ensureStyleIndex();
-    const result = sensoryMatcher.match(draft);
-    return {
-      ...result,
-      results: result.results.map(enrichMatch),
-      overlays: result.overlays.map(enrichMatch)
-    };
+    const result = await sensoryRuntime.match(draft);
+    return { ...result, results: result.results.map(enrichMatch), overlays: result.overlays.map(enrichMatch) };
   }
 
   function getSnapshot() {
@@ -162,27 +156,24 @@ export function createTastingController({
     const styles = await ensureStyleIndex();
     const normalized = normalizeBeerName(query);
     if (!normalized) return styles.slice(0, limit);
-    return styles
-      .filter((style) => style.searchTerms.some((term) => term.includes(normalized)))
-      .slice(0, limit);
+    return styles.filter((style) => style.searchTerms.some((term) => term.includes(normalized))).slice(0, limit);
   }
 
   async function ensureView() {
     if (view) return view;
     if (!root) return null;
-    await ensureStyleIndex();
+    await Promise.all([ensureStyleIndex(), sensoryRuntime.ensureProfiles()]);
     if (!viewPromise) {
-      viewPromise = Promise.all([
-        import("./tasting-view.js"),
-        import("./tasting.css")
-      ]).then(([{ createTastingView }]) => {
-        view = createTastingView({ root, controller: api });
-        view.mount();
-        return view;
-      }).catch((error) => {
-        viewPromise = null;
-        throw error;
-      });
+      viewPromise = Promise.all([import("./tasting-view.js"), import("./tasting.css")])
+        .then(([{ createTastingView }]) => {
+          view = createTastingView({ root, controller: api });
+          view.mount();
+          return view;
+        })
+        .catch((error) => {
+          viewPromise = null;
+          throw error;
+        });
     }
     return viewPromise;
   }
@@ -201,7 +192,8 @@ export function createTastingController({
     deleteTasting,
     searchStyles,
     matchDraft,
-    compareToStyle: (draft, style) => compareTastingToStyle(draft, style),
+    compareToStyle: (draft, style) => sensoryRuntime.compareToStyle(draft, style),
+    getSensoryStatus: () => sensoryRuntime.getStatus(),
     findStyle,
     refresh: () => view?.refresh?.()
   };
