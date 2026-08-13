@@ -167,6 +167,30 @@ export async function bootApp(navigation) {
     return settingsFeaturePromise;
   }
 
+  let tastingFeature = null;
+  let tastingFeaturePromise = null;
+  async function ensureTastingFeature() {
+    if (tastingFeature) return tastingFeature;
+    if (!$("degustation-view")) return null;
+    if (!tastingFeaturePromise) {
+      tastingFeaturePromise = import("../tasting/tasting-controller.js")
+        .then(({ createTastingController }) => {
+          tastingFeature = createTastingController({
+            root: $("degustation-view"),
+            collectionCatalog,
+            loadCollectionBundle: (collectionId) => collectionManager.loadBundle(collectionId),
+            onNotice: ({ message, tone, duration }) => showAppNotice({ message, tone, duration })
+          });
+          return tastingFeature;
+        })
+        .catch((error) => {
+          tastingFeaturePromise = null;
+          throw error;
+        });
+    }
+    return tastingFeaturePromise;
+  }
+
   const brassopedieRoot = $("brassopedie-view");
   let brassopedieLibrary = null;
   let brassopedieLibraryPromise = null;
@@ -204,6 +228,11 @@ export async function bootApp(navigation) {
       void ensureBrassopedieLibrary()
         .then((view) => { if (wasMounted) void view?.refresh(); })
         .catch((error) => console.error("Chargement de la Brassopédie impossible", error));
+    }
+    if (viewId === "degustation") {
+      void ensureTastingFeature()
+        .then((feature) => feature?.handleViewChange?.(viewId))
+        .catch((error) => console.error("Chargement de Dégustation impossible", error));
     }
     void badgeFeature.handleViewChange(viewId)
       .catch((error) => console.error("Chargement des badges impossible", error));
