@@ -1,6 +1,7 @@
 import { collectionCatalog } from "../src/data/collection-catalog.js";
 import { sensoryProfiles as curatedSensoryProfiles } from "../src/data/sensory/sensory-profiles.js";
 import { deriveSensoryProfiles } from "../src/data/sensory/sensory-profile-derivation.js";
+import { ensureOverlayKeyMarker } from "../src/data/sensory/sensory-overlay-fallbacks.js";
 import {
   SENSORY_ROLE_COUNTS,
   SENSORY_ROLES,
@@ -108,7 +109,8 @@ export async function buildSensoryPayload() {
     validateProfile(profile, cards);
   });
 
-  const resolvedProfiles = deriveSensoryProfiles({ cards: cardFacts, curatedProfiles: curatedSensoryProfiles, getRole: getSensoryRole });
+  const resolvedProfiles = deriveSensoryProfiles({ cards: cardFacts, curatedProfiles: curatedSensoryProfiles, getRole: getSensoryRole })
+    .map(ensureOverlayKeyMarker);
   assert(resolvedProfiles.length === 251, `251 profils résolus attendus, reçu ${resolvedProfiles.length}.`);
   const resolvedKeys = new Set();
   resolvedProfiles.forEach((profile) => {
