@@ -199,8 +199,9 @@ export function createTastingView({ root, controller } = {}) {
 
     const recent = el("section", "tasting-section");
     const header = el("div", "tasting-section-heading");
-    header.append(el("div", "", ""), createButton("Voir mon carnet", () => setScreen("history"), "tasting-button tasting-button--ghost"));
-    header.firstChild.append(el("h2", "", "Dernières dégustations"), el("p", "", "Les verres récents restent à portée de pouce."));
+    const headerCopy = el("div");
+    headerCopy.append(el("h2", "", "Dernières dégustations"), el("p", "", "Les verres récents restent à portée de pouce."));
+    header.append(headerCopy, createButton("Voir mon carnet", () => setScreen("history"), "tasting-button tasting-button--ghost"));
     recent.append(header);
     if (!tastings.length) recent.append(createEmptyState("Le carnet est encore sec", "Ta première dégustation apparaîtra ici, sans classement social ni compteur de performances."));
     else tastings.slice(0, 3).forEach((item) => recent.append(createTastingCard(item, { compact: true })));
@@ -211,7 +212,7 @@ export function createTastingView({ root, controller } = {}) {
     const nav = el("ol", "tasting-steps");
     stepTitles.forEach((title, index) => {
       const item = el("li", `tasting-step${index === wizard.step ? " is-active" : ""}${index < wizard.step ? " is-complete" : ""}`);
-      item.setAttribute("aria-current", index === wizard.step ? "step" : "false");
+      if (index === wizard.step) item.setAttribute("aria-current", "step");
       item.append(el("span", "tasting-step-number", String(index + 1)), el("span", "tasting-step-label", title));
       nav.append(item);
     });
@@ -269,6 +270,7 @@ export function createTastingView({ root, controller } = {}) {
           render();
         }, "tasting-style-option");
         option.setAttribute("role", "option");
+        option.setAttribute("aria-selected", "false");
         option.append(el("span", "", style.collectionName));
         results.append(option);
       });
@@ -337,10 +339,9 @@ export function createTastingView({ root, controller } = {}) {
     grid.setAttribute("aria-label", ariaLabel);
     SENSORY_DESCRIPTORS.forEach(({ id, label, icon }) => {
       const intensity = map[id] || 0;
-      const button = createButton("", `noop`, "");
-      button.removeEventListener?.("click", "noop");
-      button.className = `tasting-descriptor${intensity ? ` is-selected intensity-${intensity}` : ""}`;
-      button.replaceChildren(el("span", "tasting-descriptor-icon", icon), el("span", "tasting-descriptor-label", label));
+      const button = el("button", `tasting-descriptor${intensity ? ` is-selected intensity-${intensity}` : ""}`);
+      button.type = "button";
+      button.append(el("span", "tasting-descriptor-icon", icon), el("span", "tasting-descriptor-label", label));
       if (intensity) button.append(el("span", "tasting-descriptor-intensity", INTENSITY_LABELS[intensity]));
       button.setAttribute("aria-pressed", intensity ? "true" : "false");
       button.setAttribute("aria-label", `${label}${intensity ? `, ${INTENSITY_LABELS[intensity]}` : ", non sélectionné"}`);
