@@ -33,7 +33,7 @@ async function deriveFromBundles(collectionCatalog, loadCollectionBundle) {
     brassopedie: card.brassopedie
   })));
   if (cards.length !== 251) throw new Error(`Fallback sensoriel incomplet : ${cards.length}/251 cartes.`);
-  return deriveSensoryProfiles({ cards, curatedProfiles: curatedSensoryProfiles, getRole: getSensoryRole })
+  return deriveSensoryProfiles({ cards, curatedProfiles: [...curatedSensoryProfiles], getRole: getSensoryRole })
     .map(ensureOverlayKeyMarker)
     .map((profile) => {
       const card = cards.find((entry) => entry.collectionId === profile.collectionId && entry.cardId === profile.cardId);
