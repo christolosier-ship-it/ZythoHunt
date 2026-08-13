@@ -52,6 +52,15 @@ jobs:
         env:
           BASE_PATH: /${{ github.event.repository.name }}/
 
+      - name: Upload sensory megastress report
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: sensory-megastress-251
+          path: artifacts/sensory-megastress
+          if-no-files-found: ignore
+          retention-days: 7
+
       - name: Configure GitHub Pages
         if: github.event_name != 'pull_request'
         uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5
