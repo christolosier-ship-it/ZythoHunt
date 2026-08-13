@@ -4,8 +4,7 @@ import { compareTastingToStyle } from "./tasting-comparison.js";
 import { createTastingStore } from "./tasting-storage.js";
 
 function localAssetUrl(path) {
-  const base = import.meta.env?.BASE_URL || "/";
-  return `${base}${String(path).replace(/^\//, "")}`;
+  return new URL(String(path).replace(/^\//, ""), document.baseURI).href;
 }
 
 function buildStyleIndex(payload) {
@@ -53,6 +52,11 @@ export function createTastingController({
   let styleIndex = null;
   let styleIndexPromise = null;
 
+  /**
+   * @param {string} message
+   * @param {"info" | "warning" | "error" | "success"} [tone]
+   * @param {number | null} [duration]
+   */
   function notice(message, tone = "info", duration = 6000) {
     onNotice?.({ message, tone, duration });
   }
