@@ -13,6 +13,16 @@ function expert(profile, definition) {
 }
 
 const REFINEMENTS = Object.freeze({
+  "lagers-et-fermentations-basses:czech-premium-pale-lager": (profile) => expert(profile, {
+    appearance: { colors: ["dore"], clarity: ["claire"] },
+    nose: { "pain-biscuit": 2, cereale: 2, floral: 2, "herbace-epice": 2, miel: 1 },
+    palate: { "pain-biscuit": 2, cereale: 2, "herbace-epice": 2, miel: 1 },
+    structure: { amertume: [2, 3], sucrosite: [1, 1], acidite: [0, 1], corps: [2, 2], carbonatation: [2, 3], alcool: [2, 2] },
+    finish: ["vive", "amere-persistante", "ronde"],
+    contradictions: ["resine-pin", "fruits-tropicaux", "banane", "cafe-torrefie", "lactique-yaourt"],
+    keyMarkers: ["pain-biscuit", "herbace-epice", "cereale"]
+  }),
+
   "lagers-et-fermentations-basses:west-coast-pilsner": (profile) => expert(profile, {
     appearance: { colors: ["paille", "dore"], clarity: ["claire"] },
     nose: { cereale: 2, "herbace-epice": 2, agrumes: 2, floral: 1, "resine-pin": 1 },
@@ -51,6 +61,46 @@ const REFINEMENTS = Object.freeze({
     finish: ["seche", "ronde"],
     contradictions: ["cafe-torrefie", "lactique-yaourt", "banane"],
     keyMarkers: ["pain-biscuit", "agrumes"]
+  }),
+
+  "pale-ales-bitters-et-ipa:west-coast-ipa": (profile) => expert(profile, {
+    appearance: { colors: ["paille", "dore"], clarity: ["claire", "voilee"] },
+    nose: { agrumes: 3, "resine-pin": 3, "fruits-tropicaux": 2, "herbace-epice": 1 },
+    palate: { agrumes: 3, "resine-pin": 3, "fruits-tropicaux": 2, "herbace-epice": 1 },
+    structure: { amertume: [3, 4], sucrosite: [0, 0], acidite: [0, 1], corps: [1, 2], carbonatation: [2, 3], alcool: [2, 3] },
+    finish: ["seche", "amere-persistante"],
+    contradictions: ["caramel-toffee", "lactique-yaourt", "banane", "cafe-torrefie"],
+    keyMarkers: ["resine-pin", "agrumes", "fruits-tropicaux"]
+  }),
+
+  "traditions-belges-et-francaises:speciale-belge": (profile) => expert(profile, {
+    appearance: { colors: ["ambre", "cuivre"], clarity: ["claire"] },
+    nose: { "pain-biscuit": 2, toaste: 2, "caramel-toffee": 2, "fruits-legers": 2, floral: 1, "herbace-epice": 1 },
+    palate: { "pain-biscuit": 2, toaste: 2, "caramel-toffee": 2, "fruits-legers": 1, "herbace-epice": 1 },
+    structure: { amertume: [1, 2], sucrosite: [1, 2], acidite: [0, 1], corps: [2, 2], carbonatation: [2, 3], alcool: [2, 2] },
+    finish: ["ronde", "seche"],
+    contradictions: ["resine-pin", "fruits-tropicaux", "cafe-torrefie", "lactique-yaourt"],
+    keyMarkers: ["pain-biscuit", "caramel-toffee", "fruits-legers"]
+  }),
+
+  "traditions-belges-et-francaises:belgian-single": (profile) => expert(profile, {
+    appearance: { colors: ["paille", "dore"], clarity: ["claire", "voilee"] },
+    nose: { "fruits-legers": 2, "poivre-epices-levure": 2, "herbace-epice": 2, agrumes: 2, floral: 1, cereale: 1 },
+    palate: { "fruits-legers": 1, "poivre-epices-levure": 2, "herbace-epice": 2, agrumes: 1, cereale: 1 },
+    structure: { amertume: [2, 3], sucrosite: [0, 1], acidite: [0, 1], corps: [1, 2], carbonatation: [3, 4], alcool: [1, 2] },
+    finish: ["seche", "vive", "amere-persistante"],
+    contradictions: ["caramel-toffee", "fruits-noirs-murs", "cafe-torrefie", "lactique-yaourt"],
+    keyMarkers: ["herbace-epice", "poivre-epices-levure", "agrumes"]
+  }),
+
+  "traditions-belges-et-francaises:belgian-golden-strong-ale-belgian-strong-blonde-ale": (profile) => expert(profile, {
+    appearance: { colors: ["paille", "dore"], clarity: ["claire"] },
+    nose: { "fruits-legers": 3, "poivre-epices-levure": 2, agrumes: 1, floral: 1 },
+    palate: { "fruits-legers": 3, "poivre-epices-levure": 2, agrumes: 1 },
+    structure: { amertume: [2, 2], sucrosite: [0, 1], acidite: [0, 1], corps: [1, 2], carbonatation: [4, 4], alcool: [4, 4] },
+    finish: ["seche", "vive", "chaleureuse"],
+    contradictions: ["caramel-toffee", "fruits-noirs-murs", "cafe-torrefie", "lactique-yaourt", "resine-pin"],
+    keyMarkers: ["fruits-legers", "poivre-epices-levure"]
   }),
 
   "traditions-belges-et-francaises:saison": (profile) => expert(profile, {
