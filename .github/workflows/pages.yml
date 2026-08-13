@@ -48,17 +48,28 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Check application
-        run: pnpm check
+        shell: bash
+        run: |
+          set -o pipefail
+          pnpm check 2>&1 | tee /tmp/zythohunt-check.log
         env:
           BASE_PATH: /${{ github.event.repository.name }}/
+
+      - name: Extract sensory megastress markers
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p artifacts/sensory-megastress
+          grep 'MEGASTRESS_' /tmp/zythohunt-check.log > artifacts/sensory-megastress/markers.log || true
+          wc -l artifacts/sensory-megastress/markers.log
 
       - name: Upload sensory megastress report
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: sensory-megastress-251
-          path: artifacts/sensory-megastress
-          if-no-files-found: ignore
+          path: artifacts/sensory-megastress/markers.log
+          if-no-files-found: error
           retention-days: 7
 
       - name: Configure GitHub Pages
