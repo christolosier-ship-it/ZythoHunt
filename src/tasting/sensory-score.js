@@ -198,20 +198,20 @@ export function scoreSensoryProfile(userProfile, candidate, { rarity = {} } = {}
   const matchedDescriptors = [...new Set([
     ...(groups.nose?.matched || []),
     ...(groups.palate?.matched || [])
-  ])];
+  ])].sort((a, b) => a.localeCompare(b, "fr"));
   const unmatchedDescriptors = [...new Set([
     ...(groups.nose?.unmatched || []),
     ...(groups.palate?.unmatched || [])
-  ])];
+  ])].sort((a, b) => a.localeCompare(b, "fr"));
 
   return {
     score: Math.round(adjusted * 1000) / 10,
     rawScore: Math.round(raw * 1000) / 10,
     contradictionPenalty: Math.round(contradiction.penalty * 1000) / 10,
-    contradictions: contradiction.contradictions,
+    contradictions: [...contradiction.contradictions].sort((a, b) => a.localeCompare(b, "fr")),
     matchedDescriptors,
     unmatchedDescriptors,
-    matchedFinish: groups.finish?.matched || [],
+    matchedFinish: [...(groups.finish?.matched || [])].sort((a, b) => a.localeCompare(b, "fr")),
     groupScores: Object.fromEntries(Object.entries(groups).map(([name, result]) => [
       name,
       result ? Math.round(result.score * 1000) / 10 : null
