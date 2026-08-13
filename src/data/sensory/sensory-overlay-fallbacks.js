@@ -1,3 +1,5 @@
+import { refineDerivedSensoryProfile } from "./sensory-profile-refinements.js";
+
 const OVERLAY_MARKERS = Object.freeze({
   "dessert-pastry-beer": "chocolat-cacao",
   "field-beer": "herbace-epice",
@@ -9,7 +11,8 @@ const OVERLAY_MARKERS = Object.freeze({
   "aged-beer": "boise-vanille"
 });
 
-export function ensureOverlayKeyMarker(profile) {
+export function ensureOverlayKeyMarker(inputProfile) {
+  const profile = refineDerivedSensoryProfile(inputProfile);
   if (profile?.role !== "overlay" || (profile.keyMarkers || []).length > 0) return profile;
   const marker = OVERLAY_MARKERS[profile.cardId];
   if (!marker) return profile;
