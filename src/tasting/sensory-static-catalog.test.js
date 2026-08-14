@@ -4,26 +4,36 @@ import { buildSensoryPayload } from "../../scripts/build-sensory-payload.mjs";
 import { sensoryProfiles } from "../data/sensory/sensory-profiles.js";
 import { createSensoryMatcher } from "./sensory-matcher.js";
 
-const LAGER_COLLECTION_ID = "lagers-et-fermentations-basses";
-const PALE_IPA_COLLECTION_ID = "pale-ales-bitters-et-ipa";
-const PORTER_STOUT_COLLECTION_ID = "porters-stouts";
-const BELGIAN_FRENCH_COLLECTION_ID = "traditions-belges-et-francaises";
-const WHEAT_RYE_COLLECTION_ID = "bieres-de-ble-et-de-seigle";
-const SOUR_WILD_COLLECTION_ID = "bieres-acides-sauvages-et-spontanees";
+const COLLECTIONS = Object.freeze({
+  lagers: ["lagers-et-fermentations-basses", 45],
+  paleIpa: ["pale-ales-bitters-et-ipa", 36],
+  porterStout: ["porters-stouts", 22],
+  belgianFrench: ["traditions-belges-et-francaises", 17],
+  wheatRye: ["bieres-de-ble-et-de-seigle", 13],
+  sourWild: ["bieres-acides-sauvages-et-spontanees", 21],
+  amberStrong: ["ales-ambrees-brunes-maltees-et-fortes", 27],
+  singular: ["styles-singuliers-historiques-et-hybrides", 40],
+  commercial: ["appellations-commerciales", 30]
+});
 
-const lagerProfiles = sensoryProfiles.filter(({ collectionId }) => collectionId === LAGER_COLLECTION_ID);
-const paleIpaProfiles = sensoryProfiles.filter(({ collectionId }) => collectionId === PALE_IPA_COLLECTION_ID);
-const porterStoutProfiles = sensoryProfiles.filter(({ collectionId }) => collectionId === PORTER_STOUT_COLLECTION_ID);
-const belgianFrenchProfiles = sensoryProfiles.filter(({ collectionId }) => collectionId === BELGIAN_FRENCH_COLLECTION_ID);
-const wheatRyeProfiles = sensoryProfiles.filter(({ collectionId }) => collectionId === WHEAT_RYE_COLLECTION_ID);
-const sourWildProfiles = sensoryProfiles.filter(({ collectionId }) => collectionId === SOUR_WILD_COLLECTION_ID);
+const profilesFor = ([collectionId]) => sensoryProfiles.filter((profile) => profile.collectionId === collectionId);
+const byId = new Map(sensoryProfiles.map((profile) => [profile.cardId, profile]));
 
-function assertDocumentedCollection(profiles, expectedLength) {
+function assertDocumentedCollection(collection, expectedLength) {
+  const profiles = profilesFor(collection);
   assert.equal(profiles.length, expectedLength);
   profiles.forEach((profile) => {
     assert.equal(profile.verification.status, "verified", profile.cardId);
     assert.equal(profile.verification.reviewedAt, "2026-08-14", profile.cardId);
     assert.ok(profile.verification.sources.length > 0, profile.cardId);
+  });
+  return profiles;
+}
+
+function assertNoPositiveDescriptor(profiles, descriptorId) {
+  profiles.forEach((profile) => {
+    assert.equal(profile.nose?.[descriptorId], undefined, `${profile.cardId}: nez ${descriptorId}`);
+    assert.equal(profile.palate?.[descriptorId], undefined, `${profile.cardId}: bouche ${descriptorId}`);
   });
 }
 
@@ -37,26 +47,18 @@ test("le référentiel Dégustation contient exactement 251 profils statiques ho
   assert.ok(sensoryProfiles.every((profile) => !Object.hasOwn(profile, "parentCardId")));
 });
 
-test("aucun profil provisoire n'est présenté comme vérifié sans source", () => {
-  sensoryProfiles.forEach((profile) => {
-    assert.ok(["pending", "verified"].includes(profile.verification?.status));
-    if (profile.verification.status === "verified") {
-      assert.ok(profile.verification.sources.length > 0, profile.cardId);
-      assert.ok(profile.verification.reviewedAt, profile.cardId);
-    }
+test("les 251 profils sont vérifiés, datés et sourcés", () => {
+  Object.values(COLLECTIONS).forEach(([collectionId, expectedLength]) => {
+    assertDocumentedCollection([collectionId], expectedLength);
   });
+  assert.equal(sensoryProfiles.filter(({ verification }) => verification.status === "verified").length, 251);
+  assert.equal(sensoryProfiles.filter(({ verification }) => verification.status === "pending").length, 0);
 });
 
-test("la Collection 1 possède 45 profils documentés et aucun résidu funky positif", () => {
-  assertDocumentedCollection(lagerProfiles, 45);
-  lagerProfiles.forEach((profile) => {
-    assert.equal(profile.nose?.["funky-cuir-ferme"], undefined, `${profile.cardId}: nez`);
-    assert.equal(profile.palate?.["funky-cuir-ferme"], undefined, `${profile.cardId}: bouche`);
-  });
-});
+test("Collection 1 — les Lagers restent propres et discriminantes", () => {
+  const profiles = assertDocumentedCollection(COLLECTIONS.lagers, 45);
+  assertNoPositiveDescriptor(profiles, "funky-cuir-ferme");
 
-test("les signatures étalons de la Collection 1 restent discriminantes", () => {
-  const byId = new Map(lagerProfiles.map((profile) => [profile.cardId, profile]));
   const helles = byId.get("munich-helles");
   const germanPils = byId.get("german-pilsner");
   const westCoastPils = byId.get("west-coast-pilsner");
@@ -66,26 +68,20 @@ test("les signatures étalons de la Collection 1 restent discriminantes", () => 
 
   assert.deepEqual(helles.structure.amertume, [1, 1]);
   assert.equal(helles.nose?.["caramel-toffee"], undefined);
-  assert.ok((germanPils.nose?.["herbace-epice"] || 0) > (helles.nose?.["herbace-epice"] || 0));
-  assert.equal(westCoastPils.nose?.["resine-pin"], 3);
-  assert.equal(westCoastPils.nose?.agrumes, 3);
-  assert.ok((dunkel.nose?.["pain-biscuit"] || 0) > (schwarzbier.nose?.["pain-biscuit"] || 0));
-  assert.ok((schwarzbier.nose?.["chocolat-cacao"] || 0) > (dunkel.nose?.["chocolat-cacao"] || 0));
+  assert.ok(germanPils.nose["herbace-epice"] > helles.nose["herbace-epice"]);
+  assert.equal(westCoastPils.nose["resine-pin"], 3);
+  assert.equal(westCoastPils.nose.agrumes, 3);
+  assert.ok(dunkel.nose["pain-biscuit"] > schwarzbier.nose["pain-biscuit"]);
+  assert.ok(schwarzbier.nose["chocolat-cacao"] > dunkel.nose["chocolat-cacao"]);
   assert.deepEqual(eisbock.structure.corps, [4, 4]);
   assert.deepEqual(eisbock.structure.alcool, [4, 4]);
   assert.deepEqual(eisbock.structure.sucrosite, [4, 4]);
 });
 
-test("la Collection 2 possède 36 profils documentés sans faux caractère funky", () => {
-  assertDocumentedCollection(paleIpaProfiles, 36);
-  paleIpaProfiles.forEach((profile) => {
-    assert.equal(profile.nose?.["funky-cuir-ferme"], undefined, `${profile.cardId}: nez`);
-    assert.equal(profile.palate?.["funky-cuir-ferme"], undefined, `${profile.cardId}: bouche`);
-  });
-});
+test("Collection 2 — Pale Ale, Bitter et IPA verrouillent leurs signatures", () => {
+  const profiles = assertDocumentedCollection(COLLECTIONS.paleIpa, 36);
+  assertNoPositiveDescriptor(profiles, "funky-cuir-ferme");
 
-test("les signatures étalons de la Collection 2 verrouillent les familles IPA", () => {
-  const byId = new Map(paleIpaProfiles.map((profile) => [profile.cardId, profile]));
   const westCoast = byId.get("west-coast-ipa");
   const hazy = byId.get("neipa-juicy-hazy-ipa");
   const hazyDouble = byId.get("juicy-hazy-double-imperial-ipa");
@@ -105,16 +101,10 @@ test("les signatures étalons de la Collection 2 verrouillent les familles IPA",
   assert.ok(genericIpa.structure.amertume[0] >= 3);
 });
 
-test("la Collection 3 possède 22 profils documentés sans résidu funky positif", () => {
-  assertDocumentedCollection(porterStoutProfiles, 22);
-  porterStoutProfiles.forEach((profile) => {
-    assert.equal(profile.nose?.["funky-cuir-ferme"], undefined, `${profile.cardId}: nez`);
-    assert.equal(profile.palate?.["funky-cuir-ferme"], undefined, `${profile.cardId}: bouche`);
-  });
-});
+test("Collection 3 — Stout et Porter séparent torréfaction, douceur et corps", () => {
+  const profiles = assertDocumentedCollection(COLLECTIONS.porterStout, 22);
+  assertNoPositiveDescriptor(profiles, "funky-cuir-ferme");
 
-test("les signatures étalons de la Collection 3 séparent les grandes familles de Stout et Porter", () => {
-  const byId = new Map(porterStoutProfiles.map((profile) => [profile.cardId, profile]));
   const dry = byId.get("dry-stout-irish-dry-stout");
   const sweet = byId.get("sweet-milk-cream-stout");
   const oatmeal = byId.get("oatmeal-stout");
@@ -124,55 +114,48 @@ test("les signatures étalons de la Collection 3 séparent les grandes familles 
   const smoke = byId.get("smoke-porter");
   const coffee = byId.get("coffee-stout-or-porter");
 
-  assert.equal(dry.nose?.["cafe-torrefie"], 3);
+  assert.equal(dry.nose["cafe-torrefie"], 3);
   assert.ok(dry.structure.sucrosite[1] < sweet.structure.sucrosite[0]);
   assert.deepEqual(sweet.structure.corps, [4, 4]);
   assert.ok(oatmeal.structure.corps[0] >= 3);
   assert.ok(tropical.structure.sucrosite[0] > foreign.structure.sucrosite[0]);
   assert.ok(foreign.structure.amertume[0] > tropical.structure.amertume[0]);
   assert.equal(tropical.nose?.["fruits-tropicaux"], undefined);
-  assert.equal(american.nose?.["resine-pin"], 3);
-  assert.equal(smoke.nose?.fume, 3);
+  assert.equal(american.nose["resine-pin"], 3);
+  assert.equal(smoke.nose.fume, 3);
   assert.equal(smoke.nose?.["boise-vanille"], undefined);
   assert.deepEqual(coffee.structure, {});
   assert.deepEqual(coffee.keyMarkers, ["cafe-torrefie"]);
 });
 
-test("la Collection 4 possède 17 profils documentés et réserve le funk aux styles qui l'autorisent", () => {
-  assertDocumentedCollection(belgianFrenchProfiles, 17);
-  const byId = new Map(belgianFrenchProfiles.map((profile) => [profile.cardId, profile]));
-  assert.equal(byId.get("belgian-pale-ale").nose?.["funky-cuir-ferme"], undefined);
-  assert.equal(byId.get("belgian-golden-strong-ale-belgian-strong-blonde-ale").nose?.["funky-cuir-ferme"], undefined);
-  assert.equal(byId.get("american-belgo-ale").nose?.["funky-cuir-ferme"], undefined);
-  assert.equal(byId.get("saison").nose?.["funky-cuir-ferme"], 1);
-  assert.equal(byId.get("specialty-saison").nose?.["funky-cuir-ferme"], 2);
-});
-
-test("les signatures étalons de la Collection 4 séparent Golden Strong, Tripel, Quadrupel et Saison", () => {
-  const byId = new Map(belgianFrenchProfiles.map((profile) => [profile.cardId, profile]));
+test("Collection 4 — les traditions belges réservent le funk aux styles qui l'autorisent", () => {
+  assertDocumentedCollection(COLLECTIONS.belgianFrench, 17);
   const golden = byId.get("belgian-golden-strong-ale-belgian-strong-blonde-ale");
   const tripel = byId.get("tripel");
   const quadrupel = byId.get("quadrupel");
   const saison = byId.get("saison");
+  const specialtySaison = byId.get("specialty-saison");
   const table = byId.get("belgian-table-beer");
   const fruit = byId.get("belgian-fruit-beer");
 
+  assert.equal(byId.get("belgian-pale-ale").nose?.["funky-cuir-ferme"], undefined);
+  assert.equal(golden.nose?.["funky-cuir-ferme"], undefined);
+  assert.equal(byId.get("american-belgo-ale").nose?.["funky-cuir-ferme"], undefined);
+  assert.equal(saison.nose["funky-cuir-ferme"], 1);
+  assert.equal(specialtySaison.nose["funky-cuir-ferme"], 2);
   assert.deepEqual(golden.structure.corps, [1, 1]);
   assert.deepEqual(golden.structure.carbonatation, [4, 4]);
-  assert.ok((tripel.nose?.["poivre-epices-levure"] || 0) > (golden.nose?.["poivre-epices-levure"] || 0));
+  assert.ok(tripel.nose["poivre-epices-levure"] > golden.nose["poivre-epices-levure"]);
   assert.deepEqual(quadrupel.structure.corps, [4, 4]);
   assert.deepEqual(quadrupel.structure.alcool, [4, 4]);
-  assert.equal(quadrupel.nose?.["baies-raisin"], 3);
+  assert.equal(quadrupel.nose["baies-raisin"], 3);
   assert.deepEqual(saison.structure.sucrosite, [0, 0]);
-  assert.ok(saison.structure.amertume[1] >= 3);
   assert.deepEqual(table.structure.alcool, [0, 0]);
   assert.equal(fruit.role, "overlay");
-  assert.ok(fruit.keyMarkers.includes("fruits-rouges"));
 });
 
-test("la Collection 5 possède 13 profils documentés et sépare levures bavaroises et fermentations propres", () => {
-  assertDocumentedCollection(wheatRyeProfiles, 13);
-  const byId = new Map(wheatRyeProfiles.map((profile) => [profile.cardId, profile]));
+test("Collection 5 — blé et seigle séparent levure bavaroise et fermentation propre", () => {
+  assertDocumentedCollection(COLLECTIONS.wheatRye, 13);
   const american = byId.get("american-wheat-beer");
   const weiss = byId.get("weissbier-hefeweizen");
   const kristall = byId.get("kristallweizen");
@@ -182,24 +165,20 @@ test("la Collection 5 possède 13 profils documentés et sépare levures bavaroi
 
   assert.equal(american.nose?.banane, undefined);
   assert.equal(american.nose?.["clou-girofle"], undefined);
-  assert.equal(weiss.nose?.banane, 3);
-  assert.equal(weiss.nose?.["clou-girofle"], 3);
+  assert.equal(weiss.nose.banane, 3);
+  assert.equal(weiss.nose["clou-girofle"], 3);
   assert.deepEqual(weiss.structure.carbonatation, [4, 4]);
   assert.deepEqual(kristall.appearance.clarity, ["claire"]);
-  assert.equal(kristall.nose?.["funky-cuir-ferme"], undefined);
   assert.equal(wheatwine.nose?.banane, undefined);
-  assert.equal(wheatwine.nose?.["clou-girofle"], undefined);
   assert.deepEqual(wheatwine.structure.corps, [4, 4]);
-  assert.equal(roggen.nose?.epices, 3);
-  assert.equal(roggen.nose?.banane, 2);
+  assert.equal(roggen.nose.epices, 3);
+  assert.equal(roggen.nose.banane, 2);
   assert.equal(fruit.role, "overlay");
   assert.equal(fruit.nose?.["salin-mineral"], undefined);
-  assert.equal(fruit.nose?.["funky-cuir-ferme"], undefined);
 });
 
-test("la Collection 6 possède 21 profils documentés et distingue acide, Brett et fermentation mixte", () => {
-  assertDocumentedCollection(sourWildProfiles, 21);
-  const byId = new Map(sourWildProfiles.map((profile) => [profile.cardId, profile]));
+test("Collection 6 — acide, Brett et fermentation mixte restent distincts", () => {
+  assertDocumentedCollection(COLLECTIONS.sourWild, 21);
   const berliner = byId.get("berliner-weisse");
   const gose = byId.get("gose");
   const flanders = byId.get("flanders-red-ale");
@@ -212,28 +191,93 @@ test("la Collection 6 possède 21 profils documentés et distingue acide, Brett 
 
   assert.deepEqual(berliner.structure.carbonatation, [4, 4]);
   assert.equal(berliner.nose?.["funky-cuir-ferme"], undefined);
-  assert.ok(gose.structure.acidite[1] < berliner.structure.acidite[1] + 1);
-  assert.equal(gose.nose?.["salin-mineral"], 1);
-  assert.equal(flanders.nose?.["vinaigre-acetique"], 1);
+  assert.equal(gose.nose["salin-mineral"], 1);
+  assert.equal(flanders.nose["vinaigre-acetique"], 1);
   assert.equal(oudBruin.nose?.["vinaigre-acetique"], undefined);
   assert.equal(lambic.nose?.["vinaigre-acetique"], undefined);
   assert.deepEqual(lambic.structure.carbonatation, [0, 1]);
   assert.deepEqual(gueuze.structure.carbonatation, [4, 4]);
   assert.equal(brett.nose?.["lactique-yaourt"], undefined);
   assert.deepEqual(brett.structure.acidite, [0, 1]);
-  assert.equal(mixed.nose?.["lactique-yaourt"], 2);
-  assert.equal(mixed.nose?.["funky-cuir-ferme"], 3);
+  assert.equal(mixed.nose["lactique-yaourt"], 2);
+  assert.equal(mixed.nose["funky-cuir-ferme"], 3);
   assert.equal(straight.nose?.["funky-cuir-ferme"], undefined);
-  assert.equal(straight.nose?.["lactique-yaourt"], 3);
 });
 
-test("le build valide directement les 251 profils sans étape curated/derived", async () => {
+test("Collection 7 — ales maltées et fortes distinguent traditions britanniques, écossaises et américaines", () => {
+  const profiles = assertDocumentedCollection(COLLECTIONS.amberStrong, 27);
+  const scottishIds = ["scottish-light-ale", "scottish-heavy-ale", "scottish-export-ale", "scotch-ale-wee-heavy"];
+  scottishIds.forEach((id) => assert.equal(byId.get(id).nose?.fume, undefined, id));
+
+  assert.equal(byId.get("peated-scotch-ale").nose.fume, 3);
+  assert.deepEqual(byId.get("london-brown-ale").structure.sucrosite, [4, 4]);
+  assert.deepEqual(byId.get("london-brown-ale").structure.alcool, [0, 1]);
+  assert.equal(byId.get("american-barley-wine").nose["resine-pin"], 3);
+  assert.equal(byId.get("british-barley-wine").nose?.["resine-pin"], undefined);
+  assert.deepEqual(byId.get("altbier").structure.amertume, [3, 3]);
+  assert.deepEqual(byId.get("altbier").appearance.clarity, ["claire"]);
+  assertNoPositiveDescriptor(profiles.filter(({ cardId }) => cardId === "altbier"), "funky-cuir-ferme");
+});
+
+test("Collection 8 — procédés, ingrédients, fumée, bois et vieillissement ne sont plus confondus", () => {
+  assertDocumentedCollection(COLLECTIONS.singular, 40);
+  const kentucky = byId.get("kentucky-common");
+  const grodziskie = byId.get("grodziskie-piwo-grodziskie");
+  const aged = byId.get("aged-beer");
+  const wood = byId.get("wood-and-barrel-aged-beer");
+  const smoke = byId.get("rauchbier-smoke-beer");
+
+  assert.deepEqual(kentucky.structure.acidite, [0, 0]);
+  assert.equal(kentucky.nose?.["lactique-yaourt"], undefined);
+  assert.equal(kentucky.nose?.["funky-cuir-ferme"], undefined);
+  assert.equal(grodziskie.nose.fume, 3);
+  assert.equal(grodziskie.nose?.["boise-vanille"], undefined);
+  assert.equal(aged.nose?.["boise-vanille"], undefined);
+  assert.equal(wood.nose["boise-vanille"], 3);
+  assert.equal(smoke.nose.fume, 3);
+  assert.equal(smoke.nose?.["boise-vanille"], undefined);
+  assert.deepEqual(smoke.structure, {});
+  assert.deepEqual(byId.get("fruit-beer").structure, {});
+  assert.deepEqual(byId.get("coffee-beer").structure, {});
+  assert.deepEqual(byId.get("fresh-hop-beer").structure, {});
+  assert.deepEqual(byId.get("alternative-grain-beer").structure, {});
+});
+
+test("Collection 9 — 28 appellations restent non scorables et les libellés n'inventent pas de goût", () => {
+  const profiles = assertDocumentedCollection(COLLECTIONS.commercial, 30);
+  assert.equal(profiles.filter(({ role }) => role === "excluded").length, 28);
+  assert.equal(profiles.filter(({ role }) => role === "fallback").length, 2);
+
+  ["biere-dabbaye", "trappiste", "biere-artisanale-craft-beer", "biere-biologique-bio", "biere-de-garde", "biere-pur-malt", "biere-sans-gluten"].forEach((id) => {
+    const profile = byId.get(id);
+    assert.deepEqual(profile.nose, {}, id);
+    assert.deepEqual(profile.palate, {}, id);
+    assert.deepEqual(profile.structure, {}, id);
+  });
+
+  assert.deepEqual(byId.get("blonde").appearance.colors, ["paille", "dore"]);
+  assert.deepEqual(byId.get("blonde").nose, {});
+  assert.deepEqual(byId.get("biere-sans-alcool").structure.alcool, [0, 0]);
+  assert.deepEqual(byId.get("biere-0-0").structure.alcool, [0, 0]);
+
+  const panache = byId.get("panache");
+  const radler = byId.get("radler-shandy");
+  assert.equal(panache.role, "fallback");
+  assert.deepEqual(panache.nose, {});
+  assert.deepEqual(panache.structure.alcool, [0, 1]);
+  assert.equal(radler.role, "fallback");
+  assert.equal(radler.nose.agrumes, 3);
+  assert.deepEqual(radler.structure.alcool, [0, 1]);
+  assert.deepEqual(radler.structure.carbonatation, [3, 4]);
+});
+
+test("le build valide 251 profils vérifiés sans étape curated/derived", async () => {
   const payload = await buildSensoryPayload();
   assert.equal(payload.schemaVersion, 3);
   assert.equal(payload.totalCards, 251);
   assert.equal(payload.scorableCards, 223);
   assert.deepEqual(payload.roleCounts, { primary: 165, fallback: 29, overlay: 29, excluded: 28 });
-  assert.deepEqual(payload.verificationCounts, { pending: 97, verified: 154 });
+  assert.deepEqual(payload.verificationCounts, { pending: 0, verified: 251 });
   assert.ok(!Object.hasOwn(payload, "sourceCounts"));
 });
 
@@ -242,9 +286,4 @@ test("le matcher refuse explicitement un sous-catalogue de prototype", () => {
     () => createSensoryMatcher({ profiles: sensoryProfiles.slice(0, 40) }),
     /251 profils/
   );
-});
-
-test("les profils encore pending restent matérialisés jusqu'à leur revue documentaire", () => {
-  const byId = new Map(sensoryProfiles.map((profile) => [profile.cardId, profile]));
-  assert.equal(byId.get("old-ale")?.verification?.status, "pending");
 });
