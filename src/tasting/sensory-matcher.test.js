@@ -4,7 +4,7 @@ import { sensoryProfiles } from "../data/sensory/sensory-profiles.js";
 import { createSensoryMatcher } from "./sensory-matcher.js";
 import { computeDescriptorRarity, scoreSensoryProfile } from "./sensory-score.js";
 
-const matcher = createSensoryMatcher();
+const matcher = createSensoryMatcher({ profiles: sensoryProfiles });
 
 function profile({ color, clarity, nose = {}, palate = {}, structure = {}, finish = [] } = {}) {
   return { appearance: { color, clarity }, nose, palate, structure, finish };
@@ -137,11 +137,12 @@ test("un primary bien déterminé garde la priorité sur le fallback", () => {
 });
 
 test("la Collection 10, les excluded et les overlays ne peuvent jamais entrer dans les résultats principaux", () => {
-  const custom = createSensoryMatcher({ profiles: [
-    ...sensoryProfiles,
-    { ...sensoryProfiles[0], collectionId: "bizarre-et-insolite", cardId: "C10-test", role: "primary" },
-    { ...sensoryProfiles[0], cardId: "excluded-test", role: "excluded" }
-  ] });
+  const customProfiles = sensoryProfiles.map((entry, index) => {
+    if (index === 0) return { ...entry, collectionId: "bizarre-et-insolite", cardId: "C10-test", role: "primary" };
+    if (index === 1) return { ...entry, cardId: "excluded-test", role: "excluded" };
+    return entry;
+  });
+  const custom = createSensoryMatcher({ profiles: customProfiles });
   const result = custom.match(obviousCases[3][1], { limit: 50 });
   assert.ok(result.results.every(({ collectionId, role }) => collectionId !== "bizarre-et-insolite" && role !== "overlay" && role !== "excluded"));
 });
