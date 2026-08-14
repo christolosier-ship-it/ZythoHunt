@@ -55,7 +55,6 @@ Le moteur utilise désormais **un seul catalogue statique de 251 profils**, corr
 src/data/sensory/
 ├── sensory-profiles.js
 ├── sensory-profile-schema.js
-├── sensory-role-map.js
 └── catalog/
     ├── lagers-*.js
     ├── pale-ales-bitters-ipa-*.js
@@ -70,7 +69,7 @@ src/data/sensory/
 
 Les 40 profils du pilote et les 211 profils qui avaient été dérivés sont maintenant matérialisés sous **le même schéma**, dans les mêmes fichiers de collection et avec les mêmes règles de validation.
 
-Les notions techniques de migration `curated`, `derived`, `expert` et `parentCardId` ne font plus partie du catalogue final.
+Les notions techniques de migration `curated`, `derived`, `expert` et `parentCardId` ne font plus partie du catalogue final. Les rôles de matching sont eux aussi portés directement par chaque profil ; il n’existe plus de cartographie parallèle.
 
 La Collection 10 — Bizarre et insolite reste volontairement exclue du moteur sensoriel classique.
 
@@ -98,7 +97,7 @@ Règles :
 - la validation build interdit de déclarer un profil `verified` sans source ;
 - la vérification sensorielle doit être faite style par style à partir de sources reconnues, et non par simple extrapolation de mots-clés.
 
-Les profils matérialisés lors de la refactorisation du 14 août 2026 sont donc marqués `pending` tant qu’ils n’ont pas été repris individuellement. Cette migration conserve le comportement validé du moteur, mais ne transforme pas artificiellement une dérivation historique en donnée sourcée.
+Les profils matérialisés lors de la refactorisation du 14 août 2026 sont donc marqués `pending` tant qu’ils n’ont pas été repris individuellement. Cette migration conserve le comportement existant du moteur, mais ne transforme pas artificiellement une dérivation historique en donnée sourcée.
 
 Les sources seront ajoutées progressivement au profil concerné. Les référentiels techniques reconnus, organismes brassicoles, documents historiques spécialisés et sources de première main pertinentes sont prioritaires. En cas de divergence sérieuse entre sources, le profil doit représenter l’intervalle défendable ou documenter l’incertitude au lieu d’inventer une précision.
 
@@ -123,11 +122,11 @@ La répartition actuelle est :
 
 Le rôle n’est pas une différence de qualité ou de traitement documentaire. Un `excluded` doit être vérifié et sourcé avec la même rigueur qu’un `primary`.
 
-## Build et index runtime
+## Validation build
 
-`scripts/build-sensory-payload.mjs` valide directement les 251 profils statiques.
+`scripts/build-sensory-payload.mjs` contrôle directement les 251 profils statiques et `scripts/validate-sensory-catalog.mjs` exécute cette validation avant `dev`, `build` et `check`.
 
-Il contrôle notamment :
+La validation contrôle notamment :
 
 - exactement 251 profils et 251 clés `collectionId + cardId` uniques ;
 - correspondance exacte avec les 251 cartes classiques ;
@@ -140,30 +139,24 @@ Il contrôle notamment :
 - métadonnées documentaires cohérentes ;
 - source obligatoire pour tout profil déclaré `verified`.
 
-`scripts/generate-sensory-index.mjs` génère ensuite :
+Le build **ne génère plus de second référentiel sensoriel**. Il valide le catalogue mais ne fabrique, n’enrichit ni ne dérive aucun profil.
+
+## Runtime et recherche de styles
+
+Dégustation ne maintient plus de second catalogue de styles issu de `beer-search-index.json` et ne charge plus de fichier `beer-sensory-index.json`.
+
+Les noms, collections, alias et signatures nécessaires sont portés par les mêmes 251 profils sensoriels. Le runtime Dégustation utilise donc directement :
 
 ```text
-public/beer-sensory-index.json
-```
-
-Cet index n’est pas une seconde base sensorielle. C’est la **projection runtime** du même catalogue statique.
-
-Le runtime essaie d’abord de lire cet index afin de profiter du cache PWA. Si l’index est indisponible ou d’une version incompatible, il retombe sur le catalogue statique embarqué. Il ne reconstruit plus les profils depuis les neuf bundles Brassopédie et n’exécute plus de règles heuristiques de dérivation.
-
-## Recherche de styles
-
-Dégustation ne maintient plus un second catalogue de styles issu de `beer-search-index.json`.
-
-Les noms, collections et alias nécessaires au sélecteur sont portés par les mêmes 251 profils sensoriels. Le runtime Dégustation fournit donc directement :
-
-```text
-catalogue sensoriel
+catalogue sensoriel statique 251
 ├── matching
 ├── comparaison
 └── recherche de style
 ```
 
 `beer-search-index.json` reste utilisé par la ZythoSphère pour sa propre recherche inter-collections.
+
+Les cartes `excluded` restent recherchables et associables manuellement à une dégustation ; elles sont seulement exclues du classement automatique.
 
 ## Moteur de correspondance
 
@@ -181,7 +174,7 @@ classement + confiance + overlays
 
 `src/tasting/sensory-score.js` calcule les similarités et pénalités. `src/tasting/sensory-matcher.js` orchestre le classement.
 
-Le matcher refuse explicitement un sous-catalogue : lui fournir les 40 anciens profils ou tout autre ensemble incomplet est une erreur.
+Le matcher ne connaît pas le catalogue par import implicite : il exige qu’on lui fournisse explicitement l’ensemble complet de 251 profils et refuse un sous-catalogue de prototype.
 
 Les valeurs non renseignées restent ignorées. Elles ne deviennent jamais zéro.
 
@@ -215,7 +208,8 @@ Les tests vérifient notamment :
 - impossibilité de déclarer un profil vérifié sans source ;
 - refus d’un catalogue réduit à 40 profils ;
 - conservation des scénarios de matching existants ;
-- fallback runtime vers exactement le même catalogue statique ;
+- runtime branché directement sur le même catalogue statique ;
+- maintien des cartes `excluded` dans la recherche manuelle ;
 - CRUD et erreurs de persistance du carnet ;
 - parcours principal Playwright et contrôles axe.
 
