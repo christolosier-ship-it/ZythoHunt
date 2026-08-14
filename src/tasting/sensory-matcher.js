@@ -77,6 +77,12 @@ function normalizeUserProfile(userProfile = {}) {
   };
 }
 
+/**
+ * @param {{
+ *   profiles?: readonly any[],
+ *   rarity?: Record<string, number> | null
+ * }} [options]
+ */
 export function createSensoryMatcher({ profiles, rarity = null } = {}) {
   if (!Array.isArray(profiles) || profiles.length !== 251) {
     throw new Error(`Le matcher exige le catalogue sensoriel complet de 251 profils, reçu ${profiles?.length || 0}.`);
