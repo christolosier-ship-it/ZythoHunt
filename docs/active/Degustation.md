@@ -207,11 +207,13 @@ Les tests vérifient notamment :
 - absence des champs `source`, `expert` et `parentCardId` ;
 - impossibilité de déclarer un profil vérifié sans source ;
 - refus d’un catalogue réduit à 40 profils ;
-- conservation des scénarios de matching existants ;
+- invariants purs du moteur sur un catalogue contrôlé : priorité `primary`, séparation des overlays, exclusions, déterminisme et bornes numériques ;
 - runtime branché directement sur le même catalogue statique ;
 - maintien des cartes `excluded` dans la recherche manuelle ;
 - CRUD et erreurs de persistance du carnet ;
 - parcours principal Playwright et contrôles axe.
+
+Les anciens duels de styles du prototype 40 ne sont plus présentés comme validation du catalogue 251. Ils sont réintroduits progressivement, style par style, lorsque les profils concernés ont été vérifiés et sourcés.
 
 ## Travail documentaire restant
 
