@@ -1,13 +1,15 @@
 import { collectionCatalog } from "../src/data/collection-catalog.js";
 import { sensoryProfiles } from "../src/data/sensory/sensory-profiles.js";
-import { SENSORY_PROFILE_SCHEMA_VERSION, SENSORY_VERIFICATION_STATUSES } from "../src/data/sensory/sensory-profile-schema.js";
-import { SENSORY_ROLE_COUNTS, SENSORY_ROLES } from "../src/data/sensory/sensory-role-map.js";
+import {
+  SENSORY_PROFILE_SCHEMA_VERSION,
+  SENSORY_ROLES,
+  SENSORY_VERIFICATION_STATUSES
+} from "../src/data/sensory/sensory-profile-schema.js";
 import {
   FINISH_IDS,
   SENSORY_DESCRIPTOR_IDS,
   STRUCTURE_AXIS_IDS
 } from "../src/tasting/tasting-vocabulary.js";
-import { computeDescriptorRarity } from "../src/tasting/sensory-score.js";
 
 const allowedRoles = new Set(SENSORY_ROLES);
 const allowedVerificationStatuses = new Set(SENSORY_VERIFICATION_STATUSES);
@@ -16,7 +18,7 @@ const finishIds = new Set(FINISH_IDS);
 const structureIds = new Set(STRUCTURE_AXIS_IDS);
 
 function assert(condition, message) {
-  if (!condition) throw new Error(`[sensory-index] ${message}`);
+  if (!condition) throw new Error(`[sensory-catalog] ${message}`);
 }
 
 function validateDescriptorMap(map, key) {
@@ -32,11 +34,13 @@ function validateVerification(profile) {
   assert(verification && typeof verification === "object" && !Array.isArray(verification), `${profile.cardId}.verification est obligatoire.`);
   assert(allowedVerificationStatuses.has(verification.status), `${profile.cardId} utilise un statut documentaire inconnu : ${verification.status}.`);
   assert(Array.isArray(verification.sources), `${profile.cardId}.verification.sources doit être un tableau.`);
+
   verification.sources.forEach((source, index) => {
     assert(source && typeof source === "object" && !Array.isArray(source), `${profile.cardId}.verification.sources[${index}] doit être un objet.`);
     assert(typeof source.label === "string" && source.label.trim(), `${profile.cardId}.verification.sources[${index}].label est obligatoire.`);
     assert(typeof source.url === "string" && /^https:\/\//.test(source.url), `${profile.cardId}.verification.sources[${index}].url doit être une URL HTTPS.`);
   });
+
   if (verification.status === "verified") {
     assert(verification.sources.length > 0, `${profile.cardId} ne peut pas être vérifié sans source.`);
     assert(typeof verification.reviewedAt === "string" && !Number.isNaN(Date.parse(verification.reviewedAt)), `${profile.cardId} doit porter une date de revue valide.`);
@@ -47,6 +51,7 @@ function validateProfile(profile, cards) {
   assert(profile.schemaVersion === SENSORY_PROFILE_SCHEMA_VERSION, `${profile.cardId} utilise une version de schéma non prise en charge.`);
   assert(profile.collectionId !== "bizarre-et-insolite", `La Collection 10 est interdite dans le référentiel sensoriel (${profile.cardId}).`);
   assert(allowedRoles.has(profile.role), `${profile.cardId} utilise un rôle inconnu : ${profile.role}.`);
+
   const key = `${profile.collectionId}:${profile.cardId}`;
   const card = cards.get(key);
   assert(card, `Carte introuvable : ${key}.`);
@@ -117,25 +122,27 @@ export async function buildSensoryPayload() {
   });
   cards.forEach((card, key) => assert(seen.has(key), `Carte classique sans profil sensoriel explicite : ${key}.`));
 
-  assert(SENSORY_ROLE_COUNTS.primary === 165, `165 primary attendus, reçu ${SENSORY_ROLE_COUNTS.primary}.`);
-  assert(SENSORY_ROLE_COUNTS.fallback === 29, `29 fallback attendus, reçu ${SENSORY_ROLE_COUNTS.fallback}.`);
-  assert(SENSORY_ROLE_COUNTS.overlay === 29, `29 overlay attendus, reçu ${SENSORY_ROLE_COUNTS.overlay}.`);
-  assert(SENSORY_ROLE_COUNTS.excluded === 28, `28 excluded attendus, reçu ${SENSORY_ROLE_COUNTS.excluded}.`);
+  const roleCounts = sensoryProfiles.reduce((counts, profile) => {
+    counts[profile.role] = (counts[profile.role] || 0) + 1;
+    return counts;
+  }, { primary: 0, fallback: 0, overlay: 0, excluded: 0 });
+
+  assert(roleCounts.primary === 165, `165 primary attendus, reçu ${roleCounts.primary}.`);
+  assert(roleCounts.fallback === 29, `29 fallback attendus, reçu ${roleCounts.fallback}.`);
+  assert(roleCounts.overlay === 29, `29 overlay attendus, reçu ${roleCounts.overlay}.`);
+  assert(roleCounts.excluded === 28, `28 excluded attendus, reçu ${roleCounts.excluded}.`);
 
   const verificationCounts = sensoryProfiles.reduce((counts, profile) => {
     counts[profile.verification.status] = (counts[profile.verification.status] || 0) + 1;
     return counts;
   }, { pending: 0, verified: 0 });
 
-  const scorableProfiles = sensoryProfiles.filter(({ role }) => role !== "excluded");
   return {
     schemaVersion: 3,
     catalogVersion: 1,
     totalCards: sensoryProfiles.length,
-    scorableCards: scorableProfiles.length,
-    roleCounts: { ...SENSORY_ROLE_COUNTS },
-    verificationCounts,
-    rarity: computeDescriptorRarity(scorableProfiles),
-    profiles: sensoryProfiles
+    scorableCards: sensoryProfiles.length - roleCounts.excluded,
+    roleCounts,
+    verificationCounts
   };
 }
