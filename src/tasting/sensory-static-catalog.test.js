@@ -41,7 +41,7 @@ test("le matcher refuse explicitement un sous-catalogue de prototype", () => {
   );
 });
 
-test("les calibrations déjà validées par les tests restent matérialisées dans le catalogue", () => {
+test("quelques valeurs de migration restent matérialisées à l'identique avant leur revue documentaire", () => {
   const byId = new Map(sensoryProfiles.map((profile) => [profile.cardId, profile]));
   assert.deepEqual(byId.get("west-coast-ipa")?.structure?.sucrosite, [0, 0]);
   assert.equal(byId.get("west-coast-ipa")?.nose?.["resine-pin"], 3);
