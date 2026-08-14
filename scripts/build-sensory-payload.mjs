@@ -47,18 +47,41 @@ function validateVerification(profile) {
   }
 }
 
-function validateProfile(profile, cards) {
+function collectIdentityErrors(profiles, cards) {
+  const errors = [];
+  const seen = new Set();
+
+  profiles.forEach((profile) => {
+    const key = `${profile.collectionId}:${profile.cardId}`;
+    if (seen.has(key)) errors.push(`${key} possède plusieurs profils sensoriels.`);
+    seen.add(key);
+
+    const card = cards.get(key);
+    if (!card) {
+      errors.push(`${key} ne correspond à aucune carte canonique.`);
+      return;
+    }
+
+    if (profile.name !== card.name) errors.push(`${key} possède un nom désynchronisé avec la Brassopédie.`);
+    if (profile.collectionName !== card.collectionName) errors.push(`${key} possède un nom de collection désynchronisé.`);
+    if (JSON.stringify(profile.aliases || []) !== JSON.stringify(card.aliases || [])) {
+      errors.push(`${key} possède des alias désynchronisés.`);
+    }
+  });
+
+  cards.forEach((card, key) => {
+    if (!seen.has(key)) errors.push(`${key} ne possède aucun profil sensoriel explicite.`);
+  });
+
+  return errors;
+}
+
+function validateProfile(profile) {
   assert(profile.schemaVersion === SENSORY_PROFILE_SCHEMA_VERSION, `${profile.cardId} utilise une version de schéma non prise en charge.`);
   assert(profile.collectionId !== "bizarre-et-insolite", `La Collection 10 est interdite dans le référentiel sensoriel (${profile.cardId}).`);
   assert(allowedRoles.has(profile.role), `${profile.cardId} utilise un rôle inconnu : ${profile.role}.`);
 
   const key = `${profile.collectionId}:${profile.cardId}`;
-  const card = cards.get(key);
-  assert(card, `Carte introuvable : ${key}.`);
-  assert(profile.name === card.name, `${key} possède un nom désynchronisé avec la Brassopédie.`);
-  assert(profile.collectionName === card.collectionName, `${key} possède un nom de collection désynchronisé.`);
-  assert(JSON.stringify(profile.aliases || []) === JSON.stringify(card.aliases || []), `${key} possède des alias désynchronisés.`);
-
   ["source", "expert", "parentCardId"].forEach((legacyKey) => {
     assert(!Object.hasOwn(profile, legacyKey), `${key} contient encore le champ de migration ${legacyKey}.`);
   });
@@ -113,14 +136,13 @@ export async function buildSensoryPayload() {
   assert(cards.size === 251, `La Brassopédie classique doit contenir 251 cartes, reçu ${cards.size}.`);
   assert(sensoryProfiles.length === 251, `Le référentiel sensoriel doit contenir 251 profils statiques, reçu ${sensoryProfiles.length}.`);
 
-  const seen = new Set();
-  sensoryProfiles.forEach((profile) => {
-    const key = `${profile.collectionId}:${profile.cardId}`;
-    assert(!seen.has(key), `Profil sensoriel dupliqué : ${key}.`);
-    seen.add(key);
-    validateProfile(profile, cards);
-  });
-  cards.forEach((card, key) => assert(seen.has(key), `Carte classique sans profil sensoriel explicite : ${key}.`));
+  const identityErrors = collectIdentityErrors(sensoryProfiles, cards);
+  assert(
+    identityErrors.length === 0,
+    `Identités sensorielles désynchronisées (${identityErrors.length}) :\n- ${identityErrors.join("\n- ")}`
+  );
+
+  sensoryProfiles.forEach(validateProfile);
 
   const roleCounts = sensoryProfiles.reduce((counts, profile) => {
     counts[profile.role] = (counts[profile.role] || 0) + 1;
