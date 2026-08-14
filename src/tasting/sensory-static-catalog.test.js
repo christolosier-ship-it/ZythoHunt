@@ -248,17 +248,23 @@ test("Collection 9 — 28 appellations restent non scorables et les libellés n'
   assert.equal(profiles.filter(({ role }) => role === "excluded").length, 28);
   assert.equal(profiles.filter(({ role }) => role === "fallback").length, 2);
 
-  ["biere-dabbaye", "trappiste", "biere-artisanale-craft-beer", "biere-biologique-bio", "biere-de-garde", "biere-pur-malt", "biere-sans-gluten"].forEach((id) => {
+  ["biere-dabbaye", "trappiste", "biere-artisanale-craft-beer", "biere-biologique-bio", "biere-de-garde-mention-legale-francaise", "pur-malt", "biere-sans-gluten"].forEach((id) => {
     const profile = byId.get(id);
     assert.deepEqual(profile.nose, {}, id);
     assert.deepEqual(profile.palate, {}, id);
     assert.deepEqual(profile.structure, {}, id);
   });
 
+  assert.deepEqual(byId.get("trappiste").aliases, ["Trappist"]);
+  assert.deepEqual(byId.get("biere-artisanale-craft-beer").aliases, ["Bière artisanale", "Craft Beer"]);
+  assert.deepEqual(byId.get("biere-de-printemps-biere-de-mars").aliases, ["Bière de printemps", "Bière de mars", "Spring Beer"]);
+  assert.deepEqual(byId.get("quadruple").aliases, []);
+  assert.deepEqual(byId.get("panache").aliases, []);
+
   assert.deepEqual(byId.get("blonde").appearance.colors, ["paille", "dore"]);
   assert.deepEqual(byId.get("blonde").nose, {});
   assert.deepEqual(byId.get("biere-sans-alcool").structure.alcool, [0, 0]);
-  assert.deepEqual(byId.get("biere-0-0").structure.alcool, [0, 0]);
+  assert.deepEqual(byId.get("0-0-pourcent").structure.alcool, [0, 0]);
 
   const panache = byId.get("panache");
   const radler = byId.get("radler-shandy");
