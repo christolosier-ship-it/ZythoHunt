@@ -5,7 +5,9 @@ import { sensoryProfiles } from "../data/sensory/sensory-profiles.js";
 import { createSensoryMatcher } from "./sensory-matcher.js";
 
 const LAGER_COLLECTION_ID = "lagers-et-fermentations-basses";
+const PALE_IPA_COLLECTION_ID = "pale-ales-bitters-et-ipa";
 const lagerProfiles = sensoryProfiles.filter(({ collectionId }) => collectionId === LAGER_COLLECTION_ID);
+const paleIpaProfiles = sensoryProfiles.filter(({ collectionId }) => collectionId === PALE_IPA_COLLECTION_ID);
 
 test("le référentiel Dégustation contient exactement 251 profils statiques homogènes", () => {
   assert.equal(sensoryProfiles.length, 251);
@@ -59,13 +61,45 @@ test("les signatures étalons de la Collection 1 restent discriminantes", () => 
   assert.deepEqual(eisbock.structure.sucrosite, [4, 4]);
 });
 
+test("la Collection 2 possède 36 profils documentés sans faux caractère funky", () => {
+  assert.equal(paleIpaProfiles.length, 36);
+  paleIpaProfiles.forEach((profile) => {
+    assert.equal(profile.verification.status, "verified", profile.cardId);
+    assert.equal(profile.verification.reviewedAt, "2026-08-14", profile.cardId);
+    assert.ok(profile.verification.sources.length > 0, profile.cardId);
+    assert.equal(profile.nose?.["funky-cuir-ferme"], undefined, `${profile.cardId}: nez`);
+    assert.equal(profile.palate?.["funky-cuir-ferme"], undefined, `${profile.cardId}: bouche`);
+  });
+});
+
+test("les signatures étalons de la Collection 2 verrouillent les familles IPA", () => {
+  const byId = new Map(paleIpaProfiles.map((profile) => [profile.cardId, profile]));
+  const westCoast = byId.get("west-coast-ipa");
+  const hazy = byId.get("neipa-juicy-hazy-ipa");
+  const hazyDouble = byId.get("juicy-hazy-double-imperial-ipa");
+  const brut = byId.get("brut-ipa");
+  const bitter = byId.get("bitter");
+  const genericIpa = byId.get("ipa-india-pale-ale");
+
+  assert.deepEqual(westCoast.structure.sucrosite, [0, 0]);
+  assert.deepEqual(westCoast.structure.corps, [1, 1]);
+  assert.equal(westCoast.nose?.["caramel-toffee"], undefined);
+  assert.ok(hazy.structure.corps[1] < hazyDouble.structure.corps[1]);
+  assert.ok(hazy.structure.alcool[1] < hazyDouble.structure.alcool[1]);
+  assert.ok(hazy.structure.sucrosite[1] < hazyDouble.structure.sucrosite[1]);
+  assert.deepEqual(brut.structure.sucrosite, [0, 0]);
+  assert.deepEqual(brut.structure.carbonatation, [4, 4]);
+  assert.ok(bitter.structure.amertume[0] > 0);
+  assert.ok(genericIpa.structure.amertume[0] >= 3);
+});
+
 test("le build valide directement les 251 profils sans étape curated/derived", async () => {
   const payload = await buildSensoryPayload();
   assert.equal(payload.schemaVersion, 3);
   assert.equal(payload.totalCards, 251);
   assert.equal(payload.scorableCards, 223);
   assert.deepEqual(payload.roleCounts, { primary: 165, fallback: 29, overlay: 29, excluded: 28 });
-  assert.deepEqual(payload.verificationCounts, { pending: 206, verified: 45 });
+  assert.deepEqual(payload.verificationCounts, { pending: 170, verified: 81 });
   assert.ok(!Object.hasOwn(payload, "sourceCounts"));
 });
 
@@ -78,7 +112,6 @@ test("le matcher refuse explicitement un sous-catalogue de prototype", () => {
 
 test("les profils encore pending restent matérialisés jusqu'à leur revue documentaire", () => {
   const byId = new Map(sensoryProfiles.map((profile) => [profile.cardId, profile]));
-  assert.equal(byId.get("west-coast-ipa")?.verification?.status, "pending");
   assert.equal(byId.get("saison")?.verification?.status, "pending");
   assert.equal(byId.get("dry-stout-irish-dry-stout")?.verification?.status, "pending");
 });
