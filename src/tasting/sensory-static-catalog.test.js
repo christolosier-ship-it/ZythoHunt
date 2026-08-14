@@ -7,9 +7,20 @@ import { createSensoryMatcher } from "./sensory-matcher.js";
 const LAGER_COLLECTION_ID = "lagers-et-fermentations-basses";
 const PALE_IPA_COLLECTION_ID = "pale-ales-bitters-et-ipa";
 const PORTER_STOUT_COLLECTION_ID = "porters-stouts";
+const BELGIAN_FRENCH_COLLECTION_ID = "traditions-belges-et-francaises";
 const lagerProfiles = sensoryProfiles.filter(({ collectionId }) => collectionId === LAGER_COLLECTION_ID);
 const paleIpaProfiles = sensoryProfiles.filter(({ collectionId }) => collectionId === PALE_IPA_COLLECTION_ID);
 const porterStoutProfiles = sensoryProfiles.filter(({ collectionId }) => collectionId === PORTER_STOUT_COLLECTION_ID);
+const belgianFrenchProfiles = sensoryProfiles.filter(({ collectionId }) => collectionId === BELGIAN_FRENCH_COLLECTION_ID);
+
+function assertDocumentedCollection(profiles, expectedLength) {
+  assert.equal(profiles.length, expectedLength);
+  profiles.forEach((profile) => {
+    assert.equal(profile.verification.status, "verified", profile.cardId);
+    assert.equal(profile.verification.reviewedAt, "2026-08-14", profile.cardId);
+    assert.ok(profile.verification.sources.length > 0, profile.cardId);
+  });
+}
 
 test("le référentiel Dégustation contient exactement 251 profils statiques homogènes", () => {
   assert.equal(sensoryProfiles.length, 251);
@@ -32,11 +43,8 @@ test("aucun profil provisoire n'est présenté comme vérifié sans source", () 
 });
 
 test("la Collection 1 possède 45 profils documentés et aucun résidu funky positif", () => {
-  assert.equal(lagerProfiles.length, 45);
+  assertDocumentedCollection(lagerProfiles, 45);
   lagerProfiles.forEach((profile) => {
-    assert.equal(profile.verification.status, "verified", profile.cardId);
-    assert.equal(profile.verification.reviewedAt, "2026-08-14", profile.cardId);
-    assert.ok(profile.verification.sources.length > 0, profile.cardId);
     assert.equal(profile.nose?.["funky-cuir-ferme"], undefined, `${profile.cardId}: nez`);
     assert.equal(profile.palate?.["funky-cuir-ferme"], undefined, `${profile.cardId}: bouche`);
   });
@@ -64,11 +72,8 @@ test("les signatures étalons de la Collection 1 restent discriminantes", () => 
 });
 
 test("la Collection 2 possède 36 profils documentés sans faux caractère funky", () => {
-  assert.equal(paleIpaProfiles.length, 36);
+  assertDocumentedCollection(paleIpaProfiles, 36);
   paleIpaProfiles.forEach((profile) => {
-    assert.equal(profile.verification.status, "verified", profile.cardId);
-    assert.equal(profile.verification.reviewedAt, "2026-08-14", profile.cardId);
-    assert.ok(profile.verification.sources.length > 0, profile.cardId);
     assert.equal(profile.nose?.["funky-cuir-ferme"], undefined, `${profile.cardId}: nez`);
     assert.equal(profile.palate?.["funky-cuir-ferme"], undefined, `${profile.cardId}: bouche`);
   });
@@ -96,11 +101,8 @@ test("les signatures étalons de la Collection 2 verrouillent les familles IPA",
 });
 
 test("la Collection 3 possède 22 profils documentés sans résidu funky positif", () => {
-  assert.equal(porterStoutProfiles.length, 22);
+  assertDocumentedCollection(porterStoutProfiles, 22);
   porterStoutProfiles.forEach((profile) => {
-    assert.equal(profile.verification.status, "verified", profile.cardId);
-    assert.equal(profile.verification.reviewedAt, "2026-08-14", profile.cardId);
-    assert.ok(profile.verification.sources.length > 0, profile.cardId);
     assert.equal(profile.nose?.["funky-cuir-ferme"], undefined, `${profile.cardId}: nez`);
     assert.equal(profile.palate?.["funky-cuir-ferme"], undefined, `${profile.cardId}: bouche`);
   });
@@ -131,13 +133,45 @@ test("les signatures étalons de la Collection 3 séparent les grandes familles 
   assert.deepEqual(coffee.keyMarkers, ["cafe-torrefie"]);
 });
 
+test("la Collection 4 possède 17 profils documentés et réserve le funk aux styles qui l'autorisent", () => {
+  assertDocumentedCollection(belgianFrenchProfiles, 17);
+  const byId = new Map(belgianFrenchProfiles.map((profile) => [profile.cardId, profile]));
+  assert.equal(byId.get("belgian-pale-ale").nose?.["funky-cuir-ferme"], undefined);
+  assert.equal(byId.get("belgian-golden-strong-ale-belgian-strong-blonde-ale").nose?.["funky-cuir-ferme"], undefined);
+  assert.equal(byId.get("american-belgo-ale").nose?.["funky-cuir-ferme"], undefined);
+  assert.equal(byId.get("saison").nose?.["funky-cuir-ferme"], 1);
+  assert.equal(byId.get("specialty-saison").nose?.["funky-cuir-ferme"], 2);
+});
+
+test("les signatures étalons de la Collection 4 séparent Golden Strong, Tripel, Quadrupel et Saison", () => {
+  const byId = new Map(belgianFrenchProfiles.map((profile) => [profile.cardId, profile]));
+  const golden = byId.get("belgian-golden-strong-ale-belgian-strong-blonde-ale");
+  const tripel = byId.get("tripel");
+  const quadrupel = byId.get("quadrupel");
+  const saison = byId.get("saison");
+  const table = byId.get("belgian-table-beer");
+  const fruit = byId.get("belgian-fruit-beer");
+
+  assert.deepEqual(golden.structure.corps, [1, 1]);
+  assert.deepEqual(golden.structure.carbonatation, [4, 4]);
+  assert.ok((tripel.nose?.["poivre-epices-levure"] || 0) > (golden.nose?.["poivre-epices-levure"] || 0));
+  assert.deepEqual(quadrupel.structure.corps, [4, 4]);
+  assert.deepEqual(quadrupel.structure.alcool, [4, 4]);
+  assert.equal(quadrupel.nose?.["baies-raisin"], 3);
+  assert.deepEqual(saison.structure.sucrosite, [0, 0]);
+  assert.ok(saison.structure.amertume[1] >= 3);
+  assert.deepEqual(table.structure.alcool, [0, 0]);
+  assert.equal(fruit.role, "overlay");
+  assert.ok(fruit.keyMarkers.includes("fruits-rouges"));
+});
+
 test("le build valide directement les 251 profils sans étape curated/derived", async () => {
   const payload = await buildSensoryPayload();
   assert.equal(payload.schemaVersion, 3);
   assert.equal(payload.totalCards, 251);
   assert.equal(payload.scorableCards, 223);
   assert.deepEqual(payload.roleCounts, { primary: 165, fallback: 29, overlay: 29, excluded: 28 });
-  assert.deepEqual(payload.verificationCounts, { pending: 148, verified: 103 });
+  assert.deepEqual(payload.verificationCounts, { pending: 131, verified: 120 });
   assert.ok(!Object.hasOwn(payload, "sourceCounts"));
 });
 
@@ -150,6 +184,6 @@ test("le matcher refuse explicitement un sous-catalogue de prototype", () => {
 
 test("les profils encore pending restent matérialisés jusqu'à leur revue documentaire", () => {
   const byId = new Map(sensoryProfiles.map((profile) => [profile.cardId, profile]));
-  assert.equal(byId.get("saison")?.verification?.status, "pending");
   assert.equal(byId.get("weissbier-hefeweizen")?.verification?.status, "pending");
+  assert.equal(byId.get("gose")?.verification?.status, "pending");
 });
