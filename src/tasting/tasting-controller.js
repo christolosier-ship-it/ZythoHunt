@@ -16,6 +16,11 @@ export function createTastingController({
   let view = null;
   let viewPromise = null;
 
+  /**
+   * @param {string} message
+   * @param {"info" | "warning" | "error" | "success"} [tone]
+   * @param {number | null} [duration]
+   */
   function notice(message, tone = "info", duration = 6000) {
     onNotice?.({ message, tone, duration });
   }
