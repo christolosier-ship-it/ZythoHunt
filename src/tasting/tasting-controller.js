@@ -1,21 +1,15 @@
 import { createSensoryRuntime } from "./sensory-runtime.js";
 import { createTastingStore } from "./tasting-storage.js";
 
-function localAssetUrl(path) {
-  return new URL(String(path).replace(/^\//, ""), document.baseURI).href;
-}
-
 /**
  * @param {{
  *   root?: HTMLElement | null,
- *   fetchImpl?: typeof fetch,
  *   storage?: Storage | any,
  *   onNotice?: ((detail: { message: string, tone?: "info" | "warning" | "error" | "success", duration?: number | null }) => void) | null
  * }} [options]
  */
 export function createTastingController({
   root,
-  fetchImpl = globalThis.fetch?.bind(globalThis),
   storage = globalThis.localStorage,
   onNotice = null
 } = {}) {
@@ -31,10 +25,7 @@ export function createTastingController({
     onPersistenceError: () => notice("Le carnet de dégustation local n'est pas accessible sur cet appareil.", "warning", 8000)
   });
 
-  const sensoryRuntime = createSensoryRuntime({
-    indexUrl: localAssetUrl("beer-sensory-index.json"),
-    fetchImpl
-  });
+  const sensoryRuntime = createSensoryRuntime();
 
   async function matchDraft(draft) {
     return sensoryRuntime.match(draft);
