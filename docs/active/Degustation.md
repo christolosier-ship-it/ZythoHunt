@@ -97,9 +97,50 @@ Règles :
 - la validation build interdit de déclarer un profil `verified` sans source ;
 - la vérification sensorielle doit être faite style par style à partir de sources reconnues, et non par simple extrapolation de mots-clés.
 
-Les profils matérialisés lors de la refactorisation du 14 août 2026 sont donc marqués `pending` tant qu’ils n’ont pas été repris individuellement. Cette migration conserve le comportement existant du moteur, mais ne transforme pas artificiellement une dérivation historique en donnée sourcée.
+Les profils matérialisés lors de la refactorisation du 14 août 2026 restent `pending` jusqu’à leur reprise individuelle. Une collection ne passe donc pas à l’état documenté par simple héritage de l’ancienne dérivation.
 
-Les sources seront ajoutées progressivement au profil concerné. Les référentiels techniques reconnus, organismes brassicoles, documents historiques spécialisés et sources de première main pertinentes sont prioritaires. En cas de divergence sérieuse entre sources, le profil doit représenter l’intervalle défendable ou documenter l’incertitude au lieu d’inventer une précision.
+Les sources sont ajoutées au profil concerné. Les référentiels techniques reconnus, organismes brassicoles, documents historiques spécialisés et sources de première main pertinentes sont prioritaires. En cas de divergence sérieuse entre sources, le profil représente l’intervalle défendable ou documente l’incertitude au lieu d’inventer une précision.
+
+## Méthode de transposition documentaire
+
+Le référentiel Dégustation utilise un vocabulaire volontairement plus compact que les guides de styles. La conversion d’une source vers le profil doit rester explicite et reproductible.
+
+Pour les descripteurs aromatiques et gustatifs :
+
+| Formulation de la source | Intensité Dégustation |
+| --- | ---: |
+| absent / interdit | descripteur omis ou placé dans `contradictions` |
+| très faible / faible | `1` — discret |
+| moyen-faible / moyen | `2` — présent |
+| moyen-fort / fort / très fort | `3` — dominant |
+
+Pour les axes de structure :
+
+| Niveau qualitatif | Valeur Dégustation |
+| --- | ---: |
+| absent | `0` |
+| très faible / faible | `1` |
+| moyen | `2` |
+| moyen-fort / fort | `3` |
+| très fort / extrême | `4` |
+
+Une plage source devient une plage `[min,max]` sur cette même échelle. Lorsqu’une source ne permet pas de défendre une dimension, **la dimension est omise** : le moteur sait ignorer les valeurs non documentées et il est préférable d’avoir une information absente qu’une fausse précision.
+
+L’alcool du profil représente l’**alcool perçu**, pas une conversion mécanique de l’ABV. Il n’est donc renseigné à partir du degré alcoolique que lorsque la force ou la chaleur alcoolique fait explicitement partie de la description sensorielle du style.
+
+Les familles `fallback` peuvent volontairement couvrir une plage plus large que les styles `primary`. Leur rôle est de fournir une famille plausible lorsque les informations de dégustation restent générales, pas de copier une moyenne artificielle de leurs enfants.
+
+Un profil `verified` signifie ainsi : **profil relu contre une ou plusieurs sources identifiées et transposé selon ces règles**. Cela ne signifie pas que toute bière commerciale portant le nom du style doit présenter chaque marqueur au même niveau.
+
+### Sources de référence prioritaires
+
+Pour les styles classiques disposant d’une définition contemporaine, la revue privilégie :
+
+1. les **Brewers Association Beer Style Guidelines** dans leur édition courante ;
+2. les **BJCP Beer Style Guidelines 2021** lorsqu’ils définissent directement le style ou apportent une distinction utile ;
+3. les organismes, associations, archives ou sources de première main pertinents pour les styles locaux, historiques ou non couverts par ces deux référentiels.
+
+La Collection 1 a été revue le **14 août 2026** principalement à partir des Brewers Association 2026 Beer Style Guidelines et du BJCP 2021. Cette passe a notamment supprimé les faux marqueurs issus de l’ancienne dérivation automatique, comme `funky-cuir-ferme` utilisé positivement dans des lagers propres.
 
 ## Rôles de matching
 
@@ -121,6 +162,21 @@ La répartition actuelle est :
 | **Total** | **251** |
 
 Le rôle n’est pas une différence de qualité ou de traitement documentaire. Un `excluded` doit être vérifié et sourcé avec la même rigueur qu’un `primary`.
+
+## État de la revue documentaire
+
+| Collection | Profils | Vérifiés | En attente |
+| --- | ---: | ---: | ---: |
+| 1 — Lagers et fermentations basses | 45 | **45** | 0 |
+| 2 — Pale Ales, Bitters et IPA | 36 | 0 | 36 |
+| 3 — Porters & Stouts | 22 | 0 | 22 |
+| 4 — Traditions belges & françaises | 17 | 0 | 17 |
+| 5 — Blé & seigle | 13 | 0 | 13 |
+| 6 — Acides, sauvages & spontanées | 21 | 0 | 21 |
+| 7 — Ales ambrées, brunes, maltées & fortes | 27 | 0 | 27 |
+| 8 — Styles singuliers, historiques & hybrides | 40 | 0 | 40 |
+| 9 — Appellations commerciales | 30 | 0 | 30 |
+| **Total** | **251** | **45** | **206** |
 
 ## Validation build
 
@@ -213,19 +269,21 @@ Les tests vérifient notamment :
 - CRUD et erreurs de persistance du carnet ;
 - parcours principal Playwright et contrôles axe.
 
-Les anciens duels de styles du prototype 40 ne sont plus présentés comme validation du catalogue 251. Ils sont réintroduits progressivement, style par style, lorsque les profils concernés ont été vérifiés et sourcés.
+La revue de la Collection 1 ajoute des garde-fous dédiés : les 45 lagers doivent toutes être `verified`, aucune ne peut réintroduire `funky-cuir-ferme` comme caractère positif, et plusieurs signatures étalons verrouillent les distinctions Helles/Pils, West Coast Pils, Dunkel/Schwarzbier et Eisbock.
+
+Les anciens duels de styles du prototype 40 ne sont plus présentés comme validation du catalogue 251. Des comparaisons de styles sont réintroduites progressivement lorsque les profils concernés ont été vérifiés et sourcés.
 
 ## Travail documentaire restant
 
 La refactorisation structurelle ne vaut pas validation scientifique des données héritées.
 
-Le chantier suivant consiste à reprendre **les 251 profils, collection par collection**, afin de :
+Le chantier restant porte sur **206 profils** des Collections 2 à 9. Pour chaque collection :
 
 1. rechercher les sources de référence ;
 2. comparer les valeurs du profil existant aux sources ;
 3. corriger le profil si nécessaire ;
 4. renseigner les sources ;
 5. passer `verification.status` à `verified` ;
-6. ajouter ou ajuster les tests de duels lorsque la correction peut modifier le classement.
+6. ajouter ou ajuster les tests de discrimination lorsque la correction peut modifier le classement.
 
-L’objectif final est simple : **251 profils explicites, 251 profils vérifiés, 251 profils sourcés**.
+L’objectif final reste simple : **251 profils explicites, 251 profils vérifiés, 251 profils sourcés**.
