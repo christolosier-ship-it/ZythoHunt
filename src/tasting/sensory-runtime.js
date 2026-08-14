@@ -1,12 +1,10 @@
-import { sensoryProfiles as curatedSensoryProfiles } from "../data/sensory/sensory-profiles.js";
-import { deriveSensoryProfiles } from "../data/sensory/sensory-profile-derivation.js";
-import { ensureOverlayKeyMarker } from "../data/sensory/sensory-overlay-fallbacks.js";
-import { getSensoryRole } from "../data/sensory/sensory-role-map.js";
+import { normalizeBeerName } from "../discovery/normalize-text.js";
+import { sensoryProfiles as bundledSensoryProfiles } from "../data/sensory/sensory-profiles.js";
 import { createSensoryMatcher } from "./sensory-matcher.js";
 import { compareTastingToProfile } from "./tasting-comparison.js";
 
 function validatePayload(payload) {
-  if (!payload || payload.schemaVersion !== 2) throw new Error("Version d'index sensoriel non prise en charge.");
+  if (!payload || payload.schemaVersion !== 3) throw new Error("Version d'index sensoriel non prise en charge.");
   if (payload.totalCards !== 251 || !Array.isArray(payload.profiles) || payload.profiles.length !== 251) {
     throw new Error(`Index sensoriel incomplet : ${payload?.profiles?.length || 0}/251 profils.`);
   }
@@ -16,44 +14,21 @@ function validatePayload(payload) {
   return payload;
 }
 
-async function deriveFromBundles(collectionCatalog, loadCollectionBundle) {
-  if (!loadCollectionBundle) throw new Error("Aucun fallback de collections n'est disponible.");
-  const entries = collectionCatalog.filter(({ collection }) => collection?.id !== "bizarre-et-insolite");
-  const bundles = await Promise.all(entries.map(async ({ collection }) => ({
-    collection,
-    bundle: await loadCollectionBundle(collection.id)
-  })));
-  const cards = bundles.flatMap(({ collection, bundle }) => (bundle.cards || []).map((card) => ({
-    collectionId: collection.id,
-    collectionName: collection.name || collection.nom || collection.id,
-    cardId: card.id,
-    id: card.id,
-    name: card.name,
-    aliases: card.aliases || [],
-    brassopedie: card.brassopedie
-  })));
-  if (cards.length !== 251) throw new Error(`Fallback sensoriel incomplet : ${cards.length}/251 cartes.`);
-  return deriveSensoryProfiles({ cards, curatedProfiles: [...curatedSensoryProfiles], getRole: getSensoryRole })
-    .map(ensureOverlayKeyMarker)
-    .map((profile) => {
-      const card = cards.find((entry) => entry.collectionId === profile.collectionId && entry.cardId === profile.cardId);
-      return { ...profile, name: card?.name || profile.cardId, collectionName: card?.collectionName || profile.collectionId, aliases: card?.aliases || [] };
-    });
+function styleSearchTerms(profile) {
+  return [
+    normalizeBeerName(profile.name),
+    ...(profile.aliases || []).map(normalizeBeerName)
+  ].filter(Boolean);
 }
 
 /**
- * @param {{
- *   indexUrl: string,
- *   fetchImpl?: typeof fetch,
- *   collectionCatalog?: any[],
- *   loadCollectionBundle?: ((collectionId: string) => Promise<any>) | null
- * }} options
+ * Charge le catalogue sensoriel statique. L'index JSON reste le chemin privilégié pour
+ * l'offline/cache ; le fallback est exactement le même catalogue embarqué dans le module,
+ * jamais une reconstruction heuristique depuis les fiches Brassopédie.
  */
 export function createSensoryRuntime({
   indexUrl,
-  fetchImpl = globalThis.fetch?.bind(globalThis),
-  collectionCatalog = [],
-  loadCollectionBundle = null
+  fetchImpl = globalThis.fetch?.bind(globalThis)
 }) {
   let profiles = null;
   let matcher = null;
@@ -64,20 +39,22 @@ export function createSensoryRuntime({
     if (profiles) return profiles;
     if (!loadPromise) {
       loadPromise = (async () => {
+        let rarity = null;
         try {
           if (!fetchImpl) throw new Error("fetch indisponible");
           const response = await fetchImpl(indexUrl, { cache: "force-cache" });
           if (!response.ok) throw new Error(`Index sensoriel indisponible (${response.status}).`);
           const payload = validatePayload(await response.json());
           profiles = payload.profiles;
+          rarity = payload.rarity || null;
           source = "index";
         } catch (error) {
-          console.warn("Sensory runtime index fallback", error);
-          profiles = await deriveFromBundles(collectionCatalog, loadCollectionBundle);
-          source = "bundles";
+          console.warn("Sensory runtime static catalog fallback", error);
+          profiles = bundledSensoryProfiles;
+          source = "bundled-catalog";
         }
         if (profiles.length !== 251) throw new Error(`Le moteur exige 251 profils, reçu ${profiles.length}.`);
-        matcher = createSensoryMatcher({ profiles });
+        matcher = createSensoryMatcher({ profiles, rarity });
         return profiles;
       })().catch((error) => {
         loadPromise = null;
@@ -101,6 +78,26 @@ export function createSensoryRuntime({
     return profiles?.find((profile) => profile.collectionId === collectionId && profile.cardId === cardId) || null;
   }
 
+  async function searchStyles(query = "", { limit = 12 } = {}) {
+    const currentProfiles = await ensureProfiles();
+    const normalized = normalizeBeerName(query);
+    const matches = normalized
+      ? currentProfiles.filter((profile) => styleSearchTerms(profile).some((term) => term.includes(normalized)))
+      : currentProfiles;
+    return matches
+      .map(({ collectionId, collectionName, cardId, name, aliases, role, verification }) => ({
+        collectionId,
+        collectionName,
+        cardId,
+        name,
+        aliases,
+        role,
+        verification
+      }))
+      .sort((a, b) => a.name.localeCompare(b.name, "fr"))
+      .slice(0, limit);
+  }
+
   function compareToStyle(tasting, style) {
     if (!style?.collectionId || !style?.cardId) {
       return { available: false, summary: "Aucun style Brassopédie n’est lié à cette dégustation." };
@@ -113,9 +110,18 @@ export function createSensoryRuntime({
       loaded: Boolean(profiles),
       totalProfiles: profiles?.length || 0,
       scorableProfiles: profiles?.filter(({ role }) => role !== "excluded").length || 0,
+      verifiedProfiles: profiles?.filter(({ verification }) => verification?.status === "verified").length || 0,
       source
     };
   }
 
-  return { ensureProfiles, ensureMatcher, match, findProfile, compareToStyle, getStatus };
+  return {
+    ensureProfiles,
+    ensureMatcher,
+    match,
+    searchStyles,
+    findProfile,
+    compareToStyle,
+    getStatus
+  };
 }

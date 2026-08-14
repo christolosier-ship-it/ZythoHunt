@@ -29,7 +29,9 @@ Chaque collection possède :
 
 Les dix fichiers Brassopédie sont les sources éditoriales de vérité. Il n'existe plus de registre eager parallèle ni de jeu de cartes prototype.
 
-Le domaine Dégustation possède en complément un référentiel calculable dans `src/data/sensory/sensory-profiles.js`. Ce fichier est canonique uniquement pour les signatures utilisées par le moteur de correspondance ; il ne remplace ni ne patch les textes éditoriaux des fiches Brassopédie. La liaison entre les deux domaines repose exclusivement sur les `collectionId` et `cardId` stables.
+Le domaine Dégustation possède en complément un référentiel statique de 251 signatures dans `src/data/sensory/`. Les modules de `src/data/sensory/catalog/`, organisés par collection et découpés lorsque nécessaire pour rester lisibles, portent les données utilisées par le moteur et `sensory-profiles.js` ne fait que les agréger. Les 40 profils du prototype initial n'ont plus de statut particulier. La liaison avec la Brassopédie repose sur les `collectionId` et `cardId` stables.
+
+Chaque profil sensoriel porte également son statut de vérification documentaire. Une signature ne peut être déclarée `verified` sans source explicite et date de revue.
 
 ## Flux ZythoSphère
 
@@ -50,7 +52,8 @@ saisie d'un style ou alias
 ```text
 ouverture de Dégustation
 → import dynamique du contrôleur
-→ chargement du petit index de styles
+→ chargement de beer-sensory-index.json
+→ fallback éventuel vers le même catalogue statique embarqué
 → parcours libre ou à l'aveugle
 → profil sensoriel local
 → moteur pur de correspondance
@@ -85,7 +88,7 @@ Le démarrage ne charge que la collection active et les modules nécessaires à 
 
 Les vues secondaires Badges, Réglages, Dégustation et bibliothèque Brassopédie chargent leur JavaScript et leur CSS à leur première ouverture. Pour Réglages, le contrôleur, le gestionnaire d'import/export et les outils PWA restent eux aussi derrière cet import dynamique ; seules les petites préférences nécessaires au démarrage et aux notifications sont chargées au boot.
 
-Dégustation réutilise `beer-search-index.json` pour son sélecteur de styles. Cet index léger couvre les cartes classiques recherchables et est déjà précaché par le service worker. Si l'index local n'est exceptionnellement pas disponible, le contrôleur peut reconstruire la liste en chargeant les bundles classiques à la demande.
+Dégustation utilise son propre `beer-sensory-index.json`, qui porte à la fois les signatures de matching et les métadonnées légères nécessaires au sélecteur de styles. Il ne réutilise plus `beer-search-index.json` et ne charge plus les neuf bundles classiques pour reconstruire une liste parallèle. Si l'index sensoriel est indisponible, le runtime utilise le même catalogue statique embarqué.
 
 Les images du carrousel sont préchargées par fenêtre de miniatures ; l'image HD d'une carte n'est demandée que lorsqu'elle doit être inspectée.
 
@@ -105,17 +108,21 @@ L'ambiance du fond peut être complète, allégée ou statique. Ces modes module
 
 ## Dégustation et moteur sensoriel
 
-`src/tasting/sensory-score.js` et `src/tasting/sensory-matcher.js` forment un noyau métier pur : ils reçoivent un profil utilisateur et un référentiel, puis retournent un classement, une confiance qualitative, des éléments d'explication et des overlays.
+`src/tasting/sensory-score.js` et `src/tasting/sensory-matcher.js` forment un noyau métier pur : ils reçoivent un profil utilisateur et le catalogue complet, puis retournent un classement, une confiance qualitative, des éléments d'explication et des overlays.
 
 Ils n'accèdent ni au DOM, ni au stockage, ni aux badges, ni à la navigation.
 
-Le pilote V1 comprend 40 profils : 37 `primary`, un `fallback` et deux `overlay`. La Collection 10 est explicitement interdite dans cet index. `scripts/generate-sensory-index.mjs` valide au build les références de cartes, le vocabulaire, les rôles et les invariants du pilote avant de générer un artefact déterministe.
+Le référentiel comporte exactement 251 profils statiques : 165 `primary`, 29 `fallback`, 29 `overlay` et 28 `excluded`. La Collection 10 est explicitement interdite. `scripts/generate-sensory-index.mjs` valide au build les références de cartes, le vocabulaire, les rôles, les métadonnées documentaires et l'absence des anciennes couches de migration.
+
+Il n'existe plus de reconstruction `40 curated + 211 derived`, de raffinements experts exécutés après dérivation ni de fallback runtime qui réanalyse les textes Brassopédie. `beer-sensory-index.json` est seulement une projection générée du catalogue statique.
+
+Le matcher exige le catalogue complet de 251 profils et refuse explicitement un ancien sous-ensemble de prototype.
 
 Une valeur non renseignée est toujours ignorée par le calcul. Elle ne devient jamais une valeur nulle ou une absence sensorielle artificielle.
 
 Les overlays sont évalués séparément du classement principal. Ils peuvent donc compléter un style, jamais le remplacer.
 
-Le détail du contrat fonctionnel et des tests se trouve dans `docs/active/Degustation.md`.
+Le détail du contrat fonctionnel, du statut documentaire et des tests se trouve dans `docs/active/Degustation.md`.
 
 ## Persistance, sauvegarde et remise à zéro
 
@@ -138,3 +145,5 @@ Aucun compte, serveur applicatif ou stockage cloud n'est nécessaire au fonction
 ## Garde-fou anti-spaghetti
 
 `src/app/app-runtime.js` reste l'orchestrateur général, mais ne doit pas devenir l'implémentation détaillée de chaque feature. Badges, Réglages et Dégustation disposent de leurs contrôleurs propres. Le runtime reste responsable de la composition, de la navigation et du cycle de session.
+
+Pour Dégustation, les données sensorielle sont statiques et explicites ; le build valide et projette, mais ne fabrique pas de nouveaux profils. Toute évolution sensorielle doit modifier le profil concerné et, lorsqu'elle est documentée, sa provenance.

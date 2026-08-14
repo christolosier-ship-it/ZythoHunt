@@ -1,6 +1,6 @@
 # Dégustation
 
-Statut : **actif — V1**
+Statut : **actif — V1, référentiel sensoriel en cours de validation documentaire**
 
 ## Intention produit
 
@@ -13,7 +13,7 @@ Deux états restent distincts :
 
 Une même carte peut correspondre à plusieurs dégustations. Le carnet conserve donc des événements indépendants et non un simple booléen « déjà goûté ».
 
-La V1 reste volontairement personnelle, locale et non compétitive : aucune note communautaire, aucun classement social et aucun badge de dégustation.
+La V1 reste personnelle, locale et non compétitive : aucune note communautaire, aucun classement social et aucun badge de dégustation.
 
 ## Parcours utilisateur
 
@@ -31,7 +31,7 @@ Le parcours comporte six étapes :
 5. **Mon verdict** : réaction personnelle, note facultative et souvenir libre ;
 6. **Le résultat** : pistes de styles, signatures supplémentaires et comparaison avec une fiche Brassopédie liée.
 
-Le parcours doit rester praticable en environ une à trois minutes. Les champs sensoriels sont facultatifs : une réponse non renseignée signifie **inconnue**, jamais zéro ni absence.
+Les champs sensoriels sont facultatifs : une réponse non renseignée signifie **inconnue**, jamais zéro ni absence.
 
 ## Modèle et stockage
 
@@ -43,204 +43,193 @@ La persistance locale est centralisée par `src/tasting/tasting-storage.js` sous
 zythohunt.tastings.v1
 ```
 
-Le store contient :
+Le carnet reste indépendant de la progression ZythoSphère. L’export/import global l’inclut, la remise à zéro de progression le conserve et la remise à zéro complète le supprime.
+
+## Référentiel sensoriel : contrat actuel
+
+Le prototype initial de 40 profils est terminé. Il n’existe plus comme couche métier particulière.
+
+Le moteur utilise désormais **un seul catalogue statique de 251 profils**, correspondant aux 251 cartes classiques des Collections 1 à 9 :
 
 ```text
-TastingStore
-├── schemaVersion
-├── items
-│   └── <id>: Tasting
-└── order[]
+src/data/sensory/
+├── sensory-profiles.js
+├── sensory-profile-schema.js
+├── sensory-role-map.js
+└── catalog/
+    ├── lagers-*.js
+    ├── pale-ales-bitters-ipa-*.js
+    ├── porters-stouts.js
+    ├── traditions-belges-francaises.js
+    ├── ble-seigle.js
+    ├── acides-sauvages-spontanees.js
+    ├── ales-ambrees-brunes-fortes-*.js
+    ├── singuliers-historiques-hybrides-*.js
+    └── appellations-commerciales.js
 ```
 
-Une dégustation conserve notamment :
+Les 40 profils du pilote et les 211 profils qui avaient été dérivés sont maintenant matérialisés sous **le même schéma**, dans les mêmes fichiers de collection et avec les mêmes règles de validation.
+
+Les notions techniques de migration `curated`, `derived`, `expert` et `parentCardId` ne font plus partie du catalogue final.
+
+La Collection 10 — Bizarre et insolite reste volontairement exclue du moteur sensoriel classique.
+
+## Règle documentaire obligatoire
+
+Un profil sensoriel n’est considéré comme **vérifié** que lorsqu’il possède des sources explicites et une date de revue.
+
+Chaque profil porte :
 
 ```text
-Tasting
-├── id
-├── createdAt / updatedAt / tastedAt
-├── beer
-│   ├── name
-│   └── brewery
-├── blind
-├── style?
-│   ├── collectionId
-│   ├── cardId
-│   └── name?
-├── appearance
-├── nose
-├── palate
-├── structure
-├── finish[]
-└── verdict
+verification
+├── status      pending | verified
+├── reviewedAt
+└── sources[]
+    ├── label
+    └── url
 ```
 
-Les photos ne font pas partie de la V1 afin de ne pas stocker de données binaires dans `localStorage`.
+Règles :
 
-### Réglages et sauvegardes
+- `pending` signifie que la valeur est disponible comme base de travail mais **n’est pas encore réputée vérifiée** ;
+- `verified` exige au moins une source documentaire explicite ;
+- une source doit être identifiable et accessible en HTTPS ;
+- la date de revue est obligatoire pour un profil vérifié ;
+- la validation build interdit de déclarer un profil `verified` sans source ;
+- la vérification sensorielle doit être faite style par style à partir de sources reconnues, et non par simple extrapolation de mots-clés.
 
-`src/storage/app-data-manager.js` traite le carnet comme une donnée ZythoHunt :
+Les profils matérialisés lors de la refactorisation du 14 août 2026 sont donc marqués `pending` tant qu’ils n’ont pas été repris individuellement. Cette migration conserve le comportement validé du moteur, mais ne transforme pas artificiellement une dérivation historique en donnée sourcée.
 
-- l’export JSON l’inclut ;
-- l’import valide sa structure avant toute suppression ;
-- **Réinitialiser la progression** conserve les dégustations ;
-- **Remettre ZythoHunt entièrement à zéro** supprime le carnet ;
-- aucune opération n’utilise `localStorage.clear()`.
+Les sources seront ajoutées progressivement au profil concerné. Les référentiels techniques reconnus, organismes brassicoles, documents historiques spécialisés et sources de première main pertinentes sont prioritaires. En cas de divergence sérieuse entre sources, le profil doit représenter l’intervalle défendable ou documenter l’incertitude au lieu d’inventer une précision.
 
-## Référentiel sensoriel
+## Rôles de matching
 
-Le référentiel du moteur se trouve dans :
+Les 251 profils partagent le même schéma, mais toutes les cartes ne jouent pas le même rôle dans une identification à l’aveugle :
+
+- `primary` : style suffisamment défini pour constituer un résultat principal ;
+- `fallback` : famille ou catégorie large pouvant remonter lorsque le profil reste général ;
+- `overlay` : signature transversale qui complète un style principal sans le remplacer ;
+- `excluded` : carte encyclopédique dont l’appellation ne peut pas être déduite de manière fiable par la seule dégustation.
+
+La répartition actuelle est :
+
+| Rôle | Profils |
+| --- | ---: |
+| `primary` | 165 |
+| `fallback` | 29 |
+| `overlay` | 29 |
+| `excluded` | 28 |
+| **Total** | **251** |
+
+Le rôle n’est pas une différence de qualité ou de traitement documentaire. Un `excluded` doit être vérifié et sourcé avec la même rigueur qu’un `primary`.
+
+## Build et index runtime
+
+`scripts/build-sensory-payload.mjs` valide directement les 251 profils statiques.
+
+Il contrôle notamment :
+
+- exactement 251 profils et 251 clés `collectionId + cardId` uniques ;
+- correspondance exacte avec les 251 cartes classiques ;
+- absence de Collection 10 ;
+- rôles autorisés ;
+- vocabulaire des descripteurs et finales ;
+- plages de structure ;
+- marqueurs obligatoires des overlays ;
+- absence des anciens champs de migration ;
+- métadonnées documentaires cohérentes ;
+- source obligatoire pour tout profil déclaré `verified`.
+
+`scripts/generate-sensory-index.mjs` génère ensuite :
 
 ```text
-src/data/sensory/sensory-profiles.js
+public/beer-sensory-index.json
 ```
 
-Ce fichier est la **source de vérité du domaine de correspondance sensorielle**. Il ne remplace pas les fiches éditoriales de la Brassopédie et ne constitue pas un patch d’enrichissement de leur contenu.
+Cet index n’est pas une seconde base sensorielle. C’est la **projection runtime** du même catalogue statique.
 
-Les responsabilités sont séparées :
+Le runtime essaie d’abord de lire cet index afin de profiter du cache PWA. Si l’index est indisponible ou d’une version incompatible, il retombe sur le catalogue statique embarqué. Il ne reconstruit plus les profils depuis les neuf bundles Brassopédie et n’exécute plus de règles heuristiques de dérivation.
 
-- `src/data/brassopedie/collection-XX-*.js` reste la source éditoriale canonique pour les textes, données historiques et techniques des cartes ;
-- `src/data/sensory/sensory-profiles.js` porte uniquement les signatures normalisées nécessaires au calcul ;
-- la liaison se fait par `collectionId` + `cardId` stables.
+## Recherche de styles
 
-Cette séparation évite de dupliquer des paragraphes encyclopédiques dans le moteur tout en gardant un référentiel calculable, testable et versionnable.
+Dégustation ne maintient plus un second catalogue de styles issu de `beer-search-index.json`.
 
-### Pilote V1
+Les noms, collections et alias nécessaires au sélecteur sont portés par les mêmes 251 profils sensoriels. Le runtime Dégustation fournit donc directement :
 
-Le pilote contient exactement **40 profils** :
+```text
+catalogue sensoriel
+├── matching
+├── comparaison
+└── recherche de style
+```
 
-- **37 `primary`** : styles pouvant être classés comme résultat principal ;
-- **1 `fallback`** : `radler-shandy`, catégorie large pouvant remonter lorsque le profil reste plus générique ;
-- **2 `overlay`** : `coffee-beer` et `wood-and-barrel-aged-beer`, signatures transversales qui se superposent à un style de base.
-
-La Collection 10 — Bizarre et insolite est explicitement exclue du référentiel sensoriel V1.
-
-## Génération et validation de l’index
-
-`scripts/generate-sensory-index.mjs` vérifie au build :
-
-- que le pilote contient exactement 40 profils ;
-- que le nombre de rôles correspond au contrat 37 / 1 / 2 ;
-- que chaque `collectionId` et `cardId` pointe vers une vraie carte classique ;
-- qu’aucun profil de Collection 10 ne fuit dans l’index ;
-- que descripteurs, axes, finales et plages utilisent le vocabulaire autorisé ;
-- qu’aucun profil n’est dupliqué.
-
-Le script génère `src/data/sensory/generated-sensory-index.js` comme artefact de validation déterministe. Le runtime utilise le référentiel sensoriel léger et l’index de recherche existant `public/beer-search-index.json` pour afficher les noms de styles sans charger toutes les fiches encyclopédiques.
+`beer-search-index.json` reste utilisé par la ZythoSphère pour sa propre recherche inter-collections.
 
 ## Moteur de correspondance
 
-Le moteur est volontairement pur :
+Le noyau reste volontairement pur :
 
 ```text
 profil utilisateur
 +
-référentiel sensoriel
+251 profils sensoriels
 ↓
-classement + confiance + explications + overlays
+score
+↓
+classement + confiance + overlays
 ```
 
-Il ne connaît ni les badges, ni la progression, ni le DOM, ni la navigation, ni le stockage.
+`src/tasting/sensory-score.js` calcule les similarités et pénalités. `src/tasting/sensory-matcher.js` orchestre le classement.
 
-### Pondérations
+Le matcher refuse explicitement un sous-catalogue : lui fournir les 40 anciens profils ou tout autre ensemble incomplet est une erreur.
 
-Les familles de signaux utilisent actuellement les poids suivants :
+Les valeurs non renseignées restent ignorées. Elles ne deviennent jamais zéro.
 
-| Groupe | Poids |
-| --- | ---: |
-| Apparence | 15 |
-| Nez | 25 |
-| Bouche aromatique | 25 |
-| Amertume / sucrosité / acidité | 15 |
-| Corps / carbonatation / alcool | 10 |
-| Finale | 10 |
-
-Les marqueurs aromatiques rares reçoivent une pondération de type fréquence inverse : un couple très discriminant comme banane + girofle porte davantage qu’un marqueur répandu comme céréale.
-
-Les contradictions explicites réduisent le score d’un candidat. Aucun score négatif, `NaN` ou `Infinity` n’est exposé.
-
-### Confiance
-
-La confiance est volontairement qualitative :
-
-- **Profil trop ambigu** ;
-- **Correspondance fragile** ;
-- **Correspondance plausible** ;
-- **Correspondance forte**.
-
-L’interface ne présente pas de pourcentage de « justesse » du palais. La dégustation n’est pas un examen.
-
-### Overlays
-
-Un overlay est calculé dans une voie séparée du classement principal. Il ne peut donc jamais remplacer le style de base.
-
-Exemple :
-
-```text
-Imperial Stout
-+
-Wood / Barrel-Aged Beer
-```
-
-Le premier décrit le style principal, le second une signature supplémentaire.
-
-## Comparaison avec la Brassopédie
-
-Lorsqu’une dégustation est liée à une carte possédant un profil sensoriel pilote, `src/tasting/tasting-comparison.js` produit une explication non normative :
-
-- repères retrouvés ;
-- repères classiques non relevés ;
-- éventuelles sensations supplémentaires ;
-- finale commune.
-
-Les formulations décrivent des correspondances, jamais une réussite ou un échec du dégustateur.
+Les overlays sont évalués dans une voie séparée du classement principal : ils peuvent compléter un style, jamais le remplacer.
 
 ## Architecture du module
 
 ```text
 src/tasting/
-├── tasting-controller.js     # orchestration et chargement à la demande
-├── tasting-view.js           # écrans et interactions
-├── tasting.css               # responsive mobile / tablette / desktop
-├── tasting-model.js          # schéma et validation d’une dégustation
-├── tasting-storage.js        # CRUD local sûr
-├── tasting-comparison.js     # comparaison à une signature connue
-├── tasting-vocabulary.js     # vocabulaire sensoriel partagé
-├── sensory-score.js          # score pur d’un candidat
-└── sensory-matcher.js        # classement, confiance et overlays
+├── tasting-controller.js
+├── tasting-view.js
+├── tasting.css
+├── tasting-model.js
+├── tasting-storage.js
+├── tasting-comparison.js
+├── tasting-vocabulary.js
+├── sensory-runtime.js
+├── sensory-score.js
+└── sensory-matcher.js
 ```
 
-Dégustation est chargée dynamiquement lors de sa première ouverture depuis `app-runtime.js`. Le module ne doit pas regonfler le chemin critique du démarrage.
+Le contrôleur Dégustation orchestre la vue, le carnet et le runtime sensoriel. Il ne charge plus les bundles de collections pour reconstruire un catalogue parallèle.
 
-## Tests d’acceptation
+## Tests de garde-fou
 
-Le moteur pilote est protégé par :
+Les tests vérifient notamment :
 
-- 8 signatures étalons ;
-- 24 cas de duels entre styles voisins ;
-- cas ambigus et données manquantes ;
-- rareté des marqueurs ;
-- fallback Radler / Shandy ;
-- overlays café et bois ;
-- invariants d’exclusion de la Collection 10 ;
-- déterminisme du classement ;
-- contrôle des bornes numériques.
+- présence des 251 profils statiques ;
+- unicité des 251 clés ;
+- absence des champs `source`, `expert` et `parentCardId` ;
+- impossibilité de déclarer un profil vérifié sans source ;
+- refus d’un catalogue réduit à 40 profils ;
+- conservation des scénarios de matching existants ;
+- fallback runtime vers exactement le même catalogue statique ;
+- CRUD et erreurs de persistance du carnet ;
+- parcours principal Playwright et contrôles axe.
 
-Le stockage est couvert pour le CRUD, les échecs d’écriture, l’export/import et les deux niveaux de remise à zéro.
+## Travail documentaire restant
 
-Playwright couvre le parcours principal, la persistance après rechargement et le mode à l’aveugle. Les écrans sont également contrôlés avec axe-core.
+La refactorisation structurelle ne vaut pas validation scientifique des données héritées.
 
-## Hors périmètre V1
+Le chantier suivant consiste à reprendre **les 251 profils, collection par collection**, afin de :
 
-Sont volontairement différés :
+1. rechercher les sources de référence ;
+2. comparer les valeurs du profil existant aux sources ;
+3. corriger le profil si nécessaire ;
+4. renseigner les sources ;
+5. passer `verification.status` à `verified` ;
+6. ajouter ou ajuster les tests de duels lorsque la correction peut modifier le classement.
 
-- photos de dégustation ;
-- compte, cloud ou synchronisation ;
-- reconnaissance d’étiquette ;
-- notes communautaires ;
-- partage social ;
-- cave physique et gestion de stock ;
-- géolocalisation automatique ;
-- statistiques avancées « Mon palais » ;
-- badges liés aux dégustations ;
-- extension du référentiel sensoriel aux 251 cartes classiques avant validation du pilote.
+L’objectif final est simple : **251 profils explicites, 251 profils vérifiés, 251 profils sourcés**.

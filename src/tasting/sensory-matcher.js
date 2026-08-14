@@ -27,8 +27,12 @@ function qualitativeConfidence({ evidence, topScore, gap }) {
 function scoreCandidate(userProfile, candidate, rarity) {
   return {
     collectionId: candidate.collectionId,
+    collectionName: candidate.collectionName,
     cardId: candidate.cardId,
+    name: candidate.name,
+    aliases: candidate.aliases || [],
     role: candidate.role,
+    verification: candidate.verification,
     keyMarkers: candidate.keyMarkers || [],
     ...scoreSensoryProfile(userProfile, candidate, { rarity })
   };
@@ -77,6 +81,9 @@ function normalizeUserProfile(userProfile = {}) {
 }
 
 export function createSensoryMatcher({ profiles = sensoryProfiles, rarity = null } = {}) {
+  if (!Array.isArray(profiles) || profiles.length !== 251) {
+    throw new Error(`Le matcher exige le catalogue sensoriel complet de 251 profils, reçu ${profiles?.length || 0}.`);
+  }
   const safeProfiles = profiles.filter((profile) => profile?.collectionId !== "bizarre-et-insolite" && profile?.role !== "excluded");
   const rarityMap = rarity || computeDescriptorRarity(safeProfiles);
 
@@ -123,5 +130,5 @@ export function createSensoryMatcher({ profiles = sensoryProfiles, rarity = null
   return { match, profiles: safeProfiles, rarity: rarityMap };
 }
 
-export const sensoryMatcher = createSensoryMatcher({ rarity: DEFAULT_RARITY });
+export const sensoryMatcher = createSensoryMatcher({ profiles: sensoryProfiles, rarity: DEFAULT_RARITY });
 export { normalizeUserProfile, qualitativeConfidence };
