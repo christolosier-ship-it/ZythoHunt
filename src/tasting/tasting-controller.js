@@ -5,8 +5,13 @@ import { createTastingStore } from "./tasting-storage.js";
  * @param {{
  *   root?: HTMLElement | null,
  *   storage?: Storage | any,
- *   onNotice?: ((detail: { message: string, tone?: "info" | "warning" | "error" | "success", duration?: number | null }) => void) | null
+ *   onNotice?: ((detail: { message: string, tone?: "info" | "warning" | "error" | "success", duration?: number | null }) => void) | null,
+ *   collectionCatalog?: any[],
+ *   loadCollectionBundle?: ((collectionId: string) => Promise<any>) | null
  * }} [options]
+ *
+ * `collectionCatalog` et `loadCollectionBundle` sont tolérés temporairement à la frontière
+ * d'appel pour compatibilité avec app-runtime, mais ne sont ni lus ni utilisés par Dégustation.
  */
 export function createTastingController({
   root,
