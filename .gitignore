@@ -50,7 +50,6 @@ Thumbs.db
 
 # Generated runtime indexes
 /public/beer-search-index.json
-/public/beer-sensory-index.json
 
 # Temporary local audit / asset staging
 .staging/
