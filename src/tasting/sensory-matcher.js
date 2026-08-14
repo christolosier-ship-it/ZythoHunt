@@ -1,10 +1,10 @@
-import { sensoryProfiles } from "../data/sensory/sensory-profiles.js";
 import { computeDescriptorRarity, countSensoryEvidence, scoreSensoryProfile } from "./sensory-score.js";
 
-const DEFAULT_RARITY = computeDescriptorRarity(sensoryProfiles);
+const STRUCTURE_AXES = Object.freeze(["amertume", "sucrosite", "acidite", "corps", "carbonatation", "alcool"]);
 
 function sortByScore(a, b) {
   if (b.score !== a.score) return b.score - a.score;
+  if (b._observedSpecificity !== a._observedSpecificity) return b._observedSpecificity - a._observedSpecificity;
   const left = `${a.collectionId}:${a.cardId}`;
   const right = `${b.collectionId}:${b.cardId}`;
   return left.localeCompare(right, "fr");
@@ -24,13 +24,42 @@ function qualitativeConfidence({ evidence, topScore, gap }) {
   return { id: "fragile", label: "Correspondance fragile" };
 }
 
+function observedStructureSpecificity(userProfile, candidate) {
+  let comparable = 0;
+  let specificity = 0;
+
+  STRUCTURE_AXES.forEach((axis) => {
+    const value = userProfile.structure?.[axis];
+    const range = candidate.structure?.[axis];
+    if (!Number.isFinite(value) || !Array.isArray(range) || range.length !== 2) return;
+    const [min, max] = range;
+    if (!Number.isFinite(min) || !Number.isFinite(max) || min > max) return;
+
+    comparable += 1;
+    if (value >= min && value <= max) specificity += 1 / (max - min + 1);
+  });
+
+  return comparable > 0 ? specificity / comparable : 0;
+}
+
+function stripRankingMetadata(entry) {
+  if (!entry) return entry;
+  const { _observedSpecificity, ...publicEntry } = entry;
+  return publicEntry;
+}
+
 function scoreCandidate(userProfile, candidate, rarity) {
   return {
     collectionId: candidate.collectionId,
+    collectionName: candidate.collectionName,
     cardId: candidate.cardId,
+    name: candidate.name,
+    aliases: candidate.aliases || [],
     role: candidate.role,
+    verification: candidate.verification,
     keyMarkers: candidate.keyMarkers || [],
-    ...scoreSensoryProfile(userProfile, candidate, { rarity })
+    ...scoreSensoryProfile(userProfile, candidate, { rarity }),
+    _observedSpecificity: observedStructureSpecificity(userProfile, candidate)
   };
 }
 
@@ -76,7 +105,17 @@ function normalizeUserProfile(userProfile = {}) {
   };
 }
 
-export function createSensoryMatcher({ profiles = sensoryProfiles, rarity = null } = {}) {
+/**
+ * @param {{
+ *   profiles?: readonly any[],
+ *   rarity?: Record<string, number> | null
+ * }} [options]
+ */
+export function createSensoryMatcher({ profiles, rarity = null } = {}) {
+  if (!Array.isArray(profiles) || profiles.length !== 251) {
+    throw new Error(`Le matcher exige le catalogue sensoriel complet de 251 profils, reçu ${profiles?.length || 0}.`);
+  }
+
   const safeProfiles = profiles.filter((profile) => profile?.collectionId !== "bizarre-et-insolite" && profile?.role !== "excluded");
   const rarityMap = rarity || computeDescriptorRarity(safeProfiles);
 
@@ -100,7 +139,7 @@ export function createSensoryMatcher({ profiles = sensoryProfiles, rarity = null
       .filter(({ role }) => role === "fallback")
       .map((candidate) => scoreCandidate(userProfile, candidate, rarityMap));
     const ranked = selectRankedCandidates(scoredPrimaries, scoredFallbacks);
-    const results = ranked.slice(0, Math.max(1, limit));
+    const results = ranked.slice(0, Math.max(1, limit)).map(stripRankingMetadata);
     const topScore = results[0]?.score || 0;
     const gap = Math.max(0, topScore - (results[1]?.score || 0));
 
@@ -109,7 +148,8 @@ export function createSensoryMatcher({ profiles = sensoryProfiles, rarity = null
       .filter((candidate) => hasKeyMarkerEvidence(userProfile, candidate))
       .map((candidate) => scoreCandidate(userProfile, candidate, rarityMap))
       .filter(({ score }) => score >= 48)
-      .sort(sortByScore);
+      .sort(sortByScore)
+      .map(stripRankingMetadata);
 
     return {
       profile: userProfile,
@@ -123,5 +163,4 @@ export function createSensoryMatcher({ profiles = sensoryProfiles, rarity = null
   return { match, profiles: safeProfiles, rarity: rarityMap };
 }
 
-export const sensoryMatcher = createSensoryMatcher({ rarity: DEFAULT_RARITY });
 export { normalizeUserProfile, qualitativeConfidence };

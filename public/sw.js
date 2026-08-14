@@ -19,7 +19,7 @@ try {
 
 const PRECACHE_URLS = Array.isArray(self.__ZYTHOHUNT_PRECACHE)
   ? self.__ZYTHOHUNT_PRECACHE
-  : ["./", "./offline.html", "./manifest.webmanifest", "./beer-search-index.json", "./beer-sensory-index.json"];
+  : ["./", "./offline.html", "./manifest.webmanifest", "./beer-search-index.json"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil((async () => {
@@ -131,8 +131,7 @@ self.addEventListener("fetch", (event) => {
   }
 
   if (["font", "manifest"].includes(request.destination)
-    || url.pathname.endsWith("/beer-search-index.json")
-    || url.pathname.endsWith("/beer-sensory-index.json")) {
+    || url.pathname.endsWith("/beer-search-index.json")) {
     event.respondWith(staleWhileRevalidateRuntime(request));
   }
 });
