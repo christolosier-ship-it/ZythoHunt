@@ -177,8 +177,6 @@ export async function bootApp(navigation) {
         .then(({ createTastingController }) => {
           tastingFeature = createTastingController({
             root: $("degustation-view"),
-            collectionCatalog,
-            loadCollectionBundle: (collectionId) => collectionManager.loadBundle(collectionId),
             onNotice: ({ message, tone, duration }) => showAppNotice({ message, tone, duration })
           });
           return tastingFeature;
