@@ -164,11 +164,6 @@ export function createTastingView({ root, controller } = {}) {
 
   function renderHome(page) {
     const snapshot = controller.getSnapshot();
-    page.append(createHero(
-      "Carnet personnel",
-      "Dégustation",
-      "Observe ton verre, mets des mots sur tes sensations et relie-les aux styles de la Brassopédie."
-    ));
 
     const launch = el("section", "tasting-launch" );
     const launchCopy = el("div", "tasting-launch-copy");
