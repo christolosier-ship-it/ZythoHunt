@@ -223,3 +223,171 @@ test("aucun score automatique ne produit NaN, Infinity ou une valeur hors bornes
     assert.ok(value >= 0 && value <= 100);
   });
 });
+
+const REAL_BEER_PILOT_CASES = Object.freeze([
+  {
+    beer: "Sierra Nevada Pale Ale",
+    targetFamily: "pale-ale",
+    targetStyle: "american-pale-ale",
+    references: [
+      "https://www.bjcp.org/style/2021/18/18B/american-pale-ale/",
+      "https://sierranevada.com/brews/pale-ale"
+    ],
+    profile: tasting({
+      color: "ambre",
+      clarity: "claire",
+      nose: { agrumes: 3, "resine-pin": 2, "caramel-toffee": 1 },
+      palate: { agrumes: 3, "resine-pin": 2, "caramel-toffee": 1 },
+      structure: { amertume: 2, sucrosite: 1, corps: 2, carbonatation: 2, alcool: 1 }
+    })
+  },
+  {
+    beer: "Russian River Blind Pig IPA",
+    targetFamily: "ipa-india-pale-ale",
+    targetStyle: "american-ipa",
+    references: [
+      "https://www.bjcp.org/style/2021/21/21A/american-ipa/",
+      "https://www.russianriverbrewing.com/brew/blind-pig-ipa/"
+    ],
+    profile: tasting({
+      color: "dore",
+      clarity: "claire",
+      nose: { agrumes: 3, "resine-pin": 3 },
+      palate: { agrumes: 3, "resine-pin": 3 },
+      structure: { amertume: 4, sucrosite: 0, corps: 2, carbonatation: 2, alcool: 2 },
+      finish: ["seche", "amere-persistante"]
+    })
+  },
+  {
+    beer: "Russian River Simcoe 25",
+    targetFamily: "ipa-india-pale-ale",
+    targetStyle: "west-coast-ipa",
+    references: [
+      "https://www.bjcp.org/style/2021/21/21A/american-ipa/",
+      "https://www.russianriverbrewing.com/brew/simcoe-25/"
+    ],
+    profile: tasting({
+      color: "dore",
+      clarity: "claire",
+      nose: { agrumes: 3, "resine-pin": 3 },
+      palate: { agrumes: 3, "resine-pin": 3 },
+      structure: { amertume: 4, sucrosite: 0, corps: 1, carbonatation: 2, alcool: 2 },
+      finish: ["seche", "amere-persistante"]
+    })
+  },
+  {
+    beer: "Russian River Pliny the Elder",
+    targetFamily: "ipa-india-pale-ale",
+    targetStyle: "double-imperial-ipa",
+    references: [
+      "https://www.bjcp.org/style/2021/22/22A/double-ipa/",
+      "https://www.russianriverbrewing.com/brew/pliny-the-elder/"
+    ],
+    profile: tasting({
+      color: "dore",
+      clarity: "claire",
+      nose: { agrumes: 3, "resine-pin": 3, "fruits-a-noyau": 2 },
+      palate: { agrumes: 3, "resine-pin": 3, "fruits-a-noyau": 2 },
+      structure: { amertume: 4, sucrosite: 1, corps: 2, carbonatation: 2, alcool: 3 },
+      finish: ["seche", "amere-persistante", "chaleureuse"]
+    })
+  },
+  {
+    beer: "Tree House Julius",
+    targetFamily: "ipa-india-pale-ale",
+    targetStyle: "neipa-juicy-hazy-ipa",
+    references: [
+      "https://www.bjcp.org/style/2021/21/21C/",
+      "https://treehousebrew.com/julius-ipa"
+    ],
+    profile: tasting({
+      color: "ambre",
+      clarity: "trouble",
+      nose: { agrumes: 3, "fruits-tropicaux": 3, "fruits-a-noyau": 2 },
+      palate: { agrumes: 3, "fruits-tropicaux": 3, "fruits-a-noyau": 2 },
+      structure: { amertume: 1, sucrosite: 1, corps: 3, carbonatation: 2, alcool: 2 },
+      finish: ["ronde"]
+    })
+  }
+]);
+
+function cloneTasting(profile) {
+  return {
+    appearance: { ...(profile.appearance || {}) },
+    nose: { ...(profile.nose || {}) },
+    palate: { ...(profile.palate || {}) },
+    structure: { ...(profile.structure || {}) },
+    finish: [...(profile.finish || [])]
+  };
+}
+
+function realBeerObservations(profile) {
+  const baseline = cloneTasting(profile);
+  const withoutClarity = cloneTasting(profile);
+  withoutClarity.appearance.clarity = undefined;
+
+  const descriptors = [...new Set([...Object.keys(profile.nose || {}), ...Object.keys(profile.palate || {})])];
+  const primaryDescriptor = descriptors[0];
+  const secondaryDescriptor = descriptors.at(-1);
+
+  const softerPrimary = cloneTasting(profile);
+  if (primaryDescriptor) {
+    if (Number.isFinite(softerPrimary.nose[primaryDescriptor])) {
+      softerPrimary.nose[primaryDescriptor] = Math.max(1, softerPrimary.nose[primaryDescriptor] - 1);
+    }
+    if (Number.isFinite(softerPrimary.palate[primaryDescriptor])) {
+      softerPrimary.palate[primaryDescriptor] = Math.max(1, softerPrimary.palate[primaryDescriptor] - 1);
+    }
+  }
+
+  const withoutSecondary = cloneTasting(profile);
+  if (secondaryDescriptor && secondaryDescriptor !== primaryDescriptor) {
+    delete withoutSecondary.nose[secondaryDescriptor];
+    delete withoutSecondary.palate[secondaryDescriptor];
+  }
+
+  const bodyJitter = cloneTasting(profile);
+  if (Number.isFinite(bodyJitter.structure.corps)) {
+    bodyJitter.structure.corps = Math.min(4, bodyJitter.structure.corps + 1);
+  } else if (Number.isFinite(bodyJitter.structure.amertume)) {
+    bodyJitter.structure.amertume = Math.max(0, bodyJitter.structure.amertume - 1);
+  }
+
+  return [baseline, withoutClarity, softerPrimary, withoutSecondary, bodyJitter];
+}
+
+function evaluateRealBeerCase(beerCase) {
+  const observations = realBeerObservations(beerCase.profile);
+  const rankings = observations.map((observation) => {
+    const result = matcher.match(observation, { limit: 3 });
+    return {
+      family: result.family?.cardId || null,
+      top3: result.styleCandidates.slice(0, 3).map(({ cardId }) => cardId),
+      scores: result.styleCandidates.slice(0, 3).map(({ cardId, score }) => `${cardId}:${score}`)
+    };
+  });
+  const familyHits = rankings.filter(({ family }) => family === beerCase.targetFamily).length;
+  const top1Hits = rankings.filter(({ top3 }) => top3[0] === beerCase.targetStyle).length;
+  const top3Hits = rankings.filter(({ top3 }) => top3.includes(beerCase.targetStyle)).length;
+
+  return {
+    observations: observations.length,
+    familyRate: familyHits / observations.length,
+    top1Rate: top1Hits / observations.length,
+    top3Rate: top3Hits / observations.length,
+    rankings
+  };
+}
+
+test("benchmark réel pilote : famille correcte et objectifs Top 1 / Top 3 par bière étalon", () => {
+  REAL_BEER_PILOT_CASES.forEach((beerCase) => {
+    const metrics = evaluateRealBeerCase(beerCase);
+    const diagnostic = `${beerCase.beer} → attendu ${beerCase.targetFamily}/${beerCase.targetStyle}; `
+      + `famille ${(metrics.familyRate * 100).toFixed(0)}%, Top1 ${(metrics.top1Rate * 100).toFixed(0)}%, `
+      + `Top3 ${(metrics.top3Rate * 100).toFixed(0)}%; classements ${JSON.stringify(metrics.rankings)}`;
+
+    assert.equal(metrics.familyRate, 1, diagnostic);
+    assert.ok(metrics.top1Rate >= 0.8, diagnostic);
+    assert.equal(metrics.top3Rate, 1, diagnostic);
+  });
+});
