@@ -207,13 +207,6 @@ export function createSettingsView({ root, controller } = {}) {
     root.replaceChildren();
 
     const page = el("div", "settings-page");
-    const hero = el("header", "settings-hero");
-    hero.append(
-      el("span", "settings-kicker", "Préférences locales"),
-      el("h1", "", "Réglages"),
-      el("p", "", "Ajuste l'expérience de chasse, les notifications et les données conservées sur cet appareil.")
-    );
-    page.appendChild(hero);
 
     const general = createSection("Général", "Quelques choix simples, sans cockpit de sous-marin.");
     const startup = createSettingRow({
