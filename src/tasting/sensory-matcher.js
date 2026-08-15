@@ -173,9 +173,9 @@ function buildBranches(scoredCandidates, taxonomy) {
   return [...branches.values()]
     .map((branch) => {
       const members = [...branch.members].sort(sortByScore);
-      const lead = members[0];
       const familyEntry = branch.family ? scoredByCardId.get(branch.family.cardId) || null : null;
       const styleEntries = members.filter((entry) => taxonomy.isStyle(taxonomy.byCardId.get(entry.cardId)));
+      const lead = styleEntries[0] || familyEntry || members[0] || null;
       return {
         ...branch,
         members,
