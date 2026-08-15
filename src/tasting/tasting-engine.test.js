@@ -380,14 +380,15 @@ function evaluateRealBeerCase(beerCase) {
 }
 
 test("benchmark réel pilote : famille correcte et objectifs Top 1 / Top 3 par bière étalon", () => {
-  REAL_BEER_PILOT_CASES.forEach((beerCase) => {
+  const diagnostics = REAL_BEER_PILOT_CASES.map((beerCase) => {
     const metrics = evaluateRealBeerCase(beerCase);
     const diagnostic = `${beerCase.beer} → attendu ${beerCase.targetFamily}/${beerCase.targetStyle}; `
       + `famille ${(metrics.familyRate * 100).toFixed(0)}%, Top1 ${(metrics.top1Rate * 100).toFixed(0)}%, `
       + `Top3 ${(metrics.top3Rate * 100).toFixed(0)}%; classements ${JSON.stringify(metrics.rankings)}`;
-
-    assert.equal(metrics.familyRate, 1, diagnostic);
-    assert.ok(metrics.top1Rate >= 0.8, diagnostic);
-    assert.equal(metrics.top3Rate, 1, diagnostic);
+    const passed = metrics.familyRate === 1 && metrics.top1Rate >= 0.8 && metrics.top3Rate === 1;
+    return { diagnostic, passed };
   });
+
+  const failures = diagnostics.filter(({ passed }) => !passed).map(({ diagnostic }) => diagnostic);
+  assert.deepEqual(failures, [], failures.join("\n\n"));
 });
