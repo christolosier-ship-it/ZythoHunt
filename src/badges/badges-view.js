@@ -370,8 +370,6 @@ export function createBadgesView({ root, badgeStore, badgeEngine, definitions = 
     const overview = el("header", "badges-overview");
     const heading = el("div", "badges-overview-copy");
     heading.append(
-      el("p", "badges-kicker", "Trophées brassicoles"),
-      el("h1", "", "Badges"),
       el("p", "badges-summary", `${unlockedCount} / ${definitions.length} débloqués · ${secretCount} secrets trouvés${newCount ? ` · ${newCount} nouveau${newCount > 1 ? "x" : ""}` : ""}`)
     );
 
