@@ -11,7 +11,7 @@ async function waitForApp(page) {
 async function openTasting(page) {
   await page.locator('[data-menu-view="degustation"]').click();
   await expect(page.locator("#degustation-view .tasting-page")).toBeVisible({ timeout: 15_000 });
-  await expect(page.locator("#degustation-view h1")).toContainText("Dégustation");
+  await expect(page.locator("#degustation-view .tasting-launch")).toBeVisible();
 }
 
 async function assertNoSeriousA11yViolations(page) {
