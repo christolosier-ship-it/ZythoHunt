@@ -29,7 +29,7 @@ Chaque collection possède :
 
 Les dix fichiers Brassopédie sont les sources éditoriales de vérité. Il n'existe plus de registre eager parallèle ni de jeu de cartes prototype.
 
-Le domaine Dégustation possède en complément un référentiel statique de 251 signatures dans `src/data/sensory/`. Les modules de `src/data/sensory/catalog/`, organisés par collection et découpés lorsque nécessaire pour rester lisibles, portent les données utilisées par le moteur et `sensory-profiles.js` ne fait que les agréger. Les 40 profils du prototype initial n'ont plus de statut particulier. La liaison avec la Brassopédie repose sur les `collectionId` et `cardId` stables.
+Le domaine Dégustation possède en complément **un seul référentiel canonique** : `src/data/sensory-profiles.js`. Il contient les 251 signatures statiques, regroupées visuellement par collection dans le même fichier. Les 40 profils du prototype initial n'ont plus de statut particulier et il n'existe aucun agrégateur, fragment `PartN` ou sous-catalogue sensoriel parallèle. La liaison avec la Brassopédie repose sur les `collectionId` et `cardId` stables.
 
 Chaque profil sensoriel porte également son statut de vérification documentaire. Une signature ne peut être déclarée `verified` sans source explicite et date de revue.
 
@@ -51,8 +51,7 @@ saisie d'un style ou alias
 
 ```text
 ouverture de Dégustation
-→ import dynamique du contrôleur
-→ chargement du catalogue sensoriel statique 251
+→ import dynamique du contrôleur et de son catalogue statique 251
 → parcours libre ou à l'aveugle
 → profil sensoriel local
 → moteur pur de correspondance
@@ -66,7 +65,7 @@ Le moteur ne modifie jamais la progression, les badges ou les découvertes. Une 
 ## Responsabilités principales
 
 - `src/app/` : composition runtime, navigation, changement de collection et cycle de session ;
-- `src/data/` : catalogue, bundles, règles de collections, sources Brassopédie et référentiel sensoriel ;
+- `src/data/` : catalogue, bundles, règles de collections, sources Brassopédie et référentiel sensoriel unique ;
 - `src/discovery/` : résolution des saisies, progression et registre des découvertes ;
 - `src/carousel/` : carrousel, snap, navigation et sélection des cartes ;
 - `src/components/` : structure DOM commune des cartes ;
@@ -87,7 +86,7 @@ Le démarrage ne charge que la collection active et les modules nécessaires à 
 
 Les vues secondaires Badges, Réglages, Dégustation et bibliothèque Brassopédie chargent leur JavaScript et leur CSS à leur première ouverture. Pour Réglages, le contrôleur, le gestionnaire d'import/export et les outils PWA restent eux aussi derrière cet import dynamique ; seules les petites préférences nécessaires au démarrage et aux notifications sont chargées au boot.
 
-Dégustation charge directement le catalogue sensoriel statique avec son contrôleur lazy. Le même référentiel sert au matching, à la recherche de styles et à la comparaison avec une fiche liée. Il ne réutilise pas `beer-search-index.json`, ne produit pas de second index sensoriel runtime et ne charge pas les neuf bundles classiques pour reconstruire une liste parallèle.
+Dégustation charge son contrôleur à la demande ; le contrôleur importe directement `src/data/sensory-profiles.js`. Le même tableau sert au matching, à la recherche de styles et à la comparaison avec une fiche liée. Il n'existe ni `sensory-runtime`, ni second index sensoriel, ni reconstruction à partir des neuf bundles classiques.
 
 Les images du carrousel sont préchargées par fenêtre de miniatures ; l'image HD d'une carte n'est demandée que lorsqu'elle doit être inspectée.
 
@@ -111,9 +110,9 @@ L'ambiance du fond peut être complète, allégée ou statique. Ces modes module
 
 Ils n'accèdent ni au DOM, ni au stockage, ni aux badges, ni à la navigation.
 
-Le référentiel comporte exactement 251 profils statiques : 165 `primary`, 29 `fallback`, 29 `overlay` et 28 `excluded`. La Collection 10 est explicitement interdite. `scripts/validate-sensory-catalog.mjs` valide au build les références de cartes, le vocabulaire, les rôles, les métadonnées documentaires et l'absence des anciennes couches de migration.
+Le référentiel `src/data/sensory-profiles.js` comporte exactement 251 profils statiques : 165 `primary`, 29 `fallback`, 29 `overlay` et 28 `excluded`. La Collection 10 est explicitement interdite. `scripts/validate-sensory-catalog.mjs` valide au build les références de cartes, le vocabulaire, les rôles et les métadonnées documentaires. Le script valide ; il ne fabrique aucun payload ni aucun profil.
 
-Il n'existe plus de reconstruction `40 curated + 211 derived`, de raffinements experts exécutés après dérivation, de cartographie de rôles parallèle ni de fallback runtime qui réanalyse les textes Brassopédie. Le build contrôle le catalogue, mais ne fabrique aucun profil sensoriel.
+Il n'existe plus de reconstruction `40 curated + 211 derived`, de raffinements experts exécutés après dérivation, de cartographie de rôles parallèle, de fallback runtime qui réanalyse les textes Brassopédie, ni de découpage du catalogue en fragments arbitraires.
 
 Le matcher exige le catalogue complet de 251 profils et refuse explicitement un ancien sous-ensemble de prototype.
 
@@ -145,4 +144,4 @@ Aucun compte, serveur applicatif ou stockage cloud n'est nécessaire au fonction
 
 `src/app/app-runtime.js` reste l'orchestrateur général, mais ne doit pas devenir l'implémentation détaillée de chaque feature. Badges, Réglages et Dégustation disposent de leurs contrôleurs propres. Le runtime reste responsable de la composition, de la navigation et du cycle de session.
 
-Pour Dégustation, les données sensorielles sont statiques et explicites ; le build valide, mais ne fabrique pas de nouveaux profils. Toute évolution sensorielle doit modifier le profil concerné et, lorsqu'elle est documentée, sa provenance.
+Pour Dégustation, les données sensorielles sont statiques et explicites dans **un seul fichier canonique**. Une séparation en nouveaux fichiers n'est justifiée que par une responsabilité métier réellement différente, jamais uniquement parce qu'un fichier de données est long. Le build valide le catalogue mais ne le transforme pas. Toute évolution sensorielle doit modifier le profil concerné et, lorsqu'elle est documentée, sa provenance.

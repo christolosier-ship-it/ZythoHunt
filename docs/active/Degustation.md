@@ -52,20 +52,10 @@ Le prototype initial de 40 profils est terminé. Il n’existe plus comme couche
 Le moteur utilise **un seul catalogue statique de 251 profils**, correspondant aux 251 cartes classiques des Collections 1 à 9 :
 
 ```text
-src/data/sensory/
-├── sensory-profiles.js
-├── sensory-profile-schema.js
-└── catalog/
-    ├── lagers-*.js
-    ├── pale-ales-bitters-ipa-*.js
-    ├── porters-stouts.js
-    ├── traditions-belges-francaises.js
-    ├── ble-seigle.js
-    ├── acides-sauvages-spontanees.js
-    ├── ales-ambrees-brunes-fortes-*.js
-    ├── singuliers-historiques-hybrides-*.js
-    └── appellations-commerciales.js
+src/data/sensory-profiles.js
 ```
+
+Les profils sont regroupés visuellement par collection à l’intérieur de ce fichier unique. Il n’existe plus de dossier `src/data/sensory/catalog/`, d’agrégateur, de fichier `Part1…PartN` ni de schéma runtime séparé.
 
 Les anciens concepts techniques `curated`, `derived`, `expert` et `parentCardId` ne font plus partie du catalogue. Les rôles de matching sont portés directement par chaque profil ; il n’existe plus de cartographie parallèle.
 
@@ -212,7 +202,7 @@ Ces profils sont **documentés mais ne reçoivent aucun arôme ou structure inve
 
 ## Validation build
 
-`scripts/build-sensory-payload.mjs` contrôle directement les 251 profils statiques et `scripts/validate-sensory-catalog.mjs` exécute cette validation avant `dev`, `build` et `check`.
+`scripts/validate-sensory-catalog.mjs` est l’unique validation structurelle du référentiel. Il s’exécute avant `dev`, `build` et `check` et ne génère aucun payload.
 
 La validation contrôle notamment :
 
@@ -231,7 +221,9 @@ Le build **ne fabrique, n’enrichit ni ne dérive aucun profil**.
 
 ## Runtime et recherche de styles
 
-Dégustation ne maintient plus de second catalogue de styles issu de `beer-search-index.json` et ne charge plus de fichier `beer-sensory-index.json`.
+Dégustation ne possède plus de couche `sensory-runtime`. Le contrôleur `src/tasting/tasting-controller.js`, chargé à la demande, importe directement `src/data/sensory-profiles.js`, instancie le matcher et utilise ce même catalogue pour la recherche et la comparaison.
+
+Dégustation ne maintient pas de second catalogue de styles issu de `beer-search-index.json` et ne charge pas de fichier `beer-sensory-index.json`.
 
 Les noms, collections, alias et signatures nécessaires sont portés par les mêmes 251 profils :
 
@@ -270,7 +262,14 @@ Les overlays sont évalués séparément du classement principal : ils peuvent c
 
 ## Tests de garde-fou
 
-Les tests vérifient notamment :
+Les tests sont regroupés par responsabilité :
+
+- `src/tasting/tasting-data.test.js` protège les 251 données, la documentation, les rôles et les discriminants par collection ;
+- `src/tasting/tasting-engine.test.js` protège scoring, matching, déterminisme, exclusions, fallback et overlays ;
+- `src/tasting/tasting-storage.test.js` protège le CRUD et les erreurs de persistance ;
+- `tests/e2e/tasting.spec.js` protège le parcours principal et l’accessibilité.
+
+Ils vérifient notamment :
 
 - présence et unicité des 251 profils ;
 - **251 profils `verified`, 0 `pending`** ;
@@ -281,7 +280,7 @@ Les tests vérifient notamment :
 - invariants documentaires propres à chaque collection ;
 - distinctions Helles/Pils, West Coast/Hazy/Double IPA, Porter/Stout, levures belges et bavaroises, Brett/acide, Scottish/Peated, fumée/bois/vieillissement ;
 - absence de pseudo-signature pour les appellations commerciales `excluded` ;
-- runtime branché directement sur le même catalogue statique ;
+- contrôleur branché directement sur le même catalogue statique ;
 - CRUD et erreurs de persistance du carnet ;
 - parcours principal Playwright et contrôles axe.
 
@@ -289,10 +288,11 @@ Les anciens duels du prototype 40 ne sont plus présentés comme validation scie
 
 ## Maintenance future
 
-Le chantier initial de vérification est terminé. La maintenance du référentiel suit désormais trois règles :
+Le chantier initial de vérification est terminé. La maintenance du référentiel suit désormais quatre règles :
 
 1. **réviser les profils lorsqu’une source de référence évolue**, en particulier lors d’une nouvelle édition des Brewers Association Beer Style Guidelines ;
 2. **ajouter des tests de discrimination lorsqu’une correction sensorielle modifie les frontières entre styles proches** ;
-3. **ne jamais réintroduire de dérivation automatique ou de précision non sourcée** pour remplir artificiellement un profil.
+3. **ne jamais réintroduire de dérivation automatique ou de précision non sourcée** pour remplir artificiellement un profil ;
+4. **ne pas redécouper le catalogue pour des raisons de longueur de fichier** : une nouvelle frontière de fichier doit correspondre à une responsabilité métier réelle.
 
 L’état de référence au 14 août 2026 est donc : **251 profils explicites, 251 profils vérifiés, 251 profils sourcés**.

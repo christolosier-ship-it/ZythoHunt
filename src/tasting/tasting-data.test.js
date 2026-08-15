@@ -1,7 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { buildSensoryPayload } from "../../scripts/build-sensory-payload.mjs";
-import { sensoryProfiles } from "../data/sensory/sensory-profiles.js";
+import { sensoryProfiles } from "../data/sensory-profiles.js";
 import { createSensoryMatcher } from "./sensory-matcher.js";
 
 const COLLECTIONS = Object.freeze({
@@ -39,6 +38,9 @@ function assertNoPositiveDescriptor(profiles, descriptorId) {
 
 test("le référentiel Dégustation contient exactement 251 profils statiques homogènes", () => {
   assert.equal(sensoryProfiles.length, 251);
+  assert.ok(Object.isFrozen(sensoryProfiles));
+  assert.ok(sensoryProfiles.every((profile) => Object.isFrozen(profile)));
+  assert.ok(sensoryProfiles.every((profile) => Object.isFrozen(profile.appearance)));
   const keys = new Set(sensoryProfiles.map(({ collectionId, cardId }) => `${collectionId}:${cardId}`));
   assert.equal(keys.size, 251);
   assert.ok(sensoryProfiles.every(({ schemaVersion }) => schemaVersion === 2));
@@ -53,6 +55,16 @@ test("les 251 profils sont vérifiés, datés et sourcés", () => {
   });
   assert.equal(sensoryProfiles.filter(({ verification }) => verification.status === "verified").length, 251);
   assert.equal(sensoryProfiles.filter(({ verification }) => verification.status === "pending").length, 0);
+});
+
+test("les rôles du catalogue restent inchangés", () => {
+  const roleCounts = sensoryProfiles.reduce((counts, profile) => {
+    counts[profile.role] = (counts[profile.role] || 0) + 1;
+    return counts;
+  }, { primary: 0, fallback: 0, overlay: 0, excluded: 0 });
+
+  assert.deepEqual(roleCounts, { primary: 165, fallback: 29, overlay: 29, excluded: 28 });
+  assert.equal(sensoryProfiles.length - roleCounts.excluded, 223);
 });
 
 test("Collection 1 — les Lagers restent propres et discriminantes", () => {
@@ -275,16 +287,6 @@ test("Collection 9 — 28 appellations restent non scorables et les libellés n'
   assert.equal(radler.nose.agrumes, 3);
   assert.deepEqual(radler.structure.alcool, [0, 1]);
   assert.deepEqual(radler.structure.carbonatation, [3, 4]);
-});
-
-test("le build valide 251 profils vérifiés sans étape curated/derived", async () => {
-  const payload = await buildSensoryPayload();
-  assert.equal(payload.schemaVersion, 3);
-  assert.equal(payload.totalCards, 251);
-  assert.equal(payload.scorableCards, 223);
-  assert.deepEqual(payload.roleCounts, { primary: 165, fallback: 29, overlay: 29, excluded: 28 });
-  assert.deepEqual(payload.verificationCounts, { pending: 0, verified: 251 });
-  assert.ok(!Object.hasOwn(payload, "sourceCounts"));
 });
 
 test("le matcher refuse explicitement un sous-catalogue de prototype", () => {
