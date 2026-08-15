@@ -1,10 +1,8 @@
 .app-view[data-app-view="badges"] { height:100%; overflow:hidden; background:linear-gradient(180deg,rgba(10,7,4,.16),rgba(10,7,4,.38)),radial-gradient(circle at 70% 12%,rgba(191,119,49,.07),transparent 34%); }
 .badges-shell { width:100%; height:100%; overflow-y:auto; overflow-x:hidden; max-width:1460px; margin:0 auto; padding:clamp(20px,3vw,38px) clamp(18px,3.4vw,54px) calc(42px + env(safe-area-inset-bottom)); color:#f8e6c4; -webkit-overflow-scrolling:touch; overscroll-behavior:contain; }
-.badges-overview { display:flex; align-items:end; justify-content:space-between; gap:clamp(24px,4vw,64px); padding-bottom:20px; border-bottom:1px solid rgba(226,160,73,.18); }
-.badges-kicker,.badges-dashboard-label,.badge-filter-label { color:#dba85e; font-size:.7rem; font-weight:700; letter-spacing:.13em; text-transform:uppercase; }
-.badges-kicker { margin:0 0 6px; }
-.badges-overview h1 { margin:0; color:#fff0d1; font-family:var(--font-serif); font-size:clamp(1.9rem,3.5vw,3.4rem); font-weight:600; line-height:1; }
-.badges-summary { margin:8px 0 0; color:rgba(231,207,170,.72); font-size:.88rem; }
+.badges-overview { display:flex; align-items:center; justify-content:space-between; gap:clamp(24px,4vw,64px); padding-bottom:20px; border-bottom:1px solid rgba(226,160,73,.18); }
+.badges-dashboard-label,.badge-filter-label { color:#dba85e; font-size:.7rem; font-weight:700; letter-spacing:.13em; text-transform:uppercase; }
+.badges-summary { margin:0; color:rgba(231,207,170,.72); font-size:.88rem; }
 .badges-global-progress { flex:0 0 min(320px,34%); display:grid; gap:8px; text-align:right; }
 .badges-global-progress strong { color:#efb46a; font-family:var(--font-serif); font-size:1.05rem; }
 .badges-global-progress-track,.badge-progress-track,.badges-objective-progress,.badge-detail-progress-track { position:relative; display:block; overflow:hidden; height:3px; background:rgba(255,255,255,.1); }

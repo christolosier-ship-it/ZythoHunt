@@ -6,33 +6,6 @@
   color: var(--text);
 }
 
-.settings-hero {
-  max-width: 1040px;
-  margin: 0 auto 20px;
-}
-
-.settings-kicker {
-  display: block;
-  margin-bottom: 5px;
-  color: var(--amber-light);
-  font: 700 .72rem/1.2 var(--font-body);
-  letter-spacing: .14em;
-  text-transform: uppercase;
-}
-
-.settings-hero h1 {
-  margin: 0;
-  font-family: var(--font-serif);
-  font-size: clamp(1.8rem, 4vw, 2.7rem);
-}
-
-.settings-hero p {
-  max-width: 720px;
-  margin: 8px 0 0;
-  color: var(--text-dim);
-  line-height: 1.5;
-}
-
 .settings-section {
   max-width: 1040px;
   margin: 0 auto 16px;
