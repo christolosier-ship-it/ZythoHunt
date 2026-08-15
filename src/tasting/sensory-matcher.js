@@ -2,6 +2,8 @@ import { computeDescriptorRarity, countSensoryEvidence, scoreSensoryProfile } fr
 import { createSensoryTaxonomy } from "./sensory-taxonomy.js";
 
 const STRUCTURE_AXES = Object.freeze(["amertume", "sucrosite", "acidite", "corps", "carbonatation", "alcool"]);
+const FAMILY_SUPPORT_WEIGHT = 0.15;
+const MAX_MISSING_KEY_MARKER_PENALTY = 12;
 
 function sortByScore(a, b) {
   if (b.score !== a.score) return b.score - a.score;
@@ -51,13 +53,39 @@ function observedStructureSpecificity(userProfile, candidate) {
   return comparable > 0 ? specificity / comparable : 0;
 }
 
+function selectedDescriptorIds(userProfile) {
+  return new Set([
+    ...Object.entries(userProfile.nose || {})
+      .filter(([, value]) => Number(value) > 0)
+      .map(([id]) => id),
+    ...Object.entries(userProfile.palate || {})
+      .filter(([, value]) => Number(value) > 0)
+      .map(([id]) => id)
+  ]);
+}
+
+function missingKeyMarkerPenalty(userProfile, candidate) {
+  const keyMarkers = [...new Set(candidate.keyMarkers || [])];
+  if (keyMarkers.length === 0) return 0;
+
+  const selected = selectedDescriptorIds(userProfile);
+  if (selected.size === 0) return 0;
+
+  const observed = keyMarkers.filter((id) => selected.has(id)).length;
+  const missingRatio = 1 - observed / keyMarkers.length;
+  const evidenceFactor = Math.min(1, selected.size / Math.max(2, keyMarkers.length));
+  return MAX_MISSING_KEY_MARKER_PENALTY * missingRatio * evidenceFactor;
+}
+
 function stripRankingMetadata(entry) {
   if (!entry) return entry;
-  const { _observedSpecificity, ...publicEntry } = entry;
+  const { _observedSpecificity, _keyMarkerPenalty, ...publicEntry } = entry;
   return publicEntry;
 }
 
 function scoreCandidate(userProfile, candidate, rarity) {
+  const sensoryScore = scoreSensoryProfile(userProfile, candidate, { rarity });
+  const markerPenalty = missingKeyMarkerPenalty(userProfile, candidate);
   return {
     collectionId: candidate.collectionId,
     collectionName: candidate.collectionName,
@@ -68,7 +96,9 @@ function scoreCandidate(userProfile, candidate, rarity) {
     parentPrincipalId: candidate.parentPrincipalId || null,
     verification: candidate.verification,
     keyMarkers: candidate.keyMarkers || [],
-    ...scoreSensoryProfile(userProfile, candidate, { rarity }),
+    ...sensoryScore,
+    score: Math.max(0, Math.round((sensoryScore.score - markerPenalty) * 10) / 10),
+    _keyMarkerPenalty: Math.round(markerPenalty * 10) / 10,
     _observedSpecificity: observedStructureSpecificity(userProfile, candidate)
   };
 }
@@ -115,6 +145,12 @@ function identity(profile) {
   };
 }
 
+function branchScore(lead, familyEntry) {
+  if (!lead) return 0;
+  if (!familyEntry || familyEntry.cardId === lead.cardId) return lead.score;
+  return Math.round((lead.score * (1 - FAMILY_SUPPORT_WEIGHT) + familyEntry.score * FAMILY_SUPPORT_WEIGHT) * 10) / 10;
+}
+
 function buildBranches(scoredCandidates, taxonomy) {
   const scoredByCardId = new Map(scoredCandidates.map((entry) => [entry.cardId, entry]));
   const branches = new Map();
@@ -147,8 +183,8 @@ function buildBranches(scoredCandidates, taxonomy) {
         lead,
         familyEntry,
         styleEntries,
-        score: lead?.score || 0,
-        _observedSpecificity: lead?._observedSpecificity || 0
+        score: branchScore(lead, familyEntry),
+        _observedSpecificity: 0
       };
     })
     .sort(sortByScore);
