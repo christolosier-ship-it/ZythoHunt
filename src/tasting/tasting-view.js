@@ -445,8 +445,12 @@ export function createTastingView({ root, controller } = {}) {
     const head = el("div", "tasting-match-head");
     const rankNode = el("span", "tasting-match-rank", label || (rank === 1 ? "Piste principale" : `Piste ${rank}`));
     const copy = el("div", "tasting-match-copy");
-    copy.append(el("h3", "", entry.name), el("p", "", entry.collectionName));
+    const context = [entry.family?.name, entry.collectionName].filter(Boolean).join(" · ");
+    copy.append(el("h3", "", entry.name), el("p", "", context));
     head.append(rankNode, copy);
+    if (Number.isFinite(entry.compatibility)) {
+      head.append(el("span", "tasting-match-rank", `${Math.round(entry.compatibility)} % compatible`));
+    }
     card.append(head);
     if (entry.matchedDescriptors?.length) {
       const markers = el("p", "tasting-match-markers", `Marqueurs partagés : ${entry.matchedDescriptors.slice(0, 4).map(getDescriptorLabel).join(" · ")}`);
@@ -507,30 +511,20 @@ export function createTastingView({ root, controller } = {}) {
       const family = el("section", "tasting-section");
       family.append(
         el("h3", "", matchResult.family.resolved ? "Famille identifiée" : "Famille probable"),
-        el("p", "tasting-step-copy", `${matchResult.familyConfidence.label}. Le moteur utilise cette branche pour chercher ensuite le style le plus précis.`),
+        el("p", "tasting-step-copy", `${matchResult.familyConfidence.label}. La famille reste le niveau principal ; les styles ci-dessous peuvent aussi faire apparaître une famille voisine lorsque les profils sensoriels se chevauchent.`),
         createMatchCard(matchResult.family, 1, "Famille")
       );
       body.append(family);
     }
 
-    if (matchResult.style) {
-      const style = el("section", "tasting-section");
-      style.append(
-        el("h3", "", "Style identifié"),
-        el("p", "tasting-step-copy", matchResult.styleConfidence.label),
-        createMatchCard(matchResult.style, 1, "Style")
-      );
-      body.append(style);
-    } else if (matchResult.styleCandidates.length) {
+    if (matchResult.styleCandidates.length) {
       const candidates = el("section", "tasting-section");
       candidates.append(
-        el("h3", "", matchResult.family ? "Style à préciser" : "Styles possibles"),
-        el("p", "tasting-step-copy", matchResult.family
-          ? "La famille est plus lisible que le style exact. Les candidats ci-dessous restent à départager."
-          : "Aucune famille n’est imposée à ces styles autonomes ; ils restent à départager.")
+        el("h3", "", matchResult.styleMatch.label),
+        el("p", "tasting-step-copy", `${matchResult.styleMatch.description} Les pourcentages indiquent une compatibilité sensorielle avec ce que tu as renseigné, pas une probabilité statistique.`)
       );
       const matches = el("div", "tasting-match-list");
-      matchResult.styleCandidates.forEach((entry, index) => matches.append(createMatchCard(entry, index + 1, `Style ${index + 1}`)));
+      matchResult.styleCandidates.forEach((entry, index) => matches.append(createMatchCard(entry, index + 1, `Top ${index + 1}`)));
       candidates.append(matches);
       body.append(candidates);
     }
