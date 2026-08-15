@@ -13,6 +13,14 @@ function sortByScore(a, b) {
   return left.localeCompare(right, "fr");
 }
 
+function sortBranches(a, b) {
+  if (b.score !== a.score) return b.score - a.score;
+  if (b._observedSpecificity !== a._observedSpecificity) return b._observedSpecificity - a._observedSpecificity;
+  const left = a.lead ? `${a.lead.collectionId}:${a.lead.cardId}` : a.key;
+  const right = b.lead ? `${b.lead.collectionId}:${b.lead.cardId}` : b.key;
+  return left.localeCompare(right, "fr");
+}
+
 function qualitativeConfidence({ evidence, topScore, gap }) {
   if (evidence < 2 || topScore < 20) {
     return { id: "ambiguous", label: "Profil trop ambigu" };
@@ -186,7 +194,7 @@ function buildBranches(scoredCandidates, taxonomy) {
         _observedSpecificity: lead?._observedSpecificity || 0
       };
     })
-    .sort(sortByScore);
+    .sort(sortBranches);
 }
 
 function publicBranch(branch, taxonomy) {
