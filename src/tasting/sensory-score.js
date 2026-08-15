@@ -156,13 +156,16 @@ export function countSensoryEvidence(userProfile = {}) {
   return count;
 }
 
-/** @param {readonly any[]} profiles */
+/**
+ * Calcule la rareté sur le jeu de candidats fourni par l'appelant.
+ * Le choix des candidats relève désormais de la taxonomie, pas d'un rôle de matching.
+ * @param {readonly any[]} profiles
+ */
 export function computeDescriptorRarity(profiles = []) {
-  const eligible = profiles.filter((profile) => profile?.role === "primary" || profile?.role === "fallback");
-  const total = Math.max(1, eligible.length);
+  const total = Math.max(1, profiles.length);
   const frequency = {};
 
-  eligible.forEach((profile) => {
+  profiles.forEach((profile) => {
     const ids = new Set([...Object.keys(profile.nose || {}), ...Object.keys(profile.palate || {})]);
     ids.forEach((id) => { frequency[id] = (frequency[id] || 0) + 1; });
   });

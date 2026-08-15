@@ -29,9 +29,7 @@ Chaque collection possède :
 
 Les dix fichiers Brassopédie sont les sources éditoriales de vérité. Il n'existe plus de registre eager parallèle ni de jeu de cartes prototype.
 
-Le domaine Dégustation possède en complément **un seul référentiel canonique** : `src/data/sensory-profiles.js`. Il contient les 251 signatures statiques, regroupées visuellement par collection dans le même fichier. Les 40 profils du prototype initial n'ont plus de statut particulier et il n'existe aucun agrégateur, fragment `PartN` ou sous-catalogue sensoriel parallèle. La liaison avec la Brassopédie repose sur les `collectionId` et `cardId` stables.
-
-Chaque profil sensoriel porte également son statut de vérification documentaire. Une signature ne peut être déclarée `verified` sans source explicite et date de revue.
+Le domaine Dégustation possède en complément **un seul référentiel canonique** : `src/data/sensory-profiles.js`. Il contient les 251 profils statiques des Collections 1 à 9, sans sous-catalogue privilégié des 40 profils pilotes. Chaque profil porte directement sa nature taxonomique `F / S / SS / T / A / R`, son éventuel `parentPrincipalId` et son statut de vérification documentaire. `type` et `parentPrincipalId` sont synchronisés avec les cartes canoniques au build ; aucune table de rôles ou de filiation parallèle n'est maintenue.
 
 ## Flux ZythoSphère
 
@@ -54,8 +52,11 @@ ouverture de Dégustation
 → import dynamique du contrôleur et de son catalogue statique 251
 → parcours libre ou à l'aveugle
 → profil sensoriel local
-→ moteur pur de correspondance
-→ classement qualitatif + overlays
+→ scoring sensoriel commun
+→ regroupement en branches taxonomiques
+→ identification de la famille
+→ identification éventuelle du style dans la famille
+→ signatures transversales
 → association facultative à une carte
 → persistance dans le carnet local
 ```
@@ -72,7 +73,7 @@ Le moteur ne modifie jamais la progression, les badges ou les découvertes. Une 
 - `src/reveal/` et `src/animation/` : cycle de révélation et animations GSAP ;
 - `src/brassopedie/` : panneau de fiche et bibliothèque encyclopédique ;
 - `src/badges/` : définitions, moteur, statistiques, stockage, notifications et contrôleur de feature ;
-- `src/tasting/` : modèle, stockage, vocabulaire, moteur sensoriel, comparaison, contrôleur et vue Dégustation ;
+- `src/tasting/` : modèle, stockage, vocabulaire, taxonomie sensorielle, scoring, matching hiérarchique, comparaison, contrôleur et vue Dégustation ;
 - `src/settings/` : préférences, politique d'expérience, contrôleur et vue Réglages ;
 - `src/background/` : fond liquide, profils d'ambiance et transitions de collection ;
 - `src/storage/` : primitives communes de persistance et gestionnaire central des données ZythoHunt ;
@@ -86,7 +87,7 @@ Le démarrage ne charge que la collection active et les modules nécessaires à 
 
 Les vues secondaires Badges, Réglages, Dégustation et bibliothèque Brassopédie chargent leur JavaScript et leur CSS à leur première ouverture. Pour Réglages, le contrôleur, le gestionnaire d'import/export et les outils PWA restent eux aussi derrière cet import dynamique ; seules les petites préférences nécessaires au démarrage et aux notifications sont chargées au boot.
 
-Dégustation charge son contrôleur à la demande ; le contrôleur importe directement `src/data/sensory-profiles.js`. Le même tableau sert au matching, à la recherche de styles et à la comparaison avec une fiche liée. Il n'existe ni `sensory-runtime`, ni second index sensoriel, ni reconstruction à partir des neuf bundles classiques.
+Dégustation charge son contrôleur à la demande ; le contrôleur importe directement `src/data/sensory-profiles.js`. Le même tableau sert au matching, à la recherche de cartes et à la comparaison avec une fiche liée. La taxonomie est lue depuis `type` et `parentPrincipalId` déjà présents dans ces profils ; le runtime n'importe pas les neuf encyclopédies pour reconstruire l'arbre.
 
 Les images du carrousel sont préchargées par fenêtre de miniatures ; l'image HD d'une carte n'est demandée que lorsqu'elle doit être inspectée.
 
@@ -106,11 +107,19 @@ L'ambiance du fond peut être complète, allégée ou statique. Ces modes module
 
 ## Dégustation et moteur sensoriel
 
-`src/tasting/sensory-score.js` et `src/tasting/sensory-matcher.js` forment un noyau métier pur : ils reçoivent un profil utilisateur et le catalogue complet, puis retournent un classement, une confiance qualitative, des éléments d'explication et des overlays.
+`src/tasting/sensory-score.js`, `src/tasting/sensory-taxonomy.js` et `src/tasting/sensory-matcher.js` forment le noyau métier pur de Dégustation :
+
+- `sensory-score.js` calcule les similarités et pénalités sans connaître la taxonomie ;
+- `sensory-taxonomy.js` parcourt les relations `type` / `parentPrincipalId` sans calculer de score ;
+- `sensory-matcher.js` regroupe les profils en branches, identifie la famille, puis cherche le style le plus précis défendable et les signatures transversales.
 
 Ils n'accèdent ni au DOM, ni au stockage, ni aux badges, ni à la navigation.
 
-Le référentiel `src/data/sensory-profiles.js` comporte exactement 251 profils statiques : 165 `primary`, 29 `fallback`, 29 `overlay` et 28 `excluded`. La Collection 10 est explicitement interdite. `scripts/validate-sensory-catalog.mjs` valide au build les références de cartes, le vocabulaire, les rôles et les métadonnées documentaires. Le script valide ; il ne fabrique aucun payload ni aucun profil.
+Le référentiel `src/data/sensory-profiles.js` comporte exactement 251 profils statiques en schéma v3. Le champ historique `role` a disparu. Les 30 cartes `A/R` de la Collection 9 restent recherchables et associables manuellement, mais ne participent pas au matching automatique. Les cartes `T` et leurs descendants taxonomiques alimentent le canal des signatures. La Collection 10 est explicitement hors du moteur sensoriel classique.
+
+La famille n'est plus un fallback : elle constitue un niveau réel du diagnostic. Un style identifié transporte sa filiation ; si les descendants restent insuffisamment discriminés, le moteur peut s'arrêter au niveau famille. Les styles sans ancêtre `F` restent autonomes et aucune famille artificielle n'est créée.
+
+`scripts/validate-sensory-catalog.mjs` contrôle au build les 251 identités, le vocabulaire, les métadonnées documentaires, la synchronisation de `type` et `parentPrincipalId`, l'existence des parents et l'absence de cycle. Le script valide ; il ne fabrique aucun payload ni aucun profil.
 
 Il n'existe plus de reconstruction `40 curated + 211 derived`, de raffinements experts exécutés après dérivation, de cartographie de rôles parallèle, de fallback runtime qui réanalyse les textes Brassopédie, ni de découpage du catalogue en fragments arbitraires.
 
@@ -118,7 +127,7 @@ Le matcher exige le catalogue complet de 251 profils et refuse explicitement un 
 
 Une valeur non renseignée est toujours ignorée par le calcul. Elle ne devient jamais une valeur nulle ou une absence sensorielle artificielle.
 
-Les overlays sont évalués séparément du classement principal. Ils peuvent donc compléter un style, jamais le remplacer.
+Cette refonte ne calibre volontairement pas les poids, les valeurs des profils, les formules de similarité, les pénalités ni les seuils numériques. Ce cadrage famille/style constitue l'étape suivante.
 
 Le détail du contrat fonctionnel, du statut documentaire et des tests se trouve dans `docs/active/Degustation.md`.
 
@@ -144,4 +153,4 @@ Aucun compte, serveur applicatif ou stockage cloud n'est nécessaire au fonction
 
 `src/app/app-runtime.js` reste l'orchestrateur général, mais ne doit pas devenir l'implémentation détaillée de chaque feature. Badges, Réglages et Dégustation disposent de leurs contrôleurs propres. Le runtime reste responsable de la composition, de la navigation et du cycle de session.
 
-Pour Dégustation, les données sensorielles sont statiques et explicites dans **un seul fichier canonique**. Une séparation en nouveaux fichiers n'est justifiée que par une responsabilité métier réellement différente, jamais uniquement parce qu'un fichier de données est long. Le build valide le catalogue mais ne le transforme pas. Toute évolution sensorielle doit modifier le profil concerné et, lorsqu'elle est documentée, sa provenance.
+Pour Dégustation, les données sensorielles sont statiques et explicites dans **un seul fichier canonique**. `type` et `parentPrincipalId` y portent directement la structure utile au matcher : aucune table parallèle de rôle ou de filiation ne doit être réintroduite. `sensory-taxonomy.js` est une vue pure de cet arbre, pas une deuxième source de vérité. Une séparation en nouveaux fichiers n'est justifiée que par une responsabilité métier réellement différente. Le build valide le catalogue mais ne le transforme pas. Toute évolution sensorielle doit modifier le profil concerné et, lorsqu'elle est documentée, sa provenance.

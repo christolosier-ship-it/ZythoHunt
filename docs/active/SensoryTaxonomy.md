@@ -1,65 +1,122 @@
-# Taxonomie sensorielle des 251 cartes classiques
+# Taxonomie sensorielle de Dégustation
 
-Statut : **cartographie V1 active**
+Statut : **active — modèle hiérarchique aligné sur la Brassopédie**
 
 ## But
 
-Cette cartographie prépare l'extension du moteur Dégustation au-delà des 40 profils pilotes sans transformer les 251 cartes de la Brassopédie en concurrents artificiellement équivalents.
+Dégustation utilise directement la taxonomie canonique des 251 cartes classiques :
 
-Chaque carte classique reçoit exactement un rôle algorithmique :
+- `F` : famille ou niveau taxonomique générique ;
+- `S` : style reconnu ;
+- `SS` : sous-style ou variante reconnue ;
+- `T` : catégorie transversale reconnue ;
+- `A` : appellation commerciale ou d'usage ;
+- `R` : dénomination, mention ou certification encadrée ;
+- `parentPrincipalId` : relation vers le parent taxonomique principal.
 
-- **primary** : style suffisamment autonome pour être candidat principal ;
-- **fallback** : famille large, utile lorsque plusieurs descendants restent indifférenciables ;
-- **overlay** : signature transversale qui se superpose à un style de base ;
-- **excluded** : carte encyclopédique dont le sens commercial, légal ou contextuel ne peut pas être déduit de façon fiable par la seule dégustation.
+Ces informations sont portées directement par chaque profil de `src/data/sensory-profiles.js` et validées contre les cartes canoniques. Il n'existe aucune table de filiation parallèle.
 
-La Collection 10 reste hors de ce référentiel.
+## Principe de matching
 
-## Répartition V1
+La famille n'est pas un résultat de secours et le style n'est pas un concurrent de sa famille.
 
-| Rôle | Nombre |
-| --- | ---: |
-| primary | 165 |
-| fallback | 29 |
-| overlay | 29 |
-| excluded | 28 |
-| **Total** | **251** |
+```text
+profil de dégustation
+        ↓
+branches taxonomiques plausibles
+        ↓
+famille la plus soutenue
+        ↓
+styles / sous-styles de cette famille
+        ↓
+style résolu si la discrimination est suffisante
+```
 
-Le référentiel se trouve dans `src/data/sensory/sensory-role-map.js`.
+Un résultat peut donc être :
 
-## Principes de classement
+- une famille identifiée et un style identifié ;
+- une famille identifiée mais plusieurs styles encore possibles ;
+- un style autonome sans famille artificielle ;
+- une famille ou un style accompagné de signatures transversales.
 
-### Familles
+Trouver un style implique automatiquement sa filiation. Exemple :
 
-Les cartes parentes très larges telles que `lager`, `pilsner`, `pale-ale`, `bitter`, `porter`, `stout`, `ale`, `biere-de-ble-wheat-beer` ou `biere-acide-sour-beer` sont classées `fallback`. Elles peuvent expliquer une proximité de famille sans écraser leurs descendants plus précis.
+```text
+Ale
+└── Pale Ale
+    └── IPA / India Pale Ale
+        └── American IPA
+            └── West Coast IPA
+```
 
-### Transverses
+Pour `West Coast IPA`, la famille sensorielle la plus proche est `IPA / India Pale Ale`. Le chemin complet reste disponible pour l'explication et les futurs raffinements du moteur.
 
-Les catégories basées sur un ajout ou une transformation applicable à plusieurs styles sont classées `overlay` : café, fruit, épices, miel, grains alternatifs, houblon frais, bois/barrique, vieillissement ou fermentation Brett selon les cas.
+## Familles `F`
 
-Les overlays n'ont pas vocation à devenir automatiquement le résultat principal du moteur.
+Les familles sont de vrais nœuds du diagnostic. Elles ne reçoivent ni pénalité fixe ni priorité inférieure aux styles.
 
-### Appellations commerciales
+Une famille peut être le niveau le plus précis défendable par la dégustation. Dans ce cas, Dégustation ne force pas artificiellement un descendant.
 
-La Collection 9 est volontairement traitée avec prudence. La majorité de ses cartes décrit une couleur commerciale, un statut, une mention réglementaire, une force ou une méthode de commercialisation. Ces informations ne sont pas déductibles de façon fiable depuis le verre et sont donc `excluded`.
+## Styles et sous-styles `S` / `SS`
 
-`panache` et `radler-shandy` restent `fallback` car leur signature de boisson mélangée peut être sensoriellement utile sans constituer un style technique précis.
+Les styles et sous-styles sont évalués à l'intérieur de leur branche taxonomique. La profondeur n'est pas limitée à deux niveaux.
 
-## Compatibilité avec le pilote 40
+```text
+Stout
+└── Imperial Stout
+    ├── British Imperial Stout
+    └── American Imperial Stout
+```
 
-La cartographie ne remplace pas encore `sensory-profiles.js`. Les 40 profils détaillés continuent d'alimenter le moteur actuel.
+Certains styles `S` n'ont aucun ancêtre `F`. Ils restent des styles autonomes et aucune famille artificielle n'est inventée.
 
-Le générateur `scripts/generate-sensory-index.mjs` vérifie désormais que :
+## Catégories transversales `T`
 
-1. les neuf collections classiques contiennent exactement 251 cartes ;
-2. les 251 cartes possèdent exactement un rôle ;
-3. aucune carte Collection 10 n'est cartographiée ;
-4. aucun rôle ne pointe vers une carte inexistante ;
-5. les 40 profils pilotes conservent le même rôle que la cartographie globale ;
-6. la répartition globale reste 165 primary / 29 fallback / 29 overlay / 28 excluded.
+Les catégories `T` décrivent une signature, un ingrédient, un procédé ou un caractère pouvant se superposer à plusieurs branches, par exemple `Fruit Beer`, `Coffee Beer`, `Tea Beer`, `Fresh Hop Beer` ou `Wood- and Barrel-Aged Beer`.
 
-Une nouvelle carte classique non classée ou une divergence de rôle fait donc échouer le build.
+Les descendants d'une carte `T` restent dans la branche transversale même si leur nature propre est `SS`. Une signature est retournée dans `signatures` en complément du diagnostic principal.
 
-## Étape suivante
+## Appellations `A` / `R`
 
-La prochaine phase consiste à définir la **généalogie sensorielle** : parents réutilisables, héritage contrôlé et overrides des descendants. Le runtime continuera de recevoir des profils complètement résolus ; l'héritage restera un outil de construction du référentiel et non une complexité ajoutée au matching.
+Les 30 cartes de la Collection 9 sont hors identification sensorielle automatique. Elles restent présentes dans la Brassopédie, recherchables dans Dégustation et associables manuellement à une dégustation.
+
+Cette règle vaut pour l'ensemble de la Collection 9, y compris `Panaché` et `Radler / Shandy`.
+
+## Collections et taxonomie
+
+Les collections sont des regroupements éditoriaux et visuels. Elles ne sont pas les familles du moteur. La taxonomie peut traverser les collections ; Dégustation utilise donc `parentPrincipalId` et jamais le numéro de collection pour déterminer une filiation brassicole.
+
+## Contrat de données
+
+Chaque profil de `src/data/sensory-profiles.js` porte notamment :
+
+```text
+schemaVersion: 3
+collectionId
+cardId
+type: F | S | SS | T | A | R
+parentPrincipalId: string | null
+verification
+```
+
+Le champ historique `role` a disparu. Les anciens champs de migration `expert` et `parentCardId` restent interdits.
+
+`scripts/validate-sensory-catalog.mjs` vérifie au build que `type` et `parentPrincipalId` sont strictement synchronisés avec les cartes Brassopédie, que tous les parents existent et que la taxonomie ne contient aucun cycle.
+
+## Contrat du matcher
+
+`src/tasting/sensory-matcher.js` retourne :
+
+- `family` et `familyConfidence` ;
+- `style` et `styleConfidence` ;
+- `styleCandidates` pour les descendants restant à départager ;
+- `alternatives` pour les autres branches plausibles ;
+- `signatures` pour les catégories transversales détectées.
+
+Le moteur n'applique plus de bonus ou pénalité fondé sur l'ancien classement des profils.
+
+## Hors périmètre de cette refonte
+
+Cette étape ne calibre pas encore les valeurs de matching. Les poids des groupes sensoriels, formules de similarité, pénalités de contradiction, seuils numériques existants et valeurs des 251 portraits restent inchangés.
+
+La prochaine étape consiste à définir et mesurer les valeurs de matching adaptées aux familles, styles, sous-styles et signatures, avec des jeux de dégustations de référence et des métriques famille / style séparées.

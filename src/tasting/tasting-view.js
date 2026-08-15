@@ -440,10 +440,10 @@ export function createTastingView({ root, controller } = {}) {
     body.append(createField("Le détail dont je veux me souvenir", note));
   }
 
-  function createMatchCard(entry, rank) {
+  function createMatchCard(entry, rank, label = null) {
     const card = el("article", `tasting-match${rank === 1 ? " tasting-match--top" : ""}`);
     const head = el("div", "tasting-match-head");
-    const rankNode = el("span", "tasting-match-rank", rank === 1 ? "Piste principale" : `Piste ${rank}`);
+    const rankNode = el("span", "tasting-match-rank", label || (rank === 1 ? "Piste principale" : `Piste ${rank}`));
     const copy = el("div", "tasting-match-copy");
     copy.append(el("h3", "", entry.name), el("p", "", entry.collectionName));
     head.append(rankNode, copy);
@@ -453,7 +453,8 @@ export function createTastingView({ root, controller } = {}) {
       card.append(markers);
     }
     const styleIsSelected = wizard.draft.style?.collectionId === entry.collectionId && wizard.draft.style?.cardId === entry.cardId;
-    card.append(createButton(styleIsSelected ? "Style associé" : "Associer à ce style", () => {
+    const associationLabel = entry.type === "F" ? "Associer à cette famille" : "Associer à ce style";
+    card.append(createButton(styleIsSelected ? "Carte associée" : associationLabel, () => {
       wizard.draft.style = { collectionId: entry.collectionId, cardId: entry.cardId, name: entry.name };
       render();
     }, `tasting-button${styleIsSelected ? " tasting-button--selected" : " tasting-button--ghost"}`));
@@ -481,7 +482,7 @@ export function createTastingView({ root, controller } = {}) {
 
   function renderResultStep(body) {
     body.append(el("h2", "", "Le résultat"), el("p", "tasting-step-copy", wizard.draft.blind
-      ? "Tu as décrit le verre avant de voir les pistes. Voici maintenant les styles qui ressemblent le plus à ce profil."
+      ? "Tu as décrit le verre avant de voir les pistes. Voici maintenant la famille, les styles et les signatures qui correspondent le mieux à ce profil."
       : "Le moteur compare ton ressenti au référentiel sensoriel de la Brassopédie."));
 
     if (matchLoading) {
@@ -498,22 +499,62 @@ export function createTastingView({ root, controller } = {}) {
     confidence.append(el("strong", "", matchResult.confidence.label), el("span", "", `${matchResult.evidence} repère${matchResult.evidence > 1 ? "s" : ""} renseigné${matchResult.evidence > 1 ? "s" : ""}`));
     body.append(confidence);
 
-    if (!matchResult.results.length) body.append(createEmptyState("Profil trop ouvert", "Le verre ne contient pas encore assez de repères pour proposer un style utile."));
-    else {
-      const matches = el("div", "tasting-match-list");
-      matchResult.results.forEach((entry, index) => matches.append(createMatchCard(entry, index + 1)));
-      body.append(matches);
+    if (!matchResult.family && !matchResult.styleCandidates.length) {
+      body.append(createEmptyState("Profil trop ouvert", "Le verre ne contient pas encore assez de repères pour proposer une branche brassicole utile."));
     }
 
-    if (matchResult.overlays.length) {
-      const overlays = el("section", "tasting-overlays");
-      overlays.append(el("h3", "", "Signatures supplémentaires"), el("p", "", "Ces marqueurs peuvent se superposer au style de base sans le remplacer."));
-      matchResult.overlays.forEach((entry) => {
+    if (matchResult.family) {
+      const family = el("section", "tasting-section");
+      family.append(
+        el("h3", "", matchResult.family.resolved ? "Famille identifiée" : "Famille probable"),
+        el("p", "tasting-step-copy", `${matchResult.familyConfidence.label}. Le moteur utilise cette branche pour chercher ensuite le style le plus précis.`),
+        createMatchCard(matchResult.family, 1, "Famille")
+      );
+      body.append(family);
+    }
+
+    if (matchResult.style) {
+      const style = el("section", "tasting-section");
+      style.append(
+        el("h3", "", "Style identifié"),
+        el("p", "tasting-step-copy", matchResult.styleConfidence.label),
+        createMatchCard(matchResult.style, 1, "Style")
+      );
+      body.append(style);
+    } else if (matchResult.styleCandidates.length) {
+      const candidates = el("section", "tasting-section");
+      candidates.append(
+        el("h3", "", matchResult.family ? "Style à préciser" : "Styles possibles"),
+        el("p", "tasting-step-copy", matchResult.family
+          ? "La famille est plus lisible que le style exact. Les candidats ci-dessous restent à départager."
+          : "Aucune famille n’est imposée à ces styles autonomes ; ils restent à départager.")
+      );
+      const matches = el("div", "tasting-match-list");
+      matchResult.styleCandidates.forEach((entry, index) => matches.append(createMatchCard(entry, index + 1, `Style ${index + 1}`)));
+      candidates.append(matches);
+      body.append(candidates);
+    }
+
+    if (matchResult.alternatives.length) {
+      const alternatives = el("section", "tasting-section");
+      alternatives.append(el("h3", "", "Autres familles possibles"));
+      const matches = el("div", "tasting-match-list");
+      matchResult.alternatives.forEach((branch, index) => {
+        if (branch.representative) matches.append(createMatchCard(branch.representative, index + 2, `Alternative ${index + 1}`));
+      });
+      alternatives.append(matches);
+      body.append(alternatives);
+    }
+
+    if (matchResult.signatures.length) {
+      const signatures = el("section", "tasting-overlays");
+      signatures.append(el("h3", "", "Signatures transversales"), el("p", "", "Ces marqueurs peuvent se superposer à la branche principale sans devenir artificiellement une famille."));
+      matchResult.signatures.forEach((entry) => {
         const chip = el("div", "tasting-overlay-chip");
         chip.append(el("strong", "", entry.name), el("span", "", entry.collectionName));
-        overlays.append(chip);
+        signatures.append(chip);
       });
-      body.append(overlays);
+      body.append(signatures);
     }
 
     if (wizard.draft.blind && !wizard.draft.style) {
