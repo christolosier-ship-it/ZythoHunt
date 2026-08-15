@@ -1,4 +1,4 @@
-import { sensoryProfiles } from "../data/sensory/sensory-profiles.js";
+import { sensoryProfiles } from "../data/sensory-profiles.js";
 import { computeDescriptorRarity, scoreSensoryProfile } from "./sensory-score.js";
 import { getDescriptorLabel, getFinishLabel } from "./tasting-vocabulary.js";
 

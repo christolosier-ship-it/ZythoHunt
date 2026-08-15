@@ -482,7 +482,7 @@ export function createTastingView({ root, controller } = {}) {
   function renderResultStep(body) {
     body.append(el("h2", "", "Le résultat"), el("p", "tasting-step-copy", wizard.draft.blind
       ? "Tu as décrit le verre avant de voir les pistes. Voici maintenant les styles qui ressemblent le plus à ce profil."
-      : "Le moteur compare ton ressenti au référentiel sensoriel pilote de la Brassopédie."));
+      : "Le moteur compare ton ressenti au référentiel sensoriel de la Brassopédie."));
 
     if (matchLoading) {
       body.append(createEmptyState("Lecture du profil…", "Les marqueurs du verre sont en train d’être comparés."));

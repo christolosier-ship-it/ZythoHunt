@@ -1,5 +1,15 @@
-import { createSensoryRuntime } from "./sensory-runtime.js";
+import { sensoryProfiles, getSensoryProfile } from "../data/sensory-profiles.js";
+import { normalizeBeerName } from "../discovery/normalize-text.js";
+import { createSensoryMatcher } from "./sensory-matcher.js";
+import { compareTastingToProfile } from "./tasting-comparison.js";
 import { createTastingStore } from "./tasting-storage.js";
+
+function styleSearchTerms(profile) {
+  return [
+    normalizeBeerName(profile.name),
+    ...(profile.aliases || []).map(normalizeBeerName)
+  ].filter(Boolean);
+}
 
 /**
  * @param {{
@@ -29,11 +39,47 @@ export function createTastingController({
     storage,
     onPersistenceError: () => notice("Le carnet de dégustation local n'est pas accessible sur cet appareil.", "warning", 8000)
   });
-
-  const sensoryRuntime = createSensoryRuntime();
+  const matcher = createSensoryMatcher({ profiles: sensoryProfiles });
 
   async function matchDraft(draft) {
-    return sensoryRuntime.match(draft);
+    return matcher.match(draft);
+  }
+
+  async function searchStyles(query = "", { limit = 12 } = {}) {
+    const normalized = normalizeBeerName(query);
+    const matches = normalized
+      ? sensoryProfiles.filter((profile) => styleSearchTerms(profile).some((term) => term.includes(normalized)))
+      : sensoryProfiles;
+
+    return matches
+      .map(({ collectionId, collectionName, cardId, name, aliases, role, verification }) => ({
+        collectionId,
+        collectionName,
+        cardId,
+        name,
+        aliases,
+        role,
+        verification
+      }))
+      .sort((a, b) => a.name.localeCompare(b.name, "fr"))
+      .slice(0, limit);
+  }
+
+  function compareToStyle(tasting, style) {
+    if (!style?.collectionId || !style?.cardId) {
+      return { available: false, summary: "Aucun style Brassopédie n’est lié à cette dégustation." };
+    }
+    return compareTastingToProfile(tasting, getSensoryProfile(style.collectionId, style.cardId));
+  }
+
+  function getSensoryStatus() {
+    return {
+      loaded: true,
+      totalProfiles: sensoryProfiles.length,
+      scorableProfiles: sensoryProfiles.filter(({ role }) => role !== "excluded").length,
+      verifiedProfiles: sensoryProfiles.filter(({ verification }) => verification?.status === "verified").length,
+      source: "static-catalog"
+    };
   }
 
   function getSnapshot() {
@@ -70,7 +116,6 @@ export function createTastingController({
   async function ensureView() {
     if (view) return view;
     if (!root) return null;
-    await sensoryRuntime.ensureProfiles();
     if (!viewPromise) {
       viewPromise = Promise.all([import("./tasting-view.js"), import("./tasting.css")])
         .then(([{ createTastingView }]) => {
@@ -98,11 +143,11 @@ export function createTastingController({
     getTasting,
     saveTasting,
     deleteTasting,
-    searchStyles: (query, options) => sensoryRuntime.searchStyles(query, options),
+    searchStyles,
     matchDraft,
-    compareToStyle: (draft, style) => sensoryRuntime.compareToStyle(draft, style),
-    getSensoryStatus: () => sensoryRuntime.getStatus(),
-    findStyle: (collectionId, cardId) => sensoryRuntime.findProfile(collectionId, cardId),
+    compareToStyle,
+    getSensoryStatus,
+    findStyle: getSensoryProfile,
     refresh: () => view?.refresh?.()
   };
 
