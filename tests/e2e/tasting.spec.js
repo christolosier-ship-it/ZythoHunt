@@ -44,7 +44,7 @@ test("Dégustation est chargée à la demande et reste accessible", async ({ pag
   await assertNoSeriousA11yViolations(page);
 });
 
-test("une West Coast IPA est reconnue, enregistrée puis relue après rechargement", async ({ page }) => {
+test("une West Coast IPA est rattachée à la famille IPA, proposée puis enregistrée", async ({ page }) => {
   await waitForApp(page);
   await openTasting(page);
   await page.getByRole("button", { name: "Dégustation libre" }).click();
@@ -74,10 +74,12 @@ test("une West Coast IPA est reconnue, enregistrée puis relue après rechargeme
   await page.getByRole("button", { name: "4 sur 5" }).click();
   await continueStep(page);
 
-  const topMatch = page.locator(".tasting-match--top");
-  await expect(topMatch).toContainText("West Coast IPA", { timeout: 15_000 });
+  await expect(page.getByRole("heading", { name: /Famille (identifiée|probable)/ })).toBeVisible({ timeout: 15_000 });
+  await expect(page.locator(".tasting-match").filter({ hasText: "IPA / India Pale Ale" }).first()).toBeVisible();
+  await expect(page.locator(".tasting-match").filter({ hasText: "West Coast IPA" }).first()).toBeVisible();
   await expect(page.locator(".tasting-confidence")).toBeVisible();
   await assertNoSeriousA11yViolations(page);
+
   await page.getByRole("button", { name: "Ajouter au carnet" }).click();
   await expect(page.locator(".tasting-detail h1")).toHaveText("West Test");
 

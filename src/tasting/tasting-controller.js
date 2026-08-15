@@ -52,13 +52,14 @@ export function createTastingController({
       : sensoryProfiles;
 
     return matches
-      .map(({ collectionId, collectionName, cardId, name, aliases, role, verification }) => ({
+      .map(({ collectionId, collectionName, cardId, name, aliases, type, parentPrincipalId, verification }) => ({
         collectionId,
         collectionName,
         cardId,
         name,
         aliases,
-        role,
+        type,
+        parentPrincipalId,
         verification
       }))
       .sort((a, b) => a.name.localeCompare(b.name, "fr"))
@@ -76,7 +77,11 @@ export function createTastingController({
     return {
       loaded: true,
       totalProfiles: sensoryProfiles.length,
-      scorableProfiles: sensoryProfiles.filter(({ role }) => role !== "excluded").length,
+      automaticProfiles: matcher.taxonomy.automaticProfiles.length,
+      commercialProfiles: matcher.taxonomy.commercialProfiles.length,
+      familyProfiles: matcher.taxonomy.familyProfiles.length,
+      signatureProfiles: matcher.taxonomy.signatureProfiles.length,
+      autonomousStyles: matcher.taxonomy.autonomousStyles.length,
       verifiedProfiles: sensoryProfiles.filter(({ verification }) => verification?.status === "verified").length,
       source: "static-catalog"
     };

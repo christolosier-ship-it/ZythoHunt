@@ -1,12 +1,13 @@
 import { computeDescriptorRarity, countSensoryEvidence, scoreSensoryProfile } from "./sensory-score.js";
+import { createSensoryTaxonomy } from "./sensory-taxonomy.js";
 
 const STRUCTURE_AXES = Object.freeze(["amertume", "sucrosite", "acidite", "corps", "carbonatation", "alcool"]);
 
 function sortByScore(a, b) {
   if (b.score !== a.score) return b.score - a.score;
   if (b._observedSpecificity !== a._observedSpecificity) return b._observedSpecificity - a._observedSpecificity;
-  const left = `${a.collectionId}:${a.cardId}`;
-  const right = `${b.collectionId}:${b.cardId}`;
+  const left = a.key || `${a.collectionId}:${a.cardId}`;
+  const right = b.key || `${b.collectionId}:${b.cardId}`;
   return left.localeCompare(right, "fr");
 }
 
@@ -22,6 +23,14 @@ function qualitativeConfidence({ evidence, topScore, gap }) {
     return { id: "plausible", label: "Correspondance plausible" };
   }
   return { id: "fragile", label: "Correspondance fragile" };
+}
+
+function confidenceResolvesFamily(confidence) {
+  return confidence?.id === "strong" || confidence?.id === "plausible";
+}
+
+function confidenceResolvesStyle(confidence) {
+  return confidence?.id === "strong";
 }
 
 function observedStructureSpecificity(userProfile, candidate) {
@@ -55,7 +64,8 @@ function scoreCandidate(userProfile, candidate, rarity) {
     cardId: candidate.cardId,
     name: candidate.name,
     aliases: candidate.aliases || [],
-    role: candidate.role,
+    type: candidate.type,
+    parentPrincipalId: candidate.parentPrincipalId || null,
     verification: candidate.verification,
     keyMarkers: candidate.keyMarkers || [],
     ...scoreSensoryProfile(userProfile, candidate, { rarity }),
@@ -67,18 +77,6 @@ function hasKeyMarkerEvidence(userProfile, candidate) {
   return (candidate.keyMarkers || []).some((id) => (
     Number(userProfile.nose?.[id]) > 0 || Number(userProfile.palate?.[id]) > 0
   ));
-}
-
-function selectRankedCandidates(scoredPrimaries, scoredFallbacks) {
-  const primaries = [...scoredPrimaries].sort(sortByScore);
-  const fallbacks = [...scoredFallbacks].sort(sortByScore);
-  const bestPrimary = primaries[0];
-  if (!bestPrimary) return fallbacks;
-  const primaryGap = Math.max(0, bestPrimary.score - (primaries[1]?.score || 0));
-  const primaryIsWellSeparated = bestPrimary.score >= 72 && primaryGap >= 8;
-  if (primaryIsWellSeparated) return [...primaries, ...fallbacks];
-  return [...primaries, ...fallbacks.map((entry) => ({ ...entry, score: Math.round(entry.score * 0.97 * 10) / 10 }))]
-    .sort(sortByScore);
 }
 
 function normalizeUserProfile(userProfile = {}) {
@@ -105,6 +103,69 @@ function normalizeUserProfile(userProfile = {}) {
   };
 }
 
+function identity(profile) {
+  if (!profile) return null;
+  return {
+    collectionId: profile.collectionId,
+    collectionName: profile.collectionName,
+    cardId: profile.cardId,
+    name: profile.name,
+    type: profile.type,
+    parentPrincipalId: profile.parentPrincipalId || null
+  };
+}
+
+function buildBranches(scoredCandidates, taxonomy) {
+  const scoredByCardId = new Map(scoredCandidates.map((entry) => [entry.cardId, entry]));
+  const branches = new Map();
+
+  scoredCandidates.forEach((entry) => {
+    const profile = taxonomy.byCardId.get(entry.cardId);
+    if (!profile) return;
+    const family = taxonomy.nearestFamily(profile);
+    const key = family ? `family:${family.cardId}` : `style:${profile.cardId}`;
+
+    if (!branches.has(key)) {
+      branches.set(key, {
+        key,
+        family,
+        members: []
+      });
+    }
+    branches.get(key).members.push(entry);
+  });
+
+  return [...branches.values()]
+    .map((branch) => {
+      const members = [...branch.members].sort(sortByScore);
+      const lead = members[0];
+      const familyEntry = branch.family ? scoredByCardId.get(branch.family.cardId) || null : null;
+      const styleEntries = members.filter((entry) => taxonomy.isStyle(taxonomy.byCardId.get(entry.cardId)));
+      return {
+        ...branch,
+        members,
+        lead,
+        familyEntry,
+        styleEntries,
+        score: lead?.score || 0,
+        _observedSpecificity: lead?._observedSpecificity || 0
+      };
+    })
+    .sort(sortByScore);
+}
+
+function publicBranch(branch, taxonomy) {
+  const representative = branch.familyEntry || branch.lead;
+  return {
+    score: branch.score,
+    family: branch.family ? identity(branch.family) : null,
+    representative: stripRankingMetadata(representative),
+    path: representative
+      ? taxonomy.pathOf(taxonomy.byCardId.get(representative.cardId)).map(identity)
+      : []
+  };
+}
+
 /**
  * @param {{
  *   profiles?: readonly any[],
@@ -116,51 +177,104 @@ export function createSensoryMatcher({ profiles, rarity = null } = {}) {
     throw new Error(`Le matcher exige le catalogue sensoriel complet de 251 profils, reçu ${profiles?.length || 0}.`);
   }
 
-  const safeProfiles = profiles.filter((profile) => profile?.collectionId !== "bizarre-et-insolite" && profile?.role !== "excluded");
-  const rarityMap = rarity || computeDescriptorRarity(safeProfiles);
+  const taxonomy = createSensoryTaxonomy(profiles);
+  const rarityMap = rarity || computeDescriptorRarity(taxonomy.baseProfiles);
 
   function match(input, { limit = 3 } = {}) {
     const userProfile = normalizeUserProfile(input);
     const evidence = countSensoryEvidence(userProfile);
     if (evidence === 0) {
+      const ambiguous = qualitativeConfidence({ evidence: 0, topScore: 0, gap: 0 });
       return {
         profile: userProfile,
         evidence,
-        confidence: qualitativeConfidence({ evidence: 0, topScore: 0, gap: 0 }),
-        results: [],
-        overlays: []
+        confidence: ambiguous,
+        family: null,
+        familyConfidence: ambiguous,
+        style: null,
+        styleConfidence: ambiguous,
+        styleCandidates: [],
+        alternatives: [],
+        signatures: []
       };
     }
 
-    const scoredPrimaries = safeProfiles
-      .filter(({ role }) => role === "primary")
+    const scoredBase = taxonomy.baseProfiles
       .map((candidate) => scoreCandidate(userProfile, candidate, rarityMap));
-    const scoredFallbacks = safeProfiles
-      .filter(({ role }) => role === "fallback")
-      .map((candidate) => scoreCandidate(userProfile, candidate, rarityMap));
-    const ranked = selectRankedCandidates(scoredPrimaries, scoredFallbacks);
-    const results = ranked.slice(0, Math.max(1, limit)).map(stripRankingMetadata);
-    const topScore = results[0]?.score || 0;
-    const gap = Math.max(0, topScore - (results[1]?.score || 0));
+    const branches = buildBranches(scoredBase, taxonomy);
+    const topBranch = branches[0] || null;
+    const branchGap = Math.max(0, (topBranch?.score || 0) - (branches[1]?.score || 0));
+    const familyConfidence = qualitativeConfidence({
+      evidence,
+      topScore: topBranch?.score || 0,
+      gap: branchGap
+    });
 
-    const overlays = safeProfiles
-      .filter(({ role }) => role === "overlay")
+    const familyEntry = topBranch?.familyEntry ? stripRankingMetadata(topBranch.familyEntry) : null;
+    const family = topBranch?.family
+      ? {
+          ...familyEntry,
+          branchScore: topBranch.score,
+          resolved: confidenceResolvesFamily(familyConfidence),
+          path: taxonomy.pathOf(topBranch.family).map(identity)
+        }
+      : null;
+
+    const styleEntries = topBranch?.styleEntries || [];
+    const topStyle = styleEntries[0] || null;
+    const styleGap = Math.max(0, (topStyle?.score || 0) - (styleEntries[1]?.score || 0));
+    const styleConfidence = qualitativeConfidence({
+      evidence,
+      topScore: topStyle?.score || 0,
+      gap: styleGap
+    });
+    const resolvedStyle = topStyle && confidenceResolvesStyle(styleConfidence)
+      ? {
+          ...stripRankingMetadata(topStyle),
+          resolved: true,
+          family: topBranch?.family ? identity(topBranch.family) : null,
+          path: taxonomy.pathOf(taxonomy.byCardId.get(topStyle.cardId)).map(identity)
+        }
+      : null;
+
+    const styleCandidates = styleEntries
+      .slice(0, Math.max(1, limit))
+      .map((entry) => ({
+        ...stripRankingMetadata(entry),
+        family: topBranch?.family ? identity(topBranch.family) : null,
+        path: taxonomy.pathOf(taxonomy.byCardId.get(entry.cardId)).map(identity)
+      }));
+
+    const signatures = taxonomy.signatureProfiles
       .filter((candidate) => hasKeyMarkerEvidence(userProfile, candidate))
       .map((candidate) => scoreCandidate(userProfile, candidate, rarityMap))
       .filter(({ score }) => score >= 48)
       .sort(sortByScore)
-      .map(stripRankingMetadata);
+      .map((entry) => ({
+        ...stripRankingMetadata(entry),
+        path: taxonomy.pathOf(taxonomy.byCardId.get(entry.cardId)).map(identity)
+      }));
 
     return {
       profile: userProfile,
       evidence,
-      confidence: qualitativeConfidence({ evidence, topScore, gap }),
-      results,
-      overlays
+      confidence: familyConfidence,
+      family,
+      familyConfidence,
+      style: resolvedStyle,
+      styleConfidence,
+      styleCandidates,
+      alternatives: branches.slice(1, Math.max(1, limit)).map((branch) => publicBranch(branch, taxonomy)),
+      signatures
     };
   }
 
-  return { match, profiles: safeProfiles, rarity: rarityMap };
+  return {
+    match,
+    profiles: taxonomy.automaticProfiles,
+    taxonomy,
+    rarity: rarityMap
+  };
 }
 
 export { normalizeUserProfile, qualitativeConfidence };

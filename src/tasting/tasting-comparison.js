@@ -1,8 +1,10 @@
 import { sensoryProfiles } from "../data/sensory-profiles.js";
 import { computeDescriptorRarity, scoreSensoryProfile } from "./sensory-score.js";
+import { createSensoryTaxonomy } from "./sensory-taxonomy.js";
 import { getDescriptorLabel, getFinishLabel } from "./tasting-vocabulary.js";
 
-const rarity = computeDescriptorRarity(sensoryProfiles);
+const taxonomy = createSensoryTaxonomy(sensoryProfiles);
+const rarity = computeDescriptorRarity(taxonomy.baseProfiles);
 
 export function findSensoryProfile(collectionId, cardId) {
   return sensoryProfiles.find((profile) => profile.collectionId === collectionId && profile.cardId === cardId) || null;
@@ -34,8 +36,8 @@ function summaryForScore(score) {
 }
 
 export function compareTastingToProfile(tasting, profile) {
-  if (!profile || profile.role === "overlay" || profile.role === "excluded") {
-    return { available: false, summary: "Ce style ne dispose pas encore d’un portrait sensoriel comparable." };
+  if (!profile || taxonomy.isCommercial(profile)) {
+    return { available: false, summary: "Cette appellation n’est pas définie comme une identité sensorielle automatique." };
   }
 
   const score = scoreSensoryProfile(tasting, profile, { rarity });

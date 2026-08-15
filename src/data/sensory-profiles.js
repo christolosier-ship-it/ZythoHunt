@@ -1,8 +1,9 @@
 /**
  * Référentiel sensoriel canonique de la Brassopédie.
  *
- * 251 profils statiques vérifiés. Ce fichier est une donnée métier : il ne contient
- * ni dérivation runtime, ni couche prototype, ni transformation heuristique.
+ * 251 profils statiques vérifiés. Les relations taxonomiques `type` et
+ * `parentPrincipalId` sont synchronisées avec les cartes canoniques.
+ * Ce fichier ne contient ni dérivation runtime ni rôle algorithmique historique.
  */
 
 function freezeRecord(value) {
@@ -12,13 +13,13 @@ function freezeRecord(value) {
 }
 
 export const sensoryProfiles = freezeRecord([
-
-  // Collection 1 — Lagers et fermentations basses — 45 profils
+  // Lagers et fermentations basses
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "lagers-et-fermentations-basses",
     "cardId": "lager",
-    "role": "fallback",
+    "type": "F",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [
         "paille",
@@ -89,10 +90,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "lagers-et-fermentations-basses",
     "cardId": "pilsner",
-    "role": "fallback",
+    "type": "F",
+    "parentPrincipalId": "lager",
     "appearance": {
       "colors": [
         "paille",
@@ -166,10 +168,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "lagers-et-fermentations-basses",
     "cardId": "hoppy-lager",
-    "role": "fallback",
+    "type": "F",
+    "parentPrincipalId": "lager",
     "appearance": {
       "colors": [
         "paille",
@@ -246,10 +249,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "lagers-et-fermentations-basses",
     "cardId": "bock",
-    "role": "fallback",
+    "type": "F",
+    "parentPrincipalId": "lager",
     "appearance": {
       "colors": [
         "dore",
@@ -322,10 +326,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "lagers-et-fermentations-basses",
     "cardId": "international-light-lager",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "lager",
     "appearance": {
       "colors": [
         "paille",
@@ -388,10 +393,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "lagers-et-fermentations-basses",
     "cardId": "german-leichtbier",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "lager",
     "appearance": {
       "colors": [
         "paille",
@@ -458,10 +464,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "lagers-et-fermentations-basses",
     "cardId": "american-light-lager",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "lager",
     "appearance": {
       "colors": [
         "paille"
@@ -521,10 +528,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "lagers-et-fermentations-basses",
     "cardId": "contemporary-american-light-lager",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "lager",
     "appearance": {
       "colors": [
         "paille",
@@ -590,10 +598,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "lagers-et-fermentations-basses",
     "cardId": "mexican-light-lager",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "lager",
     "appearance": {
       "colors": [
         "paille",
@@ -658,10 +667,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "lagers-et-fermentations-basses",
     "cardId": "international-pale-lager",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "lager",
     "appearance": {
       "colors": [
         "paille",
@@ -729,10 +739,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "lagers-et-fermentations-basses",
     "cardId": "international-pilsner",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "pilsner",
     "appearance": {
       "colors": [
         "paille",
@@ -799,10 +810,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "lagers-et-fermentations-basses",
     "cardId": "german-pilsner",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "pilsner",
     "appearance": {
       "colors": [
         "paille",
@@ -875,10 +887,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "lagers-et-fermentations-basses",
     "cardId": "italian-pilsner",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "pilsner",
     "appearance": {
       "colors": [
         "paille",
@@ -948,10 +961,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "lagers-et-fermentations-basses",
     "cardId": "czech-pale-lager",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "lager",
     "appearance": {
       "colors": [
         "paille",
@@ -1019,10 +1033,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "lagers-et-fermentations-basses",
     "cardId": "czech-premium-pale-lager",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "pilsner",
     "appearance": {
       "colors": [
         "dore"
@@ -1093,10 +1108,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "lagers-et-fermentations-basses",
     "cardId": "american-pilsner",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "pilsner",
     "appearance": {
       "colors": [
         "paille",
@@ -1164,10 +1180,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "lagers-et-fermentations-basses",
     "cardId": "contemporary-american-pilsner",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "pilsner",
     "appearance": {
       "colors": [
         "paille",
@@ -1239,10 +1256,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "lagers-et-fermentations-basses",
     "cardId": "west-coast-pilsner",
-    "role": "primary",
+    "type": "SS",
+    "parentPrincipalId": "pilsner",
     "appearance": {
       "colors": [
         "paille",
@@ -1319,10 +1337,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "lagers-et-fermentations-basses",
     "cardId": "rice-lager",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "lager",
     "appearance": {
       "colors": [
         "paille",
@@ -1386,10 +1405,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "lagers-et-fermentations-basses",
     "cardId": "india-pale-lager",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "hoppy-lager",
     "appearance": {
       "colors": [
         "paille",
@@ -1472,10 +1492,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "lagers-et-fermentations-basses",
     "cardId": "munich-helles",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "lager",
     "appearance": {
       "colors": [
         "paille",
@@ -1550,10 +1571,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "lagers-et-fermentations-basses",
     "cardId": "dortmunder-european-export",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "lager",
     "appearance": {
       "colors": [
         "paille",
@@ -1626,10 +1648,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "lagers-et-fermentations-basses",
     "cardId": "festbier-german-oktoberfest",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "lager",
     "appearance": {
       "colors": [
         "paille",
@@ -1704,10 +1727,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "lagers-et-fermentations-basses",
     "cardId": "vienna-lager",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "lager",
     "appearance": {
       "colors": [
         "dore",
@@ -1775,10 +1799,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "lagers-et-fermentations-basses",
     "cardId": "marzen",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "lager",
     "appearance": {
       "colors": [
         "dore",
@@ -1849,10 +1874,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "lagers-et-fermentations-basses",
     "cardId": "franconian-rotbier",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "lager",
     "appearance": {
       "colors": [
         "ambre",
@@ -1927,10 +1953,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "lagers-et-fermentations-basses",
     "cardId": "international-amber-lager",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "lager",
     "appearance": {
       "colors": [
         "ambre",
@@ -1999,10 +2026,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "lagers-et-fermentations-basses",
     "cardId": "czech-amber-lager",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "lager",
     "appearance": {
       "colors": [
         "ambre",
@@ -2073,10 +2101,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "lagers-et-fermentations-basses",
     "cardId": "american-amber-lager",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "lager",
     "appearance": {
       "colors": [
         "dore",
@@ -2148,10 +2177,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "lagers-et-fermentations-basses",
     "cardId": "american-marzen-oktoberfest",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "lager",
     "appearance": {
       "colors": [
         "dore",
@@ -2228,10 +2258,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "lagers-et-fermentations-basses",
     "cardId": "mexican-amber-lager",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "lager",
     "appearance": {
       "colors": [
         "ambre",
@@ -2298,10 +2329,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "lagers-et-fermentations-basses",
     "cardId": "munich-dunkel",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "lager",
     "appearance": {
       "colors": [
         "cuivre",
@@ -2374,10 +2406,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "lagers-et-fermentations-basses",
     "cardId": "schwarzbier",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "lager",
     "appearance": {
       "colors": [
         "brun",
@@ -2447,10 +2480,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "lagers-et-fermentations-basses",
     "cardId": "international-dark-lager",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "lager",
     "appearance": {
       "colors": [
         "cuivre",
@@ -2519,10 +2553,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "lagers-et-fermentations-basses",
     "cardId": "european-dark-lager",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "lager",
     "appearance": {
       "colors": [
         "brun",
@@ -2590,10 +2625,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "lagers-et-fermentations-basses",
     "cardId": "czech-dark-lager",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "lager",
     "appearance": {
       "colors": [
         "cuivre",
@@ -2664,10 +2700,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "lagers-et-fermentations-basses",
     "cardId": "american-dark-lager",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "lager",
     "appearance": {
       "colors": [
         "brun",
@@ -2735,10 +2772,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "lagers-et-fermentations-basses",
     "cardId": "mexican-dark-lager",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "lager",
     "appearance": {
       "colors": [
         "cuivre",
@@ -2807,10 +2845,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "lagers-et-fermentations-basses",
     "cardId": "traditional-bock-dunkles-bock",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "bock",
     "appearance": {
       "colors": [
         "cuivre",
@@ -2887,10 +2926,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "lagers-et-fermentations-basses",
     "cardId": "helles-bock-maibock",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "bock",
     "appearance": {
       "colors": [
         "dore",
@@ -2970,10 +3010,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "lagers-et-fermentations-basses",
     "cardId": "doppelbock",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "bock",
     "appearance": {
       "colors": [
         "cuivre",
@@ -3046,10 +3087,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "lagers-et-fermentations-basses",
     "cardId": "eisbock",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "bock",
     "appearance": {
       "colors": [
         "brun",
@@ -3129,10 +3171,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "lagers-et-fermentations-basses",
     "cardId": "american-lager",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "lager",
     "appearance": {
       "colors": [
         "paille",
@@ -3195,10 +3238,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "lagers-et-fermentations-basses",
     "cardId": "contemporary-american-lager",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "lager",
     "appearance": {
       "colors": [
         "paille",
@@ -3265,10 +3309,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "lagers-et-fermentations-basses",
     "cardId": "mexican-pale-lager",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "lager",
     "appearance": {
       "colors": [
         "paille",
@@ -3335,12 +3380,13 @@ export const sensoryProfiles = freezeRecord([
     }
   },
 
-  // Collection 2 — Pale Ales, Bitters et IPA — 36 profils
+  // Pale Ales, Bitters et IPA
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "pale-ales-bitters-et-ipa",
     "cardId": "pale-ale",
-    "role": "fallback",
+    "type": "F",
+    "parentPrincipalId": "ale",
     "appearance": {
       "colors": [
         "paille",
@@ -3413,10 +3459,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "pale-ales-bitters-et-ipa",
     "cardId": "bitter",
-    "role": "fallback",
+    "type": "F",
+    "parentPrincipalId": "pale-ale",
     "appearance": {
       "colors": [
         "dore",
@@ -3494,10 +3541,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "pale-ales-bitters-et-ipa",
     "cardId": "ipa-india-pale-ale",
-    "role": "fallback",
+    "type": "F",
+    "parentPrincipalId": "pale-ale",
     "appearance": {
       "colors": [
         "paille",
@@ -3578,10 +3626,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "pale-ales-bitters-et-ipa",
     "cardId": "ordinary-bitter",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "bitter",
     "appearance": {
       "colors": [
         "dore",
@@ -3662,10 +3711,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "pale-ales-bitters-et-ipa",
     "cardId": "special-best-bitter",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "bitter",
     "appearance": {
       "colors": [
         "dore",
@@ -3744,10 +3794,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "pale-ales-bitters-et-ipa",
     "cardId": "extra-special-bitter-esb",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "bitter",
     "appearance": {
       "colors": [
         "ambre",
@@ -3824,10 +3875,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "pale-ales-bitters-et-ipa",
     "cardId": "english-summer-ale",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "pale-ale",
     "appearance": {
       "colors": [
         "paille",
@@ -3904,10 +3956,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "pale-ales-bitters-et-ipa",
     "cardId": "classic-english-pale-ale",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "pale-ale",
     "appearance": {
       "colors": [
         "dore",
@@ -3985,10 +4038,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "pale-ales-bitters-et-ipa",
     "cardId": "british-golden-ale",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "pale-ale",
     "appearance": {
       "colors": [
         "paille",
@@ -4058,10 +4112,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "pale-ales-bitters-et-ipa",
     "cardId": "golden-blonde-ale",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "pale-ale",
     "appearance": {
       "colors": [
         "paille",
@@ -4135,10 +4190,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "pale-ales-bitters-et-ipa",
     "cardId": "australian-sparkling-ale",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "pale-ale",
     "appearance": {
       "colors": [
         "dore",
@@ -4215,10 +4271,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "pale-ales-bitters-et-ipa",
     "cardId": "classic-australian-pale-ale",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "pale-ale",
     "appearance": {
       "colors": [
         "paille",
@@ -4292,10 +4349,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "pale-ales-bitters-et-ipa",
     "cardId": "australian-pale-ale",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "pale-ale",
     "appearance": {
       "colors": [
         "paille",
@@ -4368,10 +4426,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "pale-ales-bitters-et-ipa",
     "cardId": "international-pale-ale",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "pale-ale",
     "appearance": {
       "colors": [
         "dore",
@@ -4449,10 +4508,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "pale-ales-bitters-et-ipa",
     "cardId": "new-zealand-pale-ale",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "pale-ale",
     "appearance": {
       "colors": [
         "paille",
@@ -4527,10 +4587,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "pale-ales-bitters-et-ipa",
     "cardId": "american-pale-ale",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "pale-ale",
     "appearance": {
       "colors": [
         "paille",
@@ -4616,10 +4677,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "pale-ales-bitters-et-ipa",
     "cardId": "american-extra-special-bitter",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "bitter",
     "appearance": {
       "colors": [
         "ambre",
@@ -4698,10 +4760,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "pale-ales-bitters-et-ipa",
     "cardId": "juicy-hazy-pale-ale",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "pale-ale",
     "appearance": {
       "colors": [
         "paille",
@@ -4776,10 +4839,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "pale-ales-bitters-et-ipa",
     "cardId": "american-strong-pale-ale",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "pale-ale",
     "appearance": {
       "colors": [
         "paille",
@@ -4857,10 +4921,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "pale-ales-bitters-et-ipa",
     "cardId": "juicy-hazy-strong-pale-ale",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "pale-ale",
     "appearance": {
       "colors": [
         "paille",
@@ -4937,10 +5002,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "pale-ales-bitters-et-ipa",
     "cardId": "kolsch",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "ale",
     "appearance": {
       "colors": [
         "paille",
@@ -5018,10 +5084,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "pale-ales-bitters-et-ipa",
     "cardId": "session-ipa",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "ipa-india-pale-ale",
     "appearance": {
       "colors": [
         "paille",
@@ -5102,10 +5169,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "pale-ales-bitters-et-ipa",
     "cardId": "english-ipa",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "ipa-india-pale-ale",
     "appearance": {
       "colors": [
         "dore",
@@ -5189,10 +5257,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "pale-ales-bitters-et-ipa",
     "cardId": "american-ipa",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "ipa-india-pale-ale",
     "appearance": {
       "colors": [
         "dore",
@@ -5277,10 +5346,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "pale-ales-bitters-et-ipa",
     "cardId": "new-zealand-ipa",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "ipa-india-pale-ale",
     "appearance": {
       "colors": [
         "paille",
@@ -5361,10 +5431,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "pale-ales-bitters-et-ipa",
     "cardId": "west-coast-ipa",
-    "role": "primary",
+    "type": "SS",
+    "parentPrincipalId": "american-ipa",
     "appearance": {
       "colors": [
         "paille",
@@ -5441,10 +5512,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "pale-ales-bitters-et-ipa",
     "cardId": "neipa-juicy-hazy-ipa",
-    "role": "primary",
+    "type": "SS",
+    "parentPrincipalId": "american-ipa",
     "appearance": {
       "colors": [
         "paille",
@@ -5528,10 +5600,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "pale-ales-bitters-et-ipa",
     "cardId": "double-imperial-ipa",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "ipa-india-pale-ale",
     "appearance": {
       "colors": [
         "paille",
@@ -5621,10 +5694,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "pale-ales-bitters-et-ipa",
     "cardId": "juicy-hazy-double-imperial-ipa",
-    "role": "primary",
+    "type": "SS",
+    "parentPrincipalId": "double-imperial-ipa",
     "appearance": {
       "colors": [
         "paille",
@@ -5705,10 +5779,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "pale-ales-bitters-et-ipa",
     "cardId": "belgian-ipa",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "ipa-india-pale-ale",
     "appearance": {
       "colors": [
         "dore",
@@ -5785,10 +5860,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "pale-ales-bitters-et-ipa",
     "cardId": "black-ipa",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "ipa-india-pale-ale",
     "appearance": {
       "colors": [
         "brun",
@@ -5874,10 +5950,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "pale-ales-bitters-et-ipa",
     "cardId": "brown-ipa",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "ipa-india-pale-ale",
     "appearance": {
       "colors": [
         "cuivre",
@@ -5962,10 +6039,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "pale-ales-bitters-et-ipa",
     "cardId": "red-ipa",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "ipa-india-pale-ale",
     "appearance": {
       "colors": [
         "ambre",
@@ -6046,10 +6124,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "pale-ales-bitters-et-ipa",
     "cardId": "rye-ipa",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "ipa-india-pale-ale",
     "appearance": {
       "colors": [
         "dore",
@@ -6133,10 +6212,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "pale-ales-bitters-et-ipa",
     "cardId": "white-ipa",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "ipa-india-pale-ale",
     "appearance": {
       "colors": [
         "paille",
@@ -6221,10 +6301,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "pale-ales-bitters-et-ipa",
     "cardId": "brut-ipa",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "ipa-india-pale-ale",
     "appearance": {
       "colors": [
         "paille",
@@ -6306,12 +6387,13 @@ export const sensoryProfiles = freezeRecord([
     }
   },
 
-  // Collection 3 — Porters et Stouts — 22 profils
+  // Porters et Stouts
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "porters-stouts",
     "cardId": "porter",
-    "role": "fallback",
+    "type": "F",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [
         "brun",
@@ -6397,10 +6479,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "porters-stouts",
     "cardId": "stout",
-    "role": "fallback",
+    "type": "F",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [
         "brun",
@@ -6490,10 +6573,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "porters-stouts",
     "cardId": "english-porter",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "porter",
     "appearance": {
       "colors": [
         "brun",
@@ -6573,10 +6657,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "porters-stouts",
     "cardId": "brown-porter",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "porter",
     "appearance": {
       "colors": [
         "brun",
@@ -6649,10 +6734,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "porters-stouts",
     "cardId": "robust-porter",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "porter",
     "appearance": {
       "colors": [
         "brun",
@@ -6735,10 +6821,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "porters-stouts",
     "cardId": "american-porter",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "porter",
     "appearance": {
       "colors": [
         "brun",
@@ -6819,10 +6906,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "porters-stouts",
     "cardId": "pre-prohibition-porter",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "porter",
     "appearance": {
       "colors": [
         "brun",
@@ -6899,10 +6987,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "porters-stouts",
     "cardId": "baltic-porter",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "porter",
     "appearance": {
       "colors": [
         "brun",
@@ -6987,10 +7076,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "porters-stouts",
     "cardId": "american-imperial-porter",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "porter",
     "appearance": {
       "colors": [
         "brun",
@@ -7069,10 +7159,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "porters-stouts",
     "cardId": "smoke-porter",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "porter",
     "appearance": {
       "colors": [
         "brun",
@@ -7150,10 +7241,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "porters-stouts",
     "cardId": "dry-stout-irish-dry-stout",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "stout",
     "appearance": {
       "colors": [
         "brun",
@@ -7240,10 +7332,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "porters-stouts",
     "cardId": "irish-extra-stout",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "stout",
     "appearance": {
       "colors": [
         "noir"
@@ -7324,10 +7417,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "porters-stouts",
     "cardId": "export-stout-foreign-extra-stout",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "stout",
     "appearance": {
       "colors": [
         "brun",
@@ -7419,10 +7513,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "porters-stouts",
     "cardId": "tropical-stout",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "stout",
     "appearance": {
       "colors": [
         "brun",
@@ -7501,10 +7596,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "porters-stouts",
     "cardId": "sweet-milk-cream-stout",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "stout",
     "appearance": {
       "colors": [
         "noir"
@@ -7584,10 +7680,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "porters-stouts",
     "cardId": "oatmeal-stout",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "stout",
     "appearance": {
       "colors": [
         "brun",
@@ -7670,10 +7767,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "porters-stouts",
     "cardId": "american-stout",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "stout",
     "appearance": {
       "colors": [
         "noir"
@@ -7757,10 +7855,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "porters-stouts",
     "cardId": "imperial-stout",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "stout",
     "appearance": {
       "colors": [
         "brun",
@@ -7841,10 +7940,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "porters-stouts",
     "cardId": "british-imperial-stout",
-    "role": "primary",
+    "type": "SS",
+    "parentPrincipalId": "imperial-stout",
     "appearance": {
       "colors": [
         "cuivre",
@@ -7932,10 +8032,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "porters-stouts",
     "cardId": "american-imperial-stout",
-    "role": "primary",
+    "type": "SS",
+    "parentPrincipalId": "imperial-stout",
     "appearance": {
       "colors": [
         "noir"
@@ -8021,10 +8122,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "porters-stouts",
     "cardId": "dessert-pastry-beer",
-    "role": "overlay",
+    "type": "T",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [
         "ambre",
@@ -8109,10 +8211,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "porters-stouts",
     "cardId": "coffee-stout-or-porter",
-    "role": "overlay",
+    "type": "T",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [
         "brun",
@@ -8156,12 +8259,13 @@ export const sensoryProfiles = freezeRecord([
     }
   },
 
-  // Collection 4 — Traditions belges et françaises — 17 profils
+  // Traditions belges et françaises
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "traditions-belges-et-francaises",
     "cardId": "belgian-ale-ale-belge",
-    "role": "fallback",
+    "type": "F",
+    "parentPrincipalId": "ale",
     "appearance": {
       "colors": [
         "paille",
@@ -8246,10 +8350,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "traditions-belges-et-francaises",
     "cardId": "belgian-table-beer",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "belgian-ale-ale-belge",
     "appearance": {
       "colors": [
         "dore",
@@ -8324,10 +8429,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "traditions-belges-et-francaises",
     "cardId": "belgian-session-ale",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "belgian-ale-ale-belge",
     "appearance": {
       "colors": [
         "paille",
@@ -8404,10 +8510,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "traditions-belges-et-francaises",
     "cardId": "belgian-single",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "belgian-ale-ale-belge",
     "appearance": {
       "colors": [
         "paille",
@@ -8492,10 +8599,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "traditions-belges-et-francaises",
     "cardId": "belgian-pale-ale",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "belgian-ale-ale-belge",
     "appearance": {
       "colors": [
         "ambre",
@@ -8579,10 +8687,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "traditions-belges-et-francaises",
     "cardId": "speciale-belge",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "belgian-ale-ale-belge",
     "appearance": {
       "colors": [
         "dore",
@@ -8667,10 +8776,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "traditions-belges-et-francaises",
     "cardId": "belgian-blonde-ale",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "belgian-ale-ale-belge",
     "appearance": {
       "colors": [
         "paille",
@@ -8755,10 +8865,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "traditions-belges-et-francaises",
     "cardId": "belgian-golden-strong-ale-belgian-strong-blonde-ale",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "belgian-ale-ale-belge",
     "appearance": {
       "colors": [
         "paille",
@@ -8846,10 +8957,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "traditions-belges-et-francaises",
     "cardId": "belgian-dark-strong-ale",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "belgian-ale-ale-belge",
     "appearance": {
       "colors": [
         "ambre",
@@ -8936,10 +9048,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "traditions-belges-et-francaises",
     "cardId": "dubbel",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "belgian-ale-ale-belge",
     "appearance": {
       "colors": [
         "brun",
@@ -9022,10 +9135,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "traditions-belges-et-francaises",
     "cardId": "tripel",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "belgian-ale-ale-belge",
     "appearance": {
       "colors": [
         "paille",
@@ -9115,10 +9229,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "traditions-belges-et-francaises",
     "cardId": "quadrupel",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "belgian-ale-ale-belge",
     "appearance": {
       "colors": [
         "ambre",
@@ -9199,10 +9314,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "traditions-belges-et-francaises",
     "cardId": "saison",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "belgian-ale-ale-belge",
     "appearance": {
       "colors": [
         "paille",
@@ -9290,10 +9406,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "traditions-belges-et-francaises",
     "cardId": "specialty-saison",
-    "role": "fallback",
+    "type": "SS",
+    "parentPrincipalId": "saison",
     "appearance": {
       "colors": [
         "paille",
@@ -9380,10 +9497,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "traditions-belges-et-francaises",
     "cardId": "biere-de-garde-style-franco-belge",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "belgian-ale-ale-belge",
     "appearance": {
       "colors": [
         "dore",
@@ -9476,10 +9594,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "traditions-belges-et-francaises",
     "cardId": "american-belgo-ale",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "belgian-ale-ale-belge",
     "appearance": {
       "colors": [
         "dore",
@@ -9564,10 +9683,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "traditions-belges-et-francaises",
     "cardId": "belgian-fruit-beer",
-    "role": "overlay",
+    "type": "S",
+    "parentPrincipalId": "belgian-ale-ale-belge",
     "appearance": {
       "colors": [
         "paille",
@@ -9663,12 +9783,13 @@ export const sensoryProfiles = freezeRecord([
     }
   },
 
-  // Collection 5 — Bières de blé et de seigle — 13 profils
+  // Bières de blé et de seigle
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "bieres-de-ble-et-de-seigle",
     "cardId": "biere-de-ble-wheat-beer",
-    "role": "fallback",
+    "type": "F",
+    "parentPrincipalId": "ale",
     "appearance": {
       "colors": [
         "paille",
@@ -9741,10 +9862,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "bieres-de-ble-et-de-seigle",
     "cardId": "biere-de-seigle-rye-beer",
-    "role": "fallback",
+    "type": "F",
+    "parentPrincipalId": "ale",
     "appearance": {
       "colors": [
         "paille",
@@ -9825,10 +9947,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "bieres-de-ble-et-de-seigle",
     "cardId": "american-wheat-beer",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "biere-de-ble-wheat-beer",
     "appearance": {
       "colors": [
         "paille",
@@ -9915,10 +10038,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "bieres-de-ble-et-de-seigle",
     "cardId": "witbier",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "biere-de-ble-wheat-beer",
     "appearance": {
       "colors": [
         "paille",
@@ -10009,10 +10133,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "bieres-de-ble-et-de-seigle",
     "cardId": "weissbier-hefeweizen",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "biere-de-ble-wheat-beer",
     "appearance": {
       "colors": [
         "paille",
@@ -10095,10 +10220,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "bieres-de-ble-et-de-seigle",
     "cardId": "kristallweizen",
-    "role": "primary",
+    "type": "SS",
+    "parentPrincipalId": "weissbier-hefeweizen",
     "appearance": {
       "colors": [
         "paille",
@@ -10174,10 +10300,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "bieres-de-ble-et-de-seigle",
     "cardId": "leichtes-weizen",
-    "role": "primary",
+    "type": "SS",
+    "parentPrincipalId": "weissbier-hefeweizen",
     "appearance": {
       "colors": [
         "paille",
@@ -10251,10 +10378,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "bieres-de-ble-et-de-seigle",
     "cardId": "bernsteinfarbenes-weizen",
-    "role": "primary",
+    "type": "SS",
+    "parentPrincipalId": "weissbier-hefeweizen",
     "appearance": {
       "colors": [
         "ambre",
@@ -10334,10 +10462,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "bieres-de-ble-et-de-seigle",
     "cardId": "dunkelweizen",
-    "role": "primary",
+    "type": "SS",
+    "parentPrincipalId": "weissbier-hefeweizen",
     "appearance": {
       "colors": [
         "ambre",
@@ -10424,10 +10553,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "bieres-de-ble-et-de-seigle",
     "cardId": "weizenbock",
-    "role": "primary",
+    "type": "SS",
+    "parentPrincipalId": "weissbier-hefeweizen",
     "appearance": {
       "colors": [
         "dore",
@@ -10517,10 +10647,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "bieres-de-ble-et-de-seigle",
     "cardId": "fruit-wheat-beer",
-    "role": "overlay",
+    "type": "S",
+    "parentPrincipalId": "biere-de-ble-wheat-beer",
     "appearance": {
       "colors": [
         "paille",
@@ -10608,10 +10739,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "bieres-de-ble-et-de-seigle",
     "cardId": "wheatwine",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "biere-de-ble-wheat-beer",
     "appearance": {
       "colors": [
         "dore",
@@ -10703,10 +10835,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "bieres-de-ble-et-de-seigle",
     "cardId": "roggenbier-german-rye-ale",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "biere-de-seigle-rye-beer",
     "appearance": {
       "colors": [
         "cuivre",
@@ -10798,12 +10931,13 @@ export const sensoryProfiles = freezeRecord([
     }
   },
 
-  // Collection 6 — Bières acides, sauvages et spontanées — 21 profils
+  // Bières acides, sauvages et spontanées
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "bieres-acides-sauvages-et-spontanees",
     "cardId": "biere-acide-sour-beer",
-    "role": "fallback",
+    "type": "F",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [
         "paille",
@@ -10893,10 +11027,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "bieres-acides-sauvages-et-spontanees",
     "cardId": "american-wild-ale",
-    "role": "fallback",
+    "type": "F",
+    "parentPrincipalId": "biere-acide-sour-beer",
     "appearance": {
       "colors": [
         "paille",
@@ -10988,10 +11123,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "bieres-acides-sauvages-et-spontanees",
     "cardId": "wild-beer",
-    "role": "fallback",
+    "type": "F",
+    "parentPrincipalId": "biere-acide-sour-beer",
     "appearance": {
       "colors": [
         "paille",
@@ -11077,10 +11213,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "bieres-acides-sauvages-et-spontanees",
     "cardId": "biere-de-fermentation-spontanee-spontaneous-sour-ale",
-    "role": "fallback",
+    "type": "F",
+    "parentPrincipalId": "biere-acide-sour-beer",
     "appearance": {
       "colors": [
         "paille",
@@ -11175,10 +11312,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "bieres-acides-sauvages-et-spontanees",
     "cardId": "berliner-weisse",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "biere-acide-sour-beer",
     "appearance": {
       "colors": [
         "paille"
@@ -11266,10 +11404,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "bieres-acides-sauvages-et-spontanees",
     "cardId": "specialty-berliner-weisse",
-    "role": "fallback",
+    "type": "SS",
+    "parentPrincipalId": "berliner-weisse",
     "appearance": {
       "colors": [
         "paille",
@@ -11364,10 +11503,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "bieres-acides-sauvages-et-spontanees",
     "cardId": "gose",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "biere-acide-sour-beer",
     "appearance": {
       "colors": [
         "paille",
@@ -11457,10 +11597,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "bieres-acides-sauvages-et-spontanees",
     "cardId": "leipzig-gose",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "gose",
     "appearance": {
       "colors": [
         "paille",
@@ -11551,10 +11692,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "bieres-acides-sauvages-et-spontanees",
     "cardId": "contemporary-gose",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "gose",
     "appearance": {
       "colors": [
         "paille",
@@ -11645,10 +11787,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "bieres-acides-sauvages-et-spontanees",
     "cardId": "flanders-red-ale",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "biere-acide-sour-beer",
     "appearance": {
       "colors": [
         "ambre",
@@ -11739,10 +11882,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "bieres-acides-sauvages-et-spontanees",
     "cardId": "oud-bruin",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "biere-acide-sour-beer",
     "appearance": {
       "colors": [
         "cuivre",
@@ -11838,10 +11982,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "bieres-acides-sauvages-et-spontanees",
     "cardId": "lambic",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "biere-de-fermentation-spontanee-spontaneous-sour-ale",
     "appearance": {
       "colors": [
         "paille",
@@ -11929,10 +12074,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "bieres-acides-sauvages-et-spontanees",
     "cardId": "gueuze",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "lambic",
     "appearance": {
       "colors": [
         "paille",
@@ -12022,10 +12168,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "bieres-acides-sauvages-et-spontanees",
     "cardId": "fruit-lambic",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "lambic",
     "appearance": {
       "colors": [
         "paille",
@@ -12117,10 +12264,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "bieres-acides-sauvages-et-spontanees",
     "cardId": "american-sour-ale",
-    "role": "fallback",
+    "type": "S",
+    "parentPrincipalId": "american-wild-ale",
     "appearance": {
       "colors": [
         "paille",
@@ -12204,10 +12352,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "bieres-acides-sauvages-et-spontanees",
     "cardId": "fruited-american-sour-ale",
-    "role": "overlay",
+    "type": "SS",
+    "parentPrincipalId": "american-sour-ale",
     "appearance": {
       "colors": [
         "paille",
@@ -12299,10 +12448,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "bieres-acides-sauvages-et-spontanees",
     "cardId": "brett-beer",
-    "role": "overlay",
+    "type": "S",
+    "parentPrincipalId": "wild-beer",
     "appearance": {
       "colors": [
         "paille",
@@ -12386,10 +12536,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "bieres-acides-sauvages-et-spontanees",
     "cardId": "mixed-culture-brett-beer",
-    "role": "overlay",
+    "type": "SS",
+    "parentPrincipalId": "brett-beer",
     "appearance": {
       "colors": [
         "paille",
@@ -12476,10 +12627,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "bieres-acides-sauvages-et-spontanees",
     "cardId": "contemporary-belgian-style-spontaneously-fermented-ale",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "biere-de-fermentation-spontanee-spontaneous-sour-ale",
     "appearance": {
       "colors": [
         "paille",
@@ -12573,10 +12725,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "bieres-acides-sauvages-et-spontanees",
     "cardId": "wood-and-barrel-aged-sour-beer",
-    "role": "overlay",
+    "type": "S",
+    "parentPrincipalId": "biere-acide-sour-beer",
     "appearance": {
       "colors": [
         "paille",
@@ -12665,10 +12818,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "bieres-acides-sauvages-et-spontanees",
     "cardId": "fruited-wood-and-barrel-aged-sour-beer",
-    "role": "overlay",
+    "type": "SS",
+    "parentPrincipalId": "wood-and-barrel-aged-sour-beer",
     "appearance": {
       "colors": [
         "paille",
@@ -12766,12 +12920,13 @@ export const sensoryProfiles = freezeRecord([
     }
   },
 
-  // Collection 7 — Ales ambrées, brunes, maltées et fortes — 27 profils
+  // Ales ambrées, brunes, maltées et fortes
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "ales-ambrees-brunes-maltees-et-fortes",
     "cardId": "ale",
-    "role": "fallback",
+    "type": "F",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [
         "paille",
@@ -12851,10 +13006,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "ales-ambrees-brunes-maltees-et-fortes",
     "cardId": "mild-ale",
-    "role": "fallback",
+    "type": "F",
+    "parentPrincipalId": "ale",
     "appearance": {
       "colors": [
         "ambre",
@@ -12937,10 +13093,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "ales-ambrees-brunes-maltees-et-fortes",
     "cardId": "brown-ale",
-    "role": "fallback",
+    "type": "F",
+    "parentPrincipalId": "ale",
     "appearance": {
       "colors": [
         "ambre",
@@ -13021,10 +13178,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "ales-ambrees-brunes-maltees-et-fortes",
     "cardId": "amber-ale",
-    "role": "fallback",
+    "type": "F",
+    "parentPrincipalId": "ale",
     "appearance": {
       "colors": [
         "ambre",
@@ -13105,10 +13263,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "ales-ambrees-brunes-maltees-et-fortes",
     "cardId": "red-ale",
-    "role": "fallback",
+    "type": "F",
+    "parentPrincipalId": "ale",
     "appearance": {
       "colors": [
         "ambre",
@@ -13189,10 +13348,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "ales-ambrees-brunes-maltees-et-fortes",
     "cardId": "strong-ale",
-    "role": "fallback",
+    "type": "F",
+    "parentPrincipalId": "ale",
     "appearance": {
       "colors": [
         "dore",
@@ -13278,10 +13438,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "ales-ambrees-brunes-maltees-et-fortes",
     "cardId": "barley-wine",
-    "role": "fallback",
+    "type": "F",
+    "parentPrincipalId": "strong-ale",
     "appearance": {
       "colors": [
         "dore",
@@ -13373,10 +13534,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "ales-ambrees-brunes-maltees-et-fortes",
     "cardId": "english-pale-mild-ale",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "mild-ale",
     "appearance": {
       "colors": [
         "dore",
@@ -13457,10 +13619,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "ales-ambrees-brunes-maltees-et-fortes",
     "cardId": "english-dark-mild-ale",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "mild-ale",
     "appearance": {
       "colors": [
         "cuivre",
@@ -13547,10 +13710,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "ales-ambrees-brunes-maltees-et-fortes",
     "cardId": "english-brown-ale",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "brown-ale",
     "appearance": {
       "colors": [
         "ambre",
@@ -13634,10 +13798,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "ales-ambrees-brunes-maltees-et-fortes",
     "cardId": "london-brown-ale",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "brown-ale",
     "appearance": {
       "colors": [
         "brun",
@@ -13715,10 +13880,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "ales-ambrees-brunes-maltees-et-fortes",
     "cardId": "irish-red-ale",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "red-ale",
     "appearance": {
       "colors": [
         "ambre",
@@ -13801,10 +13967,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "ales-ambrees-brunes-maltees-et-fortes",
     "cardId": "old-ale",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "strong-ale",
     "appearance": {
       "colors": [
         "ambre",
@@ -13889,10 +14056,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "ales-ambrees-brunes-maltees-et-fortes",
     "cardId": "british-barley-wine",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "barley-wine",
     "appearance": {
       "colors": [
         "dore",
@@ -13979,10 +14147,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "ales-ambrees-brunes-maltees-et-fortes",
     "cardId": "scottish-light-ale",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "ale",
     "appearance": {
       "colors": [
         "ambre",
@@ -14064,10 +14233,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "ales-ambrees-brunes-maltees-et-fortes",
     "cardId": "scottish-heavy-ale",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "ale",
     "appearance": {
       "colors": [
         "ambre",
@@ -14149,10 +14319,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "ales-ambrees-brunes-maltees-et-fortes",
     "cardId": "scottish-export-ale",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "ale",
     "appearance": {
       "colors": [
         "ambre",
@@ -14234,10 +14405,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "ales-ambrees-brunes-maltees-et-fortes",
     "cardId": "scotch-ale-wee-heavy",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "strong-ale",
     "appearance": {
       "colors": [
         "cuivre",
@@ -14321,10 +14493,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "ales-ambrees-brunes-maltees-et-fortes",
     "cardId": "peated-scotch-ale",
-    "role": "primary",
+    "type": "SS",
+    "parentPrincipalId": "scotch-ale-wee-heavy",
     "appearance": {
       "colors": [
         "cuivre",
@@ -14409,10 +14582,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "ales-ambrees-brunes-maltees-et-fortes",
     "cardId": "american-amber-red-ale",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "amber-ale",
     "appearance": {
       "colors": [
         "ambre",
@@ -14499,10 +14673,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "ales-ambrees-brunes-maltees-et-fortes",
     "cardId": "american-brown-ale",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "brown-ale",
     "appearance": {
       "colors": [
         "cuivre",
@@ -14587,10 +14762,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "ales-ambrees-brunes-maltees-et-fortes",
     "cardId": "american-black-ale",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "ale",
     "appearance": {
       "colors": [
         "brun",
@@ -14674,10 +14850,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "ales-ambrees-brunes-maltees-et-fortes",
     "cardId": "double-hoppy-red-ale",
-    "role": "primary",
+    "type": "SS",
+    "parentPrincipalId": "red-ale",
     "appearance": {
       "colors": [
         "ambre",
@@ -14760,10 +14937,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "ales-ambrees-brunes-maltees-et-fortes",
     "cardId": "imperial-red-ale",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "red-ale",
     "appearance": {
       "colors": [
         "ambre",
@@ -14846,10 +15024,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "ales-ambrees-brunes-maltees-et-fortes",
     "cardId": "american-strong-ale",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "strong-ale",
     "appearance": {
       "colors": [
         "dore",
@@ -14935,10 +15114,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "ales-ambrees-brunes-maltees-et-fortes",
     "cardId": "american-barley-wine",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "barley-wine",
     "appearance": {
       "colors": [
         "ambre",
@@ -15027,10 +15207,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "ales-ambrees-brunes-maltees-et-fortes",
     "cardId": "altbier",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "ale",
     "appearance": {
       "colors": [
         "ambre",
@@ -15113,12 +15294,13 @@ export const sensoryProfiles = freezeRecord([
     }
   },
 
-  // Collection 8 — Styles singuliers, historiques et hybrides — 40 profils
+  // Styles singuliers, historiques et hybrides
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "styles-singuliers-historiques-et-hybrides",
     "cardId": "cream-ale",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "ale",
     "appearance": {
       "colors": [
         "paille",
@@ -15189,10 +15371,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "styles-singuliers-historiques-et-hybrides",
     "cardId": "california-common-steam-beer",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [
         "ambre",
@@ -15276,10 +15459,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "styles-singuliers-historiques-et-hybrides",
     "cardId": "kentucky-common",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [
         "ambre",
@@ -15366,10 +15550,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "styles-singuliers-historiques-et-hybrides",
     "cardId": "american-malt-liquor",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [
         "paille",
@@ -15441,10 +15626,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "styles-singuliers-historiques-et-hybrides",
     "cardId": "pre-prohibition-lager",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "lager",
     "appearance": {
       "colors": [
         "paille",
@@ -15518,10 +15704,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "styles-singuliers-historiques-et-hybrides",
     "cardId": "kellerbier-zwickelbier",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": "lager",
     "appearance": {
       "colors": [
         "paille",
@@ -15606,10 +15793,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "styles-singuliers-historiques-et-hybrides",
     "cardId": "grodziskie-piwo-grodziskie",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [
         "paille",
@@ -15697,10 +15885,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "styles-singuliers-historiques-et-hybrides",
     "cardId": "lichtenhainer",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [
         "paille",
@@ -15784,10 +15973,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "styles-singuliers-historiques-et-hybrides",
     "cardId": "adambier",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [
         "brun",
@@ -15874,10 +16064,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "styles-singuliers-historiques-et-hybrides",
     "cardId": "dutch-kuyt-kuit",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [
         "dore",
@@ -15964,10 +16155,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "styles-singuliers-historiques-et-hybrides",
     "cardId": "sahti",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [
         "dore",
@@ -16050,10 +16242,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "styles-singuliers-historiques-et-hybrides",
     "cardId": "gotlandsdricke",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [
         "dore",
@@ -16135,10 +16328,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "styles-singuliers-historiques-et-hybrides",
     "cardId": "breslau-schoeps",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [
         "paille",
@@ -16226,10 +16420,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "styles-singuliers-historiques-et-hybrides",
     "cardId": "grape-ale-italian-grape-ale",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [
         "paille",
@@ -16313,10 +16508,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "styles-singuliers-historiques-et-hybrides",
     "cardId": "fruit-beer",
-    "role": "overlay",
+    "type": "T",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [
         "paille",
@@ -16372,10 +16568,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "styles-singuliers-historiques-et-hybrides",
     "cardId": "field-beer",
-    "role": "overlay",
+    "type": "T",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [
         "paille",
@@ -16425,10 +16622,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "styles-singuliers-historiques-et-hybrides",
     "cardId": "pumpkin-squash-pumpkin-spice-beer",
-    "role": "overlay",
+    "type": "T",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [
         "dore",
@@ -16485,10 +16683,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "styles-singuliers-historiques-et-hybrides",
     "cardId": "chili-beer",
-    "role": "overlay",
+    "type": "T",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [
         "paille",
@@ -16542,10 +16741,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "styles-singuliers-historiques-et-hybrides",
     "cardId": "herb-and-spice-beer",
-    "role": "overlay",
+    "type": "T",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [
         "paille",
@@ -16603,10 +16803,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "styles-singuliers-historiques-et-hybrides",
     "cardId": "tea-beer",
-    "role": "overlay",
+    "type": "T",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [
         "paille",
@@ -16658,10 +16859,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "styles-singuliers-historiques-et-hybrides",
     "cardId": "green-tea-beer",
-    "role": "overlay",
+    "type": "SS",
+    "parentPrincipalId": "tea-beer",
     "appearance": {
       "colors": [
         "paille",
@@ -16711,10 +16913,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "styles-singuliers-historiques-et-hybrides",
     "cardId": "chocolate-beer",
-    "role": "overlay",
+    "type": "T",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [
         "paille",
@@ -16764,10 +16967,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "styles-singuliers-historiques-et-hybrides",
     "cardId": "coffee-beer",
-    "role": "overlay",
+    "type": "T",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [
         "paille",
@@ -16817,10 +17021,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "styles-singuliers-historiques-et-hybrides",
     "cardId": "honey-beer",
-    "role": "overlay",
+    "type": "T",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [
         "paille",
@@ -16874,10 +17079,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "styles-singuliers-historiques-et-hybrides",
     "cardId": "alternative-grain-beer",
-    "role": "overlay",
+    "type": "T",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [
         "paille",
@@ -16925,10 +17131,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "styles-singuliers-historiques-et-hybrides",
     "cardId": "alternative-sugar-beer",
-    "role": "overlay",
+    "type": "T",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [
         "paille",
@@ -16981,10 +17188,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "styles-singuliers-historiques-et-hybrides",
     "cardId": "autumn-seasonal-beer",
-    "role": "overlay",
+    "type": "T",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [
         "ambre",
@@ -17036,10 +17244,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "styles-singuliers-historiques-et-hybrides",
     "cardId": "winter-seasonal-beer",
-    "role": "overlay",
+    "type": "T",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [
         "ambre",
@@ -17096,10 +17305,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "styles-singuliers-historiques-et-hybrides",
     "cardId": "ginjo-beer-sake-yeast-beer",
-    "role": "primary",
+    "type": "S",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [
         "paille",
@@ -17179,10 +17389,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "styles-singuliers-historiques-et-hybrides",
     "cardId": "fresh-hop-beer",
-    "role": "overlay",
+    "type": "T",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [
         "paille",
@@ -17238,10 +17449,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "styles-singuliers-historiques-et-hybrides",
     "cardId": "wood-and-barrel-aged-beer",
-    "role": "overlay",
+    "type": "T",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [
         "paille",
@@ -17300,10 +17512,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "styles-singuliers-historiques-et-hybrides",
     "cardId": "wood-and-barrel-aged-strong-beer",
-    "role": "overlay",
+    "type": "SS",
+    "parentPrincipalId": "wood-and-barrel-aged-beer",
     "appearance": {
       "colors": [
         "paille",
@@ -17367,10 +17580,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "styles-singuliers-historiques-et-hybrides",
     "cardId": "wood-and-barrel-aged-strong-stout",
-    "role": "overlay",
+    "type": "SS",
+    "parentPrincipalId": "wood-and-barrel-aged-beer",
     "appearance": {
       "colors": [
         "brun",
@@ -17442,10 +17656,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "styles-singuliers-historiques-et-hybrides",
     "cardId": "wood-and-barrel-aged-dessert-pastry-beer",
-    "role": "overlay",
+    "type": "SS",
+    "parentPrincipalId": "wood-and-barrel-aged-beer",
     "appearance": {
       "colors": [
         "ambre",
@@ -17524,10 +17739,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "styles-singuliers-historiques-et-hybrides",
     "cardId": "aged-beer",
-    "role": "overlay",
+    "type": "T",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [
         "paille",
@@ -17584,10 +17800,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "styles-singuliers-historiques-et-hybrides",
     "cardId": "rauchbier-smoke-beer",
-    "role": "fallback",
+    "type": "F",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [
         "paille",
@@ -17644,10 +17861,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "styles-singuliers-historiques-et-hybrides",
     "cardId": "weiss-rauchbier",
-    "role": "primary",
+    "type": "SS",
+    "parentPrincipalId": "rauchbier-smoke-beer",
     "appearance": {
       "colors": [
         "paille",
@@ -17725,10 +17943,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "styles-singuliers-historiques-et-hybrides",
     "cardId": "helles-rauchbier",
-    "role": "primary",
+    "type": "SS",
+    "parentPrincipalId": "rauchbier-smoke-beer",
     "appearance": {
       "colors": [
         "paille",
@@ -17804,10 +18023,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "styles-singuliers-historiques-et-hybrides",
     "cardId": "marzen-rauchbier",
-    "role": "primary",
+    "type": "SS",
+    "parentPrincipalId": "rauchbier-smoke-beer",
     "appearance": {
       "colors": [
         "ambre",
@@ -17886,10 +18106,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "styles-singuliers-historiques-et-hybrides",
     "cardId": "bock-rauchbier",
-    "role": "primary",
+    "type": "SS",
+    "parentPrincipalId": "rauchbier-smoke-beer",
     "appearance": {
       "colors": [
         "dore",
@@ -17969,12 +18190,13 @@ export const sensoryProfiles = freezeRecord([
     }
   },
 
-  // Collection 9 — Appellations commerciales — 30 profils
+  // Appellations commerciales
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "appellations-commerciales",
     "cardId": "blonde",
-    "role": "excluded",
+    "type": "A",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [
         "paille",
@@ -18007,10 +18229,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "appellations-commerciales",
     "cardId": "blanche",
-    "role": "excluded",
+    "type": "A",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [
         "paille",
@@ -18043,10 +18266,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "appellations-commerciales",
     "cardId": "ambree",
-    "role": "excluded",
+    "type": "A",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [
         "ambre",
@@ -18079,10 +18303,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "appellations-commerciales",
     "cardId": "rousse",
-    "role": "excluded",
+    "type": "A",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [
         "ambre",
@@ -18115,10 +18340,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "appellations-commerciales",
     "cardId": "brune",
-    "role": "excluded",
+    "type": "A",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [
         "brun",
@@ -18151,10 +18377,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "appellations-commerciales",
     "cardId": "noire",
-    "role": "excluded",
+    "type": "A",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [
         "noir"
@@ -18182,10 +18409,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "appellations-commerciales",
     "cardId": "rouge",
-    "role": "excluded",
+    "type": "A",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [
         "ambre",
@@ -18219,10 +18447,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "appellations-commerciales",
     "cardId": "biere-dabbaye",
-    "role": "excluded",
+    "type": "A",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [],
       "clarity": []
@@ -18254,10 +18483,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "appellations-commerciales",
     "cardId": "trappiste",
-    "role": "excluded",
+    "type": "R",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [],
       "clarity": []
@@ -18285,10 +18515,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "appellations-commerciales",
     "cardId": "biere-artisanale-craft-beer",
-    "role": "excluded",
+    "type": "A",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [],
       "clarity": []
@@ -18317,10 +18548,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "appellations-commerciales",
     "cardId": "biere-biologique-bio",
-    "role": "excluded",
+    "type": "R",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [],
       "clarity": []
@@ -18349,10 +18581,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "appellations-commerciales",
     "cardId": "biere-speciale",
-    "role": "excluded",
+    "type": "A",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [],
       "clarity": []
@@ -18378,10 +18611,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "appellations-commerciales",
     "cardId": "biere-de-noel",
-    "role": "excluded",
+    "type": "A",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [],
       "clarity": []
@@ -18409,10 +18643,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "appellations-commerciales",
     "cardId": "biere-de-printemps-biere-de-mars",
-    "role": "excluded",
+    "type": "A",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [],
       "clarity": []
@@ -18442,10 +18677,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "appellations-commerciales",
     "cardId": "biere-forte-strong-beer",
-    "role": "excluded",
+    "type": "A",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [],
       "clarity": []
@@ -18474,10 +18710,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "appellations-commerciales",
     "cardId": "biere-legere-light-beer",
-    "role": "excluded",
+    "type": "A",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [],
       "clarity": []
@@ -18506,10 +18743,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "appellations-commerciales",
     "cardId": "session-beer",
-    "role": "excluded",
+    "type": "A",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [],
       "clarity": []
@@ -18535,10 +18773,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "appellations-commerciales",
     "cardId": "double",
-    "role": "excluded",
+    "type": "A",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [],
       "clarity": []
@@ -18568,10 +18807,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "appellations-commerciales",
     "cardId": "triple",
-    "role": "excluded",
+    "type": "A",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [],
       "clarity": []
@@ -18601,10 +18841,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "appellations-commerciales",
     "cardId": "quadruple",
-    "role": "excluded",
+    "type": "A",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [],
       "clarity": []
@@ -18634,10 +18875,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "appellations-commerciales",
     "cardId": "biere-de-fermentation-lactique",
-    "role": "excluded",
+    "type": "R",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [],
       "clarity": []
@@ -18663,10 +18905,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "appellations-commerciales",
     "cardId": "biere-de-garde-mention-legale-francaise",
-    "role": "excluded",
+    "type": "R",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [],
       "clarity": []
@@ -18694,10 +18937,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "appellations-commerciales",
     "cardId": "pur-malt",
-    "role": "excluded",
+    "type": "R",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [],
       "clarity": []
@@ -18725,10 +18969,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "appellations-commerciales",
     "cardId": "biere-sans-alcool",
-    "role": "excluded",
+    "type": "R",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [],
       "clarity": []
@@ -18762,10 +19007,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "appellations-commerciales",
     "cardId": "0-0-pourcent",
-    "role": "excluded",
+    "type": "A",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [],
       "clarity": []
@@ -18798,10 +19044,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "appellations-commerciales",
     "cardId": "biere-sans-gluten",
-    "role": "excluded",
+    "type": "R",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [],
       "clarity": []
@@ -18829,10 +19076,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "appellations-commerciales",
     "cardId": "biere-aromatisee-a",
-    "role": "excluded",
+    "type": "R",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [],
       "clarity": []
@@ -18858,10 +19106,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "appellations-commerciales",
     "cardId": "biere-a",
-    "role": "excluded",
+    "type": "R",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [],
       "clarity": []
@@ -18887,10 +19136,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "appellations-commerciales",
     "cardId": "panache",
-    "role": "fallback",
+    "type": "R",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [
         "paille",
@@ -18947,10 +19197,11 @@ export const sensoryProfiles = freezeRecord([
     }
   },
   {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "collectionId": "appellations-commerciales",
     "cardId": "radler-shandy",
-    "role": "fallback",
+    "type": "A",
+    "parentPrincipalId": null,
     "appearance": {
       "colors": [
         "paille",

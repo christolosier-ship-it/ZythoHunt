@@ -1,16 +1,15 @@
 import { collectionCatalog } from "../src/data/collection-catalog.js";
 import { sensoryProfiles } from "../src/data/sensory-profiles.js";
+import { createSensoryTaxonomy, ALLOWED_TYPES } from "../src/tasting/sensory-taxonomy.js";
 import {
   FINISH_IDS,
   SENSORY_DESCRIPTOR_IDS,
   STRUCTURE_AXIS_IDS
 } from "../src/tasting/tasting-vocabulary.js";
 
-const SENSORY_PROFILE_SCHEMA_VERSION = 2;
-const SENSORY_ROLES = Object.freeze(["primary", "fallback", "overlay", "excluded"]);
+const SENSORY_PROFILE_SCHEMA_VERSION = 3;
 const SENSORY_VERIFICATION_STATUSES = Object.freeze(["pending", "verified"]);
 
-const allowedRoles = new Set(SENSORY_ROLES);
 const allowedVerificationStatuses = new Set(SENSORY_VERIFICATION_STATUSES);
 const descriptorIds = new Set(SENSORY_DESCRIPTOR_IDS);
 const finishIds = new Set(FINISH_IDS);
@@ -63,6 +62,10 @@ function collectIdentityErrors(profiles, cards) {
 
     if (profile.name !== card.name) errors.push(`${key} possède un nom désynchronisé avec la Brassopédie.`);
     if (profile.collectionName !== card.collectionName) errors.push(`${key} possède un nom de collection désynchronisé.`);
+    if (profile.type !== card.type) errors.push(`${key} possède un type désynchronisé (${profile.type} au lieu de ${card.type}).`);
+    if ((profile.parentPrincipalId || null) !== (card.parentPrincipalId || null)) {
+      errors.push(`${key} possède un parentPrincipalId désynchronisé (${profile.parentPrincipalId || "∅"} au lieu de ${card.parentPrincipalId || "∅"}).`);
+    }
     if (JSON.stringify(profile.aliases || []) !== JSON.stringify(card.aliases || [])) {
       errors.push(`${key} possède des alias désynchronisés.`);
     }
@@ -78,11 +81,12 @@ function collectIdentityErrors(profiles, cards) {
 function validateProfile(profile) {
   assert(profile.schemaVersion === SENSORY_PROFILE_SCHEMA_VERSION, `${profile.cardId} utilise une version de schéma non prise en charge.`);
   assert(profile.collectionId !== "bizarre-et-insolite", `La Collection 10 est interdite dans le référentiel sensoriel (${profile.cardId}).`);
-  assert(allowedRoles.has(profile.role), `${profile.cardId} utilise un rôle inconnu : ${profile.role}.`);
+  assert(ALLOWED_TYPES.has(profile.type), `${profile.cardId} utilise un type taxonomique inconnu : ${profile.type}.`);
+  assert(profile.parentPrincipalId === null || typeof profile.parentPrincipalId === "string", `${profile.cardId}.parentPrincipalId doit être une chaîne ou null.`);
 
   const key = `${profile.collectionId}:${profile.cardId}`;
-  ["source", "expert", "parentCardId"].forEach((legacyKey) => {
-    assert(!Object.hasOwn(profile, legacyKey), `${key} contient encore le champ de migration ${legacyKey}.`);
+  ["role", "source", "expert", "parentCardId"].forEach((legacyKey) => {
+    assert(!Object.hasOwn(profile, legacyKey), `${key} contient encore le champ historique ${legacyKey}.`);
   });
 
   validateVerification(profile);
@@ -99,16 +103,9 @@ function validateProfile(profile) {
   (profile.finish || []).forEach((id) => assert(finishIds.has(id), `${profile.cardId} contient une finale inconnue : ${id}.`));
   (profile.contradictions || []).forEach((id) => assert(descriptorIds.has(id), `${profile.cardId} contient une contradiction inconnue : ${id}.`));
   (profile.keyMarkers || []).forEach((id) => assert(descriptorIds.has(id), `${profile.cardId} contient un marqueur clé inconnu : ${id}.`));
-  if (profile.role === "overlay") assert((profile.keyMarkers || []).length > 0, `${profile.cardId} est un overlay sans marqueur clé.`);
 
-  if (profile.role !== "excluded") {
-    const dimensions = Object.keys(profile.nose || {}).length
-      + Object.keys(profile.palate || {}).length
-      + Object.keys(profile.structure || {}).length
-      + (profile.appearance?.colors?.length || 0)
-      + (profile.appearance?.clarity?.length || 0)
-      + (profile.finish?.length || 0);
-    assert(dimensions >= 4, `${profile.cardId} ne contient pas assez de dimensions sensorielles (${dimensions}).`);
+  if (profile.type === "T") {
+    assert((profile.keyMarkers || []).length > 0, `${profile.cardId} est une catégorie transversale sans marqueur clé.`);
   }
 }
 
@@ -127,7 +124,9 @@ export async function validateSensoryCatalog() {
         collectionName: catalog.name,
         cardId: card.id,
         name: card.name,
-        aliases: card.aliases || []
+        aliases: card.aliases || [],
+        type: card.type,
+        parentPrincipalId: card.brassopedie?.parentPrincipalId || null
       });
     });
   });
@@ -142,31 +141,35 @@ export async function validateSensoryCatalog() {
   );
 
   sensoryProfiles.forEach(validateProfile);
+  const taxonomy = createSensoryTaxonomy(sensoryProfiles);
 
-  const roleCounts = sensoryProfiles.reduce((counts, profile) => {
-    counts[profile.role] = (counts[profile.role] || 0) + 1;
-    return counts;
-  }, { primary: 0, fallback: 0, overlay: 0, excluded: 0 });
-
-  assert(roleCounts.primary === 165, `165 primary attendus, reçu ${roleCounts.primary}.`);
-  assert(roleCounts.fallback === 29, `29 fallback attendus, reçu ${roleCounts.fallback}.`);
-  assert(roleCounts.overlay === 29, `29 overlay attendus, reçu ${roleCounts.overlay}.`);
-  assert(roleCounts.excluded === 28, `28 excluded attendus, reçu ${roleCounts.excluded}.`);
+  assert(taxonomy.commercialProfiles.length === 30, `La Collection 9 doit fournir 30 appellations A/R hors matching automatique, reçu ${taxonomy.commercialProfiles.length}.`);
+  assert(taxonomy.automaticProfiles.length === 221, `221 profils F/S/SS/T automatiques attendus, reçu ${taxonomy.automaticProfiles.length}.`);
 
   const verificationCounts = sensoryProfiles.reduce((counts, profile) => {
     counts[profile.verification.status] = (counts[profile.verification.status] || 0) + 1;
     return counts;
   }, { pending: 0, verified: 0 });
 
+  const typeCounts = sensoryProfiles.reduce((counts, profile) => {
+    counts[profile.type] = (counts[profile.type] || 0) + 1;
+    return counts;
+  }, {});
+
   return {
     totalCards: sensoryProfiles.length,
-    scorableCards: sensoryProfiles.length - roleCounts.excluded,
-    roleCounts,
+    automaticCards: taxonomy.automaticProfiles.length,
+    commercialCards: taxonomy.commercialProfiles.length,
+    families: taxonomy.familyProfiles.length,
+    signatures: taxonomy.signatureProfiles.length,
+    autonomousStyles: taxonomy.autonomousStyles.length,
+    typeCounts,
     verificationCounts
   };
 }
 
 const report = await validateSensoryCatalog();
 
-console.log(`[sensory-catalog] ${report.totalCards} profils statiques validés (${report.roleCounts.primary} primary, ${report.roleCounts.fallback} fallback, ${report.roleCounts.overlay} overlay, ${report.roleCounts.excluded} excluded).`);
+console.log(`[sensory-catalog] ${report.totalCards} profils statiques validés : ${report.automaticCards} automatiques, ${report.commercialCards} appellations A/R hors matching.`);
+console.log(`[sensory-catalog] taxonomie : ${report.families} familles, ${report.signatures} signatures transversales, ${report.autonomousStyles} styles autonomes.`);
 console.log(`[sensory-catalog] vérification documentaire : ${report.verificationCounts.verified} verified, ${report.verificationCounts.pending} pending.`);
