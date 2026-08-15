@@ -263,15 +263,15 @@ const REAL_BEER_PILOT_CASES = Object.freeze([
     targetFamily: "pale-ale",
     targetStyle: "american-pale-ale",
     references: [
-      "https://www.bjcp.org/style/2021/18/18B/american-pale-ale/",
+      "https://styles.bjcp.org/bjcp-2021-beer/18/18b-american-pale-ale",
       "https://sierranevada.com/brews/pale-ale"
     ],
     profile: tasting({
       color: "ambre",
       clarity: "claire",
-      nose: { agrumes: 3, "resine-pin": 2, "caramel-toffee": 1 },
-      palate: { agrumes: 3, "resine-pin": 2, "caramel-toffee": 1 },
-      structure: { amertume: 2, sucrosite: 1, corps: 2, carbonatation: 2, alcool: 1 }
+      nose: { agrumes: 3, "resine-pin": 3, "caramel-toffee": 1 },
+      palate: { agrumes: 3, "resine-pin": 3, "caramel-toffee": 1 },
+      structure: { amertume: 2, sucrosite: 1, corps: 2, carbonatation: 2 }
     })
   },
   {
@@ -418,18 +418,32 @@ function evaluateRealBeerCase(beerCase) {
 }
 
 test("benchmark réel pilote : les bières étalons restent toutes dans le Top 5", () => {
-  REAL_BEER_PILOT_CASES.forEach((beerCase) => {
+  const diagnostics = REAL_BEER_PILOT_CASES.map((beerCase) => {
     const metrics = evaluateRealBeerCase(beerCase);
     assert.equal(metrics.observations, 5, beerCase.beer);
     assert.ok(beerCase.references.length >= 2, beerCase.beer);
-    assert.equal(metrics.top5Rate, 1, `${beerCase.beer}: ${JSON.stringify(metrics.rankings)}`);
     assert.ok(metrics.top3Rate >= metrics.top1Rate, beerCase.beer);
     metrics.rankings.forEach(({ top3, top5, compatibilities }) => {
       assert.ok(top3.length <= 3, beerCase.beer);
       assert.ok(top5.length <= 5, beerCase.beer);
       assert.equal(top5.length, compatibilities.length, beerCase.beer);
     });
+    return {
+      beer: beerCase.beer,
+      targetStyle: beerCase.targetStyle,
+      top5Rate: metrics.top5Rate,
+      rankings: metrics.rankings
+    };
   });
+
+  const failures = diagnostics.filter(({ top5Rate }) => top5Rate !== 1);
+  assert.deepEqual(
+    failures,
+    [],
+    failures.map(({ beer, targetStyle, top5Rate, rankings }) => (
+      `${beer} → ${targetStyle}: Top5 ${(top5Rate * 100).toFixed(0)}%; ${JSON.stringify(rankings)}`
+    )).join("\n\n")
+  );
 });
 
 function midpoint(range) {
