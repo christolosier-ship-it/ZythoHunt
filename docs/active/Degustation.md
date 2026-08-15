@@ -1,6 +1,6 @@
 # Dégustation
 
-Statut : **actif — référentiel sensoriel 251/251 vérifié, moteur hiérarchique famille → style**
+Statut : **actif - référentiel sensoriel 251/251 vérifié, matching étalonné, famille hiérarchique + Top 5 transversal de styles**
 
 ## Intention produit
 
@@ -29,9 +29,11 @@ Le parcours comporte six étapes :
 3. **Le nez** : familles aromatiques et intensités ;
 4. **La bouche** : arômes, structure et finale ;
 5. **Mon verdict** : réaction personnelle, note et souvenir libre ;
-6. **Le résultat** : famille, style, alternatives, signatures et comparaison éventuelle.
+6. **Le résultat** : famille, jusqu'à cinq styles compatibles, alternatives, signatures et comparaison éventuelle.
 
 Les champs sensoriels sont facultatifs. Une réponse non renseignée signifie **inconnue**, jamais zéro ni absence.
+
+Le questionnaire reste volontairement grand public. L'étalonnage ne doit pas introduire d'axes réservés à des dégustateurs experts uniquement pour forcer la distinction de styles sensoriellement très proches.
 
 ## Modèle et stockage
 
@@ -53,7 +55,7 @@ Le moteur utilise un seul catalogue statique :
 src/data/sensory-profiles.js
 ```
 
-Il contient exactement les **251 cartes classiques des Collections 1 à 9**. La Collection 10 — Bizarre et insolite reste hors du moteur classique.
+Il contient exactement les **251 cartes classiques des Collections 1 à 9**. La Collection 10 - Bizarre et insolite reste hors du moteur classique.
 
 Le prototype initial de 40 profils n'existe plus comme couche métier ou algorithmique particulière.
 
@@ -101,9 +103,9 @@ Le référentiel Dégustation utilise un vocabulaire plus compact que les guides
 | Formulation de la source | Intensité Dégustation |
 | --- | ---: |
 | absent / interdit | descripteur omis ou placé dans `contradictions` |
-| très faible / faible | `1` — discret |
-| moyen-faible / moyen | `2` — présent |
-| moyen-fort / fort / très fort | `3` — dominant |
+| très faible / faible | `1` - discret |
+| moyen-faible / moyen | `2` - présent |
+| moyen-fort / fort / très fort | `3` - dominant |
 
 ### Axes de structure
 
@@ -141,15 +143,15 @@ Les URLs et la date de revue restent conservées directement dans chaque profil 
 
 | Collection | Profils | Vérifiés | En attente |
 | --- | ---: | ---: | ---: |
-| 1 — Lagers et fermentations basses | 45 | **45** | 0 |
-| 2 — Pale Ales, Bitters et IPA | 36 | **36** | 0 |
-| 3 — Porters & Stouts | 22 | **22** | 0 |
-| 4 — Traditions belges & françaises | 17 | **17** | 0 |
-| 5 — Blé & seigle | 13 | **13** | 0 |
-| 6 — Acides, sauvages & spontanées | 21 | **21** | 0 |
-| 7 — Ales ambrées, brunes, maltées & fortes | 27 | **27** | 0 |
-| 8 — Styles singuliers, historiques & hybrides | 40 | **40** | 0 |
-| 9 — Appellations commerciales | 30 | **30** | 0 |
+| 1 - Lagers et fermentations basses | 45 | **45** | 0 |
+| 2 - Pale Ales, Bitters et IPA | 36 | **36** | 0 |
+| 3 - Porters & Stouts | 22 | **22** | 0 |
+| 4 - Traditions belges & françaises | 17 | **17** | 0 |
+| 5 - Blé & seigle | 13 | **13** | 0 |
+| 6 - Acides, sauvages & spontanées | 21 | **21** | 0 |
+| 7 - Ales ambrées, brunes, maltées & fortes | 27 | **27** | 0 |
+| 8 - Styles singuliers, historiques & hybrides | 40 | **40** | 0 |
+| 9 - Appellations commerciales | 30 | **30** | 0 |
 | **Total** | **251** | **251** | **0** |
 
 ## Discriminants documentaires conservés
@@ -177,11 +179,11 @@ La taxonomie générale reste celle décrite dans `docs/active/Taxonomie.md` :
 
 Les collections sont des regroupements éditoriaux. Elles ne servent pas de familles au moteur et une filiation peut traverser plusieurs collections.
 
-## Matching hiérarchique
+## Matching hiérarchique et Top 5 transversal
 
-Le moteur ne classe plus 251 cartes comme des candidats indépendants de même niveau.
+Le moteur ne classe pas 251 cartes comme des candidats indépendants de même niveau.
 
-Le flux est :
+Le flux est désormais :
 
 ```text
 profil utilisateur
@@ -194,27 +196,78 @@ classement des branches
 ↓
 famille la plus soutenue
 ↓
-classement des styles de cette famille
+classement global des styles S / SS
 ↓
-style résolu si suffisamment discriminé
+Top 5 transversal avec famille de chaque candidat
+↓
+style exact seulement si le Top 1 est net et cohérent avec la famille
 ```
 
 ### Famille
 
 Une famille n'est jamais un fallback.
 
-Elle représente un niveau réel du diagnostic. Le moteur peut donc conclure qu'une dégustation appartient probablement à la famille `IPA`, `Stout`, `Pilsner`, `Bock`, etc. sans imposer un descendant lorsque les données ne permettent pas de le distinguer proprement.
+Elle représente le niveau principal du diagnostic. Le moteur peut donc conclure qu'une dégustation appartient probablement à la famille `IPA`, `Stout`, `Pilsner`, `Bock`, etc. sans imposer un descendant lorsque les données ne permettent pas de le distinguer proprement.
+
+Le classement familial est porté par le **meilleur style descendant** de chaque branche. Le portrait `F`, volontairement large, reste le portrait de la famille et son support d'affichage ; il ne peut plus gagner une branche uniquement parce que sa plage générique absorbe davantage d'observations. En cas d'égalité entre branches, le départage suit l'identité du style meneur et non le nom technique de la famille.
 
 Le résultat expose :
 
 - `family` ;
 - `familyConfidence`.
 
-### Style et sous-style
+### Top 5 de styles
 
-Les styles `S` et sous-styles `SS` sont évalués à l'intérieur de la branche retenue.
+Les styles `S` et sous-styles `SS` restent liés à leur taxonomie canonique, mais le classement présenté à l'utilisateur n'est plus limité aux descendants de la seule famille gagnante.
 
-Le moteur peut descendre sur plusieurs profondeurs. Par exemple :
+Cette ouverture est nécessaire pour les frontières réellement proches. Une American IPA et une India Pale Lager peuvent ainsi apparaître ensemble parmi les meilleures pistes si les sensations renseignées ne permettent pas de les départager proprement.
+
+`styleCandidates` contient jusqu'à **cinq** styles classés globalement. Chaque candidat expose notamment :
+
+- son identité et son chemin taxonomique ;
+- sa famille sensorielle la plus proche ;
+- `score`, conservé pour compatibilité avec le moteur existant ;
+- `compatibility`, égal au score sensoriel 0-100 et destiné à l'affichage.
+
+Le pourcentage de compatibilité répond à la question :
+
+> « À quel point ce que j'ai renseigné ressemble-t-il au portrait sensoriel de ce style ? »
+
+Il ne doit **jamais** être présenté comme une probabilité statistique que la bière appartienne réellement au style. `88 % compatible` ne signifie pas `88 % de chances`.
+
+### Match net, probable ou ouvert
+
+Le résultat expose également `styleMatch` :
+
+```text
+styleMatch
+├── id          net | probable | open
+├── label
+├── description
+├── gap
+└── topCompatibility
+```
+
+Cette conclusion réutilise les signaux de confiance déjà calculés par le matcher, notamment le score du meilleur candidat et son écart avec le suivant. Elle n'introduit pas un second moteur de fiabilité.
+
+- **Match net** : un style se détache suffisamment selon les critères actuels de correspondance forte ;
+- **Match probable** : une piste ressort mais plusieurs styles proches restent crédibles ;
+- **Match ouvert** : les sensations renseignées ne permettent pas de départager proprement les meilleures pistes.
+
+### Résolution exacte d'un style
+
+`style` reste disponible pour le contrat métier lorsqu'un style exact est suffisamment défendable.
+
+Il n'est résolu que si :
+
+1. le meilleur style atteint le niveau de correspondance forte ;
+2. sa famille est cohérente avec la branche familiale gagnante, ou le style est autonome sans famille.
+
+Ainsi le Top 5 peut traverser plusieurs familles sans provoquer un résultat incohérent du type « famille Lager, style exact American IPA ».
+
+### Exemple de filiation
+
+Le moteur conserve les chemins complets, par exemple :
 
 ```text
 Ale
@@ -225,14 +278,6 @@ Ale
 ```
 
 La famille sensorielle la plus proche de `West Coast IPA` est `IPA / India Pale Ale`, tandis que son chemin complet reste disponible.
-
-Le résultat expose :
-
-- `style` lorsqu'un style est suffisamment discriminé ;
-- `styleConfidence` ;
-- `styleCandidates` lorsque plusieurs descendants restent à départager.
-
-À ce stade, la résolution d'un style exige le niveau de confiance déjà qualifié de **fort**. Une correspondance seulement plausible reste visible comme candidat mais n'est pas imposée comme style exact.
 
 ### Styles autonomes
 
@@ -254,9 +299,9 @@ Il ne s'agit plus d'un rôle `overlay` attribué manuellement. La nature transve
 
 ### Autres branches
 
-Le moteur conserve quelques branches secondaires dans `alternatives` afin qu'une faible différence de score au niveau famille ne ferme pas prématurément la bonne piste.
+Le moteur conserve deux branches secondaires dans `alternatives` afin qu'une faible différence de score au niveau famille ne ferme pas prématurément la bonne piste.
 
-## Collection 9 — Appellations commerciales
+## Collection 9 - Appellations commerciales
 
 Les **30 cartes de la Collection 9** sont toutes de nature `A` ou `R` et sont hors identification automatique.
 
@@ -278,21 +323,88 @@ Une carte `F`, `S`, `SS` ou `T` peut être comparée au ressenti enregistré lor
 
 Une carte `A` ou `R` reste associable manuellement mais n'est pas traitée comme une identité sensorielle automatique pour la comparaison.
 
-## Scoring
+## Scoring et étalonnage
 
 `src/tasting/sensory-score.js` reste le noyau numérique pur.
 
-Cette refonte **ne calibre pas encore** les valeurs de matching. Les éléments suivants sont volontairement conservés :
+Le grand étalonnage du 15 août 2026 n'a pas justifié de retoucher les poids et fonctions de score. Les éléments suivants restent inchangés :
 
 - poids des groupes apparence / nez / bouche / structure / finale ;
 - fonctions de similarité ;
 - bonus des marqueurs clés ;
 - pénalités de contradiction ;
-- seuils numériques de confiance existants ;
-- seuil actuel des signatures ;
+- seuils numériques de confiance ;
+- seuil des signatures ;
 - valeurs des 251 profils vérifiés.
 
-La seule modification du scoring est structurelle : `computeDescriptorRarity()` reçoit désormais le jeu de candidats que la taxonomie lui fournit, au lieu de filtrer des rôles historiques.
+Le défaut global découvert par le benchmark était structurel : un profil familial `F`, volontairement large, pouvait devenir le meneur d'une branche et battre le meilleur style d'une autre branche. La correction est donc restée dans `src/tasting/sensory-matcher.js` et ne constitue pas une pondération supplémentaire.
+
+Aucune constante de calibration spécifique à une bière, un style ou une famille n'a été ajoutée.
+
+## Étalonnage exhaustif
+
+Le benchmark complet reste intégré à `src/tasting/tasting-engine.test.js`. Aucun fichier de benchmark, catalogue dérivé ou table d'override n'est créé.
+
+Il couvre les **175 styles et sous-styles `S/SS`**, les **24 familles `F`** et les **22 signatures transversales `T`**. Chaque style est soumis à dix observations déterministes issues de son portrait sensoriel vérifié :
+
+1. portrait central complet ;
+2. limpidité omise ;
+3. couleur omise ;
+4. marqueur principal atténué ;
+5. marqueur secondaire omis ;
+6. finale omise ;
+7. nez omis ;
+8. bouche omise ;
+9. un axe de structure omis ;
+10. légère variation de corps à l'intérieur de la plage documentée, ou variation d'amertume lorsqu'aucun corps n'est disponible.
+
+Cela représente **1 750 observations** de styles à chaque exécution des tests.
+
+### Résultats de référence
+
+Résultats obtenus après correction structurelle du classement familial :
+
+| Indicateur | Résultat |
+| --- | ---: |
+| Famille exacte Top 1 | **97,1 %** |
+| Bonne famille dans les 3 branches affichées | **99,9 %** |
+| Style exact Top 1 | **93,3 %** |
+| Style exact Top 3 | **99,7 %** |
+| Style exact Top 5 | **100,0 %** |
+| Signature retrouvée lorsque son marqueur clé est renseigné | **100,0 %** |
+
+Le Top 1 style reste un indicateur diagnostique. Il n'est pas transformé en objectif universel, car des styles réellement voisins peuvent partager la même zone sensorielle avec le questionnaire grand public.
+
+Le garde-fou principal est plus exigeant là où il doit l'être : **chacun des 175 styles doit rester dans son Top 5 sur ses dix variantes**. Le benchmark échoue dès qu'un seul style descend sous 100 % de présence Top 5.
+
+Le test impose également :
+
+- au moins **97 %** de famille principale exacte sur l'ensemble des observations ;
+- au moins **99 %** de présence du style exact dans le Top 3 ;
+- **100 %** de présence globale et individuelle dans le Top 5 ;
+- **100 %** de rappel des signatures sur les observations qui conservent réellement un de leurs marqueurs clés.
+
+Un cas limite subsiste volontairement visible : `American Light Lager` peut perdre sa famille `Lager` sur une observation fortement appauvrie, mais le style reste dans le Top 5. Le moteur exprime donc l'incertitude au lieu de recevoir une exception codée pour ce cas.
+
+## Contrôle externe par bières réelles
+
+Le benchmark exhaustif vérifie la robustesse du moteur contre les **175 portraits sourcés** ; il ne prétend pas constituer à lui seul une validation expérimentale indépendante, puisqu'il part du référentiel lui-même.
+
+Un second contrôle, conservé dans le même fichier de test, utilise des bières commerciales réelles documentées pour éprouver plusieurs frontières difficiles :
+
+- Sierra Nevada Pale Ale - American Pale Ale ;
+- Russian River Blind Pig IPA - American IPA ;
+- Russian River Simcoe 25 - West Coast IPA ;
+- Russian River Pliny the Elder - Double / Imperial IPA ;
+- Tree House Julius - NEIPA / Juicy-Hazy IPA.
+
+Chaque bière est testée sous cinq observations déterministes légèrement incomplètes ou variables. Les cinq étalons doivent conserver leur style réel dans le **Top 5 à 100 %**.
+
+Les observations commerciales sont construites à partir des descriptions officielles des brasseries et d'un guide de style de référence. Elles servent de contrôle externe, jamais de définition unique du style. Cette distinction est volontaire : les guides BJCP eux-mêmes rappellent qu'un exemple commercial ne couvre pas nécessairement toute la plage d'un style et qu'il peut évoluer avec le temps.
+
+Le cas Sierra Nevada a notamment permis de corriger le benchmark lui-même : la brasserie décrit explicitement des arômes intenses de pin et d'agrumes, tandis qu'aucune source utilisée ne justifiait d'inventer un niveau d'alcool perçu. Le moteur n'a pas été retouché pour faire réussir cet étalon ; l'observation de test a été remise en conformité avec les sources.
+
+Pour les styles historiques, rares ou sans exemple commercial actuel suffisamment stable et documenté, aucun faux étalon n'est fabriqué. Leur couverture exhaustive repose sur leur portrait vérifié et ses dix variantes, complétée par les contrôles commerciaux là où ceux-ci sont défendables.
 
 ## Validation build
 
@@ -323,29 +435,36 @@ La recherche manuelle couvre toujours les 251 cartes, y compris les `A/R` sortie
 
 ## Tests de garde-fou
 
-Les tests protègent désormais à la fois la nouvelle structure et les anciens discriminants documentaires :
+Les tests protègent désormais à la fois la structure, le référentiel et les résultats d'étalonnage :
 
 - une famille est un niveau de diagnostic, pas un fallback ;
+- un profil familial générique ne peut pas battre une branche portée par un meilleur style ;
 - un style identifié transporte toujours sa filiation ;
 - une famille peut être résolue sans forcer un style ;
+- le Top 5 peut traverser plusieurs familles sans forcer un Top 1 artificiel ;
+- chaque candidat du Top 5 transporte sa famille et sa compatibilité ;
 - un style autonome fonctionne sans famille artificielle ;
 - une catégorie transversale ressort comme signature ;
 - `Brett Beer`, défini `S` dans la taxonomie, reste un vrai style et non une signature générique ;
 - les 30 cartes `A/R` restent absentes du matching automatique tout en restant recherchables ;
+- les cinq bières étalons réelles restent dans leur Top 5 ;
+- les 175 styles sont rejoués sous dix variantes à chaque exécution ;
+- les seuils famille, Top 3, Top 5 et signatures sont bloquants ;
 - les contrôles sensoriels par collection restent présents ;
 - le matching reste déterministe et borné.
 
-## Étape suivante
+## Architecture de calibration
 
-La prochaine étape est le **cadrage des valeurs de matching**.
+L'étalonnage ne crée aucune deuxième source de vérité :
 
-Il faudra construire un benchmark séparant au minimum :
+- **0 nouveau fichier** ;
+- aucun ancien prototype de 40 profils ;
+- aucune table séparée de 175 styles ;
+- aucun override par bière, style ou famille ;
+- aucun générateur runtime ;
+- aucun nouveau critère expert dans le questionnaire ;
+- les définitions restent dans `src/data/sensory-profiles.js` ;
+- le benchmark reste dans `src/tasting/tasting-engine.test.js` ;
+- le moteur reste dans `src/tasting/sensory-matcher.js` et `src/tasting/sensory-score.js`.
 
-1. taux d'identification correcte de la famille ;
-2. taux d'identification correcte du style dans la famille ;
-3. capacité à s'arrêter au niveau famille lorsqu'un style exact n'est pas défendable ;
-4. qualité des alternatives de branche ;
-5. précision des signatures transversales ;
-6. profils ou familles qui attirent artificiellement trop de résultats.
-
-Ce benchmark servira ensuite à ajuster les poids, seuils, couvertures et discriminants famille/style sans réintroduire de règles de caste dans le catalogue.
+Le résultat recherché n'est pas un Top 1 artificiellement parfait. Le contrat final privilégie une **famille solide, un Top 5 honnête et une incertitude visible** lorsque le verre ne permet pas de départager des styles voisins.

@@ -2,12 +2,22 @@ import { computeDescriptorRarity, countSensoryEvidence, scoreSensoryProfile } fr
 import { createSensoryTaxonomy } from "./sensory-taxonomy.js";
 
 const STRUCTURE_AXES = Object.freeze(["amertume", "sucrosite", "acidite", "corps", "carbonatation", "alcool"]);
+const DEFAULT_STYLE_LIMIT = 5;
+const ALTERNATIVE_BRANCH_LIMIT = 2;
 
 function sortByScore(a, b) {
   if (b.score !== a.score) return b.score - a.score;
   if (b._observedSpecificity !== a._observedSpecificity) return b._observedSpecificity - a._observedSpecificity;
   const left = a.key || `${a.collectionId}:${a.cardId}`;
   const right = b.key || `${b.collectionId}:${b.cardId}`;
+  return left.localeCompare(right, "fr");
+}
+
+function sortBranches(a, b) {
+  if (b.score !== a.score) return b.score - a.score;
+  if (b._observedSpecificity !== a._observedSpecificity) return b._observedSpecificity - a._observedSpecificity;
+  const left = a.lead ? `${a.lead.collectionId}:${a.lead.cardId}` : a.key;
+  const right = b.lead ? `${b.lead.collectionId}:${b.lead.cardId}` : b.key;
   return left.localeCompare(right, "fr");
 }
 
@@ -31,6 +41,39 @@ function confidenceResolvesFamily(confidence) {
 
 function confidenceResolvesStyle(confidence) {
   return confidence?.id === "strong";
+}
+
+function styleMatchConclusion(confidence, topStyle, secondStyle) {
+  const topCompatibility = topStyle?.score || 0;
+  const gap = Math.max(0, topCompatibility - (secondStyle?.score || 0));
+
+  if (!topStyle || confidence?.id === "ambiguous" || confidence?.id === "fragile") {
+    return {
+      id: "open",
+      label: "Match ouvert",
+      description: "Plusieurs styles restent possibles avec les sensations renseignées.",
+      gap,
+      topCompatibility
+    };
+  }
+
+  if (confidence.id === "strong") {
+    return {
+      id: "net",
+      label: "Match net",
+      description: "Un style se détache clairement des autres pistes sensorielles.",
+      gap,
+      topCompatibility
+    };
+  }
+
+  return {
+    id: "probable",
+    label: "Match probable",
+    description: "Une piste ressort, mais des styles proches restent crédibles.",
+    gap,
+    topCompatibility
+  };
 }
 
 function observedStructureSpecificity(userProfile, candidate) {
@@ -138,9 +181,9 @@ function buildBranches(scoredCandidates, taxonomy) {
   return [...branches.values()]
     .map((branch) => {
       const members = [...branch.members].sort(sortByScore);
-      const lead = members[0];
       const familyEntry = branch.family ? scoredByCardId.get(branch.family.cardId) || null : null;
       const styleEntries = members.filter((entry) => taxonomy.isStyle(taxonomy.byCardId.get(entry.cardId)));
+      const lead = styleEntries[0] || familyEntry || members[0] || null;
       return {
         ...branch,
         members,
@@ -151,7 +194,7 @@ function buildBranches(scoredCandidates, taxonomy) {
         _observedSpecificity: lead?._observedSpecificity || 0
       };
     })
-    .sort(sortByScore);
+    .sort(sortBranches);
 }
 
 function publicBranch(branch, taxonomy) {
@@ -163,6 +206,17 @@ function publicBranch(branch, taxonomy) {
     path: representative
       ? taxonomy.pathOf(taxonomy.byCardId.get(representative.cardId)).map(identity)
       : []
+  };
+}
+
+function publicStyle(entry, taxonomy) {
+  const profile = taxonomy.byCardId.get(entry.cardId);
+  const family = taxonomy.nearestFamily(profile);
+  return {
+    ...stripRankingMetadata(entry),
+    compatibility: entry.score,
+    family: family ? identity(family) : null,
+    path: taxonomy.pathOf(profile).map(identity)
   };
 }
 
@@ -180,7 +234,7 @@ export function createSensoryMatcher({ profiles, rarity = null } = {}) {
   const taxonomy = createSensoryTaxonomy(profiles);
   const rarityMap = rarity || computeDescriptorRarity(taxonomy.baseProfiles);
 
-  function match(input, { limit = 3 } = {}) {
+  function match(input, { limit = DEFAULT_STYLE_LIMIT } = {}) {
     const userProfile = normalizeUserProfile(input);
     const evidence = countSensoryEvidence(userProfile);
     if (evidence === 0) {
@@ -193,6 +247,7 @@ export function createSensoryMatcher({ profiles, rarity = null } = {}) {
         familyConfidence: ambiguous,
         style: null,
         styleConfidence: ambiguous,
+        styleMatch: styleMatchConclusion(ambiguous, null, null),
         styleCandidates: [],
         alternatives: [],
         signatures: []
@@ -220,30 +275,32 @@ export function createSensoryMatcher({ profiles, rarity = null } = {}) {
         }
       : null;
 
-    const styleEntries = topBranch?.styleEntries || [];
-    const topStyle = styleEntries[0] || null;
-    const styleGap = Math.max(0, (topStyle?.score || 0) - (styleEntries[1]?.score || 0));
+    const globalStyleEntries = scoredBase
+      .filter((entry) => taxonomy.isStyle(taxonomy.byCardId.get(entry.cardId)))
+      .sort(sortByScore);
+    const topStyle = globalStyleEntries[0] || null;
+    const secondStyle = globalStyleEntries[1] || null;
+    const styleGap = Math.max(0, (topStyle?.score || 0) - (secondStyle?.score || 0));
     const styleConfidence = qualitativeConfidence({
       evidence,
       topScore: topStyle?.score || 0,
       gap: styleGap
     });
-    const resolvedStyle = topStyle && confidenceResolvesStyle(styleConfidence)
+    const styleMatch = styleMatchConclusion(styleConfidence, topStyle, secondStyle);
+
+    const topStyleProfile = topStyle ? taxonomy.byCardId.get(topStyle.cardId) : null;
+    const topStyleFamily = topStyleProfile ? taxonomy.nearestFamily(topStyleProfile) : null;
+    const styleAgreesWithFamily = !topBranch?.family || !topStyleFamily || topStyleFamily.cardId === topBranch.family.cardId;
+    const resolvedStyle = topStyle && styleAgreesWithFamily && confidenceResolvesStyle(styleConfidence)
       ? {
-          ...stripRankingMetadata(topStyle),
-          resolved: true,
-          family: topBranch?.family ? identity(topBranch.family) : null,
-          path: taxonomy.pathOf(taxonomy.byCardId.get(topStyle.cardId)).map(identity)
+          ...publicStyle(topStyle, taxonomy),
+          resolved: true
         }
       : null;
 
-    const styleCandidates = styleEntries
-      .slice(0, Math.max(1, limit))
-      .map((entry) => ({
-        ...stripRankingMetadata(entry),
-        family: topBranch?.family ? identity(topBranch.family) : null,
-        path: taxonomy.pathOf(taxonomy.byCardId.get(entry.cardId)).map(identity)
-      }));
+    const styleCandidates = globalStyleEntries
+      .slice(0, Math.max(1, Math.min(DEFAULT_STYLE_LIMIT, limit)))
+      .map((entry) => publicStyle(entry, taxonomy));
 
     const signatures = taxonomy.signatureProfiles
       .filter((candidate) => hasKeyMarkerEvidence(userProfile, candidate))
@@ -263,8 +320,9 @@ export function createSensoryMatcher({ profiles, rarity = null } = {}) {
       familyConfidence,
       style: resolvedStyle,
       styleConfidence,
+      styleMatch,
       styleCandidates,
-      alternatives: branches.slice(1, Math.max(1, limit)).map((branch) => publicBranch(branch, taxonomy)),
+      alternatives: branches.slice(1, 1 + ALTERNATIVE_BRANCH_LIMIT).map((branch) => publicBranch(branch, taxonomy)),
       signatures
     };
   }
@@ -277,4 +335,4 @@ export function createSensoryMatcher({ profiles, rarity = null } = {}) {
   };
 }
 
-export { normalizeUserProfile, qualitativeConfidence };
+export { normalizeUserProfile, qualitativeConfidence, styleMatchConclusion };
