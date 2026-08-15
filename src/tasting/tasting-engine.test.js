@@ -132,6 +132,19 @@ test("une famille peut être reconnue sans forcer un style lorsque ses descendan
   assert.deepEqual(result.styleCandidates.slice(0, 2).map(({ cardId }) => cardId), ["style-a", "style-b"]);
 });
 
+test("une famille générique très large ne peut plus battre une branche portée par un meilleur style", () => {
+  const catalog = isolatedCatalog();
+  catalog[0] = controlledCandidate(catalog[0], { cardId: "family-a", type: "F", marker: "agrumes" });
+  catalog[1] = controlledCandidate(catalog[1], { cardId: "style-a", type: "S", parentPrincipalId: "family-a", marker: "cafe-torrefie" });
+  catalog[2] = controlledCandidate(catalog[2], { cardId: "family-b", type: "F", marker: "cafe-torrefie" });
+  catalog[3] = controlledCandidate(catalog[3], { cardId: "style-b", type: "S", parentPrincipalId: "family-b", marker: "agrumes" });
+  const controlled = createSensoryMatcher({ profiles: catalog });
+  const result = controlled.match(citrusTasting, { limit: 5 });
+
+  assert.equal(result.styleCandidates[0]?.cardId, "style-b");
+  assert.equal(result.family?.cardId, "family-b");
+});
+
 test("le Top 5 des styles peut traverser plusieurs familles sans forcer un Top 1 artificiel", () => {
   const catalog = isolatedCatalog();
   catalog[0] = controlledCandidate(catalog[0], { cardId: "family-a", type: "F", marker: "agrumes" });
@@ -404,15 +417,13 @@ function evaluateRealBeerCase(beerCase) {
   };
 }
 
-test("benchmark réel pilote : mesure famille, Top 1, Top 3 et Top 5 sans imposer le Top 1", () => {
+test("benchmark réel pilote : les bières étalons restent toutes dans le Top 5", () => {
   REAL_BEER_PILOT_CASES.forEach((beerCase) => {
     const metrics = evaluateRealBeerCase(beerCase);
     assert.equal(metrics.observations, 5, beerCase.beer);
     assert.ok(beerCase.references.length >= 2, beerCase.beer);
-    assert.ok(metrics.familyRate >= 0 && metrics.familyRate <= 1, beerCase.beer);
-    assert.ok(metrics.top1Rate >= 0 && metrics.top1Rate <= 1, beerCase.beer);
+    assert.equal(metrics.top5Rate, 1, `${beerCase.beer}: ${JSON.stringify(metrics.rankings)}`);
     assert.ok(metrics.top3Rate >= metrics.top1Rate, beerCase.beer);
-    assert.ok(metrics.top5Rate >= metrics.top3Rate, beerCase.beer);
     metrics.rankings.forEach(({ top3, top5, compatibilities }) => {
       assert.ok(top3.length <= 3, beerCase.beer);
       assert.ok(top5.length <= 5, beerCase.beer);
@@ -522,6 +533,12 @@ function pct(value) {
   return `${(value * 100).toFixed(1)}%`;
 }
 
+function hasSignatureKeyEvidence(observation, profile) {
+  return (profile.keyMarkers || []).some((id) => (
+    Number(observation.nose?.[id]) > 0 || Number(observation.palate?.[id]) > 0
+  ));
+}
+
 function evaluateFullCatalogCalibration() {
   const styleProfiles = taxonomy.baseProfiles.filter((profile) => taxonomy.isStyle(profile));
   const signatureProfiles = taxonomy.signatureProfiles;
@@ -530,6 +547,7 @@ function evaluateFullCatalogCalibration() {
   const top1Magnets = new Map();
   let totalObservations = 0;
   let totalFamilyHits = 0;
+  let totalFamilyTop3Hits = 0;
   let totalTop1Hits = 0;
   let totalTop3Hits = 0;
   let totalTop5Hits = 0;
@@ -538,6 +556,7 @@ function evaluateFullCatalogCalibration() {
     const expectedFamily = taxonomy.nearestFamily(profile)?.cardId || null;
     const observations = benchmarkObservations(profile);
     let familyHits = 0;
+    let familyTop3Hits = 0;
     let top1Hits = 0;
     let top3Hits = 0;
     let top5Hits = 0;
@@ -547,32 +566,40 @@ function evaluateFullCatalogCalibration() {
       const result = matcher.match(observation, { limit: 5 });
       const top5 = result.styleCandidates.slice(0, 5).map(({ cardId }) => cardId);
       const predictedFamily = result.family?.cardId || null;
+      const familyTop3 = [
+        predictedFamily,
+        ...result.alternatives.map(({ family }) => family?.cardId || null)
+      ].slice(0, 3);
       const top1 = top5[0] || null;
       totalObservations += 1;
       top1Magnets.set(top1, (top1Magnets.get(top1) || 0) + 1);
 
       const familyOk = predictedFamily === expectedFamily;
+      const familyTop3Ok = expectedFamily ? familyTop3.includes(expectedFamily) : predictedFamily === null;
       const top1Ok = top1 === profile.cardId;
       const top3Ok = top5.slice(0, 3).includes(profile.cardId);
       const top5Ok = top5.includes(profile.cardId);
       if (familyOk) familyHits += 1;
+      if (familyTop3Ok) familyTop3Hits += 1;
       if (top1Ok) top1Hits += 1;
       if (top3Ok) top3Hits += 1;
       if (top5Ok) top5Hits += 1;
-      if (!top5Ok || !familyOk) {
-        misses.push({ index, predictedFamily, top5, match: result.styleMatch.id });
+      if (!top5Ok || !familyTop3Ok) {
+        misses.push({ index, predictedFamily, familyTop3, top5, match: result.styleMatch.id });
       }
     });
 
     totalFamilyHits += familyHits;
+    totalFamilyTop3Hits += familyTop3Hits;
     totalTop1Hits += top1Hits;
     totalTop3Hits += top3Hits;
     totalTop5Hits += top5Hits;
 
     const familyKey = expectedFamily || "__autonomous__";
-    const familyCounter = familyCounters.get(familyKey) || { observations: 0, hits: 0, styles: 0 };
+    const familyCounter = familyCounters.get(familyKey) || { observations: 0, hits: 0, top3Hits: 0, styles: 0 };
     familyCounter.observations += observations.length;
     familyCounter.hits += familyHits;
+    familyCounter.top3Hits += familyTop3Hits;
     familyCounter.styles += 1;
     familyCounters.set(familyKey, familyCounter);
 
@@ -581,6 +608,7 @@ function evaluateFullCatalogCalibration() {
       name: profile.name,
       family: expectedFamily,
       familyRate: rate(familyHits, observations.length),
+      familyTop3Rate: rate(familyTop3Hits, observations.length),
       top1Rate: rate(top1Hits, observations.length),
       top3Rate: rate(top3Hits, observations.length),
       top5Rate: rate(top5Hits, observations.length),
@@ -589,13 +617,18 @@ function evaluateFullCatalogCalibration() {
   });
 
   const signatureRows = signatureProfiles.map((profile) => {
-    const observations = benchmarkObservations(profile);
+    const observations = benchmarkObservations(profile).filter((observation) => hasSignatureKeyEvidence(observation, profile));
     let hits = 0;
     observations.forEach((observation) => {
       const result = matcher.match(observation, { limit: 5 });
       if (result.signatures.some(({ cardId }) => cardId === profile.cardId)) hits += 1;
     });
-    return { cardId: profile.cardId, name: profile.name, recall: rate(hits, observations.length) };
+    return {
+      cardId: profile.cardId,
+      name: profile.name,
+      observations: observations.length,
+      recall: rate(hits, observations.length)
+    };
   });
 
   return {
@@ -605,11 +638,17 @@ function evaluateFullCatalogCalibration() {
     signatureRows,
     totalObservations,
     familyRate: rate(totalFamilyHits, totalObservations),
+    familyTop3Rate: rate(totalFamilyTop3Hits, totalObservations),
     top1Rate: rate(totalTop1Hits, totalObservations),
     top3Rate: rate(totalTop3Hits, totalObservations),
     top5Rate: rate(totalTop5Hits, totalObservations),
     familyRows: [...familyCounters.entries()]
-      .map(([cardId, counter]) => ({ cardId, ...counter, rate: rate(counter.hits, counter.observations) }))
+      .map(([cardId, counter]) => ({
+        cardId,
+        ...counter,
+        rate: rate(counter.hits, counter.observations),
+        top3Rate: rate(counter.top3Hits, counter.observations)
+      }))
       .sort((a, b) => a.rate - b.rate || a.cardId.localeCompare(b.cardId, "fr")),
     magnets: [...top1Magnets.entries()]
       .filter(([cardId]) => cardId)
@@ -618,7 +657,7 @@ function evaluateFullCatalogCalibration() {
   };
 }
 
-test("étalonnage exhaustif : les 175 styles, 24 familles et 22 signatures sont mesurés sans référentiel parallèle", () => {
+test("étalonnage exhaustif : les 175 styles restent dans le Top 5 sur 1 750 observations", () => {
   const calibration = evaluateFullCatalogCalibration();
   assert.equal(calibration.styleProfiles.length, 175);
   assert.equal(taxonomy.familyProfiles.length, 24);
@@ -626,29 +665,36 @@ test("étalonnage exhaustif : les 175 styles, 24 familles et 22 signatures sont 
   assert.equal(calibration.totalObservations, 1750);
 
   const worstStyles = calibration.styleRows
-    .filter(({ familyRate, top5Rate }) => familyRate < 1 || top5Rate < 1)
-    .sort((a, b) => a.top5Rate - b.top5Rate || a.familyRate - b.familyRate || a.cardId.localeCompare(b.cardId, "fr"))
+    .filter(({ familyTop3Rate, top5Rate }) => familyTop3Rate < 1 || top5Rate < 1)
+    .sort((a, b) => a.top5Rate - b.top5Rate || a.familyTop3Rate - b.familyTop3Rate || a.cardId.localeCompare(b.cardId, "fr"))
     .slice(0, 40)
-    .map(({ cardId, familyRate, top1Rate, top3Rate, top5Rate, misses }) => ({
+    .map(({ cardId, familyRate, familyTop3Rate, top1Rate, top3Rate, top5Rate, misses }) => ({
       cardId,
       family: pct(familyRate),
+      familyTop3: pct(familyTop3Rate),
       top1: pct(top1Rate),
       top3: pct(top3Rate),
       top5: pct(top5Rate),
       sample: misses.slice(0, 2)
     }));
   const weakFamilies = calibration.familyRows
-    .filter(({ rate: familyRate }) => familyRate < 1)
+    .filter(({ top3Rate }) => top3Rate < 1)
     .slice(0, 24)
-    .map(({ cardId, rate: familyRate, styles }) => ({ cardId, family: pct(familyRate), styles }));
+    .map(({ cardId, rate: familyRate, top3Rate, styles }) => ({
+      cardId,
+      family: pct(familyRate),
+      familyTop3: pct(top3Rate),
+      styles
+    }));
   const weakSignatures = calibration.signatureRows
     .filter(({ recall }) => recall < 1)
     .sort((a, b) => a.recall - b.recall || a.cardId.localeCompare(b.cardId, "fr"))
-    .map(({ cardId, recall }) => ({ cardId, recall: pct(recall) }));
+    .map(({ cardId, observations, recall }) => ({ cardId, observations, recall: pct(recall) }));
 
   console.log("[calibration-catalog]", JSON.stringify({
     observations: calibration.totalObservations,
     family: pct(calibration.familyRate),
+    familyTop3: pct(calibration.familyTop3Rate),
     top1: pct(calibration.top1Rate),
     top3: pct(calibration.top3Rate),
     top5: pct(calibration.top5Rate),
@@ -658,12 +704,18 @@ test("étalonnage exhaustif : les 175 styles, 24 familles et 22 signatures sont 
     magnets: calibration.magnets.slice(0, 15)
   }));
 
-  assert.ok(calibration.top5Rate >= calibration.top3Rate);
-  assert.ok(calibration.top3Rate >= calibration.top1Rate);
-  calibration.styleRows.forEach(({ familyRate, top1Rate, top3Rate, top5Rate, cardId }) => {
-    assert.ok(familyRate >= 0 && familyRate <= 1, cardId);
+  assert.ok(calibration.familyRate >= 0.97, `Famille principale ${pct(calibration.familyRate)}`);
+  assert.ok(calibration.top3Rate >= 0.99, `Top 3 ${pct(calibration.top3Rate)}`);
+  assert.equal(calibration.top5Rate, 1, `Top 5 ${pct(calibration.top5Rate)}`);
+  assert.ok(calibration.familyTop3Rate >= calibration.familyRate);
+  calibration.styleRows.forEach(({ familyTop3Rate, top1Rate, top3Rate, top5Rate, cardId }) => {
     assert.ok(top1Rate >= 0 && top1Rate <= 1, cardId);
     assert.ok(top3Rate >= top1Rate, cardId);
-    assert.ok(top5Rate >= top3Rate, cardId);
+    assert.equal(top5Rate, 1, `${cardId}: Top 5 ${pct(top5Rate)}`);
+    assert.ok(familyTop3Rate >= 0 && familyTop3Rate <= 1, cardId);
+  });
+  calibration.signatureRows.forEach(({ observations, recall, cardId }) => {
+    assert.ok(observations > 0, cardId);
+    assert.equal(recall, 1, `${cardId}: rappel conditionnel ${pct(recall)}`);
   });
 });
