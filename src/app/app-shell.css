@@ -224,6 +224,18 @@
   overflow: hidden;
 }
 
+/* Secondary views are already named by the active sidebar item.
+   Keep only information that adds value instead of repeating page chrome. */
+#reglages-view .settings-page > .settings-hero:first-child,
+#degustation-view .tasting-page > .tasting-hero:first-child {
+  display: none;
+}
+
+#badges-view .badges-overview-copy > .badges-kicker,
+#badges-view .badges-overview-copy > h1 {
+  display: none;
+}
+
 @media (max-width: 760px) {
   :root {
     --sidebar-w: 84px;
