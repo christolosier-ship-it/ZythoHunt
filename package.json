@@ -1,7 +1,8 @@
 {
-  "name": "zythohunt-reveal-lab",
-  "version": "0.2.0",
+  "name": "zythohunt",
+  "version": "1.0.0",
   "private": true,
+  "description": "PWA d'exploration brassicole, de collection et de dégustation.",
   "type": "module",
   "scripts": {
     "content-index:generate": "pnpm search-index:generate && pnpm sensory-catalog:validate",
