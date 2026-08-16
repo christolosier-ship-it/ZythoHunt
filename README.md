@@ -11,6 +11,8 @@ PWA installable · 293 cartes · 10 collections · 251 profils sensoriels · san
 [![CI](https://img.shields.io/github/actions/workflow/status/christolosier-ship-it/ZythoHunt/pages.yml?branch=main&label=CI&style=flat-square)](https://github.com/christolosier-ship-it/ZythoHunt/actions/workflows/pages.yml)
 [![JavaScript](https://img.shields.io/badge/JavaScript-ES%20Modules-f7df1e?style=flat-square&logo=javascript&logoColor=111)](https://developer.mozilla.org/docs/Web/JavaScript)
 [![PWA](https://img.shields.io/badge/PWA-installable-5a0fc8?style=flat-square&logo=pwa&logoColor=white)](./public/manifest.webmanifest)
+[![Code: MIT](https://img.shields.io/badge/code-MIT-2ea44f?style=flat-square)](#-licences)
+[![Content: CC BY-NC-SA 4.0](https://img.shields.io/badge/content-CC%20BY--NC--SA%204.0-8b5cf6?style=flat-square)](#-licences)
 
 ### [🍻 Essayer ZythoHunt](https://christolosier-ship-it.github.io/ZythoHunt/) · [📦 Télécharger la dernière version](https://github.com/christolosier-ship-it/ZythoHunt/releases/latest)
 
@@ -158,6 +160,15 @@ Les retours, propositions d’amélioration et corrections sont bienvenus.
 - une contribution de code : consulte [`CONTRIBUTING.md`](CONTRIBUTING.md) avant d’ouvrir une Pull Request.
 
 Si ZythoHunt te plaît, une ⭐ sur le dépôt aide simplement d’autres curieux brassicoles et développeurs à le découvrir.
+
+## ⚖️ Licences
+
+ZythoHunt utilise une **double licence** afin de séparer le logiciel de son contenu créatif :
+
+- **code source, scripts, tests et configuration logiciels** : [licence MIT](LICENSE) ;
+- **contenus éditoriaux, sensoriels et visuels originaux** pour lesquels le projet détient les droits nécessaires : [CC BY-NC-SA 4.0](LICENSE-CONTENT.md).
+
+Les éléments appartenant à des tiers ne sont pas relicenciés par ZythoHunt et restent soumis à leurs propres droits et conditions. Voir [`LICENSE-CONTENT.md`](LICENSE-CONTENT.md) pour le périmètre détaillé.
 
 ## 🔐 Données et confidentialité
 
