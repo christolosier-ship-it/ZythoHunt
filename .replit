@@ -1,6 +1,0 @@
-modules = ["nodejs-24"]
-run = "pnpm dev -- --port 8080"
-
-[[ports]]
-localPort = 8080
-externalPort = 8080
