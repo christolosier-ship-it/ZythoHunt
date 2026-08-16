@@ -11,7 +11,7 @@ async function waitForApp(page) {
 async function openTasting(page) {
   await page.locator('[data-menu-view="degustation"]').click();
   await expect(page.locator("#degustation-view .tasting-page")).toBeVisible({ timeout: 15_000 });
-  await expect(page.locator("#degustation-view .tasting-launch")).toBeVisible();
+  await expect(page.getByRole("button", { name: "Commencer" })).toBeVisible();
 }
 
 async function assertNoSeriousA11yViolations(page) {
@@ -39,15 +39,16 @@ test("Dégustation est chargée à la demande et reste accessible", async ({ pag
   await waitForApp(page);
   await openTasting(page);
   await expect(page.locator("body")).not.toContainText("Shazam du palais");
-  await expect(page.getByRole("button", { name: "Dégustation libre" })).toBeVisible();
-  await expect(page.getByRole("button", { name: "À l’aveugle" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Commencer" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Dégustation libre" })).toHaveCount(0);
+  await expect(page.getByRole("button", { name: "À l’aveugle" })).toHaveCount(0);
   await assertNoSeriousA11yViolations(page);
 });
 
 test("une West Coast IPA est rattachée à la famille IPA, proposée puis enregistrée", async ({ page }) => {
   await waitForApp(page);
   await openTasting(page);
-  await page.getByRole("button", { name: "Dégustation libre" }).click();
+  await page.getByRole("button", { name: "Commencer" }).click();
 
   await page.getByLabel("Nom de la bière").fill("West Test");
   await page.getByLabel("Brasserie").fill("Brasserie CI");
@@ -92,26 +93,23 @@ test("une West Coast IPA est rattachée à la famille IPA, proposée puis enregi
   await expect(page.locator(".tasting-card").first()).toContainText("West Test");
 });
 
-test("le mode aveugle ne montre aucun style avant la dernière étape", async ({ page }) => {
+test("le parcours de dégustation est unique et sans titres dupliqués", async ({ page }) => {
   await waitForApp(page);
   await openTasting(page);
-  await page.getByRole("button", { name: "À l’aveugle" }).click();
-  await expect(page.locator(".tasting-mode-pill")).toContainText("à l’aveugle");
-  await expect(page.locator(".tasting-style-picker")).toHaveCount(0);
-  await expect(page.locator(".tasting-match")).toHaveCount(0);
+  await page.getByRole("button", { name: "Commencer" }).click();
 
-  await continueStep(page);
-  await expect(page.locator(".tasting-match")).toHaveCount(0);
-  await continueStep(page);
-  await expect(page.locator(".tasting-match")).toHaveCount(0);
-  await continueStep(page);
-  await expect(page.locator(".tasting-match")).toHaveCount(0);
-  await continueStep(page);
-  await expect(page.locator(".tasting-match")).toHaveCount(0);
-  await continueStep(page);
-
-  await expect(page.getByRole("heading", { name: "Le résultat" })).toBeVisible();
-  await expect(page.getByText(/Profil trop ambigu|Correspondance/)).toBeVisible();
+  await expect(page.locator('.tasting-step[aria-current="step"]')).toContainText("La bière");
+  await expect(page.locator(".tasting-wizard-body > h2")).toHaveCount(0);
   await expect(page.locator(".tasting-style-picker")).toBeVisible();
+  await expect(page.locator("body")).not.toContainText("Dégustation à l’aveugle");
+  await expect(page.locator("body")).not.toContainText("Dégustation libre");
+
+  for (const step of ["Le coup d’œil", "Le nez", "La bouche", "Mon verdict", "Le résultat"]) {
+    await continueStep(page);
+    await expect(page.locator('.tasting-step[aria-current="step"]')).toContainText(step);
+    await expect(page.locator(".tasting-wizard-body > h2")).toHaveCount(0);
+  }
+
+  await expect(page.getByText(/Profil trop ambigu|Correspondance/)).toBeVisible();
   await assertNoSeriousA11yViolations(page);
 });

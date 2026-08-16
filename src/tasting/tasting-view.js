@@ -33,11 +33,11 @@ function createButton(label, onClick, className = "tasting-button") {
   return button;
 }
 
-function createEmptyDraft(blind = false) {
+function createEmptyDraft() {
   return {
     beer: { name: "", brewery: "" },
     tastedAt: new Date().toISOString(),
-    blind,
+    blind: false,
     style: null,
     appearance: { color: null, clarity: null, foam: null },
     nose: {},
@@ -52,7 +52,7 @@ function cloneDraft(tasting) {
   return {
     beer: { ...tasting.beer },
     tastedAt: tasting.tastedAt,
-    blind: Boolean(tasting.blind),
+    blind: false,
     style: tasting.style ? { ...tasting.style } : null,
     appearance: { ...tasting.appearance },
     nose: { ...tasting.nose },
@@ -116,11 +116,11 @@ export function createTastingView({ root, controller } = {}) {
     root?.scrollTo?.({ top: 0, behavior: "smooth" });
   }
 
-  function startWizard(blind = false, tasting = null) {
+  function startWizard(tasting = null) {
     wizard = {
       step: 0,
       editId: tasting?.id || null,
-      draft: tasting ? cloneDraft(tasting) : createEmptyDraft(blind)
+      draft: tasting ? cloneDraft(tasting) : createEmptyDraft()
     };
     matchResult = null;
     matchLoading = false;
@@ -157,7 +157,7 @@ export function createTastingView({ root, controller } = {}) {
       detailId = tasting.id;
       setScreen("detail");
     }, "tasting-button tasting-button--ghost"));
-    if (!compact) actions.append(createButton("Modifier", () => startWizard(tasting.blind, tasting), "tasting-button tasting-button--ghost"));
+    if (!compact) actions.append(createButton("Modifier", () => startWizard(tasting), "tasting-button tasting-button--ghost"));
     card.append(copy, actions);
     return card;
   }
@@ -165,17 +165,9 @@ export function createTastingView({ root, controller } = {}) {
   function renderHome(page) {
     const snapshot = controller.getSnapshot();
 
-    const launch = el("section", "tasting-launch" );
-    const launchCopy = el("div", "tasting-launch-copy");
-    launchCopy.append(el("h2", "", "Nouvelle dégustation"), el("p", "", "Deux chemins, le même verre. Compte environ une à trois minutes, ou fouille davantage si le nez insiste."));
-    const choices = el("div", "tasting-launch-actions");
-    const normal = createButton("Dégustation libre", () => startWizard(false), "tasting-mode-card");
-    normal.append(el("span", "tasting-mode-note", "Tu peux indiquer le style dès le départ."));
-    const blind = createButton("À l’aveugle", () => startWizard(true), "tasting-mode-card");
-    blind.append(el("span", "tasting-mode-note", "Le style reste caché jusqu’au résultat."));
-    choices.append(normal, blind);
-    launch.append(launchCopy, choices);
-    page.append(launch);
+    const start = el("div", "tasting-start");
+    start.append(createButton("Commencer", () => startWizard(), "tasting-button tasting-button--primary"));
+    page.append(start);
 
     if (!snapshot.ok) {
       page.append(createEmptyState("Carnet indisponible", "Le stockage local n’a pas pu être lu sur cet appareil."));
@@ -275,9 +267,6 @@ export function createTastingView({ root, controller } = {}) {
   }
 
   function renderBeerStep(body) {
-    body.append(el("h2", "", "La bière"), el("p", "tasting-step-copy", wizard.draft.blind
-      ? "Note la bouteille, pas le style. Le moteur attendra la dernière étape avant de proposer ses pistes."
-      : "Donne un nom au verre. Le style est facultatif et pourra être corrigé plus tard."));
     const grid = el("div", "tasting-form-grid");
     const name = el("input", "tasting-input");
     name.type = "text";
@@ -295,9 +284,7 @@ export function createTastingView({ root, controller } = {}) {
     date.addEventListener("change", () => { wizard.draft.tastedAt = localDateToIso(date.value); });
     grid.append(createField("Nom de la bière", name), createField("Brasserie", brewery), createField("Date", date));
     body.append(grid);
-    const mode = el("div", `tasting-mode-pill${wizard.draft.blind ? " is-blind" : ""}`, wizard.draft.blind ? "Dégustation à l’aveugle" : "Dégustation libre");
-    body.append(mode);
-    if (!wizard.draft.blind) renderStylePicker(body);
+    renderStylePicker(body);
   }
 
   function createSingleChoice(title, options, current, onSelect) {
@@ -314,7 +301,6 @@ export function createTastingView({ root, controller } = {}) {
   }
 
   function renderAppearanceStep(body) {
-    body.append(el("h2", "", "Le coup d’œil"), el("p", "tasting-step-copy", "Avant le premier parfum, laisse la robe raconter ce qu’elle peut. Trois choix suffisent."));
     body.append(
       createSingleChoice("Couleur", APPEARANCE_COLORS, wizard.draft.appearance.color, (id) => { wizard.draft.appearance.color = id; render(); }),
       createSingleChoice("Limpidité", CLARITY_LEVELS, wizard.draft.appearance.clarity, (id) => { wizard.draft.appearance.clarity = id; render(); }),
@@ -347,7 +333,6 @@ export function createTastingView({ root, controller } = {}) {
   }
 
   function renderNoseStep(body) {
-    body.append(el("h2", "", "Le nez"), el("p", "tasting-step-copy", "Choisis seulement ce que tu perçois. Ne rien cocher n’est jamais interprété comme une absence."));
     renderDescriptorGrid(body, wizard.draft.nose, "Arômes perçus au nez");
   }
 
@@ -373,7 +358,6 @@ export function createTastingView({ root, controller } = {}) {
   }
 
   function renderMouthStep(body) {
-    body.append(el("h2", "", "La bouche"), el("p", "tasting-step-copy", "Les arômes peuvent changer entre le nez et la gorgée. Les échelles restent volontairement perceptives, pas des mesures de laboratoire."));
     renderDescriptorGrid(body, wizard.draft.palate, "Saveurs et arômes perçus en bouche");
     const axes = el("div", "tasting-axis-list");
     STRUCTURE_AXES.forEach((axis) => axes.append(renderStructureAxis(axis)));
@@ -396,7 +380,6 @@ export function createTastingView({ root, controller } = {}) {
   }
 
   function renderVerdictStep(body) {
-    body.append(el("h2", "", "Mon verdict"), el("p", "tasting-step-copy", "Le ressenti personnel passe avant la notation. Une bonne bière peut ne pas être ta bière."));
     const verdicts = el("div", "tasting-verdict-grid");
     [["again", "❤️", verdictLabels.again], ["maybe", "🙂", verdictLabels.maybe], ["no", "🙅", verdictLabels.no]].forEach(([id, icon, label]) => {
       const selected = wizard.draft.verdict.choice === id;
@@ -480,10 +463,6 @@ export function createTastingView({ root, controller } = {}) {
   }
 
   function renderResultStep(body) {
-    body.append(el("h2", "", "Le résultat"), el("p", "tasting-step-copy", wizard.draft.blind
-      ? "Tu as décrit le verre avant de voir les pistes. Voici maintenant la famille, les styles et les signatures qui correspondent le mieux à ce profil."
-      : "Le moteur compare ton ressenti au référentiel sensoriel de la Brassopédie."));
-
     if (matchLoading) {
       body.append(createEmptyState("Lecture du profil…", "Les marqueurs du verre sont en train d’être comparés."));
       return;
@@ -546,12 +525,6 @@ export function createTastingView({ root, controller } = {}) {
       body.append(signatures);
     }
 
-    if (wizard.draft.blind && !wizard.draft.style) {
-      const reveal = el("section", "tasting-blind-reveal");
-      reveal.append(el("h3", "", "Quel était le style ?"), el("p", "", "Tu peux maintenant associer la bière réelle à une carte, ou laisser le carnet sans style si l’étiquette ne le dit pas."));
-      body.append(reveal);
-      renderStylePicker(body, { label: "Style réellement dégusté (facultatif)" });
-    }
     renderComparison(body);
   }
 
@@ -587,10 +560,11 @@ export function createTastingView({ root, controller } = {}) {
   function renderWizard(page) {
     if (!wizard) return renderHome(page);
     const top = el("div", "tasting-wizard-top");
-    top.append(createButton("← Quitter", cancelWizard, "tasting-button tasting-button--ghost"), el("span", "tasting-wizard-mode", wizard.draft.blind ? "À l’aveugle" : "Libre"));
+    top.append(createButton("← Quitter", cancelWizard, "tasting-button tasting-button--ghost"));
     page.append(top);
     renderProgress(page);
     const panel = el("section", "tasting-wizard-panel");
+    panel.setAttribute("aria-label", stepTitles[wizard.step]);
     const body = el("div", "tasting-wizard-body");
     const renderers = [renderBeerStep, renderAppearanceStep, renderNoseStep, renderMouthStep, renderVerdictStep, renderResultStep];
     renderers[wizard.step](body);
@@ -681,7 +655,7 @@ export function createTastingView({ root, controller } = {}) {
     }
 
     const actions = el("div", "tasting-detail-actions");
-    actions.append(createButton("Modifier", () => startWizard(tasting.blind, tasting), "tasting-button tasting-button--primary"));
+    actions.append(createButton("Modifier", () => startWizard(tasting), "tasting-button tasting-button--primary"));
     actions.append(createButton("Supprimer", () => {
       if (!globalThis.confirm?.(`Supprimer « ${tastingTitle(tasting)} » du carnet ?`)) return;
       const deleted = controller.deleteTasting(tasting.id);
