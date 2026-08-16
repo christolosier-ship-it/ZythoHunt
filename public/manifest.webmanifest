@@ -1,7 +1,7 @@
 {
   "name": "ZythoHunt",
   "short_name": "ZythoHunt",
-  "description": "Collection de cartes de styles de bières à révéler.",
+  "description": "PWA d'exploration brassicole : ZythoSphère, Brassopédie, dégustation et badges.",
   "start_url": ".",
   "scope": ".",
   "display": "standalone",
