@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./public/icons/icon-512.png" alt="Icône ZythoHunt" width="120" height="120" />
+  <img src="./public/logo.png" alt="Logo ZythoHunt" width="120" height="120" />
 
 # 🍺 ZythoHunt
 
