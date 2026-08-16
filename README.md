@@ -1,20 +1,53 @@
+<div align="center">
+  <img src="./public/icons/icon-512.png" alt="Icône ZythoHunt" width="120" height="120" />
+
 # 🍺 ZythoHunt
 
-**ZythoHunt** est une PWA d’exploration brassicole mêlant collection, encyclopédie et dégustation. L’application fonctionne sans compte ni backend : les découvertes, badges, réglages et dégustations restent stockés localement sur l’appareil.
+**Explore les styles de bière, révèle des cartes, enrichis ta Brassopédie et garde la trace de tes dégustations.**
 
-**Version stable : 1.0.0**
+PWA installable · 293 cartes · 10 collections · 251 profils sensoriels · sans compte · sans backend
 
-[Ouvrir ZythoHunt](https://christolosier-ship-it.github.io/ZythoHunt/)
+[![Release](https://img.shields.io/github/v/release/christolosier-ship-it/ZythoHunt?display_name=tag&style=flat-square)](https://github.com/christolosier-ship-it/ZythoHunt/releases/latest)
+[![CI](https://img.shields.io/github/actions/workflow/status/christolosier-ship-it/ZythoHunt/pages.yml?branch=main&label=CI&style=flat-square)](https://github.com/christolosier-ship-it/ZythoHunt/actions/workflows/pages.yml)
+[![JavaScript](https://img.shields.io/badge/JavaScript-ES%20Modules-f7df1e?style=flat-square&logo=javascript&logoColor=111)](https://developer.mozilla.org/docs/Web/JavaScript)
+[![PWA](https://img.shields.io/badge/PWA-installable-5a0fc8?style=flat-square&logo=pwa&logoColor=white)](./public/manifest.webmanifest)
 
-## Ce que contient ZythoHunt
+### [🍻 Essayer ZythoHunt](https://christolosier-ship-it.github.io/ZythoHunt/) · [📦 Télécharger la dernière version](https://github.com/christolosier-ship-it/ZythoHunt/releases/latest)
 
-### ZythoSphère
+</div>
 
-Le cœur ludique de l’application. L’utilisateur identifie un style de bière, le moteur le résout dans le catalogue puis révèle sa carte avec une animation dédiée. Les découvertes sont persistées localement et alimentent la progression ainsi que les badges.
+---
 
-### Brassopédie
+## ZythoHunt en quelques secondes
 
-Une encyclopédie brassicole intégrée aux cartes, organisée en **10 collections** :
+ZythoHunt est une **PWA d’exploration brassicole** construite en JavaScript, Vite et GSAP. Le projet mélange trois usages dans une même expérience :
+
+- **collectionner** des styles de bière sous forme de cartes révélées ;
+- **explorer** une Brassopédie encyclopédique organisée en collections ;
+- **déguster** une bière avec un carnet guidé et un moteur sensoriel local.
+
+Toutes les données utilisateur restent sur l’appareil. Aucun compte, aucune API métier et aucun serveur applicatif ne sont nécessaires.
+
+## ✨ Points forts
+
+| | Fonctionnalité |
+| --- | --- |
+| 🎴 | **293 cartes** réparties dans 10 collections, dont une collection secrète |
+| 📚 | **Brassopédie intégrée** avec fiches encyclopédiques chargées à la demande |
+| 🔎 | Recherche et révélation animée d’un style à partir de son nom ou de ses alias |
+| 👃 | **251 profils sensoriels** pour rapprocher une dégustation des styles compatibles |
+| 🏅 | Badges, statistiques locales et progression persistée |
+| 📱 | Interface responsive pensée pour mobile, tablette et ordinateur |
+| 📴 | PWA installable avec fonctionnement hors ligne et cache d’images borné |
+| 🔐 | Données locales, export/import JSON et absence de compte utilisateur |
+
+## 🎴 ZythoSphère
+
+Le cœur ludique de l’application. L’utilisateur identifie un style, le moteur le résout dans le catalogue puis révèle sa carte avec une animation dédiée. Les découvertes alimentent la progression, la Brassopédie et les badges.
+
+## 📚 Brassopédie
+
+La collection encyclopédique compte **293 cartes** :
 
 1. Lagers et fermentations basses — 45 cartes
 2. Pale Ales, Bitters et IPA — 36 cartes
@@ -27,37 +60,32 @@ Une encyclopédie brassicole intégrée aux cartes, organisée en **10 collectio
 9. Appellations commerciales — 30 cartes
 10. Bizarre et insolite — 42 cartes, collection secrète
 
-Soit **293 cartes** au total.
+Les contenus encyclopédiques restent derrière des imports dynamiques afin de ne pas transformer le démarrage de l’application en déménagement de bibliothèque.
 
-### Dégustation
+## 🍺 Dégustation
 
-Un carnet personnel guidé en six étapes : bière, coup d’œil, nez, bouche, verdict et résultat. Le moteur compare le profil renseigné à un référentiel sensoriel documenté de **251 profils** couvrant les Collections 1 à 9, puis propose une famille et les styles les plus compatibles. L’association à une carte reste facultative.
+Le carnet guide l’utilisateur en six étapes : bière, coup d’œil, nez, bouche, verdict et résultat.
 
-### Badges
+Le moteur compare le profil renseigné à un référentiel sensoriel documenté de **251 profils** couvrant les Collections 1 à 9. Il propose ensuite une famille et les styles les plus compatibles. L’association à une carte Brassopédie reste facultative.
 
-Des trophées suivent l’exploration, les découvertes, les collections et différents comportements de jeu. Les badges sont calculés localement et n’introduisent aucun classement social.
+## 🏅 Badges et progression
 
-### PWA et fonctionnement hors ligne
+Les trophées suivent l’exploration, les découvertes et différents comportements de jeu. Tout est calculé et conservé localement, sans classement social ni compte distant.
 
-ZythoHunt est installable comme application web. Le service worker conserve un shell hors ligne minimal, gère un cache d’images borné et propose les mises à jour sans rechargement forcé pendant une interaction.
+## 📲 PWA et mode hors ligne
 
-### Réglages et sauvegardes
+ZythoHunt peut être installé depuis un navigateur compatible. Le service worker :
 
-L’écran Réglages permet notamment de choisir le comportement au démarrage, ajuster les animations, gérer les notifications, exporter/importer une sauvegarde JSON, vider le cache hors ligne et réinitialiser tout ou partie des données ZythoHunt.
+- conserve un shell hors ligne minimal ;
+- utilise un cache d’images borné ;
+- réutilise les ressources déjà consultées ;
+- propose les mises à jour sans forcer un rechargement pendant une interaction.
 
-## Architecture
+👉 **[Ouvrir l’application en ligne](https://christolosier-ship-it.github.io/ZythoHunt/)**
+
+## 🧱 Architecture
 
 ZythoHunt est une application **Vite / HTML / CSS / JavaScript**, sans serveur applicatif.
-
-Principes structurants :
-
-- chargement dynamique des collections et des vues secondaires ;
-- catalogue léger au démarrage ;
-- données Brassopédie canoniques séparées de leur présentation ;
-- référentiel sensoriel unique pour Dégustation ;
-- persistance locale centralisée ;
-- service worker préparé à chaque build ;
-- tests unitaires, typecheck strict, Playwright et axe en CI.
 
 ```text
 index.html
@@ -82,22 +110,24 @@ scripts/            génération et validation des données/assets
 tests/e2e/          scénarios Playwright + axe
 ```
 
-Pour le détail des responsabilités et des garde-fous anti-spaghetti, voir [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
+Principes structurants : chargement dynamique des collections et vues secondaires, catalogue léger au démarrage, persistance locale centralisée, source sensorielle unique et validations automatisées.
 
-## Développement local
+Le détail se trouve dans [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
+
+## 🛠️ Développement local
 
 Prérequis : **Node.js 24** et **pnpm 10.12.4**.
 
 ```bash
+git clone https://github.com/christolosier-ship-it/ZythoHunt.git
+cd ZythoHunt
 corepack enable
 corepack prepare pnpm@10.12.4 --activate
 pnpm install --frozen-lockfile
 pnpm dev
 ```
 
-Vite génère automatiquement l’index de recherche et valide le catalogue sensoriel avant le démarrage.
-
-## Contrôles qualité
+### Contrôles qualité
 
 ```bash
 pnpm typecheck
@@ -108,25 +138,32 @@ pnpm test:e2e
 pnpm check
 ```
 
-`pnpm check` exécute les validations de contenu, les deux niveaux de typecheck, les tests unitaires et le build de production. La CI ajoute la vérification des miniatures ainsi que les scénarios Playwright/axe.
+La CI exécute typecheck, tests unitaires, validation des assets, build de production, Playwright et contrôles axe.
 
-## Build et package
+## 📦 Releases
 
-```bash
-pnpm build
-```
+La branche `main` alimente GitHub Pages. Lors d’une nouvelle version, le workflow de release valide l’application puis publie automatiquement :
 
-Le site de production est généré dans `dist/`.
+- `ZythoHunt-vX.Y.Z.zip` ;
+- `SHA256SUMS.txt`.
 
-Pour les releases, GitHub Actions construit une version avec chemins relatifs, vérifie l’application, exécute les tests E2E puis publie un package `ZythoHunt-vX.Y.Z.zip` accompagné de sa somme SHA-256.
+➡️ **[Voir les releases](https://github.com/christolosier-ship-it/ZythoHunt/releases)**
 
-## Données et confidentialité
+## 🤝 Participer
 
-ZythoHunt n’utilise ni compte utilisateur, ni API métier distante, ni base de données serveur. Les données personnelles de l’application restent dans le stockage local du navigateur. Une sauvegarde JSON peut être exportée manuellement puis importée sur un autre appareil.
+Les retours, propositions d’amélioration et corrections sont bienvenus.
 
-La remise à zéro complète ne supprime que les clés appartenant à ZythoHunt et ses caches PWA.
+- un bug reproductible : ouvre un **Bug report** ;
+- une idée ou amélioration : ouvre une **Feature request** ;
+- une contribution de code : consulte [`CONTRIBUTING.md`](CONTRIBUTING.md) avant d’ouvrir une Pull Request.
 
-## Documentation du projet
+Si ZythoHunt te plaît, une ⭐ sur le dépôt aide simplement d’autres curieux brassicoles et développeurs à le découvrir.
+
+## 🔐 Données et confidentialité
+
+ZythoHunt n’utilise ni compte utilisateur, ni API métier distante, ni base de données serveur. Les données personnelles de l’application restent dans le stockage local du navigateur. Une sauvegarde JSON peut être exportée puis importée sur un autre appareil.
+
+## 📖 Documentation
 
 - [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) — architecture et responsabilités
 - [`docs/active/Badge.md`](docs/active/Badge.md) — système de badges
@@ -134,10 +171,8 @@ La remise à zéro complète ne supprime que les clés appartenant à ZythoHunt 
 - [`docs/active/Taxonomie.md`](docs/active/Taxonomie.md) — taxonomie Brassopédie
 - [`docs/active/SensoryTaxonomy.md`](docs/active/SensoryTaxonomy.md) — taxonomie sensorielle
 - [`docs/BRASSOPEDIE_CHARTE_EDITORIALE_NARRATIVE.md`](docs/BRASSOPEDIE_CHARTE_EDITORIALE_NARRATIVE.md) — charte éditoriale
-- [`docs/BACKGROUND_PRESETS_COLLECTIONS.md`](docs/BACKGROUND_PRESETS_COLLECTIONS.md) — ambiances des collections
+- [`CHANGELOG.md`](CHANGELOG.md) — historique des versions
 
-## Version 1.0.0
+## 🚀 Version stable
 
-La V1.0.0 marque la première version stable de ZythoHunt : les 10 collections sont intégrées, la Brassopédie est exploitable, la ZythoSphère est complète, les badges et Réglages sont opérationnels, le carnet Dégustation utilise son référentiel sensoriel vérifié, et l’application est déployable/installable en PWA.
-
-Voir [`CHANGELOG.md`](CHANGELOG.md) pour les notes de version.
+**ZythoHunt v1.0.0** est la première version stable, publiée avec ses 10 collections, la Brassopédie, la ZythoSphère, les badges, les réglages, le carnet Dégustation et son référentiel sensoriel vérifié.

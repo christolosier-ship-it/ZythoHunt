@@ -1,0 +1,71 @@
+name: Bug report
+description: Signaler un problème reproductible dans ZythoHunt
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Merci de prendre quelques instants pour décrire précisément le problème. Les étapes de reproduction sont la partie la plus utile.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problème observé
+      description: Que se passe-t-il ?
+      placeholder: Décris le comportement observé.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Étapes pour reproduire
+      description: Donne une suite d'actions aussi précise que possible.
+      placeholder: |
+        1. Ouvrir…
+        2. Cliquer sur…
+        3. Observer…
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Comportement attendu
+      description: Que devrait-il se passer à la place ?
+    validations:
+      required: true
+
+  - type: input
+    id: device
+    attributes:
+      label: Appareil
+      placeholder: iPad, iPhone, Android, PC…
+    validations:
+      required: true
+
+  - type: input
+    id: browser
+    attributes:
+      label: Navigateur
+      placeholder: Safari 26, Chrome 140, Firefox…
+    validations:
+      required: true
+
+  - type: dropdown
+    id: installed
+    attributes:
+      label: Mode d'utilisation
+      options:
+        - Site web dans le navigateur
+        - PWA installée
+        - Package / build local
+        - Autre
+    validations:
+      required: true
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Informations complémentaires
+      description: Capture d'écran, message d'erreur, contexte particulier ou autre élément utile.

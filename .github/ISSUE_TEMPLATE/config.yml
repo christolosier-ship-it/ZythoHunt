@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Essayer ZythoHunt
+    url: https://christolosier-ship-it.github.io/ZythoHunt/
+    about: Ouvrir la version en ligne avant de signaler un problème.
+  - name: Télécharger la dernière release
+    url: https://github.com/christolosier-ship-it/ZythoHunt/releases/latest
+    about: Récupérer le dernier package publié.
