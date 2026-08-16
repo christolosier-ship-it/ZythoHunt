@@ -1,0 +1,54 @@
+name: Feature request
+description: Proposer une amélioration ou une nouvelle idée pour ZythoHunt
+title: "[Feature] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Commence par le besoin utilisateur. Une solution simple vaut mieux qu'une nouvelle usine à tuyaux. 🍺
+
+  - type: textarea
+    id: need
+    attributes:
+      label: Besoin ou problème
+      description: Quel problème souhaites-tu résoudre, ou quel usage manque aujourd'hui ?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposition
+      description: Comment imagines-tu l'amélioration ?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Zone concernée
+      options:
+        - ZythoSphère
+        - Brassopédie
+        - Dégustation
+        - Badges
+        - Réglages
+        - PWA / hors ligne
+        - Accessibilité / UX
+        - Données / contenus
+        - Architecture / outillage
+        - Autre
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives envisagées
+      description: Existe-t-il une solution plus simple ou un contournement actuel ?
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Informations complémentaires
+      description: Maquette, capture, exemple ou référence utile.
