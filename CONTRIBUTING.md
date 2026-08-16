@@ -50,6 +50,17 @@ La CI vérifie également le typecheck standard et strict, les tests unitaires, 
 - accompagne une correction métier d’un test lorsque c’est pertinent ;
 - pour les assets de cartes, respecte les dimensions et conventions de nommage du dépôt.
 
+## Licence des contributions
+
+ZythoHunt sépare la licence du logiciel de celle de ses contenus créatifs :
+
+- les contributions de **code source, scripts, tests et configuration logiciels** sont destinées à être distribuées sous la [licence MIT](LICENSE) ;
+- les contributions de **contenus éditoriaux, sensoriels ou visuels originaux** sont destinées à être distribuées sous [CC BY-NC-SA 4.0](LICENSE-CONTENT.md).
+
+En proposant une contribution, tu confirmes disposer des droits nécessaires pour la soumettre sous la licence applicable. N’intègre pas de contenu tiers sans vérifier ses conditions d’utilisation et sans conserver les mentions de droits ou de licence requises.
+
+Si une contribution mélange code et contenu, chaque partie reste soumise à la licence correspondant à sa nature.
+
 ## Signaler un bug
 
 Une bonne Issue de bug précise :
