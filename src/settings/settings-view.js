@@ -39,11 +39,10 @@ function createSelect(value, options, onChange, ariaLabel) {
   return select;
 }
 
-function createSection(title, description = "") {
+function createSection(title) {
   const section = el("section", "settings-section");
   const header = el("div", "settings-section-header");
   header.append(el("h2", "", title));
-  if (description) header.append(el("p", "", description));
   section.appendChild(header);
   return section;
 }
@@ -208,7 +207,7 @@ export function createSettingsView({ root, controller } = {}) {
 
     const page = el("div", "settings-page");
 
-    const general = createSection("Général", "Quelques choix simples, sans cockpit de sous-marin.");
+    const general = createSection("Général");
     const startup = createSettingRow({
       title: "Au démarrage",
       description: "Choisis entre reprendre la dernière collection ZythoSphère ou toujours repartir de la Collection 1."
@@ -216,14 +215,14 @@ export function createSettingsView({ root, controller } = {}) {
     startup.control.appendChild(createSelect(settings.startupMode, [["resume", "Reprendre là où j’étais"], ["first", "Toujours ouvrir la Collection 1"]], (value) => controller.setPreference("startupMode", value), "Comportement au démarrage"));
     general.appendChild(startup.row);
 
-    const experience = createSection("Animations & performances", "La direction artistique reste celle des collections ; seuls le mouvement et sa densité changent.");
+    const experience = createSection("Animations & performances");
     const motion = createSettingRow({ title: "Animations", description: "Auto respecte le réglage d'accessibilité du système." });
     motion.control.appendChild(createSelect(settings.motionMode, [["auto", "Auto"], ["full", "Complètes"], ["reduced", "Réduites"]], (value) => controller.setPreference("motionMode", value), "Niveau d'animations"));
     const ambience = createSettingRow({ title: "Ambiance animée", description: "Allégée réduit les particules. Statique conserve les couleurs de la collection sans animation continue." });
     ambience.control.appendChild(createSelect(settings.ambienceMode, [["full", "Complète"], ["light", "Allégée"], ["static", "Statique"]], (value) => controller.setPreference("ambienceMode", value), "Niveau d'ambiance animée"));
     experience.append(motion.row, ambience.row);
 
-    const notificationSection = createSection("Notifications", "Les célébrations restent visibles dans ZythoHunt. Les notifications système servent uniquement lorsque l'application est en arrière-plan.");
+    const notificationSection = createSection("Notifications");
     const notificationRow = createSettingRow({ title: "Notifications de trophées", description: `État : ${notifications.label}.` });
     const toggleLabel = el("label", "settings-toggle");
     const toggle = el("input", "");
@@ -236,7 +235,7 @@ export function createSettingsView({ root, controller } = {}) {
     if (notifications.canRequest) appendButton(notificationRow.control, "Autoriser dans le navigateur", () => void controller.requestNotificationPermission(), "settings-button settings-button--small");
     notificationSection.appendChild(notificationRow.row);
 
-    const data = createSection("Données & sauvegardes", "ZythoHunt fonctionne sans compte : une sauvegarde locale permet d'emporter sa collection ailleurs.");
+    const data = createSection("Données & sauvegardes");
     const exportRow = createSettingRow({ title: "Exporter mes données", description: "Crée un fichier JSON versionné contenant les données ZythoHunt de cet appareil." });
     appendButton(exportRow.control, "Exporter", () => exportCurrentData());
     const importRow = createSettingRow({ title: "Importer une sauvegarde", description: "Le fichier est contrôlé avant toute écriture et un résumé est affiché avant remplacement." });
@@ -251,7 +250,7 @@ export function createSettingsView({ root, controller } = {}) {
     appendButton(defaultsRow.control, "Rétablir", confirmResetSettings, "settings-button settings-button--ghost");
     data.append(exportRow.row, importRow.row, defaultsRow.row);
 
-    const storage = createSection("Stockage hors ligne", "Les données utilisateur et le cache PWA sont deux choses différentes.");
+    const storage = createSection("Stockage hors ligne");
     const storageRow = createSettingRow({ title: "Données utilisateur", description: "Stockées uniquement sur cet appareil. Vider le cache hors ligne n'efface jamais la progression." });
     const estimate = el("span", "settings-storage-estimate", "Calcul…");
     storageRow.control.appendChild(estimate);
@@ -270,7 +269,7 @@ export function createSettingsView({ root, controller } = {}) {
     appendButton(updateRow.control, "Rechercher une mise à jour", () => void controller.checkForUpdate(), "settings-button settings-button--ghost");
     aboutSection.appendChild(updateRow.row);
 
-    const danger = createSection("Zone de danger", "Ici, les boutons ont des dents.");
+    const danger = createSection("Zone de danger");
     danger.classList.add("settings-section--danger");
     const progressReset = createSettingRow({ title: "Réinitialiser la progression", description: "Efface les 10 collections, badges, statistiques et collection active, mais conserve les réglages, les dégustations et le cache." });
     appendButton(progressReset.control, "Réinitialiser la progression", confirmResetProgress, "settings-button settings-button--danger-outline");
