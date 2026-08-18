@@ -5,10 +5,11 @@
   "description": "PWA d'exploration brassicole, de collection et de dégustation.",
   "type": "module",
   "scripts": {
+    "brand-assets:generate": "python scripts/generate-brand-assets.py",
     "content-index:generate": "pnpm search-index:generate && pnpm sensory-catalog:validate",
-    "predev": "pnpm content-index:generate",
+    "predev": "pnpm brand-assets:generate && pnpm content-index:generate",
     "dev": "vite",
-    "prebuild": "pnpm content-index:generate",
+    "prebuild": "pnpm brand-assets:generate && pnpm content-index:generate",
     "build": "vite build && node scripts/prepare-service-worker.mjs",
     "preview": "vite preview",
     "search-index:generate": "node scripts/generate-beer-search-index.mjs",
