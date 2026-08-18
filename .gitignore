@@ -8,6 +8,7 @@ out-tsc/
 *.tsbuildinfo
 coverage/
 /public/beer-search-index.json
+/public/brand/generated/
 
 # Tests
 /test-results/
